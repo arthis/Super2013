@@ -1,0 +1,177 @@
+﻿USE [master]
+GO
+
+/****** Object:  Database [MyNotesEventStore]    Script Date: 12/06/2011 11:40:58 ******/
+CREATE DATABASE [Super2010EventStore] ON  PRIMARY 
+( NAME = N'Super2010EventStore', FILENAME = N'D:\Databases\Super2010EventStore.mdf' , SIZE = 2304KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'Super2010EventStore_log', FILENAME = N'D:\Databases\Super2010EventStore_log.LDF' , SIZE = 576KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+
+ALTER DATABASE [MyNotesEventStore] SET COMPATIBILITY_LEVEL = 100
+GO
+
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Super2010EventStore].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+
+ALTER DATABASE [Super2010EventStore] SET ANSI_NULL_DEFAULT OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET ANSI_NULLS OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET ANSI_PADDING OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET ANSI_WARNINGS OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET ARITHABORT OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET AUTO_CLOSE OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET AUTO_CREATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET AUTO_SHRINK OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET AUTO_UPDATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET CURSOR_DEFAULT  GLOBAL 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET NUMERIC_ROUNDABORT OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET QUOTED_IDENTIFIER OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET RECURSIVE_TRIGGERS OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET  ENABLE_BROKER 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET TRUSTWORTHY OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET PARAMETERIZATION SIMPLE 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET HONOR_BROKER_PRIORITY OFF 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET  READ_WRITE 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET RECOVERY FULL 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET  MULTI_USER 
+GO
+
+ALTER DATABASE [Super2010EventStore] SET PAGE_VERIFY CHECKSUM  
+GO
+
+ALTER DATABASE [Super2010EventStore] SET DB_CHAINING OFF 
+GO
+
+
+USE [Super2010EventStore]
+GO
+
+/****** Object:  Table [dbo].[Events]    Script Date: 12/06/2011 11:44:25 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Events](
+	[Id] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetime] NOT NULL,
+	[Name] [varchar](max) NOT NULL,
+	[Version] [varchar](max) NOT NULL,
+	[EventSourceId] [uniqueidentifier] NOT NULL,
+	[Sequence] [bigint] NULL,
+	[Data] [varchar](max) NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [Super2010EventStore]
+GO
+
+/****** Object:  Table [dbo].[EventSources]    Script Date: 12/06/2011 11:44:25 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[EventSources](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Type] [nvarchar](255) NOT NULL,
+	[Version] [int] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+USE [Super2010EventStore]
+GO
+
+/****** Object:  Table [dbo].[Snapshots]    Script Date: 12/06/2011 11:44:25 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Snapshots](
+	[EventSourceId] [uniqueidentifier] NOT NULL,
+	[Version] [bigint] NULL,
+	[TimeStamp] [datetime] NOT NULL,
+	[Type] [varchar](255) NOT NULL,
+	[Data] [varbinary](max) NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

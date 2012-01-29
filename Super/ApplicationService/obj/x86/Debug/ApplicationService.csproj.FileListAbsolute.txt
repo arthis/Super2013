@@ -1,0 +1,393 @@
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\ApplicationService.exe.config
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\ApplicationService.exe
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\ApplicationService.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Castle.Core.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Castle.Windsor.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Commands.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Domain.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Core.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Persistence.MongoPersistence.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Persistence.RavenPersistence.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Serialization.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Serialization.Json.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.CommandService.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.EventBus.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Events.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Newtonsoft.Json.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\log4net.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Commands.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Domain.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.xml
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Core.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Persistence.MongoPersistence.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Persistence.RavenPersistence.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Serialization.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\EventStore.Serialization.Json.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.CommandService.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.EventBus.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Events.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Newtonsoft.Json.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\obj\x86\Debug\ApplicationService.exe
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\obj\x86\Debug\ApplicationService.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Mail.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Mail.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.Config.Ninject.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ninject.dll
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\bin\Debug\Ncqrs.Config.Ninject.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\ApplicationService\obj\x86\Debug\ApplicationService.rewritten
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\ApplicationService.exe.config
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ApplicationService.exe
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ApplicationService.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\ApplicationService.exe
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\ApplicationService.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Castle.Core.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Castle.Windsor.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Commands.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Domain.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Events.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Core.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Mail.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Microsoft.CSharp.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.CommandService.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.EventBus.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.RavenDB.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Client.Lightweight.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Storage.Esent.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.configuration.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Data.DataSetExtensions.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Data.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.ServiceModel.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Web.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Xml.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Xml.Linq.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Newtonsoft.Json.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Abstractions.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\log4net.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Json.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\NLog.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\AsyncCtpLibrary.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Database.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Esent.Interop.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Lucene.Net.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\ICSharpCode.NRefactory.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Http.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\SpellChecker.Net.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Spatial.Net.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.CommandService.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.EventBus.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.RavenDB.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Commands.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Domain.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Events.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Mail.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.xml
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Core.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Client.Lightweight.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Client.Lightweight.xml
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Storage.Esent.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Newtonsoft.Json.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Abstractions.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Json.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\NLog.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\NLog.xml
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Database.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Esent.Interop.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Esent.Interop.xml
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Lucene.Net.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Lucene.Net.xml
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Http.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\SpellChecker.Net.xml
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ApplicationService.rewritten
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Serialization.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Serialization.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Newtonsoft.Json.xml
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Denormalizer.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Denormalizer.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Dart.PowerTCP.Mail.Trial.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\ApplicationService.exe.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ApplicationService.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ApplicationService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\ApplicationService.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\ApplicationService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Commands.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Denormalizer.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Domain.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Events.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Mail.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.CommandService.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.EventBus.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.RavenDB.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.configuration.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.ServiceModel.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Abstractions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Dart.PowerTCP.Mail.Trial.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\log4net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\NLog.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\AsyncCtpLibrary.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Database.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Esent.Interop.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Lucene.Net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Http.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\SpellChecker.Net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Spatial.Net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.CommandService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.EventBus.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.RavenDB.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Commands.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Denormalizer.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Domain.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Events.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Mail.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Core.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Serialization.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Ncqrs.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Client.Lightweight.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Client.Lightweight.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Storage.Esent.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Abstractions.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\NLog.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\NLog.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Database.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Esent.Interop.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Esent.Interop.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Lucene.Net.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Lucene.Net.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Raven.Http.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\SpellChecker.Net.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ApplicationService.rewritten
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Core.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Persistence.RavenPersistence.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Serialization.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\EventStore.Persistence.RavenPersistence.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\ApplicationService\bin\Debug\Newtonsoft.Json.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\GeneratoreDiFlusso\ApplicationService\bin\Debug\ApplicationService.exe.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ApplicationService.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\GeneratoreDiFlusso\ApplicationService\obj\x86\Debug\ApplicationService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\ApplicationService.exe.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\obj\x86\Debug\ApplicationService.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\obj\x86\Debug\ApplicationService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\ApplicationService.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\ApplicationService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Commands.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Denormalizer.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Domain.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Events.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.Core.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.Persistence.RavenPersistence.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.Serialization.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Mail.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.CommandService.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.EventBus.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.RavenDB.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\System.configuration.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\System.ServiceModel.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\System.Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Dart.PowerTCP.Mail.Trial.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Abstractions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\log4net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\NLog.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\AsyncCtpLibrary.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Database.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Esent.Interop.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Lucene.Net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Http.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\SpellChecker.Net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Spatial.Net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Commands.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Denormalizer.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Domain.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Events.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Mail.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.Core.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.Persistence.RavenPersistence.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\EventStore.Serialization.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.CommandService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.EventBus.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.RavenDB.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Newtonsoft.Json.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Client.Lightweight.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Client.Lightweight.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Storage.Esent.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Abstractions.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\NLog.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\NLog.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Database.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Esent.Interop.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Esent.Interop.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Lucene.Net.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Lucene.Net.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\Raven.Http.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\bin\Debug\SpellChecker.Net.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\ApplicationService\obj\x86\Debug\ApplicationService.rewritten
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\ApplicationService.exe.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\obj\x86\Debug\ApplicationService.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\obj\x86\Debug\ApplicationService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\ApplicationService.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\ApplicationService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Castle.Core.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Castle.Windsor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Commands.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Denormalizer.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Domain.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Events.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.Core.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.Persistence.RavenPersistence.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.Serialization.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Mail.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.CommandService.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.EventBus.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.RavenDB.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Storage.Esent.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\System.configuration.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\System.ServiceModel.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\System.Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Dart.PowerTCP.Mail.Trial.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Abstractions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\log4net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\NLog.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\AsyncCtpLibrary.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Database.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Esent.Interop.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Lucene.Net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Http.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\SpellChecker.Net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Spatial.Net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Commands.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Denormalizer.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Domain.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Events.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Mail.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.Core.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.Persistence.RavenPersistence.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.Persistence.SqlPersistence.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\EventStore.Serialization.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.CommandService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.Config.Windsor.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.EventBus.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.JOliver.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Ncqrs.Eventing.Storage.RavenDB.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Newtonsoft.Json.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Client.Lightweight.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Client.Lightweight.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Storage.Esent.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Abstractions.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\NLog.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\NLog.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Database.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Esent.Interop.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Esent.Interop.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Lucene.Net.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Lucene.Net.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\Raven.Http.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\bin\Debug\SpellChecker.Net.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\ApplicationService\obj\x86\Debug\ApplicationService.rewritten

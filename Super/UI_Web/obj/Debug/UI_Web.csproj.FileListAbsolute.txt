@@ -1,0 +1,64 @@
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\UI_Web.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\UI_Web.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\EntityFramework.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\Microsoft.Web.Optimization.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.Helpers.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.Mvc.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.Providers.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.Razor.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.WebPages.Deployment.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.WebPages.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.WebPages.Razor.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\EntityFramework.xml
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\obj\Debug\ResolveAssemblyReference.cache
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\obj\Debug\UI_Web.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\obj\Debug\UI_Web.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\UI_Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\UI_Web.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\EntityFramework.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\Microsoft.Web.Optimization.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.Helpers.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.Mvc.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.Providers.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.Razor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.WebPages.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\bin\EntityFramework.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\obj\Debug\UI_Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Web\obj\Debug\UI_Web.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\UI_Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\UI_Web.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\EntityFramework.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\Microsoft.Web.Optimization.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\System.Web.Helpers.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\System.Web.Mvc.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\System.Web.Providers.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\System.Web.Razor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\System.Web.WebPages.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\bin\EntityFramework.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\obj\Debug\UI_Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Web\obj\Debug\UI_Web.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\UI_Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\UI_Web.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\EntityFramework.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\Microsoft.Web.Optimization.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\System.Web.Helpers.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\System.Web.Mvc.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\System.Web.Providers.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\System.Web.Razor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\System.Web.WebPages.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\bin\EntityFramework.xml
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\obj\Debug\UI_Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Web\obj\Debug\UI_Web.pdb

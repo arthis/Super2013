@@ -1,0 +1,72 @@
+D:\Progetti\MassiveEmailSend\Main\Source\Events\bin\Debug\Events.dll
+D:\Progetti\MassiveEmailSend\Main\Source\Events\bin\Debug\Events.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\Events\bin\Debug\Ncqrs.dll
+D:\Progetti\MassiveEmailSend\Main\Source\Events\bin\Debug\Newtonsoft.Json.dll
+D:\Progetti\MassiveEmailSend\Main\Source\Events\bin\Debug\log4net.dll
+D:\Progetti\MassiveEmailSend\Main\Source\Events\bin\Debug\Ncqrs.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\Events\bin\Debug\Newtonsoft.Json.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\Events\obj\Debug\ResolveAssemblyReference.cache
+D:\Progetti\MassiveEmailSend\Main\Source\Events\obj\Debug\Events.dll
+D:\Progetti\MassiveEmailSend\Main\Source\Events\obj\Debug\Events.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Events.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Events.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Microsoft.CSharp.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Ncqrs.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.Data.DataSetExtensions.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.Data.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.Xml.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.Xml.Linq.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Newtonsoft.Json.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\log4net.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Ncqrs.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Newtonsoft.Json.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\obj\Debug\ResolveAssemblyReference.cache
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\obj\Debug\Events.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\obj\Debug\Events.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Events.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Events.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\log4net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Ncqrs.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\obj\Debug\Events.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Events\obj\Debug\Events.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\Events.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\Events.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\log4net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\Ncqrs.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\obj\Debug\Events.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Events\obj\Debug\Events.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\Events.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\Events.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\Ncqrs.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\log4net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\Ncqrs.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\obj\Debug\Events.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Events\obj\Debug\Events.pdb

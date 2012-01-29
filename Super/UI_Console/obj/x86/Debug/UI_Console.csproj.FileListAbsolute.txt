@@ -1,0 +1,115 @@
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\UI_Console.exe
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\UI_Console.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\obj\x86\Debug\UI_Console.exe
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\obj\x86\Debug\UI_Console.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\UI_Console.exe.config
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Commands.dll
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Ncqrs.CommandService.Contracts.dll
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Ncqrs.dll
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Newtonsoft.Json.dll
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\log4net.dll
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Commands.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Ncqrs.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Newtonsoft.Json.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Ncqrs.CommandService.dll
+D:\Progetti\MassiveEmailSend\Main\Source\UI_Console\bin\Debug\Ncqrs.CommandService.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\UI_Console.exe.config
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\obj\x86\Debug\UI_Console.exe
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\obj\x86\Debug\UI_Console.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\UI_Console.exe
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\UI_Console.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Commands.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Microsoft.CSharp.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Ncqrs.CommandService.Contracts.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Ncqrs.CommandService.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Ncqrs.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Data.DataSetExtensions.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Data.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Runtime.Serialization.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.ServiceModel.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Web.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Xml.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Xml.Linq.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Newtonsoft.Json.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\log4net.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Ncqrs.CommandService.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Ncqrs.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Commands.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Newtonsoft.Json.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\UI_Console.exe.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\obj\x86\Debug\UI_Console.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\obj\x86\Debug\UI_Console.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\UI_Console.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\UI_Console.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Commands.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Runtime.Serialization.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.ServiceModel.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\log4net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Commands.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Ncqrs.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Ncqrs.CommandService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\UI_Console\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\UI_Console.exe.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\UI_Console.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\UI_Console.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\Commands.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\System.Runtime.Serialization.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\System.ServiceModel.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\System.Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\log4net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\Commands.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\Ncqrs.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\Ncqrs.CommandService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\obj\x86\Debug\UI_Console.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\UI_Console\obj\x86\Debug\UI_Console.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\UI_Console.exe.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\UI_Console.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\UI_Console.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Commands.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Ncqrs.CommandService.Contracts.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Ncqrs.CommandService.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Ncqrs.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\System.Runtime.Serialization.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\System.ServiceModel.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\System.Web.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\log4net.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Commands.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Ncqrs.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Ncqrs.CommandService.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Ncqrs.CommandService.Contracts.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\obj\x86\Debug\UI_Console.exe
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\UI_Console\obj\x86\Debug\UI_Console.pdb

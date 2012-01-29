@@ -1,0 +1,58 @@
+D:\Progetti\MassiveEmailSend\Main\Source\Mail\obj\Debug\ResolveAssemblyReference.cache
+D:\Progetti\MassiveEmailSend\Main\Source\Mail\bin\Debug\Mail.dll
+D:\Progetti\MassiveEmailSend\Main\Source\Mail\bin\Debug\Mail.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\Mail\bin\Debug\Dart.PowerTCP.Mail.Trial.dll
+D:\Progetti\MassiveEmailSend\Main\Source\Mail\obj\Debug\Mail.dll
+D:\Progetti\MassiveEmailSend\Main\Source\Mail\obj\Debug\Mail.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Mail.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Mail.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Dart.PowerTCP.Mail.Trial.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Microsoft.CSharp.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.Data.DataSetExtensions.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.Data.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.Xml.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.Xml.Linq.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\obj\Debug\ResolveAssemblyReference.cache
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\obj\Debug\Mail.dll
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\obj\Debug\Mail.pdb
+D:\Progetti\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Mail.dll.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Mail.dll.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Mail.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Mail.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Dart.PowerTCP.Mail.Trial.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\obj\Debug\Mail.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\MassiveEmailSend\Main\Source\GeneratoreDiFlusso\Mail\obj\Debug\Mail.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\Mail.dll.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\Mail.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\Mail.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\Dart.PowerTCP.Mail.Trial.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\obj\Debug\Mail.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super2013\Mail\obj\Debug\Mail.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\Mail.dll.config
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\Mail.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\Mail.pdb
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\Dart.PowerTCP.Mail.Trial.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\Microsoft.CSharp.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\System.Data.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\System.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\System.Xml.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\bin\Debug\System.Xml.Linq.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\obj\Debug\Mail.dll
+C:\Users\yoann\Documents\Visual Studio 2010\Projects\Super2013\Super\Mail\obj\Debug\Mail.pdb
