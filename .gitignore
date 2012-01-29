@@ -1,3 +1,4 @@
+
 # Les ligne commençant par '#' sont des commentaires.
 # Ignorer tous les fichiers nommés foo.txt
 #foo.txt
@@ -8,8 +9,5 @@
 # Ignorer les objets et les archives
 #*.[oa]
 
-*.vspscc
 *.suo
-*.dll
-bin/*
-obj/*
+packages/**/*
