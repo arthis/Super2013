@@ -1,0 +1,10 @@
+This Project is a try out at re analysing the super application through means of :
+
+  Domain driven development
+  Command Query Responsibility Segregation
+  Event sourcing.
+
+So far nCQRS framework is used, but this may change in the future. What is at stake here too is to provide
+some cohesive work method to implement the code through Behaviour driven development and test driven development.
+
+Both Console_UI and Web_UI are client to WCF Service Application service. 
