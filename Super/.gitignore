@@ -10,8 +10,8 @@
 #*.[oa]
 
 
-*.vspscc
-*.suo
-*.dll
-bin/**/*
-obj/**/*
+\**\*.vspscc
+\**\*.suo
+\**\*.dll/
+\**\bin/**/*
+\**\obj/**/*

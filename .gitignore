@@ -11,3 +11,7 @@
 
 *.suo
 packages/**/*
+Super/**/bin/**/*
+Super/**/obj/**/*
+packages/**/*
+packages/repositories.config
