@@ -17,6 +17,10 @@ namespace Commands.Interventi
         public DateTime Fine { get; set; }
         public Guid IdAreaIntervento { get; set; }
 
+        protected CreareNuovoIntervento()
+        {
+        }
+
        protected CreareNuovoIntervento(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento)
         {
             this.Id = id;
@@ -37,7 +41,9 @@ namespace Commands.Interventi
     {
         public IEnumerable<OggettoInterventoRotabile> Oggetti { get; set; }
 
-        
+        public CreareNuovoInterventoRotabile()
+        {
+        }
 
         public CreareNuovoInterventoRotabile(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, IEnumerable<OggettoInterventoRotabile> oggetti)
             :base (id,interventoIdSuper, inizio,fine, idAreaIntervento)

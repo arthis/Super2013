@@ -15,3 +15,5 @@ Super/**/bin/**/*
 Super/**/obj/**/*
 packages/**/*
 packages/repositories.config
+Super/**/bin/**/*
+Super/**/bin/*

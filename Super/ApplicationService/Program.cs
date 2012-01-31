@@ -6,7 +6,6 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using ApplicationService.Properties;
-using EventStore.Persistence.SqlPersistence;
 using EventStore.Serialization;
 using Ncqrs;
 using Ncqrs.CommandService;

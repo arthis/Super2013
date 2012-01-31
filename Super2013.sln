@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI_Console", "Super\UI_Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI_Web", "Super\UI_Web\UI_Web.csproj", "{912C5029-358A-4560-A4C7-7B226DDFE3B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadModel", "Super\ReadModel\ReadModel.csproj", "{D01CE8F6-800E-44CC-886B-F862B10E1396}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Super2013.vsmdi
@@ -124,6 +126,16 @@ Global
 		{912C5029-358A-4560-A4C7-7B226DDFE3B9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{912C5029-358A-4560-A4C7-7B226DDFE3B9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{912C5029-358A-4560-A4C7-7B226DDFE3B9}.Release|x86.ActiveCfg = Release|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D01CE8F6-800E-44CC-886B-F862B10E1396}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,5 +150,6 @@ Global
 		{069A6E97-7A13-4726-AE48-35FC4D808E20} = {E34724E3-D0E0-4330-807C-D8F6BDEB7C92}
 		{ADC4DF29-1616-4D40-93F1-A8F939F6F1FC} = {E34724E3-D0E0-4330-807C-D8F6BDEB7C92}
 		{912C5029-358A-4560-A4C7-7B226DDFE3B9} = {E34724E3-D0E0-4330-807C-D8F6BDEB7C92}
+		{D01CE8F6-800E-44CC-886B-F862B10E1396} = {E34724E3-D0E0-4330-807C-D8F6BDEB7C92}
 	EndGlobalSection
 EndGlobal
