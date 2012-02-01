@@ -19,14 +19,21 @@ namespace UI_Web
 
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+            "Intervento", // Route name
+            "Intervento/{action}/{id}", // URL with parameters
+            new { controller = "Intervento", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            );
+            routes.MapRoute(
+                "First", // Route name
+                "Note/{action}/{id}", // URL with parameters
+                new { controller = "Note", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            );
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Note", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
         }
 
         protected void Application_Start()

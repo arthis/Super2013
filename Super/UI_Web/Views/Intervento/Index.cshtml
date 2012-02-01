@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <h2>
+        Interventi</h2>
+    <div data-bind='template: "interventoTemplate"'>
+    </div>
+    <script type="text/html" id="interventoTemplate">
+    <table>
+            <tr>
+                <th>
+                </th>
+                <th>
+                    CreationDate
+                </th>
+                <th>
+                    Inizio
+                </th>
+                <th>
+                    Fine
+                </th>
+                <th>
+                    Eseguito
+                </th>
+                <th colspan="1">
+                    Azione
+                </th>
+            </tr>
+        {{each Interventi}}
+         <tr>
+            <td>
+                ${InterventoId}
+            </td>
+            <td>
+              ${CreationDate}
+            </td>
+            <td>
+               ${Inizio}
+            </td>
+            <td>
+               ${Fine}
+            </td>
+            <td>
+               ${IsEseguito}
+            </td>
+             <td>
+               <a data-bind="click: Eseguire" href="#">Eseguire</a>
+            </td>
+        </tr>
+        {{/each}}
+        </table>
+    </script>
+    <p>
+        <a data-bind="click: GetInterventi" href="#">Visualizza</a>
+        <%: Html.ActionLink("Add New", "Add", "Intervento") %>
+    </p>
+    <script language="javascript">
+
+        function ToDate(value) {
+            return new Date(parseInt(value.replace("/Date(", "").replace(")/", ""), 10));
+        }
+
+        function Eseguire(command) {
+            alert(command.InterventoId);
+
+            $.ajax({
+                type: 'Post',
+                url: '/Intervento/Eseguire',
+                data: JSON.stringify(command),
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    ViewModel.GetInterventi();
+                },
+                dataType: 'json'
+            });
+        }
+
+
+        //Model
+        var EseguireIntervento = function (id, dataEsecuzione) {
+            this.InterventoId = id;
+            this.DataEsecuzione = dataEsecuzione;
+        }
+
+        var intervento = function (data) {
+            var self = this;
+            this.InterventoId = ko.observable(data.Guid);
+            this.CreationDate = ko.observable(ToDate(data.CreationDate)),
+            this.Inizio = ko.observable(ToDate(data.Inizio)),
+            this.Fine = ko.observable(ToDate(data.Fine)),
+            this.IsEseguito = ko.observable(data.IsEseguito)
+            this.Eseguire = function () {
+                Eseguire(new EseguireIntervento(self.InterventoId(), new Date()));
+            };
+        }
+
+        //ViewModel
+        var InterventoViewModel = function () {
+            var self = this;
+
+            this.Interventi = ko.mapping.fromJS([]);
+
+            this.GetInterventi = function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/Intervento/GetInterventi',
+                    context: this,
+                    success: function (data) {
+                        self.SuccessfullyRetrievedModelsFromAjax(data);
+                    },
+                    dataType: 'json'
+                });
+            };
+
+            this.SuccessfullyRetrievedModelsFromAjax = function (models) {
+                self.Interventi.removeAll();
+                ko.utils.arrayForEach(models, function (model) {
+                    self.Interventi.push(new intervento(model));
+                });
+            };
+        };
+
+        var ViewModel = new InterventoViewModel();
+        ko.applyBindings(ViewModel);
+
+        ViewModel.GetInterventi();
+
+        
+        
+
+
+    </script>
