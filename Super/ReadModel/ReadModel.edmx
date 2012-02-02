@@ -6,10 +6,22 @@
     <edmx:StorageModels>
     <Schema Namespace="ReadModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ReadModelStoreContainer">
+          <EntitySet Name="AreaIntervento" EntityType="ReadModel.Store.AreaIntervento" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Intervento_Basic" EntityType="ReadModel.Store.Intervento_Basic" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NoteItemSet" EntityType="ReadModel.Store.NoteItemSet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TotalsPerDayItemSet" EntityType="ReadModel.Store.TotalsPerDayItemSet" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="AreaIntervento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAreaInterventoSuper" Type="int" />
+          <Property Name="Descrizione" Type="nvarchar" MaxLength="255" />
+          <Property Name="Inizio" Type="datetime" Nullable="false" />
+          <Property Name="Fine" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Intervento_Basic">
           <Key>
             <PropertyRef Name="Guid" />
@@ -45,6 +57,7 @@
           <EntitySet Name="NoteItemSet" EntityType="ReadModel.NoteItem" />
           <EntitySet Name="TotalsPerDayItemSet" EntityType="ReadModel.TotalsPerDayItem" />
           <EntitySet Name="Intervento_BasicSet" EntityType="ReadModel.Intervento_Basic" />
+          <EntitySet Name="AreaIntervento" EntityType="ReadModel.AreaIntervento" />
         </EntityContainer>
         <EntityType Name="NoteItem">
           <Key>
@@ -71,6 +84,17 @@
           <Property Type="DateTime" Name="Inizio" Nullable="false" />
           <Property Type="DateTime" Name="Fine" Nullable="false" />
           <Property Type="Boolean" Name="IsEseguito" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaIntervento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdAreaInterventoSuper" />
+          <Property Type="String" Name="Descrizione" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Inizio" Nullable="false" />
+          <Property Type="DateTime" Name="Fine" />
           <Property Type="DateTime" Name="CreationDate" Nullable="false" />
         </EntityType>
       </Schema>
@@ -109,6 +133,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="AreaIntervento">
+            <EntityTypeMapping TypeName="ReadModel.AreaIntervento">
+              <MappingFragment StoreEntitySet="AreaIntervento">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Fine" ColumnName="Fine" />
+                <ScalarProperty Name="Inizio" ColumnName="Inizio" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="IdAreaInterventoSuper" ColumnName="IdAreaInterventoSuper" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -132,6 +168,7 @@
         <EntityTypeShape EntityType="ReadModel.NoteItem" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="ReadModel.TotalsPerDayItem" Width="1.5" PointX="2.625" PointY="0.75" Height="1.787985026041667" />
         <EntityTypeShape EntityType="ReadModel.Intervento_Basic" Width="1.5" PointX="4.625" PointY="0.875" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="ReadModel.AreaIntervento" Width="1.5" PointX="0.75" PointY="3.75" Height="2.1725878906249996" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

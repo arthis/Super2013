@@ -1,0 +1,70 @@
+﻿@model UI_Web.Models.CreareAreaIntervento
+
+@{
+    ViewBag.Title = "add Area Intervento";
+    Layout = string.Empty;
+}
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>AreaIntervento</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdAreaInterventoSuper)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdAreaInterventoSuper)
+            @Html.ValidationMessageFor(model => model.IdAreaInterventoSuper)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Descrizione)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Descrizione)
+            @Html.ValidationMessageFor(model => model.Descrizione)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Inizio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Inizio)
+            @Html.ValidationMessageFor(model => model.Inizio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fine)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fine)
+            @Html.ValidationMessageFor(model => model.Fine)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreationDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreationDate)
+            @Html.ValidationMessageFor(model => model.CreationDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<script>
+    /// <reference path="jquery-1.4.4.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+        $('.date').datepicker({ dateFormat: "dd/mm/yy" });
+    });
+</script>

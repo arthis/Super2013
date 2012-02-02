@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "Area Intervento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Area Intervento</h2>
+<div data-bind='template: "areaInterventoListTemplate"'>
+</div>
+<div id="AddAreaIntervento">
+    test
+</div>
+<p>
+    <a data-bind="click: GetAree" href="#">Visualizza</a> 
+    <a data-bind="click: AddAreaIntervento" href="#">Aggiungi Area Intervento</a>
+</p>
+<div id="dialog" title="Create Album" style="overflow: hidden;">
+</div>
+<script type="text/html" id="areaInterventoListTemplate">
+    <table>
+            <tr>
+                <th>
+                </th>
+                <th>
+                    CreationDate
+                </th>
+                <th>
+                    Inizio
+                </th>
+                <th>
+                    Fine
+                </th>
+                <th>
+                    Descrizione
+                </th>
+                <th colspan="1">
+                    Azione
+                </th>
+            </tr>
+        {{each Aree}}
+         <tr>
+            <td>
+                ${Id}
+            </td>
+            <td>
+              ${CreationDate}
+            </td>
+            <td>
+               ${Inizio}
+            </td>
+            <td>
+               ${Fine}
+            </td>
+            <td>
+               ${Descrizione}
+            </td>
+             <td>
+               <a data-bind="click: Edit" href="#">Edit</a>
+            </td>
+        </tr>
+        {{/each}}
+        </table>
+</script>
+<script language="javascript">
+
+        function ToDate(value) {
+            return new Date(parseInt(value.replace("/Date(", "").replace(")/", ""), 10));
+        }
+
+        var AreaIntervento = function (data) {
+            var self = this;
+            this.Id = ko.observable(data.Id);
+            this.CreationDate = ko.observable(ToDate(data.CreationDate));
+            this.Inizio = ko.observable(ToDate(data.Inizio));
+            if (data.Fine!=null)
+                this.Fine = ko.observable(ToDate(data.Fine));
+            this.Descrizione = ko.observable(data.Descrizione);
+            this.Edit = function () {
+                ViewModel.EditAreaIntervento(self);
+            };
+        }
+
+        //ViewModel
+        var AreaInterventoViewModel = function () {
+            var self = this;
+
+            this.Aree = ko.mapping.fromJS([]);
+
+            this.GetAree = function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/AreaIntervento/GetAree',
+                    context: this,
+                    success: function (data) {
+                        self.SuccessfullyRetrievedModelsFromAjax(data);
+                    },
+                    dataType: 'json'
+                });
+            };
+            this.AddAreaIntervento = function () {
+                   
+                    $('#dialog').dialog({
+                        autoOpen: false,
+                        width: 400,
+                        height : 550,
+                        position : [150,150],
+                        resizable: true,
+                        title: 'Aggiungere un area Intervento',
+                        modal: true,
+                        open: function(event, ui) {
+                            $(this).load("@Url.Action("Add")");
+                        },
+                        buttons: {
+                            "Close": function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    });
+                    $('#dialog').dialog('open');
+             };
+
+              this.EditAreaIntervento = function (area) {
+                    $('#dialog').dialog({
+                        autoOpen: false,
+                        width: 400,
+                        height : 550,
+                        position : [150,150],
+                        resizable: true,
+                        title: 'Aggiungere un area Intervento',
+                        modal: true,
+                        open: function(event, ui) {
+                            $(this).load("@Url.Action("Edit")/"+area.Id);
+                        },
+                        buttons: {
+                            "Close": function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    });
+                    $('#dialog').dialog('open');
+             };
+
+            this.SuccessfullyRetrievedModelsFromAjax = function (models) {
+                self.Aree.removeAll();
+                ko.utils.arrayForEach(models, function (model) {
+                    self.Aree.push(new AreaIntervento(model));
+                });
+            };
+        };
+
+        var ViewModel = new AreaInterventoViewModel();
+        ko.applyBindings(ViewModel);
+
+        ViewModel.GetAree();
+</script>

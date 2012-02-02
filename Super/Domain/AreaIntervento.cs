@@ -15,19 +15,21 @@ namespace Domain
         public string Descrizione { get; set; }
         public DateTime? Inizio { get; set; }
         public DateTime? Fine { get; set; }
+        public DateTime CreationDate { get; set; }
 
         public AreaIntervento()
         {
         }
 
-        public AreaIntervento(Guid id, int idAreaInterventoSuper, DateTime inizio, DateTime fine)
+        public AreaIntervento(Guid id, int idAreaInterventoSuper, DateTime inizio, DateTime fine, DateTime creationDate)
             : base(id)
         {
             AreaInterventoCreato evt = new AreaInterventoCreato()
             {
                 IdAreaInterventoSuper = idAreaInterventoSuper,
                 Inizio = inizio,
-                Fine = fine
+                Fine = fine,
+                CreationDate = creationDate
             };
 
             ApplyEvent(evt);
@@ -38,6 +40,7 @@ namespace Domain
             this.IdAreaInterventoSuper = e.IdAreaInterventoSuper;
             this.Inizio = e.Inizio;
             this.Fine = e.Fine;
+            this.CreationDate = e.CreationDate;
         }
 
 

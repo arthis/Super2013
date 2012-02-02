@@ -98,6 +98,27 @@ CREATE TABLE [dbo].[Intervento_Basic](
 GO
 
 
+/****** Object:  Table [dbo].[AreaIntervento]    Script Date: 02/02/2012 14:53:43 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AreaIntervento](
+	[Id] [uniqueidentifier] NOT NULL,
+	[IdAreaInterventoSuper] [int] NULL,
+	[Descrizione] [nvarchar](255) NULL,
+	[Inizio] [datetime] NOT NULL,
+	[Fine] [datetime] NULL,
+	[CreationDate] [datetime] NOT NULL,
+ CONSTRAINT [PK_AreaIntervento] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
 
 
 

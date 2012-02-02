@@ -20,9 +20,14 @@ namespace UI_Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.MapRoute(
-            "Intervento", // Route name
-            "Intervento/{action}/{id}", // URL with parameters
-            new { controller = "Intervento", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            "AreaIntervento", // Route name
+            "AreaIntervento/{action}/{id}", // URL with parameters
+            new { controller = "AreaIntervento", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            );
+            routes.MapRoute(
+            "InterventoRotabile", // Route name
+            "InterventoRotabile/{action}/{id}", // URL with parameters
+            new { controller = "InterventoRotabile", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
             routes.MapRoute(
                 "First", // Route name
@@ -42,6 +47,9 @@ namespace UI_Web
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            
+            //debug routes
+            //RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
         }
     }
 }

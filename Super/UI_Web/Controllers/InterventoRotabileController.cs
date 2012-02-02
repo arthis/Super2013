@@ -11,11 +11,11 @@ using System.ServiceModel;
 
 namespace Website.Controllers
 {
-    public class InterventoController : Controller
+    public class InterventoRotabileController : Controller
     {
         private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
 
-        static InterventoController()
+        static InterventoRotabileController()
         {
             _channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
         }
@@ -55,7 +55,7 @@ namespace Website.Controllers
 
             // Return user back to the index that
             // displays all the Interventi.));
-            return RedirectToAction("Index", "Intervento");
+            return RedirectToAction("Index", "InterventoRotabile");
         }
 
         //[HttpPost]

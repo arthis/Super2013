@@ -39,9 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dart.PowerTCP.Mail.Trial, Version=3.2.1.0, Culture=neutral, PublicKeyToken=5966291b8955e4bb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\ThirdParty\Dart.PowerTCP.Mail.Trial.dll</HintPath>
+    <Reference Include="Dart.PowerTCP.Mail.Trial">
+      <HintPath>..\Ressources\Dart.PowerTCP.Mail.Trial.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>

@@ -11,5 +11,6 @@ namespace Events
         public int IdAreaInterventoSuper { get; set; }
         public DateTime Inizio { get; set; }
         public DateTime Fine { get; set; }
+        public DateTime CreationDate { get; set; }
     }
 }

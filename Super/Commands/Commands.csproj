@@ -66,12 +66,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaIntervento\CreareNuovoAreaIntervento.cs" />
     <Compile Include="Interventi\ConsuntivareResoDaAppaltatore.cs" />
     <Compile Include="Interventi\ConsuntivareNonResoDaAppaltatore.cs" />
     <Compile Include="Interventi\ConsuntivareNonResoTrenitaliaDaAppaltatore.cs" />
     <Compile Include="CreareNuovaCausale.cs" />
     <Compile Include="CreareNuovoSettore.cs" />
-    <Compile Include="CreareNuovoAreaIntervento.cs" />
     <Compile Include="Interventi\CreareNuovoIntervento.cs" />
     <Compile Include="Interventi\OggettoIntervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
