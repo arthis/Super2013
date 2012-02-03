@@ -1,0 +1,3 @@
+﻿@model DateTime?
+@Html.TextBox("", string.Format("{0:dd/MM/yyyy}", Model),
+                      new { @class = "date", @width = 100 })

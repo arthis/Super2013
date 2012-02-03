@@ -46,6 +46,7 @@
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <Private>True</Private>
     </Reference>
@@ -66,7 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaIntervento\AggiornareAreaIntervento.cs" />
+    <Compile Include="AreaIntervento\CancellareAreaIntervento.cs" />
     <Compile Include="AreaIntervento\CreareNuovoAreaIntervento.cs" />
+    <Compile Include="AreaIntervento\specs.cs" />
+    <Compile Include="Attributes\DateRangeAttribute.cs" />
     <Compile Include="Interventi\ConsuntivareResoDaAppaltatore.cs" />
     <Compile Include="Interventi\ConsuntivareNonResoDaAppaltatore.cs" />
     <Compile Include="Interventi\ConsuntivareNonResoTrenitaliaDaAppaltatore.cs" />
@@ -74,6 +79,7 @@
     <Compile Include="CreareNuovoSettore.cs" />
     <Compile Include="Interventi\CreareNuovoIntervento.cs" />
     <Compile Include="Interventi\OggettoIntervento.cs" />
+    <Compile Include="ISpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

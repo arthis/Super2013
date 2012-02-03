@@ -160,7 +160,9 @@
     <Content Include="Content\themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\themes\ui-lightness\jquery-ui-1.8.17.custom.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\dateFormat.js" />
     <Content Include="Scripts\EditorHookup.js" />
+    <Content Include="Scripts\functions.js" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
@@ -170,7 +172,8 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\knockout-1.2.1.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\knockout-2.0.0rc.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\MicrosoftAjax.debug.js" />
     <Content Include="Scripts\MicrosoftAjax.js" />
@@ -178,11 +181,14 @@
     <Content Include="Scripts\MicrosoftMvcAjax.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\underscore-1.3.1.js" />
     <Content Include="Views\InterventoRotabile\Add.cshtml" />
     <Content Include="Views\InterventoRotabile\ConsuntivazioneReso.cshtml" />
     <Content Include="Views\AreaIntervento\Index.cshtml" />
-    <Content Include="Views\AreaIntervento\Add.cshtml" />
-    <Content Include="Views\AreaIntervento\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\AreaIntervento\Details.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\koStringEditorFor.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\koDateEditorFor.cshtml" />
     <None Include="Views\InterventoRotabile\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -219,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\AreaIntervento\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

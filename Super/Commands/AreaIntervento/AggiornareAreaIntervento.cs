@@ -5,11 +5,13 @@ using System.Text;
 using Ncqrs.Commanding;
 using System.ComponentModel.DataAnnotations;
 using Commands.Attributes;
+using Ncqrs.Commanding.CommandExecution.Mapping.Attributes;
 
 namespace Commands.AreaIntervento
 {
-    public class CreareNuovoAreaIntervento : CommandBase
+    public class AggiornareAreaIntervento : CommandBase
     {
+        [AggregateRootId]
         public Guid Id { get; set; }
         public int IdAreaInterventoSuper { get; set; }
         [DataType(DataType.Date)]
@@ -20,25 +22,31 @@ namespace Commands.AreaIntervento
         [DateRange("2010/12/01", null)]
         public DateTime? Fine { get; set; }
         public string Descrizione { get; set; }
-        [DataType(DataType.Date)]
-        [DateRange("2010/12/01", null)]
-        [Required]
-        public DateTime CreationDate { get; set; }
 
-        public CreareNuovoAreaIntervento()
+        public AggiornareAreaIntervento()
         {
         }
 
-        public CreareNuovoAreaIntervento(Guid id, int idAreaInterventoSuper, DateTime inizio, DateTime? fine, string descrizione, DateTime creationDate)
+        public AggiornareAreaIntervento(Guid id, int idAreaInterventoSuper, DateTime inizio, DateTime? fine, string descrizione)
         {
             this.Id = id;
             this.IdAreaInterventoSuper = idAreaInterventoSuper;
             this.Inizio = inizio;
             this.Fine = fine;
             this.Descrizione = descrizione;
-            this.CreationDate = creationDate;
         }
 
-       
+        //public ValidationResult Validate()
+        //{
+        //    ValidationResult vr = new ValidationResult();
+            
+        //    InizioGreaterThanFineSpecification InizioGreaterThanFine = new InizioGreaterThanFineSpecification();
+            
+        //    ISpecification<CreareNuovoAreaIntervento> specs = InizioGreaterThanFine;
+
+        //    specs.IsSatisfiedBy(this, vr);
+
+        //    return vr;
+        //}
     }
 }
