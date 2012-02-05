@@ -1,9 +1,10 @@
 ﻿@model DateTime?
 @if ((ViewData["koObservablePrefix"] != "") && (ViewData["koObservablePrefix"] != null))
 { ViewData["koObservablePrefix"] = ViewData["koObservablePrefix"] + "()."; }
+
 @Html.TextBox("", string.Format("{0:dd/MM/yyyy}",Model), new { 
                 width = 100,
-                @class = "date",
+                @class = string.Format("date{0}", ViewData["class"]),
                 // or you could also use ViewData.ModelMetadata.PropertyName if you want to get only the property name 
                 //and not the entire navigation hierarchy
                 data_bind = "value: " + ViewData["koObservablePrefix"] + ViewData.TemplateInfo.GetFullHtmlFieldName("")

@@ -2,17 +2,16 @@
     ViewBag.Title = "Area Intervento";
     Layout = "~/Content/Layout/Earthlingtwo/_Layout.cshtml";
 }
-
 <h2>
     Area Intervento</h2>
-<div id=List data-bind='template: "areaInterventoListTemplate"'></div>
-
+<div id="List" data-bind='template: "areaInterventoListTemplate"'>
+</div>
 <p>
-    <a data-bind="click: GetItems" href="#">Visualizza</a> 
-    <a data-bind="click: AggiungereItem"    href="#">Aggiungi Area Intervento</a>
+    <a data-bind="click: GetItems" href="#">Visualizza</a> <a data-bind="click: AggiungereItem"
+        href="#">Aggiungi Area Intervento</a>
 </p>
-<div id="details" style="overflow: hidden;"></div>
-
+<div id="details" style="overflow: hidden;">
+</div>
 <script type="text/html" id="areaInterventoListWaiting">
 <br>
 <br>
@@ -23,7 +22,6 @@
 <br>
 <br>
 </script>
-
 <script type="text/html" id="areaInterventoListTemplate">
     <table> 
             <tr>
@@ -70,7 +68,6 @@
          <% }) %>
         </table>
 </script>
-
 <script language="javascript">
 
     //Commands
@@ -262,13 +259,17 @@
 
         this.Accept = function () {
             var returnValue = false;
-            var selected = viewModel.SelectedItem();
+            // Activate jQuery Validation
+            if ($("#formDetails").validate())
+            {
+                var selected = viewModel.SelectedItem();
 
-            if (selected.IsNew) 
-                returnValue = repository.Add(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
-            else
-                returnValue = repository.Update(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
-            return returnValue;
+                if (selected.IsNew) 
+                    returnValue = repository.Add(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
+                else
+                    returnValue = repository.Update(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
+                return returnValue;
+            }
         },
         this.Cancel = function () {
             viewModel.SelectedItem().Cancel();
@@ -285,6 +286,8 @@
     };
     var viewModel = new ViewModel(new Repository(), new Dialog());
     ko.applyBindings(viewModel);
+
+    
 
     viewModel.GetItems();
 

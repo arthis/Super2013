@@ -1,9 +1,10 @@
 ﻿@if ((ViewData["koObservablePrefix"] != "") && (ViewData["koObservablePrefix"] != null))
 { ViewData["koObservablePrefix"] = ViewData["koObservablePrefix"] + "()."; }
 @Html.TextBox("", Model, new
-            {
-                width = 100,
-                // or you could also use ViewData.ModelMetadata.PropertyName if you want to get only the property name 
-                //and not the entire navigation hierarchy
-                data_bind = "value: " + ViewData["koObservablePrefix"] + ViewData.TemplateInfo.GetFullHtmlFieldName("")
-            }) 
+{
+    width = 100,
+    @class = ViewData["class"],
+    // or you could also use ViewData.ModelMetadata.PropertyName if you want to get only the property name 
+    //and not the entire navigation hierarchy
+    data_bind = string.Format("value: {0}{1}, uniqueName: true", ViewData["koObservablePrefix"], ViewData.TemplateInfo.GetFullHtmlFieldName(""))
+}) 

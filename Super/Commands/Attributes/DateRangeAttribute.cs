@@ -25,12 +25,26 @@ namespace Commands.Attributes
 
         public override bool IsValid(object value)
         {
+            bool returnValue = false;
             if (value == null || !(value is DateTime))
             {
                 return true;
             }
             DateTime dateValue = (DateTime)value;
-            return MinDate <= dateValue && dateValue <= MaxDate;
+
+            if (!MinDate.HasValue && MaxDate.HasValue)
+                returnValue = dateValue <= MaxDate;
+
+            if (MinDate.HasValue && !MaxDate.HasValue)
+                returnValue = MinDate <= dateValue;
+
+            if (MinDate.HasValue && MaxDate.HasValue)
+                returnValue= MinDate <= dateValue && dateValue <= MaxDate;
+
+            if (!MinDate.HasValue && !MaxDate.HasValue)
+                returnValue = true;
+
+            return returnValue;
         }
         public override string FormatErrorMessage(string name)
         {
