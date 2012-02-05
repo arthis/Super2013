@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using Ncqrs.Commanding.CommandExecution.Mapping.Attributes;
 using Ncqrs.Commanding;
+using System.Runtime.Serialization;
 
 namespace Commands.Interventi
 {
-
-    public class CreareNuovoIntervento : CommandBase
+    [DataContract]
+    [KnownType(typeof(CreareNuovoInterventoRotabile))]
+    [KnownType(typeof(CreareNuovoInterventoAmbienti))]
+    [KnownType(typeof(CreareNuovoInterventoRotabileInManutenzione))]
+    public abstract class CreareNuovoIntervento : CommandBase
     {
         public Guid Id { get; set; }
         public int InterventoIdSuper { get; set; }
@@ -37,27 +41,29 @@ namespace Commands.Interventi
         }
     }
 
+    [DataContract]
     public class CreareNuovoInterventoRotabile : CreareNuovoIntervento
     {
-        public IEnumerable<OggettoInterventoRotabile> Oggetti { get; set; }
+        public OggettoInterventoRotabile[] Oggetti { get; set; }
 
         public CreareNuovoInterventoRotabile()
         {
         }
 
-        public CreareNuovoInterventoRotabile(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, IEnumerable<OggettoInterventoRotabile> oggetti)
+        public CreareNuovoInterventoRotabile(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, OggettoInterventoRotabile[] oggetti)
             :base (id,interventoIdSuper, inizio,fine, idAreaIntervento)
         {
             Oggetti = oggetti;   
         }
 
-        public CreareNuovoInterventoRotabile(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, IEnumerable<OggettoInterventoRotabile> oggetti)
+        public CreareNuovoInterventoRotabile(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotabile[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 
         }
     }
 
+    [DataContract]
     public class CreareNuovoInterventoAmbienti : CreareNuovoIntervento
     {
         public int Quantita { get; set; }
@@ -80,18 +86,19 @@ namespace Commands.Interventi
         }
     }
 
+    [DataContract]
     public class CreareNuovoInterventoRotabileInManutenzione : CreareNuovoIntervento
     {
 
-        public IEnumerable<OggettoInterventoRotabileInManutenzione> Oggetti { get; set; }
+        public OggettoInterventoRotabileInManutenzione[] Oggetti { get; set; }
 
-        public CreareNuovoInterventoRotabileInManutenzione(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, IEnumerable<OggettoInterventoRotabileInManutenzione> oggetti)
+        public CreareNuovoInterventoRotabileInManutenzione(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, OggettoInterventoRotabileInManutenzione[] oggetti)
             :base (id,interventoIdSuper, inizio,fine, idAreaIntervento)
         {
             Oggetti = oggetti;   
         }
 
-        public CreareNuovoInterventoRotabileInManutenzione(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, IEnumerable<OggettoInterventoRotabileInManutenzione> oggetti)
+        public CreareNuovoInterventoRotabileInManutenzione(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotabileInManutenzione[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 

@@ -6,5 +6,7 @@
 }
 
 function ToDate(value) {
-    return new Date(parseInt(value.replace("/Date(", "").replace(")/", ""), 10));
+    if (value!=null)
+        return new Date(parseInt(value.replace("/Date(", "").replace(")/", ""), 10));
+    return null;
 }

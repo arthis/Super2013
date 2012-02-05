@@ -188,12 +188,14 @@ namespace ReadModel
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="inizio">Initial value of the Inizio property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
-        public static AreaIntervento CreateAreaIntervento(global::System.Guid id, global::System.DateTime inizio, global::System.DateTime creationDate)
+        /// <param name="deleted">Initial value of the Deleted property.</param>
+        public static AreaIntervento CreateAreaIntervento(global::System.Guid id, global::System.DateTime inizio, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             AreaIntervento areaIntervento = new AreaIntervento();
             areaIntervento.Id = id;
             areaIntervento.Inizio = inizio;
             areaIntervento.CreationDate = creationDate;
+            areaIntervento.Deleted = deleted;
             return areaIntervento;
         }
 
@@ -346,6 +348,30 @@ namespace ReadModel
         private global::System.DateTime _CreationDate;
         partial void OnCreationDateChanging(global::System.DateTime value);
         partial void OnCreationDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Deleted
+        {
+            get
+            {
+                return _Deleted;
+            }
+            set
+            {
+                OnDeletedChanging(value);
+                ReportPropertyChanging("Deleted");
+                _Deleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Deleted");
+                OnDeletedChanged();
+            }
+        }
+        private global::System.Boolean _Deleted;
+        partial void OnDeletedChanging(global::System.Boolean value);
+        partial void OnDeletedChanged();
 
         #endregion
     

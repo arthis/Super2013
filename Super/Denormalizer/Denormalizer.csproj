@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaInterventoDenormalizer.cs" />
     <Compile Include="ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer.cs" />
     <Compile Include="DTO\pec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,7 +67,12 @@
       <Project>{4998AC57-87EA-4502-A97F-07DFDA9E18DE}</Project>
       <Name>Mail</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReadModel\ReadModel.csproj">
+      <Project>{D01CE8F6-800E-44CC-886B-F862B10E1396}</Project>
+      <Name>ReadModel</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

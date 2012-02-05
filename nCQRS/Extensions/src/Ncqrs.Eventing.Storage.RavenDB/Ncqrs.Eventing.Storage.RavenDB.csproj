@@ -36,7 +36,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\lib\ThirdParty\RavenDB\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="Raven.Abstractions">
       <HintPath>..\..\..\lib\ThirdParty\RavenDB\Raven.Abstractions.dll</HintPath>

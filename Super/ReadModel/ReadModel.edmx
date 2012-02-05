@@ -21,6 +21,7 @@
           <Property Name="Inizio" Type="datetime" Nullable="false" />
           <Property Name="Fine" Type="datetime" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Intervento_Basic">
           <Key>
@@ -96,6 +97,7 @@
           <Property Type="DateTime" Name="Inizio" Nullable="false" />
           <Property Type="DateTime" Name="Fine" />
           <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -136,6 +138,7 @@
           <EntitySetMapping Name="AreaIntervento">
             <EntityTypeMapping TypeName="ReadModel.AreaIntervento">
               <MappingFragment StoreEntitySet="AreaIntervento">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="Fine" ColumnName="Fine" />
                 <ScalarProperty Name="Inizio" ColumnName="Inizio" />
@@ -168,7 +171,7 @@
         <EntityTypeShape EntityType="ReadModel.NoteItem" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="ReadModel.TotalsPerDayItem" Width="1.5" PointX="2.625" PointY="0.75" Height="1.787985026041667" />
         <EntityTypeShape EntityType="ReadModel.Intervento_Basic" Width="1.5" PointX="4.625" PointY="0.875" Height="1.9802864583333335" />
-        <EntityTypeShape EntityType="ReadModel.AreaIntervento" Width="1.5" PointX="0.75" PointY="3.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="ReadModel.AreaIntervento" Width="1.5" PointX="0.75" PointY="3.75" Height="2.3648893229166656" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

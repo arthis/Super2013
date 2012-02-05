@@ -44,7 +44,7 @@ namespace Domain.Interventi
             this.IdAreaIntervento = e.IdAreaIntervento;
         }
 
-        public void ConsuntivaResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, IEnumerable<OggettoIntervento> oggetti)
+        public void ConsuntivaResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)//, IEnumerable<OggettoIntervento> oggetti)
         {
             List<string> messagiValidazione = new List<string>();
 

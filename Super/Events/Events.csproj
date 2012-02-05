@@ -66,7 +66,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaInterventoCreato.cs" />
+    <Compile Include="AreaIntervento\AreaInterventoCancellata.cs" />
+    <Compile Include="AreaIntervento\AreaInterventoCreata.cs" />
+    <Compile Include="AreaIntervento\AreaInterventoAggiornata.cs" />
     <Compile Include="CausaleCreata.cs" />
     <Compile Include="Interventi\ConsuntivatoResoDaAppaltatore.cs" />
     <Compile Include="Interventi\ConsuntivatoResoDaAppaltatoreRejected.cs" />

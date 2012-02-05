@@ -14,13 +14,14 @@ using Ncqrs.CommandService;
 
 namespace UI_Web.Controllers
 {
-    public class AreaInterventoController : Controller
+    public class AreaInterventoController : ControllerBaseSuper
     {
         private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
 
         static AreaInterventoController()
         {
             _channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
+            
         }
 
         public ActionResult Index()
@@ -30,9 +31,11 @@ namespace UI_Web.Controllers
 
         public JsonResult GetItems()
         {
+            System.Threading.Thread.Sleep(5000);
             using (var context = new ReadModelContainer())
             {
                 var query = from item in context.AreaIntervento
+                            where !item.Deleted 
                             orderby item.CreationDate
                             select new { item.Id, item.IdAreaInterventoSuper, item.Inizio, item.Fine, item.CreationDate, item.Descrizione };
 
@@ -48,11 +51,11 @@ namespace UI_Web.Controllers
         [HttpPost]
         public void Creare(CreareNuovoAreaIntervento command)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-            //                   client.Execute(new ExecuteRequest(command)));
-            //}
+            if (ModelState.IsValid)
+            {
+                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                               client.Execute(new ExecuteRequest(command)));
+            }
          }
 
         public ActionResult Aggiornare()
@@ -64,21 +67,21 @@ namespace UI_Web.Controllers
         [HttpPost]
         public void Aggiornare(AggiornareAreaIntervento command)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-            //                   client.Execute(new ExecuteRequest(command)));
-            //}
+            if (ModelState.IsValid)
+            {
+                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                               client.Execute(new ExecuteRequest(command)));
+            }
         }
 
         [HttpPost]
         public void Cancellare(CancellareAreaIntervento command)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-            //                   client.Execute(new ExecuteRequest(command)));
-            //}
+            if (ModelState.IsValid)
+            {
+                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                               client.Execute(new ExecuteRequest(command)));
+            }
         }
 
 

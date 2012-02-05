@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using Ncqrs.Commanding;
 using Ncqrs.Commanding.CommandExecution.Mapping.Attributes;
+using System.Runtime.Serialization;
 
 namespace Commands.Interventi
 {
-
+    [DataContract]
+    [KnownType(typeof(ConsuntivareRotabileNonResoDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareRotabileInManutenzioneNonResoDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareAmbientiNonResoDaAppaltatore))]
     public abstract class ConsuntivareNonResoDaAppaltatore : CommandBase
     {
         [AggregateRootId]
@@ -27,7 +31,7 @@ namespace Commands.Interventi
         }
     }
 
-
+    [DataContract]
     public class ConsuntivareRotabileNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
         public IEnumerable<OggettoInterventoRotabile> Oggeti { get; set; }
@@ -39,6 +43,7 @@ namespace Commands.Interventi
         }
     }
 
+    [DataContract]
     public class ConsuntivareRotabileInManutenzioneNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
         public IEnumerable<OggettoInterventoRotabile> Oggeti { get; set; }
@@ -50,6 +55,7 @@ namespace Commands.Interventi
         }
     }
 
+    [DataContract]
     public class ConsuntivareAmbientiNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
         public ConsuntivareAmbientiNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)

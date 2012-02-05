@@ -99,6 +99,9 @@ GO
 
 
 /****** Object:  Table [dbo].[AreaIntervento]    Script Date: 02/02/2012 14:53:43 ******/
+IF OBJECT_ID(N'[dbo].[AreaIntervento]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AreaIntervento];
+
 SET ANSI_NULLS ON
 GO
 
@@ -112,6 +115,7 @@ CREATE TABLE [dbo].[AreaIntervento](
 	[Inizio] [datetime] NOT NULL,
 	[Fine] [datetime] NULL,
 	[CreationDate] [datetime] NOT NULL,
+	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_AreaIntervento] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

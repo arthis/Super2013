@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using Ncqrs.Commanding;
 using Ncqrs.Commanding.CommandExecution.Mapping.Attributes;
+using System.Runtime.Serialization;
 
 namespace Commands.Interventi
 {
-
+    [DataContract]
+    [KnownType(typeof(ConsuntivareRotabileResoDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareRotabileInManutenzioneResoDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareAmbientiResoDaAppaltatore))]
     public abstract class ConsuntivareResoDaAppaltatore : CommandBase
     {
         [AggregateRootId]
@@ -27,28 +31,31 @@ namespace Commands.Interventi
         }
     }
 
+    [DataContract]
     public class ConsuntivareRotabileResoDaAppaltatore : ConsuntivareResoDaAppaltatore
     {
-        public IEnumerable<OggettoInterventoRotabile> Oggetti { get; set; }
+        public OggettoInterventoRotabile[] Oggetti { get; set; }
 
-        public ConsuntivareRotabileResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine,IEnumerable<OggettoInterventoRotabile> oggetti)
+        public ConsuntivareRotabileResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoInterventoRotabile[] oggetti)
             :base(id,interventoIdAppaltatore,dataConsuntivazione,inizio,fine)
         {
             Oggetti = oggetti;
         }
     }
 
+    [DataContract]
     public class ConsuntivareRotabileInManutenzioneResoDaAppaltatore : ConsuntivareResoDaAppaltatore
     {
-        public IEnumerable<OggettoInterventoRotabile> Oggetti { get; set; }
+        public OggettoInterventoRotabile[] Oggetti { get; set; }
 
-        public ConsuntivareRotabileInManutenzioneResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, IEnumerable<OggettoInterventoRotabile> oggetti)
+        public ConsuntivareRotabileInManutenzioneResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoInterventoRotabile[] oggetti)
             : base(id, interventoIdAppaltatore, dataConsuntivazione, inizio, fine)
         {
             Oggetti = oggetti;
         }
     }
 
+    [DataContract]
     public class ConsuntivareAmbientiResoDaAppaltatore : ConsuntivareResoDaAppaltatore
     {
         public ConsuntivareAmbientiResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)

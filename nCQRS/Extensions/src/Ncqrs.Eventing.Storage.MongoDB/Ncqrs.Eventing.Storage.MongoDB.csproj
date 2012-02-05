@@ -68,7 +68,7 @@
       <HintPath>..\..\..\lib\$(Configuration)\Ncqrs\Ncqrs.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\lib\ThirdParty\json.net\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\lib\ThirdParty\RavenDB\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

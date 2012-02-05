@@ -22,13 +22,14 @@ namespace ApplicationService.Executors
             intervento.ConsuntivaResoDaAppaltatore(command.InterventoIdAppaltatore,
                                                     command.DataConsuntivazione,
                                                     command.Inizio,
-                                                    command.Fine,
-                                                    command.Oggetti.Select(x => new Domain.Interventi.OggettoInterventoRotabile()
-                                                    {
-                                                        Descrizione = x.Descrizione,
-                                                        Quantita = x.Quantita,
-                                                        IdTipoOggettoInterventoRotabile = x.IdTipoOggettoInterventoRotabile
-                                                    }));
+                                                    command.Fine);
+                                                    //,
+                                                    //command.Oggetti.Select(x => new Domain.Interventi.OggettoInterventoRotabile()
+                                                    //{
+                                                    //    Descrizione = x.Descrizione,
+                                                    //    Quantita = x.Quantita,
+                                                    //    IdTipoOggettoInterventoRotabile = x.IdTipoOggettoInterventoRotabile
+                                                    //}));
 
             // Accept all the work we just did.
             context.Accept();

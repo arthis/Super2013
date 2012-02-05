@@ -13,15 +13,15 @@ namespace Commands.AreaIntervento
         public Guid Id { get; set; }
         public int IdAreaInterventoSuper { get; set; }
         [DataType(DataType.Date)]
-        [DateRange("2010/12/01", "2020/12/16")]
+        //[DateRange("2010/12/01", "2020/12/16")]
         [Required]
         public DateTime Inizio { get; set; }
         [DataType(DataType.Date)]
-        [DateRange("2010/12/01", null)]
+        //[DateRange("2010/12/01", null)]
         public DateTime? Fine { get; set; }
         public string Descrizione { get; set; }
         [DataType(DataType.Date)]
-        [DateRange("2010/12/01", null)]
+        //[DateRange("2010/12/01", null)]
         [Required]
         public DateTime CreationDate { get; set; }
 

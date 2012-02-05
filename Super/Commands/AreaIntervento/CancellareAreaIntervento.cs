@@ -14,9 +14,7 @@ namespace Commands.AreaIntervento
         [AggregateRootId]
         public Guid Id { get; set; }
       
-      
-
-        public CancellareAreaIntervento()
+         public CancellareAreaIntervento()
         {
         }
 

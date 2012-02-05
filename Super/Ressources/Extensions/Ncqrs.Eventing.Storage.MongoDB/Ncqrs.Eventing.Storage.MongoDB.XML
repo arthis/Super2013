@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ncqrs.Eventing.Storage.MongoDB</name>
+    </assembly>
+    <members>
+        <member name="F:Ncqrs.Eventing.Storage.MongoDB.MongoDBEventStore.DEFAULT_DATABASE_URI">
+            <summary>
+            The default data uri that points to a local Mongo DB.
+            </summary>
+        </member>
+        <member name="F:Ncqrs.Eventing.Storage.MongoDB.MongoDBEventStore.CONCURRENCY_ERROR_CODE">
+            <summary>
+            The error code
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -77,43 +77,53 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\nCQRS\lib\ThirdParty\CastleWindsor\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="EventStore">
-      <HintPath>..\..\nCQRS\lib\ThirdParty\EventStore\EventStore.dll</HintPath>
+    <Reference Include="EventStore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.JOliver\EventStore.dll</HintPath>
     </Reference>
-    <Reference Include="EventStore.Core">
-      <HintPath>..\..\nCQRS\lib\ThirdParty\EventStore\EventStore.Core.dll</HintPath>
+    <Reference Include="EventStore.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.JOliver\EventStore.Core.dll</HintPath>
     </Reference>
-    <Reference Include="EventStore.Persistence.RavenPersistence">
-      <HintPath>..\..\nCQRS\lib\ThirdParty\EventStore\EventStore.Persistence.RavenPersistence.dll</HintPath>
+    <Reference Include="EventStore.Persistence.RavenPersistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.JOliver.RavenPersistence\EventStore.Persistence.RavenPersistence.dll</HintPath>
     </Reference>
-    <Reference Include="EventStore.Serialization">
-      <HintPath>..\..\nCQRS\lib\ThirdParty\EventStore\EventStore.Serialization.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs">
-      <HintPath>..\..\nCQRS\release\Framework\Ncqrs.dll</HintPath>
+    <Reference Include="Ncqrs, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\Framework\Ncqrs.dll</HintPath>
     </Reference>
     <Reference Include="Ncqrs.CommandService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\nCQRS\release\Extensions\Ncqrs.CommandService\Ncqrs.CommandService.dll</HintPath>
+      <HintPath>..\Ressources\Extensions\Ncqrs.CommandService\Ncqrs.CommandService.dll</HintPath>
     </Reference>
     <Reference Include="Ncqrs.CommandService.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\nCQRS\release\Extensions\Ncqrs.CommandService.Contracts\Ncqrs.CommandService.Contracts.dll</HintPath>
+      <HintPath>..\Ressources\Extensions\Ncqrs.CommandService\Ncqrs.CommandService.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Ncqrs.Config.Windsor">
-      <HintPath>..\..\nCQRS\release\Extensions\Ncqrs.Config.Windsor\Ncqrs.Config.Windsor.dll</HintPath>
+    <Reference Include="Ncqrs.Config.Windsor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\Extensions\Ncqrs.Config.Windsor\Ncqrs.Config.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Ncqrs.EventBus">
-      <HintPath>..\..\nCQRS\release\Extensions\Ncqrs.EventBus\Ncqrs.EventBus.dll</HintPath>
+    <Reference Include="Ncqrs.EventBus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\Extensions\Ncqrs.EventBus\Ncqrs.EventBus.dll</HintPath>
     </Reference>
-    <Reference Include="Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot">
-      <HintPath>..\..\nCQRS\release\Extensions\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.dll</HintPath>
+    <Reference Include="Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.dll</HintPath>
     </Reference>
-    <Reference Include="Ncqrs.Eventing.Storage.JOliver">
-      <HintPath>..\..\nCQRS\release\Extensions\Ncqrs.Eventing.Storage.JOliver\Ncqrs.Eventing.Storage.JOliver.dll</HintPath>
+    <Reference Include="Ncqrs.Eventing.Storage.JOliver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.JOliver\Ncqrs.Eventing.Storage.JOliver.dll</HintPath>
     </Reference>
-    <Reference Include="Ncqrs.Eventing.Storage.RavenDB">
-      <HintPath>..\..\nCQRS\release\Extensions\Ncqrs.Eventing.Storage.RavenDB\Ncqrs.Eventing.Storage.RavenDB.dll</HintPath>
+    <Reference Include="Ncqrs.Eventing.Storage.RavenDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.RavenDB\Ncqrs.Eventing.Storage.RavenDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\ThirdParty\RavenDB\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Client.Lightweight">
       <HintPath>..\..\nCQRS\lib\ThirdParty\RavenDB\Raven.Client.Lightweight.dll</HintPath>
@@ -156,13 +166,15 @@
     <Compile Include="BootStrapper.cs" />
     <Compile Include="BootStrapperNInject.cs" />
     <Compile Include="EventBusProcessor.cs" />
+    <Compile Include="Executors\AreaIntervento\AggiornareAreaInterventoExecutor.cs" />
+    <Compile Include="Executors\AreaIntervento\CancellareAreaInterventoExecutor.cs" />
     <Compile Include="Executors\Interventi\ConsuntivareDaAppaltatoreExecutor.cs" />
     <Compile Include="Executors\Interventi\ConsuntivareDaTrenitaliaExecutor.cs" />
     <Compile Include="Executors\Interventi\ConsuntivareResoDaAppaltatoreExecutor.cs" />
     <Compile Include="Executors\Interventi\ConsuntivareNonResoDaAppaltatoreExecutor.cs" />
     <Compile Include="Executors\CreareCausaleExecutor.cs" />
     <Compile Include="Executors\CreareSettoreExecutor.cs" />
-    <Compile Include="Executors\CreareAreaInterventoExecutor.cs" />
+    <Compile Include="Executors\AreaIntervento\CreareAreaInterventoExecutor.cs" />
     <Compile Include="Executors\Interventi\CreareInterventoAmbientiExecutor.cs" />
     <Compile Include="Executors\Interventi\CreareInterventoRotabileInManutenzioneExecutor.cs" />
     <Compile Include="Executors\Interventi\CreareInterventoRotabileExecutor.cs" />
@@ -175,7 +187,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
