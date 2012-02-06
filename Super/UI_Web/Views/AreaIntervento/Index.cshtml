@@ -176,7 +176,8 @@
                 },
                 buttons: {
                     "Accept": function () {
-                        if (viewModel.Accept())
+                        var form= document.getElementById("formDetails");
+                        if (viewModel.Accept(form))
                             $(this).dialog("close");
                     },
                     "Cancel": function () {
@@ -262,13 +263,17 @@
             return false;
         }
 
-        this.Accept = function () {
+        this.Accept = function (form) {
             var returnValue = false;
             var selected = viewModel.SelectedItem();
 
-            var test = $("#Descrizione").text();
-            detailsForm.validate();
-            if (detailsForm.valid())
+            $(form).validate({
+                rules: {
+                    Descrizione: "required"
+                }
+            });
+
+            if ($(form).valid())
                 alert("success");
             else
                 alert("error");
