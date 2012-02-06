@@ -31,7 +31,6 @@ namespace UI_Web.Controllers
 
         public JsonResult GetItems()
         {
-            System.Threading.Thread.Sleep(5000);
             using (var context = new ReadModelContainer())
             {
                 var query = from item in context.AreaIntervento

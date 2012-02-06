@@ -14,15 +14,16 @@ namespace Commands.AreaIntervento
         public int IdAreaInterventoSuper { get; set; }
         [DataType(DataType.Date)]
         //[DateRange("2010/12/01", "2020/12/16")]
-        [Required]
+        //[Required]
         public DateTime Inizio { get; set; }
         [DataType(DataType.Date)]
         //[DateRange("2010/12/01", null)]
         public DateTime? Fine { get; set; }
+        [Required(ErrorMessage ="test error message")]
         public string Descrizione { get; set; }
         [DataType(DataType.Date)]
         //[DateRange("2010/12/01", null)]
-        [Required]
+        //[Required]
         public DateTime CreationDate { get; set; }
 
         public CreareNuovoAreaIntervento()
