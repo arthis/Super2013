@@ -2,18 +2,33 @@
     ViewBag.Title = "Area Intervento";
     Layout = "~/Content/Layout/Earthlingtwo/_Layout.cshtml";
 }
+
+
+    
 <h2>
     Area Intervento</h2>
-<div id="List" data-bind='template: "areaInterventoListTemplate"'>
+<div id=FilterResults>
+<form id=formFilter class=formFilter>
+     <fieldset>
+         <legend>Filtro</legend>
+         <label>Descrizione :</label><input type=text id=filtroDescrizione />
+
+         <div style="clear: both;">&nbsp;</div>
+         <a data-bind="click: GetItems" href="#">Visualizza</a> 
+     </fieldset>
+</form>
 </div>
+<div id="List" data-bind='template: "areaInterventoListTemplate"'></div>
+<br />
+<div id="pagination" class="pagebar"></div>
 <p>
-    <a data-bind="click: GetItems" href="#">Visualizza</a> 
-    <a data-bind="click: AggiungereItem" href="#">Aggiungi Area Intervento</a>
+    <a data-bind="click: AggiungereItem"
+        href="#">Aggiungi Area Intervento</a>
 </p>
 <div id="details" style="overflow: hidden;"></div>
-<form id="formDetailsHere"></form>
 
-<script type="text/html" id="areaInterventoListWaiting">
+
+<script type="text/html" id="Waiting">
 <br>
 <br>
 <center>
@@ -23,9 +38,8 @@
 <br>
 <br>
 </script>
-
 <script type="text/html" id="areaInterventoListTemplate">
-    <table> 
+    <table width=100% class="table-standard"> 
             <tr>
                 <th>
                     Descrizione
@@ -61,21 +75,31 @@
                 <%= item.CreationDate() %>
             </td>
              <td>
-                <a data-bind="click: function() { viewModel.RedigereItem(item) }" href="#">Redigere</a>
+                <a data-bind="click: function() { viewModel.RedigereItem(item) }" href="#"><img src="@Url.Content("~/Images/Edit.gif")" border=0></a>
             </td>
             <td>
-                <a data-bind="click: function() { viewModel.TogliereItem(item) }" href="#">Togliere</a>
+                <a data-bind="click: function() { viewModel.TogliereItem(item) }" href="#"><img src="@Url.Content("~/Images/Delete.gif")" border=0></a>
             </td>
         </tr>
          <% }) %>
         </table>
 </script>
-
 <script language="javascript">
-    
-    
+
+    $.validator.unobtrusive.addValidation = function (selector) { 
+        //get the relevant form 
+        var form = $(selector); 
+        // delete validator in case someone called form.validate()
+        $(form).removeData('validator'); 
+        $.validator.unobtrusive.parse(form); 
+        }
 
     //Commands
+    var VisualizzareItems = function (descrizione, pageNum, pageSize){
+        this.Descrizione = descrizione;
+        this.PageNum = pageNum;
+        this.PageSize = pageSize;
+    }
     var CreareNuovoAreaIntervento = function (id, idAreaInterventoSuper, creationDate, inizio, fine, descrizione) {
         this.Id = id;
         this.IdAreaInterventoSuper = idAreaInterventoSuper;
@@ -97,11 +121,14 @@
 
     //Repository
     var Repository = function () {
-        this.GetItems = function (success,error) {
+        this.GetItems = function (descrizione, pageNum, pageSize, success,error) {
+            jQuery.ajaxSettings.traditional = true;
+            var command = new VisualizzareItems(descrizione,pageNum,pageSize);
             $.ajax({
-                type: 'GET',
+                type: 'Post',
                 url: '@Url.Action("GetItems")',
-                context: this,
+                data: JSON.stringify(command),
+                contentType: 'application/json; charset=utf-8',
                 success: success,
                 error: error,
                 dataType: 'json'
@@ -154,11 +181,20 @@
         };
     }
 
-    //Dialog
-    var Dialog = function () {
+    //View
+    var View= function() {
         var self = this;
 
-        this.OpenDialog = function (urlView, title) {
+        //Spinner
+        this.Spin = function(){
+            $("#List").html($("#Waiting").html());
+        };
+        this.StopSpin = function(){
+            //do nothing for the moment
+        };
+        
+        //dialog
+        this.OpenDetails = function (urlView, title) {
             self.UrlView = urlView;
 
             $('#details').dialog({
@@ -189,10 +225,79 @@
             details.dialog("open");  //let's put this in a custom binding handler called "openDialog"
         }
 
-        this.Close = function () {
+        this.CloseDetails = function () {
             details.dialog("close");
         }
-    }
+           
+        //pagination
+        this.Paginate = function(pageNum,PageSize,totalItems, action ) {
+             $("#pagination").paging(totalItems, {
+                 format: "- (qq.) < nnncnnn > (.pp)",
+                    perpage: PageSize,
+                    lapping: 0,
+                    page: pageNum,
+                    onSelect: function(page) {
+                        if(pageNum!=page){
+                            self.Spin();
+                            action(page);
+                         }
+                    },
+                    onFormat: function(type) {
+
+                switch (type) {
+                case 'left' :
+                    if (this.page>5)
+                        return '<em><a href="#' + this.value + '">' + this.value + '</a></em>';
+                    return "";
+                case 'right' :
+                    if (this.page<(this.pages-5))
+                        return '<em><a href="#' + this.value + '">' + this.value + '</a></em>';
+                    return "";
+                case 'block':
+
+                        if (!this.active)
+                                return '<span class="disabled"  title="Pagina '+ this.value +'">' + this.value + '</span>';
+                        else if (this.value != this.page)
+                                return '<em><a href="#' + this.value + '" title="Pagina '+ this.value +'">' + this.value + '</a></em>';
+                        return '<span class="this-page">'+ this.value +'</span>';
+
+                case 'next':
+
+                        if (this.active)
+                                return '<a href="#' + this.value + '" class="next">></a>';
+                        return '<span class="disabled">></span>';
+
+                case 'prev':
+
+                        if (this.active   )
+                                return '<a href="#' + this.value + '" class="prev"><</a>';
+                        return '<span class="disabled"><</span>';
+
+                case 'first':
+
+                        if (this.active)
+                                return '<a href="#' + this.value + '" class="first">First</a>';
+                        return '<span class="disabled">First</span>';
+
+                case 'last':
+
+                        if (this.active)
+                                return '<a href="#' + this.value + '" class="last">Last</a>';
+                        return '<span class="disabled">Last</span>';
+
+                case "leap":
+                        if (this.active &&  (this.page>5) && (this.page<(this.pages-5)))
+                                return '<span class="break">...</span>';
+                        return "";
+                case 'fill':
+                        if (this.active)
+                                return "Pages:&nbsp;";
+                        return "";
+                    }
+                }
+	        });
+        }
+   }
 
     //Model
     var AreaIntervento = function (id, idAreaInterventoSuper, creationDate, inizio, fine, descrizione, isNew) {
@@ -222,34 +327,53 @@
     }
 
 
+    
 
     //ViewModel
-    var ViewModel = function (repository, dialog) {
+    var ViewModel = function (repository, view, pageNum, pageSize) {
         var self = this;
+          
+        //filtro
+        this.Descrizione = ko.observable();
+        this.PageNum = ko.observable(pageNum);
+        this.PageSize = ko.observable(pageSize);
             
         this.Items = ko.mapping.fromJS([]);
         this.SelectedItem = ko.observable();
 
+
+
         
-        this.GetItems = function () {
-            $("#List").html($("#areaInterventoListWaiting").html());
-            repository.GetItems(this.SuccessfullyRetrievedModelsFromAjax);
+        this.GetItems = function (pageNum) {
+            view.Spin();
+            self.PageNum(pageNum);
+            repository.GetItems(self.Descrizione(),self.PageNum(),self.PageSize(),self.GetItemsSuccess,self.GetItemsError);
         };
 
         this.RedigereItem = function (item) {
             viewModel.SelectedItem(item);
-            dialog.OpenDialog("@Url.Action("Aggiornare")",'Aggiornare un area Intervento');
+            view.OpenDetails("@Url.Action("Aggiornare")",'Aggiornare un area Intervento');
         };
         this.AggiungereItem = function () {
             var now = new Date();
             var newItem = new AreaIntervento(guidGenerator(),0, now, now, now, '', true)
             viewModel.SelectedItem(newItem);
-            dialog.OpenDialog("@Url.Action("Creare")",'Aggiungere un area Intervento');
+            view.OpenDetails("@Url.Action("Creare")",'Aggiungere un area Intervento');
         };
         this.TogliereItem = function (item) {
-            repository.Delete(item);
-            viewModel.Items.remove(item);
+            repository.Delete(item,viewModel.TogliereItemSuccess,viewModel.TogliereItemError);
         };
+
+        this.TogliereItemSuccess = function(selected)
+        {
+            alert("item " + selected.Id() + " removed");
+            viewModel.Items.remove(item);
+        }
+
+        this.TogliereItemError= function(selected)
+        {
+            alert("item " + selected.Id() + " not removed");
+        }
 
         this.AcceptSuccess = function(selected){
             selected.Accept();
@@ -261,50 +385,52 @@
 
         this.AcceptError = function(selected){
             return false;
-        }
+        };
 
         this.Accept = function (form) {
             var returnValue = false;
             var selected = viewModel.SelectedItem();
 
-            $(form).validate({
-                rules: {
-                    Descrizione: "required"
-                }
-            });
-
             if ($(form).valid())
-                alert("success");
+                if (selected.IsNew) 
+                    returnValue = repository.Add(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
+                else
+                    returnValue = repository.Update(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
             else
                 alert("error");
-            
-//            if (selected.IsNew) 
-//                returnValue = repository.Add(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
-//            else
-//                returnValue = repository.Update(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
+           
 
             return returnValue;
-        },
+        };
         this.Cancel = function () {
             viewModel.SelectedItem().Cancel();
             viewModel.SelectedItem("");
-            dialog.Close();
-        }
-
-        this.SuccessfullyRetrievedModelsFromAjax = function (models) {
-            self.Items.removeAll();
-            ko.utils.arrayForEach(models, function (model) {
-                self.Items.push(new AreaIntervento(model.Id,model.IdAreaInterventoSuper, ToDate(model.CreationDate), ToDate(model.Inizio), ToDate(model.Fine), model.Descrizione));
-            });
+            view.CloseDetails();
         };
+
+        this.GetItemsSuccess = function (items) {
+            self.Items.removeAll();
+            ko.utils.arrayForEach(items.results, function (item) {
+                self.Items.push(new AreaIntervento(item.Id,item.IdAreaInterventoSuper, ToDate(item.CreationDate), ToDate(item.Inizio), ToDate(item.Fine), item.Descrizione));
+            });
+            view.Paginate(self.PageNum(),self.PageSize(),items.count,viewModel.GetItems);
+        };
+
+        this.GetItemsError = function(){
+            alert('error');
+        }
     };
-    var viewModel = new ViewModel(new Repository(), new Dialog());
+
+    
+    var viewModel = new ViewModel(new Repository(),new View(), 1, 2);
     ko.applyBindings(viewModel);
 
-    viewModel.GetItems();
+    viewModel.GetItems(viewModel.PageNum());
 
     var details = $("#details"); //div that holds the modal dialog
     var detailsForm = $("#formDetails");
+
+   
 
     
 

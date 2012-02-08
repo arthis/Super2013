@@ -31,9 +31,9 @@ namespace Website.Controllers
         {
             using (var context = new ReadModelContainer())
             {
-                var query = from item in context.Intervento_BasicSet
+                var query = from item in context.ConsuntivoRotabile
                             orderby item.CreationDate
-                            select new { item.Inizio, item.Fine, item.CreationDate, item.IsEseguito };
+                            select new { item.OraInizioProgrammata, item.OraFineProgrammata, item.CreationDate, item.IsReso };
 
                 return this.Json(query.ToArray(), JsonRequestBehavior.AllowGet);
             }

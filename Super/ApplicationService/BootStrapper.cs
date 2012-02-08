@@ -47,7 +47,10 @@ namespace ApplicationService
             _Container.AddFacility("ncqrs.ds", new DynamicSnapshotFacility(asm));
             _Container.Register(Component.For<ISendMessage>().ImplementedBy<MailBox>());
             _Container.Register(Component.For<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>().ImplementedBy<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>());
+            
             _Container.Register(Component.For<AreaInterventoDenormalizer>().ImplementedBy<AreaInterventoDenormalizer>());
+            _Container.Register(Component.For<InterventoRotabileDenormalizer>().ImplementedBy<InterventoRotabileDenormalizer>());
+
             _Container.Register(
                 Component.For<ISnapshottingPolicy>().ImplementedBy<SimpleSnapshottingPolicy>(),
                 Component.For<ICommandService>().Instance(InitializeCommandService()),

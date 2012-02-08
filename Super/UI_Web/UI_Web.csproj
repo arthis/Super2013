@@ -178,6 +178,8 @@
     <Content Include="Content\Themes\ui-lightness\jquery-ui-1.8.17.custom.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\Delete.gif" />
+    <Content Include="Images\Edit.gif" />
     <Content Include="Scripts\dateFormat.js" />
     <Content Include="Scripts\EditorHookup.js" />
     <Content Include="Scripts\functions.js" />
@@ -186,6 +188,8 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="Scripts\jquery.paging.js" />
+    <Content Include="Scripts\jquery.paging.min.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />

@@ -7,9 +7,7 @@
     <Schema Namespace="ReadModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ReadModelStoreContainer">
           <EntitySet Name="AreaIntervento" EntityType="ReadModel.Store.AreaIntervento" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Intervento_Basic" EntityType="ReadModel.Store.Intervento_Basic" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="NoteItemSet" EntityType="ReadModel.Store.NoteItemSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TotalsPerDayItemSet" EntityType="ReadModel.Store.TotalsPerDayItemSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ConsuntivoRotabile" EntityType="ReadModel.Store.ConsuntivoRotabile" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="AreaIntervento">
           <Key>
@@ -23,70 +21,57 @@
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Intervento_Basic">
+        <EntityType Name="ConsuntivoRotabile">
           <Key>
-            <PropertyRef Name="Guid" />
+            <PropertyRef Name="IdIntervento" />
           </Key>
-          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Inizio" Type="datetime" Nullable="false" />
-          <Property Name="Fine" Type="datetime" Nullable="false" />
-          <Property Name="IsEseguito" Type="bit" Nullable="false" />
+          <Property Name="IdIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdInterventoSuper2010" Type="int" Nullable="false" />
+          <Property Name="IdCommittente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAreaIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CodiceOrdine" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsAvvisoIspezione" Type="bit" Nullable="false" />
+          <Property Name="IsSpunta" Type="bit" Nullable="false" />
+          <Property Name="IsReso" Type="bit" Nullable="false" />
+          <Property Name="IsNonResoAppaltatore" Type="bit" Nullable="false" />
+          <Property Name="IsNonReso20mn" Type="bit" Nullable="false" />
+          <Property Name="IsNonResoTrenitalia" Type="bit" Nullable="false" />
+          <Property Name="IsRilevatoNonReso" Type="bit" Nullable="false" />
+          <Property Name="IsRettifica" Type="bit" Nullable="false" />
+          <Property Name="IsSostituito" Type="bit" Nullable="false" />
+          <Property Name="HasSchedaV" Type="bit" Nullable="false" />
+          <Property Name="HasSchedaQ" Type="bit" Nullable="false" />
+          <Property Name="Data" Type="datetime" Nullable="false" />
+          <Property Name="AreaInterventoDescrizione" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="CategoriaTreno" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumeroTrenoPartenza" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataOraTrenoPartenza" Type="datetime" />
+          <Property Name="TipoInterventoDescrizione" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="OraInizioProgrammata" Type="datetime" Nullable="false" />
+          <Property Name="OraFineProgrammata" Type="datetime" Nullable="false" />
+          <Property Name="IsProgrammato" Type="bit" Nullable="false" />
+          <Property Name="IsPLX" Type="bit" Nullable="false" />
+          <Property Name="IsEstemporaneo" Type="bit" Nullable="false" />
+          <Property Name="IsSostitutivo" Type="bit" Nullable="false" />
+          <Property Name="HasTreni" Type="bit" Nullable="false" />
+          <Property Name="HasRotabiliSingoli" Type="bit" Nullable="false" />
+          <Property Name="HasCarozze" Type="bit" Nullable="false" />
+          <Property Name="HasLocomotive" Type="bit" Nullable="false" />
+          <Property Name="IsModificatoTrenitaliaRispettoAlProgramma" Type="bit" Nullable="false" />
+          <Property Name="IsModificatoAppaltatoreRispettoAlProgramma" Type="bit" Nullable="false" />
+          <Property Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Type="bit" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="NoteItemSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Text" Type="varchar" MaxLength="250" />
-          <Property Name="CreationDate" Type="datetime" />
-        </EntityType>
-        <EntityType Name="TotalsPerDayItemSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="NewCount" Type="int" Nullable="false" />
-          <Property Name="EditCount" Type="int" Nullable="false" />
         </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ReadModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="ReadModelContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="NoteItemSet" EntityType="ReadModel.NoteItem" />
-          <EntitySet Name="TotalsPerDayItemSet" EntityType="ReadModel.TotalsPerDayItem" />
-          <EntitySet Name="Intervento_BasicSet" EntityType="ReadModel.Intervento_Basic" />
           <EntitySet Name="AreaIntervento" EntityType="ReadModel.AreaIntervento" />
+          <EntitySet Name="ConsuntivoRotabile" EntityType="ReadModel.ConsuntivoRotabile" />
         </EntityContainer>
-        <EntityType Name="NoteItem">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="String" Name="Text" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="CreationDate" />
-        </EntityType>
-        <EntityType Name="TotalsPerDayItem">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="Date" Nullable="false" />
-          <Property Type="Int32" Name="NewCount" Nullable="false" />
-          <Property Type="Int32" Name="EditCount" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Intervento_Basic">
-          <Key>
-            <PropertyRef Name="Guid" />
-          </Key>
-          <Property Type="Guid" Name="Guid" Nullable="false" />
-          <Property Type="DateTime" Name="Inizio" Nullable="false" />
-          <Property Type="DateTime" Name="Fine" Nullable="false" />
-          <Property Type="Boolean" Name="IsEseguito" Nullable="false" />
-          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
-        </EntityType>
         <EntityType Name="AreaIntervento">
           <Key>
             <PropertyRef Name="Id" />
@@ -99,42 +84,55 @@
           <Property Type="DateTime" Name="CreationDate" Nullable="false" />
           <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
+        <EntityType Name="ConsuntivoRotabile">
+          <Key>
+            <PropertyRef Name="IdIntervento" />
+          </Key>
+          <Property Type="Guid" Name="IdIntervento" Nullable="false" />
+          <Property Type="Int32" Name="IdInterventoSuper2010" Nullable="false" />
+          <Property Type="Guid" Name="IdCommittente" Nullable="false" />
+          <Property Type="Guid" Name="IdLotto" Nullable="false" />
+          <Property Type="Guid" Name="IdAreaIntervento" Nullable="false" />
+          <Property Type="Guid" Name="IdTipoIntervento" Nullable="false" />
+          <Property Type="String" Name="CodiceOrdine" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAvvisoIspezione" Nullable="false" />
+          <Property Type="Boolean" Name="IsSpunta" Nullable="false" />
+          <Property Type="Boolean" Name="IsReso" Nullable="false" />
+          <Property Type="Boolean" Name="IsNonResoAppaltatore" Nullable="false" />
+          <Property Type="Boolean" Name="IsNonReso20mn" Nullable="false" />
+          <Property Type="Boolean" Name="IsNonResoTrenitalia" Nullable="false" />
+          <Property Type="Boolean" Name="IsRilevatoNonReso" Nullable="false" />
+          <Property Type="Boolean" Name="IsRettifica" Nullable="false" />
+          <Property Type="Boolean" Name="IsSostituito" Nullable="false" />
+          <Property Type="Boolean" Name="HasSchedaV" Nullable="false" />
+          <Property Type="Boolean" Name="HasSchedaQ" Nullable="false" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+          <Property Type="String" Name="AreaInterventoDescrizione" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CategoriaTreno" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumeroTrenoPartenza" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataOraTrenoPartenza" />
+          <Property Type="String" Name="TipoInterventoDescrizione" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="OraInizioProgrammata" Nullable="false" />
+          <Property Type="DateTime" Name="OraFineProgrammata" Nullable="false" />
+          <Property Type="Boolean" Name="IsProgrammato" Nullable="false" />
+          <Property Type="Boolean" Name="IsPLX" Nullable="false" />
+          <Property Type="Boolean" Name="IsEstemporaneo" Nullable="false" />
+          <Property Type="Boolean" Name="IsSostitutivo" Nullable="false" />
+          <Property Type="Boolean" Name="HasTreni" Nullable="false" />
+          <Property Type="Boolean" Name="HasRotabiliSingoli" Nullable="false" />
+          <Property Type="Boolean" Name="HasCarozze" Nullable="false" />
+          <Property Type="Boolean" Name="HasLocomotive" Nullable="false" />
+          <Property Type="Boolean" Name="IsModificatoTrenitaliaRispettoAlProgramma" Nullable="false" />
+          <Property Type="Boolean" Name="IsModificatoAppaltatoreRispettoAlProgramma" Nullable="false" />
+          <Property Type="Boolean" Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ReadModelStoreContainer" CdmEntityContainer="ReadModelContainer">
-    <EntitySetMapping Name="NoteItemSet">
-      <EntityTypeMapping TypeName="IsTypeOf(ReadModel.NoteItem)">
-        <MappingFragment StoreEntitySet="NoteItemSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Text" ColumnName="Text" />
-          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TotalsPerDayItemSet">
-      <EntityTypeMapping TypeName="IsTypeOf(ReadModel.TotalsPerDayItem)">
-        <MappingFragment StoreEntitySet="TotalsPerDayItemSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="NewCount" ColumnName="NewCount" />
-          <ScalarProperty Name="EditCount" ColumnName="EditCount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-          <EntitySetMapping Name="Intervento_BasicSet">
-            <EntityTypeMapping TypeName="ReadModel.Intervento_Basic">
-              <MappingFragment StoreEntitySet="Intervento_Basic">
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="IsEseguito" ColumnName="IsEseguito" />
-                <ScalarProperty Name="Fine" ColumnName="Fine" />
-                <ScalarProperty Name="Inizio" ColumnName="Inizio" />
-                <ScalarProperty Name="Guid" ColumnName="Guid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AreaIntervento">
             <EntityTypeMapping TypeName="ReadModel.AreaIntervento">
               <MappingFragment StoreEntitySet="AreaIntervento">
@@ -145,6 +143,50 @@
                 <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
                 <ScalarProperty Name="IdAreaInterventoSuper" ColumnName="IdAreaInterventoSuper" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConsuntivoRotabile">
+            <EntityTypeMapping TypeName="ReadModel.ConsuntivoRotabile">
+              <MappingFragment StoreEntitySet="ConsuntivoRotabile">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="IsModificatoTrenitaliaRispettoAllAppaltatore" ColumnName="IsModificatoTrenitaliaRispettoAllAppaltatore" />
+                <ScalarProperty Name="IsModificatoAppaltatoreRispettoAlProgramma" ColumnName="IsModificatoAppaltatoreRispettoAlProgramma" />
+                <ScalarProperty Name="IsModificatoTrenitaliaRispettoAlProgramma" ColumnName="IsModificatoTrenitaliaRispettoAlProgramma" />
+                <ScalarProperty Name="HasLocomotive" ColumnName="HasLocomotive" />
+                <ScalarProperty Name="HasCarozze" ColumnName="HasCarozze" />
+                <ScalarProperty Name="HasRotabiliSingoli" ColumnName="HasRotabiliSingoli" />
+                <ScalarProperty Name="HasTreni" ColumnName="HasTreni" />
+                <ScalarProperty Name="IsSostitutivo" ColumnName="IsSostitutivo" />
+                <ScalarProperty Name="IsEstemporaneo" ColumnName="IsEstemporaneo" />
+                <ScalarProperty Name="IsPLX" ColumnName="IsPLX" />
+                <ScalarProperty Name="IsProgrammato" ColumnName="IsProgrammato" />
+                <ScalarProperty Name="OraFineProgrammata" ColumnName="OraFineProgrammata" />
+                <ScalarProperty Name="OraInizioProgrammata" ColumnName="OraInizioProgrammata" />
+                <ScalarProperty Name="TipoInterventoDescrizione" ColumnName="TipoInterventoDescrizione" />
+                <ScalarProperty Name="DataOraTrenoPartenza" ColumnName="DataOraTrenoPartenza" />
+                <ScalarProperty Name="NumeroTrenoPartenza" ColumnName="NumeroTrenoPartenza" />
+                <ScalarProperty Name="CategoriaTreno" ColumnName="CategoriaTreno" />
+                <ScalarProperty Name="AreaInterventoDescrizione" ColumnName="AreaInterventoDescrizione" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="HasSchedaQ" ColumnName="HasSchedaQ" />
+                <ScalarProperty Name="HasSchedaV" ColumnName="HasSchedaV" />
+                <ScalarProperty Name="IsSostituito" ColumnName="IsSostituito" />
+                <ScalarProperty Name="IsRettifica" ColumnName="IsRettifica" />
+                <ScalarProperty Name="IsRilevatoNonReso" ColumnName="IsRilevatoNonReso" />
+                <ScalarProperty Name="IsNonResoTrenitalia" ColumnName="IsNonResoTrenitalia" />
+                <ScalarProperty Name="IsNonReso20mn" ColumnName="IsNonReso20mn" />
+                <ScalarProperty Name="IsNonResoAppaltatore" ColumnName="IsNonResoAppaltatore" />
+                <ScalarProperty Name="IsReso" ColumnName="IsReso" />
+                <ScalarProperty Name="IsSpunta" ColumnName="IsSpunta" />
+                <ScalarProperty Name="IsAvvisoIspezione" ColumnName="IsAvvisoIspezione" />
+                <ScalarProperty Name="CodiceOrdine" ColumnName="CodiceOrdine" />
+                <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+                <ScalarProperty Name="IdAreaIntervento" ColumnName="IdAreaIntervento" />
+                <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+                <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+                <ScalarProperty Name="IdInterventoSuper2010" ColumnName="IdInterventoSuper2010" />
+                <ScalarProperty Name="IdIntervento" ColumnName="IdIntervento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -168,10 +210,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="ReadModel" >
-        <EntityTypeShape EntityType="ReadModel.NoteItem" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="ReadModel.TotalsPerDayItem" Width="1.5" PointX="2.625" PointY="0.75" Height="1.787985026041667" />
-        <EntityTypeShape EntityType="ReadModel.Intervento_Basic" Width="1.5" PointX="4.625" PointY="0.875" Height="1.9802864583333335" />
-        <EntityTypeShape EntityType="ReadModel.AreaIntervento" Width="1.5" PointX="0.75" PointY="3.75" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="ReadModel.AreaIntervento" Width="1.5" PointX="0.5" PointY="1.125" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="ReadModel.ConsuntivoRotabile" Width="1.5" PointX="3.125" PointY="1.125" Height="8.3262337239583353" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

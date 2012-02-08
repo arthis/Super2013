@@ -2,6 +2,7 @@
 { ViewData["koObservablePrefix"] = ViewData["koObservablePrefix"] + "()."; }
 @Html.TextBox("", Model, new
 {
+    @class = ViewData["class"],
     width = 100,
     // or you could also use ViewData.ModelMetadata.PropertyName if you want to get only the property name 
     //and not the entire navigation hierarchy

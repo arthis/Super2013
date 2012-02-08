@@ -68,54 +68,6 @@ namespace ReadModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<NoteItem> NoteItemSet
-        {
-            get
-            {
-                if ((_NoteItemSet == null))
-                {
-                    _NoteItemSet = base.CreateObjectSet<NoteItem>("NoteItemSet");
-                }
-                return _NoteItemSet;
-            }
-        }
-        private ObjectSet<NoteItem> _NoteItemSet;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<TotalsPerDayItem> TotalsPerDayItemSet
-        {
-            get
-            {
-                if ((_TotalsPerDayItemSet == null))
-                {
-                    _TotalsPerDayItemSet = base.CreateObjectSet<TotalsPerDayItem>("TotalsPerDayItemSet");
-                }
-                return _TotalsPerDayItemSet;
-            }
-        }
-        private ObjectSet<TotalsPerDayItem> _TotalsPerDayItemSet;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Intervento_Basic> Intervento_BasicSet
-        {
-            get
-            {
-                if ((_Intervento_BasicSet == null))
-                {
-                    _Intervento_BasicSet = base.CreateObjectSet<Intervento_Basic>("Intervento_BasicSet");
-                }
-                return _Intervento_BasicSet;
-            }
-        }
-        private ObjectSet<Intervento_Basic> _Intervento_BasicSet;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<AreaIntervento> AreaIntervento
         {
             get
@@ -128,33 +80,25 @@ namespace ReadModel
             }
         }
         private ObjectSet<AreaIntervento> _AreaIntervento;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ConsuntivoRotabile> ConsuntivoRotabile
+        {
+            get
+            {
+                if ((_ConsuntivoRotabile == null))
+                {
+                    _ConsuntivoRotabile = base.CreateObjectSet<ConsuntivoRotabile>("ConsuntivoRotabile");
+                }
+                return _ConsuntivoRotabile;
+            }
+        }
+        private ObjectSet<ConsuntivoRotabile> _ConsuntivoRotabile;
 
         #endregion
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the NoteItemSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToNoteItemSet(NoteItem noteItem)
-        {
-            base.AddObject("NoteItemSet", noteItem);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the TotalsPerDayItemSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTotalsPerDayItemSet(TotalsPerDayItem totalsPerDayItem)
-        {
-            base.AddObject("TotalsPerDayItemSet", totalsPerDayItem);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Intervento_BasicSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToIntervento_BasicSet(Intervento_Basic intervento_Basic)
-        {
-            base.AddObject("Intervento_BasicSet", intervento_Basic);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the AreaIntervento EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -162,6 +106,14 @@ namespace ReadModel
         public void AddToAreaIntervento(AreaIntervento areaIntervento)
         {
             base.AddObject("AreaIntervento", areaIntervento);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ConsuntivoRotabile EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToConsuntivoRotabile(ConsuntivoRotabile consuntivoRotabile)
+        {
+            base.AddObject("ConsuntivoRotabile", consuntivoRotabile);
         }
 
         #endregion
@@ -380,30 +332,88 @@ namespace ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ReadModel", Name="Intervento_Basic")]
+    [EdmEntityTypeAttribute(NamespaceName="ReadModel", Name="ConsuntivoRotabile")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Intervento_Basic : EntityObject
+    public partial class ConsuntivoRotabile : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Intervento_Basic object.
+        /// Create a new ConsuntivoRotabile object.
         /// </summary>
-        /// <param name="guid">Initial value of the Guid property.</param>
-        /// <param name="inizio">Initial value of the Inizio property.</param>
-        /// <param name="fine">Initial value of the Fine property.</param>
-        /// <param name="isEseguito">Initial value of the IsEseguito property.</param>
+        /// <param name="idIntervento">Initial value of the IdIntervento property.</param>
+        /// <param name="idInterventoSuper2010">Initial value of the IdInterventoSuper2010 property.</param>
+        /// <param name="idCommittente">Initial value of the IdCommittente property.</param>
+        /// <param name="idLotto">Initial value of the IdLotto property.</param>
+        /// <param name="idAreaIntervento">Initial value of the IdAreaIntervento property.</param>
+        /// <param name="idTipoIntervento">Initial value of the IdTipoIntervento property.</param>
+        /// <param name="isAvvisoIspezione">Initial value of the IsAvvisoIspezione property.</param>
+        /// <param name="isSpunta">Initial value of the IsSpunta property.</param>
+        /// <param name="isReso">Initial value of the IsReso property.</param>
+        /// <param name="isNonResoAppaltatore">Initial value of the IsNonResoAppaltatore property.</param>
+        /// <param name="isNonReso20mn">Initial value of the IsNonReso20mn property.</param>
+        /// <param name="isNonResoTrenitalia">Initial value of the IsNonResoTrenitalia property.</param>
+        /// <param name="isRilevatoNonReso">Initial value of the IsRilevatoNonReso property.</param>
+        /// <param name="isRettifica">Initial value of the IsRettifica property.</param>
+        /// <param name="isSostituito">Initial value of the IsSostituito property.</param>
+        /// <param name="hasSchedaV">Initial value of the HasSchedaV property.</param>
+        /// <param name="hasSchedaQ">Initial value of the HasSchedaQ property.</param>
+        /// <param name="data">Initial value of the Data property.</param>
+        /// <param name="areaInterventoDescrizione">Initial value of the AreaInterventoDescrizione property.</param>
+        /// <param name="tipoInterventoDescrizione">Initial value of the TipoInterventoDescrizione property.</param>
+        /// <param name="oraInizioProgrammata">Initial value of the OraInizioProgrammata property.</param>
+        /// <param name="oraFineProgrammata">Initial value of the OraFineProgrammata property.</param>
+        /// <param name="isProgrammato">Initial value of the IsProgrammato property.</param>
+        /// <param name="isPLX">Initial value of the IsPLX property.</param>
+        /// <param name="isEstemporaneo">Initial value of the IsEstemporaneo property.</param>
+        /// <param name="isSostitutivo">Initial value of the IsSostitutivo property.</param>
+        /// <param name="hasTreni">Initial value of the HasTreni property.</param>
+        /// <param name="hasRotabiliSingoli">Initial value of the HasRotabiliSingoli property.</param>
+        /// <param name="hasCarozze">Initial value of the HasCarozze property.</param>
+        /// <param name="hasLocomotive">Initial value of the HasLocomotive property.</param>
+        /// <param name="isModificatoTrenitaliaRispettoAlProgramma">Initial value of the IsModificatoTrenitaliaRispettoAlProgramma property.</param>
+        /// <param name="isModificatoAppaltatoreRispettoAlProgramma">Initial value of the IsModificatoAppaltatoreRispettoAlProgramma property.</param>
+        /// <param name="isModificatoTrenitaliaRispettoAllAppaltatore">Initial value of the IsModificatoTrenitaliaRispettoAllAppaltatore property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
-        public static Intervento_Basic CreateIntervento_Basic(global::System.Guid guid, global::System.DateTime inizio, global::System.DateTime fine, global::System.Boolean isEseguito, global::System.DateTime creationDate)
+        public static ConsuntivoRotabile CreateConsuntivoRotabile(global::System.Guid idIntervento, global::System.Int32 idInterventoSuper2010, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idAreaIntervento, global::System.Guid idTipoIntervento, global::System.Boolean isAvvisoIspezione, global::System.Boolean isSpunta, global::System.Boolean isReso, global::System.Boolean isNonResoAppaltatore, global::System.Boolean isNonReso20mn, global::System.Boolean isNonResoTrenitalia, global::System.Boolean isRilevatoNonReso, global::System.Boolean isRettifica, global::System.Boolean isSostituito, global::System.Boolean hasSchedaV, global::System.Boolean hasSchedaQ, global::System.DateTime data, global::System.String areaInterventoDescrizione, global::System.String tipoInterventoDescrizione, global::System.DateTime oraInizioProgrammata, global::System.DateTime oraFineProgrammata, global::System.Boolean isProgrammato, global::System.Boolean isPLX, global::System.Boolean isEstemporaneo, global::System.Boolean isSostitutivo, global::System.Boolean hasTreni, global::System.Boolean hasRotabiliSingoli, global::System.Boolean hasCarozze, global::System.Boolean hasLocomotive, global::System.Boolean isModificatoTrenitaliaRispettoAlProgramma, global::System.Boolean isModificatoAppaltatoreRispettoAlProgramma, global::System.Boolean isModificatoTrenitaliaRispettoAllAppaltatore, global::System.DateTime creationDate)
         {
-            Intervento_Basic intervento_Basic = new Intervento_Basic();
-            intervento_Basic.Guid = guid;
-            intervento_Basic.Inizio = inizio;
-            intervento_Basic.Fine = fine;
-            intervento_Basic.IsEseguito = isEseguito;
-            intervento_Basic.CreationDate = creationDate;
-            return intervento_Basic;
+            ConsuntivoRotabile consuntivoRotabile = new ConsuntivoRotabile();
+            consuntivoRotabile.IdIntervento = idIntervento;
+            consuntivoRotabile.IdInterventoSuper2010 = idInterventoSuper2010;
+            consuntivoRotabile.IdCommittente = idCommittente;
+            consuntivoRotabile.IdLotto = idLotto;
+            consuntivoRotabile.IdAreaIntervento = idAreaIntervento;
+            consuntivoRotabile.IdTipoIntervento = idTipoIntervento;
+            consuntivoRotabile.IsAvvisoIspezione = isAvvisoIspezione;
+            consuntivoRotabile.IsSpunta = isSpunta;
+            consuntivoRotabile.IsReso = isReso;
+            consuntivoRotabile.IsNonResoAppaltatore = isNonResoAppaltatore;
+            consuntivoRotabile.IsNonReso20mn = isNonReso20mn;
+            consuntivoRotabile.IsNonResoTrenitalia = isNonResoTrenitalia;
+            consuntivoRotabile.IsRilevatoNonReso = isRilevatoNonReso;
+            consuntivoRotabile.IsRettifica = isRettifica;
+            consuntivoRotabile.IsSostituito = isSostituito;
+            consuntivoRotabile.HasSchedaV = hasSchedaV;
+            consuntivoRotabile.HasSchedaQ = hasSchedaQ;
+            consuntivoRotabile.Data = data;
+            consuntivoRotabile.AreaInterventoDescrizione = areaInterventoDescrizione;
+            consuntivoRotabile.TipoInterventoDescrizione = tipoInterventoDescrizione;
+            consuntivoRotabile.OraInizioProgrammata = oraInizioProgrammata;
+            consuntivoRotabile.OraFineProgrammata = oraFineProgrammata;
+            consuntivoRotabile.IsProgrammato = isProgrammato;
+            consuntivoRotabile.IsPLX = isPLX;
+            consuntivoRotabile.IsEstemporaneo = isEstemporaneo;
+            consuntivoRotabile.IsSostitutivo = isSostitutivo;
+            consuntivoRotabile.HasTreni = hasTreni;
+            consuntivoRotabile.HasRotabiliSingoli = hasRotabiliSingoli;
+            consuntivoRotabile.HasCarozze = hasCarozze;
+            consuntivoRotabile.HasLocomotive = hasLocomotive;
+            consuntivoRotabile.IsModificatoTrenitaliaRispettoAlProgramma = isModificatoTrenitaliaRispettoAlProgramma;
+            consuntivoRotabile.IsModificatoAppaltatoreRispettoAlProgramma = isModificatoAppaltatoreRispettoAlProgramma;
+            consuntivoRotabile.IsModificatoTrenitaliaRispettoAllAppaltatore = isModificatoTrenitaliaRispettoAllAppaltatore;
+            consuntivoRotabile.CreationDate = creationDate;
+            return consuntivoRotabile;
         }
 
         #endregion
@@ -414,99 +424,891 @@ namespace ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Guid Guid
+        public global::System.Guid IdIntervento
         {
             get
             {
-                return _Guid;
+                return _IdIntervento;
             }
             set
             {
-                if (_Guid != value)
+                if (_IdIntervento != value)
                 {
-                    OnGuidChanging(value);
-                    ReportPropertyChanging("Guid");
-                    _Guid = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Guid");
-                    OnGuidChanged();
+                    OnIdInterventoChanging(value);
+                    ReportPropertyChanging("IdIntervento");
+                    _IdIntervento = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdIntervento");
+                    OnIdInterventoChanged();
                 }
             }
         }
-        private global::System.Guid _Guid;
-        partial void OnGuidChanging(global::System.Guid value);
-        partial void OnGuidChanged();
+        private global::System.Guid _IdIntervento;
+        partial void OnIdInterventoChanging(global::System.Guid value);
+        partial void OnIdInterventoChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime Inizio
+        public global::System.Int32 IdInterventoSuper2010
         {
             get
             {
-                return _Inizio;
+                return _IdInterventoSuper2010;
             }
             set
             {
-                OnInizioChanging(value);
-                ReportPropertyChanging("Inizio");
-                _Inizio = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Inizio");
-                OnInizioChanged();
+                OnIdInterventoSuper2010Changing(value);
+                ReportPropertyChanging("IdInterventoSuper2010");
+                _IdInterventoSuper2010 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdInterventoSuper2010");
+                OnIdInterventoSuper2010Changed();
             }
         }
-        private global::System.DateTime _Inizio;
-        partial void OnInizioChanging(global::System.DateTime value);
-        partial void OnInizioChanged();
+        private global::System.Int32 _IdInterventoSuper2010;
+        partial void OnIdInterventoSuper2010Changing(global::System.Int32 value);
+        partial void OnIdInterventoSuper2010Changed();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime Fine
+        public global::System.Guid IdCommittente
         {
             get
             {
-                return _Fine;
+                return _IdCommittente;
             }
             set
             {
-                OnFineChanging(value);
-                ReportPropertyChanging("Fine");
-                _Fine = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Fine");
-                OnFineChanged();
+                OnIdCommittenteChanging(value);
+                ReportPropertyChanging("IdCommittente");
+                _IdCommittente = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCommittente");
+                OnIdCommittenteChanged();
             }
         }
-        private global::System.DateTime _Fine;
-        partial void OnFineChanging(global::System.DateTime value);
-        partial void OnFineChanged();
+        private global::System.Guid _IdCommittente;
+        partial void OnIdCommittenteChanging(global::System.Guid value);
+        partial void OnIdCommittenteChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Boolean IsEseguito
+        public global::System.Guid IdLotto
         {
             get
             {
-                return _IsEseguito;
+                return _IdLotto;
             }
             set
             {
-                OnIsEseguitoChanging(value);
-                ReportPropertyChanging("IsEseguito");
-                _IsEseguito = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsEseguito");
-                OnIsEseguitoChanged();
+                OnIdLottoChanging(value);
+                ReportPropertyChanging("IdLotto");
+                _IdLotto = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdLotto");
+                OnIdLottoChanged();
             }
         }
-        private global::System.Boolean _IsEseguito;
-        partial void OnIsEseguitoChanging(global::System.Boolean value);
-        partial void OnIsEseguitoChanged();
+        private global::System.Guid _IdLotto;
+        partial void OnIdLottoChanging(global::System.Guid value);
+        partial void OnIdLottoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid IdAreaIntervento
+        {
+            get
+            {
+                return _IdAreaIntervento;
+            }
+            set
+            {
+                OnIdAreaInterventoChanging(value);
+                ReportPropertyChanging("IdAreaIntervento");
+                _IdAreaIntervento = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdAreaIntervento");
+                OnIdAreaInterventoChanged();
+            }
+        }
+        private global::System.Guid _IdAreaIntervento;
+        partial void OnIdAreaInterventoChanging(global::System.Guid value);
+        partial void OnIdAreaInterventoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid IdTipoIntervento
+        {
+            get
+            {
+                return _IdTipoIntervento;
+            }
+            set
+            {
+                OnIdTipoInterventoChanging(value);
+                ReportPropertyChanging("IdTipoIntervento");
+                _IdTipoIntervento = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdTipoIntervento");
+                OnIdTipoInterventoChanged();
+            }
+        }
+        private global::System.Guid _IdTipoIntervento;
+        partial void OnIdTipoInterventoChanging(global::System.Guid value);
+        partial void OnIdTipoInterventoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CodiceOrdine
+        {
+            get
+            {
+                return _CodiceOrdine;
+            }
+            set
+            {
+                OnCodiceOrdineChanging(value);
+                ReportPropertyChanging("CodiceOrdine");
+                _CodiceOrdine = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CodiceOrdine");
+                OnCodiceOrdineChanged();
+            }
+        }
+        private global::System.String _CodiceOrdine;
+        partial void OnCodiceOrdineChanging(global::System.String value);
+        partial void OnCodiceOrdineChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsAvvisoIspezione
+        {
+            get
+            {
+                return _IsAvvisoIspezione;
+            }
+            set
+            {
+                OnIsAvvisoIspezioneChanging(value);
+                ReportPropertyChanging("IsAvvisoIspezione");
+                _IsAvvisoIspezione = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsAvvisoIspezione");
+                OnIsAvvisoIspezioneChanged();
+            }
+        }
+        private global::System.Boolean _IsAvvisoIspezione;
+        partial void OnIsAvvisoIspezioneChanging(global::System.Boolean value);
+        partial void OnIsAvvisoIspezioneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsSpunta
+        {
+            get
+            {
+                return _IsSpunta;
+            }
+            set
+            {
+                OnIsSpuntaChanging(value);
+                ReportPropertyChanging("IsSpunta");
+                _IsSpunta = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsSpunta");
+                OnIsSpuntaChanged();
+            }
+        }
+        private global::System.Boolean _IsSpunta;
+        partial void OnIsSpuntaChanging(global::System.Boolean value);
+        partial void OnIsSpuntaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsReso
+        {
+            get
+            {
+                return _IsReso;
+            }
+            set
+            {
+                OnIsResoChanging(value);
+                ReportPropertyChanging("IsReso");
+                _IsReso = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsReso");
+                OnIsResoChanged();
+            }
+        }
+        private global::System.Boolean _IsReso;
+        partial void OnIsResoChanging(global::System.Boolean value);
+        partial void OnIsResoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsNonResoAppaltatore
+        {
+            get
+            {
+                return _IsNonResoAppaltatore;
+            }
+            set
+            {
+                OnIsNonResoAppaltatoreChanging(value);
+                ReportPropertyChanging("IsNonResoAppaltatore");
+                _IsNonResoAppaltatore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsNonResoAppaltatore");
+                OnIsNonResoAppaltatoreChanged();
+            }
+        }
+        private global::System.Boolean _IsNonResoAppaltatore;
+        partial void OnIsNonResoAppaltatoreChanging(global::System.Boolean value);
+        partial void OnIsNonResoAppaltatoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsNonReso20mn
+        {
+            get
+            {
+                return _IsNonReso20mn;
+            }
+            set
+            {
+                OnIsNonReso20mnChanging(value);
+                ReportPropertyChanging("IsNonReso20mn");
+                _IsNonReso20mn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsNonReso20mn");
+                OnIsNonReso20mnChanged();
+            }
+        }
+        private global::System.Boolean _IsNonReso20mn;
+        partial void OnIsNonReso20mnChanging(global::System.Boolean value);
+        partial void OnIsNonReso20mnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsNonResoTrenitalia
+        {
+            get
+            {
+                return _IsNonResoTrenitalia;
+            }
+            set
+            {
+                OnIsNonResoTrenitaliaChanging(value);
+                ReportPropertyChanging("IsNonResoTrenitalia");
+                _IsNonResoTrenitalia = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsNonResoTrenitalia");
+                OnIsNonResoTrenitaliaChanged();
+            }
+        }
+        private global::System.Boolean _IsNonResoTrenitalia;
+        partial void OnIsNonResoTrenitaliaChanging(global::System.Boolean value);
+        partial void OnIsNonResoTrenitaliaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsRilevatoNonReso
+        {
+            get
+            {
+                return _IsRilevatoNonReso;
+            }
+            set
+            {
+                OnIsRilevatoNonResoChanging(value);
+                ReportPropertyChanging("IsRilevatoNonReso");
+                _IsRilevatoNonReso = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsRilevatoNonReso");
+                OnIsRilevatoNonResoChanged();
+            }
+        }
+        private global::System.Boolean _IsRilevatoNonReso;
+        partial void OnIsRilevatoNonResoChanging(global::System.Boolean value);
+        partial void OnIsRilevatoNonResoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsRettifica
+        {
+            get
+            {
+                return _IsRettifica;
+            }
+            set
+            {
+                OnIsRettificaChanging(value);
+                ReportPropertyChanging("IsRettifica");
+                _IsRettifica = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsRettifica");
+                OnIsRettificaChanged();
+            }
+        }
+        private global::System.Boolean _IsRettifica;
+        partial void OnIsRettificaChanging(global::System.Boolean value);
+        partial void OnIsRettificaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsSostituito
+        {
+            get
+            {
+                return _IsSostituito;
+            }
+            set
+            {
+                OnIsSostituitoChanging(value);
+                ReportPropertyChanging("IsSostituito");
+                _IsSostituito = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsSostituito");
+                OnIsSostituitoChanged();
+            }
+        }
+        private global::System.Boolean _IsSostituito;
+        partial void OnIsSostituitoChanging(global::System.Boolean value);
+        partial void OnIsSostituitoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean HasSchedaV
+        {
+            get
+            {
+                return _HasSchedaV;
+            }
+            set
+            {
+                OnHasSchedaVChanging(value);
+                ReportPropertyChanging("HasSchedaV");
+                _HasSchedaV = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HasSchedaV");
+                OnHasSchedaVChanged();
+            }
+        }
+        private global::System.Boolean _HasSchedaV;
+        partial void OnHasSchedaVChanging(global::System.Boolean value);
+        partial void OnHasSchedaVChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean HasSchedaQ
+        {
+            get
+            {
+                return _HasSchedaQ;
+            }
+            set
+            {
+                OnHasSchedaQChanging(value);
+                ReportPropertyChanging("HasSchedaQ");
+                _HasSchedaQ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HasSchedaQ");
+                OnHasSchedaQChanged();
+            }
+        }
+        private global::System.Boolean _HasSchedaQ;
+        partial void OnHasSchedaQChanging(global::System.Boolean value);
+        partial void OnHasSchedaQChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Data
+        {
+            get
+            {
+                return _Data;
+            }
+            set
+            {
+                OnDataChanging(value);
+                ReportPropertyChanging("Data");
+                _Data = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Data");
+                OnDataChanged();
+            }
+        }
+        private global::System.DateTime _Data;
+        partial void OnDataChanging(global::System.DateTime value);
+        partial void OnDataChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String AreaInterventoDescrizione
+        {
+            get
+            {
+                return _AreaInterventoDescrizione;
+            }
+            set
+            {
+                OnAreaInterventoDescrizioneChanging(value);
+                ReportPropertyChanging("AreaInterventoDescrizione");
+                _AreaInterventoDescrizione = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("AreaInterventoDescrizione");
+                OnAreaInterventoDescrizioneChanged();
+            }
+        }
+        private global::System.String _AreaInterventoDescrizione;
+        partial void OnAreaInterventoDescrizioneChanging(global::System.String value);
+        partial void OnAreaInterventoDescrizioneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CategoriaTreno
+        {
+            get
+            {
+                return _CategoriaTreno;
+            }
+            set
+            {
+                OnCategoriaTrenoChanging(value);
+                ReportPropertyChanging("CategoriaTreno");
+                _CategoriaTreno = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CategoriaTreno");
+                OnCategoriaTrenoChanged();
+            }
+        }
+        private global::System.String _CategoriaTreno;
+        partial void OnCategoriaTrenoChanging(global::System.String value);
+        partial void OnCategoriaTrenoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NumeroTrenoPartenza
+        {
+            get
+            {
+                return _NumeroTrenoPartenza;
+            }
+            set
+            {
+                OnNumeroTrenoPartenzaChanging(value);
+                ReportPropertyChanging("NumeroTrenoPartenza");
+                _NumeroTrenoPartenza = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NumeroTrenoPartenza");
+                OnNumeroTrenoPartenzaChanged();
+            }
+        }
+        private global::System.String _NumeroTrenoPartenza;
+        partial void OnNumeroTrenoPartenzaChanging(global::System.String value);
+        partial void OnNumeroTrenoPartenzaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataOraTrenoPartenza
+        {
+            get
+            {
+                return _DataOraTrenoPartenza;
+            }
+            set
+            {
+                OnDataOraTrenoPartenzaChanging(value);
+                ReportPropertyChanging("DataOraTrenoPartenza");
+                _DataOraTrenoPartenza = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DataOraTrenoPartenza");
+                OnDataOraTrenoPartenzaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataOraTrenoPartenza;
+        partial void OnDataOraTrenoPartenzaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataOraTrenoPartenzaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TipoInterventoDescrizione
+        {
+            get
+            {
+                return _TipoInterventoDescrizione;
+            }
+            set
+            {
+                OnTipoInterventoDescrizioneChanging(value);
+                ReportPropertyChanging("TipoInterventoDescrizione");
+                _TipoInterventoDescrizione = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TipoInterventoDescrizione");
+                OnTipoInterventoDescrizioneChanged();
+            }
+        }
+        private global::System.String _TipoInterventoDescrizione;
+        partial void OnTipoInterventoDescrizioneChanging(global::System.String value);
+        partial void OnTipoInterventoDescrizioneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime OraInizioProgrammata
+        {
+            get
+            {
+                return _OraInizioProgrammata;
+            }
+            set
+            {
+                OnOraInizioProgrammataChanging(value);
+                ReportPropertyChanging("OraInizioProgrammata");
+                _OraInizioProgrammata = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("OraInizioProgrammata");
+                OnOraInizioProgrammataChanged();
+            }
+        }
+        private global::System.DateTime _OraInizioProgrammata;
+        partial void OnOraInizioProgrammataChanging(global::System.DateTime value);
+        partial void OnOraInizioProgrammataChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime OraFineProgrammata
+        {
+            get
+            {
+                return _OraFineProgrammata;
+            }
+            set
+            {
+                OnOraFineProgrammataChanging(value);
+                ReportPropertyChanging("OraFineProgrammata");
+                _OraFineProgrammata = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("OraFineProgrammata");
+                OnOraFineProgrammataChanged();
+            }
+        }
+        private global::System.DateTime _OraFineProgrammata;
+        partial void OnOraFineProgrammataChanging(global::System.DateTime value);
+        partial void OnOraFineProgrammataChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsProgrammato
+        {
+            get
+            {
+                return _IsProgrammato;
+            }
+            set
+            {
+                OnIsProgrammatoChanging(value);
+                ReportPropertyChanging("IsProgrammato");
+                _IsProgrammato = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsProgrammato");
+                OnIsProgrammatoChanged();
+            }
+        }
+        private global::System.Boolean _IsProgrammato;
+        partial void OnIsProgrammatoChanging(global::System.Boolean value);
+        partial void OnIsProgrammatoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsPLX
+        {
+            get
+            {
+                return _IsPLX;
+            }
+            set
+            {
+                OnIsPLXChanging(value);
+                ReportPropertyChanging("IsPLX");
+                _IsPLX = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsPLX");
+                OnIsPLXChanged();
+            }
+        }
+        private global::System.Boolean _IsPLX;
+        partial void OnIsPLXChanging(global::System.Boolean value);
+        partial void OnIsPLXChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsEstemporaneo
+        {
+            get
+            {
+                return _IsEstemporaneo;
+            }
+            set
+            {
+                OnIsEstemporaneoChanging(value);
+                ReportPropertyChanging("IsEstemporaneo");
+                _IsEstemporaneo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEstemporaneo");
+                OnIsEstemporaneoChanged();
+            }
+        }
+        private global::System.Boolean _IsEstemporaneo;
+        partial void OnIsEstemporaneoChanging(global::System.Boolean value);
+        partial void OnIsEstemporaneoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsSostitutivo
+        {
+            get
+            {
+                return _IsSostitutivo;
+            }
+            set
+            {
+                OnIsSostitutivoChanging(value);
+                ReportPropertyChanging("IsSostitutivo");
+                _IsSostitutivo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsSostitutivo");
+                OnIsSostitutivoChanged();
+            }
+        }
+        private global::System.Boolean _IsSostitutivo;
+        partial void OnIsSostitutivoChanging(global::System.Boolean value);
+        partial void OnIsSostitutivoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean HasTreni
+        {
+            get
+            {
+                return _HasTreni;
+            }
+            set
+            {
+                OnHasTreniChanging(value);
+                ReportPropertyChanging("HasTreni");
+                _HasTreni = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HasTreni");
+                OnHasTreniChanged();
+            }
+        }
+        private global::System.Boolean _HasTreni;
+        partial void OnHasTreniChanging(global::System.Boolean value);
+        partial void OnHasTreniChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean HasRotabiliSingoli
+        {
+            get
+            {
+                return _HasRotabiliSingoli;
+            }
+            set
+            {
+                OnHasRotabiliSingoliChanging(value);
+                ReportPropertyChanging("HasRotabiliSingoli");
+                _HasRotabiliSingoli = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HasRotabiliSingoli");
+                OnHasRotabiliSingoliChanged();
+            }
+        }
+        private global::System.Boolean _HasRotabiliSingoli;
+        partial void OnHasRotabiliSingoliChanging(global::System.Boolean value);
+        partial void OnHasRotabiliSingoliChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean HasCarozze
+        {
+            get
+            {
+                return _HasCarozze;
+            }
+            set
+            {
+                OnHasCarozzeChanging(value);
+                ReportPropertyChanging("HasCarozze");
+                _HasCarozze = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HasCarozze");
+                OnHasCarozzeChanged();
+            }
+        }
+        private global::System.Boolean _HasCarozze;
+        partial void OnHasCarozzeChanging(global::System.Boolean value);
+        partial void OnHasCarozzeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean HasLocomotive
+        {
+            get
+            {
+                return _HasLocomotive;
+            }
+            set
+            {
+                OnHasLocomotiveChanging(value);
+                ReportPropertyChanging("HasLocomotive");
+                _HasLocomotive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HasLocomotive");
+                OnHasLocomotiveChanged();
+            }
+        }
+        private global::System.Boolean _HasLocomotive;
+        partial void OnHasLocomotiveChanging(global::System.Boolean value);
+        partial void OnHasLocomotiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsModificatoTrenitaliaRispettoAlProgramma
+        {
+            get
+            {
+                return _IsModificatoTrenitaliaRispettoAlProgramma;
+            }
+            set
+            {
+                OnIsModificatoTrenitaliaRispettoAlProgrammaChanging(value);
+                ReportPropertyChanging("IsModificatoTrenitaliaRispettoAlProgramma");
+                _IsModificatoTrenitaliaRispettoAlProgramma = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsModificatoTrenitaliaRispettoAlProgramma");
+                OnIsModificatoTrenitaliaRispettoAlProgrammaChanged();
+            }
+        }
+        private global::System.Boolean _IsModificatoTrenitaliaRispettoAlProgramma;
+        partial void OnIsModificatoTrenitaliaRispettoAlProgrammaChanging(global::System.Boolean value);
+        partial void OnIsModificatoTrenitaliaRispettoAlProgrammaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsModificatoAppaltatoreRispettoAlProgramma
+        {
+            get
+            {
+                return _IsModificatoAppaltatoreRispettoAlProgramma;
+            }
+            set
+            {
+                OnIsModificatoAppaltatoreRispettoAlProgrammaChanging(value);
+                ReportPropertyChanging("IsModificatoAppaltatoreRispettoAlProgramma");
+                _IsModificatoAppaltatoreRispettoAlProgramma = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsModificatoAppaltatoreRispettoAlProgramma");
+                OnIsModificatoAppaltatoreRispettoAlProgrammaChanged();
+            }
+        }
+        private global::System.Boolean _IsModificatoAppaltatoreRispettoAlProgramma;
+        partial void OnIsModificatoAppaltatoreRispettoAlProgrammaChanging(global::System.Boolean value);
+        partial void OnIsModificatoAppaltatoreRispettoAlProgrammaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsModificatoTrenitaliaRispettoAllAppaltatore
+        {
+            get
+            {
+                return _IsModificatoTrenitaliaRispettoAllAppaltatore;
+            }
+            set
+            {
+                OnIsModificatoTrenitaliaRispettoAllAppaltatoreChanging(value);
+                ReportPropertyChanging("IsModificatoTrenitaliaRispettoAllAppaltatore");
+                _IsModificatoTrenitaliaRispettoAllAppaltatore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsModificatoTrenitaliaRispettoAllAppaltatore");
+                OnIsModificatoTrenitaliaRispettoAllAppaltatoreChanged();
+            }
+        }
+        private global::System.Boolean _IsModificatoTrenitaliaRispettoAllAppaltatore;
+        partial void OnIsModificatoTrenitaliaRispettoAllAppaltatoreChanging(global::System.Boolean value);
+        partial void OnIsModificatoTrenitaliaRispettoAllAppaltatoreChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -531,242 +1333,6 @@ namespace ReadModel
         private global::System.DateTime _CreationDate;
         partial void OnCreationDateChanging(global::System.DateTime value);
         partial void OnCreationDateChanged();
-
-        #endregion
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ReadModel", Name="NoteItem")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class NoteItem : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new NoteItem object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        public static NoteItem CreateNoteItem(global::System.Guid id)
-        {
-            NoteItem noteItem = new NoteItem();
-            noteItem.Id = id;
-            return noteItem;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Text
-        {
-            get
-            {
-                return _Text;
-            }
-            set
-            {
-                OnTextChanging(value);
-                ReportPropertyChanging("Text");
-                _Text = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Text");
-                OnTextChanged();
-            }
-        }
-        private global::System.String _Text;
-        partial void OnTextChanging(global::System.String value);
-        partial void OnTextChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> CreationDate
-        {
-            get
-            {
-                return _CreationDate;
-            }
-            set
-            {
-                OnCreationDateChanging(value);
-                ReportPropertyChanging("CreationDate");
-                _CreationDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CreationDate");
-                OnCreationDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _CreationDate;
-        partial void OnCreationDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnCreationDateChanged();
-
-        #endregion
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ReadModel", Name="TotalsPerDayItem")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class TotalsPerDayItem : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new TotalsPerDayItem object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="date">Initial value of the Date property.</param>
-        /// <param name="newCount">Initial value of the NewCount property.</param>
-        /// <param name="editCount">Initial value of the EditCount property.</param>
-        public static TotalsPerDayItem CreateTotalsPerDayItem(global::System.Int32 id, global::System.DateTime date, global::System.Int32 newCount, global::System.Int32 editCount)
-        {
-            TotalsPerDayItem totalsPerDayItem = new TotalsPerDayItem();
-            totalsPerDayItem.Id = id;
-            totalsPerDayItem.Date = date;
-            totalsPerDayItem.NewCount = newCount;
-            totalsPerDayItem.EditCount = editCount;
-            return totalsPerDayItem;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime Date
-        {
-            get
-            {
-                return _Date;
-            }
-            set
-            {
-                OnDateChanging(value);
-                ReportPropertyChanging("Date");
-                _Date = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Date");
-                OnDateChanged();
-            }
-        }
-        private global::System.DateTime _Date;
-        partial void OnDateChanging(global::System.DateTime value);
-        partial void OnDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 NewCount
-        {
-            get
-            {
-                return _NewCount;
-            }
-            set
-            {
-                OnNewCountChanging(value);
-                ReportPropertyChanging("NewCount");
-                _NewCount = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("NewCount");
-                OnNewCountChanged();
-            }
-        }
-        private global::System.Int32 _NewCount;
-        partial void OnNewCountChanging(global::System.Int32 value);
-        partial void OnNewCountChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 EditCount
-        {
-            get
-            {
-                return _EditCount;
-            }
-            set
-            {
-                OnEditCountChanging(value);
-                ReportPropertyChanging("EditCount");
-                _EditCount = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EditCount");
-                OnEditCountChanged();
-            }
-        }
-        private global::System.Int32 _EditCount;
-        partial void OnEditCountChanging(global::System.Int32 value);
-        partial void OnEditCountChanged();
 
         #endregion
     

@@ -9,6 +9,7 @@ using ReadModel;
 using Commands.AreaIntervento;
 using Commands;
 using Ncqrs.CommandService;
+using UI_Web.Models;
 
 
 
@@ -21,7 +22,7 @@ namespace UI_Web.Controllers
         static AreaInterventoController()
         {
             _channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
-            
+
         }
 
         public ActionResult Index()
@@ -29,19 +30,31 @@ namespace UI_Web.Controllers
             return View();
         }
 
-        public JsonResult GetItems()
+        
+        public JsonResult GetItems(VisualizzareAreaIntervento command)
         {
             using (var context = new ReadModelContainer())
             {
-                var query = from item in context.AreaIntervento
-                            where !item.Deleted 
-                            orderby item.CreationDate
-                            select new { item.Id, item.IdAreaInterventoSuper, item.Inizio, item.Fine, item.CreationDate, item.Descrizione };
+                var query = context.AreaIntervento.Where(item => !item.Deleted);
 
-                return this.Json(query.ToArray(), JsonRequestBehavior.AllowGet);
+                if (!string.IsNullOrEmpty(command.Descrizione))
+                    query = query.Where(item => item.Descrizione.IndexOf(command.Descrizione) > -1);
+
+                var results = query.OrderBy(item => item.CreationDate)
+                                   .Skip((command.PageNum - 1) * command.PageSize)
+                                   .Take(command.PageSize)
+                                   .Select(item => new { item.Id, item.IdAreaInterventoSuper, item.Inizio, item.Fine, item.CreationDate, item.Descrizione })
+                                   .ToArray();
+
+                var count = context.AreaIntervento.Where(item => !item.Deleted).Count();
+
+                var returnObject = new { results, count };
+
+                return this.Json(returnObject, JsonRequestBehavior.AllowGet);
             }
         }
 
+        [HttpGet]
         public ActionResult Creare()
         {
             return View("Details");
@@ -55,8 +68,9 @@ namespace UI_Web.Controllers
                 ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
                                client.Execute(new ExecuteRequest(command)));
             }
-         }
+        }
 
+        [HttpGet]
         public ActionResult Aggiornare()
         {
             return View("Details");

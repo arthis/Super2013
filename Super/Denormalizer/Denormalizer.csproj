@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AreaInterventoDenormalizer.cs" />
     <Compile Include="ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer.cs" />
+    <Compile Include="InterventoRotabileDenormalizer.cs" />
     <Compile Include="DTO\pec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Serialization.cs" />
