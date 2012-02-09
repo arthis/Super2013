@@ -49,8 +49,11 @@
           <Property Name="NumeroTrenoPartenza" Type="nvarchar" MaxLength="50" />
           <Property Name="DataOraTrenoPartenza" Type="datetime" />
           <Property Name="TipoInterventoDescrizione" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="OraInizioProgrammata" Type="datetime" Nullable="false" />
-          <Property Name="OraFineProgrammata" Type="datetime" Nullable="false" />
+          <Property Name="DataOraInizioProgrammata" Type="datetime" Nullable="false" />
+          <Property Name="DataOraFineProgrammata" Type="datetime" Nullable="false" />
+          <Property Name="ComposizioneProgrammata" Type="nvarchar" MaxLength="255" />
+          <Property Name="DataOraInizioConsuntivataAppaltatore" Type="datetime" Nullable="false" />
+          <Property Name="DataOraFineConsuntivataAppaltatore" Type="datetime" Nullable="false" />
           <Property Name="IsProgrammato" Type="bit" Nullable="false" />
           <Property Name="IsPLX" Type="bit" Nullable="false" />
           <Property Name="IsEstemporaneo" Type="bit" Nullable="false" />
@@ -63,6 +66,7 @@
           <Property Name="IsModificatoAppaltatoreRispettoAlProgramma" Type="bit" Nullable="false" />
           <Property Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Type="bit" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -112,8 +116,11 @@
           <Property Type="String" Name="NumeroTrenoPartenza" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="DataOraTrenoPartenza" />
           <Property Type="String" Name="TipoInterventoDescrizione" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="OraInizioProgrammata" Nullable="false" />
-          <Property Type="DateTime" Name="OraFineProgrammata" Nullable="false" />
+          <Property Type="DateTime" Name="DataOraInizioProgrammata" Nullable="false" />
+          <Property Type="DateTime" Name="DataOraFineProgrammata" Nullable="false" />
+          <Property Type="String" Name="ComposizioneProgrammata" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataOraInizioConsuntivataAppaltatore" Nullable="false" />
+          <Property Type="DateTime" Name="DataOraFineConsuntivataAppaltatore" Nullable="false" />
           <Property Type="Boolean" Name="IsProgrammato" Nullable="false" />
           <Property Type="Boolean" Name="IsPLX" Nullable="false" />
           <Property Type="Boolean" Name="IsEstemporaneo" Nullable="false" />
@@ -126,6 +133,7 @@
           <Property Type="Boolean" Name="IsModificatoAppaltatoreRispettoAlProgramma" Nullable="false" />
           <Property Type="Boolean" Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Nullable="false" />
           <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -149,6 +157,7 @@
           <EntitySetMapping Name="ConsuntivoRotabile">
             <EntityTypeMapping TypeName="ReadModel.ConsuntivoRotabile">
               <MappingFragment StoreEntitySet="ConsuntivoRotabile">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="IsModificatoTrenitaliaRispettoAllAppaltatore" ColumnName="IsModificatoTrenitaliaRispettoAllAppaltatore" />
                 <ScalarProperty Name="IsModificatoAppaltatoreRispettoAlProgramma" ColumnName="IsModificatoAppaltatoreRispettoAlProgramma" />
@@ -161,8 +170,11 @@
                 <ScalarProperty Name="IsEstemporaneo" ColumnName="IsEstemporaneo" />
                 <ScalarProperty Name="IsPLX" ColumnName="IsPLX" />
                 <ScalarProperty Name="IsProgrammato" ColumnName="IsProgrammato" />
-                <ScalarProperty Name="OraFineProgrammata" ColumnName="OraFineProgrammata" />
-                <ScalarProperty Name="OraInizioProgrammata" ColumnName="OraInizioProgrammata" />
+                <ScalarProperty Name="DataOraFineConsuntivataAppaltatore" ColumnName="DataOraFineConsuntivataAppaltatore" />
+                <ScalarProperty Name="DataOraInizioConsuntivataAppaltatore" ColumnName="DataOraInizioConsuntivataAppaltatore" />
+                <ScalarProperty Name="ComposizioneProgrammata" ColumnName="ComposizioneProgrammata" />
+                <ScalarProperty Name="DataOraFineProgrammata" ColumnName="DataOraFineProgrammata" />
+                <ScalarProperty Name="DataOraInizioProgrammata" ColumnName="DataOraInizioProgrammata" />
                 <ScalarProperty Name="TipoInterventoDescrizione" ColumnName="TipoInterventoDescrizione" />
                 <ScalarProperty Name="DataOraTrenoPartenza" ColumnName="DataOraTrenoPartenza" />
                 <ScalarProperty Name="NumeroTrenoPartenza" ColumnName="NumeroTrenoPartenza" />
@@ -211,7 +223,7 @@
     <edmx:Diagrams>
       <Diagram Name="ReadModel" >
         <EntityTypeShape EntityType="ReadModel.AreaIntervento" Width="1.5" PointX="0.5" PointY="1.125" Height="2.3648893229166656" />
-        <EntityTypeShape EntityType="ReadModel.ConsuntivoRotabile" Width="1.5" PointX="3.125" PointY="1.125" Height="8.3262337239583353" />
+        <EntityTypeShape EntityType="ReadModel.ConsuntivoRotabile" Width="2.75" PointX="3.375" PointY="0.75" Height="9.095439453125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

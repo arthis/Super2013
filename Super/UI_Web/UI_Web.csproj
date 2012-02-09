@@ -109,12 +109,13 @@
     <Compile Include="Controllers\AreaInterventoController.cs" />
     <Compile Include="Controllers\ControllerBaseSuper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InterventoRotabileController.cs" />
+    <Compile Include="Controllers\ConsuntivoRotabileApplatatoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AreaIntervento.cs" />
+    <Compile Include="Models\Intervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +184,7 @@
     <Content Include="Scripts\dateFormat.js" />
     <Content Include="Scripts\EditorHookup.js" />
     <Content Include="Scripts\functions.js" />
+    <Content Include="Scripts\functionsDetails.js" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
@@ -206,15 +208,15 @@
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\underscore-1.3.1.js" />
-    <Content Include="Views\InterventoRotabile\Add.cshtml" />
-    <Content Include="Views\InterventoRotabile\ConsuntivazioneReso.cshtml" />
+    <Content Include="Views\ConsuntivoRotabileApplatatore\Add.cshtml" />
+    <Content Include="Views\ConsuntivoRotabileApplatatore\ConsuntivazioneReso.cshtml" />
     <Content Include="Views\AreaIntervento\Index.cshtml" />
     <Content Include="Views\AreaIntervento\Details.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\koStringEditorFor.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\koDateEditorFor.cshtml" />
     <Content Include="Content\Layout\Web.config" />
-    <None Include="Views\InterventoRotabile\Index.cshtml" />
+    <None Include="Views\ConsuntivoRotabileApplatatore\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

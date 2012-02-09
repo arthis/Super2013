@@ -39,6 +39,11 @@ namespace UI_Console
             //                 client.Execute(new ExecuteRequest(nuovaAreaIntervento)));
 
 
+
+            //var command = new CreareNuovoInterventoRotabile();
+            //command.Id = Guid.NewGuid();
+
+
             //CreareNuovoInterventoRotabile nuovoIntervento = new CreareNuovoInterventoRotabile()
             //{
             //    Id = g,

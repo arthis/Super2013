@@ -29,12 +29,17 @@ Released   : 20090918
     <script src="@Url.Content("~/Scripts/EditorHookup.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/dateFormat.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/json2.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/functions.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.paging.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/functions.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/functionsDetails.js")" type="text/javascript"></script>
     @RenderSection("JavaScript", required: false)
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
+
+    <div id="loading"></div>
+
+
     <div id="wrapper">
         <div id="header">
             <div id="logo">

@@ -161,8 +161,11 @@ CREATE TABLE [dbo].[ConsuntivoRotabile](
 	[NumeroTrenoPartenza] [nvarchar](50) NULL,
 	[DataOraTrenoPartenza] [datetime] NULL,
 	[TipoInterventoDescrizione] [nvarchar](255) NOT NULL,
-	[OraInizioProgrammata] [datetime] NOT NULL,
-	[OraFineProgrammata] [datetime] NOT NULL,
+	[DataOraInizioProgrammata] [datetime] NOT NULL,
+	[DataOraFineProgrammata] [datetime] NOT NULL,
+	[ComposizioneProgrammata] [nvarchar](255) NULL,
+	[DataOraInizioConsuntivataAppaltatore] [datetime] NOT NULL,
+	[DataOraFineConsuntivataAppaltatore] [datetime] NOT NULL,
 	[IsProgrammato] [bit] NOT NULL Default(0),
 	[IsPLX] [bit] NOT NULL Default(0),
 	[IsEstemporaneo] [bit] NOT NULL Default(0),
@@ -175,6 +178,7 @@ CREATE TABLE [dbo].[ConsuntivoRotabile](
 	[IsModificatoAppaltatoreRispettoAlProgramma] [bit] NOT NULL Default(0),
 	[IsModificatoTrenitaliaRispettoAllAppaltatore] [bit] NOT NULL Default(0),
 	[CreationDate] datetime not null,
+	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_ConsuntivoRotabile] PRIMARY KEY CLUSTERED 
 (
 	[IdIntervento] ASC

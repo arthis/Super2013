@@ -1,0 +1,400 @@
+﻿@{
+    ViewBag.Title = "Area Intervento";
+    Layout = "~/Content/Layout/Earthlingtwo/_Layout.cshtml";// "~/Views/Shared/_LayoutDetailTemplate.cshtml"
+}
+<h2>Consuntivo Rotabile Appaltatore</h2>
+
+<div id="FilterResults">
+    <form id="formFilter" class="formFilter">
+    <fieldset>
+        <legend>Filtro</legend>
+        @*<label>Descrizione :</label>
+        <input type="text" id="filtroDescrizione" data-bind=" value:Descrizione " />*@
+
+        <div style="clear: both;">
+            &nbsp;</div>
+        <a class="button" data-bind="click: GetItems.bind($data, 1)" href="#">Visualizza</a>
+    </fieldset>
+    </form>
+</div>
+
+<div id="List" data-bind='template: "interventoListTemplate"'></div>
+<br />
+<div id="pagination" class="pagebar"></div>
+
+<p>
+    <a class="button" data-bind="click: ShowAggiungereItem" href="#">Consuntivo estemporaneo</a>
+</p>
+
+<div id="details" style="overflow: hidden;"></div>
+
+
+<script type="text/html" id="interventoListTemplate">
+     <table width=100% class="table-standard"> 
+            <tr>
+                <th>
+                    idSuper2010
+                </th>
+                <th>
+                    Codice
+                </th>
+                <th>
+                    VQ
+                </th>
+                <th>
+                    Spunta
+                </th>
+                <th>
+                    Stato
+                </th>
+                <th>
+                    Visualizza
+                </th>
+                <th>
+                    Copia
+                </th>
+                <th>
+                    SkVQ
+                </th>
+                <th>
+                    Control. Comp.
+                </th>
+                <th>
+                    Data
+                </th>
+                <th>
+                    Impianto
+                </th>
+                <th>
+                    Categoria Treno
+                </th>
+                <th>
+                    Treno Partenza
+                </th>
+                <th>
+                    Ora Partenza
+                </th>
+                <th>
+                    Tipo Intervento
+                </th>
+                <th>
+                    Ora Programmata per Inizio Prestazione
+                </th>
+                <th>
+                    Ora Programmata per Fine Prestazione
+                </th>
+                <th>
+                    Composizione programmata
+                </th>
+                <th>
+                    Ora consuntivata Appaltatore per Inizio Prestazione
+                </th>
+                <th>
+                    Ora consuntivata Appaltatore per Fine Prestazione
+                </th>
+            </tr>
+        
+         <% _.each(Items(), function(item) { %>
+         <tr>
+            <td>
+                <%= item.IdSuper2010() %>
+            </td>
+            <td>
+                <%= item.Codice() %>
+            </td>
+             <td>
+                <%= item.IsAvvisoIspezione() %>
+            </td>
+             <td>
+                <%= item.IsSpunta() %>
+            </td>
+             <td>
+                <%= item.IsReso() %><%= item.IsNonResoAppaltatore() %><%= item.IsNonResoTrenitalia() %>
+            </td>
+             <td>
+                visualizza
+            </td>
+             <td>
+                Copia
+            </td>
+             <td>
+              <%= item.HasSchedaV() %> <%= item.HasSchedaQ() %> 
+            </td>
+             <td>
+               ctrl composizione 
+            </td>
+             <td>
+                <%= item.Data() %>
+            </td>
+             <td>
+                <%= item.Impianto() %>
+            </td>
+            <td>
+                <%= item.CategoriaTreno() %>
+            </td>
+            <td>
+                <%= item.TrenoPartenza() %>
+            </td>
+            <td>
+                <%= item.DataOraPartenza() %>
+            </td>
+            <td>
+                <%= item.TipoIntervento() %>
+            </td>
+            <td>
+                <%= item.DataOraInizioProgrammata() %>
+            </td>
+            <td>
+                <%= item.DataOraFineProgrammata() %>
+            </td>
+            <td>
+                <%= item.Composizione() %>
+            </td>
+            <td>
+                <%= item.DataOraInizioConsuntivataAppaltatore() %>
+            </td>
+            <td>
+                <%= item.DataOraFineConsuntivataAppaltatore() %>
+            </td>
+        </tr>
+         <% }) %>
+        </table>
+
+  
+</script>
+
+<script language="javascript">
+    //View
+    var View = function (spinner, detailsDiv, detailsForm, paginationDiv) {
+        var self = this;
+
+        this.Details = detailsDiv;
+        this.DetailsForm = detailsForm;
+        this.Pagination = paginationDiv;
+
+        this.Spin = function (waiting) {
+            spinner.Spin(waiting);
+        };
+        this.StopSpin = function () {
+            spinner.StopSpin();
+        };
+
+         //dialog
+        this.OpenDetails = function (urlView, title) {
+            self.UrlView = urlView;
+
+            $('#details').dialog({
+                autoOpen: false,
+                width: 350,
+                height: 400,
+                position: 'center',
+                resizable: true,
+                title: title,
+                modal: true,
+                open: function (event, ui) {
+                    $(this).load(self.UrlView, function () {
+                        ko.applyBindings(viewModel, document.getElementById("details"));
+                    });
+                },
+                buttons: {
+                    "Accept": function () {
+                        var form= document.getElementById("formDetails");
+                        if (viewModel.Accept(form))
+                            $(this).dialog("close");
+                    },
+                    "Cancel": function () {
+                        viewModel.Cancel();
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            details.dialog("open");  //let's put this in a custom binding handler called "openDialog"
+        }
+
+        this.CloseDetails = function () {
+            details.dialog("close");
+        }
+
+        //pagination
+        this.Paginate = function (pageNum, PageSize, totalItems, action) {
+            $(paginationDiv).paging(totalItems, {
+                format: "- (qq.) < nnncnnn > (.pp)",
+                perpage: PageSize,
+                lapping: 0,
+                page: pageNum,
+                onSelect: function (page) {
+                    if (pageNum != page) {
+                        action(page);
+                    }
+                },
+                onFormat: function (type) {
+
+                    switch (type) {
+                        case 'left':
+                            if (this.page > 5)
+                                return '<em><a href="#' + this.value + '">' + this.value + '</a></em>';
+                            return "";
+                        case 'right':
+                            if (this.page < (this.pages - 5))
+                                return '<em><a href="#' + this.value + '">' + this.value + '</a></em>';
+                            return "";
+                        case 'block':
+
+                            if (!this.active)
+                                return '<span class="disabled"  title="Pagina ' + this.value + '">' + this.value + '</span>';
+                            else if (this.value != this.page)
+                                return '<em><a href="#' + this.value + '" title="Pagina ' + this.value + '">' + this.value + '</a></em>';
+                            return '<span class="this-page">' + this.value + '</span>';
+
+                        case 'next':
+
+                            if (this.active)
+                                return '<a href="#' + this.value + '" class="next">></a>';
+                            return '<span class="disabled">></span>';
+
+                        case 'prev':
+
+                            if (this.active)
+                                return '<a href="#' + this.value + '" class="prev"><</a>';
+                            return '<span class="disabled"><</span>';
+
+                        case 'first':
+
+                            if (this.active)
+                                return '<a href="#' + this.value + '" class="first">First</a>';
+                            return '<span class="disabled">First</span>';
+
+                        case 'last':
+
+                            if (this.active)
+                                return '<a href="#' + this.value + '" class="last">Last</a>';
+                            return '<span class="disabled">Last</span>';
+
+                        case "leap":
+                            if (this.active && (this.page > 5) && (this.page < (this.pages - 5)))
+                                return '<span class="break">...</span>';
+                            return "";
+                        case 'fill':
+                            if (this.active)
+                                return "Pages:&nbsp;";
+                            return "";
+                    }
+                }
+            });
+        }
+    }
+
+    //Commands
+    var VisualizzareItems = function ( pageNum, pageSize){
+        this.PageNum = pageNum;
+        this.PageSize = pageSize;
+    }
+
+
+    //Repository
+    var Repository = function () {
+        this.GetItems = function (pageNum, pageSize, success,error) {
+            jQuery.ajaxSettings.traditional = true;
+            var command = new VisualizzareItems(pageNum,pageSize);
+            $.ajax({
+                type: 'Post',
+                url: '@Url.Action("GetItems")',
+                data: JSON.stringify(command),
+                contentType: 'application/json; charset=utf-8',
+                success: success,
+                error: error,
+                dataType: 'json'
+            });
+        };
+    }
+
+
+     //Model
+    var Intervento = function (id, idSuper2010, codice, isAvvisoIspezione, isSpunta, hasSchedaV, hasSchedaQ, data, 
+                                    impianto, categoriaTreno, trenoPartenza, dataOraPartenza, 
+                                    tipoIntervento, dataOraInizioProgrammata, dataOraFineProgrammata,
+                                    composizione, dataOraInizioConsuntivataAppaltatore, dataOraFineConsuntivataAppaltatore,
+                                    isProgrammato, isPLX, isEstemporaneo, isSostitutivo, isReso, isNonResoAppaltatore,
+                                    isNonReso20mn, isNonResoTrenitalia, isRilevatoNonReso
+                                    ) {
+        var self = this;
+        this.Id = ko.observable(id);
+        this.IdSuper2010 = ko.observable(idSuper2010);
+        this.Codice = ko.observable(codice);
+        this.IsAvvisoIspezione = ko.observable(IsAvvisoIspezione);
+        this.IsSpunta = ko.observable(isSpunta);
+        this.HasSchedaV = ko.observable(hasSchedaV);
+        this.HasSchedaQ = ko.observable(hasSchedaQ);
+        this.Data = ko.observable(data);
+        this.Impianto = ko.observable(impianto);
+        this.CategoriaTreno = ko.observable(categoriaTreno);
+        this.TrenoPartenza = ko.observable(trenoPartenza);
+        this.DataOraPartenza = ko.observable(dataOraPartenza);
+        this.TipoIntervento = ko.observable(tipoIntervento);
+        this.DataOraInizioProgrammata = ko.observable(dataOraInizioProgrammata);
+        this.DataOraFineProgrammata = ko.observable(dataOraFineProgrammata);
+        this.Composizione = ko.observable(composizione);
+        this.DataOraInizioConsuntivataAppaltatore = ko.observable(dataOraInizioConsuntivataAppaltatore);
+        this.DataOraFineConsuntivataAppaltatore = ko.observable(dataOraFineConsuntivataAppaltatore);
+        this.IsProgrammato = ko.observable(isProgrammato);
+        this.IsPLX = ko.observable(isPLX);
+        this.IsEstemporaneo = ko.observable(isEstemporaneo);
+        this.IsSostitutivo = ko.observable(isSostitutivo);
+        this.IsReso = ko.observable(isReso);
+        this.IsNonResoAppaltatore = ko.observable(isNonResoAppaltatore);
+        this.IsNonReso20mn = ko.observable(isNonReso20mn);
+        this.IsNonResoTrenitalia = ko.observable(isNonResoTrenitalia);
+        this.IsRilevatoNonReso = ko.observable(isRilevatoNonReso);
+
+    }
+
+
+    
+    //ViewModel
+    var ViewModel = function (repository, view, pageNum, pageSize) {
+        var self = this;
+          
+        //filtro
+        this.PageNum = ko.observable(pageNum);
+        this.PageSize = ko.observable(pageSize);
+            
+        this.Items = ko.mapping.fromJS([]);
+        this.SelectedItem = ko.observable();
+
+         this.GetItems = function (pageNum) {
+            view.Spin({title: "Please Wait", message: "Loading data..."});
+            if (pageNum==null)
+                self.PageNum(1);
+            else
+                self.PageNum(pageNum);
+            repository.GetItems(self.PageNum(),self.PageSize(),self.GetItemsSuccess,self.GetItemsError);
+        };
+
+        this.GetItemsSuccess = function (items) {
+            self.Items.removeAll();
+            ko.utils.arrayForEach(items.results, function (i) {
+                self.Items.push(new Intervento(
+                                    i.Id, i.IdSuper2010, i.CodiceOrdine, i.IsAvvisoIspezione, i.IsSpunta, i.HasSchedaV, i.HasSchedaQ, ToDate(i.Data),
+                                    i.AreaInterventoDescrizione, i.CategoriaTreno, i.NumeroTrenoPartenza, ToDate(i.DataOraTrenoPartenza),
+                                    i.TipoInterventoDescrizione, ToDate(i.DataOraInizioProgrammata), ToDate(i.DataOraFineProgrammata),
+                                    i.ComposizioneProgrammata, ToDate(i.DataOraInizioConsuntivataAppaltatore), ToDate(i.DataOraFineConsuntivataAppaltatore),
+                                    i.IsProgrammato, i.IsPLX, i.IsEstemporaneo, i.IsSostitutivo, i.IsReso, i.IsNonResoAppaltatore,
+                                    i.IsNonReso20mn, i.IsNonResoTrenitalia, i.IsRilevatoNonReso
+                ));
+            });
+            view.Paginate(self.PageNum(),self.PageSize(),items.count,viewModel.GetItems);
+            view.StopSpin();
+        };
+
+        this.GetItemsError = function(){
+            view.StopSpin();
+            alert('error');
+        }
+    };
+
+
+        
+        
+
+
+</script>

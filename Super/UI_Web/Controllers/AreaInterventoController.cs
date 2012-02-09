@@ -46,7 +46,7 @@ namespace UI_Web.Controllers
                                    .Select(item => new { item.Id, item.IdAreaInterventoSuper, item.Inizio, item.Fine, item.CreationDate, item.Descrizione })
                                    .ToArray();
 
-                var count = context.AreaIntervento.Where(item => !item.Deleted).Count();
+                var count = query.Count();
 
                 var returnObject = new { results, count };
 
