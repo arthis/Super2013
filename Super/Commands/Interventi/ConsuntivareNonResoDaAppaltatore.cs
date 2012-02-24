@@ -18,16 +18,14 @@ namespace Commands.Interventi
         public Guid Id { get; set; }
         public string InterventoIdAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
-        public DateTime Inizio { get; set; }
-        public DateTime Fine { get; set; }
+        
 
          public ConsuntivareNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
         {
             Id = id;
             InterventoIdAppaltatore = interventoIdAppaltatore;
             DataConsuntivazione = dataConsuntivazione;
-            Inizio = inizio;
-            Fine = fine;
+
         }
     }
 
