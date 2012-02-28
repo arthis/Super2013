@@ -20,7 +20,7 @@ namespace Commands.Interventi
         public DateTime DataConsuntivazione { get; set; }
         
 
-         public ConsuntivareNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
+         public ConsuntivareNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione)
         {
             Id = id;
             InterventoIdAppaltatore = interventoIdAppaltatore;
@@ -32,32 +32,30 @@ namespace Commands.Interventi
     [DataContract]
     public class ConsuntivareRotabileNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
-        public IEnumerable<OggettoInterventoRotabile> Oggeti { get; set; }
 
-        public ConsuntivareRotabileNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, IEnumerable<OggettoInterventoRotabile> oggeti)
-            :base (id,interventoIdAppaltatore,dataConsuntivazione,inizio,fine)
+        public ConsuntivareRotabileNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione)
+            :base (id,interventoIdAppaltatore,dataConsuntivazione)
         {
-            Oggeti = oggeti;
+            
         }
     }
 
     [DataContract]
     public class ConsuntivareRotabileInManutenzioneNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
-        public IEnumerable<OggettoInterventoRotabile> Oggeti { get; set; }
 
-        public ConsuntivareRotabileInManutenzioneNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, IEnumerable<OggettoInterventoRotabile> oggeti)
-            : base(id, interventoIdAppaltatore, dataConsuntivazione, inizio, fine)
+        public ConsuntivareRotabileInManutenzioneNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione)
         {
-            Oggeti = oggeti;
+            
         }
     }
 
     [DataContract]
     public class ConsuntivareAmbientiNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
-        public ConsuntivareAmbientiNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
-            : base(id, interventoIdAppaltatore, dataConsuntivazione, inizio, fine)
+        public ConsuntivareAmbientiNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione)
         {
            
         }  

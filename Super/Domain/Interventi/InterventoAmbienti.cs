@@ -94,7 +94,7 @@ namespace Domain.Interventi
             };
         }
 
-        public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
+        public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione)
         {
             List<string> messagiValidazione = new List<string>();
 
@@ -107,9 +107,7 @@ namespace Domain.Interventi
                 InterventoAmbientiConsuntivatoNonResoDaAppaltatore evt = new InterventoAmbientiConsuntivatoNonResoDaAppaltatore()
                 {
                     IdInterventoSuper = this.IdInterventoSuper,
-                    DataConsuntivazione = dataConsuntivazione,
-                    Fine = fine,
-                    Inizio = inizio
+                    DataConsuntivazione = dataConsuntivazione
                 };
                 ApplyEvent(evt);
             }
@@ -131,9 +129,7 @@ namespace Domain.Interventi
             this.StatoAppaltatore = new StatoAppaltatoreNonResoAmbienti()
             {
                 DataConsuntivazione = e.DataConsuntivazione,
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                Inizio = e.Inizio,
-                Fine = e.Fine
+                idInterventoAppaltatore = e.IdInterventoAppaltatore
             };
 
         }

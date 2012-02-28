@@ -17,7 +17,7 @@ namespace ApplicationService.Executors
             var intervento = context.GetById<InterventoRotabile>(command.Id);
 
             // Perform The Consuntivazione
-            intervento.ConsuntivaNonResoDaAppaltatore(command.InterventoIdAppaltatore,command.DataConsuntivazione,  command.Inizio, command.Fine);
+            intervento.ConsuntivaNonResoDaAppaltatore(command.InterventoIdAppaltatore,command.DataConsuntivazione);
 
             // Accept all the work we just did.
             context.Accept();

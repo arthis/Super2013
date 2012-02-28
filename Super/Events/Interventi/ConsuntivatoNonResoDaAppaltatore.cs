@@ -11,8 +11,6 @@ namespace Events.Interventi
         public int IdInterventoSuper { get; set; }
         public string IdInterventoAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
-        public DateTime Inizio { get; set; }
-        public DateTime Fine { get; set; }
     }
 
     [Serializable]

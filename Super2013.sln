@@ -23,8 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI_Web", "Super\UI_Web\UI_W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadModel", "Super\ReadModel\ReadModel.csproj", "{D01CE8F6-800E-44CC-886B-F862B10E1396}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{16620C90-823C-4FB1-8DE2-649885AD9EBE}"
-EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Super2013.vsmdi

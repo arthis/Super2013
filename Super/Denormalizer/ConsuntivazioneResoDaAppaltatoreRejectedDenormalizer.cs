@@ -16,7 +16,7 @@ namespace Denormalizers
 
         public ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer(ISendMessage sendMessage)
         {
-            Contract.Requires(sendMessage != null);
+            Contract.Requires(sendMessage != null); 
 
             _SendMessage = sendMessage;
         }
