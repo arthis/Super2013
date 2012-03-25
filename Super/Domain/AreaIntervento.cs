@@ -56,7 +56,6 @@ namespace Domain
                 Inizio = inizio,
                 Fine = fine,
                 Descrizione = descrizione,
-                Id= EventSourceId
             };
             ApplyEvent(evt);
         }
@@ -73,7 +72,6 @@ namespace Domain
         {
             AreaInterventoCancellata evt = new AreaInterventoCancellata()
             {
-                 Id = this.EventSourceId
             };
             ApplyEvent(evt);
         }

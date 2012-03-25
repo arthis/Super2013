@@ -6,7 +6,7 @@ using System.Text;
 namespace Events.Interventi
 {
     [Serializable]
-    public class InterventoRotabileCreato
+    public class InterventoRotCreato
     {
         public int InterventoIdSuper { get; set; }
         public Guid IdAreaIntervento { get; set; }

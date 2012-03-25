@@ -11,17 +11,18 @@ namespace Events.Interventi
         public int IdInterventoSuper { get; set; }
         public string IdInterventoAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
+        public Guid IdCausale { get; set; }
     }
 
     [Serializable]
-    public class InterventoRotabileConsuntivatoNonResoDaAppaltatore : InterventoConsuntivatoNonResoDaAppaltatore
+    public class InterventoRotConsuntivatoNonResoDaAppaltatore : InterventoConsuntivatoNonResoDaAppaltatore
     { }
 
     [Serializable]
-    public class InterventoRotabileInManutenzioneConsuntivatoNonResoDaAppaltatore : InterventoConsuntivatoNonResoDaAppaltatore
+    public class InterventoRotManConsuntivatoNonResoDaAppaltatore : InterventoConsuntivatoNonResoDaAppaltatore
     { }
 
     [Serializable]
-    public class InterventoAmbientiConsuntivatoNonResoDaAppaltatore : InterventoConsuntivatoNonResoDaAppaltatore
+    public class InterventoAmbConsuntivatoNonResoDaAppaltatore : InterventoConsuntivatoNonResoDaAppaltatore
     { }
 }

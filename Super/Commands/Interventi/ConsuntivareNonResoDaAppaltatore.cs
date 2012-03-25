@@ -9,56 +9,59 @@ using System.Runtime.Serialization;
 namespace Commands.Interventi
 {
     [DataContract]
-    [KnownType(typeof(ConsuntivareRotabileNonResoDaAppaltatore))]
-    [KnownType(typeof(ConsuntivareRotabileInManutenzioneNonResoDaAppaltatore))]
-    [KnownType(typeof(ConsuntivareAmbientiNonResoDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareRotNonResoDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareRotManNonResoDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareAmbNonResoDaAppaltatore))]
     public abstract class ConsuntivareNonResoDaAppaltatore : CommandBase
     {
         [AggregateRootId]
         public Guid Id { get; set; }
         public string InterventoIdAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
-        
+        public Guid IdCausale { get; set; }
 
-         public ConsuntivareNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione)
+
+        public ConsuntivareNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             Id = id;
             InterventoIdAppaltatore = interventoIdAppaltatore;
             DataConsuntivazione = dataConsuntivazione;
-
+            IdCausale = idCausale;
         }
     }
 
     [DataContract]
-    public class ConsuntivareRotabileNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
+    public class ConsuntivareRotNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
+        
 
-        public ConsuntivareRotabileNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione)
-            :base (id,interventoIdAppaltatore,dataConsuntivazione)
+        public ConsuntivareRotNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale)
         {
             
         }
     }
 
     [DataContract]
-    public class ConsuntivareRotabileInManutenzioneNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
+    public class ConsuntivareRotManNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
-
-        public ConsuntivareRotabileInManutenzioneNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione)
-            : base(id, interventoIdAppaltatore, dataConsuntivazione)
+       
+        public ConsuntivareRotManNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale)
         {
             
         }
     }
 
     [DataContract]
-    public class ConsuntivareAmbientiNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
+    public class ConsuntivareAmbNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
-        public ConsuntivareAmbientiNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione)
-            : base(id, interventoIdAppaltatore, dataConsuntivazione)
+
+        public ConsuntivareAmbNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale)
         {
-           
-        }  
+            
+        }
     }
 
 }

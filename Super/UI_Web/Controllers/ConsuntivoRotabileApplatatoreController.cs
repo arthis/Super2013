@@ -12,11 +12,11 @@ using UI_Web.Models;
 
 namespace Website.Controllers
 {
-    public class InterventoRotabileController : Controller
+    public class InterventoRotController : Controller
     {
         private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
 
-        static InterventoRotabileController()
+        static InterventoRotController()
         {
             _channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
         }
@@ -28,11 +28,11 @@ namespace Website.Controllers
         }
 
 
-        public JsonResult GetItems(VisualizzareConsuntivoRotabileAppaltatore command)
+        public JsonResult GetItems(VisualizzareConsuntivoRotAppaltatore command)
         {
             using (var context = new ReadModelContainer())
             {
-                var query = context.ConsuntivoRotabile.Where(item => !item.Deleted);
+                var query = context.ConsuntivoRot.Where(item => !item.Deleted);
 
                 //if (!string.IsNullOrEmpty(command.Descrizione))
                 //    query = query.Where(item => item.Descrizione.IndexOf(command.Descrizione) > -1);
@@ -81,21 +81,21 @@ namespace Website.Controllers
 
         public ActionResult Add()
         {
-            var command = new CreareNuovoInterventoRotabile();
+            var command = new CreareNuovoInterventoRot();
             command.Id = Guid.NewGuid();
 
             return View(command);
         }
 
         [HttpPost]
-        public ActionResult Add(CreareNuovoInterventoRotabile command)
+        public ActionResult Add(CreareNuovoInterventoRot command)
         {
             ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
                                 client.Execute(new ExecuteRequest(command)));
 
             // Return user back to the index that
             // displays all the Interventi.));
-            return RedirectToAction("Index", "InterventoRotabile");
+            return RedirectToAction("Index", "InterventoRot");
         }
 
         //[HttpPost]

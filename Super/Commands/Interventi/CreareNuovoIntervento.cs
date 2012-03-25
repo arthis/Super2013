@@ -9,9 +9,9 @@ using System.Runtime.Serialization;
 namespace Commands.Interventi
 {
     [DataContract]
-    [KnownType(typeof(CreareNuovoInterventoRotabile))]
-    [KnownType(typeof(CreareNuovoInterventoAmbienti))]
-    [KnownType(typeof(CreareNuovoInterventoRotabileInManutenzione))]
+    [KnownType(typeof(CreareNuovoInterventoRot))]
+    [KnownType(typeof(CreareNuovoInterventoAmb))]
+    [KnownType(typeof(CreareNuovoInterventoRotMan))]
     public abstract class CreareNuovoIntervento : CommandBase
     {
         public Guid Id { get; set; }
@@ -42,21 +42,21 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class CreareNuovoInterventoRotabile : CreareNuovoIntervento
+    public class CreareNuovoInterventoRot : CreareNuovoIntervento
     {
-        public OggettoInterventoRotabile[] Oggetti { get; set; }
+        public OggettoInterventoRot[] Oggetti { get; set; }
 
-        public CreareNuovoInterventoRotabile()
+        public CreareNuovoInterventoRot()
         {
         }
 
-        public CreareNuovoInterventoRotabile(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, OggettoInterventoRotabile[] oggetti)
+        public CreareNuovoInterventoRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, OggettoInterventoRot[] oggetti)
             :base (id,interventoIdSuper, inizio,fine, idAreaIntervento)
         {
             Oggetti = oggetti;   
         }
 
-        public CreareNuovoInterventoRotabile(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotabile[] oggetti)
+        public CreareNuovoInterventoRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRot[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 
@@ -64,21 +64,21 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class CreareNuovoInterventoAmbienti : CreareNuovoIntervento
+    public class CreareNuovoInterventoAmb : CreareNuovoIntervento
     {
         public int Quantita { get; set; }
         public string Descrizione { get; set; }
 
 
 
-        public CreareNuovoInterventoAmbienti(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, int quantita, string descrizione)
+        public CreareNuovoInterventoAmb(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, int quantita, string descrizione)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento)
         {
             this.Quantita = quantita;
             this.Descrizione = descrizione;
         }
 
-        public CreareNuovoInterventoAmbienti(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, int quantita, string descrizione)
+        public CreareNuovoInterventoAmb(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, int quantita, string descrizione)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             this.Quantita = quantita;
@@ -87,18 +87,18 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class CreareNuovoInterventoRotabileInManutenzione : CreareNuovoIntervento
+    public class CreareNuovoInterventoRotMan : CreareNuovoIntervento
     {
 
-        public OggettoInterventoRotabileInManutenzione[] Oggetti { get; set; }
+        public OggettoInterventoRotMan[] Oggetti { get; set; }
 
-        public CreareNuovoInterventoRotabileInManutenzione(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, OggettoInterventoRotabileInManutenzione[] oggetti)
+        public CreareNuovoInterventoRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, OggettoInterventoRotMan[] oggetti)
             :base (id,interventoIdSuper, inizio,fine, idAreaIntervento)
         {
             Oggetti = oggetti;   
         }
 
-        public CreareNuovoInterventoRotabileInManutenzione(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotabileInManutenzione[] oggetti)
+        public CreareNuovoInterventoRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotMan[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 

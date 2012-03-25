@@ -123,20 +123,20 @@ CREATE TABLE [dbo].[AreaIntervento](
 ) ON [PRIMARY]
 
 
-/****** Object:  Table [dbo].[ConsuntivoRotabile]    Script Date: 02/07/2012 14:42:22 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ConsuntivoRotabile]') AND type in (N'U'))
-DROP TABLE [dbo].[ConsuntivoRotabile]
+/****** Object:  Table [dbo].[ConsuntivoRot]    Script Date: 02/07/2012 14:42:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ConsuntivoRot]') AND type in (N'U'))
+DROP TABLE [dbo].[ConsuntivoRot]
 GO
 
 
-/****** Object:  Table [dbo].[ConsuntivoRotabile]    Script Date: 02/07/2012 14:42:22 ******/
+/****** Object:  Table [dbo].[ConsuntivoRot]    Script Date: 02/07/2012 14:42:22 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[ConsuntivoRotabile](
+CREATE TABLE [dbo].[ConsuntivoRot](
 	[IdIntervento] [uniqueidentifier] NOT NULL,
 	[IdInterventoSuper2010] [int] NOT NULL,
 	[IdCommittente] [uniqueidentifier] NOT NULL,
@@ -179,7 +179,7 @@ CREATE TABLE [dbo].[ConsuntivoRotabile](
 	[IsModificatoTrenitaliaRispettoAllAppaltatore] [bit] NOT NULL Default(0),
 	[CreationDate] datetime not null,
 	[Deleted] [bit] not null DEFAULT 0,
- CONSTRAINT [PK_ConsuntivoRotabile] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_ConsuntivoRot] PRIMARY KEY CLUSTERED 
 (
 	[IdIntervento] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]

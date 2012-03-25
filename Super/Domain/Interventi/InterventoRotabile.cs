@@ -11,21 +11,21 @@ using Domain.Interventi.Stati;
 namespace Domain.Interventi
 {
     [DynamicSnapshot]
-    public class InterventoRotabile : Intervento
+    public class InterventoRot : Intervento
     {
         private int _TimeOutConsuntivazioneAppaltatore = 20;
 
-        public IEnumerable<OggettoInterventoRotabile> OggettiScheduled { get; set; }
+        public IEnumerable<OggettoInterventoRot> OggettiScheduled { get; set; }
 
 
-        public InterventoRotabile()
+        public InterventoRot()
         {
         }
 
-        public InterventoRotabile(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento)
+        public InterventoRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento)
             : base(id)
         {
-            InterventoRotabileCreato evt = new InterventoRotabileCreato()
+            InterventoRotCreato evt = new InterventoRotCreato()
             {
                 InterventoIdSuper = interventoIdSuper,
                 IdAreaIntervento = idAreaIntervento,
@@ -36,7 +36,7 @@ namespace Domain.Interventi
             ApplyEvent(evt);
         }
 
-        protected virtual void OnInterventoCreato(InterventoRotabileCreato e)
+        protected virtual void OnInterventoCreato(InterventoRotCreato e)
         {
             this.IdInterventoSuper = e.InterventoIdSuper;
             this.InizioScheduled = e.Inizio;
@@ -55,7 +55,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotabileConsuntivatoResoDaAppaltatore evt = new InterventoRotabileConsuntivatoResoDaAppaltatore()
+                InterventoRotConsuntivatoResoDaAppaltatore evt = new InterventoRotConsuntivatoResoDaAppaltatore()
                 {
                     IdInterventoSuper = this.IdInterventoSuper,
                     IdInterventoAppaltatore = idInterventoAppaltatore,
@@ -78,9 +78,9 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotabileConsuntivatoResoDaAppaltatore(InterventoRotabileConsuntivatoResoDaAppaltatore e)
+        public void OnInterventoRotConsuntivatoResoDaAppaltatore(InterventoRotConsuntivatoResoDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreResoRotabile()
+            this.StatoAppaltatore = new StatoAppaltatoreResoRot()
             {
                 DataConsuntivazione = e.DataConsuntivazione,
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
@@ -89,7 +89,7 @@ namespace Domain.Interventi
             };
         }
 
-        public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione)
+        public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
 
@@ -99,10 +99,11 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotabileConsuntivatoNonResoDaAppaltatore evt = new InterventoRotabileConsuntivatoNonResoDaAppaltatore()
+                InterventoRotConsuntivatoNonResoDaAppaltatore evt = new InterventoRotConsuntivatoNonResoDaAppaltatore()
                 {
                     IdInterventoSuper = this.IdInterventoSuper,
-                    DataConsuntivazione = dataConsuntivazione
+                    DataConsuntivazione = dataConsuntivazione,
+                    IdCausale = idCausale
                 };
                 ApplyEvent(evt);
             }
@@ -119,12 +120,13 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotabileConsuntivatoNonResoDaAppaltatore(InterventoRotabileConsuntivatoNonResoDaAppaltatore e)
+        public void OnInterventoRotConsuntivatoNonResoDaAppaltatore(InterventoRotConsuntivatoNonResoDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreNonResoRotabile()
+            this.StatoAppaltatore = new StatoAppaltatoreNonResoRot()
             {
                 DataConsuntivazione = e.DataConsuntivazione,
-                idInterventoAppaltatore = e.IdInterventoAppaltatore
+                idInterventoAppaltatore = e.IdInterventoAppaltatore,
+                IdCausale = e.IdCausale
             };
 
         }
@@ -140,7 +142,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotabileConsuntivatoNonResoTrenitaliaDaAppaltatore evt = new InterventoRotabileConsuntivatoNonResoTrenitaliaDaAppaltatore()
+                InterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore evt = new InterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore()
                 {
                     IdInterventoSuper = this.IdInterventoSuper,
                     IdInterventoAppaltatore = IdInterventoAppaltatore,
@@ -163,9 +165,9 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotabileConsuntivatoNonResoTrenitaliaDaAppaltatore(InterventoRotabileConsuntivatoNonResoTrenitaliaDaAppaltatore e)
+        public void OnInterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore(InterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreNonResoTrenitaliaRotabile()
+            this.StatoAppaltatore = new StatoAppaltatoreNonResoTrenitaliaRot()
             {
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
                 DataConsuntivazione = e.DataConsuntivazione,

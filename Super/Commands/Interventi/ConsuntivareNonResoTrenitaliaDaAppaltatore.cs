@@ -9,9 +9,9 @@ using System.Runtime.Serialization;
 namespace Commands.Interventi
 {
     [DataContract]
-    [KnownType(typeof(ConsuntivareRotabileNonResoTrenitaliaDaAppaltatore))]
-    [KnownType(typeof(ConsuntivareRotabileInManutenzioneNonResoTrenitaliaDaAppaltatore))]
-    [KnownType(typeof(ConsuntivareAmbientiNonResoTrenitaliaDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareRotNonResoTrenitaliaDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareRotManNonResoTrenitaliaDaAppaltatore))]
+    [KnownType(typeof(ConsuntivareAmbNonResoTrenitaliaDaAppaltatore))]
     public class ConsuntivareNonResoTrenitaliaDaAppaltatore : CommandBase
     {
         [AggregateRootId]
@@ -31,11 +31,11 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class ConsuntivareRotabileNonResoTrenitaliaDaAppaltatore : ConsuntivareNonResoTrenitaliaDaAppaltatore
+    public class ConsuntivareRotNonResoTrenitaliaDaAppaltatore : ConsuntivareNonResoTrenitaliaDaAppaltatore
     {
-        public IEnumerable<OggettoInterventoRotabile> Oggetti { get; set; }
+        public IEnumerable<OggettoInterventoRot> Oggetti { get; set; }
 
-        public ConsuntivareRotabileNonResoTrenitaliaDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale, IEnumerable<OggettoInterventoRotabile> oggetti)
+        public ConsuntivareRotNonResoTrenitaliaDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale, IEnumerable<OggettoInterventoRot> oggetti)
             :base (id,interventoIdAppaltatore,dataConsuntivazione,idCausale)
         {
             Oggetti = oggetti;
@@ -43,11 +43,11 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class ConsuntivareRotabileInManutenzioneNonResoTrenitaliaDaAppaltatore : ConsuntivareNonResoTrenitaliaDaAppaltatore
+    public class ConsuntivareRotManNonResoTrenitaliaDaAppaltatore : ConsuntivareNonResoTrenitaliaDaAppaltatore
     {
-        public IEnumerable<OggettoInterventoRotabile> Oggetti { get; set; }
+        public IEnumerable<OggettoInterventoRot> Oggetti { get; set; }
 
-        public ConsuntivareRotabileInManutenzioneNonResoTrenitaliaDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale, IEnumerable<OggettoInterventoRotabile> oggetti)
+        public ConsuntivareRotManNonResoTrenitaliaDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale, IEnumerable<OggettoInterventoRot> oggetti)
             : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale)
         {
             Oggetti = oggetti;
@@ -55,9 +55,9 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class ConsuntivareAmbientiNonResoTrenitaliaDaAppaltatore : ConsuntivareNonResoTrenitaliaDaAppaltatore
+    public class ConsuntivareAmbNonResoTrenitaliaDaAppaltatore : ConsuntivareNonResoTrenitaliaDaAppaltatore
     {
-        public ConsuntivareAmbientiNonResoTrenitaliaDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
+        public ConsuntivareAmbNonResoTrenitaliaDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
             :base (id,interventoIdAppaltatore,dataConsuntivazione,idCausale)
         {}
     }

@@ -959,7 +959,7 @@ namespace Denormalizers.DTO.PEC
 
         private string tipoInterventoSiglaField;
 
-        private string tipoRotabileField;
+        private string tipoRotField;
 
         private string tipoSchedaField;
 
@@ -1240,15 +1240,15 @@ namespace Denormalizers.DTO.PEC
         }
 
         /// <remarks/>
-        public string TipoRotabile
+        public string TipoRot
         {
             get
             {
-                return this.tipoRotabileField;
+                return this.tipoRotField;
             }
             set
             {
-                this.tipoRotabileField = value;
+                this.tipoRotField = value;
             }
         }
 

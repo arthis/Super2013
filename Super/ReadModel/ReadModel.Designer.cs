@@ -84,18 +84,18 @@ namespace ReadModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ConsuntivoRotabile> ConsuntivoRotabile
+        public ObjectSet<ConsuntivoRot> ConsuntivoRot
         {
             get
             {
-                if ((_ConsuntivoRotabile == null))
+                if ((_ConsuntivoRot == null))
                 {
-                    _ConsuntivoRotabile = base.CreateObjectSet<ConsuntivoRotabile>("ConsuntivoRotabile");
+                    _ConsuntivoRot = base.CreateObjectSet<ConsuntivoRot>("ConsuntivoRot");
                 }
-                return _ConsuntivoRotabile;
+                return _ConsuntivoRot;
             }
         }
-        private ObjectSet<ConsuntivoRotabile> _ConsuntivoRotabile;
+        private ObjectSet<ConsuntivoRot> _ConsuntivoRot;
 
         #endregion
         #region AddTo Methods
@@ -109,11 +109,11 @@ namespace ReadModel
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ConsuntivoRotabile EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ConsuntivoRot EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToConsuntivoRotabile(ConsuntivoRotabile consuntivoRotabile)
+        public void AddToConsuntivoRot(ConsuntivoRot consuntivoRot)
         {
-            base.AddObject("ConsuntivoRotabile", consuntivoRotabile);
+            base.AddObject("ConsuntivoRot", consuntivoRot);
         }
 
         #endregion
@@ -332,15 +332,15 @@ namespace ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ReadModel", Name="ConsuntivoRotabile")]
+    [EdmEntityTypeAttribute(NamespaceName="ReadModel", Name="ConsuntivoRot")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class ConsuntivoRotabile : EntityObject
+    public partial class ConsuntivoRot : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new ConsuntivoRotabile object.
+        /// Create a new ConsuntivoRot object.
         /// </summary>
         /// <param name="idIntervento">Initial value of the IdIntervento property.</param>
         /// <param name="idInterventoSuper2010">Initial value of the IdInterventoSuper2010 property.</param>
@@ -379,47 +379,47 @@ namespace ReadModel
         /// <param name="isModificatoTrenitaliaRispettoAllAppaltatore">Initial value of the IsModificatoTrenitaliaRispettoAllAppaltatore property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static ConsuntivoRotabile CreateConsuntivoRotabile(global::System.Guid idIntervento, global::System.Int32 idInterventoSuper2010, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idAreaIntervento, global::System.Guid idTipoIntervento, global::System.Boolean isAvvisoIspezione, global::System.Boolean isSpunta, global::System.Boolean isReso, global::System.Boolean isNonResoAppaltatore, global::System.Boolean isNonReso20mn, global::System.Boolean isNonResoTrenitalia, global::System.Boolean isRilevatoNonReso, global::System.Boolean isRettifica, global::System.Boolean isSostituito, global::System.Boolean hasSchedaV, global::System.Boolean hasSchedaQ, global::System.DateTime data, global::System.String areaInterventoDescrizione, global::System.String tipoInterventoDescrizione, global::System.DateTime dataOraInizioProgrammata, global::System.DateTime dataOraFineProgrammata, global::System.DateTime dataOraInizioConsuntivataAppaltatore, global::System.DateTime dataOraFineConsuntivataAppaltatore, global::System.Boolean isProgrammato, global::System.Boolean isPLX, global::System.Boolean isEstemporaneo, global::System.Boolean isSostitutivo, global::System.Boolean hasTreni, global::System.Boolean hasRotabiliSingoli, global::System.Boolean hasCarozze, global::System.Boolean hasLocomotive, global::System.Boolean isModificatoTrenitaliaRispettoAlProgramma, global::System.Boolean isModificatoAppaltatoreRispettoAlProgramma, global::System.Boolean isModificatoTrenitaliaRispettoAllAppaltatore, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static ConsuntivoRot CreateConsuntivoRot(global::System.Guid idIntervento, global::System.Int32 idInterventoSuper2010, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idAreaIntervento, global::System.Guid idTipoIntervento, global::System.Boolean isAvvisoIspezione, global::System.Boolean isSpunta, global::System.Boolean isReso, global::System.Boolean isNonResoAppaltatore, global::System.Boolean isNonReso20mn, global::System.Boolean isNonResoTrenitalia, global::System.Boolean isRilevatoNonReso, global::System.Boolean isRettifica, global::System.Boolean isSostituito, global::System.Boolean hasSchedaV, global::System.Boolean hasSchedaQ, global::System.DateTime data, global::System.String areaInterventoDescrizione, global::System.String tipoInterventoDescrizione, global::System.DateTime dataOraInizioProgrammata, global::System.DateTime dataOraFineProgrammata, global::System.DateTime dataOraInizioConsuntivataAppaltatore, global::System.DateTime dataOraFineConsuntivataAppaltatore, global::System.Boolean isProgrammato, global::System.Boolean isPLX, global::System.Boolean isEstemporaneo, global::System.Boolean isSostitutivo, global::System.Boolean hasTreni, global::System.Boolean hasRotabiliSingoli, global::System.Boolean hasCarozze, global::System.Boolean hasLocomotive, global::System.Boolean isModificatoTrenitaliaRispettoAlProgramma, global::System.Boolean isModificatoAppaltatoreRispettoAlProgramma, global::System.Boolean isModificatoTrenitaliaRispettoAllAppaltatore, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
-            ConsuntivoRotabile consuntivoRotabile = new ConsuntivoRotabile();
-            consuntivoRotabile.IdIntervento = idIntervento;
-            consuntivoRotabile.IdInterventoSuper2010 = idInterventoSuper2010;
-            consuntivoRotabile.IdCommittente = idCommittente;
-            consuntivoRotabile.IdLotto = idLotto;
-            consuntivoRotabile.IdAreaIntervento = idAreaIntervento;
-            consuntivoRotabile.IdTipoIntervento = idTipoIntervento;
-            consuntivoRotabile.IsAvvisoIspezione = isAvvisoIspezione;
-            consuntivoRotabile.IsSpunta = isSpunta;
-            consuntivoRotabile.IsReso = isReso;
-            consuntivoRotabile.IsNonResoAppaltatore = isNonResoAppaltatore;
-            consuntivoRotabile.IsNonReso20mn = isNonReso20mn;
-            consuntivoRotabile.IsNonResoTrenitalia = isNonResoTrenitalia;
-            consuntivoRotabile.IsRilevatoNonReso = isRilevatoNonReso;
-            consuntivoRotabile.IsRettifica = isRettifica;
-            consuntivoRotabile.IsSostituito = isSostituito;
-            consuntivoRotabile.HasSchedaV = hasSchedaV;
-            consuntivoRotabile.HasSchedaQ = hasSchedaQ;
-            consuntivoRotabile.Data = data;
-            consuntivoRotabile.AreaInterventoDescrizione = areaInterventoDescrizione;
-            consuntivoRotabile.TipoInterventoDescrizione = tipoInterventoDescrizione;
-            consuntivoRotabile.DataOraInizioProgrammata = dataOraInizioProgrammata;
-            consuntivoRotabile.DataOraFineProgrammata = dataOraFineProgrammata;
-            consuntivoRotabile.DataOraInizioConsuntivataAppaltatore = dataOraInizioConsuntivataAppaltatore;
-            consuntivoRotabile.DataOraFineConsuntivataAppaltatore = dataOraFineConsuntivataAppaltatore;
-            consuntivoRotabile.IsProgrammato = isProgrammato;
-            consuntivoRotabile.IsPLX = isPLX;
-            consuntivoRotabile.IsEstemporaneo = isEstemporaneo;
-            consuntivoRotabile.IsSostitutivo = isSostitutivo;
-            consuntivoRotabile.HasTreni = hasTreni;
-            consuntivoRotabile.HasRotabiliSingoli = hasRotabiliSingoli;
-            consuntivoRotabile.HasCarozze = hasCarozze;
-            consuntivoRotabile.HasLocomotive = hasLocomotive;
-            consuntivoRotabile.IsModificatoTrenitaliaRispettoAlProgramma = isModificatoTrenitaliaRispettoAlProgramma;
-            consuntivoRotabile.IsModificatoAppaltatoreRispettoAlProgramma = isModificatoAppaltatoreRispettoAlProgramma;
-            consuntivoRotabile.IsModificatoTrenitaliaRispettoAllAppaltatore = isModificatoTrenitaliaRispettoAllAppaltatore;
-            consuntivoRotabile.CreationDate = creationDate;
-            consuntivoRotabile.Deleted = deleted;
-            return consuntivoRotabile;
+            ConsuntivoRot consuntivoRot = new ConsuntivoRot();
+            consuntivoRot.IdIntervento = idIntervento;
+            consuntivoRot.IdInterventoSuper2010 = idInterventoSuper2010;
+            consuntivoRot.IdCommittente = idCommittente;
+            consuntivoRot.IdLotto = idLotto;
+            consuntivoRot.IdAreaIntervento = idAreaIntervento;
+            consuntivoRot.IdTipoIntervento = idTipoIntervento;
+            consuntivoRot.IsAvvisoIspezione = isAvvisoIspezione;
+            consuntivoRot.IsSpunta = isSpunta;
+            consuntivoRot.IsReso = isReso;
+            consuntivoRot.IsNonResoAppaltatore = isNonResoAppaltatore;
+            consuntivoRot.IsNonReso20mn = isNonReso20mn;
+            consuntivoRot.IsNonResoTrenitalia = isNonResoTrenitalia;
+            consuntivoRot.IsRilevatoNonReso = isRilevatoNonReso;
+            consuntivoRot.IsRettifica = isRettifica;
+            consuntivoRot.IsSostituito = isSostituito;
+            consuntivoRot.HasSchedaV = hasSchedaV;
+            consuntivoRot.HasSchedaQ = hasSchedaQ;
+            consuntivoRot.Data = data;
+            consuntivoRot.AreaInterventoDescrizione = areaInterventoDescrizione;
+            consuntivoRot.TipoInterventoDescrizione = tipoInterventoDescrizione;
+            consuntivoRot.DataOraInizioProgrammata = dataOraInizioProgrammata;
+            consuntivoRot.DataOraFineProgrammata = dataOraFineProgrammata;
+            consuntivoRot.DataOraInizioConsuntivataAppaltatore = dataOraInizioConsuntivataAppaltatore;
+            consuntivoRot.DataOraFineConsuntivataAppaltatore = dataOraFineConsuntivataAppaltatore;
+            consuntivoRot.IsProgrammato = isProgrammato;
+            consuntivoRot.IsPLX = isPLX;
+            consuntivoRot.IsEstemporaneo = isEstemporaneo;
+            consuntivoRot.IsSostitutivo = isSostitutivo;
+            consuntivoRot.HasTreni = hasTreni;
+            consuntivoRot.HasRotabiliSingoli = hasRotabiliSingoli;
+            consuntivoRot.HasCarozze = hasCarozze;
+            consuntivoRot.HasLocomotive = hasLocomotive;
+            consuntivoRot.IsModificatoTrenitaliaRispettoAlProgramma = isModificatoTrenitaliaRispettoAlProgramma;
+            consuntivoRot.IsModificatoAppaltatoreRispettoAlProgramma = isModificatoAppaltatoreRispettoAlProgramma;
+            consuntivoRot.IsModificatoTrenitaliaRispettoAllAppaltatore = isModificatoTrenitaliaRispettoAllAppaltatore;
+            consuntivoRot.CreationDate = creationDate;
+            consuntivoRot.Deleted = deleted;
+            return consuntivoRot;
         }
 
         #endregion

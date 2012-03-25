@@ -23,7 +23,7 @@ namespace Denormalizer
         {
             using (var context = new ReadModelContainer())
             {
-                var existing = context.AreaIntervento.SingleOrDefault(x => x.Id == evnt.Payload.Id);
+                var existing = context.AreaIntervento.SingleOrDefault(x => x.Id == evnt.EventSourceId);
                 if (existing != null)
                 {
                     return;
@@ -48,7 +48,7 @@ namespace Denormalizer
         {
             using (var context = new ReadModelContainer())
             {
-                var existing = context.AreaIntervento.SingleOrDefault(x => x.Id == evnt.Payload.Id);
+                var existing = context.AreaIntervento.SingleOrDefault(x => x.Id == evnt.EventSourceId);
                 if (existing != null)
                 {
                     existing.IdAreaInterventoSuper = evnt.Payload.IdAreaInterventoSuper;
@@ -64,7 +64,7 @@ namespace Denormalizer
         {
             using (var context = new ReadModelContainer())
             {
-                var existing = context.AreaIntervento.SingleOrDefault(x => x.Id == evnt.Payload.Id);
+                var existing = context.AreaIntervento.SingleOrDefault(x => x.Id == evnt.EventSourceId);
                 if (existing != null)
                 {
                     existing.Deleted = true;

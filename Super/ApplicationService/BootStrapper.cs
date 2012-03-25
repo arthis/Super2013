@@ -19,7 +19,6 @@ using System.Reflection;
 namespace ApplicationService
 {
     using Domain.Interventi;
-    using ApplicationService.Executors;
     using Denormalizers;
     using System;
     using System.Diagnostics.Contracts;
@@ -27,6 +26,7 @@ namespace ApplicationService
     using Ncqrs.Eventing.Storage.RavenDB;
     using Mail;
     using Denormalizer;
+    using Executors;
 
     public static class BootStrapper
     {
@@ -49,7 +49,7 @@ namespace ApplicationService
             _Container.Register(Component.For<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>().ImplementedBy<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>());
             
             _Container.Register(Component.For<AreaInterventoDenormalizer>().ImplementedBy<AreaInterventoDenormalizer>());
-            _Container.Register(Component.For<InterventoRotabileDenormalizer>().ImplementedBy<InterventoRotabileDenormalizer>());
+            _Container.Register(Component.For<InterventoRotDenormalizer>().ImplementedBy<InterventoRotDenormalizer>());
 
             _Container.Register(
                 Component.For<ISnapshottingPolicy>().ImplementedBy<SimpleSnapshottingPolicy>(),
@@ -58,7 +58,7 @@ namespace ApplicationService
                 Component.For<IEventStore>().Instance(db),
                 Component.For<ISnapshotStore>().Instance(ss),
                 Component.For<IKnownCommandsEnumerator>().Instance(new AllCommandsInAppDomainEnumerator()),
-                Component.For<InterventoRotabile>().AsSnapshotable()
+                Component.For<InterventoRot>().AsSnapshotable()
                 );
 
 

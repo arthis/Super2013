@@ -7,6 +7,5 @@ namespace Events.AreaIntervento
 {
     public class AreaInterventoCancellata
     {
-        public Guid Id { get; set; }
     }
 }

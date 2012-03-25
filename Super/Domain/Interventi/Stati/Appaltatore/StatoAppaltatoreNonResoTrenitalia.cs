@@ -11,16 +11,16 @@ namespace Domain.Interventi.Stati
         public Guid IdCausale { get; set; }
     }
 
-    public class StatoAppaltatoreNonResoTrenitaliaRotabile : StatoAppaltatoreNonResoTrenitalia
+    public class StatoAppaltatoreNonResoTrenitaliaRot : StatoAppaltatoreNonResoTrenitalia
     {
         public IEnumerable<OggettoIntervento> Oggetti { get; set; }
     }
 
-    public class StatoAppaltatoreNonResoTrenitaliaRotabileInManutenzione : StatoAppaltatoreNonResoTrenitalia
+    public class StatoAppaltatoreNonResoTrenitaliaRotMan : StatoAppaltatoreNonResoTrenitalia
     {
         public IEnumerable<OggettoIntervento> Oggetti { get; set; }
     }
 
-    public class StatoAppaltatoreNonResoTrenitaliaAmbienti : StatoAppaltatoreNonResoTrenitalia
+    public class StatoAppaltatoreNonResoTrenitaliaAmb : StatoAppaltatoreNonResoTrenitalia
     { }
 }

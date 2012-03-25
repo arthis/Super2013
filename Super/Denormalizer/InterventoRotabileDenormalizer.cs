@@ -9,19 +9,19 @@ using Events.Interventi;
 
 namespace Denormalizer
 {
-    public class InterventoRotabileDenormalizer : IEventHandler<InterventoRotabileCreato>,
-                                                IEventHandler<InterventoRotabileConsuntivatoNonResoDaAppaltatore>,
+    public class InterventoRotDenormalizer : IEventHandler<InterventoRotCreato>,
+                                                IEventHandler<InterventoRotConsuntivatoNonResoDaAppaltatore>,
                                                 IEventHandler<InterventoConsuntivatoNonResoTrenitaliaDaAppaltatore>,
-                                                IEventHandler<InterventoRotabileConsuntivatoResoDaAppaltatore>
+                                                IEventHandler<InterventoRotConsuntivatoResoDaAppaltatore>
     {
 
 
-        public InterventoRotabileDenormalizer()
+        public InterventoRotDenormalizer()
         {
            
         }
 
-        public void Handle(IPublishedEvent<InterventoRotabileCreato> evnt)
+        public void Handle(IPublishedEvent<InterventoRotCreato> evnt)
         {
             //using (var context = new ReadModelContainer())
             //{
@@ -46,7 +46,7 @@ namespace Denormalizer
             //}
         }
 
-        public void Handle(IPublishedEvent<InterventoRotabileConsuntivatoNonResoDaAppaltatore> evnt)
+        public void Handle(IPublishedEvent<InterventoRotConsuntivatoNonResoDaAppaltatore> evnt)
         {
             //using (var context = new ReadModelContainer())
             //{
@@ -75,7 +75,7 @@ namespace Denormalizer
             //}
         }
 
-        public void Handle(IPublishedEvent<InterventoRotabileConsuntivatoResoDaAppaltatore> evnt)
+        public void Handle(IPublishedEvent<InterventoRotConsuntivatoResoDaAppaltatore> evnt)
         {
             //using (var context = new ReadModelContainer())
             //{

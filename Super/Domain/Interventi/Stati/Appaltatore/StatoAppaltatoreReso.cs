@@ -12,17 +12,17 @@ namespace Domain.Interventi.Stati
         public DateTime Fine { get; set; }
     }
 
-    public class StatoAppaltatoreResoRotabile : StatoAppaltatoreReso
+    public class StatoAppaltatoreResoRot : StatoAppaltatoreReso
     {
         public IEnumerable<OggettoIntervento> Oggetti { get; set; }
     }
 
-    public class StatoAppaltatoreResoRotabileInManutenzione : StatoAppaltatoreReso
+    public class StatoAppaltatoreResoRotMan : StatoAppaltatoreReso
     {
         public IEnumerable<OggettoIntervento> Oggetti { get; set; }
     }
 
-    public class StatoAppaltatoreResoAmbienti : StatoAppaltatoreReso
+    public class StatoAppaltatoreResoAmb : StatoAppaltatoreReso
     { 
     }
 

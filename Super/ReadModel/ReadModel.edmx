@@ -7,7 +7,7 @@
     <Schema Namespace="ReadModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ReadModelStoreContainer">
           <EntitySet Name="AreaIntervento" EntityType="ReadModel.Store.AreaIntervento" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ConsuntivoRotabile" EntityType="ReadModel.Store.ConsuntivoRotabile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ConsuntivoRot" EntityType="ReadModel.Store.ConsuntivoRot" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="AreaIntervento">
           <Key>
@@ -21,7 +21,7 @@
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="ConsuntivoRotabile">
+        <EntityType Name="ConsuntivoRot">
           <Key>
             <PropertyRef Name="IdIntervento" />
           </Key>
@@ -74,7 +74,7 @@
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ReadModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="ReadModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AreaIntervento" EntityType="ReadModel.AreaIntervento" />
-          <EntitySet Name="ConsuntivoRotabile" EntityType="ReadModel.ConsuntivoRotabile" />
+          <EntitySet Name="ConsuntivoRot" EntityType="ReadModel.ConsuntivoRot" />
         </EntityContainer>
         <EntityType Name="AreaIntervento">
           <Key>
@@ -88,7 +88,7 @@
           <Property Type="DateTime" Name="CreationDate" Nullable="false" />
           <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
-        <EntityType Name="ConsuntivoRotabile">
+        <EntityType Name="ConsuntivoRot">
           <Key>
             <PropertyRef Name="IdIntervento" />
           </Key>
@@ -154,9 +154,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ConsuntivoRotabile">
-            <EntityTypeMapping TypeName="ReadModel.ConsuntivoRotabile">
-              <MappingFragment StoreEntitySet="ConsuntivoRotabile">
+          <EntitySetMapping Name="ConsuntivoRot">
+            <EntityTypeMapping TypeName="ReadModel.ConsuntivoRot">
+              <MappingFragment StoreEntitySet="ConsuntivoRot">
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="IsModificatoTrenitaliaRispettoAllAppaltatore" ColumnName="IsModificatoTrenitaliaRispettoAllAppaltatore" />
@@ -223,7 +223,7 @@
     <edmx:Diagrams>
       <Diagram Name="ReadModel" >
         <EntityTypeShape EntityType="ReadModel.AreaIntervento" Width="1.5" PointX="0.5" PointY="1.125" Height="2.3648893229166656" />
-        <EntityTypeShape EntityType="ReadModel.ConsuntivoRotabile" Width="2.75" PointX="3.375" PointY="0.75" Height="9.095439453125" />
+        <EntityTypeShape EntityType="ReadModel.ConsuntivoRot" Width="2.75" PointX="3.375" PointY="0.75" Height="9.095439453125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

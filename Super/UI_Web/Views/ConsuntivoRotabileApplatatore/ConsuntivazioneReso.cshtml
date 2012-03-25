@@ -1,4 +1,4 @@
-﻿@model Commands.Interventi.ConsuntivareRotabileResoDaAppaltatore
+﻿@model Commands.Interventi.ConsuntivareRotResoDaAppaltatore
 
 <script src="@Url.Content("~/Scripts/jquery-1.6.2.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
@@ -7,7 +7,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>ConsuntivareRotabileResoDaAppaltatore</legend>
+        <legend>ConsuntivareRotResoDaAppaltatore</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.InterventoIdAppaltatore)

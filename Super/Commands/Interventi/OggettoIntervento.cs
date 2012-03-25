@@ -12,13 +12,13 @@ namespace Commands.Interventi
 
     }
 
-    public class OggettoInterventoRotabile : OggettoIntervento
+    public class OggettoInterventoRot : OggettoIntervento
     {
-        public Guid IdTipoOggettoInterventoRotabile { get; set; }
+        public Guid IdTipoOggettoInterventoRot { get; set; }
     }
 
-    public class OggettoInterventoRotabileInManutenzione : OggettoIntervento
+    public class OggettoInterventoRotMan : OggettoIntervento
     {
-        public Guid IdTipoOggettoInterventoRotabileInManutenzione { get; set; }
+        public Guid IdTipoOggettoInterventoRotMan { get; set; }
     }
 }

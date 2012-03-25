@@ -15,14 +15,14 @@ namespace Events.Interventi
     }
 
     [Serializable]
-    public class InterventoRotabileConsuntivatoNonResoTrenitaliaDaAppaltatore : InterventoConsuntivatoNonResoTrenitaliaDaAppaltatore
+    public class InterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore : InterventoConsuntivatoNonResoTrenitaliaDaAppaltatore
     { }
 
     [Serializable]
-    public class InterventoRotabileInManutenzioneConsuntivatoNonResoTrenitaliaDaAppaltatore : InterventoConsuntivatoNonResoTrenitaliaDaAppaltatore
+    public class InterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore : InterventoConsuntivatoNonResoTrenitaliaDaAppaltatore
     { }
 
     [Serializable]
-    public class InterventoAmbientiConsuntivatoNonResoTrenitaliaDaAppaltatore : InterventoConsuntivatoNonResoTrenitaliaDaAppaltatore
+    public class InterventoAmbConsuntivatoNonResoTrenitaliaDaAppaltatore : InterventoConsuntivatoNonResoTrenitaliaDaAppaltatore
     { }
 }

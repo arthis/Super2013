@@ -16,14 +16,14 @@ namespace Events.Interventi
     }
 
     [Serializable]
-    public class InterventoRotabileConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
+    public class InterventoRotConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
     { }
 
     [Serializable]
-    public class InterventoRotabileInManutenzioneConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
+    public class InterventoRotManConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
     { }
 
     [Serializable]
-    public class InterventoAmbientiConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
+    public class InterventoAmbConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
     { }
 }

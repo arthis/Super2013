@@ -79,15 +79,7 @@
     </Reference>
     <Reference Include="EventStore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.JOliver\EventStore.dll</HintPath>
-    </Reference>
-    <Reference Include="EventStore.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.JOliver\EventStore.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="EventStore.Persistence.RavenPersistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.JOliver.RavenPersistence\EventStore.Persistence.RavenPersistence.dll</HintPath>
+      <HintPath>..\..\nCQRS\lib\ThirdParty\EventStore\EventStore.dll</HintPath>
     </Reference>
     <Reference Include="Ncqrs, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -112,10 +104,6 @@
     <Reference Include="Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs.Eventing.Storage.JOliver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.JOliver\Ncqrs.Eventing.Storage.JOliver.dll</HintPath>
     </Reference>
     <Reference Include="Ncqrs.Eventing.Storage.RavenDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -166,18 +154,6 @@
     <Compile Include="BootStrapper.cs" />
     <Compile Include="BootStrapperNInject.cs" />
     <Compile Include="EventBusProcessor.cs" />
-    <Compile Include="Executors\AreaIntervento\AggiornareAreaInterventoExecutor.cs" />
-    <Compile Include="Executors\AreaIntervento\CancellareAreaInterventoExecutor.cs" />
-    <Compile Include="Executors\Interventi\ConsuntivareDaAppaltatoreExecutor.cs" />
-    <Compile Include="Executors\Interventi\ConsuntivareDaTrenitaliaExecutor.cs" />
-    <Compile Include="Executors\Interventi\ConsuntivareResoDaAppaltatoreExecutor.cs" />
-    <Compile Include="Executors\Interventi\ConsuntivareNonResoDaAppaltatoreExecutor.cs" />
-    <Compile Include="Executors\CreareCausaleExecutor.cs" />
-    <Compile Include="Executors\CreareSettoreExecutor.cs" />
-    <Compile Include="Executors\AreaIntervento\CreareAreaInterventoExecutor.cs" />
-    <Compile Include="Executors\Interventi\CreareInterventoAmbientiExecutor.cs" />
-    <Compile Include="Executors\Interventi\CreareInterventoRotabileInManutenzioneExecutor.cs" />
-    <Compile Include="Executors\Interventi\CreareInterventoRotabileExecutor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -196,6 +172,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Storage.JOliver.RavenPersistence\Ncqrs.Eventing.Storage.JOliver.RavenPersistence.csproj">
+      <Project>{A2ADE0B3-D3C0-4D6B-8701-C0F5E509A69A}</Project>
+      <Name>Ncqrs.Eventing.Storage.JOliver.RavenPersistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Storage.JOliver\Ncqrs.Eventing.Storage.JOliver.csproj">
+      <Project>{DCA6E39A-8D6B-4531-ACA7-33D790D27878}</Project>
+      <Name>Ncqrs.Eventing.Storage.JOliver</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{87577C93-5923-4F03-8F0E-E5519C7C0854}</Project>
       <Name>Commands</Name>
@@ -212,6 +196,10 @@
       <Project>{4E97B58A-B0B8-4A8B-A5FF-B001528741B3}</Project>
       <Name>Events</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Executors\Executors.csproj">
+      <Project>{C57D5DEE-1CE6-4ABE-9832-D029054C4DDE}</Project>
+      <Name>Executors</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mail\Mail.csproj">
       <Project>{4998AC57-87EA-4502-A97F-07DFDA9E18DE}</Project>
       <Name>Mail</Name>
@@ -221,6 +209,7 @@
     <Content Include="EventStore.sql" />
     <Content Include="ReadModel.sql" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

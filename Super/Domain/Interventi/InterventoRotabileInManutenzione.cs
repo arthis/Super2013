@@ -12,21 +12,21 @@ using Domain.Interventi.Stati;
 namespace Domain.Interventi
 {
     [DynamicSnapshot]
-    public class InterventoRotabileInManutenzione : Intervento
+    public class InterventoRotMan : Intervento
     {
         private int _TimeOutConsuntivazioneAppaltatore = 20;
 
-        public IEnumerable<OggettoInterventoRotabileInManutenzione> OggettiScheduled { get; set; }
+        public IEnumerable<OggettoInterventoRotMan> OggettiScheduled { get; set; }
 
 
-        public InterventoRotabileInManutenzione()
+        public InterventoRotMan()
         {
         }
 
-        public InterventoRotabileInManutenzione(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento)
+        public InterventoRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento)
             : base(id)
         {
-            InterventoRotabileInManutenzioneCreato evt = new InterventoRotabileInManutenzioneCreato()
+            InterventoRotManCreato evt = new InterventoRotManCreato()
             {
                 InterventoIdSuper = interventoIdSuper,
                 IdAreaIntervento = idAreaIntervento,
@@ -37,7 +37,7 @@ namespace Domain.Interventi
             ApplyEvent(evt);
         }
 
-        protected void OnInterventoCreato(InterventoRotabileInManutenzioneCreato e)
+        protected void OnInterventoCreato(InterventoRotManCreato e)
         {
             this.IdInterventoSuper = e.InterventoIdSuper;
             this.InizioScheduled = e.Inizio;
@@ -57,7 +57,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotabileInManutenzioneConsuntivatoResoDaAppaltatore evt = new InterventoRotabileInManutenzioneConsuntivatoResoDaAppaltatore()
+                InterventoRotManConsuntivatoResoDaAppaltatore evt = new InterventoRotManConsuntivatoResoDaAppaltatore()
                 {
                     IdInterventoSuper = this.IdInterventoSuper,
                     IdInterventoAppaltatore = idInterventoAppaltatore,
@@ -80,9 +80,9 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotabileInManutenzioneConsuntivatoResoDaAppaltatore(InterventoRotabileInManutenzioneConsuntivatoResoDaAppaltatore e)
+        public void OnInterventoRotManConsuntivatoResoDaAppaltatore(InterventoRotManConsuntivatoResoDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreResoRotabileInManutenzione()
+            this.StatoAppaltatore = new StatoAppaltatoreResoRotMan()
             {
                 DataConsuntivazione = e.DataConsuntivazione,
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
@@ -91,7 +91,7 @@ namespace Domain.Interventi
             };
         }
 
-        public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione)
+        public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
 
@@ -101,10 +101,11 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotabileInManutenzioneConsuntivatoNonResoDaAppaltatore evt = new InterventoRotabileInManutenzioneConsuntivatoNonResoDaAppaltatore()
+                InterventoRotManConsuntivatoNonResoDaAppaltatore evt = new InterventoRotManConsuntivatoNonResoDaAppaltatore()
                 {
                     IdInterventoSuper = this.IdInterventoSuper,
-                    DataConsuntivazione = dataConsuntivazione
+                    DataConsuntivazione = dataConsuntivazione,
+                    IdCausale = idCausale
                 };
                 ApplyEvent(evt);
             }
@@ -121,12 +122,13 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotabileInManutenzioneConsuntivatoNonResoDaAppaltatore(InterventoRotabileInManutenzioneConsuntivatoNonResoDaAppaltatore e)
+        public void OnInterventoRotManConsuntivatoNonResoDaAppaltatore(InterventoRotManConsuntivatoNonResoDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreNonResoRotabileInManutenzione()
+            this.StatoAppaltatore = new StatoAppaltatoreNonResoRotMan()
             {
                 DataConsuntivazione = e.DataConsuntivazione,
-                idInterventoAppaltatore = e.IdInterventoAppaltatore
+                idInterventoAppaltatore = e.IdInterventoAppaltatore,
+                IdCausale = e.IdCausale
             };
 
         }
@@ -142,7 +144,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotabileInManutenzioneConsuntivatoNonResoTrenitaliaDaAppaltatore evt = new InterventoRotabileInManutenzioneConsuntivatoNonResoTrenitaliaDaAppaltatore()
+                InterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore evt = new InterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore()
                 {
                     IdInterventoSuper = this.IdInterventoSuper,
                     IdInterventoAppaltatore = IdInterventoAppaltatore,
@@ -165,9 +167,9 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotabileInManutenzioneConsuntivatoNonResoTrenitaliaDaAppaltatore(InterventoRotabileInManutenzioneConsuntivatoNonResoTrenitaliaDaAppaltatore e)
+        public void OnInterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore(InterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreNonResoTrenitaliaRotabileInManutenzione()
+            this.StatoAppaltatore = new StatoAppaltatoreNonResoTrenitaliaRotMan()
             {
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
                 DataConsuntivazione = e.DataConsuntivazione,

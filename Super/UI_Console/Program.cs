@@ -40,11 +40,11 @@ namespace UI_Console
 
 
 
-            //var command = new CreareNuovoInterventoRotabile();
+            //var command = new CreareNuovoInterventoRot();
             //command.Id = Guid.NewGuid();
 
 
-            //CreareNuovoInterventoRotabile nuovoIntervento = new CreareNuovoInterventoRotabile()
+            //CreareNuovoInterventoRot nuovoIntervento = new CreareNuovoInterventoRot()
             //{
             //    Id = g,
             //    InterventoIdSuper = 999,
@@ -56,7 +56,7 @@ namespace UI_Console
             //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
             //                    client.Execute(new ExecuteRequest(nuovoIntervento)));
 
-            //ConsuntivareRotabileResoDaAppaltatore consAppaltatore = new ConsuntivareRotabileResoDaAppaltatore()
+            //ConsuntivareRotResoDaAppaltatore consAppaltatore = new ConsuntivareRotResoDaAppaltatore()
             //{
             //    Id = g,
             //    InterventoIdAppaltatore = "idAppa",
