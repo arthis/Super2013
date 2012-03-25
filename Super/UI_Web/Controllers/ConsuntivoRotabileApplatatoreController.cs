@@ -81,14 +81,14 @@ namespace Website.Controllers
 
         public ActionResult Add()
         {
-            var command = new CreareNuovoInterventoRot();
+            var command = new CreareInterventoPLGRot();
             command.Id = Guid.NewGuid();
 
             return View(command);
         }
 
         [HttpPost]
-        public ActionResult Add(CreareNuovoInterventoRot command)
+        public ActionResult Add(CreareInterventoPLGRot command)
         {
             ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
                                 client.Execute(new ExecuteRequest(command)));

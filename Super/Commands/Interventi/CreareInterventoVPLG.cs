@@ -9,10 +9,10 @@ using System.Runtime.Serialization;
 namespace Commands.Interventi
 {
     [DataContract]
-    [KnownType(typeof(CreareInterventoPLGRot))]
-    [KnownType(typeof(CreareInterventoPLGAmb))]
-    [KnownType(typeof(CreareInterventoPLGRotMan))]
-    public abstract class CreareInterventoPLG : CommandBase
+    [KnownType(typeof(CreareInterventoVPLGRot))]
+    [KnownType(typeof(CreareInterventoVPLGAmb))]
+    [KnownType(typeof(CreareInterventoVPLGRotMan))]
+    public abstract class CreareInterventoVPLG : CommandBase
     {
         public Guid Id { get; set; }
         public int InterventoIdSuper { get; set; }
@@ -26,10 +26,7 @@ namespace Commands.Interventi
         public Guid IdDirezioneRegionale { get; set; }
         public string Note { get; set; }
 
-        protected CreareInterventoPLG()
-        { }
-
-       protected CreareInterventoPLG(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione)
+       protected CreareInterventoVPLG(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione)
         {
             this.Id = id;
             this.InterventoIdSuper = interventoIdSuper;
@@ -41,7 +38,7 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class CreareInterventoPLGRot : CreareInterventoPLG
+    public class CreareInterventoVPLGRot : CreareInterventoVPLG
     {
         public OggettoInterventoRot[] Oggetti { get; set; }
         public string NumeroTrenoArrivo { get; set; }
@@ -51,13 +48,9 @@ namespace Commands.Interventi
         public string TurnoTreno { get; set; }
         public string RigaTurnoTreno { get; set; }
         public string Convoglio { get; set; }
+        
 
-        public CreareInterventoPLGRot()
-            : base()
-        {
-        }
-
-        public CreareInterventoPLGRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRot[] oggetti)
+        public CreareInterventoVPLGRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRot[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 
@@ -65,17 +58,13 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class CreareInterventoPLGAmb : CreareInterventoPLG
+    public class CreareInterventoVPLGAmb : CreareInterventoVPLG
     {
         public int Quantita { get; set; }
         public string Descrizione { get; set; }
 
-        public CreareInterventoPLGAmb()
-            : base()
-        {
-        }
 
-        public CreareInterventoPLGAmb(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, int quantita, string descrizione)
+        public CreareInterventoVPLGAmb(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, int quantita, string descrizione)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             this.Quantita = quantita;
@@ -84,17 +73,13 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class CreareInterventoPLGRotMan : CreareInterventoPLG
+    public class CreareInterventoVPLGRotMan : CreareInterventoVPLG
     {
 
         public OggettoInterventoRotMan[] Oggetti { get; set; }
 
-        public CreareInterventoPLGRotMan()
-            : base()
-        {
-        }
 
-        public CreareInterventoPLGRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotMan[] oggetti)
+        public CreareInterventoVPLGRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotMan[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 

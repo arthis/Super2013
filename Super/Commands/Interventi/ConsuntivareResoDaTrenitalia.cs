@@ -9,10 +9,10 @@ using System.Runtime.Serialization;
 namespace Commands.Interventi
 {
     [DataContract]
-    [KnownType(typeof(ConsuntivareRotResoDaAppaltatore))]
-    [KnownType(typeof(ConsuntivareRotManResoDaAppaltatore))]
-    [KnownType(typeof(ConsuntivareAmbResoDaAppaltatore))]
-    public abstract class ConsuntivareResoDaAppaltatore : CommandBase
+    [KnownType(typeof(ConsuntivareRotResoDaTrenitalia))]
+    [KnownType(typeof(ConsuntivareRotManResoDaTrenitalia))]
+    [KnownType(typeof(ConsuntivareAmbResoDaTrenitalia))]
+    public abstract class ConsuntivareResoDaTrenitalia : CommandBase
     {
         [AggregateRootId]
         public Guid Id { get; set; }
@@ -21,7 +21,7 @@ namespace Commands.Interventi
         public DateTime Inizio { get; set; }
         public DateTime Fine { get; set; }
 
-        public ConsuntivareResoDaAppaltatore(Guid id, string interventoIdAppaltatore,DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
+        public ConsuntivareResoDaTrenitalia(Guid id, string interventoIdAppaltatore,DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
         {
             Id = id;
             InterventoIdAppaltatore = interventoIdAppaltatore;
@@ -32,11 +32,11 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class ConsuntivareRotResoDaAppaltatore : ConsuntivareResoDaAppaltatore
+    public class ConsuntivareRotResoDaTrenitalia : ConsuntivareResoDaTrenitalia
     {
         public OggettoInterventoRot[] Oggetti { get; set; }
 
-        public ConsuntivareRotResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoInterventoRot[] oggetti)
+        public ConsuntivareRotResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoInterventoRot[] oggetti)
             :base(id,interventoIdAppaltatore,dataConsuntivazione,inizio,fine)
         {
             Oggetti = oggetti;
@@ -44,11 +44,11 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class ConsuntivareRotManResoDaAppaltatore : ConsuntivareResoDaAppaltatore
+    public class ConsuntivareRotManResoDaTrenitalia : ConsuntivareResoDaTrenitalia
     {
         public OggettoInterventoRotMan[] Oggetti { get; set; }
 
-        public ConsuntivareRotManResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoInterventoRotMan[] oggetti)
+        public ConsuntivareRotManResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoInterventoRotMan[] oggetti)
             : base(id, interventoIdAppaltatore, dataConsuntivazione, inizio, fine)
         {
             Oggetti = oggetti;
@@ -56,9 +56,9 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class ConsuntivareAmbResoDaAppaltatore : ConsuntivareResoDaAppaltatore
+    public class ConsuntivareAmbResoDaTrenitalia : ConsuntivareResoDaTrenitalia
     {
-        public ConsuntivareAmbResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
+        public ConsuntivareAmbResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
             : base(id, interventoIdAppaltatore, dataConsuntivazione, inizio, fine)
         {}
     }

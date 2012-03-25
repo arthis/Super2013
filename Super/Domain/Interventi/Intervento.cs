@@ -12,6 +12,7 @@ namespace Domain.Interventi
     {
         private int _TimeOutConsuntivazioneAppaltatore = 20;
         private DateTime? _DataSpunta;
+        private DateTime? _DataConsuntivazioneAppaltatoreScaduta;
 
         public StatoAppaltatore StatoAppaltatore { get; set; }
         public StatoTrenitalia StatoTrenitalia { get; set; }
@@ -23,6 +24,10 @@ namespace Domain.Interventi
         public bool IsSpunta
         {
             get { return DataSpunta.HasValue; }
+        }
+        public bool IsConsuntivazioneAppaltatoreScaduta
+        {
+            get { return _DataConsuntivazioneAppaltatoreScaduta.HasValue; }
         }
         
 

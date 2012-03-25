@@ -74,6 +74,7 @@
     <Compile Include="Interventi\ConsuntivatoResoDaAppaltatoreRejected.cs" />
     <Compile Include="Interventi\ConsuntivatoNonResoDaAppaltatore.cs" />
     <Compile Include="Interventi\ConsuntivatoNonResoTrenitaliaDaAppaltatore.cs" />
+    <Compile Include="Interventi\ConsuntivazioneAppaltatoreScaduta.cs" />
     <Compile Include="Interventi\InterventoRotabileInManutenzioneCreato.cs" />
     <Compile Include="Interventi\InterventoRotabileCreato.cs" />
     <Compile Include="SettoreCreato.cs" />

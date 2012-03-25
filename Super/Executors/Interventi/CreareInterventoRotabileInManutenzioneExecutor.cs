@@ -9,9 +9,9 @@ using Domain.Interventi;
 
 namespace Executors
 {
-    public class CreareInterventoRotManExecutor : CommandExecutorBase<CreareNuovoInterventoRotMan>
+    public class CreareInterventoRotManExecutor : CommandExecutorBase<CreareInterventoPLGRotMan>
     {
-        protected override void ExecuteInContext(IUnitOfWorkContext context, CreareNuovoInterventoRotMan command)
+        protected override void ExecuteInContext(IUnitOfWorkContext context, CreareInterventoPLGRotMan command)
         {
             // Perform The Consuntivazione
             InterventoRotMan i = new InterventoRotMan(command.Id, command.InterventoIdSuper, command.Inizio, command.Fine, command.IdAreaIntervento);

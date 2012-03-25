@@ -9,9 +9,9 @@ using Domain.Interventi;
 
 namespace Executors
 {
-    public class CreareInterventoAmbExecutor : CommandExecutorBase<CreareNuovoInterventoAmb>
+    public class CreareInterventoAmbExecutor : CommandExecutorBase<CreareInterventoPLGAmb>
     {
-        protected override void ExecuteInContext(IUnitOfWorkContext context, CreareNuovoInterventoAmb command)
+        protected override void ExecuteInContext(IUnitOfWorkContext context, CreareInterventoPLGAmb command)
         {
             // Perform The Consuntivazione
             InterventoAmb i = new InterventoAmb(command.Id, command.InterventoIdSuper, command.Inizio, command.Fine, command.IdAreaIntervento, command.Quantita, command.Descrizione);

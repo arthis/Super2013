@@ -74,8 +74,13 @@
     <Compile Include="Interventi\ConsuntivareNonResoTrenitaliaDaAppaltatore.cs" />
     <Compile Include="CreareNuovaCausale.cs" />
     <Compile Include="CreareNuovoSettore.cs" />
+    <Compile Include="Interventi\ConsuntivareResoDaTrenitalia.cs" />
+    <Compile Include="Interventi\ConsuntivareNonResoDaTrenitalia.cs" />
+    <Compile Include="Interventi\ConsuntivareNonResoTrenitaliaDaTrenitalia.cs" />
+    <Compile Include="Interventi\ScadereConsuntivazioneAppaltatore.cs" />
+    <Compile Include="Interventi\CreareInterventoVPLG.cs" />
+    <Compile Include="Interventi\CreareInterventoEstemporanea.cs" />
     <Compile Include="Interventi\CreareInterventoPLG.cs" />
-    <Compile Include="Interventi\CreareNuovoIntervento.cs" />
     <Compile Include="Interventi\OggettoIntervento.cs" />
     <Compile Include="ISpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

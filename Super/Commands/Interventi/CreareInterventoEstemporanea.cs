@@ -9,10 +9,10 @@ using System.Runtime.Serialization;
 namespace Commands.Interventi
 {
     [DataContract]
-    [KnownType(typeof(CreareInterventoPLGRot))]
-    [KnownType(typeof(CreareInterventoPLGAmb))]
-    [KnownType(typeof(CreareInterventoPLGRotMan))]
-    public abstract class CreareInterventoPLG : CommandBase
+    [KnownType(typeof(CreareInterventoEstRot))]
+    [KnownType(typeof(CreareInterventoEstAmb))]
+    [KnownType(typeof(CreareInterventoEstRotMan))]
+    public abstract class CreareInterventoEst : CommandBase
     {
         public Guid Id { get; set; }
         public int InterventoIdSuper { get; set; }
@@ -25,11 +25,11 @@ namespace Commands.Interventi
         public Guid IdCategoriaCommerciale { get; set; }
         public Guid IdDirezioneRegionale { get; set; }
         public string Note { get; set; }
+        public string InterventoIdAppaltatore { get; set; }
+        public DateTime DataConsuntivazione { get; set; }
 
-        protected CreareInterventoPLG()
-        { }
 
-       protected CreareInterventoPLG(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione)
+        protected CreareInterventoEst(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione)
         {
             this.Id = id;
             this.InterventoIdSuper = interventoIdSuper;
@@ -41,7 +41,7 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class CreareInterventoPLGRot : CreareInterventoPLG
+    public class CreareInterventoEstRot : CreareInterventoEst
     {
         public OggettoInterventoRot[] Oggetti { get; set; }
         public string NumeroTrenoArrivo { get; set; }
@@ -52,12 +52,8 @@ namespace Commands.Interventi
         public string RigaTurnoTreno { get; set; }
         public string Convoglio { get; set; }
 
-        public CreareInterventoPLGRot()
-            : base()
-        {
-        }
-
-        public CreareInterventoPLGRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRot[] oggetti)
+     
+        public CreareInterventoEstRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRot[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 
@@ -65,17 +61,13 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class CreareInterventoPLGAmb : CreareInterventoPLG
+    public class CreareInterventoEstAmb : CreareInterventoEst
     {
         public int Quantita { get; set; }
         public string Descrizione { get; set; }
 
-        public CreareInterventoPLGAmb()
-            : base()
-        {
-        }
 
-        public CreareInterventoPLGAmb(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, int quantita, string descrizione)
+        public CreareInterventoEstAmb(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, int quantita, string descrizione)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             this.Quantita = quantita;
@@ -84,17 +76,13 @@ namespace Commands.Interventi
     }
 
     [DataContract]
-    public class CreareInterventoPLGRotMan : CreareInterventoPLG
+    public class CreareInterventoEstRotMan : CreareInterventoEst
     {
 
         public OggettoInterventoRotMan[] Oggetti { get; set; }
 
-        public CreareInterventoPLGRotMan()
-            : base()
-        {
-        }
 
-        public CreareInterventoPLGRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotMan[] oggetti)
+        public CreareInterventoEstRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotMan[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 
