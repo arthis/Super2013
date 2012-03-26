@@ -78,7 +78,7 @@
     <Compile Include="Interventi\InterventoPLGCreato.cs" />
     <Compile Include="Interventi\InterventoRotabileInManutenzioneCreato.cs" />
     <Compile Include="Interventi\InterventoRotabileCreato.cs" />
-    <Compile Include="Interventi\Oggetti.cs" />
+    <Compile Include="Interventi\OggettoInterventoRotAdded.cs" />
     <Compile Include="SettoreCreato.cs" />
     <Compile Include="Interventi\InterventoAmbientiCreato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

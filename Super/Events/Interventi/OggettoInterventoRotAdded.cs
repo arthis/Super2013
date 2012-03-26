@@ -5,17 +5,11 @@ using System.Text;
 
 namespace Events.Interventi
 {
-    public class OggettoRot
+    [Serializable]
+    public class OggettoInterventoRotAdded
     {
         public string Descrizione { get; set; }
         public int Quantita { get; set; }
         public Guid IdTipoOggettoInterventoRot { get; set; }
-    }
-
-    public class OggettoRotMan
-    {
-        public string Descrizione { get; set; }
-        public int Quantita { get; set; }
-        public Guid IdTipoOggettoInterventoRotMan { get; set; }
     }
 }

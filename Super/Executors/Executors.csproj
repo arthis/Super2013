@@ -69,7 +69,6 @@
     <Compile Include="AreaIntervento\AggiornareAreaInterventoExecutor.cs" />
     <Compile Include="AreaIntervento\CancellareAreaInterventoExecutor.cs" />
     <Compile Include="AreaIntervento\CreareAreaInterventoExecutor.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="CreareCausaleExecutor.cs" />
     <Compile Include="CreareSettoreExecutor.cs" />
     <Compile Include="Interventi\ConsuntivareDaAppaltatoreExecutor.cs" />

@@ -65,6 +65,11 @@ namespace Domain.Interventi
                     Inizio = inizio
                 };
                 ApplyEvent(evt);
+
+                foreach (OggettoIntervento oggetto in oggetti)
+                { 
+                    ConsuntivazioneAppaltatore
+                }
             }
             else
             {

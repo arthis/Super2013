@@ -14,7 +14,7 @@ namespace Domain.Interventi.Consuntivazione
 
     public class ConsAppaltatoreResoRot : ConsAppaltatoreReso
     {
-        public IEnumerable<OggettoIntervento> Oggetti { get; set; }
+        
     }
 
     public class ConsAppaltatoreResoRotMan : ConsAppaltatoreReso

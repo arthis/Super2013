@@ -7,6 +7,7 @@ using Ncqrs.CommandService;
 using Ncqrs.CommandService.Contracts;
 using Commands;
 using Commands.Interventi;
+using Commands.AreaIntervento;
 
 
 namespace UI_Console
@@ -28,15 +29,18 @@ namespace UI_Console
             DateTime inizio = DateTime.Today;
             DateTime fine = DateTime.Today.AddMonths(1);
 
-            //CreareNuovoAreaIntervento nuovaAreaIntervento = new CreareNuovoAreaIntervento()
-            //{
-            //    Inizio = inizio,
-            //    Fine = fine,
-            //    Id = gAi
-            //};
+            CreareNuovoAreaIntervento nuovaAreaIntervento = new CreareNuovoAreaIntervento()
+            {
+                Inizio = inizio,
+                Fine = fine,
+                Id = gAi,
+                Descrizione = "test",
+                CreationDate = DateTime.Now,
+                IdAreaInterventoSuper = 45
+            };
 
-            //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-            //                 client.Execute(new ExecuteRequest(nuovaAreaIntervento)));
+            ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                             client.Execute(new ExecuteRequest(nuovaAreaIntervento)));
 
 
 
