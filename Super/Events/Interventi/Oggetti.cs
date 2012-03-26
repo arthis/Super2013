@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Commands.Interventi
+namespace Events.Interventi
 {
-    public abstract class OggettoIntervento
+    public class OggettoRot
     {
         public string Descrizione { get; set; }
         public int Quantita { get; set; }
-
-    }
-
-    public class OggettoRot : OggettoIntervento
-    {
         public Guid IdTipoOggettoInterventoRot { get; set; }
     }
 
-    public class OggettoRotMan : OggettoIntervento
+    public class OggettoRotMan
     {
+        public string Descrizione { get; set; }
+        public int Quantita { get; set; }
         public Guid IdTipoOggettoInterventoRotMan { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace Commands.Interventi
     [DataContract]
     public class CreareInterventoVPLGRot : CreareInterventoVPLG
     {
-        public OggettoInterventoRot[] Oggetti { get; set; }
+        public OggettoRot[] Oggetti { get; set; }
         public string NumeroTrenoArrivo { get; set; }
         public DateTime DataTrenoArrivo { get; set; }
         public string NumeroTrenoPartenza { get; set; }
@@ -50,7 +50,7 @@ namespace Commands.Interventi
         public string Convoglio { get; set; }
         
 
-        public CreareInterventoVPLGRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRot[] oggetti)
+        public CreareInterventoVPLGRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoRot[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 
@@ -76,10 +76,10 @@ namespace Commands.Interventi
     public class CreareInterventoVPLGRotMan : CreareInterventoVPLG
     {
 
-        public OggettoInterventoRotMan[] Oggetti { get; set; }
+        public OggettoRotMan[] Oggetti { get; set; }
 
 
-        public CreareInterventoVPLGRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotMan[] oggetti)
+        public CreareInterventoVPLGRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoRotMan[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 

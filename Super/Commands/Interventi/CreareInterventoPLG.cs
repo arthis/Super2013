@@ -43,7 +43,7 @@ namespace Commands.Interventi
     [DataContract]
     public class CreareInterventoPLGRot : CreareInterventoPLG
     {
-        public OggettoInterventoRot[] Oggetti { get; set; }
+        public OggettoRot[] Oggetti { get; set; }
         public string NumeroTrenoArrivo { get; set; }
         public DateTime DataTrenoArrivo { get; set; }
         public string NumeroTrenoPartenza { get; set; }
@@ -57,7 +57,7 @@ namespace Commands.Interventi
         {
         }
 
-        public CreareInterventoPLGRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRot[] oggetti)
+        public CreareInterventoPLGRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoRot[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 
@@ -87,14 +87,14 @@ namespace Commands.Interventi
     public class CreareInterventoPLGRotMan : CreareInterventoPLG
     {
 
-        public OggettoInterventoRotMan[] Oggetti { get; set; }
+        public OggettoRotMan[] Oggetti { get; set; }
 
         public CreareInterventoPLGRotMan()
             : base()
         {
         }
 
-        public CreareInterventoPLGRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoInterventoRotMan[] oggetti)
+        public CreareInterventoPLGRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, DateTime dataCreazione, OggettoRotMan[] oggetti)
             : base(id, interventoIdSuper, inizio, fine, idAreaIntervento, dataCreazione)
         {
             Oggetti = oggetti; 

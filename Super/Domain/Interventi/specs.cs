@@ -10,7 +10,7 @@ namespace Domain.Interventi
         public bool IsSatisfiedBy(Intervento i, List<string> messagiValidazione)
         {
 
-            if (i.StatoTrenitalia!=null)
+            if (i.ConsuntivazioneTrenitalia!=null)
             {
                 messagiValidazione.Add("Fatale : Has already been consuntivated by trenitalia");
                 return false;

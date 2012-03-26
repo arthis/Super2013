@@ -20,10 +20,10 @@ namespace Tests.AreaIntervento
     /// Use this fixture when the command results in multiple events
     /// </remarks>
     [Specification]
-    public class Quando_Crea_Intervento_PLG_Rot : BigBangTestFixture<CreareInterventoPLGRot>
+    public class Quando_Crea_Intervento_PLG_RotMan : BigBangTestFixture<CreareInterventoPLGRotMan>
     {
 
-        public Quando_Crea_Intervento_PLG_Rot()
+        public Quando_Crea_Intervento_PLG_RotMan()
         {
             Configuration.Configure();
         }
@@ -36,7 +36,7 @@ namespace Tests.AreaIntervento
         private DateTime Fine = DateTime.Now.AddMinutes(5);
 
         private const string oggettoDescrizione = "ogg desc";
-        private  Guid idTipoOggettoInterventoRot = Guid.NewGuid();
+        private  Guid idTipoOggettoInterventoRotMan = Guid.NewGuid();
         private const int quantita = 12;
 
         protected override void RegisterFakesInConfiguration(EnvironmentConfigurationWrapper configuration)
@@ -50,69 +50,69 @@ namespace Tests.AreaIntervento
             return new object[0];
         }
 
-        protected override CreareInterventoPLGRot WhenExecuting()
+        protected override CreareInterventoPLGRotMan WhenExecuting()
         {
-            Commands.Interventi.OggettoRot[] oggetti = new List<Commands.Interventi.OggettoRot>()
-                                                    { new Commands.Interventi.OggettoRot(){ 
+            Commands.Interventi.OggettoRotMan[] oggetti = new List<Commands.Interventi.OggettoRotMan>()
+                                                    { new Commands.Interventi.OggettoRotMan(){ 
                                                               Descrizione= oggettoDescrizione,
-                                                              IdTipoOggettoInterventoRot=idTipoOggettoInterventoRot,
+                                                              IdTipoOggettoInterventoRotMan=idTipoOggettoInterventoRotMan,
                                                               Quantita=quantita}}.ToArray();
 
-            return new CreareInterventoPLGRot(EventSourceId, IdSuper, Inizio, Fine, IdArea, Creazione, oggetti);
+            return new CreareInterventoPLGRotMan(EventSourceId, IdSuper, Inizio, Fine, IdArea, Creazione, oggetti);
         }
 
-        private InterventoPLGRotCreato InterventoRotCreatoEvent
+        private InterventoPLGRotManCreato InterventoRotManCreatoEvent
         {
-            get { return PublishedEvents.Select(e => e.Payload).OfType<InterventoPLGRotCreato>().Single(); }
+            get { return PublishedEvents.Select(e => e.Payload).OfType<InterventoPLGRotManCreato>().Single(); }
         }
 
         [Then]
         public void Il_nuovo_intervento_deve_avere_il_stesso_id()
         {
-            Assert.That(InterventoRotCreatoEvent.Id, Is.EqualTo(EventSourceId));
+            Assert.That(InterventoRotManCreatoEvent.Id, Is.EqualTo(EventSourceId));
         }
 
         [Then]
         public void Il_nuovo_intervento_deve_avere_il_buon_id_super()
         {
-            Assert.That(InterventoRotCreatoEvent.InterventoIdSuper, Is.EqualTo(IdSuper));
+            Assert.That(InterventoRotManCreatoEvent.InterventoIdSuper, Is.EqualTo(IdSuper));
         }
 
         [Then]
         public void Il_nuovo_intervento_deve_avere_la_buona_creazione_data()
         {
-            Assert.That(InterventoRotCreatoEvent.DataCreazione, Is.EqualTo(Creazione));
+            Assert.That(InterventoRotManCreatoEvent.DataCreazione, Is.EqualTo(Creazione));
         }
 
         [Then]
         public void Il_nuovo_intervento_deve_avere_il_buon_IdArea()
         {
-            Assert.That(InterventoRotCreatoEvent.IdAreaIntervento, Is.EqualTo(IdArea));
+            Assert.That(InterventoRotManCreatoEvent.IdAreaIntervento, Is.EqualTo(IdArea));
         }
 
         [Then]
         public void Il_nuovo_intervento_deve_avere_il_buon_inizio()
         {
-            Assert.That(InterventoRotCreatoEvent.Inizio, Is.EqualTo(Inizio));
+            Assert.That(InterventoRotManCreatoEvent.Inizio, Is.EqualTo(Inizio));
         }
 
         [Then]
         public void Il_nuovo_intervento_deve_avere_la_buon_fine()
         {
-            Assert.That(InterventoRotCreatoEvent.Fine, Is.EqualTo(Fine));
+            Assert.That(InterventoRotManCreatoEvent.Fine, Is.EqualTo(Fine));
         }
 
         [Then]
         public void Il_nuovo_intervento_deve_avere_un_oggetto()
         {
-            Assert.IsNotNull(InterventoRotCreatoEvent.Oggetti);
-            Assert.AreEqual(InterventoRotCreatoEvent.Oggetti.Count(),1);
+            Assert.IsNotNull(InterventoRotManCreatoEvent.Oggetti);
+            Assert.AreEqual(InterventoRotManCreatoEvent.Oggetti.Count(),1);
         }
 
         [Then]
         public void Il_nuovo_intervento_deve_avere_un_oggetto_con_la_buona_descrizione()
         {
-            var oggetto = InterventoRotCreatoEvent.Oggetti.FirstOrDefault();
+            var oggetto = InterventoRotManCreatoEvent.Oggetti.FirstOrDefault();
             if (oggetto==null)
               Assert.Inconclusive();
 
@@ -120,19 +120,19 @@ namespace Tests.AreaIntervento
         }
 
         [Then]
-        public void Il_nuovo_intervento_deve_avere_un_oggetto_con_il_buono_TipoOggettoInterventoRot()
+        public void Il_nuovo_intervento_deve_avere_un_oggetto_con_il_buono_TipoOggettoInterventoRotMan()
         {
-            var oggetto = InterventoRotCreatoEvent.Oggetti.FirstOrDefault();
+            var oggetto = InterventoRotManCreatoEvent.Oggetti.FirstOrDefault();
             if (oggetto == null)
                 Assert.Inconclusive();
 
-            Assert.AreEqual(oggetto.IdTipoOggettoInterventoRot, idTipoOggettoInterventoRot);
+            Assert.AreEqual(oggetto.IdTipoOggettoInterventoRotMan, idTipoOggettoInterventoRotMan);
         }
 
         [Then]
         public void Il_nuovo_intervento_deve_avere_un_oggetto_con_la_buona_quantita()
         {
-            var oggetto = InterventoRotCreatoEvent.Oggetti.FirstOrDefault();
+            var oggetto = InterventoRotManCreatoEvent.Oggetti.FirstOrDefault();
             if (oggetto == null)
                 Assert.Inconclusive();
 

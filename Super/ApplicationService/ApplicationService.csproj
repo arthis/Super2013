@@ -81,37 +81,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\nCQRS\lib\ThirdParty\EventStore\EventStore.dll</HintPath>
     </Reference>
-    <Reference Include="Ncqrs, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Framework\Ncqrs.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs.CommandService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.CommandService\Ncqrs.CommandService.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs.CommandService.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.CommandService\Ncqrs.CommandService.Contracts.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs.Config.Windsor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.Config.Windsor\Ncqrs.Config.Windsor.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs.EventBus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.EventBus\Ncqrs.EventBus.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs.Eventing.Storage.RavenDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\Extensions\Ncqrs.Eventing.Storage.RavenDB\Ncqrs.Eventing.Storage.RavenDB.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\ThirdParty\RavenDB\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\nCQRS\lib\ThirdParty\RavenDB\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Client.Lightweight">
       <HintPath>..\..\nCQRS\lib\ThirdParty\RavenDB\Raven.Client.Lightweight.dll</HintPath>
@@ -172,6 +143,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.CommandService.Contracts\Ncqrs.CommandService.Contracts.csproj">
+      <Project>{76062319-4F5D-4055-9D1A-5680DD2DA882}</Project>
+      <Name>Ncqrs.CommandService.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.CommandService\Ncqrs.CommandService.csproj">
+      <Project>{9CBAEAFE-9265-47BA-82C5-5E0774CBF2C5}</Project>
+      <Name>Ncqrs.CommandService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Config.Windsor\Ncqrs.Config.Windsor.csproj">
+      <Project>{99BE6129-C5C4-45A5-94AB-0ADEA0A6AD53}</Project>
+      <Name>Ncqrs.Config.Windsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.EventBus\Ncqrs.EventBus.csproj">
+      <Project>{CAF2E548-87C8-422B-A62C-8C3ED83FF3C3}</Project>
+      <Name>Ncqrs.EventBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.csproj">
+      <Project>{618E1C0F-E6B7-4C51-961D-C4ACE60CFC85}</Project>
+      <Name>Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Storage.JOliver.RavenPersistence\Ncqrs.Eventing.Storage.JOliver.RavenPersistence.csproj">
       <Project>{A2ADE0B3-D3C0-4D6B-8701-C0F5E509A69A}</Project>
       <Name>Ncqrs.Eventing.Storage.JOliver.RavenPersistence</Name>
@@ -179,6 +170,14 @@
     <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Storage.JOliver\Ncqrs.Eventing.Storage.JOliver.csproj">
       <Project>{DCA6E39A-8D6B-4531-ACA7-33D790D27878}</Project>
       <Name>Ncqrs.Eventing.Storage.JOliver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Storage.RavenDB\Ncqrs.Eventing.Storage.RavenDB.csproj">
+      <Project>{EA93A91D-7BC9-4EC0-8A22-8A772AFD76C3}</Project>
+      <Name>Ncqrs.Eventing.Storage.RavenDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\nCQRS\Framework\src\Ncqrs\Ncqrs.csproj">
+      <Project>{01F84441-80D3-49B4-AB18-96894ACB2F90}</Project>
+      <Name>Ncqrs</Name>
     </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{87577C93-5923-4F03-8F0E-E5519C7C0854}</Project>

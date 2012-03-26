@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Domain.Interventi.Stati
+namespace Domain.Interventi.Consuntivazione
 {
-    public abstract class StatoAppaltatoreReso : StatoAppaltatore
+    public abstract class ConsAppaltatoreReso : ConsAppaltatore
     {
         public string idInterventoAppaltatore { get; set; }
         public DateTime Inizio { get; set; }
         public DateTime Fine { get; set; }
     }
 
-    public class StatoAppaltatoreResoRot : StatoAppaltatoreReso
+    public class ConsAppaltatoreResoRot : ConsAppaltatoreReso
     {
         public IEnumerable<OggettoIntervento> Oggetti { get; set; }
     }
 
-    public class StatoAppaltatoreResoRotMan : StatoAppaltatoreReso
+    public class ConsAppaltatoreResoRotMan : ConsAppaltatoreReso
     {
         public IEnumerable<OggettoIntervento> Oggetti { get; set; }
     }
 
-    public class StatoAppaltatoreResoAmb : StatoAppaltatoreReso
+    public class ConsAppaltatoreResoAmb : ConsAppaltatoreReso
     { 
     }
 

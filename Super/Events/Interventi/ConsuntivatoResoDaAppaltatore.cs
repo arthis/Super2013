@@ -13,11 +13,14 @@ namespace Events.Interventi
         public DateTime DataConsuntivazione { get; set; }
         public DateTime Inizio { get; set; }
         public DateTime Fine { get; set; }
+        public string Note { get; set; }
     }
 
     [Serializable]
     public class InterventoRotConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
-    { }
+    {
+
+    }
 
     [Serializable]
     public class InterventoRotManConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore

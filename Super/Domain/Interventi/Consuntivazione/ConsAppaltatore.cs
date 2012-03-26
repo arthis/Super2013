@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Domain.Interventi.Stati
+namespace Domain.Interventi.Consuntivazione
 {
-    public abstract class StatoTrenitalia 
+    public abstract class ConsAppaltatore 
     {
         public DateTime DataConsuntivazione { get; set; }
-
-        public abstract void Consuntiva();
-
     }
 }

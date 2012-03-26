@@ -20,24 +20,26 @@ namespace Commands.Interventi
         public DateTime DataConsuntivazione { get; set; }
         public DateTime Inizio { get; set; }
         public DateTime Fine { get; set; }
+        public string Note { get; set; }
 
-        public ConsuntivareResoDaTrenitalia(Guid id, string interventoIdAppaltatore,DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
+        public ConsuntivareResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, string note)
         {
             Id = id;
             InterventoIdAppaltatore = interventoIdAppaltatore;
             DataConsuntivazione = dataConsuntivazione;
             Inizio = inizio;
             Fine = fine;
+            Note = note;
         }
     }
 
     [DataContract]
     public class ConsuntivareRotResoDaTrenitalia : ConsuntivareResoDaTrenitalia
     {
-        public OggettoInterventoRot[] Oggetti { get; set; }
+        public OggettoRot[] Oggetti { get; set; }
 
-        public ConsuntivareRotResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoInterventoRot[] oggetti)
-            :base(id,interventoIdAppaltatore,dataConsuntivazione,inizio,fine)
+        public ConsuntivareRotResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoRot[] oggetti, string note)
+            :base(id,interventoIdAppaltatore,dataConsuntivazione,inizio,fine,note)
         {
             Oggetti = oggetti;
         }
@@ -46,10 +48,10 @@ namespace Commands.Interventi
     [DataContract]
     public class ConsuntivareRotManResoDaTrenitalia : ConsuntivareResoDaTrenitalia
     {
-        public OggettoInterventoRotMan[] Oggetti { get; set; }
+        public OggettoRotMan[] Oggetti { get; set; }
 
-        public ConsuntivareRotManResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoInterventoRotMan[] oggetti)
-            : base(id, interventoIdAppaltatore, dataConsuntivazione, inizio, fine)
+        public ConsuntivareRotManResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, OggettoRotMan[] oggetti, string note)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione, inizio, fine,note)
         {
             Oggetti = oggetti;
         }
@@ -58,8 +60,8 @@ namespace Commands.Interventi
     [DataContract]
     public class ConsuntivareAmbResoDaTrenitalia : ConsuntivareResoDaTrenitalia
     {
-        public ConsuntivareAmbResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
-            : base(id, interventoIdAppaltatore, dataConsuntivazione, inizio, fine)
+        public ConsuntivareAmbResoDaTrenitalia(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, string note)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione, inizio, fine,note)
         {}
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using Ncqrs.Domain;
 using Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot;
 using Events.Interventi;
-using Domain.Interventi.Stati;
+using Domain.Interventi.Consuntivazione;
 
 
 
@@ -82,7 +82,7 @@ namespace Domain.Interventi
 
         public void OnInterventoRotManConsuntivatoResoDaAppaltatore(InterventoRotManConsuntivatoResoDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreResoRotMan()
+            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreResoRotMan()
             {
                 DataConsuntivazione = e.DataConsuntivazione,
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
@@ -124,7 +124,7 @@ namespace Domain.Interventi
 
         public void OnInterventoRotManConsuntivatoNonResoDaAppaltatore(InterventoRotManConsuntivatoNonResoDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreNonResoRotMan()
+            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoRotMan()
             {
                 DataConsuntivazione = e.DataConsuntivazione,
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
@@ -169,7 +169,7 @@ namespace Domain.Interventi
 
         public void OnInterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore(InterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreNonResoTrenitaliaRotMan()
+            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoTrenitaliaRotMan()
             {
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
                 DataConsuntivazione = e.DataConsuntivazione,

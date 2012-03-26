@@ -5,7 +5,7 @@ using System.Text;
 using Ncqrs.Domain;
 using Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot;
 using Events.Interventi;
-using Domain.Interventi.Stati;
+using Domain.Interventi.Consuntivazione;
 
 
 namespace Domain.Interventi
@@ -20,6 +20,7 @@ namespace Domain.Interventi
 
         public InterventoRot()
         {
+            
         }
 
         public InterventoRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento)
@@ -44,7 +45,7 @@ namespace Domain.Interventi
             this.IdAreaIntervento = e.IdAreaIntervento;
         }
 
-        public void ConsuntivaResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)//, IEnumerable<OggettoIntervento> oggetti)
+        public void ConsuntivaResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, IEnumerable<OggettoIntervento> oggetti)
         {
             List<string> messagiValidazione = new List<string>();
 
@@ -80,12 +81,13 @@ namespace Domain.Interventi
 
         public void OnInterventoRotConsuntivatoResoDaAppaltatore(InterventoRotConsuntivatoResoDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreResoRot()
+            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreResoRot()
             {
                 DataConsuntivazione = e.DataConsuntivazione,
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
                 Inizio = e.Inizio,
-                Fine = e.Fine
+                Fine = e.Fine,
+                
             };
         }
 
@@ -122,7 +124,7 @@ namespace Domain.Interventi
 
         public void OnInterventoRotConsuntivatoNonResoDaAppaltatore(InterventoRotConsuntivatoNonResoDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreNonResoRot()
+            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoRot()
             {
                 DataConsuntivazione = e.DataConsuntivazione,
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
@@ -167,7 +169,7 @@ namespace Domain.Interventi
 
         public void OnInterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore(InterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore e)
         {
-            this.StatoAppaltatore = new StatoAppaltatoreNonResoTrenitaliaRot()
+            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoTrenitaliaRot()
             {
                 idInterventoAppaltatore = e.IdInterventoAppaltatore,
                 DataConsuntivazione = e.DataConsuntivazione,

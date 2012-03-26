@@ -19,17 +19,16 @@ namespace Executors
 
 
             // Perform The Consuntivazione
-            intervento.ConsuntivaResoDaAppaltatore(command.InterventoIdAppaltatore,
+            intervento.ConsuntivaResoDaAppaltatore( command.InterventoIdAppaltatore,
                                                     command.DataConsuntivazione,
                                                     command.Inizio,
-                                                    command.Fine);
-                                                    //,
-                                                    //command.Oggetti.Select(x => new Domain.Interventi.OggettoInterventoRot()
-                                                    //{
-                                                    //    Descrizione = x.Descrizione,
-                                                    //    Quantita = x.Quantita,
-                                                    //    IdTipoOggettoInterventoRot = x.IdTipoOggettoInterventoRot
-                                                    //}));
+                                                    command.Fine,
+                                                    command.Oggetti.Select(x => new Domain.Interventi.OggettoInterventoRot()
+                                                    {
+                                                        Descrizione = x.Descrizione,
+                                                        Quantita = x.Quantita,
+                                                        IdTipoOggettoInterventoRot = x.IdTipoOggettoInterventoRot
+                                                    }));
 
             // Accept all the work we just did.
             context.Accept();

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Ncqrs.Domain;
 using Events;
-using Domain.Interventi.Stati;
+using Domain.Interventi.Consuntivazione;
 
 namespace Domain.Interventi
 {
@@ -13,9 +13,10 @@ namespace Domain.Interventi
         private int _TimeOutConsuntivazioneAppaltatore = 20;
         private DateTime? _DataSpunta;
         private DateTime? _DataConsuntivazioneAppaltatoreScaduta;
+        private bool _IsInterventoEffetuato;
 
-        public StatoAppaltatore StatoAppaltatore { get; set; }
-        public StatoTrenitalia StatoTrenitalia { get; set; }
+        public ConsAppaltatore ConsuntivazioneAppaltatore { get; set; }
+        public ConsTrenitalia ConsuntivazioneTrenitalia { get; set; }
         
         public DateTime? DataSpunta
         {
@@ -25,9 +26,11 @@ namespace Domain.Interventi
         {
             get { return DataSpunta.HasValue; }
         }
-        public bool IsConsuntivazioneAppaltatoreScaduta
+
+        public bool IsInterventoEffetuato 
         {
-            get { return _DataConsuntivazioneAppaltatoreScaduta.HasValue; }
+            get  { return _IsInterventoEffetuato; }
+            set { _IsInterventoEffetuato = value; }
         }
         
 
@@ -45,6 +48,7 @@ namespace Domain.Interventi
 
         public Intervento(Guid id) :  base(id)
         {
+            
         }
 
         public abstract int GetTimeOutConsuntivazioneAppaltatore();

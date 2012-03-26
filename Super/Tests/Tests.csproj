@@ -57,15 +57,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ncqrs">
-      <HintPath>..\Ressources\Framework\Ncqrs.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs.CommandService">
-      <HintPath>..\Ressources\Extensions\Ncqrs.CommandService\Ncqrs.CommandService.dll</HintPath>
-    </Reference>
-    <Reference Include="Ncqrs.Spec">
-      <HintPath>..\Ressources\Extensions\Ncqrs.Spec\Ncqrs.Spec.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Ressources\Extensions\Ncqrs.Spec\nunit.framework.dll</HintPath>
@@ -82,6 +73,8 @@
     <Compile Include="AreaIntervento\BigBang_quando_creando_nuova_area.cs" />
     <Compile Include="AreaIntervento\Quando_cancellando_area.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="Interventi\Quando_Crea_Intervento_PLG_Amb.cs" />
+    <Compile Include="Interventi\Quando_Crea_Intervento_PLG_RotMan.cs" />
     <Compile Include="Interventi\Quando_Crea_Intervento_PLG_Rotabile.cs" />
     <Compile Include="Interventi\Quando_Consuntiva_Appaltatore_Reso_Intervento_Rotabile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,6 +84,18 @@
     <Compile Include="AreaIntervento\Quando_serializing_AreaInterventoAggiornata.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.CommandService\Ncqrs.CommandService.csproj">
+      <Project>{9CBAEAFE-9265-47BA-82C5-5E0774CBF2C5}</Project>
+      <Name>Ncqrs.CommandService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\nCQRS\Framework\src\Ncqrs.Spec\Ncqrs.Spec.csproj">
+      <Project>{AA90754B-CA47-429E-BDC8-2A83E94179B7}</Project>
+      <Name>Ncqrs.Spec</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\nCQRS\Framework\src\Ncqrs\Ncqrs.csproj">
+      <Project>{01F84441-80D3-49B4-AB18-96894ACB2F90}</Project>
+      <Name>Ncqrs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ApplicationService\ApplicationService.csproj">
       <Project>{82BDF51E-DE5B-40D8-A6D1-501EE5B71A22}</Project>
       <Name>ApplicationService</Name>

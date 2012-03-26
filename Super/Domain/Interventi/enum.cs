@@ -5,9 +5,12 @@ using System.Text;
 
 namespace Domain.Interventi
 {
-    public abstract class StatoTrenitalia
+    public enum Origine
     {
-        public DateTime DataConsuntivazione { get; set; }
- 
+        PLG,
+        VPLG,
+        Estemporane
     }
+
+
 }

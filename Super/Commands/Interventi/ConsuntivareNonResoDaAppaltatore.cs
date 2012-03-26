@@ -19,24 +19,26 @@ namespace Commands.Interventi
         public string InterventoIdAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
         public Guid IdCausale { get; set; }
+        public string Note { get; set; }
 
 
-        public ConsuntivareNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
+        public ConsuntivareNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale,string note)
         {
             Id = id;
             InterventoIdAppaltatore = interventoIdAppaltatore;
             DataConsuntivazione = dataConsuntivazione;
             IdCausale = idCausale;
+            Note = note;
         }
     }
 
     [DataContract]
     public class ConsuntivareRotNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
-        
 
-        public ConsuntivareRotNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
-            : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale)
+
+        public ConsuntivareRotNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale, string note)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale, note)
         {
             
         }
@@ -45,9 +47,9 @@ namespace Commands.Interventi
     [DataContract]
     public class ConsuntivareRotManNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
-       
-        public ConsuntivareRotManNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
-            : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale)
+
+        public ConsuntivareRotManNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale, string note)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale, note)
         {
             
         }
@@ -57,8 +59,8 @@ namespace Commands.Interventi
     public class ConsuntivareAmbNonResoDaAppaltatore : ConsuntivareNonResoDaAppaltatore
     {
 
-        public ConsuntivareAmbNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
-            : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale)
+        public ConsuntivareAmbNonResoDaAppaltatore(Guid id, string interventoIdAppaltatore, DateTime dataConsuntivazione, Guid idCausale, string note)
+            : base(id, interventoIdAppaltatore, dataConsuntivazione, idCausale, note)
         {
             
         }
