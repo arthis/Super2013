@@ -11,12 +11,15 @@ using Domain.Interventi.Consuntivazione;
 namespace Domain.Interventi
 {
     [DynamicSnapshot]
-    public class InterventoRot : Intervento
+    public class InterventoRot : Intervento, IOggettoInterventoRotContainer
     {
         private int _TimeOutConsuntivazioneAppaltatore = 20;
 
-        public IEnumerable<OggettoInterventoRot> OggettiScheduled { get; set; }
-
+        private IOggettoInterventoRotContainer _OggettoInterventoRotContainer;
+        public IEnumerable<OggettoInterventoRot> Oggetti
+        {
+            get { return _OggettoInterventoRotContainer.Oggetti; }
+        }
 
         public InterventoRot()
         {
@@ -56,19 +59,15 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotConsuntivatoResoDaAppaltatore evt = new InterventoRotConsuntivatoResoDaAppaltatore()
-                {
-                    IdInterventoSuper = this.IdInterventoSuper,
-                    IdInterventoAppaltatore = idInterventoAppaltatore,
-                    DataConsuntivazione = dataConsuntivazione,
-                    Fine = fine,
-                    Inizio = inizio
-                };
-                ApplyEvent(evt);
 
-                foreach (OggettoIntervento oggetto in oggetti)
-                { 
-                    ConsuntivazioneAppaltatore
+                IOggettoInterventoRotContainer consuntivo = ConsAppaltatoreFactory.GetConsuntivoRot(EventSourceId,
+                                                                                                    dataConsuntivazione,
+                                                                                                    idInterventoAppaltatore,
+                                                                                                    inizio,
+                                                                                                    fine);
+                foreach (OggettoInterventoRot o in oggetti)
+                {
+                    consuntivo.AddOggetto(o.Descrizione, o.IdTipoOggettoInterventoRot, o.Quantita);
                 }
             }
             else
@@ -84,18 +83,6 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotConsuntivatoResoDaAppaltatore(InterventoRotConsuntivatoResoDaAppaltatore e)
-        {
-            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreResoRot()
-            {
-                DataConsuntivazione = e.DataConsuntivazione,
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                Inizio = e.Inizio,
-                Fine = e.Fine,
-                
-            };
-        }
-
         public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
@@ -106,13 +93,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotConsuntivatoNonResoDaAppaltatore evt = new InterventoRotConsuntivatoNonResoDaAppaltatore()
-                {
-                    IdInterventoSuper = this.IdInterventoSuper,
-                    DataConsuntivazione = dataConsuntivazione,
-                    IdCausale = idCausale
-                };
-                ApplyEvent(evt);
+                var consuntivo = new ConsAppaltatoreRotNonReso(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
             }
             else
             {
@@ -127,18 +108,7 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotConsuntivatoNonResoDaAppaltatore(InterventoRotConsuntivatoNonResoDaAppaltatore e)
-        {
-            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoRot()
-            {
-                DataConsuntivazione = e.DataConsuntivazione,
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                IdCausale = e.IdCausale
-            };
-
-        }
-
-        public void ConsuntivaNonResoTrenitaliaDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid IdCausale)
+        public void ConsuntivaNonResoTrenitaliaDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
 
@@ -149,15 +119,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore evt = new InterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore()
-                {
-                    IdInterventoSuper = this.IdInterventoSuper,
-                    IdInterventoAppaltatore = IdInterventoAppaltatore,
-                    DataConsuntivazione = dataConsuntivazione,
-                    IdCausale = IdCausale
-
-                };
-                ApplyEvent(evt);
+                var consuntivo = new ConsAppaltatoreRotNonResoTrenitalia(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
             }
             else
             {
@@ -172,14 +134,9 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore(InterventoRotConsuntivatoNonResoTrenitaliaDaAppaltatore e)
+        public void AddOggetto(string descrizione, Guid idTipoOggettoInterventoRot, int quantita)
         {
-            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoTrenitaliaRot()
-            {
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                DataConsuntivazione = e.DataConsuntivazione,
-                IdCausale = e.IdCausale
-            };
+            _OggettoInterventoRotContainer.AddOggetto(descrizione, idTipoOggettoInterventoRot, quantita);
         }
 
 
@@ -187,6 +144,8 @@ namespace Domain.Interventi
         {
             return _TimeOutConsuntivazioneAppaltatore;
         }
+
+
 
     }
 }

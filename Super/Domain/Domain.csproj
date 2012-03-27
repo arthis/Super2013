@@ -98,15 +98,19 @@
   <ItemGroup>
     <Compile Include="AreaIntervento.cs" />
     <Compile Include="Causale.cs" />
+    <Compile Include="Interventi\Consuntivazione\ConsAppaltatoreFactory.cs" />
     <Compile Include="Interventi\Consuntivazione\ConsTrenitaliaScadenza.cs" />
     <Compile Include="Interventi\Consuntivazione\ConsTrenitaliaNonReso.cs" />
-    <Compile Include="Interventi\Consuntivazione\IAddOggettoInterventoRot.cs" />
+    <Compile Include="Interventi\Consuntivazione\ConsTrenitaliaReso.cs" />
+    <Compile Include="Interventi\OggettoInterventoRotManContainer.cs" />
+    <Compile Include="Interventi\Consuntivazione\IOggettoInterventoContainer.cs" />
+    <Compile Include="Interventi\OggettoInterventoRotContainer.cs" />
     <Compile Include="Interventi\enum.cs" />
     <Compile Include="Interventi\OggettoIntervento.cs" />
-    <Compile Include="Interventi\InterventoAmbienti.cs" />
-    <Compile Include="Interventi\InterventoRotabileInManutenzione.cs" />
+    <Compile Include="Interventi\InterventoAmb.cs" />
+    <Compile Include="Interventi\InterventoRotMan.cs" />
     <Compile Include="Interventi\Intervento.cs" />
-    <Compile Include="Interventi\InterventoRotabile.cs" />
+    <Compile Include="Interventi\InterventoRot.cs" />
     <Compile Include="Interventi\specs.cs" />
     <Compile Include="Interventi\Consuntivazione\ConsAppaltatore.cs" />
     <Compile Include="Interventi\Consuntivazione\ConsAppaltatoreNonReso.cs" />

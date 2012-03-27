@@ -10,9 +10,9 @@ using Events.Interventi;
 namespace Denormalizer
 {
     public class InterventoRotDenormalizer : IEventHandler<InterventoRotCreato>,
-                                                IEventHandler<InterventoRotConsuntivatoNonResoDaAppaltatore>,
+                                                IEventHandler<ConsAppaltatoreNonResoRotCreato>,
                                                 IEventHandler<InterventoConsuntivatoNonResoTrenitaliaDaAppaltatore>,
-                                                IEventHandler<InterventoRotConsuntivatoResoDaAppaltatore>
+                                                IEventHandler<ConsAppaltatoreRotResoCreato>
     {
 
 
@@ -46,7 +46,7 @@ namespace Denormalizer
             //}
         }
 
-        public void Handle(IPublishedEvent<InterventoRotConsuntivatoNonResoDaAppaltatore> evnt)
+        public void Handle(IPublishedEvent<ConsAppaltatoreNonResoRotCreato> evnt)
         {
             //using (var context = new ReadModelContainer())
             //{
@@ -75,7 +75,7 @@ namespace Denormalizer
             //}
         }
 
-        public void Handle(IPublishedEvent<InterventoRotConsuntivatoResoDaAppaltatore> evnt)
+        public void Handle(IPublishedEvent<ConsAppaltatoreRotResoCreato> evnt)
         {
             //using (var context = new ReadModelContainer())
             //{

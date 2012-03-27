@@ -12,11 +12,15 @@ using Domain.Interventi.Consuntivazione;
 namespace Domain.Interventi
 {
     [DynamicSnapshot]
-    public class InterventoRotMan : Intervento
+    public class InterventoRotMan : Intervento, IOggettoInterventoRotManContainer
     {
         private int _TimeOutConsuntivazioneAppaltatore = 20;
 
-        public IEnumerable<OggettoInterventoRotMan> OggettiScheduled { get; set; }
+        private IOggettoInterventoRotManContainer _OggettoInterventoRotManContainer;
+        public IEnumerable<OggettoInterventoRotMan> Oggetti
+        {
+            get { return _OggettoInterventoRotManContainer.Oggetti; }
+        }
 
 
         public InterventoRotMan()
@@ -57,15 +61,16 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotManConsuntivatoResoDaAppaltatore evt = new InterventoRotManConsuntivatoResoDaAppaltatore()
+                IOggettoInterventoRotManContainer consuntivo = ConsAppaltatoreFactory.GetConsuntivoRotMan(EventSourceId,
+                                                                                                           dataConsuntivazione,
+                                                                                                           idInterventoAppaltatore,
+                                                                                                           inizio,
+                                                                                                           fine);
+                foreach (OggettoInterventoRotMan o in oggetti)
                 {
-                    IdInterventoSuper = this.IdInterventoSuper,
-                    IdInterventoAppaltatore = idInterventoAppaltatore,
-                    DataConsuntivazione = dataConsuntivazione,
-                    Fine = fine,
-                    Inizio = inizio
-                };
-                ApplyEvent(evt);
+                    consuntivo.AddOggetto(o.Descrizione, o.IdTipoOggettoInterventoRotMan, o.Quantita);
+                }
+              
             }
             else
             {
@@ -80,16 +85,6 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotManConsuntivatoResoDaAppaltatore(InterventoRotManConsuntivatoResoDaAppaltatore e)
-        {
-            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreResoRotMan()
-            {
-                DataConsuntivazione = e.DataConsuntivazione,
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                Inizio = e.Inizio,
-                Fine = e.Fine
-            };
-        }
 
         public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
@@ -101,13 +96,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotManConsuntivatoNonResoDaAppaltatore evt = new InterventoRotManConsuntivatoNonResoDaAppaltatore()
-                {
-                    IdInterventoSuper = this.IdInterventoSuper,
-                    DataConsuntivazione = dataConsuntivazione,
-                    IdCausale = idCausale
-                };
-                ApplyEvent(evt);
+                var consuntivo = new ConsAppaltatoreRotManNonReso(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
             }
             else
             {
@@ -122,18 +111,8 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotManConsuntivatoNonResoDaAppaltatore(InterventoRotManConsuntivatoNonResoDaAppaltatore e)
-        {
-            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoRotMan()
-            {
-                DataConsuntivazione = e.DataConsuntivazione,
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                IdCausale = e.IdCausale
-            };
 
-        }
-
-        public void ConsuntivaNonResoTrenitaliaDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid IdCausale)
+        public void ConsuntivaNonResoTrenitaliaDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
 
@@ -144,15 +123,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore evt = new InterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore()
-                {
-                    IdInterventoSuper = this.IdInterventoSuper,
-                    IdInterventoAppaltatore = IdInterventoAppaltatore,
-                    DataConsuntivazione = dataConsuntivazione,
-                    IdCausale = IdCausale
-
-                };
-                ApplyEvent(evt);
+                var consuntivo = new ConsAppaltatoreRotManNonResoTrenitalia(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
             }
             else
             {
@@ -167,14 +138,9 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore(InterventoRotManConsuntivatoNonResoTrenitaliaDaAppaltatore e)
+        public void AddOggetto(string descrizione, Guid idTipoOggettoInterventoRotMan, int quantita)
         {
-            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoTrenitaliaRotMan()
-            {
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                DataConsuntivazione = e.DataConsuntivazione,
-                IdCausale = e.IdCausale
-            };
+            _OggettoInterventoRotManContainer.AddOggetto(descrizione, idTipoOggettoInterventoRotMan, quantita);
         }
 
 

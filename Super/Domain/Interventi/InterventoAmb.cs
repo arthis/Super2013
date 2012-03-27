@@ -60,15 +60,13 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoAmbConsuntivatoResoDaAppaltatore evt = new InterventoAmbConsuntivatoResoDaAppaltatore()
-                {
-                    IdInterventoSuper = this.IdInterventoSuper,
-                    IdInterventoAppaltatore = idInterventoAppaltatore,
-                    DataConsuntivazione = dataConsuntivazione,
-                    Fine = fine,
-                    Inizio = inizio
-                };
-                ApplyEvent(evt);
+                var consuntivo = new ConsAppaltatoreAmbReso(Guid.NewGuid(),
+                                                            EventSourceId,
+                                                            dataConsuntivazione,
+                                                            idInterventoAppaltatore,
+                                                            inizio,
+                                                            fine);
+
             }
             else
             {
@@ -83,16 +81,7 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoAmbConsuntivatoResoDaAppaltatore(InterventoAmbConsuntivatoResoDaAppaltatore e)
-        {
-            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreResoAmb()
-            {
-                DataConsuntivazione = e.DataConsuntivazione,
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                Inizio = e.Inizio,
-                Fine = e.Fine
-            };
-        }
+       
 
         public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
@@ -104,13 +93,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoAmbConsuntivatoNonResoDaAppaltatore evt = new InterventoAmbConsuntivatoNonResoDaAppaltatore()
-                {
-                    IdInterventoSuper = this.IdInterventoSuper,
-                    DataConsuntivazione = dataConsuntivazione,
-                    IdCausale = idCausale
-                };
-                ApplyEvent(evt);
+                var consuntivo = new ConsAppaltatoreAmbNonReso(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
             }
             else
             {
@@ -125,18 +108,9 @@ namespace Domain.Interventi
             }
         }
 
-        public void OnInterventoAmbConsuntivatoNonResoDaAppaltatore(InterventoAmbConsuntivatoNonResoDaAppaltatore e)
-        {
-            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoAmb()
-            {
-                DataConsuntivazione = e.DataConsuntivazione,
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                IdCausale = e.IdCausale
-            };
+        
 
-        }
-
-        public void ConsuntivaNonResoTrenitaliaDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid IdCausale)
+        public void ConsuntivaNonResoTrenitaliaDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
 
@@ -147,15 +121,7 @@ namespace Domain.Interventi
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                InterventoAmbConsuntivatoNonResoTrenitaliaDaAppaltatore evt = new InterventoAmbConsuntivatoNonResoTrenitaliaDaAppaltatore()
-                {
-                    IdInterventoSuper = this.IdInterventoSuper,
-                    IdInterventoAppaltatore = IdInterventoAppaltatore,
-                    DataConsuntivazione = dataConsuntivazione,
-                    IdCausale = IdCausale
-
-                };
-                ApplyEvent(evt);
+                var consuntivo = new ConsAppaltatoreAmbNonResoTrenitalia(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
             }
             else
             {
@@ -169,17 +135,6 @@ namespace Domain.Interventi
                 ApplyEvent(evtCmdRejected);
             }
         }
-
-        public void OnInterventoAmbConsuntivatoNonResoTrenitaliaDaAppaltatore(InterventoAmbConsuntivatoNonResoTrenitaliaDaAppaltatore e)
-        {
-            this.ConsuntivazioneAppaltatore = new ConsAppaltatoreNonResoTrenitaliaAmb()
-            {
-                idInterventoAppaltatore = e.IdInterventoAppaltatore,
-                DataConsuntivazione = e.DataConsuntivazione,
-                IdCausale = e.IdCausale
-            };
-        }
-
 
 
         public override int GetTimeOutConsuntivazioneAppaltatore()

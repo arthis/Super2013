@@ -6,9 +6,9 @@ using System.Text;
 namespace Events.Interventi
 {
     [Serializable]
-    public abstract class InterventoConsuntivatoResoDaAppaltatore
+    public abstract class ConsAppaltatoreResoCreato
     {
-        public int IdInterventoSuper { get; set; }
+        public Guid IdIntervento { get; set; }
         public string IdInterventoAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
         public DateTime Inizio { get; set; }
@@ -17,16 +17,16 @@ namespace Events.Interventi
     }
 
     [Serializable]
-    public class InterventoRotConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
+    public class ConsAppaltatoreRotResoCreato : ConsAppaltatoreResoCreato
     {
 
     }
 
     [Serializable]
-    public class InterventoRotManConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
+    public class ConsAppaltatoreRotManResoCreato : ConsAppaltatoreResoCreato
     { }
 
     [Serializable]
-    public class InterventoAmbConsuntivatoResoDaAppaltatore : InterventoConsuntivatoResoDaAppaltatore
+    public class ConsAppaltatoreAmbResoCreato : ConsAppaltatoreResoCreato
     { }
 }

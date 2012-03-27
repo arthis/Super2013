@@ -81,9 +81,9 @@ namespace Tests.AreaIntervento
             return new ConsuntivareRotResoDaAppaltatore(EventSourceId, idAppaltatore, dataConsuntivazione, inizioConsuntivazione, fineConsuntivazione,noteConsuntivazione, oggetti);
         }
 
-        private InterventoRotConsuntivatoResoDaAppaltatore RotConsuntivatoEvent
+        private ConsAppaltatoreRotResoCreato RotConsuntivatoEvent
         {
-            get { return PublishedEvents.Select(e => e.Payload).OfType<InterventoRotConsuntivatoResoDaAppaltatore>().Single(); }
+            get { return PublishedEvents.Select(e => e.Payload).OfType<ConsAppaltatoreRotResoCreato>().Single(); }
         }
 
         [Then]

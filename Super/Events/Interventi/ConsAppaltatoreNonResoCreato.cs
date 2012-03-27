@@ -6,7 +6,7 @@ using System.Text;
 namespace Events.Interventi
 {
     [Serializable]
-    public abstract class ConsAppaltatoreNonResoTrenitaliaCreato
+    public abstract class ConsAppaltatoreNonResoCreato
     {
         public Guid IdIntervento { get; set; }
         public string IdInterventoAppaltatore { get; set; }
@@ -15,14 +15,14 @@ namespace Events.Interventi
     }
 
     [Serializable]
-    public class ConsAppaltatoreRotNonResoTrenitaliaCreato : ConsAppaltatoreAmbNonResoTrenitaliaCreato
+    public class ConsAppaltatoreNonResoRotCreato : ConsAppaltatoreNonResoCreato
     { }
 
     [Serializable]
-    public class ConsAppaltatoreRotManNonResoTrenitaliaCreato : ConsAppaltatoreAmbNonResoTrenitaliaCreato
+    public class ConsAppaltatoreNonResoRotManCreato : ConsAppaltatoreNonResoCreato
     { }
 
     [Serializable]
-    public class ConsAppaltatoreAmbNonResoTrenitaliaCreato : ConsAppaltatoreNonResoTrenitaliaCreato
+    public class ConsAppaltatoreNonResoAmbCreato : ConsAppaltatoreNonResoCreato
     { }
 }
