@@ -10,15 +10,10 @@ namespace Domain.Interventi.Consuntivazione
 {
     public abstract class ConsAppaltatoreReso : ConsAppaltatore
     {
-        public string idInterventoAppaltatore { get; set; }
+        public string IdInterventoAppaltatore { get; set; }
         public DateTime Inizio { get; set; }
         public DateTime Fine { get; set; }
 
-        public ConsAppaltatoreReso(Guid id)
-            : base(id)
-        {
-
-        }
     }
 
     [DynamicSnapshot]
@@ -30,37 +25,22 @@ namespace Domain.Interventi.Consuntivazione
             get { return _OggettoInterventoRotContainer.Oggetti; }
         }
 
-        public ConsAppaltatoreRotReso(Guid id, Guid idIntervento, IOggettoInterventoRotContainer oggettoInterventoRotContainer, DateTime dataConsuntivazione, string idInterventoAppaltatore, DateTime inizio, DateTime fine)
-            : base(id)
+        public ConsAppaltatoreRotReso(IOggettoInterventoRotContainer oggettoInterventoRotContainer, DateTime dataConsuntivazione, string idInterventoAppaltatore, DateTime inizio, DateTime fine)
         {
             Contract.Requires<ArgumentNullException>(oggettoInterventoRotContainer != null);
 
             _OggettoInterventoRotContainer = oggettoInterventoRotContainer;
 
-            ConsAppaltatoreRotResoCreato evt = new ConsAppaltatoreRotResoCreato()
-            {
-                IdIntervento = idIntervento,
-                IdInterventoAppaltatore = idInterventoAppaltatore,
-                DataConsuntivazione = dataConsuntivazione,
-                Fine = fine,
-                Inizio = inizio
-            };
-            ApplyEvent(evt);
+            DataConsuntivazione = dataConsuntivazione;
+            IdInterventoAppaltatore = IdInterventoAppaltatore;
+            Inizio = inizio;
+            Fine = fine;
         }
 
         public void AddOggetto(string descrizione, Guid idTipoOggettoInterventoRot, int quantita)
         {
             _OggettoInterventoRotContainer.AddOggetto(descrizione, idTipoOggettoInterventoRot, quantita);
         }
-
-        public void OnConsAppaltatoreRotResoCreato(ConsAppaltatoreRotResoCreato e)
-        {
-            DataConsuntivazione = e.DataConsuntivazione;
-            idInterventoAppaltatore = e.IdInterventoAppaltatore;
-            Inizio = e.Inizio;
-            Fine = e.Fine;
-        }
-
 
     }
 
@@ -69,27 +49,21 @@ namespace Domain.Interventi.Consuntivazione
     {
         private IOggettoInterventoRotManContainer _OggettoInterventoRotManContainer;
 
-        public ConsAppaltatoreRotManReso(Guid id, Guid idIntervento, IOggettoInterventoRotManContainer oggettoInterventoRotManContainer, DateTime dataConsuntivazione, string idInterventoAppaltatore, DateTime inizio, DateTime fine)
-            : base(id)
+        public ConsAppaltatoreRotManReso( IOggettoInterventoRotManContainer oggettoInterventoRotManContainer, DateTime dataConsuntivazione, string idInterventoAppaltatore, DateTime inizio, DateTime fine)
         {
             Contract.Requires<ArgumentNullException>(oggettoInterventoRotManContainer != null);
 
             _OggettoInterventoRotManContainer = oggettoInterventoRotManContainer;
 
-            ConsAppaltatoreRotManResoCreato evt = new ConsAppaltatoreRotManResoCreato()
-            {
-                IdIntervento = idIntervento,
-                IdInterventoAppaltatore = idInterventoAppaltatore,
-                DataConsuntivazione = dataConsuntivazione,
-                Fine = fine,
-                Inizio = inizio
-            };
-            ApplyEvent(evt);
+            DataConsuntivazione = dataConsuntivazione;
+            IdInterventoAppaltatore = IdInterventoAppaltatore;
+            Inizio = inizio;
+            Fine = fine;
         }
 
         public IEnumerable<OggettoInterventoRotMan> Oggetti
         {
-            get { return _OggettoInterventoRotManContainer.Oggetti}
+            get { return _OggettoInterventoRotManContainer.Oggetti; }
         }
 
         public void AddOggetto(string descrizione, Guid idTipoOggettoInterventoRotMan, int quantita)
@@ -98,39 +72,20 @@ namespace Domain.Interventi.Consuntivazione
         }
 
 
-        public void OnConsAppaltatoreRotManResoCreato(ConsAppaltatoreRotManResoCreato e)
-        {
-            DataConsuntivazione = e.DataConsuntivazione;
-            idInterventoAppaltatore = e.IdInterventoAppaltatore;
-            Inizio = e.Inizio;
-            Fine = e.Fine;
-        }
     }
 
     [DynamicSnapshot]
     public class ConsAppaltatoreAmbReso : ConsAppaltatoreReso
     {
-        public ConsAppaltatoreAmbReso(Guid id, Guid idIntervento,  DateTime dataConsuntivazione, string idInterventoAppaltatore, DateTime inizio, DateTime fine)
-            : base(id)
+        public ConsAppaltatoreAmbReso( DateTime dataConsuntivazione, string idInterventoAppaltatore, DateTime inizio, DateTime fine)
         {
-            ConsAppaltatoreAmbResoCreato evt = new ConsAppaltatoreAmbResoCreato()
-            {
-                IdIntervento = idIntervento,
-                IdInterventoAppaltatore = idInterventoAppaltatore,
-                DataConsuntivazione = dataConsuntivazione,
-                Fine = fine,
-                Inizio = inizio
-            };
-            ApplyEvent(evt);
+            DataConsuntivazione = dataConsuntivazione;
+            IdInterventoAppaltatore = IdInterventoAppaltatore;
+            Inizio = inizio;
+            Fine = fine;
         }
 
-        public void OnConsAppaltatoreAmbResoCreato(ConsAppaltatoreAmbResoCreato e)
-        {
-            DataConsuntivazione = e.DataConsuntivazione;
-            idInterventoAppaltatore = e.IdInterventoAppaltatore;
-            Inizio = e.Inizio;
-            Fine = e.Fine;
-        }
+     
     }
 
 }

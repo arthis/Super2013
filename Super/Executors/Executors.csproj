@@ -75,9 +75,7 @@
     <Compile Include="Interventi\ConsuntivareDaTrenitaliaExecutor.cs" />
     <Compile Include="Interventi\ConsuntivareNonResoDaAppaltatoreExecutor.cs" />
     <Compile Include="Interventi\ConsuntivareResoDaAppaltatoreExecutor.cs" />
-    <Compile Include="Interventi\CreareInterventoAmbientiExecutor.cs" />
-    <Compile Include="Interventi\CreareInterventoRotabileExecutor.cs" />
-    <Compile Include="Interventi\CreareInterventoRotabileInManutenzioneExecutor.cs" />
+    <Compile Include="Interventi\CreareInterventoPLGExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

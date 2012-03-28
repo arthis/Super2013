@@ -14,83 +14,44 @@ namespace Domain.Interventi.Consuntivazione
         public string IdInterventoAppaltatore { get; set; }
         public Guid IdCausale { get; set; }
 
-        public ConsAppaltatoreNonReso(Guid id)
-            : base(id)
-        { }
     }
 
     [DynamicSnapshot]
     public class ConsAppaltatoreRotNonReso : ConsAppaltatoreNonReso
     {
-        public ConsAppaltatoreRotNonReso(Guid id, Guid idIntervento, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
-            : base(id)
+        public ConsAppaltatoreRotNonReso(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
-            var evt = new ConsAppaltatoreNonResoRotCreato()
-            {
-                IdIntervento = idIntervento,
-                IdInterventoAppaltatore = idInterventoAppaltatore,
-                DataConsuntivazione = dataConsuntivazione,
-                IdCausale = IdCausale
-            };
-            ApplyEvent(evt);
+            DataConsuntivazione = dataConsuntivazione;
+            IdInterventoAppaltatore = IdInterventoAppaltatore;
+            IdCausale = idCausale;
         }
 
-        public void OnConsAppaltatoreNonResoRotCreato(ConsAppaltatoreNonResoRotCreato e)
-        {
-            DataConsuntivazione = e.DataConsuntivazione;
-            IdInterventoAppaltatore = e.IdInterventoAppaltatore;
-            IdCausale = e.IdCausale;
-            IdIntervento = e.IdIntervento;
-        }
+
     }
 
     [DynamicSnapshot]
     public class ConsAppaltatoreRotManNonReso : ConsAppaltatoreNonReso
     {
-        public ConsAppaltatoreRotManNonReso(Guid id, Guid idIntervento, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
-            : base(id)
+        public ConsAppaltatoreRotManNonReso(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
-            var evt = new ConsAppaltatoreNonResoRotManCreato()
-            {
-                IdIntervento = idIntervento,
-                IdInterventoAppaltatore = idInterventoAppaltatore,
-                DataConsuntivazione = dataConsuntivazione,
-                IdCausale = IdCausale
-            };
-            ApplyEvent(evt);
+            DataConsuntivazione = dataConsuntivazione;
+            IdInterventoAppaltatore = IdInterventoAppaltatore;
+            IdCausale = idCausale;
         }
 
-        public void OnConsAppaltatoreNonResoRotManCreato(ConsAppaltatoreNonResoRotManCreato e)
-        {
-            DataConsuntivazione = e.DataConsuntivazione;
-            IdInterventoAppaltatore = e.IdInterventoAppaltatore;
-            IdCausale = e.IdCausale;
-            IdIntervento = e.IdIntervento;
-        }
+
     }
 
     [DynamicSnapshot]
     public class ConsAppaltatoreAmbNonReso : ConsAppaltatoreNonReso
     {
-          public ConsAppaltatoreAmbNonReso(Guid id, Guid idIntervento, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
-            : base(id)
+        public ConsAppaltatoreAmbNonReso(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
-            var evt = new ConsAppaltatoreNonResoAmbCreato()
-            {
-                IdIntervento = idIntervento,
-                IdInterventoAppaltatore = idInterventoAppaltatore,
-                DataConsuntivazione = dataConsuntivazione,
-                IdCausale = IdCausale
-            };
-            ApplyEvent(evt);
+            DataConsuntivazione = dataConsuntivazione;
+            IdInterventoAppaltatore = IdInterventoAppaltatore;
+            IdCausale = idCausale;
         }
 
-        public void OnConsAppaltatoreNonResoAmbCreato(ConsAppaltatoreNonResoAmbCreato e)
-        {
-            DataConsuntivazione = e.DataConsuntivazione;
-            IdInterventoAppaltatore = e.IdInterventoAppaltatore;
-            IdCausale = e.IdCausale;
-            IdIntervento = e.IdIntervento;
-        }
+       
     }
 }

@@ -8,16 +8,10 @@ using Ncqrs.Domain;
 namespace Domain.Interventi.Consuntivazione
 {
 
-    public abstract class ConsAppaltatore : AggregateRootMappedByConvention
+    public abstract class ConsAppaltatore 
     {
         public Guid IdIntervento { get; set; }
         public DateTime DataConsuntivazione { get; set; }
-
-
-        public ConsAppaltatore(Guid id)
-            : base(id)
-        { }
-
     }
 
 }

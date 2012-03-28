@@ -26,7 +26,7 @@ namespace Tests
         private static ICommandService InitializeCommandService()
         {
             var commandAssembly = typeof(CreareNuovaCausale).Assembly;
-            var executorsAssembly = typeof(ConsuntivareResoDaAppaltatoreExecutor).Assembly;
+            var executorsAssembly = typeof(ConsuntivareRotResoDaAppaltatoreExecutor).Assembly;
 
             var service = new CommandService();
             service.RegisterExecutorsInAssembly(commandAssembly);

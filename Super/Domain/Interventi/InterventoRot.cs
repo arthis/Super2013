@@ -13,7 +13,7 @@ namespace Domain.Interventi
     [DynamicSnapshot]
     public class InterventoRot : Intervento, IOggettoInterventoRotContainer
     {
-        private int _TimeOutConsuntivazioneAppaltatore = 20;
+        private int _ScadenzaConsuntivazioneAppaltatore = 20;
 
         private IOggettoInterventoRotContainer _OggettoInterventoRotContainer;
         public IEnumerable<OggettoInterventoRot> Oggetti
@@ -21,9 +21,12 @@ namespace Domain.Interventi
             get { return _OggettoInterventoRotContainer.Oggetti; }
         }
 
+        public Guid IdTrenoPartenza { get; set; }
+        public Guid IdTrenoArrivo { get; set; }
+
         public InterventoRot()
         {
-            
+
         }
 
         public InterventoRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento)
@@ -48,27 +51,39 @@ namespace Domain.Interventi
             this.IdAreaIntervento = e.IdAreaIntervento;
         }
 
-        public void ConsuntivaResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, IEnumerable<OggettoIntervento> oggetti)
+        public void ConsuntivaResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, IEnumerable<OggettoInterventoRot> oggetti)
         {
             List<string> messagiValidazione = new List<string>();
 
-            IsInterventoBeyondThe20MinutesSpecification IsInterventoBeyondThe20Minutes = new IsInterventoBeyondThe20MinutesSpecification(dataConsuntivazione, _TimeOutConsuntivazioneAppaltatore);
-            IsInterventoSpuntatoSpecification IsInterventoSpuntato = new IsInterventoSpuntatoSpecification();
+            var isInterventoBeyondTheScadenza = new IsInterventoBeyondTheScadenzaSpecification(dataConsuntivazione, _ScadenzaConsuntivazioneAppaltatore);
+            var isInterventoSpuntato = new IsInterventoSpuntatoSpecification();
+            var isInterventoInibito = new IsInterventoInibitoSpecification();
+            var isDataInizioFineValide = new IsDataInizioFineValideSpecification(inizio, fine);
+            var isDataConsuntivazioneValida = new IsDataConsuntivazioneValidaSpecification(inizio, dataConsuntivazione);
 
-            ISpecification<Intervento> specs = IsInterventoBeyondThe20Minutes.And(IsInterventoSpuntato);
+            ISpecification<Intervento> specs = isInterventoBeyondTheScadenza.And(isInterventoSpuntato)
+                                                                             .And(isInterventoInibito)
+                                                                             .And(isDataInizioFineValide)
+                                                                             .And(isDataConsuntivazioneValida);
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
 
-                IOggettoInterventoRotContainer consuntivo = ConsAppaltatoreFactory.GetConsuntivoRot(EventSourceId,
-                                                                                                    dataConsuntivazione,
-                                                                                                    idInterventoAppaltatore,
-                                                                                                    inizio,
-                                                                                                    fine);
-                foreach (OggettoInterventoRot o in oggetti)
+                var evt = new ConsAppaltatoreRotResoCreato()
                 {
-                    consuntivo.AddOggetto(o.Descrizione, o.IdTipoOggettoInterventoRot, o.Quantita);
-                }
+                    IdInterventoAppaltatore = idInterventoAppaltatore,
+                    DataConsuntivazione = dataConsuntivazione,
+                    Fine = fine,
+                    Inizio = inizio,
+                    Oggetti = oggetti.Select(x => new Events.Interventi.OggettoRot()
+                    {
+                        Descrizione = x.Descrizione,
+                        IdTipoOggettoInterventoRot = x.IdTipoOggettoInterventoRot,
+                        Quantita = x.Quantita
+                    })
+                };
+                ApplyEvent(evt);
+
             }
             else
             {
@@ -81,19 +96,40 @@ namespace Domain.Interventi
                 };
                 ApplyEvent(evtCmdRejected);
             }
+        }
+
+        public void OnConsAppaltatoreRotResoCreato(ConsAppaltatoreRotResoCreato e)
+        {
+            ConsAppaltatoreRotReso consuntivo = ConsAppaltatoreFactory.GetConsuntivoRot(e.DataConsuntivazione,
+                                                                                        e.IdInterventoAppaltatore,
+                                                                                        e.Inizio,
+                                                                                        e.Fine);
+            foreach (Events.Interventi.OggettoRot o in e.Oggetti)
+            {
+                consuntivo.AddOggetto(o.Descrizione, o.IdTipoOggettoInterventoRot, o.Quantita);
+            }
+
+            ConsuntivazioneAppaltatore = consuntivo;
         }
 
         public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
 
-            IsInterventoBeyondThe20MinutesSpecification IsInterventoBeyondThe20Minutes = new IsInterventoBeyondThe20MinutesSpecification(dataConsuntivazione, _TimeOutConsuntivazioneAppaltatore);
+            IsInterventoBeyondTheScadenzaSpecification isInterventoBeyondTheScadenza = new IsInterventoBeyondTheScadenzaSpecification(dataConsuntivazione, _ScadenzaConsuntivazioneAppaltatore);
 
-            ISpecification<Intervento> specs = IsInterventoBeyondThe20Minutes;
+            ISpecification<Intervento> specs = isInterventoBeyondTheScadenza;
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                var consuntivo = new ConsAppaltatoreRotNonReso(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
+                var evt = new ConsAppaltatoreNonResoRotCreato()
+                {
+                    IdInterventoAppaltatore = idInterventoAppaltatore,
+                    DataConsuntivazione = dataConsuntivazione,
+                    IdCausale = idCausale
+                };
+                ApplyEvent(evt);
+
             }
             else
             {
@@ -108,18 +144,33 @@ namespace Domain.Interventi
             }
         }
 
+        public void OnConsAppaltatoreNonResoRotCreato(ConsAppaltatoreNonResoRotCreato e)
+        {
+            var consuntivo = new ConsAppaltatoreRotNonReso( e.IdInterventoAppaltatore, e.DataConsuntivazione, e.IdCausale);
+
+            ConsuntivazioneAppaltatore = consuntivo;
+        }
+
         public void ConsuntivaNonResoTrenitaliaDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
 
-            IsInterventoBeyondThe20MinutesSpecification IsInterventoBeyondThe20Minutes = new IsInterventoBeyondThe20MinutesSpecification(dataConsuntivazione, _TimeOutConsuntivazioneAppaltatore);
-            IsInterventoSpuntatoSpecification IsInterventoSpuntato = new IsInterventoSpuntatoSpecification();
+            IsInterventoBeyondTheScadenzaSpecification isInterventoBeyondTheScadenza = new IsInterventoBeyondTheScadenzaSpecification(dataConsuntivazione, _ScadenzaConsuntivazioneAppaltatore);
+            IsInterventoSpuntatoSpecification isInterventoSpuntato = new IsInterventoSpuntatoSpecification();
 
-            ISpecification<Intervento> specs = IsInterventoBeyondThe20Minutes.And(IsInterventoSpuntato);
+            ISpecification<Intervento> specs = isInterventoBeyondTheScadenza.And(isInterventoSpuntato);
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                var consuntivo = new ConsAppaltatoreRotNonResoTrenitalia(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
+
+                var evt = new ConsAppaltatoreRotNonResoTrenitaliaCreato()
+                {
+                    IdInterventoAppaltatore = idInterventoAppaltatore,
+                    DataConsuntivazione = dataConsuntivazione,
+                    IdCausale = idCausale
+                };
+                ApplyEvent(evt);
+              
             }
             else
             {
@@ -132,6 +183,13 @@ namespace Domain.Interventi
                 };
                 ApplyEvent(evtCmdRejected);
             }
+        }
+
+
+        public void OnConsAppaltatoreRotNonResoTrenitaliaCreato(ConsAppaltatoreRotNonResoTrenitaliaCreato e)
+        {
+            var consuntivo = new ConsAppaltatoreRotNonResoTrenitalia(e.IdInterventoAppaltatore, e.DataConsuntivazione, e.IdCausale);
+            ConsuntivazioneAppaltatore = consuntivo;
         }
 
         public void AddOggetto(string descrizione, Guid idTipoOggettoInterventoRot, int quantita)
@@ -139,10 +197,9 @@ namespace Domain.Interventi
             _OggettoInterventoRotContainer.AddOggetto(descrizione, idTipoOggettoInterventoRot, quantita);
         }
 
-
         public override int GetTimeOutConsuntivazioneAppaltatore()
         {
-            return _TimeOutConsuntivazioneAppaltatore;
+            return _ScadenzaConsuntivazioneAppaltatore;
         }
 
 

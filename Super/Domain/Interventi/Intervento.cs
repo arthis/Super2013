@@ -5,6 +5,7 @@ using System.Text;
 using Ncqrs.Domain;
 using Events;
 using Domain.Interventi.Consuntivazione;
+using Events.Interventi;
 
 namespace Domain.Interventi
 {
@@ -12,8 +13,8 @@ namespace Domain.Interventi
     {
         private int _TimeOutConsuntivazioneAppaltatore = 20;
         private DateTime? _DataSpunta;
-        private DateTime? _DataConsuntivazioneAppaltatoreScaduta;
         private bool _IsInterventoEffetuato;
+        private bool _IsInibito;
 
         public ConsAppaltatore ConsuntivazioneAppaltatore { get; set; }
         public ConsTrenitalia ConsuntivazioneTrenitalia { get; set; }
@@ -26,7 +27,10 @@ namespace Domain.Interventi
         {
             get { return DataSpunta.HasValue; }
         }
-
+        public bool IsInibito
+        {
+            get { return _IsInibito; }
+        }
         public bool IsInterventoEffetuato 
         {
             get  { return _IsInterventoEffetuato; }
@@ -52,5 +56,28 @@ namespace Domain.Interventi
         }
 
         public abstract int GetTimeOutConsuntivazioneAppaltatore();
+
+        public void Inibire()
+        {
+            var evt = new InterventoInibito();
+            ApplyEvent(evt);
+        }
+
+        public void Disinibire()
+        {
+            var evt = new InterventoDisinibito();
+            ApplyEvent(evt);
+        }
+
+        public void OnInterventoInibito(InterventoInibito e)
+        {
+            _IsInibito = true;
+        }
+
+        public void OnInterventoDisinibito(InterventoDisinibito e)
+        {
+            _IsInibito = false;
+        }
+     
     }
 }

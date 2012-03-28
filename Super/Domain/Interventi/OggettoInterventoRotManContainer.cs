@@ -23,23 +23,14 @@ namespace Domain.Interventi
 
         public void AddOggetto(string descrizione, Guid idTipoOggettoInterventoRotMan, int quantita)
         {
-            var evt = new OggettoInterventoRotManAdded()
+            _Oggetti.Add(new OggettoInterventoRotMan()
             {
                 Descrizione = descrizione,
                 IdTipoOggettoInterventoRotMan = idTipoOggettoInterventoRotMan,
                 Quantita = quantita
-            };
+            });
             //ApplyEvents
         }
 
-        public void OnOggettoInterventoRotManAdded(OggettoInterventoRotManAdded e)
-        {
-            _Oggetti.Add(new OggettoInterventoRotMan()
-            {
-                Descrizione = e.Descrizione,
-                IdTipoOggettoInterventoRotMan = e.IdTipoOggettoInterventoRotMan,
-                Quantita = e.Quantita
-            });
-        }
     }
 }

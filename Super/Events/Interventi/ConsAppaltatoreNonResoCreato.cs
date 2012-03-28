@@ -8,7 +8,6 @@ namespace Events.Interventi
     [Serializable]
     public abstract class ConsAppaltatoreNonResoCreato
     {
-        public Guid IdIntervento { get; set; }
         public string IdInterventoAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
         public Guid IdCausale { get; set; }

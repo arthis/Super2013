@@ -14,7 +14,7 @@ namespace Domain.Interventi
     [DynamicSnapshot]
     public class InterventoAmb : Intervento
     {
-        private int _TimeOutConsuntivazioneAppaltatore = 20;
+        private int _ScadenzaConsuntivazioneAppaltatore = 20;
 
         public int QuantitaScheduled { get; set; }
         public string DescrizioneScheduled { get; set; }
@@ -53,20 +53,22 @@ namespace Domain.Interventi
         {
             List<string> messagiValidazione = new List<string>();
 
-            IsInterventoBeyondThe20MinutesSpecification IsInterventoBeyondThe20Minutes = new IsInterventoBeyondThe20MinutesSpecification(dataConsuntivazione, _TimeOutConsuntivazioneAppaltatore);
-            IsInterventoSpuntatoSpecification IsInterventoSpuntato = new IsInterventoSpuntatoSpecification();
+            IsInterventoBeyondTheScadenzaSpecification isInterventoBeyondTheScadenza = new IsInterventoBeyondTheScadenzaSpecification(dataConsuntivazione, _ScadenzaConsuntivazioneAppaltatore);
+            IsInterventoSpuntatoSpecification isInterventoSpuntato = new IsInterventoSpuntatoSpecification();
+            IsInterventoInibitoSpecification isInterventoInibitoSpecification = new IsInterventoInibitoSpecification();
 
-            ISpecification<Intervento> specs = IsInterventoBeyondThe20Minutes.And(IsInterventoSpuntato);
+            ISpecification<Intervento> specs = isInterventoBeyondTheScadenza.And(isInterventoSpuntato);
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                var consuntivo = new ConsAppaltatoreAmbReso(Guid.NewGuid(),
-                                                            EventSourceId,
-                                                            dataConsuntivazione,
-                                                            idInterventoAppaltatore,
-                                                            inizio,
-                                                            fine);
-
+                var evt = new ConsAppaltatoreAmbResoCreato()
+                {
+                    IdInterventoAppaltatore = idInterventoAppaltatore,
+                    DataConsuntivazione = dataConsuntivazione,
+                    Fine = fine,
+                    Inizio = inizio
+                };
+                ApplyEvent(evt);
             }
             else
             {
@@ -81,19 +83,32 @@ namespace Domain.Interventi
             }
         }
 
-       
+        public void OnConsAppaltatoreAmbResoCreato(ConsAppaltatoreAmbResoCreato e)
+        {
+            var consuntivo = new ConsAppaltatoreAmbReso(e.DataConsuntivazione,
+                                                        e.IdInterventoAppaltatore,
+                                                        e.Inizio,
+                                                        e.Fine);
+            ConsuntivazioneAppaltatore = consuntivo;
+        }
 
         public void ConsuntivaNonResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
 
-            IsInterventoBeyondThe20MinutesSpecification IsInterventoBeyondThe20Minutes = new IsInterventoBeyondThe20MinutesSpecification(dataConsuntivazione, _TimeOutConsuntivazioneAppaltatore);
+            IsInterventoBeyondTheScadenzaSpecification isInterventoBeyondTheScadenza = new IsInterventoBeyondTheScadenzaSpecification(dataConsuntivazione, _ScadenzaConsuntivazioneAppaltatore);
 
-            ISpecification<Intervento> specs = IsInterventoBeyondThe20Minutes;
+            ISpecification<Intervento> specs = isInterventoBeyondTheScadenza;
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                var consuntivo = new ConsAppaltatoreAmbNonReso(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
+                var evt = new ConsAppaltatoreNonResoAmbCreato()
+                {
+                    IdInterventoAppaltatore = idInterventoAppaltatore,
+                    DataConsuntivazione = dataConsuntivazione,
+                    IdCausale = idCausale
+                };
+                ApplyEvent(evt);
             }
             else
             {
@@ -106,22 +121,37 @@ namespace Domain.Interventi
                 };
                 ApplyEvent(evtCmdRejected);
             }
+
+            
         }
 
+        public void OnConsAppaltatoreNonResoAmbCreato(ConsAppaltatoreNonResoAmbCreato e)
+        {
+            var consuntivo = new ConsAppaltatoreAmbNonReso(e.IdInterventoAppaltatore, e.DataConsuntivazione, e.IdCausale);
+
+            ConsuntivazioneAppaltatore = consuntivo;
+        }
         
 
         public void ConsuntivaNonResoTrenitaliaDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
             List<string> messagiValidazione = new List<string>();
 
-            IsInterventoBeyondThe20MinutesSpecification IsInterventoBeyondThe20Minutes = new IsInterventoBeyondThe20MinutesSpecification(dataConsuntivazione, _TimeOutConsuntivazioneAppaltatore);
-            IsInterventoSpuntatoSpecification IsInterventoSpuntato = new IsInterventoSpuntatoSpecification();
+            IsInterventoBeyondTheScadenzaSpecification isInterventoBeyondTheScadenza = new IsInterventoBeyondTheScadenzaSpecification(dataConsuntivazione, _ScadenzaConsuntivazioneAppaltatore);
+            IsInterventoSpuntatoSpecification isInterventoSpuntato = new IsInterventoSpuntatoSpecification();
 
-            ISpecification<Intervento> specs = IsInterventoBeyondThe20Minutes.And(IsInterventoSpuntato);
+            ISpecification<Intervento> specs = isInterventoBeyondTheScadenza.And(isInterventoSpuntato);
 
             if (specs.IsSatisfiedBy(this, messagiValidazione))
             {
-                var consuntivo = new ConsAppaltatoreAmbNonResoTrenitalia(Guid.NewGuid(), EventSourceId, idInterventoAppaltatore, dataConsuntivazione, idCausale);
+
+                var evt = new ConsAppaltatoreAmbNonResoTrenitaliaCreato()
+                {
+                    IdInterventoAppaltatore = idInterventoAppaltatore,
+                    DataConsuntivazione = dataConsuntivazione,
+                    IdCausale = idCausale
+                };
+                ApplyEvent(evt);
             }
             else
             {
@@ -136,10 +166,16 @@ namespace Domain.Interventi
             }
         }
 
+        public void OnConsAppaltatoreAmbNonResoTrenitaliaCreato(ConsAppaltatoreAmbNonResoTrenitaliaCreato e)
+        {
+            var consuntivo = new ConsAppaltatoreAmbNonResoTrenitalia(e.IdInterventoAppaltatore, e.DataConsuntivazione, e.IdCausale);
+            ConsuntivazioneAppaltatore = consuntivo;
+        }
+
 
         public override int GetTimeOutConsuntivazioneAppaltatore()
         {
-            return _TimeOutConsuntivazioneAppaltatore;
+            return _ScadenzaConsuntivazioneAppaltatore;
         }
 
     }

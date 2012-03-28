@@ -75,10 +75,11 @@
     <Compile Include="Interventi\ConsAppaltatoreNonResoCreato.cs" />
     <Compile Include="Interventi\ConsuntivatoNonResoTrenitaliaDaAppaltatore.cs" />
     <Compile Include="Interventi\ConsuntivazioneAppaltatoreScaduta.cs" />
+    <Compile Include="Interventi\InterventoInibito.cs" />
     <Compile Include="Interventi\InterventoPLGCreato.cs" />
     <Compile Include="Interventi\InterventoRotabileInManutenzioneCreato.cs" />
     <Compile Include="Interventi\InterventoRotabileCreato.cs" />
-    <Compile Include="Interventi\OggettoInterventoAdded.cs" />
+    <Compile Include="Interventi\Oggetti.cs" />
     <Compile Include="SettoreCreato.cs" />
     <Compile Include="Interventi\InterventoAmbientiCreato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

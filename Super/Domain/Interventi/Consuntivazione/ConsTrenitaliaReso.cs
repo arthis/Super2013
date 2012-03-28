@@ -11,27 +11,26 @@ namespace Domain.Interventi.Consuntivazione
         public string idInterventoTrenitalia { get; set; }
         public DateTime Inizio { get; set; }
         public DateTime Fine { get; set; }
-
-        public ConsTrenitaliaReso(Guid id)
-            : base(id)
-        { }
     }
 
     public class ConsTrenitaliaResoRot : ConsTrenitaliaReso, IOggettoInterventoRotContainer
     {
         private IOggettoInterventoRotContainer _OggettoInterventoRotContainer;
 
-        public ConsTrenitaliaResoRot(Guid id, Guid idIntervento, IOggettoInterventoRotContainer oggettoInterventoRotContainer, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
-            :base(id)
+        public ConsTrenitaliaResoRot(IOggettoInterventoRotContainer oggettoInterventoRotContainer, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
         {
             Contract.Requires<ArgumentNullException>(oggettoInterventoRotContainer != null);
 
             _OggettoInterventoRotContainer = oggettoInterventoRotContainer;
+
+            DataConsuntivazione = dataConsuntivazione;
+            Inizio = inizio;
+            Fine = fine;
         }
 
         public IEnumerable<OggettoInterventoRot> Oggetti
         {
-            get { return _OggettoInterventoRotContainer.Oggetti}
+            get { return _OggettoInterventoRotContainer.Oggetti; }
         }
 
         public void AddOggetto(string descrizione, Guid idTipoOggettoInterventoRot, int quantita)
@@ -44,17 +43,20 @@ namespace Domain.Interventi.Consuntivazione
     {
         private IOggettoInterventoRotManContainer _OggettoInterventoRotManContainer;
 
-        public ConsTrenitaliaResoRotMan(Guid id, Guid idIntervento, IOggettoInterventoRotManContainer oggettoInterventoRotManContainer, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
-            :base(id)
+        public ConsTrenitaliaResoRotMan( IOggettoInterventoRotManContainer oggettoInterventoRotManContainer, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
         {
             Contract.Requires<ArgumentNullException>(oggettoInterventoRotManContainer != null);
 
             _OggettoInterventoRotManContainer = oggettoInterventoRotManContainer;
+
+            DataConsuntivazione = dataConsuntivazione;
+            Inizio = inizio;
+            Fine = fine;
         }
 
         public IEnumerable<OggettoInterventoRotMan> Oggetti
         {
-            get { return _OggettoInterventoRotManContainer.Oggetti}
+            get { return _OggettoInterventoRotManContainer.Oggetti; }
         }
 
         public void AddOggetto(string descrizione, Guid idTipoOggettoInterventoRotMan, int quantita)
@@ -65,6 +67,12 @@ namespace Domain.Interventi.Consuntivazione
 
     public class ConsTrenitaliaResoAmb : ConsTrenitaliaReso
     {
+        public ConsTrenitaliaResoAmb(DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
+        {
+            DataConsuntivazione = dataConsuntivazione;
+            Inizio = inizio;
+            Fine = fine;
+        }
     }
 
 }

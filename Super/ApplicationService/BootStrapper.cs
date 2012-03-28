@@ -46,10 +46,10 @@ namespace ApplicationService
             _Container = new WindsorContainer();
             _Container.AddFacility("ncqrs.ds", new DynamicSnapshotFacility(asm));
             _Container.Register(Component.For<ISendMessage>().ImplementedBy<MailBox>());
-            _Container.Register(Component.For<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>().ImplementedBy<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>());
             
             _Container.Register(Component.For<AreaInterventoDenormalizer>().ImplementedBy<AreaInterventoDenormalizer>());
-            _Container.Register(Component.For<InterventoRotDenormalizer>().ImplementedBy<InterventoRotDenormalizer>());
+            //_Container.Register(Component.For<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>().ImplementedBy<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>());
+            //_Container.Register(Component.For<InterventoRotDenormalizer>().ImplementedBy<InterventoRotDenormalizer>());
 
             _Container.Register(
                 Component.For<ISnapshottingPolicy>().ImplementedBy<SimpleSnapshottingPolicy>(),
@@ -70,7 +70,7 @@ namespace ApplicationService
         private static ICommandService InitializeCommandService()
         {
             var commandAssembly = typeof(CreareNuovaCausale).Assembly;
-            var executorsAssembly = typeof(ConsuntivareResoDaAppaltatoreExecutor).Assembly;
+            var executorsAssembly = typeof(ConsuntivareRotResoDaAppaltatoreExecutor).Assembly;
 
             var service = new CommandService();
             service.RegisterExecutorsInAssembly(commandAssembly);
@@ -90,7 +90,7 @@ namespace ApplicationService
         //private static IEventBus InitializeEventBus(InMemoryBufferedBrowsableElementStore buffer)
         private static IEventBus InitializeEventBus()
         {
-            var denormalizerAssembly = typeof(ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer).Assembly;
+            var denormalizerAssembly = typeof(AreaInterventoDenormalizer).Assembly;
 
             var bus = new InProcessEventBus();
 

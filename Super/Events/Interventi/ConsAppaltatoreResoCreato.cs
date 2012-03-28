@@ -8,7 +8,6 @@ namespace Events.Interventi
     [Serializable]
     public abstract class ConsAppaltatoreResoCreato
     {
-        public Guid IdIntervento { get; set; }
         public string IdInterventoAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
         public DateTime Inizio { get; set; }
@@ -19,12 +18,14 @@ namespace Events.Interventi
     [Serializable]
     public class ConsAppaltatoreRotResoCreato : ConsAppaltatoreResoCreato
     {
-
+        public IEnumerable<OggettoRot> Oggetti { get; set; }
     }
 
     [Serializable]
     public class ConsAppaltatoreRotManResoCreato : ConsAppaltatoreResoCreato
-    { }
+    {
+        public IEnumerable<OggettoRotMan> Oggetti { get; set; }
+    }
 
     [Serializable]
     public class ConsAppaltatoreAmbResoCreato : ConsAppaltatoreResoCreato

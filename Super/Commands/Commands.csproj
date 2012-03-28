@@ -77,11 +77,14 @@
     <Compile Include="Interventi\ConsuntivareResoDaTrenitalia.cs" />
     <Compile Include="Interventi\ConsuntivareNonResoDaTrenitalia.cs" />
     <Compile Include="Interventi\ConsuntivareNonResoTrenitaliaDaTrenitalia.cs" />
+    <Compile Include="Interventi\DisinibireIntervento.cs" />
+    <Compile Include="Interventi\InibireIntervento.cs" />
     <Compile Include="Interventi\ScadereConsuntivazioneAppaltatore.cs" />
     <Compile Include="Interventi\CreareInterventoVPLG.cs" />
     <Compile Include="Interventi\CreareInterventoEstemporanea.cs" />
     <Compile Include="Interventi\CreareInterventoPLG.cs" />
     <Compile Include="Interventi\OggettoIntervento.cs" />
+    <Compile Include="Interventi\SostituireIntervento.cs" />
     <Compile Include="ISpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

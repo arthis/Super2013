@@ -13,85 +13,41 @@ namespace Domain.Interventi.Consuntivazione
         public string IdInterventoAppaltatore { get; set; }
         public Guid IdCausale { get; set; }
 
-        public ConsAppaltatoreNonResoTrenitalia(Guid id)
-            : base(id)
-        {
-            
-        }
     }
 
     [DynamicSnapshot]
     public class ConsAppaltatoreRotNonResoTrenitalia : ConsAppaltatoreNonResoTrenitalia
     {
-        public ConsAppaltatoreRotNonResoTrenitalia(Guid id, Guid idIntervento, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
-            : base(id)
+        public ConsAppaltatoreRotNonResoTrenitalia(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
-            var evt = new ConsAppaltatoreRotNonResoTrenitaliaCreato()
-            {
-                IdIntervento = idIntervento,
-                IdInterventoAppaltatore = idInterventoAppaltatore,
-                DataConsuntivazione = dataConsuntivazione,
-                IdCausale = IdCausale
-            };
-            ApplyEvent(evt);
+            IdInterventoAppaltatore = idInterventoAppaltatore;
+            DataConsuntivazione = dataConsuntivazione;
+            IdCausale = idCausale;
         }
 
-        public void OnConsAppaltatoreRotNonResoTrenitaliaCreato(ConsAppaltatoreRotNonResoTrenitaliaCreato e)
-        {
-            DataConsuntivazione = e.DataConsuntivazione;
-            IdInterventoAppaltatore = e.IdInterventoAppaltatore;
-            IdCausale = e.IdCausale;
-            IdIntervento = e.IdIntervento;
-        }
     }
 
     [DynamicSnapshot]
     public class ConsAppaltatoreRotManNonResoTrenitalia : ConsAppaltatoreNonResoTrenitalia
     {
-        public ConsAppaltatoreRotManNonResoTrenitalia(Guid id, Guid idIntervento, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
-            : base(id)
+        public ConsAppaltatoreRotManNonResoTrenitalia(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
-            var evt = new ConsAppaltatoreRotManNonResoTrenitaliaCreato()
-            {
-                IdIntervento = idIntervento,
-                IdInterventoAppaltatore = idInterventoAppaltatore,
-                DataConsuntivazione = dataConsuntivazione,
-                IdCausale = IdCausale
-            };
-            ApplyEvent(evt);
-        }
-
-        public void OnConsAppaltatoreRotManNonResoTrenitaliaCreato(ConsAppaltatoreRotManNonResoTrenitaliaCreato e)
-        {
-            DataConsuntivazione = e.DataConsuntivazione;
-            IdInterventoAppaltatore = e.IdInterventoAppaltatore;
-            IdCausale = e.IdCausale;
-            IdIntervento = e.IdIntervento;
+            IdInterventoAppaltatore = idInterventoAppaltatore;
+            DataConsuntivazione = dataConsuntivazione;
+            IdCausale = idCausale;
         }
     }
 
     [DynamicSnapshot]
     public class ConsAppaltatoreAmbNonResoTrenitalia : ConsAppaltatoreNonResoTrenitalia
     {
-        public ConsAppaltatoreAmbNonResoTrenitalia(Guid id, Guid idIntervento, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
-            : base(id)
+        public ConsAppaltatoreAmbNonResoTrenitalia(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {
-            var evt = new ConsAppaltatoreAmbNonResoTrenitaliaCreato()
-            {
-                IdIntervento = idIntervento,
-                IdInterventoAppaltatore = idInterventoAppaltatore,
-                DataConsuntivazione = dataConsuntivazione,
-                IdCausale = IdCausale
-            };
-            ApplyEvent(evt);
+            IdInterventoAppaltatore = idInterventoAppaltatore;
+            DataConsuntivazione = dataConsuntivazione;
+            IdCausale = idCausale;
         }
 
-        public void OnConsAppaltatoreAmbNonResoTrenitaliaCreato(ConsAppaltatoreAmbNonResoTrenitaliaCreato e)
-        {
-            DataConsuntivazione = e.DataConsuntivazione;
-            IdInterventoAppaltatore = e.IdInterventoAppaltatore;
-            IdCausale = e.IdCausale;
-            IdIntervento = e.IdIntervento;
-        }
+       
     }
 }
