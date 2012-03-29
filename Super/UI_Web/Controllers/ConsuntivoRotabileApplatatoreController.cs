@@ -32,7 +32,7 @@ namespace Website.Controllers
         {
             using (var context = new ReadModelContainer())
             {
-                var query = context.ConsuntivoRot.Where(item => !item.Deleted);
+                var query = context.ConsuntivazioneRot.Where(item => !item.Deleted);
 
                 //if (!string.IsNullOrEmpty(command.Descrizione))
                 //    query = query.Where(item => item.Descrizione.IndexOf(command.Descrizione) > -1);
@@ -51,13 +51,13 @@ namespace Website.Controllers
                                                      i.AreaInterventoDescrizione,
                                                      i.CategoriaTreno,
                                                      i.NumeroTrenoPartenza,
-                                                     i.DataOraTrenoPartenza,
+                                                     i.DataTrenoPartenza,
                                                      i.TipoInterventoDescrizione,
-                                                     i.DataOraInizioProgrammata,
-                                                     i.DataOraFineProgrammata,
+                                                     i.DataInizioProgrammata,
+                                                     i.DataFineProgrammata,
                                                      i.ComposizioneProgrammata,
-                                                     i.DataOraInizioConsuntivataAppaltatore,
-                                                     i.DataOraFineConsuntivataAppaltatore,
+                                                     i.DataInizioConsuntivataAppaltatore,
+                                                     i.DataFineConsuntivataAppaltatore,
                                                      i.IsProgrammato,
                                                      i.IsPLX,
                                                      i.IsEstemporaneo,

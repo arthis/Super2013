@@ -69,7 +69,7 @@ namespace Tests.AreaIntervento
         [Then]
         public void Il_nuovo_intervento_deve_avere_il_stesso_id()
         {
-            Assert.That(InterventoRotCreatoEvent.Id, Is.EqualTo(EventSourceId));
+            Assert.That(InterventoRotCreatoEvent.IdIntervento, Is.EqualTo(EventSourceId));
         }
 
         [Then]

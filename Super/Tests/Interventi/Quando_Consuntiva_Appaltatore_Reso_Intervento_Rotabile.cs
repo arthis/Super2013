@@ -65,7 +65,7 @@ namespace Tests.AreaIntervento
         {
             yield return new InterventoPLGRotCreato()
             {
-                Id = EventSourceId,
+                IdIntervento = EventSourceId, //should i have an id in my event???
                 InterventoIdSuper = idSuper,
                 Inizio = inizio,
                 Fine = fine,

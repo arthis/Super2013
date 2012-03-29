@@ -7,7 +7,7 @@ using Commands.Interventi;
 using Ncqrs.Domain;
 using Domain.Interventi;
 
-namespace Executors
+namespace Executors.Interventi
 {
     public class ConsuntivareRotResoDaAppaltatoreExecutor : CommandExecutorBase<ConsuntivareRotResoDaAppaltatore>
     {

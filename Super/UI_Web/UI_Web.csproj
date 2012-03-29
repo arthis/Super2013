@@ -102,6 +102,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AreaInterventoController.cs" />
     <Compile Include="Controllers\ControllerBaseSuper.cs" />
+    <Compile Include="Controllers\TipoInterventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ConsuntivoRotabileApplatatoreController.cs" />
     <Compile Include="Global.asax.cs">
@@ -109,6 +110,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AreaIntervento.cs" />
+    <Compile Include="Models\TipoIntervento.cs" />
     <Compile Include="Models\Intervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -240,6 +242,8 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\TipoIntervento\Details.cshtml" />
+    <Content Include="Views\TipoIntervento\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -43,7 +43,6 @@ namespace Domain.Interventi
         public DateTime InizioScheduled { get; set; }
         public DateTime FineScheduled { get; set; }
         public Guid IdAreaIntervento { get; set; }
-        public Guid IdTipoIntervento { get; set; }
         public Guid IdCommittente { get; set; }
 
         public Intervento()

@@ -98,6 +98,10 @@
   <ItemGroup>
     <Compile Include="AreaIntervento.cs" />
     <Compile Include="Causale.cs" />
+    <Compile Include="Interventi\ExtensionMethods.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoRot.cs" />
     <Compile Include="Interventi\CategoriaTreno.cs" />
     <Compile Include="Interventi\Consuntivazione\ConsAppaltatoreFactory.cs" />
     <Compile Include="Interventi\Consuntivazione\ConsTrenitaliaScadenza.cs" />

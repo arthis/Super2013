@@ -24,6 +24,12 @@ namespace UI_Web
             "AreaIntervento/{action}/{id}", // URL with parameters
             new { controller = "AreaIntervento", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
+
+            routes.MapRoute(
+            "TipoIntervento", // Route name
+            "TipoIntervento/{action}/{id}", // URL with parameters
+            new { controller = "TipoIntervento", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            );
             routes.MapRoute(
             "InterventoRot", // Route name
             "InterventoRot/{action}/{id}", // URL with parameters

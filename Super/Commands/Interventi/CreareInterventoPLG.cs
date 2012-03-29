@@ -16,7 +16,7 @@ namespace Commands.Interventi
     {
         public Guid Id { get; set; }
         public int InterventoIdSuper { get; set; }
-        public DateTime? Creazione { get; set; }
+        public DateTime DataCreazione { get; set; }
         public DateTime Inizio { get; set; }
         public DateTime Fine { get; set; }
         public Guid IdAreaIntervento { get; set; }
@@ -36,7 +36,7 @@ namespace Commands.Interventi
             this.Inizio = inizio;
             this.Fine = fine;
             this.IdAreaIntervento = idAreaIntervento;
-            this.Creazione = dataCreazione;
+            this.DataCreazione = dataCreazione;
         }
     }
 

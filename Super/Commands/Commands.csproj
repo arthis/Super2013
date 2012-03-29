@@ -69,6 +69,15 @@
     <Compile Include="AreaIntervento\CreareNuovoAreaIntervento.cs" />
     <Compile Include="AreaIntervento\specs.cs" />
     <Compile Include="Attributes\DateRangeAttribute.cs" />
+    <Compile Include="TipoIntervento\AggiornareTipoInterventoRot.cs" />
+    <Compile Include="TipoIntervento\CancellareTipoInterventoRot.cs" />
+    <Compile Include="TipoIntervento\AggiornareTipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\CancellareTipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\AggiornareTipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\CancellareTipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\CreareTipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\CreareTipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\CreareTipoInterventoRot.cs" />
     <Compile Include="Interventi\ConsuntivareResoDaAppaltatore.cs" />
     <Compile Include="Interventi\ConsuntivareNonResoDaAppaltatore.cs" />
     <Compile Include="Interventi\ConsuntivareNonResoTrenitaliaDaAppaltatore.cs" />
@@ -94,6 +103,7 @@
       <Name>Ncqrs</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

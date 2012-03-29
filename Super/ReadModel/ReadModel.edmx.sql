@@ -71,31 +71,6 @@ GO
 -- --------------------------------------------------
 
 
-/****** Object:  Table [dbo].[Intervento_Basic]    Script Date: 11/17/2011 09:29:17 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Intervento_Basic]') AND type in (N'U'))
-DROP TABLE [dbo].[Intervento_Basic]
-GO
-
-/****** Object:  Table [dbo].[Intervento_Basic]    Script Date: 11/17/2011 09:29:02 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[Intervento_Basic](
-	[Guid] [uniqueidentifier] NOT NULL,
-	[Inizio] [datetime] NOT NULL,
-	[Fine] [datetime] NOT NULL,
-	[IsEseguito] [bit] NOT NULL,
-	[CreationDate] [datetime] NOT NULL,
- CONSTRAINT [PK_Intervento_Basic] PRIMARY KEY CLUSTERED 
-(
-	[Guid] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
 
 
 /****** Object:  Table [dbo].[AreaIntervento]    Script Date: 02/02/2012 14:53:43 ******/
@@ -123,9 +98,36 @@ CREATE TABLE [dbo].[AreaIntervento](
 ) ON [PRIMARY]
 
 
+
+
+/****** Object:  Table [dbo].[TipoIntervento]    Script Date: 02/02/2012 14:53:43 ******/
+IF OBJECT_ID(N'[dbo].[TipoIntervento]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TipoIntervento];
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TipoIntervento](
+	[Id] [uniqueidentifier] NOT NULL,
+	[IdTipoInterventoSuper] [int] NULL,
+	[Descrizione] [nvarchar](255) NULL,
+	[Inizio] [datetime] NOT NULL,
+	[Fine] [datetime] NULL,
+	[CreationDate] [datetime] NOT NULL,
+	[Deleted] [bit] not null DEFAULT 0,
+ CONSTRAINT [PK_TipoIntervento] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
 /****** Object:  Table [dbo].[ConsuntivoRot]    Script Date: 02/07/2012 14:42:22 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ConsuntivoRot]') AND type in (N'U'))
-DROP TABLE [dbo].[ConsuntivoRot]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ConsuntivazioneRot]') AND type in (N'U'))
+DROP TABLE [dbo].[ConsuntivazioneRot]
 GO
 
 
@@ -136,7 +138,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[ConsuntivoRot](
+CREATE TABLE [dbo].[ConsuntivazioneRot](
 	[IdIntervento] [uniqueidentifier] NOT NULL,
 	[IdInterventoSuper2010] [int] NOT NULL,
 	[IdCommittente] [uniqueidentifier] NOT NULL,
@@ -159,13 +161,13 @@ CREATE TABLE [dbo].[ConsuntivoRot](
 	[AreaInterventoDescrizione] [nvarchar](255) NOT NULL,
 	[CategoriaTreno] [nvarchar](255) NULL,
 	[NumeroTrenoPartenza] [nvarchar](50) NULL,
-	[DataOraTrenoPartenza] [datetime] NULL,
+	[DataTrenoPartenza] [datetime] NULL,
 	[TipoInterventoDescrizione] [nvarchar](255) NOT NULL,
-	[DataOraInizioProgrammata] [datetime] NOT NULL,
-	[DataOraFineProgrammata] [datetime] NOT NULL,
+	[DataInizioProgrammata] [datetime] NOT NULL,
+	[DataFineProgrammata] [datetime] NOT NULL,
 	[ComposizioneProgrammata] [nvarchar](255) NULL,
-	[DataOraInizioConsuntivataAppaltatore] [datetime] NOT NULL,
-	[DataOraFineConsuntivataAppaltatore] [datetime] NOT NULL,
+	[DataInizioConsuntivataAppaltatore] [datetime] NOT NULL,
+	[DataFineConsuntivataAppaltatore] [datetime] NOT NULL,
 	[IsProgrammato] [bit] NOT NULL Default(0),
 	[IsPLX] [bit] NOT NULL Default(0),
 	[IsEstemporaneo] [bit] NOT NULL Default(0),

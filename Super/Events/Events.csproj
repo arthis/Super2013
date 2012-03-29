@@ -70,6 +70,15 @@
     <Compile Include="AreaIntervento\AreaInterventoCreata.cs" />
     <Compile Include="AreaIntervento\AreaInterventoAggiornata.cs" />
     <Compile Include="CausaleCreata.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoAmbAggiornato.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoAmbCancellato.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoAmbCreato.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoRotManAggiornato.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoRotManCancellato.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoRotManCreato.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoRotAggiornato.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoRotCancellato.cs" />
+    <Compile Include="TipoIntervento\TipoInterventoRotCreato.cs" />
     <Compile Include="Interventi\ConsAppaltatoreResoCreato.cs" />
     <Compile Include="Interventi\ConsuntivatoResoDaAppaltatoreRejected.cs" />
     <Compile Include="Interventi\ConsAppaltatoreNonResoCreato.cs" />
@@ -84,6 +93,7 @@
     <Compile Include="Interventi\InterventoAmbientiCreato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

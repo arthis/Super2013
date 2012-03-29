@@ -21,24 +21,45 @@ namespace Domain.Interventi
         {
             get { return _OggettoInterventoRotManContainer.Oggetti; }
         }
-
+        public Guid IdTipoInterventoRotMan { get; set; }
 
         public InterventoRotMan()
         {
         }
 
-        public InterventoRotMan(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento)
+        public InterventoRotMan(Guid id)
             : base(id)
         {
-            InterventoRotManCreato evt = new InterventoRotManCreato()
+        }
+
+        public void CrearePlg(int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, Guid idTipoIntervento, DateTime dataCreazione, IEnumerable<OggettoInterventoRotMan> oggetti)
+        {
+            InterventoPLGRotManCreato evt = new InterventoPLGRotManCreato()
             {
                 InterventoIdSuper = interventoIdSuper,
                 IdAreaIntervento = idAreaIntervento,
                 Inizio = inizio,
-                Fine = fine
+                Fine = fine,
+                IdTipoInterventoRotMan = idTipoIntervento,
+                DataCreazione = dataCreazione,
+                Oggetti = oggetti.ToEventsOggettiRotMan()
             };
 
             ApplyEvent(evt);
+        }
+
+        protected void OnInterventoPLGRotManCreato(InterventoPLGRotManCreato e)
+        {
+            this.IdInterventoSuper = e.InterventoIdSuper;
+            this.InizioScheduled = e.Inizio;
+            this.FineScheduled = e.Fine;
+            this.IdAreaIntervento = e.IdAreaIntervento;
+            this.IdTipoInterventoRotMan = e.IdTipoInterventoRotMan;
+
+            foreach (Events.Interventi.OggettoRotMan o in e.Oggetti)
+            {
+                this.AddOggetto(o.Descrizione, o.IdTipoOggettoInterventoRotMan, o.Quantita);
+            }
         }
 
         protected void OnInterventoCreato(InterventoRotManCreato e)
@@ -68,12 +89,7 @@ namespace Domain.Interventi
                     DataConsuntivazione = dataConsuntivazione,
                     Fine = fine,
                     Inizio = inizio,
-                    Oggetti = oggetti.Select(x => new Events.Interventi.OggettoRotMan()
-                    {
-                        Descrizione = x.Descrizione,
-                        IdTipoOggettoInterventoRotMan = x.IdTipoOggettoInterventoRotMan,
-                        Quantita = x.Quantita
-                    })
+                    Oggetti = oggetti.ToEventsOggettiRotMan()
                 };
                 ApplyEvent(evt);
               

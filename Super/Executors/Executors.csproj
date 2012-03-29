@@ -69,6 +69,10 @@
     <Compile Include="AreaIntervento\AggiornareAreaInterventoExecutor.cs" />
     <Compile Include="AreaIntervento\CancellareAreaInterventoExecutor.cs" />
     <Compile Include="AreaIntervento\CreareAreaInterventoExecutor.cs" />
+    <Compile Include="Interventi\ExtensionMethods.cs" />
+    <Compile Include="TipoIntervento\AggiornareTipoInterventoExecutor.cs" />
+    <Compile Include="TipoIntervento\CancellareTipoInterventoExecutor.cs" />
+    <Compile Include="TipoIntervento\CreareTipoInterventoExecutor.cs" />
     <Compile Include="CreareCausaleExecutor.cs" />
     <Compile Include="CreareSettoreExecutor.cs" />
     <Compile Include="Interventi\ConsuntivareDaAppaltatoreExecutor.cs" />
@@ -92,6 +96,7 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

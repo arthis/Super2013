@@ -7,7 +7,7 @@ using Commands;
 using Ncqrs.Domain;
 using Domain;
 
-namespace Executors
+namespace Executors.Interventi
 {
     //public class ConsuntivareDaAppaltatoreExecutor : CommandExecutorBase<ConsuntivareDaAppaltatore>
     //{

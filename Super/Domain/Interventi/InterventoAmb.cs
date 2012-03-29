@@ -18,34 +18,41 @@ namespace Domain.Interventi
 
         public int QuantitaScheduled { get; set; }
         public string DescrizioneScheduled { get; set; }
+        public Guid IdTipoInterventoAmb { get; set; }
 
         public InterventoAmb()
         {
         }
 
-        public InterventoAmb(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, int quantita, string descrizione)
+        public InterventoAmb(Guid id)
             : base(id)
         {
-            InterventoAmbCreato evt = new InterventoAmbCreato()
+        }
+
+        public void CrearePlg(int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, Guid idTipoIntervento, int quantita, string descrizione, DateTime dataCreazione)
+        {
+            InterventoPLGAmbCreato evt = new InterventoPLGAmbCreato()
             {
                 InterventoIdSuper = interventoIdSuper,
                 IdAreaIntervento = idAreaIntervento,
                 Inizio = inizio,
                 Fine = fine,
+                DataCreazione = dataCreazione,
+                Descrizione = descrizione,
                 Quantita = quantita,
-                Descrizione = descrizione
+                IdTipoInterventoAmb = idTipoIntervento
             };
 
             ApplyEvent(evt);
         }
 
- 
-        protected void OnInterventoCreato(InterventoAmbCreato e)
+        protected void OnInterventoPLGAmbCreato(InterventoPLGAmbCreato e)
         {
             this.IdInterventoSuper = e.InterventoIdSuper;
             this.InizioScheduled = e.Inizio;
             this.FineScheduled = e.Fine;
             this.IdAreaIntervento = e.IdAreaIntervento;
+
         }
 
 
@@ -122,7 +129,7 @@ namespace Domain.Interventi
                 ApplyEvent(evtCmdRejected);
             }
 
-            
+
         }
 
         public void OnConsAppaltatoreNonResoAmbCreato(ConsAppaltatoreNonResoAmbCreato e)
@@ -131,7 +138,7 @@ namespace Domain.Interventi
 
             ConsuntivazioneAppaltatore = consuntivo;
         }
-        
+
 
         public void ConsuntivaNonResoTrenitaliaDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale)
         {

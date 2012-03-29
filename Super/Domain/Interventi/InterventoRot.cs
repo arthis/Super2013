@@ -23,32 +23,47 @@ namespace Domain.Interventi
 
         public Guid IdTrenoPartenza { get; set; }
         public Guid IdTrenoArrivo { get; set; }
+        public Guid IdTipoInterventoRot { get; set; }
 
         public InterventoRot()
         {
 
         }
 
-        public InterventoRot(Guid id, int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento)
+        public InterventoRot(Guid id)
             : base(id)
         {
-            InterventoRotCreato evt = new InterventoRotCreato()
+
+        }
+
+        public void CrearePlg(int interventoIdSuper, DateTime inizio, DateTime fine, Guid idAreaIntervento, Guid idTipoIntervento, DateTime dataCreazione, IEnumerable<OggettoInterventoRot> oggetti)
+        {
+            InterventoPLGRotCreato evt = new InterventoPLGRotCreato()
             {
                 InterventoIdSuper = interventoIdSuper,
                 IdAreaIntervento = idAreaIntervento,
                 Inizio = inizio,
-                Fine = fine
+                Fine = fine,
+                IdTipoInterventoRot = idTipoIntervento,
+                DataCreazione = dataCreazione,
+                Oggetti = oggetti.ToEventsOggettiRot()
             };
 
             ApplyEvent(evt);
         }
 
-        protected virtual void OnInterventoCreato(InterventoRotCreato e)
+        protected void OnInterventoPLGRotCreato(InterventoPLGRotCreato e)
         {
             this.IdInterventoSuper = e.InterventoIdSuper;
             this.InizioScheduled = e.Inizio;
             this.FineScheduled = e.Fine;
             this.IdAreaIntervento = e.IdAreaIntervento;
+            this.IdTipoInterventoRot = e.IdTipoInterventoRot;
+            
+            foreach(Events.Interventi.OggettoRot o in e.Oggetti)
+            {
+                this.AddOggetto(o.Descrizione, o.IdTipoOggettoInterventoRot, o.Quantita);
+            }
         }
 
         public void ConsuntivaResoDaAppaltatore(string idInterventoAppaltatore, DateTime dataConsuntivazione, DateTime inizio, DateTime fine, IEnumerable<OggettoInterventoRot> oggetti)
@@ -75,12 +90,7 @@ namespace Domain.Interventi
                     DataConsuntivazione = dataConsuntivazione,
                     Fine = fine,
                     Inizio = inizio,
-                    Oggetti = oggetti.Select(x => new Events.Interventi.OggettoRot()
-                    {
-                        Descrizione = x.Descrizione,
-                        IdTipoOggettoInterventoRot = x.IdTipoOggettoInterventoRot,
-                        Quantita = x.Quantita
-                    })
+                    Oggetti = oggetti.ToEventsOggettiRot()
                 };
                 ApplyEvent(evt);
 
@@ -146,7 +156,7 @@ namespace Domain.Interventi
 
         public void OnConsAppaltatoreNonResoRotCreato(ConsAppaltatoreNonResoRotCreato e)
         {
-            var consuntivo = new ConsAppaltatoreRotNonReso( e.IdInterventoAppaltatore, e.DataConsuntivazione, e.IdCausale);
+            var consuntivo = new ConsAppaltatoreRotNonReso(e.IdInterventoAppaltatore, e.DataConsuntivazione, e.IdCausale);
 
             ConsuntivazioneAppaltatore = consuntivo;
         }
@@ -170,7 +180,7 @@ namespace Domain.Interventi
                     IdCausale = idCausale
                 };
                 ApplyEvent(evt);
-              
+
             }
             else
             {

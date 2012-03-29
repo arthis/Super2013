@@ -1,0 +1,45 @@
+﻿@model Commands.TipoIntervento.CreareTipoInterventoRot
+@{
+    ViewBag.Title = "add Tipo Intervento Rotabile";
+    Layout = string.Empty;
+}
+<form id="formDetails">
+<fieldset>
+    <legend>TipoIntervento</legend>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.IdTipoInterventoSuper)*
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.IdTipoInterventoSuper, "koStringEditorFor", new { koObservablePrefix = "SelectedItem", @class = "required" })
+        @Html.ValidationMessageFor(model => model.IdTipoInterventoSuper)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Descrizione)*
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Descrizione, "koStringEditorFor", new { koObservablePrefix = "SelectedItem", @class = "required" })
+        @Html.ValidationMessageFor(model => model.Descrizione)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Inizio)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Inizio, "koDateEditorFor", new { koObservablePrefix = "SelectedItem" })
+        @Html.ValidationMessageFor(model => model.Inizio)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Fine)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Fine, "koDateEditorFor", new { koObservablePrefix = "SelectedItem" })
+        @Html.ValidationMessageFor(model => model.Fine)
+    </div>
+</fieldset>
+</form>
+<script>
+    $(document).ready(function () {
+        $('.date').datepicker({ dateFormat: "dd/mm/yy" });
+        $.validator.unobtrusive.addValidation('#formDetails');
+
+    });
+</script>
