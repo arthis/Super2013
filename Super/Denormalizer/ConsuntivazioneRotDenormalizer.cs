@@ -38,6 +38,7 @@ namespace Denormalizer
                     CreationDate = evnt.Payload.DataCreazione,
                     IdInterventoSuper2010 = evnt.Payload.InterventoIdSuper,
                     IdTipoIntervento = evnt.Payload.IdTipoInterventoRot
+                    
                 };
 
                 //context.AreaIntervento.AddObject(newItem);
