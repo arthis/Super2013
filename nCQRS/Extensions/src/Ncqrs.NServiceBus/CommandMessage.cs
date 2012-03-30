@@ -7,6 +7,6 @@ namespace Ncqrs.NServiceBus
    [Serializable]
    public class CommandMessage : IMessage
    {
-      public ICommand Payload { get; set; }
+       public Ncqrs.Commanding.ICommand Payload { get; set; }
    }
 }

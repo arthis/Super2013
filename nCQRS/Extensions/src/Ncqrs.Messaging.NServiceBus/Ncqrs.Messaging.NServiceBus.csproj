@@ -38,17 +38,18 @@
       <HintPath>..\..\..\lib\$(Configuration)\Ncqrs\Ncqrs.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NServiceBus">
-      <HintPath>..\..\..\lib\ThirdParty\NServiceBus\NServiceBus.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="NServiceBus, Version=2.1.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Super\Ressources\NserviceBus3.0.1\NServiceBus.dll</HintPath>
     </Reference>
-    <Reference Include="NServiceBus.Core">
-      <HintPath>..\..\..\lib\ThirdParty\NServiceBus\NServiceBus.Core.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="NServiceBus.Core, Version=2.1.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Super\Ressources\NserviceBus3.0.1\NServiceBus.Core.dll</HintPath>
     </Reference>
-    <Reference Include="NServiceBus.Host">
-      <HintPath>..\..\..\lib\ThirdParty\NServiceBus\NServiceBus.Host.exe</HintPath>
-      <Private>False</Private>
+    <Reference Include="NServiceBus.Host, Version=2.1.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>..\..\..\..\Super\Ressources\NserviceBus3.0.1\NServiceBus.Host.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

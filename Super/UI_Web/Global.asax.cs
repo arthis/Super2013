@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using NServiceBus;
+using UI_Web.Injection;
 
 namespace UI_Web
 {
@@ -53,9 +55,28 @@ namespace UI_Web
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-            
+
             //debug routes
             //RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
+
+            // NServiceBus configuration
+            var configure = Configure.WithWeb()
+                .DefaultBuilder()
+                .ForMvc()
+                .XmlSerializer();
+
+            configure
+               .Log4Net()
+                 .MsmqTransport()
+                    .IsTransactional(false)
+                    .PurgeOnStartup(true)
+                .UnicastBus()
+                    .ImpersonateSender(false)
+                .CreateBus()
+                .Start(() => Configure.Instance.ForInstallationOn<NServiceBus.Installation.Environments.Windows>().Install());
+
+            // We don't have to store the IBus that results from .Start() because it will
+            // be injected into all of our controllers for us.
         }
     }
 }

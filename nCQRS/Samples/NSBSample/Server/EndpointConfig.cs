@@ -3,14 +3,14 @@ using NServiceBus;
 
 namespace Server
 {
-   public class EndpointConfig : IConfigureThisEndpoint, AsA_Publisher, IWantCustomInitialization
+   public class EndpointConfig : IConfigureThisEndpoint, AsA_Publisher  
    {
       public void Init()
       {
          Configure.With()
             .DefaultBuilder()
             .BinarySerializer()
-            .InstallNcqrs()            
+            .InstallNcqrs()
             .MsmqTransport()
             .PurgeOnStartup(true);
       }

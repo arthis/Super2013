@@ -10,7 +10,9 @@ using Commands.AreaIntervento;
 using Commands;
 using Ncqrs.CommandService;
 using UI_Web.Models;
-
+using System.Threading;
+using NServiceBus;
+using Ncqrs.NServiceBus;
 
 
 namespace UI_Web.Controllers
@@ -81,10 +83,21 @@ namespace UI_Web.Controllers
         public void Aggiornare(AggiornareAreaIntervento command)
         {
             if (ModelState.IsValid)
-            {
-                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                               client.Execute(new ExecuteRequest(command)));
+            { 
+                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                //               client.Execute(new ExecuteRequest(command)));
+
+                var msg = new CommandMessage() { Payload = command };
+                IAsyncResult res = Bus.Send(msg).Register(SimpleCommandCallback, this);
+                WaitHandle asyncWaitHandle = res.AsyncWaitHandle;
+                asyncWaitHandle.WaitOne(50000);
             }
+        }
+
+        private void SimpleCommandCallback(IAsyncResult asyncResult)
+        {
+            var result = asyncResult.AsyncState as CompletionResult;
+            //var controller = result.State as AreaInterventoController;
         }
 
         [HttpPost]

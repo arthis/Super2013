@@ -6,10 +6,11 @@ using Ncqrs.Commanding;
 using System.ComponentModel.DataAnnotations;
 using Commands.Attributes;
 using Ncqrs.Commanding.CommandExecution.Mapping.Attributes;
+using NServiceBus;
 
 namespace Commands.AreaIntervento
 {
-    public class AggiornareAreaIntervento : CommandBase
+    public class AggiornareAreaIntervento : CommandBase, IMessage
     {
         [AggregateRootId]
         public Guid Id { get; set; }

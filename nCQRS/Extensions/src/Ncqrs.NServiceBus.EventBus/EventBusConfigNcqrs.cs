@@ -31,7 +31,7 @@ namespace Ncqrs.NServiceBus.EventBus
         /// <typeparam name="TCommand">Type of command which will be affected.</typeparam>
         /// <param name="executor">Custom executor instance.</param>
         /// <returns>Self.</returns>
-        public EventBusConfigNcqrs RegisterExecutor<TCommand>(ICommandExecutor<TCommand> executor) where TCommand : ICommand
+        public EventBusConfigNcqrs RegisterExecutor<TCommand>(ICommandExecutor<TCommand> executor) where TCommand : Ncqrs.Commanding.ICommand
         {
             _commandService.RegisterExecutor(executor);
             return this;
@@ -42,7 +42,7 @@ namespace Ncqrs.NServiceBus.EventBus
         /// Register a handler that will receive all messages that are published.
         /// </summary>
         /// <param name="handler">The handler to register.</param>
-        public EventBusConfigNcqrs RegisterInProcessEventHandler<TEvent>(IEventHandler<TEvent> handler) where TEvent : IEvent
+        public EventBusConfigNcqrs RegisterInProcessEventHandler<TEvent>(IEventHandler<TEvent> handler) where TEvent : Ncqrs.Eventing.IEvent
         {
             _inProcessEventBus.RegisterHandler(handler);
             return this;
@@ -54,7 +54,7 @@ namespace Ncqrs.NServiceBus.EventBus
         /// </summary>
         /// <param name="eventType">Type of the event.</param>
         /// <param name="handler">The handler to register.</param>
-        public EventBusConfigNcqrs RegisterInProcessEventHandler(Type eventType, Action<IEvent> handler)
+        public EventBusConfigNcqrs RegisterInProcessEventHandler(Type eventType, Action<Ncqrs.Eventing.IEvent> handler)
         {
             _inProcessEventBus.RegisterHandler(eventType, handler);
             return this;
