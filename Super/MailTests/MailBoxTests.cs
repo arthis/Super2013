@@ -87,7 +87,7 @@ namespace MailTests
                 Fine = fine
             };
 
-            byte[] allegato = Encoding.UTF8.GetBytes(Denormalizers.Tools.Serialization.Serialize(allegatoOggetto));
+            byte[] allegato = Encoding.UTF8.GetBytes(Projections.Tools.Serialization.Serialize(allegatoOggetto));
 
 
             MailBox box = new MailBox();

@@ -6,15 +6,15 @@ using Ncqrs.Eventing.ServiceModel.Bus;
 using Events.AreaIntervento;
 using ReadModel;
 
-namespace Denormalizer
+namespace Projection
 {
-    public class AreaInterventoDenormalizer : IEventHandler<AreaInterventoCreata>, 
+    public class AreaInterventoProjection : IEventHandler<AreaInterventoCreata>, 
                                               IEventHandler<AreaInterventoAggiornata>,
                                               IEventHandler<AreaInterventoCancellata>
     {
 
 
-        public AreaInterventoDenormalizer()
+        public AreaInterventoProjection()
         {
            
         }

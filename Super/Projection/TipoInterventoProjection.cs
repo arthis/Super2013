@@ -6,9 +6,9 @@ using Ncqrs.Eventing.ServiceModel.Bus;
 using ReadModel;
 using Events.TipoIntervento;
 
-namespace Denormalizer
+namespace Projection
 {
-    public class TipoInterventoDenormalizer : IEventHandler<TipoInterventoRotCreato>,
+    public class TipoInterventoProjection : IEventHandler<TipoInterventoRotCreato>,
                                               IEventHandler<TipoInterventoRotAggiornato>,
                                               IEventHandler<TipoInterventoRotCancellato>,
                                               IEventHandler<TipoInterventoRotManCreato>,
@@ -20,7 +20,7 @@ namespace Denormalizer
     {
 
 
-        public TipoInterventoDenormalizer()
+        public TipoInterventoProjection()
         {
            
         }

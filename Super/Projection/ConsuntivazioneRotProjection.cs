@@ -8,10 +8,10 @@ using ReadModel;
 using Events.TipoIntervento;
 using Events.AreaIntervento;
 
-namespace Denormalizer
+namespace Projection
 {
 
-    public class ConsuntivazioneRotDenormalizer : IEventHandler<InterventoPLGRotCreato>,
+    public class ConsuntivazioneRotProjection : IEventHandler<InterventoPLGRotCreato>,
                                                   IEventHandler<ConsAppaltatoreNonResoRotCreato>,
                                                   IEventHandler<ConsAppaltatoreRotResoCreato>,
                                                   IEventHandler<ConsAppaltatoreRotNonResoTrenitaliaCreato>,

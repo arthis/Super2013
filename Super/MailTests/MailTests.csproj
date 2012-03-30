@@ -57,16 +57,6 @@
     <Compile Include="MailBoxTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Denormalizer\Denormalizer.csproj">
-      <Project>{158E348A-9A39-40A3-91A7-2145D6E2064D}</Project>
-      <Name>Denormalizer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mail\Mail.csproj">
-      <Project>{4998AC57-87EA-4502-A97F-07DFDA9E18DE}</Project>
-      <Name>Mail</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

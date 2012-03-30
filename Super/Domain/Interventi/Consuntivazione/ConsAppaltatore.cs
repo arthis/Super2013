@@ -5,9 +5,10 @@ using System.Text;
 using Events.Interventi;
 using Ncqrs.Domain;
 
+
 namespace Domain.Interventi.Consuntivazione
 {
-
+     
     public abstract class ConsAppaltatore 
     {
         public Guid IdIntervento { get; set; }

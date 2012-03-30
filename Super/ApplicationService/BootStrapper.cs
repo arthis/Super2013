@@ -19,13 +19,12 @@ using System.Reflection;
 namespace ApplicationService
 {
     using Domain.Interventi;
-    using Denormalizers;
+    using Projections;
     using System;
     using System.Diagnostics.Contracts;
     using Events;
     using Ncqrs.Eventing.Storage.RavenDB;
-    using Mail;
-    using Denormalizer;
+    using Projection;
     using Executors;
 
     public static class BootStrapper
@@ -45,11 +44,15 @@ namespace ApplicationService
             Assembly asm = Assembly.LoadFrom("Domain.dll");
             _Container = new WindsorContainer();
             _Container.AddFacility("ncqrs.ds", new DynamicSnapshotFacility(asm));
-            _Container.Register(Component.For<ISendMessage>().ImplementedBy<MailBox>());
             
-            _Container.Register(Component.For<AreaInterventoDenormalizer>().ImplementedBy<AreaInterventoDenormalizer>());
-            //_Container.Register(Component.For<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>().ImplementedBy<ConsuntivazioneResoDaAppaltatoreRejectedDenormalizer>());
-            //_Container.Register(Component.For<InterventoRotDenormalizer>().ImplementedBy<InterventoRotDenormalizer>());
+            
+            //CRUD
+            _Container.Register(Component.For<AreaInterventoProjection>().ImplementedBy<AreaInterventoProjection>());
+            _Container.Register(Component.For<TipoInterventoProjection>().ImplementedBy<TipoInterventoProjection>());
+            //DDD
+            _Container.Register(Component.For<ConsuntivazioneRotProjection>().ImplementedBy<ConsuntivazioneRotProjection>());
+            
+            
 
             _Container.Register(
                 Component.For<ISnapshottingPolicy>().ImplementedBy<SimpleSnapshottingPolicy>(),
@@ -90,7 +93,7 @@ namespace ApplicationService
         //private static IEventBus InitializeEventBus(InMemoryBufferedBrowsableElementStore buffer)
         private static IEventBus InitializeEventBus()
         {
-            var denormalizerAssembly = typeof(AreaInterventoDenormalizer).Assembly;
+            var denormalizerAssembly = typeof(AreaInterventoProjection).Assembly;
 
             var bus = new InProcessEventBus();
 

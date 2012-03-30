@@ -19,7 +19,7 @@
 //{
 //    using Domain;
 //    using ApplicationService.Executors;
-//    using Denormalizers;
+//    using Projections;
 //    using Mail;
 //    using System;
 //    using System.Diagnostics.Contracts;
@@ -52,7 +52,7 @@
             
 //            //_Container.AddFacility("ncqrs.ds", new DynamicSnapshotFacility(asm));
 //            //_Container.Register(Component.For<MailBox>());
-//            //_Container.Register(Component.For<ConsuntivazioneDenormalizer>());
+//            //_Container.Register(Component.For<ConsuntivazioneProjection>());
 //            //_Container.Register(
 //            //    Component.For<ISnapshottingPolicy>().ImplementedBy<SimpleSnapshottingPolicy>(),
 //            //    Component.For<ICommandService>().Instance(InitializeCommandService()),
@@ -89,7 +89,7 @@
 
 //        private static IEventBus InitializeEventBus(InMemoryBufferedBrowsableElementStore buffer)
 //        {
-//            var denormalizerAssembly = typeof(ConsuntivazioneDenormalizer).Assembly;
+//            var denormalizerAssembly = typeof(ConsuntivazioneProjection).Assembly;
 
 //            var bus = new InProcessEventBus();
 

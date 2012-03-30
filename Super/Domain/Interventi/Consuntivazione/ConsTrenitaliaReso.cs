@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
 
+
 namespace Domain.Interventi.Consuntivazione
 {
+   
     public abstract class ConsTrenitaliaReso : ConsTrenitalia
     {
         public string idInterventoTrenitalia { get; set; }
@@ -13,6 +15,7 @@ namespace Domain.Interventi.Consuntivazione
         public DateTime Fine { get; set; }
     }
 
+   
     public class ConsTrenitaliaResoRot : ConsTrenitaliaReso, IOggettoInterventoRotContainer
     {
         private IOggettoInterventoRotContainer _OggettoInterventoRotContainer;
@@ -39,11 +42,12 @@ namespace Domain.Interventi.Consuntivazione
         }
     }
 
+   
     public class ConsTrenitaliaResoRotMan : ConsTrenitaliaReso, IOggettoInterventoRotManContainer
     {
         private IOggettoInterventoRotManContainer _OggettoInterventoRotManContainer;
 
-        public ConsTrenitaliaResoRotMan( IOggettoInterventoRotManContainer oggettoInterventoRotManContainer, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
+        public ConsTrenitaliaResoRotMan(IOggettoInterventoRotManContainer oggettoInterventoRotManContainer, DateTime dataConsuntivazione, DateTime inizio, DateTime fine)
         {
             Contract.Requires<ArgumentNullException>(oggettoInterventoRotManContainer != null);
 
@@ -65,6 +69,7 @@ namespace Domain.Interventi.Consuntivazione
         }
     }
 
+   
     public class ConsTrenitaliaResoAmb : ConsTrenitaliaReso
     {
         public ConsTrenitaliaResoAmb(DateTime dataConsuntivazione, DateTime inizio, DateTime fine)

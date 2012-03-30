@@ -6,7 +6,7 @@ using System.IO;
 using System.Xml.Serialization;
 using System.IO.Compression;
 
-namespace Denormalizers.Tools
+namespace Projections.Tools
 {
     public class Serialization
     {

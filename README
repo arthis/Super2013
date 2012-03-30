@@ -8,3 +8,20 @@ So far nCQRS framework is used, but this may change in the future. What is at st
 some cohesive work method to implement the code through Behaviour driven development and test driven development.
 
 Both Console_UI and Web_UI are client to WCF Service Application service. 
+
+To run this project :
+
+Execute in your sql server 2008
+	ApplicationService/ReadModel.sql
+	ReadModel/ReadModel.edmx.sql
+
+Run an instance of RavenDB
+
+Change connection string according to your setup :
+	ApplicationService/bootstrapper.cs
+	ApplicationService/app.config
+	ReadModel/app.config
+	UI_Web/web.config
+
+
+Start both ApplicationService & UI_Web, and enjoy what you can..

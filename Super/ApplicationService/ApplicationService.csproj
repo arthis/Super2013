@@ -183,10 +183,6 @@
       <Project>{87577C93-5923-4F03-8F0E-E5519C7C0854}</Project>
       <Name>Commands</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Denormalizer\Denormalizer.csproj">
-      <Project>{158E348A-9A39-40A3-91A7-2145D6E2064D}</Project>
-      <Name>Denormalizer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{4D1A3A2B-EB13-4EA8-B7E4-7CCE75BD19EF}</Project>
       <Name>Domain</Name>
@@ -199,9 +195,9 @@
       <Project>{C57D5DEE-1CE6-4ABE-9832-D029054C4DDE}</Project>
       <Name>Executors</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mail\Mail.csproj">
-      <Project>{4998AC57-87EA-4502-A97F-07DFDA9E18DE}</Project>
-      <Name>Mail</Name>
+    <ProjectReference Include="..\Projection\Projection.csproj">
+      <Project>{158E348A-9A39-40A3-91A7-2145D6E2064D}</Project>
+      <Name>Projection</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

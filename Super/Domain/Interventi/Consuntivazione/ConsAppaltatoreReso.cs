@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
 using Events.Interventi;
-using Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot;
+
 
 namespace Domain.Interventi.Consuntivazione
 {
+    
     public abstract class ConsAppaltatoreReso : ConsAppaltatore
     {
         public string IdInterventoAppaltatore { get; set; }
@@ -16,7 +17,7 @@ namespace Domain.Interventi.Consuntivazione
 
     }
 
-    [DynamicSnapshot]
+   
     public class ConsAppaltatoreRotReso : ConsAppaltatoreReso, IOggettoInterventoRotContainer
     {
         private IOggettoInterventoRotContainer _OggettoInterventoRotContainer;
@@ -44,7 +45,7 @@ namespace Domain.Interventi.Consuntivazione
 
     }
 
-    [DynamicSnapshot]
+   
     public class ConsAppaltatoreRotManReso : ConsAppaltatoreReso, IOggettoInterventoRotManContainer
     {
         private IOggettoInterventoRotManContainer _OggettoInterventoRotManContainer;
@@ -74,7 +75,7 @@ namespace Domain.Interventi.Consuntivazione
 
     }
 
-    [DynamicSnapshot]
+   
     public class ConsAppaltatoreAmbReso : ConsAppaltatoreReso
     {
         public ConsAppaltatoreAmbReso( DateTime dataConsuntivazione, string idInterventoAppaltatore, DateTime inizio, DateTime fine)
