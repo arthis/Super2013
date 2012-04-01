@@ -15,6 +15,7 @@ using NServiceBus;
 using Ncqrs.NServiceBus;
 
 
+
 namespace UI_Web.Controllers
 {
     public class AreaInterventoController : ControllerBaseSuper
@@ -67,8 +68,13 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                               client.Execute(new ExecuteRequest(command)));
+                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                //               client.Execute(new ExecuteRequest(command)));
+
+                var msg = new CommandMessage() { Payload = command };
+                IAsyncResult res = Bus.Send(msg).Register(SimpleCommandCallback, this);
+                WaitHandle asyncWaitHandle = res.AsyncWaitHandle;
+                asyncWaitHandle.WaitOne(50000);
             }
         }
 

@@ -5,25 +5,20 @@ using System.Text;
 using Ncqrs.Commanding;
 using System.ComponentModel.DataAnnotations;
 using Commands.Attributes;
+using NServiceBus;
 
 namespace Commands.AreaIntervento
 {
-    public class CreareNuovoAreaIntervento : CommandBase
+    public class CreareNuovoAreaIntervento : CommandBase, IMessage
     {
         public Guid Id { get; set; }
         public int IdAreaInterventoSuper { get; set; }
         [DataType(DataType.Date)]
-        //[DateRange("2010/12/01", "2020/12/16")]
-        //[Required]
         public DateTime Inizio { get; set; }
         [DataType(DataType.Date)]
-        //[DateRange("2010/12/01", null)]
         public DateTime? Fine { get; set; }
-        [Required(ErrorMessage ="test error message")]
         public string Descrizione { get; set; }
         [DataType(DataType.Date)]
-        //[DateRange("2010/12/01", null)]
-        //[Required]
         public DateTime CreationDate { get; set; }
 
         public CreareNuovoAreaIntervento()
@@ -40,6 +35,6 @@ namespace Commands.AreaIntervento
             this.CreationDate = creationDate;
         }
 
-       
+
     }
 }

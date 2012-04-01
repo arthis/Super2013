@@ -7,17 +7,17 @@ namespace ApplicationService_NSB
     {
         public void Init()
         {
-            var config = Configure.With()
-                                   .DefaultBuilder()
-                                   .BinarySerializer()
-                                   .InstallNcqrs();
+            //var config = Configure.With()
+            //                       .DefaultBuilder()
+            //                       .BinarySerializer()
+            //                       .InstallNcqrs();
 
-            var executorsAssembly = typeof(CreareAreaInterventoExecutor).Assembly;
+            //var executorsAssembly = typeof(CreareAreaInterventoExecutor).Assembly;
 
-            config.RegisterExecutorsForMappedCommandsInAssembly(executorsAssembly);
+            //config.RegisterExecutorsForMappedCommandsInAssembly(executorsAssembly);
 
-            config.MsmqTransport()
-                  .PurgeOnStartup(true);
+            //config.MsmqTransport()
+            //      .PurgeOnStartup(true);
         }
     }
 }

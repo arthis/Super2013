@@ -37,8 +37,8 @@ namespace ApplicationService
             //var connectionString = ConfigurationManager.ConnectionStrings["EventStore"].ConnectionString;
 
             //var dsa = new MsSqlServerEventStore(connectionString);
-            var db = new RavenDBEventStore("http://localhost:8080/databases/Super2012");
-            var ss = new RavenDBSnapshotStore("http://localhost:8080/databases/Super2012");
+            var db = new RavenDBEventStore("http://mcbernique:8081/databases/Super2013");
+            var ss = new RavenDBSnapshotStore("http://mcbernique:8081/databases/Super2013");
 
 
             Assembly asm = Assembly.LoadFrom("Domain.dll");

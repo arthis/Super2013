@@ -204,16 +204,16 @@
     var CreareNuovoAreaIntervento = function (id, idAreaInterventoSuper, creationDate, inizio, fine, descrizione) {
         this.Id = id;
         this.IdAreaInterventoSuper = idAreaInterventoSuper;
-        this.CreationDate = creationDate;
-        this.Inizio = inizio;
-        this.Fine = fine;
+        this.CreationDate = dateFormat(creationDate,"isoDateTime");
+        this.Inizio = dateFormat(inizio,"isoDateTime");
+        this.Fine = dateFormat(fine,"isoDateTime");
         this.Descrizione = descrizione;
     }
     var AggiornareAreaIntervento = function (id, idAreaInterventoSuper, inizio, fine, descrizione) {
         this.Id = id;
         this.IdAreaInterventoSuper = idAreaInterventoSuper;
-        this.Inizio = inizio;
-        this.Fine = fine;
+        this.Inizio = inizio.format("isoDateTime");
+        this.Fine = fine.format("isoDateTime");
         this.Descrizione = descrizione;
     }
     var CancellareAreaIntervento = function (id) {

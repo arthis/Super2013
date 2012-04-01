@@ -59,12 +59,14 @@ namespace UI_Web
             //debug routes
             //RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
 
+            ModelBinders.Binders.DefaultBinder = new MyCustomModelBinder();
+
             // NServiceBus configuration
             var configure = Configure.WithWeb()
-                .DefaultBuilder()
+                .DefaultBuilder()  
                 .ForMvc()
                 .XmlSerializer();
-
+               
             configure
                .Log4Net()
                  .MsmqTransport()

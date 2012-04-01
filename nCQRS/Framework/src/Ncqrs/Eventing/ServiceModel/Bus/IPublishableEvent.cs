@@ -35,6 +35,6 @@ namespace Ncqrs.Eventing.ServiceModel.Bus
         /// <summary>
         /// Gets the event payload.
         /// </summary>
-        object Payload { get; }
+        Object Payload { get; }
     }    
 }
