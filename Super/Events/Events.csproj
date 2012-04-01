@@ -39,10 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ncqrs, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\nCQRS\lib\Debug\Ncqrs\Ncqrs.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
@@ -93,7 +89,12 @@
     <Compile Include="Interventi\InterventoAmbientiCreato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CQRS\CQRS.csproj">
+      <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
+      <Name>CQRS</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

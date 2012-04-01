@@ -124,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootStrapper.cs" />
-    <Compile Include="BootStrapperNInject.cs" />
     <Compile Include="EventBusProcessor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

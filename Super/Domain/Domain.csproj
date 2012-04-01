@@ -129,13 +129,9 @@
     <Compile Include="Settore.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.csproj">
-      <Project>{618E1C0F-E6B7-4C51-961D-C4ACE60CFC85}</Project>
-      <Name>Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Framework\src\Ncqrs\Ncqrs.csproj">
-      <Project>{01F84441-80D3-49B4-AB18-96894ACB2F90}</Project>
-      <Name>Ncqrs</Name>
+    <ProjectReference Include="..\CQRS\CQRS.csproj">
+      <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
+      <Name>CQRS</Name>
     </ProjectReference>
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{4E97B58A-B0B8-4A8B-A5FF-B001528741B3}</Project>

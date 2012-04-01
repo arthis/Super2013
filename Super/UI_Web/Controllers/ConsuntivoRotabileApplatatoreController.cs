@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Ncqrs.CommandService.Contracts;
 using ReadModel;
 using Commands.Interventi;
-using Ncqrs.CommandService;
 using System.ServiceModel;
 using UI_Web.Models;
 
@@ -14,11 +12,11 @@ namespace Website.Controllers
 {
     public class InterventoRotController : Controller
     {
-        private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
+        //private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
 
         static InterventoRotController()
         {
-            _channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
+            //_channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
         }
 
 
@@ -90,8 +88,8 @@ namespace Website.Controllers
         [HttpPost]
         public ActionResult Add(CreareInterventoPLGRot command)
         {
-            ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                                client.Execute(new ExecuteRequest(command)));
+            //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+            //                    client.Execute(new ExecuteRequest(command)));
 
             // Return user back to the index that
             // displays all the Interventi.));

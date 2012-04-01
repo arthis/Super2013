@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ServiceModel;
-using Ncqrs.CommandService;
-using Ncqrs.CommandService.Contracts;
+//using Cqrs.CommandService;
+//using Cqrs.CommandService.Contracts;
 using Commands;
 using Commands.Interventi;
 using Commands.AreaIntervento;
@@ -14,12 +14,12 @@ namespace UI_Console
 {
     class Program
     {
-        private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
+        //private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
 
         static void Main(string[] args)
         {
 
-            _channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
+            //_channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
 
             //ServiceReference.MassiveServiceClient client = new ServiceReference.MassiveServiceClient();
             //client.Execute(new SendEmailCommand() { Body = "body", Subject = "subject" });
@@ -39,8 +39,8 @@ namespace UI_Console
                 IdAreaInterventoSuper = 45
             };
 
-            ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                             client.Execute(new ExecuteRequest(nuovaAreaIntervento)));
+            //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+            //                 client.Execute(new ExecuteRequest(nuovaAreaIntervento)));
 
 
 

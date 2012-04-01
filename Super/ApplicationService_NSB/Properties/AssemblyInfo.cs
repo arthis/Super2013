@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ApplicationService_NSB")]
+[assembly: AssemblyTitle("ApplicationService")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ApplicationService_NSB")]
+[assembly: AssemblyProduct("ApplicationService")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

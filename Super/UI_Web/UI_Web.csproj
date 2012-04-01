@@ -47,9 +47,6 @@
       <Private>True</Private>
       <HintPath>..\..\packages\MicrosoftWebInfrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Ncqrs">
-      <HintPath>..\..\nCQRS\release\Framework\Ncqrs.dll</HintPath>
-    </Reference>
     <Reference Include="NServiceBus">
       <HintPath>..\Ressources\NserviceBus3.0.1\NServiceBus.dll</HintPath>
     </Reference>
@@ -264,21 +261,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.CommandService.Contracts\Ncqrs.CommandService.Contracts.csproj">
-      <Project>{76062319-4F5D-4055-9D1A-5680DD2DA882}</Project>
-      <Name>Ncqrs.CommandService.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.CommandService\Ncqrs.CommandService.csproj">
-      <Project>{9CBAEAFE-9265-47BA-82C5-5E0774CBF2C5}</Project>
-      <Name>Ncqrs.CommandService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.NServiceBus\Ncqrs.NServiceBus.csproj">
-      <Project>{9B796256-E9D6-4F21-BB89-C5333A880BFE}</Project>
-      <Name>Ncqrs.NServiceBus</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{87577C93-5923-4F03-8F0E-E5519C7C0854}</Project>
       <Name>Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\CQRS.csproj">
+      <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
+      <Name>CQRS</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReadModel\ReadModel.csproj">
       <Project>{D01CE8F6-800E-44CC-886B-F862B10E1396}</Project>

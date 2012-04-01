@@ -4,15 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.ServiceModel;
-using Ncqrs.CommandService.Contracts;
+//using Cqrs.CommandService.Contracts;
 using ReadModel;
 using Commands.AreaIntervento;
 using Commands;
-using Ncqrs.CommandService;
+//using Cqrs.CommandService;
 using UI_Web.Models;
 using System.Threading;
 using NServiceBus;
-using Ncqrs.NServiceBus;
 
 
 
@@ -20,11 +19,11 @@ namespace UI_Web.Controllers
 {
     public class AreaInterventoController : ControllerBaseSuper
     {
-        private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
+        //private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
 
         static AreaInterventoController()
         {
-            _channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
+            //_channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
 
         }
 
@@ -71,7 +70,8 @@ namespace UI_Web.Controllers
                 //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
                 //               client.Execute(new ExecuteRequest(command)));
 
-                var msg = new CommandMessage() { Payload = command };
+                //var msg = new CommandMessage() { Payload = command };
+                var msg = new CommandMessage() { MyProperty = 2 };
                 IAsyncResult res = Bus.Send(msg).Register(SimpleCommandCallback, this);
                 WaitHandle asyncWaitHandle = res.AsyncWaitHandle;
                 asyncWaitHandle.WaitOne(50000);
@@ -93,10 +93,10 @@ namespace UI_Web.Controllers
                 //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
                 //               client.Execute(new ExecuteRequest(command)));
 
-                var msg = new CommandMessage() { Payload = command };
-                IAsyncResult res = Bus.Send(msg).Register(SimpleCommandCallback, this);
-                WaitHandle asyncWaitHandle = res.AsyncWaitHandle;
-                asyncWaitHandle.WaitOne(50000);
+                //var msg = new CommandMessage() { Payload = command };
+                //IAsyncResult res = Bus.Send(msg).Register(SimpleCommandCallback, this);
+                //WaitHandle asyncWaitHandle = res.AsyncWaitHandle;
+                //asyncWaitHandle.WaitOne(50000);
             }
         }
 
@@ -111,8 +111,8 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                               client.Execute(new ExecuteRequest(command)));
+                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                //               client.Execute(new ExecuteRequest(command)));
             }
         }
 

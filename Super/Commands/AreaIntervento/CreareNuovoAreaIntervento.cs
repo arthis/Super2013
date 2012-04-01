@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Ncqrs.Commanding;
+using Cqrs.Commanding;
 using System.ComponentModel.DataAnnotations;
 using Commands.Attributes;
 using NServiceBus;
 
 namespace Commands.AreaIntervento
 {
-    public class CreareNuovoAreaIntervento : CommandBase, IMessage
+    public class CreareNuovoAreaIntervento : CommandBase
     {
         public Guid Id { get; set; }
         public int IdAreaInterventoSuper { get; set; }

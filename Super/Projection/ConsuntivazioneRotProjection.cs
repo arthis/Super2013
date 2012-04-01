@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Events.Interventi;
-using Ncqrs.Eventing.ServiceModel.Bus;
+using Cqrs.Eventing.ServiceModel.Bus;
 using ReadModel;
 using Events.TipoIntervento;
 using Events.AreaIntervento;

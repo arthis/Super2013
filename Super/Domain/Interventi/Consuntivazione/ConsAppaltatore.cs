@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Events.Interventi;
-using Ncqrs.Domain;
+using Cqrs.Domain;
 
 
 namespace Domain.Interventi.Consuntivazione

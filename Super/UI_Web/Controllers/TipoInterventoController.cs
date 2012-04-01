@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.ServiceModel;
-using Ncqrs.CommandService.Contracts;
+//using Cqrs.CommandService.Contracts;
 using ReadModel;
 using Commands.TipoIntervento;
-using Commands;
-using Ncqrs.CommandService;
+//using Commands;
+//using Cqrs.CommandService;
 using UI_Web.Models;
 
 
@@ -17,11 +17,11 @@ namespace UI_Web.Controllers
 {
     public class TipoInterventoController : ControllerBaseSuper
     {
-        private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
+        //private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
 
         static TipoInterventoController()
         {
-            _channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
+            //_channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
 
         }
 
@@ -77,8 +77,8 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                               client.Execute(new ExecuteRequest(command)));
+                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                //               client.Execute(new ExecuteRequest(command)));
             }
         }
 
@@ -87,8 +87,8 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                               client.Execute(new ExecuteRequest(command)));
+                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                //               client.Execute(new ExecuteRequest(command)));
             }
         }
 
@@ -97,8 +97,8 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                               client.Execute(new ExecuteRequest(command)));
+                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                               //client.Execute(new ExecuteRequest(command)));
             }
         }
 
@@ -126,8 +126,8 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                               client.Execute(new ExecuteRequest(command)));
+                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                //               client.Execute(new ExecuteRequest(command)));
             }
         }
 
@@ -136,8 +136,8 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                               client.Execute(new ExecuteRequest(command)));
+                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                //               client.Execute(new ExecuteRequest(command)));
             }
         }
 
@@ -146,8 +146,8 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                               client.Execute(new ExecuteRequest(command)));
+                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
+                //               client.Execute(new ExecuteRequest(command)));
             }
         }
 

@@ -60,6 +60,9 @@
     <Reference Include="NServiceBus">
       <HintPath>..\Ressources\NserviceBus3.0.1\NServiceBus.dll</HintPath>
     </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\Ressources\NserviceBus3.0.1\NServiceBus.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -86,13 +89,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\nCQRS\Framework\src\Ncqrs\Ncqrs.csproj">
-      <Project>{01F84441-80D3-49B4-AB18-96894ACB2F90}</Project>
-      <Name>Ncqrs</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{87577C93-5923-4F03-8F0E-E5519C7C0854}</Project>
       <Name>Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\CQRS.csproj">
+      <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
+      <Name>CQRS</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{4D1A3A2B-EB13-4EA8-B7E4-7CCE75BD19EF}</Project>

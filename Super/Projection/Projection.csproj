@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NServiceBus">
+      <HintPath>..\Ressources\NserviceBus\NServiceBus.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -57,9 +60,9 @@
     <Compile Include="Tools\Serialization.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\nCQRS\Framework\src\Ncqrs\Ncqrs.csproj">
-      <Project>{01F84441-80D3-49B4-AB18-96894ACB2F90}</Project>
-      <Name>Ncqrs</Name>
+    <ProjectReference Include="..\CQRS\CQRS.csproj">
+      <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
+      <Name>CQRS</Name>
     </ProjectReference>
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{4E97B58A-B0B8-4A8B-A5FF-B001528741B3}</Project>

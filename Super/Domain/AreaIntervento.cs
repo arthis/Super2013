@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot;
-using Ncqrs.Domain;
+using Cqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot;
+using Cqrs.Domain;
 using Events;
 using Events.AreaIntervento;
 

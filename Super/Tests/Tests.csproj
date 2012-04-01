@@ -99,10 +99,6 @@
       <Project>{01F84441-80D3-49B4-AB18-96894ACB2F90}</Project>
       <Name>Ncqrs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ApplicationService\ApplicationService.csproj">
-      <Project>{82BDF51E-DE5B-40D8-A6D1-501EE5B71A22}</Project>
-      <Name>ApplicationService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{87577C93-5923-4F03-8F0E-E5519C7C0854}</Project>
       <Name>Commands</Name>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Ncqrs.Domain;
+using Cqrs.Domain;
 using Events;
 using Domain.Interventi.Consuntivazione;
 using Events.Interventi;

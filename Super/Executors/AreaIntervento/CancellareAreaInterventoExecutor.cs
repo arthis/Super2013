@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Ncqrs.Commanding.CommandExecution;
+using Cqrs.Commanding.CommandExecution;
 using Commands;
-using Ncqrs.Domain;
+using Cqrs.Domain;
 using Domain;
 using Commands.AreaIntervento;
 

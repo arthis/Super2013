@@ -73,6 +73,7 @@
     <Compile Include="AreaIntervento\CreareNuovoAreaIntervento.cs" />
     <Compile Include="AreaIntervento\specs.cs" />
     <Compile Include="Attributes\DateRangeAttribute.cs" />
+    <Compile Include="CommandMessage.cs" />
     <Compile Include="TipoIntervento\AggiornareTipoInterventoRot.cs" />
     <Compile Include="TipoIntervento\CancellareTipoInterventoRot.cs" />
     <Compile Include="TipoIntervento\AggiornareTipoInterventoRotMan.cs" />
@@ -102,12 +103,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\nCQRS\Framework\src\Ncqrs\Ncqrs.csproj">
-      <Project>{01F84441-80D3-49B4-AB18-96894ACB2F90}</Project>
-      <Name>Ncqrs</Name>
+    <ProjectReference Include="..\CQRS\CQRS.csproj">
+      <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
+      <Name>CQRS</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
