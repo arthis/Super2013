@@ -13,6 +13,11 @@ namespace Executors
 {
     public class CreareAreaInterventoExecutor : CommandExecutorBase<CreareNuovoAreaIntervento>
     {
+        public CreareAreaInterventoExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CreareNuovoAreaIntervento command)
         {
             // Perform The creation

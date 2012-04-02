@@ -12,6 +12,11 @@ namespace Executors
 {
     public class CancellareAreaInterventoExecutor : CommandExecutorBase<CancellareAreaIntervento>
     {
+        public CancellareAreaInterventoExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CancellareAreaIntervento command)
         {
             // Get the item

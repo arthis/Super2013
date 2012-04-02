@@ -11,6 +11,11 @@ namespace Executors.Interventi
 {
     public class ConsuntivareRotResoDaAppaltatoreExecutor : CommandExecutorBase<ConsuntivareRotResoDaAppaltatore>
     {
+        public ConsuntivareRotResoDaAppaltatoreExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, ConsuntivareRotResoDaAppaltatore command)
         {
             // Get the intervento
@@ -37,6 +42,12 @@ namespace Executors.Interventi
 
     public class ConsuntivareRotManResoDaAppaltatoreExecutor : CommandExecutorBase<ConsuntivareRotManResoDaAppaltatore>
     {
+
+        public ConsuntivareRotManResoDaAppaltatoreExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, ConsuntivareRotManResoDaAppaltatore command)
         {
             // Get the intervento
@@ -63,6 +74,12 @@ namespace Executors.Interventi
 
     public class ConsuntivareAmbResoDaAppaltatoreExecutor : CommandExecutorBase<ConsuntivareAmbResoDaAppaltatore>
     {
+
+        public ConsuntivareAmbResoDaAppaltatoreExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, ConsuntivareAmbResoDaAppaltatore command)
         {
             // Get the intervento

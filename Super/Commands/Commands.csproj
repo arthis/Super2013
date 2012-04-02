@@ -73,7 +73,6 @@
     <Compile Include="AreaIntervento\CreareNuovoAreaIntervento.cs" />
     <Compile Include="AreaIntervento\specs.cs" />
     <Compile Include="Attributes\DateRangeAttribute.cs" />
-    <Compile Include="CommandMessage.cs" />
     <Compile Include="TipoIntervento\AggiornareTipoInterventoRot.cs" />
     <Compile Include="TipoIntervento\CancellareTipoInterventoRot.cs" />
     <Compile Include="TipoIntervento\AggiornareTipoInterventoRotMan.cs" />
@@ -103,7 +102,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CQRS\CQRS.csproj">
+    <ProjectReference Include="..\..\Framework\CQRS\CQRS.csproj">
       <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
       <Name>CQRS</Name>
     </ProjectReference>

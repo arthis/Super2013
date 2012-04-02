@@ -11,6 +11,11 @@ namespace Executors
 {
     public class CreareSettoreExecutor : CommandExecutorBase<CreareNuovoSettore>
     {
+        public CreareSettoreExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CreareNuovoSettore command)
         {
             // Perform The creation

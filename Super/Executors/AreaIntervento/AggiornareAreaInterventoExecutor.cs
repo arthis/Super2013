@@ -8,11 +8,17 @@ using Cqrs.Domain;
 using Domain;
 using Commands.AreaIntervento;
 using System.Diagnostics.Contracts;
+using NServiceBus;
 
 namespace Executors
 {
     public class AggiornareAreaInterventoExecutor : CommandExecutorBase<AggiornareAreaIntervento>
     {
+        public AggiornareAreaInterventoExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, AggiornareAreaIntervento command)
         {
             Contract.Requires<ArgumentNullException>(command != null, "The command cannot be null.");

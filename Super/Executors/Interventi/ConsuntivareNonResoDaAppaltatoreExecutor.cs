@@ -11,6 +11,11 @@ namespace Executors.Interventi
 {
     public class ConsuntivareNonResoDaAppaltatoreExecutor : CommandExecutorBase<ConsuntivareRotNonResoDaAppaltatore>
     {
+        public ConsuntivareNonResoDaAppaltatoreExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, ConsuntivareRotNonResoDaAppaltatore command)
         {
             // Get the intervento

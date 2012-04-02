@@ -11,6 +11,11 @@ namespace Executors.Interventi
 {
     public class CreareInterventoRotExecutor : CommandExecutorBase<CreareInterventoPLGRot>
     {
+        public CreareInterventoRotExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CreareInterventoPLGRot command)
         {
             // Perform The Consuntivazione
@@ -25,6 +30,11 @@ namespace Executors.Interventi
 
     public class CreareInterventoRotManExecutor : CommandExecutorBase<CreareInterventoPLGRotMan>
     {
+         public CreareInterventoRotManExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CreareInterventoPLGRotMan command)
         {
             // Perform The Consuntivazione
@@ -39,6 +49,10 @@ namespace Executors.Interventi
 
     public class CreareInterventoAmbExecutor : CommandExecutorBase<CreareInterventoPLGAmb>
     {
+        public CreareInterventoAmbExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
         protected override void ExecuteInContext(IUnitOfWorkContext context, CreareInterventoPLGAmb command)
         {
             // Perform The Consuntivazione

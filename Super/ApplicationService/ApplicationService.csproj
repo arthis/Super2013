@@ -2,30 +2,19 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{82BDF51E-DE5B-40D8-A6D1-501EE5B71A22}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{4DF16696-0D0E-4407-A91E-940D18648CCF}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ApplicationService</RootNamespace>
     <AssemblyName>ApplicationService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -58,10 +47,8 @@
     <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
     <CodeContractsReferenceAssembly>%28none%29</CodeContractsReferenceAssembly>
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -70,114 +57,52 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+    <Reference Include="Castle.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\nCQRS\lib\ThirdParty\CastleWindsor\Castle.Core.dll</HintPath>
+      <HintPath>..\Ressources\CastleWindsor\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+    <Reference Include="Castle.Windsor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\nCQRS\lib\ThirdParty\CastleWindsor\Castle.Windsor.dll</HintPath>
+      <HintPath>..\Ressources\CastleWindsor\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="EventStore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\nCQRS\lib\ThirdParty\EventStore\EventStore.dll</HintPath>
+    <Reference Include="log4net">
+      <HintPath>..\..\nCQRS\lib\ThirdParty\NServiceBus\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\nCQRS\lib\ThirdParty\RavenDB\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="NServiceBus">
+      <HintPath>..\Ressources\NserviceBus\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\Ressources\NserviceBus\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Host">
+      <HintPath>..\Ressources\NserviceBus\NServiceBus.Host.exe</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.ObjectBuilder.CastleWindsor">
+      <HintPath>..\Ressources\NserviceBus\containers\castle\NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Client.Lightweight">
-      <HintPath>..\..\nCQRS\lib\ThirdParty\RavenDB\Raven.Client.Lightweight.dll</HintPath>
+      <HintPath>..\Ressources\RavenDB\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Storage.Esent">
-      <HintPath>..\..\nCQRS\lib\ThirdParty\RavenDB\Raven.Storage.Esent.dll</HintPath>
-    </Reference>
-    <Reference Include="System">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.configuration">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Core">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.ServiceModel">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CSharp">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Data">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Xml">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BootStrapper.cs" />
-    <Compile Include="EventBusProcessor.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="CommandHandler.cs" />
+    <Compile Include="EventMessage.cs" />
+    <Compile Include="MessageEndpoint.cs" />
+    <Compile Include="CqrsMessageHandler.cs" />
+    <Compile Include="NsbEventBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.CommandService.Contracts\Ncqrs.CommandService.Contracts.csproj">
-      <Project>{76062319-4F5D-4055-9D1A-5680DD2DA882}</Project>
-      <Name>Ncqrs.CommandService.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.CommandService\Ncqrs.CommandService.csproj">
-      <Project>{9CBAEAFE-9265-47BA-82C5-5E0774CBF2C5}</Project>
-      <Name>Ncqrs.CommandService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Config.Windsor\Ncqrs.Config.Windsor.csproj">
-      <Project>{99BE6129-C5C4-45A5-94AB-0ADEA0A6AD53}</Project>
-      <Name>Ncqrs.Config.Windsor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.EventBus\Ncqrs.EventBus.csproj">
-      <Project>{CAF2E548-87C8-422B-A62C-8C3ED83FF3C3}</Project>
-      <Name>Ncqrs.EventBus</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot\Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot.csproj">
-      <Project>{618E1C0F-E6B7-4C51-961D-C4ACE60CFC85}</Project>
-      <Name>Ncqrs.Eventing.Sourcing.Snapshotting.DynamicSnapshot</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Storage.JOliver.RavenPersistence\Ncqrs.Eventing.Storage.JOliver.RavenPersistence.csproj">
-      <Project>{A2ADE0B3-D3C0-4D6B-8701-C0F5E509A69A}</Project>
-      <Name>Ncqrs.Eventing.Storage.JOliver.RavenPersistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Storage.JOliver\Ncqrs.Eventing.Storage.JOliver.csproj">
-      <Project>{DCA6E39A-8D6B-4531-ACA7-33D790D27878}</Project>
-      <Name>Ncqrs.Eventing.Storage.JOliver</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Extensions\src\Ncqrs.Eventing.Storage.RavenDB\Ncqrs.Eventing.Storage.RavenDB.csproj">
-      <Project>{EA93A91D-7BC9-4EC0-8A22-8A772AFD76C3}</Project>
-      <Name>Ncqrs.Eventing.Storage.RavenDB</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\nCQRS\Framework\src\Ncqrs\Ncqrs.csproj">
-      <Project>{01F84441-80D3-49B4-AB18-96894ACB2F90}</Project>
-      <Name>Ncqrs</Name>
+    <ProjectReference Include="..\..\Framework\CQRS\CQRS.csproj">
+      <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
+      <Name>CQRS</Name>
     </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{87577C93-5923-4F03-8F0E-E5519C7C0854}</Project>
@@ -195,14 +120,13 @@
       <Project>{C57D5DEE-1CE6-4ABE-9832-D029054C4DDE}</Project>
       <Name>Executors</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projection\Projection.csproj">
+    <ProjectReference Include="..\Projection.InProcessEventBus\Projection.InProcessEventBus.csproj">
       <Project>{158E348A-9A39-40A3-91A7-2145D6E2064D}</Project>
-      <Name>Projection</Name>
+      <Name>Projection.InProcessEventBus</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EventStore.sql" />
-    <Content Include="ReadModel.sql" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,6 +14,11 @@ namespace Executors.TipoIntervento
 {
     public class AggiornareTipoInterventoRotExecutor : CommandExecutorBase<AggiornareTipoInterventoRot>
     {
+        public AggiornareTipoInterventoRotExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, AggiornareTipoInterventoRot command)
         {
             Contract.Requires<ArgumentNullException>(command != null, "The command cannot be null.");
@@ -32,6 +37,11 @@ namespace Executors.TipoIntervento
 
     public class AggiornareTipoInterventoRotManExecutor : CommandExecutorBase<AggiornareTipoInterventoRotMan>
     {
+         public AggiornareTipoInterventoRotManExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, AggiornareTipoInterventoRotMan command)
         {
             Contract.Requires<ArgumentNullException>(command != null, "The command cannot be null.");
@@ -50,6 +60,11 @@ namespace Executors.TipoIntervento
 
     public class AggiornareTipoInterventoAmbExecutor : CommandExecutorBase<AggiornareTipoInterventoAmb>
     {
+        public AggiornareTipoInterventoAmbExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, AggiornareTipoInterventoAmb command)
         {
             Contract.Requires<ArgumentNullException>(command != null, "The command cannot be null.");

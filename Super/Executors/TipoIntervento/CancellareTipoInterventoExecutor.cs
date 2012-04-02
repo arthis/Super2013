@@ -13,6 +13,11 @@ namespace Executors.TipoIntervento
 {
     public class CancellareTipoInterventoRotExecutor : CommandExecutorBase<CancellareTipoInterventoRot>
     {
+        public CancellareTipoInterventoRotExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CancellareTipoInterventoRot command)
         {
             // Get the item
@@ -28,6 +33,11 @@ namespace Executors.TipoIntervento
 
     public class CancellareTipoInterventoRotManExecutor : CommandExecutorBase<CancellareTipoInterventoRotMan>
     {
+        public CancellareTipoInterventoRotManExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CancellareTipoInterventoRotMan command)
         {
             // Get the item
@@ -43,6 +53,11 @@ namespace Executors.TipoIntervento
 
     public class CancellareTipoInterventoAmbExecutor : CommandExecutorBase<CancellareTipoInterventoAmb>
     {
+        public CancellareTipoInterventoAmbExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CancellareTipoInterventoAmb command)
         {
             // Get the item

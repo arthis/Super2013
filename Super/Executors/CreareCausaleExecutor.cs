@@ -11,6 +11,11 @@ namespace Executors
 {
     public class CreareCausaleExecutor : CommandExecutorBase<CreareNuovaCausale>
     {
+        public CreareCausaleExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CreareNuovaCausale command)
         {
             // Perform The creation

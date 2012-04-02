@@ -71,8 +71,8 @@ namespace UI_Web.Controllers
                 //               client.Execute(new ExecuteRequest(command)));
 
                 //var msg = new CommandMessage() { Payload = command };
-                var msg = new CommandMessage() { MyProperty = 2 };
-                IAsyncResult res = Bus.Send(msg).Register(SimpleCommandCallback, this);
+                //var msg = new CommandMessage() { MyProperty = 2 };
+                IAsyncResult res = Bus.Send(command).Register(SimpleCommandCallback, this);
                 WaitHandle asyncWaitHandle = res.AsyncWaitHandle;
                 asyncWaitHandle.WaitOne(50000);
             }

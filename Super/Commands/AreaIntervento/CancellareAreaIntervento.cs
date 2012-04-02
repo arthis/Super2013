@@ -10,7 +10,7 @@ using NServiceBus;
 
 namespace Commands.AreaIntervento
 {
-    public class CancellareAreaIntervento : CommandBase, IMessage
+    public class CancellareAreaIntervento : CommandBase
     {
         [AggregateRootId]
         public Guid Id { get; set; }

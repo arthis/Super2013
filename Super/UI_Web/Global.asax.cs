@@ -65,11 +65,10 @@ namespace UI_Web
             var configure = Configure.WithWeb()
                 .DefaultBuilder()  
                 .ForMvc()
-                .XmlSerializer();
-               
-            configure
-               .Log4Net()
-                 .MsmqTransport()
+                .XmlSerializer()
+                .DefiningCommandsAs(t => t.Namespace != null && t.Namespace.StartsWith("Commands"))
+                .Log4Net()
+                    .MsmqTransport()
                     .IsTransactional(false)
                     .PurgeOnStartup(true)
                 .UnicastBus()

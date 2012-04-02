@@ -13,6 +13,11 @@ namespace Executors.TipoIntervento
 {
     public class CreareTipoInterventoRotExecutor : CommandExecutorBase<CreareTipoInterventoRot>
     {
+           public CreareTipoInterventoRotExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CreareTipoInterventoRot command)
         {
             // Perform The creation
@@ -25,6 +30,11 @@ namespace Executors.TipoIntervento
 
     public class CreareTipoInterventoRotManExecutor : CommandExecutorBase<CreareTipoInterventoRotMan>
     {
+           public CreareTipoInterventoRotManExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CreareTipoInterventoRotMan command)
         {
             // Perform The creation
@@ -37,6 +47,11 @@ namespace Executors.TipoIntervento
 
     public class CreareTipoInterventoAmbExecutor : CommandExecutorBase<CreareTipoInterventoAmb>
     {
+        public CreareTipoInterventoAmbExecutor(IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory)
+        {
+        }
+
         protected override void ExecuteInContext(IUnitOfWorkContext context, CreareTipoInterventoAmb command)
         {
             // Perform The creation
