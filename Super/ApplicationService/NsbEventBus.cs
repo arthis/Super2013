@@ -7,6 +7,7 @@ using Cqrs.Eventing;
 using Cqrs.Eventing.ServiceModel.Bus;
 using NServiceBus;
 using Cqrs;
+using System.Diagnostics.Contracts;
 
 namespace ApplicationService
 {
@@ -18,14 +19,23 @@ namespace ApplicationService
     /// </summary>
     public class NsbEventBus : IEventBus
     {
+        private readonly  NServiceBus.IBus _Bus;
+
+        public NsbEventBus(NServiceBus.IBus bus)
+        {
+            Contract.Requires(bus != null);
+
+            _Bus = bus;
+        }
+
         public void Publish(IPublishableEvent eventMessage)
         {
-            Bus.Publish(CreateEventMessage(eventMessage));
+            _Bus.Publish(eventMessage.Payload);
         }
 
         public void Publish(IEnumerable<IPublishableEvent> eventMessages)
         {
-            Bus.Publish(eventMessages.Select(CreateEventMessage).ToArray());
+            _Bus.Publish(eventMessages.Select(x => x.Payload).ToArray());
         }
 
         public void RegisterHandler<TEvent>(IEventHandler<TEvent> handler)
@@ -33,35 +43,32 @@ namespace ApplicationService
             throw new NotSupportedException("Registering local event handlers with NsbEventBus is not supported. Use CompositeEventBus instead.");
         }
 
-        private static IBus Bus
-        {
-            get { return CqrsEnvironment.Get<IBus>(); }
-        }
+       
 
-        private static IMessage CreateEventMessage(IPublishableEvent publishableEvent)
-        {
-            object payload = publishableEvent.Payload;
-            Type factoryType =
-               typeof(EventMessageFactory).MakeGenericType(payload.GetType());
-            var factory =
-               (IEventMessageFactory)Activator.CreateInstance(factoryType);
-            return factory.CreateEventMessage(payload);
-        }
+        //private static IMessage CreateEventMessage(IPublishableEvent publishableEvent)
+        //{
+        //    object payload = publishableEvent.Payload;
+        //    Type factoryType =
+        //       typeof(EventMessageFactory).MakeGenericType(payload.GetType());
+        //    var factory =
+        //       (IEventMessageFactory)Activator.CreateInstance(factoryType);
+        //    return factory.CreateEventMessage(payload);
+        //}
 
-        public interface IEventMessageFactory
-        {
-            IMessage CreateEventMessage(object payload);
-        }
+        //public interface IEventMessageFactory
+        //{
+        //    IMessage CreateEventMessage(object payload);
+        //}
 
-        private class EventMessageFactory : IEventMessageFactory
-        {
-            IMessage IEventMessageFactory.CreateEventMessage(object payload)
-            {
-                return new EventMessage
-                          {
-                              Payload = payload
-                          };
-            }
-        }
+        //private class EventMessageFactory : IEventMessageFactory
+        //{
+        //    IMessage IEventMessageFactory.CreateEventMessage(object payload)
+        //    {
+        //        return new EventMessage
+        //                  {
+        //                      Payload = payload
+        //                  };
+        //    }
+        //}
     }
 }

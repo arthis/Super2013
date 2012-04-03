@@ -32,13 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NServiceBus">
-      <HintPath>..\Ressources\NserviceBus\NServiceBus.dll</HintPath>
+      <HintPath>..\..\Ressources\NserviceBus\NServiceBus.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus.Core">
-      <HintPath>..\Ressources\NserviceBus\NServiceBus.Core.dll</HintPath>
+      <HintPath>..\..\Ressources\NserviceBus\NServiceBus.Core.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus.Host">
-      <HintPath>..\Ressources\NserviceBus\NServiceBus.Host.exe</HintPath>
+      <HintPath>..\..\Ressources\NserviceBus\NServiceBus.Host.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,8 +49,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="handler.cs" />
+    <Compile Include="EndpointConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Events\Events.csproj">
+      <Project>{4E97B58A-B0B8-4A8B-A5FF-B001528741B3}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,9 +16,6 @@ D:\Yoann\Super2013\Framework\CQRS\obj\Debug\ResolveAssemblyReference.cache
 D:\Yoann\Super2013\Framework\CQRS\obj\Debug\CQRS.dll
 D:\Yoann\Super2013\Framework\CQRS\obj\Debug\CQRS.pdb
 D:\Yoann\Super2013\Framework\CQRS\obj\Debug\CQRS.rewritten
-D:\Yoann\Super2013\Framework\CQRS\bin\Debug\Raven.Abstractions.dll
-D:\Yoann\Super2013\Framework\CQRS\bin\Debug\Raven.Client.Lightweight.dll
-D:\Yoann\Super2013\Framework\CQRS\bin\Debug\Raven.Database.dll
 D:\Yoann\Super2013\Framework\CQRS\bin\Debug\Raven.Json.dll
 D:\Yoann\Super2013\Framework\CQRS\bin\Debug\NLog.dll
 D:\Yoann\Super2013\Framework\CQRS\bin\Debug\AsyncCtpLibrary.dll
@@ -76,3 +73,4 @@ D:\Projects\Super2013\Framework\CQRS\obj\Debug\ResolveAssemblyReference.cache
 D:\Projects\Super2013\Framework\CQRS\obj\Debug\CQRS.rewritten
 D:\Projects\Super2013\Framework\CQRS\obj\Debug\CQRS.dll
 D:\Projects\Super2013\Framework\CQRS\obj\Debug\CQRS.pdb
+D:\Yoann\Super2013\Framework\CQRS\bin\Debug\log4net.dll

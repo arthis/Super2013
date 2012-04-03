@@ -8,7 +8,7 @@ using ReadModel;
 
 namespace Projection.InProcessEventBus
 {
-    public class AreaInterventoProjection : IEventHandler<AreaInterventoCreata>, 
+    public class AreaInterventoProjection : 
                                               IEventHandler<AreaInterventoAggiornata>,
                                               IEventHandler<AreaInterventoCancellata>
     {
@@ -18,30 +18,30 @@ namespace Projection.InProcessEventBus
            
         }
 
-        public void Handle(IPublishedEvent<AreaInterventoCreata> evnt)
-        {
-            using (var context = new ReadModelContainer())
-            {
-                var existing = context.AreaIntervento.SingleOrDefault(x => x.Id == evnt.EventSourceId);
-                if (existing != null)
-                {
-                    return;
-                }
+        //public void Handle(IPublishedEvent<AreaInterventoCreata> evnt)
+        //{
+        //    using (var context = new ReadModelContainer())
+        //    {
+        //        var existing = context.AreaIntervento.SingleOrDefault(x => x.Id == evnt.EventSourceId);
+        //        if (existing != null)
+        //        {
+        //            return;
+        //        }
 
-                var newItem = new ReadModel.AreaIntervento()
-                {
-                    Id = evnt.Payload.Id,
-                    IdAreaInterventoSuper = evnt.Payload.IdAreaInterventoSuper,
-                    Inizio = evnt.Payload.Inizio,
-                    Fine = evnt.Payload.Fine,
-                    CreationDate = evnt.Payload.CreationDate,
-                    Descrizione = evnt.Payload.Descrizione
-                };
+        //        var newItem = new ReadModel.AreaIntervento()
+        //        {
+        //            Id = evnt.Payload.Id,
+        //            IdAreaInterventoSuper = evnt.Payload.IdAreaInterventoSuper,
+        //            Inizio = evnt.Payload.Inizio,
+        //            Fine = evnt.Payload.Fine,
+        //            CreationDate = evnt.Payload.CreationDate,
+        //            Descrizione = evnt.Payload.Descrizione
+        //        };
 
-                context.AreaIntervento.AddObject(newItem);
-                context.SaveChanges();
-            }
-        }
+        //        context.AreaIntervento.AddObject(newItem);
+        //        context.SaveChanges();
+        //    }
+        //}
 
         public void Handle(IPublishedEvent<AreaInterventoAggiornata> evnt)
         {

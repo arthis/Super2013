@@ -29,7 +29,7 @@ namespace ApplicationService
     {
         static IWindsorContainer _Container;
 
-       
+
 
         public void Init()
         {
@@ -37,12 +37,22 @@ namespace ApplicationService
             var db = new RavenDBEventStore("http://mercurio:8080/databases/Super2013");
             var ss = new RavenDBSnapshotStore("http://mercurio:8080/databases/Super2013");
 
+
+            Configure.With()
+                     .DefaultBuilder()
+                     .CastleWindsorBuilder(_Container)
+                     .DefiningEventsAs(t => t.Namespace != null && t.Namespace.StartsWith("Events"))
+                     .MsmqTransport()
+                     .PurgeOnStartup(true)
+                     .UnicastBus()
+                     .CreateBus();
+
             Assembly asm = Assembly.LoadFrom("Domain.dll");
             _Container.AddFacility(new DynamicSnapshotFacility(asm));
 
             _Container.Register(
               Component.For<ISnapshottingPolicy>().ImplementedBy<SimpleSnapshottingPolicy>(),
-              Component.For<IEventBus>().Instance(InitializeEventBus()),
+              Component.For<IEventBus>().ImplementedBy<NsbEventBus>(),
               Component.For<IEventStore>().Instance(db),
               Component.For<ISnapshotStore>().Instance(ss),
               Component.For<IKnownCommandsEnumerator>().ImplementedBy<AllCommandsInAppDomainEnumerator>(),
@@ -75,14 +85,9 @@ namespace ApplicationService
             _Container.Register(Component.For<ICommandService>().Instance(InitializeCommandService()));
 
 
-            Configure.With()
-                     .DefaultBuilder()
-                     .CastleWindsorBuilder(_Container)
-                     //.BinarySerializer();
-                     .MsmqTransport()
-                     .PurgeOnStartup(true);
 
-            
+
+
         }
 
         private ICommandService InitializeCommandService()
@@ -103,18 +108,6 @@ namespace ApplicationService
             return o;
         }
 
-        private IEventBus InitializeEventBus()
-        {
-            var denormalizerAssembly = typeof(AreaInterventoProjection).Assembly;
 
-            var compositeBus = new CompositeEventBus();
-            compositeBus.AddBus(new NsbEventBus());
-            compositeBus.AddBus(new InProcessEventBus(true));
-
-            //bus.RegisterHandler(new InMemoryBufferedEventHandler(buffer));
-            //compositeBus.RegisterAllHandlersInAssembly(denormalizerAssembly, CreateInstance);
-
-            return compositeBus;
-        }
     }
 }
