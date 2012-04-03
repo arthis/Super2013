@@ -2,6 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>D:\Yoann\Super2013\\Super\ApplicationService\bin\Debug\NServiceBus.Host.exe</StartProgram>
+    <StartProgram>D:\Projects\Super2013\Super\ApplicationService\bin\Debug\NServiceBus.Host.exe</StartProgram>
   </PropertyGroup>
 </Project>

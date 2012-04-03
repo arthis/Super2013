@@ -34,8 +34,9 @@ namespace ApplicationService
         public void Init()
         {
             _Container = new WindsorContainer();
-            var db = new RavenDBEventStore("http://mercurio:8080/databases/Super2013");
+            var db = new RavenDBEventStore("");
             var ss = new RavenDBSnapshotStore("http://mercurio:8080/databases/Super2013");
+
 
 
             Configure.With()
