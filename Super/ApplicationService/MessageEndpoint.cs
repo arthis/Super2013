@@ -22,10 +22,11 @@ using Cqrs.Commanding.CommandExecution;
 using Commands.AreaIntervento;
 using Executors.TipoIntervento;
 using Projection.InProcessEventBus;
+using System.Configuration;
 
 namespace ApplicationService
 {
-    public class MessageEndpoint : IConfigureThisEndpoint, AsA_Server, IWantCustomInitialization
+    public class MessageEndpoint : IConfigureThisEndpoint, AsA_Publisher, IWantCustomInitialization
     {
         static IWindsorContainer _Container;
 
@@ -34,8 +35,13 @@ namespace ApplicationService
         public void Init()
         {
             _Container = new WindsorContainer();
-            var db = new RavenDBEventStore("");
-            var ss = new RavenDBSnapshotStore("http://mercurio:8080/databases/Super2013");
+            string eventStoreConnectionString = ConfigurationManager.AppSettings["EventStore"];
+
+            if (string.IsNullOrEmpty(eventStoreConnectionString))
+                throw new Exception("eventStoreConnectionString not initialised");
+
+            var db = new RavenDBEventStore(eventStoreConnectionString);
+            var ss = new RavenDBSnapshotStore(eventStoreConnectionString);
 
 
 

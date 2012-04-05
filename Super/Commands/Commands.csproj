@@ -73,6 +73,7 @@
     <Compile Include="AreaIntervento\CreareNuovoAreaIntervento.cs" />
     <Compile Include="AreaIntervento\specs.cs" />
     <Compile Include="Attributes\DateRangeAttribute.cs" />
+    <Compile Include="ErrorCodes.cs" />
     <Compile Include="TipoIntervento\AggiornareTipoInterventoRot.cs" />
     <Compile Include="TipoIntervento\CancellareTipoInterventoRot.cs" />
     <Compile Include="TipoIntervento\AggiornareTipoInterventoRotMan.cs" />

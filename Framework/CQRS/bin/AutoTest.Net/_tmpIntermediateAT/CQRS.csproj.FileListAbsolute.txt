@@ -46,3 +46,4 @@ D:\Yoann\Super2013\Framework\CQRS\bin\AutoTest.Net\Castle.Core.pdb
 D:\Yoann\Super2013\Framework\CQRS\bin\AutoTest.Net\Castle.Core.xml
 D:\Yoann\Super2013\Framework\CQRS\bin\AutoTest.Net\Castle.Windsor.pdb
 D:\Yoann\Super2013\Framework\CQRS\bin\AutoTest.Net\Castle.Windsor.xml
+D:\Projects\Super2013\Framework\CQRS\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache

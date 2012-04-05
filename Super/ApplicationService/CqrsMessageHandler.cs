@@ -1,6 +1,7 @@
 ﻿using System;
 using Cqrs.Commanding.ServiceModel;
 using NServiceBus;
+using Commands;
 
 
 namespace ApplicationService
@@ -14,6 +15,7 @@ namespace ApplicationService
         /// Command service which is injected by NServiceBus infrastructure.
         /// </summary>
         public ICommandService CommandService { get; set; }
+        public IBus Bus { get; set; }
 
         public CqrsMessageHandler(ICommandService commandService)
         {
@@ -25,7 +27,17 @@ namespace ApplicationService
 
         public void Handle(Cqrs.Commanding.ICommand command)
         {
-            CommandService.Execute(command);
+            try
+            {
+
+                CommandService.Execute(command);
+                
+                Bus.Return(ErrorCodes.None);
+            }
+            catch (Exception e)
+            {
+                Bus.Return(ErrorCodes.Fail);
+            }
         }
     }
 }
