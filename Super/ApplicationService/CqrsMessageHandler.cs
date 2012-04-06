@@ -29,7 +29,6 @@ namespace ApplicationService
         {
             try
             {
-
                 CommandService.Execute(command);
                 
                 Bus.Return(ErrorCodes.None);
