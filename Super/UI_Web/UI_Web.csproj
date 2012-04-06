@@ -185,6 +185,10 @@
     <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\Delete.gif" />
     <Content Include="Images\Edit.gif" />
+    <Content Include="Node\index.js" />
+    <Content Include="Node\app.js.logs\0.txt" />
+    <Content Include="Node\public\example.txt" />
+    <Content Include="Node\robots.txt" />
     <Content Include="Scripts\dateFormat.js" />
     <Content Include="Scripts\EditorHookup.js" />
     <Content Include="Scripts\functions.js" />
@@ -291,12 +295,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3066</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost/Super2013</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
