@@ -3,101 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ServiceModel;
-//using Cqrs.CommandService;
-//using Cqrs.CommandService.Contracts;
 using Commands;
 using Commands.Interventi;
 using Commands.AreaIntervento;
+using EasyNetQ;
+using Events.AreaIntervento;
+using System.Data.SqlClient;
 
 
 namespace UI_Console
 {
     class Program
     {
-        //private static ChannelFactory<ICommandWebServiceClient> _channelFactory;
+        static IBus Bus;
 
         static void Main(string[] args)
         {
 
-            //_channelFactory = new ChannelFactory<ICommandWebServiceClient>("CommandWebServiceClient");
+            Bus = RabbitHutch.CreateBus("host=localhost");
 
-            //ServiceReference.MassiveServiceClient client = new ServiceReference.MassiveServiceClient();
-            //client.Execute(new SendEmailCommand() { Body = "body", Subject = "subject" });
+            string subscriptionId = "Super";
+            Bus.Subscribe<CreareNuovoAreaIntervento>(subscriptionId, msg => ExecutorMessage(msg));
+        }
 
-            Guid g = Guid.NewGuid();
-            Guid gAi = Guid.NewGuid();
-            DateTime inizio = DateTime.Today;
-            DateTime fine = DateTime.Today.AddMonths(1);
+        static void ExecutorMessage(CreareNuovoAreaIntervento cmd)
+        {
+            Console.WriteLine("---------------------------------");
 
-            CreareNuovoAreaIntervento nuovaAreaIntervento = new CreareNuovoAreaIntervento()
+            var evt = new AreaInterventoCreata()
             {
-                Inizio = inizio,
-                Fine = fine,
-                Id = gAi,
-                Descrizione = "test",
+                Id = Guid.NewGuid(),
                 CreationDate = DateTime.Now,
-                IdAreaInterventoSuper = 45
+                Descrizione = "test descrizione",
+                Inizio = DateTime.Now,
+                Fine = DateTime.Now,
+                IdAreaInterventoSuper = 12
             };
 
-            //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-            //                 client.Execute(new ExecuteRequest(nuovaAreaIntervento)));
+            Bus.Publish<AreaInterventoCreata>(evt);
 
 
-
-            //var command = new CreareNuovoInterventoRot();
-            //command.Id = Guid.NewGuid();
-
-
-            //CreareNuovoInterventoRot nuovoIntervento = new CreareNuovoInterventoRot()
-            //{
-            //    Id = g,
-            //    InterventoIdSuper = 999,
-            //    Inizio = inizio,
-            //    Fine = fine,
-            //    IdAreaIntervento = gAi
-            //};
-
-            //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-            //                    client.Execute(new ExecuteRequest(nuovoIntervento)));
-
-            //ConsuntivareRotResoDaAppaltatore consAppaltatore = new ConsuntivareRotResoDaAppaltatore()
-            //{
-            //    Id = g,
-            //    InterventoIdAppaltatore = "idAppa",
-            //    Inizio = inizio,
-            //    Fine = fine,
-            //};
-
-            //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-            //                    client.Execute(new ExecuteRequest(consAppaltatore)));
-
-
-
-            //ConsuntivareDaAppaltatore consAppaltatore = new ConsuntivareDaAppaltatore()
-            //{
-            //    Id = g,
-            //    InterventoIdAppaltatore = "21212sds",
-            //    Inizio = inizio.AddMinutes(2),
-            //    Fine = fine.AddMinutes(-2)
-            //};
-
-            //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-            //                    client.Execute(new ExecuteRequest(consAppaltatore)));
-
-            //ConsuntivareDaTrenitalia consTrenitalia = new ConsuntivareDaTrenitalia()
-            //{
-            //    Id = g,
-            //    IsResoTrenitalia = true,
-            //    Inizio = inizio.AddMinutes(2),
-            //    Fine = fine.AddMinutes(1)
-            //};
-
-
-            //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-            //                   client.Execute(new ExecuteRequest(consTrenitalia)));
-
-
-
+         
         }
     }
 }

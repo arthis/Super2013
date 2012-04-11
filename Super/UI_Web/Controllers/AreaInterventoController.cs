@@ -12,7 +12,10 @@ using Commands;
 using UI_Web.Models;
 using System.Threading;
 using NServiceBus;
-
+using RabbitMQ.Client;
+using System.Text;
+using EasyNetQ;
+using Cqrs.Commanding;
 
 
 namespace UI_Web.Controllers
@@ -72,9 +75,34 @@ namespace UI_Web.Controllers
 
                 //var msg = new CommandMessage() { Payload = command };
                 //var msg = new CommandMessage() { MyProperty = 2 };
-                IAsyncResult res = Bus.Send(command).Register(SimpleCommandCallback, this);
-                WaitHandle asyncWaitHandle = res.AsyncWaitHandle;
-                asyncWaitHandle.WaitOne(50000);
+                //IAsyncResult res = Bus.Send(command).Register(SimpleCommandCallback, this);
+                //WaitHandle asyncWaitHandle = res.AsyncWaitHandle;
+                //asyncWaitHandle.WaitOne(50000);
+
+                //var connectionFactory = new ConnectionFactory();
+                //connectionFactory.HostName = "localhost";
+                //connectionFactory.UserName = "yoann";
+                //connectionFactory.Password = "yogolo49";
+
+                //using (IConnection connection =
+                //            connectionFactory.CreateConnection())
+                //{
+                //    using (IModel model = connection.CreateModel())
+                //    {
+                //        string message = "test";
+                //        model.ExchangeDeclare("MyExchange", ExchangeType.Fanout, true);
+                //        model.QueueDeclare("MyQueue", true,true,true,new Dictionary<string, object>());
+                //        model.QueueBind("MyQueue", "MyExchange", "");
+                //        IBasicProperties basicProperties = model.CreateBasicProperties();
+                //        model.BasicPublish("MyExchange", "", false, false, basicProperties, Encoding.UTF8.GetBytes(message));
+                //    }
+                //}
+
+                var bus = RabbitHutch.CreateBus("host=localhost");
+
+                bus.Publish(command);
+
+
             }
         }
 

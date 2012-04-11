@@ -53,6 +53,9 @@
     <Reference Include="NServiceBus.Core">
       <HintPath>..\Ressources\NserviceBus3.0.1\NServiceBus.Core.dll</HintPath>
     </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\..\Ressources\RabbitMq\RabbitMQ.Client.dll</HintPath>
+    </Reference>
     <Reference Include="RouteDebug">
       <HintPath>..\Ressources\RouteDebug.dll</HintPath>
     </Reference>
@@ -185,10 +188,59 @@
     <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\Delete.gif" />
     <Content Include="Images\Edit.gif" />
-    <Content Include="Node\index.js" />
-    <Content Include="Node\app.js.logs\0.txt" />
-    <Content Include="Node\public\example.txt" />
-    <Content Include="Node\robots.txt" />
+    <Content Include="Node\.gitignore" />
+    <Content Include="Node\app.js" />
+    <Content Include="Node\config.js" />
+    <Content Include="Node\lib\modules\race.js" />
+    <Content Include="Node\lib\modules\util.js" />
+    <Content Include="Node\node_modules\amqp\amqp-0-9-1.xml" />
+    <Content Include="Node\node_modules\amqp\amqp-definitions-0-9-1.js" />
+    <Content Include="Node\node_modules\amqp\amqp.js" />
+    <Content Include="Node\node_modules\amqp\jspack.js" />
+    <Content Include="Node\node_modules\amqp\promise.js" />
+    <Content Include="Node\node_modules\amqp\qparser.rb" />
+    <Content Include="Node\node_modules\amqp\test.js" />
+    <Content Include="Node\node_modules\amqp\test\harness.js" />
+    <Content Include="Node\node_modules\amqp\test\test-auto-delete-queue.js" />
+    <Content Include="Node\node_modules\amqp\test\test-basic-return.js" />
+    <Content Include="Node\node_modules\amqp\test\test-buffer.js" />
+    <Content Include="Node\node_modules\amqp\test\test-default-exchange.js" />
+    <Content Include="Node\node_modules\amqp\test\test-destroy-close-delete.js" />
+    <Content Include="Node\node_modules\amqp\test\test-ex-and-q-deletions.js" />
+    <Content Include="Node\node_modules\amqp\test\test-headers.js" />
+    <Content Include="Node\node_modules\amqp\test\test-heartbeat.js" />
+    <Content Include="Node\node_modules\amqp\test\test-json.js" />
+    <Content Include="Node\node_modules\amqp\test\test-properties.js" />
+    <Content Include="Node\node_modules\amqp\test\test-queue-args.js" />
+    <Content Include="Node\node_modules\amqp\test\test-queue-creation.js" />
+    <Content Include="Node\node_modules\amqp\test\test-shift.js" />
+    <Content Include="Node\node_modules\amqp\test\test-simple.js" />
+    <Content Include="Node\node_modules\amqp\test\test-type-and-headers.js" />
+    <Content Include="Node\node_modules\amqp\test\test-unbind.js" />
+    <Content Include="Node\node_modules\amqp\test\test-unsubscribe.js" />
+    <Content Include="Node\node_modules\amqp\util\delete-exchange.js" />
+    <Content Include="Node\node_modules\amqp\util\delete-queue.js" />
+    <Content Include="Node\public\images\beer-badget.png" />
+    <Content Include="Node\public\images\glyphicons-halflings-white.png" />
+    <Content Include="Node\public\images\glyphicons-halflings.png" />
+    <Content Include="Node\public\javascripts\bootstrap.js" />
+    <Content Include="Node\public\javascripts\bootstrap.min.js" />
+    <Content Include="Node\public\javascripts\jquery-1.7.1.min.js" />
+    <Content Include="Node\public\javascripts\knockout-2.0.0.js" />
+    <Content Include="Node\public\stylesheets\bootstrap-responsive.css" />
+    <Content Include="Node\public\stylesheets\bootstrap-responsive.min.css" />
+    <Content Include="Node\public\stylesheets\bootstrap.amelia.min.css" />
+    <Content Include="Node\public\stylesheets\bootstrap.css" />
+    <Content Include="Node\public\stylesheets\bootstrap.min.css" />
+    <Content Include="Node\public\stylesheets\bootstrap.simplex.min.css" />
+    <Content Include="Node\public\stylesheets\bootstrap.spruce.min.css" />
+    <Content Include="Node\public\stylesheets\bootstrap.superhero.min.css" />
+    <Content Include="Node\public\stylesheets\style.css" />
+    <Content Include="Node\rabbit.js" />
+    <Content Include="Node\routes\index.js" />
+    <Content Include="Node\server.js" />
+    <Content Include="Node\views\index.html" />
+    <Content Include="Node\views\layout.html" />
     <Content Include="Scripts\dateFormat.js" />
     <Content Include="Scripts\EditorHookup.js" />
     <Content Include="Scripts\functions.js" />
@@ -221,6 +273,14 @@
     <Content Include="Views\Shared\EditorTemplates\koStringEditorFor.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\koDateEditorFor.cshtml" />
     <Content Include="Content\Layout\Web.config" />
+    <None Include="Node\node_modules\amqp\.npmignore" />
+    <None Include="Node\node_modules\amqp\History.md" />
+    <None Include="Node\node_modules\amqp\LICENSE-MIT" />
+    <None Include="Node\node_modules\amqp\Makefile" />
+    <None Include="Node\node_modules\amqp\package.json" />
+    <None Include="Node\node_modules\amqp\README.md" />
+    <None Include="Node\package.json" />
+    <None Include="Node\README.md" />
     <None Include="Views\ConsuntivoRotabileApplatatore\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -267,9 +327,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework\CQRS\CQRS.csproj">
+    <ProjectReference Include="..\..\Framework\CQRS\Cqrs.csproj">
       <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
-      <Name>CQRS</Name>
+      <Name>Cqrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
+      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
+      <Name>EasyNetQ</Name>
     </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{87577C93-5923-4F03-8F0E-E5519C7C0854}</Project>

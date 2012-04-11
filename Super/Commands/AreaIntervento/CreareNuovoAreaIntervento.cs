@@ -9,7 +9,7 @@ using NServiceBus;
 
 namespace Commands.AreaIntervento
 {
-    public class CreareNuovoAreaIntervento : CommandBase, NServiceBus.ICommand
+    public class CreareNuovoAreaIntervento : CommandBase
     {
         public Guid Id { get; set; }
         public int IdAreaInterventoSuper { get; set; }

@@ -1,0 +1,15 @@
+
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+Error: Cannot find module 'express'
+    at Function._resolveFilename (module.js:332:11)
+    at Function._load (module.js:279:25)
+    at Module.require (module.js:354:17)
+    at require (module.js:370:17)
+    at Object.getApp (D:\Projects\Super2013\Super\UI_Web\Node\app.js:2:16)
+    at Object.<anonymous> (D:\Projects\Super2013\Super\UI_Web\Node\server.js:3:29)
+    at Module._compile (module.js:441:26)
+    at Object..js (module.js:459:10)
+    at Module.load (module.js:348:31)
+    at Function._load (module.js:308:12)

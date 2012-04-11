@@ -103,9 +103,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework\CQRS\CQRS.csproj">
+    <ProjectReference Include="..\..\Framework\CQRS\Cqrs.csproj">
       <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
-      <Name>CQRS</Name>
+      <Name>Cqrs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

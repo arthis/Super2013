@@ -129,9 +129,9 @@
     <Compile Include="Settore.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework\CQRS\CQRS.csproj">
+    <ProjectReference Include="..\..\Framework\CQRS\Cqrs.csproj">
       <Project>{A52C02DF-061A-4825-A7EE-2193B3CD1616}</Project>
-      <Name>CQRS</Name>
+      <Name>Cqrs</Name>
     </ProjectReference>
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{4E97B58A-B0B8-4A8B-A5FF-B001528741B3}</Project>
