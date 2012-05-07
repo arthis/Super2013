@@ -18,3 +18,5 @@ packages/**/*
 packages/repositories.config
 Super/**/bin/*
 Super/**/obj/*
+Framework/CommonDomain/bin
+Framework/CommonDomain/obj
