@@ -1,0 +1,11 @@
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\_tmpIntermediateAT\Events.dll
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\_tmpIntermediateAT\Events.pdb
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\Events.dll
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\Events.pdb
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\Microsoft.CSharp.dll
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\System.Data.DataSetExtensions.dll
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\System.Data.dll
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\System.dll
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\System.Xml.dll
+D:\Projects\Super2013\Super\Events\bin\AutoTest.Net\System.Xml.Linq.dll

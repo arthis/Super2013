@@ -1,0 +1,13 @@
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\Projection.NServiceBus.dll.config
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\_tmpIntermediateAT\Projection.NServiceBus.dll
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\_tmpIntermediateAT\Projection.NServiceBus.pdb
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\Projection.NServiceBus.dll
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\Projection.NServiceBus.pdb
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\Events.dll
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\NServiceBus.Core.dll
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\NServiceBus.dll
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\NServiceBus.Host.exe
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\log4net.dll
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\Events.pdb
+D:\Projects\Super2013\Super\Projection.NServiceBus\bin\AutoTest.Net\NServiceBus.Host.pdb

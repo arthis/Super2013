@@ -1,0 +1,14 @@
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Core\bin\Debug\CommonDomain.Core.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Core\bin\Debug\CommonDomain.Core.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Core\bin\Debug\CommonDomain.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Core\bin\Debug\CommonDomain.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Core\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Core\obj\Debug\CommonDomain.Core.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Core\obj\Debug\CommonDomain.Core.pdb
+D:\Projects\Super2013\Framework\CommonDomain.Core\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Framework\CommonDomain.Core\obj\Debug\CommonDomain.Core.dll
+D:\Projects\Super2013\Framework\CommonDomain.Core\obj\Debug\CommonDomain.Core.pdb
+D:\Projects\Super2013\Framework\CommonDomain.Core\bin\Debug\CommonDomain.Core.dll
+D:\Projects\Super2013\Framework\CommonDomain.Core\bin\Debug\CommonDomain.Core.pdb
+D:\Projects\Super2013\Framework\CommonDomain.Core\bin\Debug\CommonDomain.dll
+D:\Projects\Super2013\Framework\CommonDomain.Core\bin\Debug\CommonDomain.pdb

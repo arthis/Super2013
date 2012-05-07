@@ -1,0 +1,259 @@
+info it worked if it ends with ok
+verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+verbose cli   'install',
+verbose cli   'protobuf' ]
+info using npm@1.1.16
+info using node@v0.6.15
+verbose C:\Program Files\nodejs\\node.exe node symlink
+verbose config file C:\Users\Yoann\.npmrc
+verbose config file C:\Program Files\nodejs\etc\npmrc
+verbose config file C:\Program Files\nodejs\node_modules\npm\npmrc
+verbose caching D:\Projects\Super2013\Super\UI_Web\Node\package.json
+verbose loadDefaults node-myboiler@0.0.1
+verbose caching D:\Projects\Super2013\Super\UI_Web\Node\node_modules\amqp\package.json
+verbose caching D:\Projects\Super2013\Super\UI_Web\Node\node_modules\console\package.json
+verbose caching D:\Projects\Super2013\Super\UI_Web\Node\node_modules\ejs\package.json
+verbose caching D:\Projects\Super2013\Super\UI_Web\Node\node_modules\socket.io\package.json
+verbose caching D:\Projects\Super2013\Super\UI_Web\Node\node_modules\express\package.json
+verbose from cache D:\Projects\Super2013\Super\UI_Web\Node\package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'protobuf', null ]
+silly cache add: name, spec, args [ undefined, 'protobuf', [ 'protobuf', null ] ]
+verbose parsed url { pathname: 'protobuf', path: 'protobuf', href: 'protobuf' }
+verbose addNamed [ 'protobuf', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'protobuf', '', false ]
+verbose raw, before any munging protobuf
+verbose url resolving [ 'https://registry.npmjs.org/', './protobuf' ]
+verbose url resolved https://registry.npmjs.org/protobuf
+http GET https://registry.npmjs.org/protobuf
+http 200 https://registry.npmjs.org/protobuf
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"DIMDN94E4TPDDJZZV4QVZFCON"',
+silly get cb     date: 'Sun, 15 Apr 2012 10:37:15 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '1604' } ]
+silly name, range, hasData 2 [ 'protobuf', '', true ]
+silly versions [ 'protobuf', [ '0.3.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.24-win32-ia32-6.1.7600',
+verbose bin dist   { shasum: 'c9806ba6bf083d255476f5fb4d97bef825838f49',
+verbose bin dist     tarball: 'http://registry.npmjs.org/protobuf/-/protobuf-0.3.0.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/protobuf/-/protobuf-0.3.0.tgz',
+verbose addRemoteTarball   'c9806ba6bf083d255476f5fb4d97bef825838f49' ]
+verbose fetch to C:\Users\Yoann\AppData\Local\Temp\npm-1334486235487\1334486235487-0.6589229500386864\tmp.tgz
+http GET https://registry.npmjs.org/protobuf/-/protobuf-0.3.0.tgz
+http 200 https://registry.npmjs.org/protobuf/-/protobuf-0.3.0.tgz
+silly updated sha bytes 26552
+info shasum c9806ba6bf083d255476f5fb4d97bef825838f49
+info shasum C:\Users\Yoann\AppData\Local\Temp\npm-1334486235487\1334486235487-0.6589229500386864\tmp.tgz
+verbose unpack C:\Users\Yoann\AppData\Local\Temp\npm-1334486235487\1334486235487-0.6589229500386864\tmp.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry addon.cc
+silly extracting entry wscript
+silly extracting entry README.md
+silly extracting entry protobuf_for_node.h
+silly extracting entry protobuf_for_node.cc
+silly extracting entry package.json
+silly extracting entry COPYING
+silly extracting entry test/golden_message
+silly extracting entry test/unittest.desc
+silly extracting entry test/unittest.js
+silly extracting entry example/protoservice.proto
+silly extracting entry example/protoservice.pb.cc
+silly extracting entry example/feeds.js
+silly extracting entry example/protoservice.pb.h
+silly extracting entry example/feeds.desc
+silly extracting entry example/feeds.proto
+silly extracting entry example/protoservice.js
+silly extracting entry example/protoservice.cc
+verbose has wscript [ undefined,
+verbose has wscript   { file: 'C:\\Users\\Yoann\\AppData\\Local\\Temp\\npm-1334486235487\\1334486235487-0.6589229500386864\\package\\package.json',
+verbose has wscript     contributors: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     gypfile: false,
+verbose has wscript     wscript: true } ]
+verbose caching C:\Users\Yoann\AppData\Local\Temp\npm-1334486235487\1334486235487-0.6589229500386864\package\package.json
+verbose loadDefaults protobuf@0.3.0
+verbose from cache C:\Users\Yoann\AppData\Local\Temp\npm-1334486235487\1334486235487-0.6589229500386864\package\package.json
+verbose tar.pack [ 'C:\\Users\\Yoann\\AppData\\Roaming\\npm-cache\\protobuf\\0.3.0\\package.tgz',
+verbose tar.pack   'C:\\Users\\Yoann\\AppData\\Local\\Temp\\npm-1334486235487\\1334486235487-0.6589229500386864\\package' ]
+verbose tarball C:\Users\Yoann\AppData\Roaming\npm-cache\protobuf\0.3.0\package.tgz
+verbose folder C:\Users\Yoann\AppData\Local\Temp\npm-1334486235487\1334486235487-0.6589229500386864\package
+verbose unpack C:\Users\Yoann\AppData\Roaming\npm-cache\protobuf\0.3.0\package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly modified mode [ 'package.json', 438, 420 ]
+silly extracting entry README.md
+silly modified mode [ 'README.md', 438, 420 ]
+silly extracting entry addon.cc
+silly modified mode [ 'addon.cc', 438, 420 ]
+silly extracting entry COPYING
+silly modified mode [ 'COPYING', 438, 420 ]
+silly extracting entry example/feeds.js
+silly modified mode [ 'example/feeds.js', 438, 420 ]
+silly extracting entry example/protoservice.js
+silly modified mode [ 'example/protoservice.js', 438, 420 ]
+silly extracting entry example/feeds.desc
+silly modified mode [ 'example/feeds.desc', 438, 420 ]
+silly extracting entry example/feeds.proto
+silly modified mode [ 'example/feeds.proto', 438, 420 ]
+silly extracting entry example/protoservice.cc
+silly modified mode [ 'example/protoservice.cc', 438, 420 ]
+silly extracting entry example/protoservice.pb.cc
+silly modified mode [ 'example/protoservice.pb.cc', 438, 420 ]
+silly extracting entry example/protoservice.pb.h
+silly modified mode [ 'example/protoservice.pb.h', 438, 420 ]
+silly extracting entry example/protoservice.proto
+silly modified mode [ 'example/protoservice.proto', 438, 420 ]
+silly extracting entry protobuf_for_node.cc
+silly modified mode [ 'protobuf_for_node.cc', 438, 420 ]
+silly extracting entry protobuf_for_node.h
+silly modified mode [ 'protobuf_for_node.h', 438, 420 ]
+silly extracting entry test/unittest.js
+silly modified mode [ 'test/unittest.js', 438, 420 ]
+silly extracting entry test/golden_message
+silly modified mode [ 'test/golden_message', 438, 420 ]
+silly extracting entry test/unittest.desc
+silly modified mode [ 'test/unittest.desc', 438, 420 ]
+silly extracting entry wscript
+silly modified mode [ 'wscript', 438, 420 ]
+verbose has wscript [ undefined,
+verbose has wscript   { file: 'C:\\Users\\Yoann\\AppData\\Roaming\\npm-cache\\protobuf\\0.3.0\\package\\package.json',
+verbose has wscript     gypfile: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     contributors: false,
+verbose has wscript     wscript: true } ]
+verbose caching C:\Users\Yoann\AppData\Roaming\npm-cache\protobuf\0.3.0\package\package.json
+verbose loadDefaults protobuf@0.3.0
+silly updated sha bytes 26032
+info shasum 434ddc6e82e02c4d384c24ff2169e6763e732665
+info shasum C:\Users\Yoann\AppData\Roaming\npm-cache\protobuf\0.3.0\package.tgz
+verbose from cache C:\Users\Yoann\AppData\Roaming\npm-cache\protobuf\0.3.0\package\package.json
+verbose chmod C:\Users\Yoann\AppData\Roaming\npm-cache\protobuf\0.3.0\package.tgz 644
+silly skipping chown for windows C:\Users\Yoann\AppData\Roaming\npm-cache\protobuf\0.3.0\package.tgz
+silly resolved [ { name: 'protobuf',
+silly resolved     version: '0.3.0',
+silly resolved     description: 'Protocol Buffers for NodeJS',
+silly resolved     author: '',
+silly resolved     main: './build/default/protobuf_for_node',
+silly resolved     repository: { type: 'git', url: 'git://github.com/chrisdew/protobuf.git' },
+silly resolved     scripts: { install: 'PROTOBUF=/usr/local/lib node-waf configure clean build' },
+silly resolved     _id: 'protobuf@0.3.0',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '434ddc6e82e02c4d384c24ff2169e6763e732665' },
+silly resolved     _from: 'protobuf' } ]
+info into D:\Projects\Super2013\Super\UI_Web\Node protobuf@0.3.0
+info installOne protobuf@0.3.0
+verbose from cache C:\Users\Yoann\AppData\Roaming\npm-cache\protobuf\0.3.0\package\package.json
+info unbuild D:\Projects\Super2013\Super\UI_Web\Node\node_modules\protobuf
+verbose unpack C:\Users\Yoann\AppData\Roaming\npm-cache\protobuf\0.3.0\package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly modified mode [ 'package.json', 438, 420 ]
+silly extracting entry README.md
+silly modified mode [ 'README.md', 438, 420 ]
+silly extracting entry addon.cc
+silly modified mode [ 'addon.cc', 438, 420 ]
+silly extracting entry COPYING
+silly modified mode [ 'COPYING', 438, 420 ]
+silly extracting entry example/feeds.js
+silly modified mode [ 'example/feeds.js', 438, 420 ]
+silly extracting entry example/protoservice.js
+silly modified mode [ 'example/protoservice.js', 438, 420 ]
+silly extracting entry example/feeds.desc
+silly modified mode [ 'example/feeds.desc', 438, 420 ]
+silly extracting entry example/feeds.proto
+silly modified mode [ 'example/feeds.proto', 438, 420 ]
+silly extracting entry example/protoservice.cc
+silly modified mode [ 'example/protoservice.cc', 438, 420 ]
+silly extracting entry example/protoservice.pb.cc
+silly modified mode [ 'example/protoservice.pb.cc', 438, 420 ]
+silly extracting entry example/protoservice.pb.h
+silly modified mode [ 'example/protoservice.pb.h', 438, 420 ]
+silly extracting entry example/protoservice.proto
+silly modified mode [ 'example/protoservice.proto', 438, 420 ]
+silly extracting entry protobuf_for_node.cc
+silly modified mode [ 'protobuf_for_node.cc', 438, 420 ]
+silly extracting entry protobuf_for_node.h
+silly modified mode [ 'protobuf_for_node.h', 438, 420 ]
+silly extracting entry test/unittest.js
+silly modified mode [ 'test/unittest.js', 438, 420 ]
+silly extracting entry test/golden_message
+silly modified mode [ 'test/golden_message', 438, 420 ]
+silly extracting entry test/unittest.desc
+silly modified mode [ 'test/unittest.desc', 438, 420 ]
+silly extracting entry wscript
+silly modified mode [ 'wscript', 438, 420 ]
+verbose has wscript [ undefined,
+verbose has wscript   { file: 'D:\\Projects\\Super2013\\Super\\UI_Web\\Node\\node_modules\\protobuf\\package.json',
+verbose has wscript     gypfile: false,
+verbose has wscript     contributors: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     wscript: true } ]
+verbose caching D:\Projects\Super2013\Super\UI_Web\Node\node_modules\protobuf\package.json
+verbose loadDefaults protobuf@0.3.0
+info preinstall protobuf@0.3.0
+verbose from cache D:\Projects\Super2013\Super\UI_Web\Node\node_modules\protobuf\package.json
+verbose readDependencies: using package.json deps
+verbose from cache D:\Projects\Super2013\Super\UI_Web\Node\node_modules\protobuf\package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build D:\Projects\Super2013\Super\UI_Web\Node\node_modules\protobuf
+info build D:\Projects\Super2013\Super\UI_Web\Node\node_modules\protobuf
+verbose from cache D:\Projects\Super2013\Super\UI_Web\Node\node_modules\protobuf\package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   'D:\\Projects\\Super2013\\Super\\UI_Web\\Node\\node_modules' ]
+info linkStuff protobuf@0.3.0
+verbose linkBins protobuf@0.3.0
+verbose linkMans protobuf@0.3.0
+verbose rebuildBundles protobuf@0.3.0
+info install protobuf@0.3.0
+verbose unsafe-perm in lifecycle true
+silly exec cmd "/c" "PROTOBUF=/usr/local/lib node-waf configure clean build"
+silly spawning [ 'cmd',
+silly spawning   [ '/c',
+silly spawning     'PROTOBUF=/usr/local/lib node-waf configure clean build' ],
+silly spawning   'D:\\Projects\\Super2013\\Super\\UI_Web\\Node\\node_modules\\protobuf' ]
+info protobuf@0.3.0 Failed to exec install script
+info unbuild D:\Projects\Super2013\Super\UI_Web\Node\node_modules\protobuf
+verbose from cache D:\Projects\Super2013\Super\UI_Web\Node\node_modules\protobuf\package.json
+info preuninstall protobuf@0.3.0
+info uninstall protobuf@0.3.0
+verbose unbuild protobuf@0.3.0 [ true,
+verbose unbuild protobuf@0.3.0   'D:\\Projects\\Super2013\\Super\\UI_Web\\Node\\node_modules',
+verbose unbuild protobuf@0.3.0   'D:\\Projects\\Super2013\\Super\\UI_Web\\Node\\node_modules' ]
+info postuninstall protobuf@0.3.0
+ERR! protobuf@0.3.0 install: `PROTOBUF=/usr/local/lib node-waf configure clean build`
+ERR! `cmd "/c" "PROTOBUF=/usr/local/lib node-waf configure clean build"` failed with 1
+ERR! 
+ERR! Failed at the protobuf@0.3.0 install script.
+ERR! This is most likely a problem with the protobuf package,
+ERR! not with npm itself.
+ERR! Tell the author that this fails on your system:
+ERR!     PROTOBUF=/usr/local/lib node-waf configure clean build
+ERR! You can get their info via:
+ERR!     npm owner ls protobuf
+ERR! There is likely additional logging output above.
+ERR! 
+ERR! System Windows_NT 6.1.7600
+ERR! command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "protobuf"
+ERR! cwd D:\Projects\Super2013\Super\UI_Web\Node
+ERR! node -v v0.6.15
+ERR! npm -v 1.1.16
+ERR! code ELIFECYCLE
+ERR! message protobuf@0.3.0 install: `PROTOBUF=/usr/local/lib node-waf configure clean build`
+ERR! message `cmd "/c" "PROTOBUF=/usr/local/lib node-waf configure clean build"` failed with 1
+ERR! errno {}
+verbose exit [ 1, true ]

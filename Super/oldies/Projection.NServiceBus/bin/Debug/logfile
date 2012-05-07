@@ -1,0 +1,12 @@
+2012-04-05 21:16:56,344 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-04-05 21:16:56,530 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-04-05 21:17:00,272 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-04-05 21:17:00,272 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: D:\Projects\Super2013\Super\Projection.NServiceBus\bin\Debug\License\License.xml
+2012-04-05 21:17:00,318 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to 1 worker thread.
+2012-04-05 21:17:02,346 [1] INFO  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - Subscribing to Events.AreaIntervento.AreaInterventoCreata, Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null at publisher queue applicationservice@mcbernique
+2012-04-05 21:18:21,527 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-04-05 21:18:21,698 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-04-05 21:18:24,834 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-04-05 21:18:24,834 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: D:\Projects\Super2013\Super\Projection.NServiceBus\bin\Debug\License\License.xml
+2012-04-05 21:18:24,912 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to 1 worker thread.
+2012-04-05 21:18:26,020 [1] INFO  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - Subscribing to Events.AreaIntervento.AreaInterventoCreata, Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null at publisher queue applicationservice@mcbernique

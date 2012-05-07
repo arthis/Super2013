@@ -9,6 +9,7 @@
 # Ignorer les objets et les archives
 #*.[oa]
 
+_ReSharper.Super2013
 *.suo
 packages/**/*
 Super/**/bin/**/*

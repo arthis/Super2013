@@ -1,0 +1,26 @@
+2012-04-05 21:16:59,460 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-04-05 21:17:04,125 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-04-05 21:17:04,125 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: D:\Projects\Super2013\Super\ApplicationService\bin\Debug\License\License.xml
+2012-04-05 21:17:04,172 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to 1 worker thread.
+2012-04-05 21:17:05,357 [1] INFO  NServiceBus.ObjectBuilder [(null)] <(null)> - Component NServiceBus.Unicast.UnicastBus was already registered in the container.
+2012-04-05 21:17:05,373 [1] INFO  NServiceBus.ObjectBuilder [(null)] <(null)> - Component ApplicationService.SubscriptionAuthorizer was already registered in the container.
+2012-04-05 21:17:05,373 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-04-05 21:17:05,373 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server is marked.
+2012-04-05 21:17:10,256 [Worker.8] INFO  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - Subscribing projection.nservicebus@mcbernique to message type Events.AreaIntervento.AreaInterventoCreata, Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2012-04-05 21:18:25,973 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-04-05 21:18:31,850 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-04-05 21:18:31,853 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: D:\Projects\Super2013\Super\ApplicationService\bin\Debug\License\License.xml
+2012-04-05 21:18:31,888 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to 1 worker thread.
+2012-04-05 21:18:32,837 [1] INFO  NServiceBus.ObjectBuilder [(null)] <(null)> - Component NServiceBus.Unicast.UnicastBus was already registered in the container.
+2012-04-05 21:18:32,839 [1] INFO  NServiceBus.ObjectBuilder [(null)] <(null)> - Component ApplicationService.SubscriptionAuthorizer was already registered in the container.
+2012-04-05 21:18:32,843 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-04-05 21:18:32,849 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server is marked.
+2012-04-05 21:18:34,140 [Worker.8] INFO  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - Subscribing projection.nservicebus@mcbernique to message type Events.AreaIntervento.AreaInterventoCreata, Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2012-04-05 21:20:12,952 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-04-05 21:20:16,400 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-04-05 21:20:16,402 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: D:\Projects\Super2013\Super\ApplicationService\bin\Debug\License\License.xml
+2012-04-05 21:20:16,437 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to 1 worker thread.
+2012-04-05 21:20:17,416 [1] INFO  NServiceBus.ObjectBuilder [(null)] <(null)> - Component NServiceBus.Unicast.UnicastBus was already registered in the container.
+2012-04-05 21:20:17,418 [1] INFO  NServiceBus.ObjectBuilder [(null)] <(null)> - Component ApplicationService.SubscriptionAuthorizer was already registered in the container.
+2012-04-05 21:20:17,421 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-04-05 21:20:17,428 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server is marked.

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ReadModelStoreContainer" CdmEntityContainer="ReadModelContainer">
+    <EntitySetMapping Name="AreaIntervento">
+      <EntityTypeMapping TypeName="ReadModel.AreaIntervento">
+        <MappingFragment StoreEntitySet="AreaIntervento">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Fine" ColumnName="Fine" />
+          <ScalarProperty Name="Inizio" ColumnName="Inizio" />
+          <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+          <ScalarProperty Name="IdAreaInterventoSuper" ColumnName="IdAreaInterventoSuper" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoIntervento">
+      <EntityTypeMapping TypeName="ReadModel.TipoIntervento">
+        <MappingFragment StoreEntitySet="TipoIntervento">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Fine" ColumnName="Fine" />
+          <ScalarProperty Name="Inizio" ColumnName="Inizio" />
+          <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+          <ScalarProperty Name="IdTipoInterventoSuper" ColumnName="IdTipoInterventoSuper" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsuntivazioneRot">
+      <EntityTypeMapping TypeName="ReadModel.ConsuntivazioneRot">
+        <MappingFragment StoreEntitySet="ConsuntivazioneRot">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsModificatoTrenitaliaRispettoAllAppaltatore" ColumnName="IsModificatoTrenitaliaRispettoAllAppaltatore" />
+          <ScalarProperty Name="IsModificatoAppaltatoreRispettoAlProgramma" ColumnName="IsModificatoAppaltatoreRispettoAlProgramma" />
+          <ScalarProperty Name="IsModificatoTrenitaliaRispettoAlProgramma" ColumnName="IsModificatoTrenitaliaRispettoAlProgramma" />
+          <ScalarProperty Name="HasLocomotive" ColumnName="HasLocomotive" />
+          <ScalarProperty Name="HasCarozze" ColumnName="HasCarozze" />
+          <ScalarProperty Name="HasRotabiliSingoli" ColumnName="HasRotabiliSingoli" />
+          <ScalarProperty Name="HasTreni" ColumnName="HasTreni" />
+          <ScalarProperty Name="IsSostitutivo" ColumnName="IsSostitutivo" />
+          <ScalarProperty Name="IsEstemporaneo" ColumnName="IsEstemporaneo" />
+          <ScalarProperty Name="IsPLX" ColumnName="IsPLX" />
+          <ScalarProperty Name="IsProgrammato" ColumnName="IsProgrammato" />
+          <ScalarProperty Name="DataFineConsuntivataAppaltatore" ColumnName="DataFineConsuntivataAppaltatore" />
+          <ScalarProperty Name="DataInizioConsuntivataAppaltatore" ColumnName="DataInizioConsuntivataAppaltatore" />
+          <ScalarProperty Name="ComposizioneProgrammata" ColumnName="ComposizioneProgrammata" />
+          <ScalarProperty Name="DataFineProgrammata" ColumnName="DataFineProgrammata" />
+          <ScalarProperty Name="DataInizioProgrammata" ColumnName="DataInizioProgrammata" />
+          <ScalarProperty Name="TipoInterventoDescrizione" ColumnName="TipoInterventoDescrizione" />
+          <ScalarProperty Name="DataTrenoPartenza" ColumnName="DataTrenoPartenza" />
+          <ScalarProperty Name="NumeroTrenoPartenza" ColumnName="NumeroTrenoPartenza" />
+          <ScalarProperty Name="CategoriaTreno" ColumnName="CategoriaTreno" />
+          <ScalarProperty Name="AreaInterventoDescrizione" ColumnName="AreaInterventoDescrizione" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="HasSchedaQ" ColumnName="HasSchedaQ" />
+          <ScalarProperty Name="HasSchedaV" ColumnName="HasSchedaV" />
+          <ScalarProperty Name="IsSostituito" ColumnName="IsSostituito" />
+          <ScalarProperty Name="IsRettifica" ColumnName="IsRettifica" />
+          <ScalarProperty Name="IsRilevatoNonReso" ColumnName="IsRilevatoNonReso" />
+          <ScalarProperty Name="IsNonResoTrenitalia" ColumnName="IsNonResoTrenitalia" />
+          <ScalarProperty Name="IsNonReso20mn" ColumnName="IsNonReso20mn" />
+          <ScalarProperty Name="IsNonResoAppaltatore" ColumnName="IsNonResoAppaltatore" />
+          <ScalarProperty Name="IsReso" ColumnName="IsReso" />
+          <ScalarProperty Name="IsSpunta" ColumnName="IsSpunta" />
+          <ScalarProperty Name="IsAvvisoIspezione" ColumnName="IsAvvisoIspezione" />
+          <ScalarProperty Name="CodiceOrdine" ColumnName="CodiceOrdine" />
+          <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+          <ScalarProperty Name="IdAreaIntervento" ColumnName="IdAreaIntervento" />
+          <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+          <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+          <ScalarProperty Name="IdInterventoSuper2010" ColumnName="IdInterventoSuper2010" />
+          <ScalarProperty Name="IdIntervento" ColumnName="IdIntervento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

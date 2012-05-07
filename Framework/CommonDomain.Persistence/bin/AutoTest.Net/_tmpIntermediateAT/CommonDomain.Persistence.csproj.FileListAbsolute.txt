@@ -1,0 +1,14 @@
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\AutoTest.Net\_tmpIntermediateAT\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\AutoTest.Net\_tmpIntermediateAT\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\AutoTest.Net\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\AutoTest.Net\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\AutoTest.Net\CommonDomain.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\AutoTest.Net\CommonDomain.pdb
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\AutoTest.Net\_tmpIntermediateAT\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\AutoTest.Net\_tmpIntermediateAT\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\AutoTest.Net\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\AutoTest.Net\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\AutoTest.Net\CommonDomain.dll
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\AutoTest.Net\CommonDomain.pdb

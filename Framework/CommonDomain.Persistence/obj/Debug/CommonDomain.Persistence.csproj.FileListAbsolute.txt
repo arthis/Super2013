@@ -1,0 +1,14 @@
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\Debug\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\Debug\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\Debug\CommonDomain.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\bin\Debug\CommonDomain.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\obj\Debug\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\proj\CommonDomain.Persistence\obj\Debug\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\obj\Debug\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\obj\Debug\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\Debug\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\Debug\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\Debug\CommonDomain.dll
+D:\Projects\Super2013\Framework\CommonDomain.Persistence\bin\Debug\CommonDomain.pdb

@@ -1,0 +1,9 @@
+D:\Projects\Super2013\Framework\CommonCommands\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Framework\CommonCommands\bin\AutoTest.Net\_tmpIntermediateAT\CommonCommands.dll
+D:\Projects\Super2013\Framework\CommonCommands\bin\AutoTest.Net\_tmpIntermediateAT\CommonCommands.pdb
+D:\Projects\Super2013\Framework\CommonCommands\bin\AutoTest.Net\CommonCommands.dll
+D:\Projects\Super2013\Framework\CommonCommands\bin\AutoTest.Net\CommonCommands.pdb
+D:\Projects\Super2013\Framework\CommonCommands\bin\AutoTest.Net\CommonDomain.dll
+D:\Projects\Super2013\Framework\CommonCommands\bin\AutoTest.Net\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonCommands\bin\AutoTest.Net\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonCommands\bin\AutoTest.Net\CommonDomain.pdb
