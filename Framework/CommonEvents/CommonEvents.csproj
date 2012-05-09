@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DD261B56-459F-43A8-8775-169BC168D39F}</ProjectGuid>
+    <ProjectGuid>{35918484-9E0C-400A-973A-7E8601C8C0A3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Super.Administration.Projection</RootNamespace>
-    <AssemblyName>Super.Administration.Projection</AssemblyName>
+    <RootNamespace>CommonEvents</RootNamespace>
+    <AssemblyName>CommonEvents</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Super.Administration.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,25 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bootstrap.cs" />
+    <Compile Include="EventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
-      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
-      <Name>EasyNetQ</Name>
+    <ProjectReference Include="..\CommonDomain\CommonDomain.csproj">
+      <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
+      <Name>CommonDomain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Events\Events.csproj">
-      <Project>{DDD34014-317B-46DF-B363-1A0610103AC3}</Project>
-      <Name>Events %28Super\Administration\Events%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ReadModel\ReadModel.csproj">
-      <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>
-      <Name>ReadModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Super.Administration.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

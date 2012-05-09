@@ -18,11 +18,8 @@ packages/**/*
 packages/repositories.config
 Super/**/bin/*
 Super/**/obj/*
-Framework/CommonDomain/bin
-Framework/CommonDomain/obj
-CommonEvents/bin
-CommonEvents/obj
-Framework/CommonCommands/bin
-Framework/CommonCommands/bin
-Framework/CommonCommands/bin
-Framework/CommonCommands/bin
+Super/**/**/obj/*
+Super/**/**/bin/*
+Framework/**/bin
+Framework/**/obj
+

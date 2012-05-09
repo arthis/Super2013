@@ -1,6 +1,0 @@
-D:\Projects\Super2013\Super\ReadModel\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
-D:\Projects\Super2013\Super\ReadModel\bin\AutoTest.Net\ReadModel.dll.config
-D:\Projects\Super2013\Super\ReadModel\bin\AutoTest.Net\_tmpIntermediateAT\ReadModel.dll
-D:\Projects\Super2013\Super\ReadModel\bin\AutoTest.Net\_tmpIntermediateAT\ReadModel.pdb
-D:\Projects\Super2013\Super\ReadModel\bin\AutoTest.Net\ReadModel.dll
-D:\Projects\Super2013\Super\ReadModel\bin\AutoTest.Net\ReadModel.pdb

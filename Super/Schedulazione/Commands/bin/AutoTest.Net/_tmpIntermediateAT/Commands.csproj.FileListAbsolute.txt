@@ -1,7 +1,0 @@
-D:\Projects\Super2013\Super\Appaltatore\Commands\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
-D:\Projects\Super2013\Super\Appaltatore\Commands\bin\AutoTest.Net\_tmpIntermediateAT\Super.Appaltatore.Commands.dll
-D:\Projects\Super2013\Super\Appaltatore\Commands\bin\AutoTest.Net\_tmpIntermediateAT\Super.Appaltatore.Commands.pdb
-D:\Projects\Super2013\Super\Appaltatore\Commands\bin\AutoTest.Net\Super.Appaltatore.Commands.dll
-D:\Projects\Super2013\Super\Appaltatore\Commands\bin\AutoTest.Net\Super.Appaltatore.Commands.pdb
-D:\Projects\Super2013\Super\Appaltatore\Commands\bin\AutoTest.Net\CommonDomain.dll
-D:\Projects\Super2013\Super\Appaltatore\Commands\bin\AutoTest.Net\CommonDomain.pdb

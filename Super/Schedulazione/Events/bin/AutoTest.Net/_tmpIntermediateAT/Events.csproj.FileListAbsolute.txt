@@ -1,7 +1,0 @@
-D:\Projects\Super2013\Super\Appaltatore\Events\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
-D:\Projects\Super2013\Super\Appaltatore\Events\bin\AutoTest.Net\_tmpIntermediateAT\Super.Appaltatore.Events.dll
-D:\Projects\Super2013\Super\Appaltatore\Events\bin\AutoTest.Net\_tmpIntermediateAT\Super.Appaltatore.Events.pdb
-D:\Projects\Super2013\Super\Appaltatore\Events\bin\AutoTest.Net\Super.Appaltatore.Events.dll
-D:\Projects\Super2013\Super\Appaltatore\Events\bin\AutoTest.Net\Super.Appaltatore.Events.pdb
-D:\Projects\Super2013\Super\Appaltatore\Events\bin\AutoTest.Net\CommonDomain.dll
-D:\Projects\Super2013\Super\Appaltatore\Events\bin\AutoTest.Net\CommonDomain.pdb
