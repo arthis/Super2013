@@ -36,25 +36,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EventStore">
-      <HintPath>..\..\..\Framework\lib\EventStore\EventStore.dll</HintPath>
+      <HintPath>..\..\..\lib\EventStore\EventStore.dll</HintPath>
     </Reference>
     <Reference Include="EventStore.Logging.Log4Net">
-      <HintPath>..\..\..\Framework\lib\EventStore\logging\log4net\EventStore.Logging.Log4Net.dll</HintPath>
+      <HintPath>..\..\..\lib\EventStore\logging\log4net\EventStore.Logging.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="EventStore.Persistence.MongoPersistence">
-      <HintPath>..\..\..\Framework\lib\EventStore\persistence\mongo\EventStore.Persistence.MongoPersistence.dll</HintPath>
+      <HintPath>..\..\..\lib\EventStore\persistence\mongo\EventStore.Persistence.MongoPersistence.dll</HintPath>
     </Reference>
     <Reference Include="EventStore.Serialization.Json">
-      <HintPath>..\..\..\Framework\lib\EventStore\serialization\json-net\EventStore.Serialization.Json.dll</HintPath>
+      <HintPath>..\..\..\lib\EventStore\serialization\json-net\EventStore.Serialization.Json.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\..\Framework\lib\EventStore\logging\log4net\log4net.dll</HintPath>
+      <HintPath>..\..\..\lib\EventStore\logging\log4net\log4net.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Bson">
-      <HintPath>..\..\..\Framework\lib\EventStore\persistence\mongo\MongoDB.Bson.dll</HintPath>
+      <HintPath>..\..\..\lib\EventStore\persistence\mongo\MongoDB.Bson.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Driver">
-      <HintPath>..\..\..\Framework\lib\EventStore\persistence\mongo\MongoDB.Driver.dll</HintPath>
+      <HintPath>..\..\..\lib\EventStore\persistence\mongo\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

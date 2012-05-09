@@ -1,9 +1,0 @@
-D:\Projects\Super2013\Framework\CommonCommands\bin\Debug\CommonCommands.dll
-D:\Projects\Super2013\Framework\CommonCommands\bin\Debug\CommonCommands.pdb
-D:\Projects\Super2013\Framework\CommonCommands\bin\Debug\CommonDomain.dll
-D:\Projects\Super2013\Framework\CommonCommands\bin\Debug\CommonDomain.Persistence.dll
-D:\Projects\Super2013\Framework\CommonCommands\bin\Debug\CommonDomain.Persistence.pdb
-D:\Projects\Super2013\Framework\CommonCommands\bin\Debug\CommonDomain.pdb
-D:\Projects\Super2013\Framework\CommonCommands\obj\Debug\ResolveAssemblyReference.cache
-D:\Projects\Super2013\Framework\CommonCommands\obj\Debug\CommonCommands.dll
-D:\Projects\Super2013\Framework\CommonCommands\obj\Debug\CommonCommands.pdb

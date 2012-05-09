@@ -1,25 +1,15 @@
-
-# Les ligne commençant par '#' sont des commentaires.
-# Ignorer tous les fichiers nommés foo.txt
-#foo.txt
-# Ignorer tous les fichiers html
-#*.html
-# à l'exception de foo.html qui est maintenu à la main
-#!foo.html
-# Ignorer les objets et les archives
-#*.[oa]
-
-_ReSharper.Super2013
+[Oo]bj
+[Bb]in
+*.user
 *.suo
-packages/**/*
-Super/**/bin/**/*
-Super/**/obj/**/*
-packages/**/*
-packages/repositories.config
-Super/**/bin/*
-Super/**/obj/*
-Super/**/**/obj/*
-Super/**/**/bin/*
-Framework/**/bin
-Framework/**/obj
+*.[Cc]ache
+*.bak
+*.ncb
+*.log 
+*.DS_Store
+[Tt]humbs.db 
+_ReSharper.*
 
+# Ignore NCrunch cache files.
+*.crunchproject.local.xml
+*.crunchsolution.local.xml

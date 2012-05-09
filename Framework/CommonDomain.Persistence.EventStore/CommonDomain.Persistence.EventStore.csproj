@@ -72,9 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EventStore, Version=3.1.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\joliver-EventStore\output\bin\EventStore.dll</HintPath>
+    <Reference Include="EventStore">
+      <HintPath>..\..\lib\EventStore\EventStore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
