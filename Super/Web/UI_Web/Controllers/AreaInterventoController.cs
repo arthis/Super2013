@@ -9,7 +9,7 @@ using Super.Administration.Commands.AreaIntervento;
 using UI_Web.Models;
 using System.Text;
 using EasyNetQ;
-
+using UI_Web.ServiceAdministration;
 
 
 namespace UI_Web.Controllers
@@ -64,7 +64,8 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _bus.Publish(command);
+                var client= new ServiceClient();
+                var cr =  client.Execute(command);
             }
         }
 
@@ -79,8 +80,9 @@ namespace UI_Web.Controllers
         public void Update(UpdateAreaIntervento command)
         {
             if (ModelState.IsValid)
-            { 
-                _bus.Publish(command);
+            {
+                var client = new ServiceClient();
+                var cr = client.Execute(command);
             }
         }
 
@@ -90,9 +92,8 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                //ChannelHelper.Use(_channelFactory.CreateChannel(), (client) =>
-                //               client.Execute(new ExecuteRequest(command)));
-                _bus.Publish(command);
+                var client = new ServiceClient();
+                var cr = client.Execute(command);
             }
         }
 

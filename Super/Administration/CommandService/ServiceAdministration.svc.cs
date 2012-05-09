@@ -1,5 +1,4 @@
 ﻿using System;
-using CommandRunner;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence.EventStore;
@@ -9,21 +8,20 @@ using EventStore.Serialization;
 using Super.Administration.Commands.AreaIntervento;
 using Super.Administration.Handlers;
 
-
-
-namespace RunExample1
+namespace Super.Administration.CommandService
 {
-    public class Program
-    {
-        private static CommandHandlerService _commandHandlerService;
-        private static IBus _bus;
+	
+	public class ServiceAdministration : IService
+	{
+        private CommandHandlerService _commandHandlerService;
+        private IBus _bus;
 
-        private static readonly byte[] EncryptionKey = new byte[]
+        private readonly byte[] EncryptionKey = new byte[]
         {
             0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf
         };
 
-        private static IStoreEvents WireupEventStore()
+        private  IStoreEvents WireupEventStore()
         {
             return Wireup.Init()
                .LogToOutputWindow()
@@ -39,7 +37,7 @@ namespace RunExample1
 
         }
 
-        public static void Init()
+        public void Init()
         {
             var storeEvents = WireupEventStore();
             var aggregateFactory = new AggregateFactory();
@@ -52,18 +50,7 @@ namespace RunExample1
             _bus = RabbitHutch.CreateBus("host=localhost");
         }
 
-        static void Main(string[] args)
-        {
-            Init();
-            string subscriptionId = "Super";
-
-            _bus.Subscribe<CreateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
-            _bus.Subscribe<UpdateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
-            _bus.Subscribe<DeleteAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
-            ;
-        }
-
-        private static void DispatchCommit(Commit commit)
+        private void DispatchCommit(Commit commit)
         {
             // This is where we'd hook into our messaging infrastructure, such as NServiceBus,
             // MassTransit, WCF, or some other communications infrastructure.
@@ -78,5 +65,21 @@ namespace RunExample1
                 Console.WriteLine(e.ToString());
             }
         }
-    }
+
+	    public ServiceAdministration()
+	    {
+            Init();
+            string subscriptionId = "Super";
+
+            _bus.Subscribe<CreateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
+            _bus.Subscribe<UpdateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
+            _bus.Subscribe<DeleteAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
+            ;
+	    }
+
+	    public CommandResponse Execute(ICommand composite)
+	    {
+	        throw new NotImplementedException();
+	    }
+	}
 }
