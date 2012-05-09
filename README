@@ -4,24 +4,27 @@ This Project is a try out at re analysing the super application through means of
   Command Query Responsibility Segregation
   Event sourcing.
 
-So far nCQRS framework is used, but this may change in the future. What is at stake here too is to provide
-some cohesive work method to implement the code through Behaviour driven development and test driven development.
+nCQRS framework has been used used but is totally discarded now. Current solution implies the use of Joliver Commain domain and events store.
 
-Both Console_UI and Web_UI are client to WCF Service Application service. 
+The initial aim of this project was to give tools to develop a full blown solution using BDD.
 
-To run this project :
+Given (events)
+Then (Command)
+Expect (events)
 
-Execute in your sql server 2008
-	ApplicationService/ReadModel.sql
-	ReadModel/ReadModel.edmx.sql
+And to generate some documentation on the fly of the different tests available.
 
-Run an instance of RavenDB
+The application is under hardcore development and so might work or not depending on the day you get it.
 
-Change connection string according to your setup :
-	ApplicationService/bootstrapper.cs
-	ApplicationService/app.config
-	ReadModel/app.config
-	UI_Web/web.config
+My future points of interest are :
 
+define the bounded context and their interactions
+so far I have found :
+ 
+    - Administration (CRUD like)
+    - Schedulazione : 	BC responsible for the generation of intervento
+    - Appaltatore : 	Handling of Intervento by the appaltatore
+    - Controllo :       Control of the intervento through the means of schede and various tools
+    - Accounting :      BC responsible for giving numbers and reports depending on accounting rules 
 
-Start both ApplicationService & UI_Web, and enjoy what you can..
+There is one site that might  be split, for instance the Appaltatore  part might be externalized
