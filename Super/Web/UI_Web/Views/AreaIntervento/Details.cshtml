@@ -1,4 +1,4 @@
-﻿@model Commands.AreaIntervento.CreareNuovoAreaIntervento
+﻿@model Super.Administration.Commands.AreaIntervento.CreateAreaIntervento
 @{
     ViewBag.Title = "add Area Intervento";
     Layout = string.Empty;
@@ -7,32 +7,28 @@
 <fieldset>
     <legend>AreaIntervento</legend>
     <div class="editor-label">
-        @Html.LabelFor(model => model.IdAreaInterventoSuper)*
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.IdAreaInterventoSuper, "koStringEditorFor", new { koObservablePrefix = "SelectedItem", @class = "required" })
-        @Html.ValidationMessageFor(model => model.IdAreaInterventoSuper)
+        @Html.LabelFor(model => model.Id)*
     </div>
     <div class="editor-label">
-        @Html.LabelFor(model => model.Descrizione)*
+        @Html.LabelFor(model => model.Description)*
     </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Descrizione, "koStringEditorFor", new { koObservablePrefix = "SelectedItem", @class = "required" })
-        @Html.ValidationMessageFor(model => model.Descrizione)
+        @Html.EditorFor(model => model.Description, "koStringEditorFor", new { koObservablePrefix = "SelectedItem", @class = "required" })
+        @Html.ValidationMessageFor(model => model.Description)
     </div>
     <div class="editor-label">
-        @Html.LabelFor(model => model.Inizio)
+        @Html.LabelFor(model => model.Start)
     </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Inizio, "koDateEditorFor", new { koObservablePrefix = "SelectedItem" })
-        @Html.ValidationMessageFor(model => model.Inizio)
+        @Html.EditorFor(model => model.Start, "koDateEditorFor", new { koObservablePrefix = "SelectedItem" })
+        @Html.ValidationMessageFor(model => model.Start)
     </div>
     <div class="editor-label">
-        @Html.LabelFor(model => model.Fine)
+        @Html.LabelFor(model => model.End)
     </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Fine, "koDateEditorFor", new { koObservablePrefix = "SelectedItem" })
-        @Html.ValidationMessageFor(model => model.Fine)
+        @Html.EditorFor(model => model.End, "koDateEditorFor", new { koObservablePrefix = "SelectedItem" })
+        @Html.ValidationMessageFor(model => model.End)
     </div>
 </fieldset>
 </form>

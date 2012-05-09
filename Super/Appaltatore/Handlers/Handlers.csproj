@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Super.Appaltatore.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,12 +68,15 @@
     </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
-      <Name>Commands</Name>
+      <Name>Commands %28Super\Appaltatore\Commands%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\domain\Domain.csproj">
       <Project>{15903C05-3822-4034-AF0B-DB1A3611FB46}</Project>
-      <Name>Domain</Name>
+      <Name>Domain %28Super\Appaltatore\Domain%29</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Super.Appaltatore.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

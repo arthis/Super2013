@@ -13,9 +13,9 @@ namespace Domain
     public class AreaIntervento : AggregateRootMappedByConvention
     {
         public int IdAreaInterventoSuper { get; set; }
-        public string Descrizione { get; set; }
-        public DateTime Inizio { get; set; }
-        public DateTime? Fine { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime? End { get; set; }
         public DateTime CreationDate { get; set; }
         public bool Cancellata { get; set; }
 
@@ -23,16 +23,16 @@ namespace Domain
         {
         }
 
-        public AreaIntervento(Guid id, int idAreaInterventoSuper, DateTime inizio, DateTime? fine, DateTime creationDate, string descrizione)
+        public AreaIntervento(Guid id, int idAreaInterventoSuper, DateTime start, DateTime? end, DateTime creationDate, string description)
             : base(id)
         {
             AreaInterventoCreata evt = new AreaInterventoCreata()
             {
                 IdAreaInterventoSuper = idAreaInterventoSuper,
-                Inizio = inizio,
-                Fine = fine,
+                Start = start,
+                End = end,
                 CreationDate = creationDate,
-                Descrizione = descrizione,
+                Description = description,
                 Id = id
             };
 
@@ -42,20 +42,20 @@ namespace Domain
         public void OnAreaInterventoCreato(AreaInterventoCreata e)
         {
             this.IdAreaInterventoSuper = e.IdAreaInterventoSuper;
-            this.Inizio = e.Inizio;
-            this.Fine = e.Fine;
+            this.Start = e.Start;
+            this.End = e.End;
             this.CreationDate = e.CreationDate;
-            this.Descrizione = e.Descrizione;
+            this.Description = e.Description;
         }
 
-        public void Aggiornare(int idAreaInterventoSuper, DateTime inizio, DateTime? fine, string descrizione)
+        public void Aggiornare(int idAreaInterventoSuper, DateTime start, DateTime? end, string description)
         {
             AreaInterventoAggiornata evt = new AreaInterventoAggiornata()
             {
                 IdAreaInterventoSuper = idAreaInterventoSuper,
-                Inizio = inizio,
-                Fine = fine,
-                Descrizione = descrizione,
+                Start = start,
+                End = end,
+                Description = description,
             };
             ApplyEvent(evt);
         }
@@ -63,9 +63,9 @@ namespace Domain
         public void OnAreaInterventoAggiornata(AreaInterventoAggiornata e)
         {
             this.IdAreaInterventoSuper = e.IdAreaInterventoSuper;
-            this.Inizio = e.Inizio;
-            this.Fine = e.Fine;
-            this.Descrizione = e.Descrizione;
+            this.Start = e.Start;
+            this.End = e.End;
+            this.Description = e.Description;
         }
 
         public void Cancellare()

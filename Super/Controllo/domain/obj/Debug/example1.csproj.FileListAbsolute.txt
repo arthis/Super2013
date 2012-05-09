@@ -1,0 +1,16 @@
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\example1.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\example1.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\CommonDomain.Core.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\CommonDomain.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\CommonDomain.Persistence.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\CommonDomain.Persistence.EventStore.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\EventStore.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\CommonDomain.Core.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\CommonDomain.Persistence.EventStore.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\CommonDomain.Persistence.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\CommonDomain.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\obj\Debug\example1.dll
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\obj\Debug\example1.pdb
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\obj\Debug\example1.rewritten
+D:\Projects\Super2013\Framework\CommonDomain\src\example\example1\bin\Debug\EventStore.xml

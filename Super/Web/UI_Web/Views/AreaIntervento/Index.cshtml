@@ -9,7 +9,7 @@
     <fieldset>
         <legend>Filtro</legend>
         <label>
-            Descrizione :</label><input type="text" id="filtroDescrizione" data-bind=" value:Descrizione " />
+            Description :</label><input type="text" id="filtroDescrizione" data-bind=" value:Description " />
         <div style="clear: both;">
             &nbsp;</div>
         <a class="button" data-bind="click: GetItems.bind($data, 1)" href="#">Visualizza</a>
@@ -21,7 +21,7 @@
 <div id="pagination" class="pagebar">
 </div>
 <p>
-    <a class="button" data-bind="click: ShowAggiungereItem" href="#">Aggiungi Area Intervento</a>
+    <a class="button" data-bind="click: ShowAddItem" href="#">Aggiungi Area Intervento</a>
 </p>
 <div id="details" style="overflow: hidden;"></div>
 
@@ -29,13 +29,13 @@
     <table width=100% class="table-standard"> 
             <tr>
                 <th>
-                    Descrizione
+                    Description
                 </th>
                 <th>
-                    Inizio
+                    Start
                 </th>
                 <th>
-                    Fine
+                    End
                 </th>
                 <th>
                     CreationDate
@@ -49,23 +49,23 @@
          <tr>
             
             <td>
-                <%= item.Descrizione() %>
+                <%= item.Description() %>
             </td>
             
             <td>
-                <%= item.Inizio() %>
+                <%= item.Start() %>
             </td>
             <td>
-                <%= item.Fine() %>
+                <%= item.End() %>
             </td>
             <td>
                 <%= item.CreationDate() %>
             </td>
              <td>
-                <a data-bind="click: function() { viewModel.ShowRedigereItem(item) }" href="#"><img src="@Url.Content("~/Images/Edit.gif")" border=0></a>
+                <a data-bind="click: function() { viewModel.ShowEditItem(item) }" href="#"><img src="@Url.Content("~/Images/Edit.gif")" border=0></a>
             </td>
             <td>
-                <a data-bind="click: function() { viewModel.TogliereItem(item) }" href="#"><img src="@Url.Content("~/Images/Delete.gif")" border=0></a>
+                <a data-bind="click: function() { viewModel.DeleteItem(item) }" href="#"><img src="@Url.Content("~/Images/Delete.gif")" border=0></a>
             </td>
         </tr>
          <% }) %>
@@ -196,35 +196,33 @@
 
 
     //Commands
-    var VisualizzareItems = function (descrizione, pageNum, pageSize){
-        this.Descrizione = descrizione;
+    var ViewItems = function (description, pageNum, pageSize){
+        this.Description = description;
         this.PageNum = pageNum;
         this.PageSize = pageSize;
     }
-    var CreareNuovoAreaIntervento = function (id, idAreaInterventoSuper, creationDate, inizio, fine, descrizione) {
+    var CreateAreaIntervento = function (id,  creationDate, start, end, description) {
         this.Id = id;
-        this.IdAreaInterventoSuper = idAreaInterventoSuper;
         this.CreationDate = dateFormat(creationDate,"isoDateTime");
-        this.Inizio = dateFormat(inizio,"isoDateTime");
-        this.Fine = dateFormat(fine,"isoDateTime");
-        this.Descrizione = descrizione;
+        this.Start = dateFormat(start,"isoDateTime");
+        this.End = dateFormat(end,"isoDateTime");
+        this.Description = description;
     }
-    var AggiornareAreaIntervento = function (id, idAreaInterventoSuper, inizio, fine, descrizione) {
+    var UpdateAreaIntervento = function (id,  start, end, description) {
         this.Id = id;
-        this.IdAreaInterventoSuper = idAreaInterventoSuper;
-        this.Inizio = inizio.format("isoDateTime");
-        this.Fine = fine.format("isoDateTime");
-        this.Descrizione = descrizione;
+        this.Start = start.format("isoDateTime");
+        this.End = end.format("isoDateTime");
+        this.Description = description;
     }
-    var CancellareAreaIntervento = function (id) {
+    var DeleteAreaIntervento = function (id) {
         this.Id = id;
     }
 
     //Repository
     var Repository = function () {
-        this.GetItems = function (descrizione, pageNum, pageSize, success,error) {
+        this.GetItems = function (description, pageNum, pageSize, success,error) {
             jQuery.ajaxSettings.traditional = true;
-            var command = new VisualizzareItems(descrizione,pageNum,pageSize);
+            var command = new ViewItems(description,pageNum,pageSize);
             $.ajax({
                 type: 'Post',
                 url: '@Url.Action("GetItems")',
@@ -237,10 +235,10 @@
         };
         this.Add = function (selected, success, error) {
             var returnValue = false;
-            var command = new CreareNuovoAreaIntervento(selected.Id(), selected.IdAreaInterventoSuper(), selected.CreationDate(), selected.Inizio(), selected.Fine(), selected.Descrizione())
+            var command = new CreateAreaIntervento(selected.Id(),  selected.CreationDate(), selected.Start(), selected.End(), selected.Description())
             $.ajax({
                 type: 'Post',
-                url: '@Url.Action("Creare")',
+                url: '@Url.Action("Create")',
                 data: JSON.stringify(command),
                 contentType: 'application/json; charset=utf-8',
                 success: function() { returnValue=success(selected)},
@@ -252,10 +250,10 @@
         };
         this.Update = function (selected, success, error) {
             var returnValue = false;
-            var command = new AggiornareAreaIntervento(selected.Id(), selected.IdAreaInterventoSuper(), selected.Inizio(), selected.Fine(), selected.Descrizione())
+            var command = new UpdateAreaIntervento(selected.Id(), selected.Start(), selected.End(), selected.Description())
             $.ajax({
                 type: 'Post',
-                url: '@Url.Action("Aggiornare")',
+                url: '@Url.Action("Update")',
                 data: JSON.stringify(command),
                 contentType: 'application/json; charset=utf-8',
                 success: function() { returnValue=success(selected)},
@@ -267,10 +265,10 @@
         };
         this.Delete = function (selected, success, error) {
             var returnValue = false;
-            var command = new CancellareAreaIntervento(selected.Id())
+            var command = new DeleteAreaIntervento(selected.Id())
             $.ajax({
                 type: 'Post',
-                url: '@Url.Action("Cancellare")',
+                url: '@Url.Action("Delete")',
                 data: JSON.stringify(command),
                 contentType: 'application/json; charset=utf-8',
                 success: function() { returnValue=success(selected)},
@@ -285,29 +283,27 @@
   
 
     //Model
-    var AreaIntervento = function (id, idAreaInterventoSuper, creationDate, inizio, fine, descrizione, isNew) {
+    var AreaIntervento = function (id,  creationDate, start, end, description, isNew) {
         var self = this;
         this.Id = ko.observable(id);
-        this.IdAreaInterventoSuper = ko.observable(idAreaInterventoSuper);
         this.CreationDate = ko.observable(creationDate.format("dd/mm/yyyy HH:MM"));
-        this.Inizio = ko.observable(inizio.format("dd/mm/yyyy"));
-        this.Fine = ko.observable(fine.format("dd/mm/yyyy"));
-        this.Descrizione = ko.observable(descrizione);
+        this.Start = ko.observable(start.format("dd/mm/yyyy"));
+        this.End = ko.observable(end.format("dd/mm/yyyy"));
+        this.Description = ko.observable(description);
         this.IsNew = isNew;
 
-        this.EditIdAreaInterventoSuper = ko.observable(idAreaInterventoSuper);
-        this.EditInizio = ko.observable(inizio.format("dd/mm/yyyy"));
-        this.EditFine = ko.observable(fine.format("dd/mm/yyyy"));
-        this.EditDescrizione = ko.observable(descrizione);
+        this.EditStart = ko.observable(start.format("dd/mm/yyyy"));
+        this.EditEnd = ko.observable(end.format("dd/mm/yyyy"));
+        this.EditDescription = ko.observable(description);
 
         //reset to originals on cancel 
         this.Cancel = function () {
-            this.IdAreaInterventoSuper(this.EditIdAreaInterventoSuper()).Inizio(this.EditInizio()).Fine(this.EditFine()).Descrizione(this.EditDescrizione());
+            this.Start(this.EditStart()).End(this.EditEnd()).Description(this.EditDescription());
         } .bind(this);
 
         //persist edits to real values on accept
         this.Accept = function () {
-            this.EditIdAreaInterventoSuper(this.IdAreaInterventoSuper()).EditInizio(this.Inizio()).EditFine(this.Fine()).EditDescrizione(this.Descrizione());
+            this.EditStart(this.Start()).EditEnd(this.End()).EditDescription(this.Description());
         } .bind(this);
     }
 
@@ -319,7 +315,7 @@
         var self = this;
           
         //filtro
-        this.Descrizione = ko.observable();
+        this.Description = ko.observable();
         this.PageNum = ko.observable(pageNum);
         this.PageSize = ko.observable(pageSize);
             
@@ -327,34 +323,34 @@
         this.SelectedItem = ko.observable();
 
 
-        this.ShowRedigereItem = function (item) {
+        this.ShowEditItem = function (item) {
             view.Spin({title: "Please Wait", message: "Opening form..."});
             viewModel.SelectedItem(item);
-            view.OpenDetails("@Url.Action("Aggiornare")", 'Aggiornare un area Intervento');
+            view.OpenDetails("@Url.Action("Update")", 'Update un area Intervento');
             view.StopSpin();
         };
-        this.ShowAggiungereItem = function () {
+        this.ShowAddItem = function () {
             view.Spin({title: "Please Wait", message: "Opening form..."});
             var now = new Date();
-            var newItem = new AreaIntervento(guidGenerator(),0, now, now, now, '', true)
+            var newItem = new AreaIntervento(guidGenerator(), now, now, now, '', true)
             viewModel.SelectedItem(newItem);
-            view.OpenDetails("@Url.Action("Creare")",'Aggiungere un area Intervento');
+            view.OpenDetails("@Url.Action("Create")",'Aggiungere un area Intervento');
             view.StopSpin();
         };
-        this.TogliereItem = function (item) {
+        this.DeleteItem = function (item) {
             
             view.Spin({title: "Please Wait", message: "Deleting area..."});
-            repository.Delete(item,viewModel.TogliereItemSuccess,viewModel.TogliereItemError);
+            repository.Delete(item,viewModel.DeleteItemSuccess,viewModel.DeleteItemError);
         };
 
-        this.TogliereItemSuccess = function(selected)
+        this.DeleteItemSuccess = function(selected)
         {
             viewModel.Items.remove(item);
             view.StopSpin();
             alert("item " + selected.Id() + " removed");
         }
 
-        this.TogliereItemError= function(selected)
+        this.DeleteItemError= function(selected)
         {
             view.StopSpin();
             alert("item " + selected.Id() + " not removed");
@@ -401,13 +397,13 @@
                 self.PageNum(1);
             else
                 self.PageNum(pageNum);
-            repository.GetItems(self.Descrizione(),self.PageNum(),self.PageSize(),self.GetItemsSuccess,self.GetItemsError);
+            repository.GetItems(self.Description(),self.PageNum(),self.PageSize(),self.GetItemsSuccess,self.GetItemsError);
         };
 
         this.GetItemsSuccess = function (items) {
             self.Items.removeAll();
             ko.utils.arrayForEach(items.results, function (item) {
-                self.Items.push(new AreaIntervento(item.Id,item.IdAreaInterventoSuper, ToDate(item.CreationDate), ToDate(item.Inizio), ToDate(item.Fine), item.Descrizione));
+                self.Items.push(new AreaIntervento(item.Id, ToDate(item.CreationDate), ToDate(item.Start), ToDate(item.End), item.Description));
             });
             view.Paginate(self.PageNum(),self.PageSize(),items.count,viewModel.GetItems);
             view.StopSpin();
@@ -415,7 +411,7 @@
 
         this.GetItemsError = function(){
             view.StopSpin();
-            alert('error');
+            alert('error while fetching data');
         }
     };
 
@@ -433,7 +429,7 @@
     viewModel.GetItems(viewModel.PageNum());
        
 </script>
-
+@*
 <script src="http://localhost:8091/socket.io/socket.io.js"></script>
 <script>
     var socket = io.connect('http://localhost:8091');
@@ -441,4 +437,4 @@
         var jsonString = Utf8.decodeArray(msg.data);
         alert(jsonString);
     });
-</script>
+</script>*@

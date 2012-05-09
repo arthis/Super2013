@@ -8,8 +8,8 @@
     <form id="formFilter" class="formFilter">
     <fieldset>
         <legend>Filtro</legend>
-        @*<label>Descrizione :</label>
-        <input type="text" id="filtroDescrizione" data-bind=" value:Descrizione " />*@
+        @*<label>Description :</label>
+        <input type="text" id="filtroDescrizione" data-bind=" value:Description " />*@
 
         <div style="clear: both;">
             &nbsp;</div>
@@ -23,7 +23,7 @@
 <div id="pagination" class="pagebar"></div>
 
 <p>
-    <a class="button" data-bind="click: ShowAggiungereItem" href="#">Consuntivo estemporaneo</a>
+    <a class="button" data-bind="click: ShowAddItem" href="#">Consuntivo estemporaneo</a>
 </p>
 
 <div id="details" style="overflow: hidden;"></div>
@@ -78,19 +78,19 @@
                     Tipo Intervento
                 </th>
                 <th>
-                    Ora Programmata per Inizio Prestazione
+                    Ora Programmata per Start Prestazione
                 </th>
                 <th>
-                    Ora Programmata per Fine Prestazione
+                    Ora Programmata per End Prestazione
                 </th>
                 <th>
                     Composizione programmata
                 </th>
                 <th>
-                    Ora consuntivata Appaltatore per Inizio Prestazione
+                    Ora consuntivata Appaltatore per Start Prestazione
                 </th>
                 <th>
-                    Ora consuntivata Appaltatore per Fine Prestazione
+                    Ora consuntivata Appaltatore per End Prestazione
                 </th>
             </tr>
         
@@ -285,7 +285,7 @@
     }
 
     //Commands
-    var VisualizzareItems = function ( pageNum, pageSize){
+    var ViewItems = function ( pageNum, pageSize){
         this.PageNum = pageNum;
         this.PageSize = pageSize;
     }
@@ -295,7 +295,7 @@
     var Repository = function () {
         this.GetItems = function (pageNum, pageSize, success,error) {
             jQuery.ajaxSettings.traditional = true;
-            var command = new VisualizzareItems(pageNum,pageSize);
+            var command = new ViewItems(pageNum,pageSize);
             $.ajax({
                 type: 'Post',
                 url: '@Url.Action("GetItems")',

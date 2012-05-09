@@ -58,3 +58,6 @@ D:\Projects\Super2013\Super\UI_Console\bin\Debug\RabbitMQ.Client.dll
 D:\Projects\Super2013\Super\UI_Console\bin\Debug\EasyNetQ.pdb
 D:\Projects\Super2013\Super\UI_Console\bin\Debug\Events.pdb
 D:\Projects\Super2013\Super\UI_Console\bin\Debug\RabbitMQ.Client.xml
+D:\Projects\Super2013\Super\Web\UI_Console\bin\Debug\UI_Console.exe.config
+D:\Projects\Super2013\Super\Web\UI_Console\obj\x86\Debug\UI_Console.exe
+D:\Projects\Super2013\Super\Web\UI_Console\obj\x86\Debug\UI_Console.pdb

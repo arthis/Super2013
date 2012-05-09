@@ -1,0 +1,7 @@
+D:\Projects\Super2013\Super\Appaltatore\Events\bin\Debug\Super.Appaltatore.Events.dll
+D:\Projects\Super2013\Super\Appaltatore\Events\bin\Debug\Super.Appaltatore.Events.pdb
+D:\Projects\Super2013\Super\Appaltatore\Events\bin\Debug\CommonDomain.dll
+D:\Projects\Super2013\Super\Appaltatore\Events\bin\Debug\CommonDomain.pdb
+D:\Projects\Super2013\Super\Appaltatore\Events\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Super\Appaltatore\Events\obj\Debug\Super.Appaltatore.Events.dll
+D:\Projects\Super2013\Super\Appaltatore\Events\obj\Debug\Super.Appaltatore.Events.pdb

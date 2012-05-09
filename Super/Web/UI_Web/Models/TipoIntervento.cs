@@ -8,7 +8,7 @@ namespace UI_Web.Models
 {
     public class VisualizzareTipoIntervento
     {
-        public string Descrizione { get; set; }
+        public string Description { get; set; }
         public int PageNum { get; set; }
         public int PageSize { get; set; }
     }

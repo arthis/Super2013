@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ReadModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="ReadModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AreaIntervento" EntityType="ReadModel.AreaIntervento" />
+    <EntitySet Name="TipoIntervento" EntityType="ReadModel.TipoIntervento" />
+    <EntitySet Name="ConsuntivazioneRot" EntityType="ReadModel.ConsuntivazioneRot" />
+  </EntityContainer>
+  <EntityType Name="AreaIntervento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IdAreaInterventoSuper" />
+    <Property Type="String" Name="Descrizione" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Inizio" Nullable="false" />
+    <Property Type="DateTime" Name="Fine" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoIntervento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IdTipoInterventoSuper" />
+    <Property Type="String" Name="Descrizione" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Inizio" Nullable="false" />
+    <Property Type="DateTime" Name="Fine" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConsuntivazioneRot">
+    <Key>
+      <PropertyRef Name="IdIntervento" />
+    </Key>
+    <Property Type="Guid" Name="IdIntervento" Nullable="false" />
+    <Property Type="Int32" Name="IdInterventoSuper2010" Nullable="false" />
+    <Property Type="Guid" Name="IdCommittente" Nullable="false" />
+    <Property Type="Guid" Name="IdLotto" Nullable="false" />
+    <Property Type="Guid" Name="IdAreaIntervento" Nullable="false" />
+    <Property Type="Guid" Name="IdTipoIntervento" Nullable="false" />
+    <Property Type="String" Name="CodiceOrdine" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsAvvisoIspezione" Nullable="false" />
+    <Property Type="Boolean" Name="IsSpunta" Nullable="false" />
+    <Property Type="Boolean" Name="IsReso" Nullable="false" />
+    <Property Type="Boolean" Name="IsNonResoAppaltatore" Nullable="false" />
+    <Property Type="Boolean" Name="IsNonReso20mn" Nullable="false" />
+    <Property Type="Boolean" Name="IsNonResoTrenitalia" Nullable="false" />
+    <Property Type="Boolean" Name="IsRilevatoNonReso" Nullable="false" />
+    <Property Type="Boolean" Name="IsRettifica" Nullable="false" />
+    <Property Type="Boolean" Name="IsSostituito" Nullable="false" />
+    <Property Type="Boolean" Name="HasSchedaV" Nullable="false" />
+    <Property Type="Boolean" Name="HasSchedaQ" Nullable="false" />
+    <Property Type="DateTime" Name="Data" Nullable="false" />
+    <Property Type="String" Name="AreaInterventoDescrizione" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CategoriaTreno" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NumeroTrenoPartenza" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DataTrenoPartenza" />
+    <Property Type="String" Name="TipoInterventoDescrizione" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DataInizioProgrammata" Nullable="false" />
+    <Property Type="DateTime" Name="DataFineProgrammata" Nullable="false" />
+    <Property Type="String" Name="ComposizioneProgrammata" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DataInizioConsuntivataAppaltatore" Nullable="false" />
+    <Property Type="DateTime" Name="DataFineConsuntivataAppaltatore" Nullable="false" />
+    <Property Type="Boolean" Name="IsProgrammato" Nullable="false" />
+    <Property Type="Boolean" Name="IsPLX" Nullable="false" />
+    <Property Type="Boolean" Name="IsEstemporaneo" Nullable="false" />
+    <Property Type="Boolean" Name="IsSostitutivo" Nullable="false" />
+    <Property Type="Boolean" Name="HasTreni" Nullable="false" />
+    <Property Type="Boolean" Name="HasRotabiliSingoli" Nullable="false" />
+    <Property Type="Boolean" Name="HasCarozze" Nullable="false" />
+    <Property Type="Boolean" Name="HasLocomotive" Nullable="false" />
+    <Property Type="Boolean" Name="IsModificatoTrenitaliaRispettoAlProgramma" Nullable="false" />
+    <Property Type="Boolean" Name="IsModificatoAppaltatoreRispettoAlProgramma" Nullable="false" />
+    <Property Type="Boolean" Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Nullable="false" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" Nullable="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,6 @@
+D:\Projects\Super2013\Super\Administration\ReadModel\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Super2013\Super\Administration\ReadModel\bin\Debug\Super.Administration.ReadModel.dll.config
+D:\Projects\Super2013\Super\Administration\ReadModel\bin\Debug\Super.Administration.ReadModel.dll
+D:\Projects\Super2013\Super\Administration\ReadModel\bin\Debug\Super.Administration.ReadModel.pdb
+D:\Projects\Super2013\Super\Administration\ReadModel\obj\Debug\Super.Administration.ReadModel.dll
+D:\Projects\Super2013\Super\Administration\ReadModel\obj\Debug\Super.Administration.ReadModel.pdb
