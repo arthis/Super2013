@@ -52,6 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationEventRouter.cs" />
     <Compile Include="SagaBase.cs" />
+    <Compile Include="Specifications.cs" />
+    <Compile Include="CommandValidation.cs" />
+    <Compile Include="ValidationMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\CustomDictionary.xml">

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using CommonDomain;
 
 namespace Super.Administration.Commands.AreaIntervento
 {
+    [DataContract]
     public class DeleteAreaIntervento : ICommand
     {
         

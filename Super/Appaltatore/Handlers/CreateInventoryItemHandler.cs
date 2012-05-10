@@ -1,5 +1,6 @@
 ﻿using System;
 using CommonCommands;
+using CommonDomain;
 using Super.Appaltatore.Commands;
 using Super.Appaltatore.Domain;
 using CommonDomain.Persistence;
@@ -14,7 +15,7 @@ namespace Super.Appaltatore.Handlers
         {
         }
 
-        public override void Execute(CreateInventoryItem cmd)
+        public override ICommandValidation Execute(CreateInventoryItem cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
@@ -23,6 +24,8 @@ namespace Super.Appaltatore.Handlers
             var entity = new InventoryItem(cmd.Id, cmd.Name);
 
             Repository.Save(entity, commitId);
+
+            return entity.CommandValidationMessages;
         }
     }
 }

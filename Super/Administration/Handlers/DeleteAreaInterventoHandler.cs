@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using CommonCommands;
+using CommonDomain;
 using Super.Administration.Commands.AreaIntervento;
 using Super.Administration.Domain;
 using CommonDomain.Persistence;
@@ -15,7 +16,7 @@ namespace Super.Administration.Handlers
         }
 
 
-        public override void Execute(DeleteAreaIntervento cmd)
+        public override ICommandValidation Execute(DeleteAreaIntervento cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
@@ -25,6 +26,8 @@ namespace Super.Administration.Handlers
             area.Delete();
 
             Repository.Save(area, commitId);
+
+            return area.CommandValidationMessages;
         }
     }
 }

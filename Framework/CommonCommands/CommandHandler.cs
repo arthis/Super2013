@@ -11,7 +11,7 @@ namespace CommonCommands
     public abstract class CommandHandler<TCommand> where TCommand : class ,ICommand
     {
         protected IRepository Repository;
-        public abstract void Execute(TCommand command);
+        public abstract ICommandValidation Execute(TCommand command);
 
         public CommandHandler(IRepository repository)
         {

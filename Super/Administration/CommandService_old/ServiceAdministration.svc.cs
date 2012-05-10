@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence.EventStore;
@@ -10,13 +11,15 @@ using Super.Administration.Handlers;
 
 namespace Super.Administration.CommandService
 {
-	
-	public class ServiceAdministration : IService
+    [KnownType(typeof(CreateAreaIntervento))]
+    [KnownType(typeof(UpdateAreaIntervento))]
+    [KnownType(typeof(DeleteAreaIntervento))]
+    public class ServiceAdministration : IServiceAdministration
 	{
         private CommandHandlerService _commandHandlerService;
         private IBus _bus;
 
-        private readonly byte[] EncryptionKey = new byte[]
+        private readonly byte[] _encryptionKey = new byte[]
         {
             0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf
         };
@@ -29,7 +32,7 @@ namespace Super.Administration.CommandService
                    .InitializeStorageEngine()
                    .UsingJsonSerialization()
                        .Compress()
-                       .EncryptWith(EncryptionKey)
+                       .EncryptWith(_encryptionKey)
                .HookIntoPipelineUsing(new[] { new AuthorizationPipelineHook() })
                .UsingSynchronousDispatchScheduler()
                    .DispatchTo(new DelegateMessageDispatcher(DispatchCommit))
@@ -77,9 +80,17 @@ namespace Super.Administration.CommandService
             ;
 	    }
 
-	    public CommandResponse Execute(ICommand composite)
+	    public CommandResponse Execute(ICommand command)
 	    {
-	        throw new NotImplementedException();
+	        try
+	        {
+                _commandHandlerService.Execute(command);
+                return new CommandResponse() { Success = true };
+	        }
+	        catch (Exception)
+	        {
+                return new CommandResponse() { Success = false };
+	        }
 	    }
 	}
 }

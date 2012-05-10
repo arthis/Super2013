@@ -9,6 +9,7 @@ namespace CommonDomain.Core
     public abstract class AggregateBase : IAggregate, IEquatable<IAggregate>
     {
         private readonly ICollection<IEvent> uncommittedEvents = new LinkedList<IEvent>();
+        public readonly ICommandValidation CommandValidationMessages;
 
         private IRouteEvents registeredRoutes;
 
@@ -23,6 +24,7 @@ namespace CommonDomain.Core
 
             this.RegisteredRoutes = handler;
             this.RegisteredRoutes.Register(this);
+            CommandValidationMessages = new CommandValidation();
         }
 
         public Guid Id { get; protected set; }

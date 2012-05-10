@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using CommonCommands;
+using CommonDomain;
 using CommonDomain.Persistence;
 using Super.Administration.Commands.AreaIntervento;
 using Super.Administration.Domain;
@@ -16,7 +17,7 @@ namespace Super.Administration.Handlers
         }
 
 
-        public override void Execute(CreateAreaIntervento cmd)
+        public override ICommandValidation Execute(CreateAreaIntervento cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
@@ -25,6 +26,9 @@ namespace Super.Administration.Handlers
             var area = new AreaIntervento(cmd.Id, cmd.Start, cmd.End, cmd.CreationDate, cmd.Description);
 
             Repository.Save(area, commitId);
+
+
+            return area.CommandValidationMessages;
         }
 
     }

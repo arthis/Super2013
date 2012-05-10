@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using CommonDomain;
+using CommonDomain.Core;
 using CommonDomain.Persistence;
 using Super.Administration.Commands.AreaIntervento;
 
@@ -9,7 +10,7 @@ namespace Super.Administration.Handlers
 {
     public class CommandHandlerService
     {
-        private readonly Dictionary<Type, Action<Object>> _handlers = new Dictionary<Type, Action<Object>>();
+        private readonly Dictionary<Type, Func<Object, ICommandValidation>> _handlers = new Dictionary<Type, Func<Object, ICommandValidation>>();
 
 
 
@@ -23,13 +24,19 @@ namespace Super.Administration.Handlers
                           (cmd) => new DeleteAreaInterventoHandler(repositoryEvent).Execute((DeleteAreaIntervento)cmd));
         }
 
-        public void Execute(ICommand command)
+        public ICommandValidation Execute(ICommand command)
         {
             Contract.Requires<ArgumentNullException>(command != null);
 
+            throw new NotImplementedException();
+
             var type = command.GetType();
             if (_handlers.ContainsKey(type))
-                _handlers[type](command);
+                return _handlers[type](command);
+
+            //return new CommandValidation(false);
+
+            
 
         }
     }

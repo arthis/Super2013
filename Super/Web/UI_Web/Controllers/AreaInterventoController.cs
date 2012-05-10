@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.ServiceModel;
+using CommonCommands;
+using CommonDomain;
 using Super.Administration.ReadModel;
 using Super.Administration.Commands.AreaIntervento;
 using UI_Web.Models;
 using System.Text;
 using EasyNetQ;
-using UI_Web.ServiceAdministration;
 
 
 namespace UI_Web.Controllers
@@ -64,10 +65,12 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var client= new ServiceClient();
-                var cr =  client.Execute(command);
+                //var valid = _bus.Request<CreateAreaIntervento, ICommandValidation>(command, 30);
+                //sync call here.... or at least waiting to do so...
             }
         }
+
+       
 
         [HttpGet]
         public ActionResult Update()
@@ -81,8 +84,7 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var client = new ServiceClient();
-                var cr = client.Execute(command);
+             
             }
         }
 
@@ -92,8 +94,7 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var client = new ServiceClient();
-                var cr = client.Execute(command);
+             
             }
         }
 

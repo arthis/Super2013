@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CommonDomain;
 using CommonDomain.Core;
 using Super.Administration.Events.AreaIntervento;
 
@@ -22,16 +23,23 @@ namespace Super.Administration.Domain
 
         public AreaIntervento(Guid id,  DateTime start, DateTime? end, DateTime creationDate, string description)
         {
-            var evt = new AreaInterventoCreated()
-            {
-                Start = start,
-                End = end,
-                CreationDate = creationDate,
-                Description = description,
-                Id = id
-            };
+            var has_start_date_greater_than_end_date = new Has_start_date_greater_than_end_date();
+            
+            ISpecification<AreaIntervento> specs = has_start_date_greater_than_end_date;
 
-            RaiseEvent(evt);
+            if (specs.IsSatisfiedBy(this))
+            {
+                var evt = new AreaInterventoCreated()
+                              {
+                                  Start = start,
+                                  End = end,
+                                  CreationDate = creationDate,
+                                  Description = description,
+                                  Id = id
+                              };
+
+                RaiseEvent(evt);
+            }
         }
 
         public void Apply(AreaInterventoCreated e)

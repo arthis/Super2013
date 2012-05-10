@@ -1,7 +1,7 @@
 using System;
 using EventStore;
 
-namespace CommandService
+namespace Super.Administration.CommandService
 {
     internal class AuthorizationPipelineHook : IPipelineHook
     {

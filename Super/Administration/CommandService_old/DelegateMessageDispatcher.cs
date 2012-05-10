@@ -2,7 +2,7 @@
 using EventStore;
 using EventStore.Dispatcher;
 
-namespace CommandService
+namespace Super.Administration.CommandService
 {
     public class DelegateMessageDispatcher : IDispatchCommits
     {
