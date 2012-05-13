@@ -58,6 +58,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,10 +69,10 @@
   <ItemGroup>
     <Compile Include="AuthorizationPipelineHook.cs" />
     <Compile Include="DelegateMessageDispatcher.cs" />
-    <Compile Include="IServiceAdministration.cs" />
+    <Compile Include="IAdministrationService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceAdministration.cs" />
+    <Compile Include="AdministrationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonCommands\CommonCommands.csproj">

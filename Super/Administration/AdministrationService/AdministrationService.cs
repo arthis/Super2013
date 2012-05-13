@@ -11,10 +11,18 @@ using Super.Administration.Handlers;
 
 namespace CommandService
 {
-    public class ServiceAdministration : IServiceAdministration
+    public class AdministrationService : System.ServiceModel.ServiceHost, IAdministrationService
     {
         private CommandHandlerService _commandHandlerService;
         private IBus _bus;
+
+        public AdministrationService()
+            : base(typeof(AdministrationService))
+        {
+            
+        }
+
+       
 
         private readonly byte[] _encryptionKey = new byte[]
                                                      {
@@ -37,7 +45,7 @@ namespace CommandService
 
         }
 
-        public void Start()
+        protected override void ApplyConfiguration()
         {
             var storeEvents = WireupEventStore();
             var aggregateFactory = new AggregateFactory();
@@ -54,6 +62,10 @@ namespace CommandService
             _bus.Subscribe<CreateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
             _bus.Subscribe<UpdateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
             _bus.Subscribe<DeleteAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
+
+           
+
+            base.ApplyConfiguration();
         }
 
         private void DispatchCommit(Commit commit)
@@ -72,11 +84,8 @@ namespace CommandService
             }
         }
 
-        public ServiceAdministration()
-        {
-        }
 
-        public void Execute(ICommand command)
+        public ICommandValidation Execute(ICommand command)
         {
             ICommandValidation validation;
 
@@ -90,7 +99,8 @@ namespace CommandService
                 validation = new CommandValidation(new ValidationMessage(e.ToString()) );
             }
 
-            
+            return validation;
+
         }
     }
 }
