@@ -18,7 +18,7 @@ The application is under hardcore development and so might work or not depending
 
 My future points of interest are :
 
-define the bounded context and their interactions
+define the bounded context and their interactions8 see contextmap.png in documentation)
 so far I have found :
  
     - Administration (CRUD like)
@@ -27,4 +27,12 @@ so far I have found :
     - Controllo :       Control of the intervento through the means of schede and various tools
     - Accounting :      BC responsible for giving numbers and reports depending on accounting rules 
 
-There is one site that might  be split, for instance the Appaltatore  part might be externalized
+
+
+current worries are :
+
+-dealing nicely with command in a sync fashion ?
+-putting in one single exe command handling, eventhandling, and projection generation?
+-having one readModel per bounded context, I am afraid it is the only way. Should then I have different copies of Area Intervento. 
+I mean to be using one server only, does it make sense then to duplicate this information? use a trick to have every bounded context look at the same part of the read model...
+to be think better later
