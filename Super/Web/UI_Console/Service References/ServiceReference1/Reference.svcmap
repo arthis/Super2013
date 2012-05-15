@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="05b98ddf-4691-414c-9426-37c698e322a4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1338/Administration" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Administration.disco" MetadataType="Disco" ID="ebd79b9a-a778-41ad-9407-3cd0a2b95638" SourceId="1" SourceUrl="http://localhost:1338/Administration?disco" />
+    <MetadataFile FileName="CommandWebService.wsdl" MetadataType="Wsdl" ID="44448258-34c0-40a8-89bb-8142e5968ee2" SourceId="1" SourceUrl="http://localhost:1338/Administration?wsdl" />
+    <MetadataFile FileName="Administration.xsd" MetadataType="Schema" ID="165d5a94-4f1a-49a0-ad6a-e122875d055c" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd1" />
+    <MetadataFile FileName="Administration1.xsd" MetadataType="Schema" ID="306bc46f-0aff-4fef-b57b-aa5bfad03b52" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

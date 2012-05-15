@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using CommandService;
 using CommonDomain;
 using NUnit.Framework;
 
@@ -16,6 +17,8 @@ namespace CommonSpecs.Documentation
         {
             var sb = new StringBuilder();
             var index = 0;
+
+            
 
             var instance = Activator.CreateInstance(type);
 
@@ -73,7 +76,8 @@ namespace CommonSpecs.Documentation
         public static string GetDoccumentation(Assembly specsAssembly)
         {
             var sb = new StringBuilder();
-            var typeBaseClass = typeof(BaseClass<ICommand>);
+            var typeBaseClass = typeof(BaseClass<CommandBase>);
+            var index = 0;
 
             sb.AppendLine(new string('*',50));
             sb.AppendLine(specsAssembly.FullName);
@@ -82,7 +86,11 @@ namespace CommonSpecs.Documentation
             {
                 if (type.BaseType.Name == typeBaseClass.Name)
                 {
+                    if (index!=0)
+                        sb.AppendLine(new string('-', 25));
+
                     sb.Append(GetDocumentation(type));
+                    index++;
                 }
             }
             sb.AppendLine(new string('*', 50));

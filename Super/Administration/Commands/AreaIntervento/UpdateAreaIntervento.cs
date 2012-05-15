@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using CommandService;
 using CommonDomain;
 
 namespace Super.Administration.Commands.AreaIntervento
 {
     [DataContract]
-    public class UpdateAreaIntervento : ICommand
+    public class UpdateAreaIntervento : CommandBase
     {
 
         public Guid Id { get; set; }
@@ -29,7 +30,7 @@ namespace Super.Administration.Commands.AreaIntervento
 
     
 
-        public string ToDescription()
+        public override string ToDescription()
         {
             return string.Format("We update an Area Intervento (Description:'{0}',Start:'{1}',End:'{2}', Id:'{3}')", Description, Start, End, Id);
         }

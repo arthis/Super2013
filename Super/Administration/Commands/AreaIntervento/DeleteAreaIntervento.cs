@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using CommandService;
 using CommonDomain;
 
 namespace Super.Administration.Commands.AreaIntervento
 {
     [DataContract]
-    public class DeleteAreaIntervento : ICommand
+    public class DeleteAreaIntervento : CommandBase
     {
         
         public Guid Id { get; set; }
@@ -22,7 +23,7 @@ namespace Super.Administration.Commands.AreaIntervento
         }
 
 
-        public string ToDescription()
+        public override string ToDescription()
         {
             return string.Format("We delete an Area Intervento (Id:'{0}')", Id);
         }

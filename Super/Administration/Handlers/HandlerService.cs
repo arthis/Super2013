@@ -24,15 +24,15 @@ namespace Super.Administration.Handlers
                           (cmd) => new DeleteAreaInterventoHandler(repositoryEvent).Execute((DeleteAreaIntervento)cmd));
         }
 
-        public ICommandValidation Execute(ICommand command)
+        public ICommandValidation Execute(ICommand commandBase)
         {
-            Contract.Requires<ArgumentNullException>(command != null);
+            Contract.Requires<ArgumentNullException>(commandBase != null);
 
             throw new NotImplementedException();
 
-            var type = command.GetType();
+            var type = commandBase.GetType();
             if (_handlers.ContainsKey(type))
-                return _handlers[type](command);
+                return _handlers[type](commandBase);
 
             //return new CommandValidation(false);
 

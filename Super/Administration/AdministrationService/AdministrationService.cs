@@ -11,16 +11,10 @@ using Super.Administration.Handlers;
 
 namespace CommandService
 {
-    public class AdministrationService : System.ServiceModel.ServiceHost, IAdministrationService
+    public class AdministrationService :  ICommandService
     {
         private CommandHandlerService _commandHandlerService;
         private IBus _bus;
-
-        public AdministrationService()
-            : base(typeof(AdministrationService))
-        {
-            
-        }
 
        
 
@@ -45,7 +39,7 @@ namespace CommandService
 
         }
 
-        protected override void ApplyConfiguration()
+        public void Init()
         {
             var storeEvents = WireupEventStore();
             var aggregateFactory = new AggregateFactory();
@@ -63,9 +57,6 @@ namespace CommandService
             _bus.Subscribe<UpdateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
             _bus.Subscribe<DeleteAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
 
-           
-
-            base.ApplyConfiguration();
         }
 
         private void DispatchCommit(Commit commit)

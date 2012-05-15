@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using log4net;
 
@@ -11,25 +12,25 @@ namespace CommandService
     {
         static void Main(string[] args)
         {
+            
+            var administrationService = new AdministrationService();
+            var commandWebService = new CommandWebService(administrationService);
 
-            //var service = new ServiceAdministration();
-            //service.Start();
-
-            using (var host = new AdministrationService())
+            using (var commandServiceHost = new ServiceHost(commandWebService))
             {
-                host.Open();
-
-                Console.WriteLine("Administation service started");
+                commandServiceHost.Open();
+                Console.WriteLine("Administration service started");
                 var quitFlag = false;
                 while (!quitFlag)
                 {
                     var keyInfo = Console.ReadKey();
                     quitFlag = keyInfo.Key == ConsoleKey.C
-                             && keyInfo.Modifiers == ConsoleModifiers.Control;
+                               && keyInfo.Modifiers == ConsoleModifiers.Control;
                 }
             }
 
-          
+
+
         }
     }
 }

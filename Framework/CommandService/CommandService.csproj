@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4DA3C403-3B72-42BF-84E0-0B3E837BBE42}</ProjectGuid>
+    <ProjectGuid>{22C1CCB4-63E1-47A8-8DD1-865E7E4F280A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CommonCommands</RootNamespace>
-    <AssemblyName>CommonCommands</AssemblyName>
+    <RootNamespace>CommandService</RootNamespace>
+    <AssemblyName>CommandService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,15 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandHandler.cs" />
-    <Compile Include="ICommandService.cs" />
+    <Compile Include="ChannelHelper.cs" />
+    <Compile Include="CommandBase.cs" />
+    <Compile Include="CommandWebService.cs" />
+    <Compile Include="ICommandWebService.cs" />
+    <Compile Include="CommandWebServiceFault.cs" />
+    <Compile Include="ExecuteRequest.cs" />
+    <Compile Include="ExecuteResponse.cs" />
+    <Compile Include="ICommandWebServiceClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestResponse.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
-      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
-      <Name>CommonDomain.Persistence</Name>
+    <ProjectReference Include="..\CommonCommands\CommonCommands.csproj">
+      <Project>{4DA3C403-3B72-42BF-84E0-0B3E837BBE42}</Project>
+      <Name>CommonCommands</Name>
     </ProjectReference>
     <ProjectReference Include="..\CommonDomain\CommonDomain.csproj">
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
