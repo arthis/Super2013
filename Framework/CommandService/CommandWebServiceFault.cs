@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 using CommonDomain;
+using CommonDomain.Core;
 
 namespace CommandService
 {

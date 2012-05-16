@@ -8,6 +8,7 @@ using System.ServiceModel.Dispatcher;
 namespace CommandService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class CommandWebService : ICommandWebService
     {
         private static ICommandService _service;
@@ -25,12 +26,12 @@ namespace CommandService
             Contract.Requires(executeRequest != null);
             Contract.Requires(executeRequest.CommandBase != null);
             Contract.Ensures(Contract.Result<ExecuteResponse>() != null);
-            Contract.EnsuresOnThrow<FaultException<CommandWebServiceFault>>(Contract.Result<ExecuteResponse>() == null);
+            //Contract.EnsuresOnThrow<FaultException<CommandWebServiceFault>>(Contract.Result<ExecuteResponse>() == null);
 
             try
             {
                 var validation = _service.Execute(executeRequest.CommandBase);
-                return new ExecuteResponse();
+                return new ExecuteResponse(validation);
             }
             catch (Exception ex)
             {

@@ -59,6 +59,10 @@
       <Project>{4DA3C403-3B72-42BF-84E0-0B3E837BBE42}</Project>
       <Name>CommonCommands</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
+      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
+      <Name>CommonDomain.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
       <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
       <Name>CommonDomain.Persistence</Name>

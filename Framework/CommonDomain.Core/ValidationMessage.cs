@@ -1,6 +1,11 @@
+using System;
+using System.Runtime.Serialization;
+
 namespace CommonDomain.Core
 {
-    public  class ValidationMessage : IValidationMessage
+    [Serializable]
+    [DataContract]
+    public class ValidationMessage : IValidationMessage
     {
         private string _message;
          

@@ -2,6 +2,7 @@
 using System.Diagnostics.Contracts;
 using CommonCommands;
 using CommonDomain;
+using CommonDomain.Core;
 using Super.Administration.Commands.AreaIntervento;
 using Super.Administration.Domain;
 using CommonDomain.Persistence;
@@ -16,7 +17,7 @@ namespace Super.Administration.Handlers
         }
 
 
-        public override ICommandValidation Execute(DeleteAreaIntervento cmd)
+        public override CommandValidation Execute(DeleteAreaIntervento cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 

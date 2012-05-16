@@ -4,6 +4,9 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonDomain.Core" />
+      <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Super.Administration.Commands.AreaIntervento" />
+      <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CommonDomain" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ExecuteRequest">

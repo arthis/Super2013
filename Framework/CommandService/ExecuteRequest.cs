@@ -1,5 +1,6 @@
 using System.ServiceModel;
 using CommonDomain;
+using CommonDomain.Core;
 
 namespace CommandService
 {

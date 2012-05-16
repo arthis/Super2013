@@ -2,14 +2,13 @@
 using System.Runtime.Serialization;
 using CommandService;
 using CommonDomain;
+using CommonDomain.Core;
 
 namespace Super.Administration.Commands.AreaIntervento
 {
     [DataContract]
     public class DeleteAreaIntervento : CommandBase
     {
-        
-        public Guid Id { get; set; }
 
         public DeleteAreaIntervento()
         {

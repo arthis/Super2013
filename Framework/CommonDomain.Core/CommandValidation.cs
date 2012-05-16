@@ -1,33 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Runtime.Serialization;
 
 namespace CommonDomain.Core
 {
-    public class CommandValidation : ICommandValidation
+    [Serializable]
+    [DataContract]
+    public class CommandValidation 
     {
-        private readonly List<IValidationMessage> _errors;
+        [DataMember]
+        private List<ValidationMessage> Messages { get; set; }
 
         public CommandValidation()
         {
-            this._errors = new List<IValidationMessage>();
+            this.Messages = new List<ValidationMessage>();
+        }
+
+        
+        public CommandValidation(ValidationMessage error)
+        {
+            this.Messages = new List<ValidationMessage>() { error };
         }
 
 
-        public CommandValidation(IValidationMessage error)
+        public void Add(ValidationMessage error)
         {
-            this._errors = new List<IValidationMessage>() { error };
-        }
-
-        public IEnumerable<IValidationMessage> GetErrors()
-        {
-            return _errors;
-        }
-
-        public void Add(IValidationMessage error)
-        {
-            _errors.Add(error);
+            Messages.Add(error);
         }
 
         

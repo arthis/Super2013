@@ -1,10 +1,11 @@
 using CommonDomain;
+using CommonDomain.Core;
 
 namespace CommandService
 {
     public interface ICommandService
     {
         void Init();
-        ICommandValidation Execute(ICommand commandBase);
+        CommandValidation Execute(ICommand commandBase);
     }
 }

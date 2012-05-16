@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using CommandService;
 using CommonDomain;
+using CommonDomain.Core;
 using NUnit.Framework;
 
 

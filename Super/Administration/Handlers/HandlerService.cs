@@ -10,7 +10,7 @@ namespace Super.Administration.Handlers
 {
     public class CommandHandlerService
     {
-        private readonly Dictionary<Type, Func<Object, ICommandValidation>> _handlers = new Dictionary<Type, Func<Object, ICommandValidation>>();
+        private readonly Dictionary<Type, Func<Object, CommandValidation>> _handlers = new Dictionary<Type, Func<Object, CommandValidation>>();
 
 
 
@@ -24,20 +24,17 @@ namespace Super.Administration.Handlers
                           (cmd) => new DeleteAreaInterventoHandler(repositoryEvent).Execute((DeleteAreaIntervento)cmd));
         }
 
-        public ICommandValidation Execute(ICommand commandBase)
+        public CommandValidation Execute(ICommand commandBase)
         {
             Contract.Requires<ArgumentNullException>(commandBase != null);
 
-            throw new NotImplementedException();
 
             var type = commandBase.GetType();
             if (_handlers.ContainsKey(type))
                 return _handlers[type](commandBase);
 
-            //return new CommandValidation(false);
-
-            
-
+            throw new Exception(string.Format("No handler found for the command '{0}'", commandBase.GetType()));
+          
         }
     }
 }

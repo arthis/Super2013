@@ -2,16 +2,19 @@
 using System.Runtime.Serialization;
 using CommandService;
 using CommonDomain;
+using CommonDomain.Core;
 
 namespace Super.Administration.Commands.AreaIntervento
 {
     [DataContract]
     public class UpdateAreaIntervento : CommandBase
     {
-
-        public Guid Id { get; set; }
+        
+        [DataMember]
         public DateTime Start { get; set; }
+        [DataMember]
         public DateTime? End { get; set; }
+        [DataMember]
         public string Description { get; set; }
 
 

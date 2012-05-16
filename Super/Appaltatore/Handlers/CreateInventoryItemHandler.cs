@@ -1,6 +1,7 @@
 ﻿using System;
 using CommonCommands;
 using CommonDomain;
+using CommonDomain.Core;
 using Super.Appaltatore.Commands;
 using Super.Appaltatore.Domain;
 using CommonDomain.Persistence;
@@ -15,7 +16,7 @@ namespace Super.Appaltatore.Handlers
         {
         }
 
-        public override ICommandValidation Execute(CreateInventoryItem cmd)
+        public override CommandValidation Execute(CreateInventoryItem cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 

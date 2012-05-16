@@ -2,16 +2,20 @@
 using System.Runtime.Serialization;
 using CommandService;
 using CommonDomain;
+using CommonDomain.Core;
 
 namespace Super.Administration.Commands.AreaIntervento
 {
     [DataContract]
     public class CreateAreaIntervento : CommandBase
     {
-        public Guid Id { get; set; }
+        [DataMember]
         public DateTime Start { get; set; }
+        [DataMember]
         public DateTime? End { get; set; }
+        [DataMember]
         public string Description { get; set; }
+        [DataMember]
         public DateTime CreationDate { get; set; }
 
 
@@ -34,5 +38,6 @@ namespace Super.Administration.Commands.AreaIntervento
         {
             return string.Format("We create an Area Intervento (description:'{0}',start:'{1}',End :'{2}',  Id :'{3}', CreationDate:'{4}', )", Description, Start, End, Id, CreationDate);
         }
+
     }
 }
