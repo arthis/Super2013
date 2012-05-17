@@ -13,6 +13,8 @@ namespace Super.Administration.Events.AreaIntervento
             return string.Format("The area intervento is deleted (Id:'{0}')", Id);
         }
 
+        
+
         public override bool Equals(object obj)
         {
             return base.Equals(obj);

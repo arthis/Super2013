@@ -10,6 +10,6 @@ namespace CommonDomain
     public interface ICommand : IMessage
     {
         string ToDescription();
-
+        string ToDetails();
     }
 }

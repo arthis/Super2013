@@ -18,13 +18,23 @@ namespace CommonSpecs.Documentation
     {
         public string Name { get; set; }
         public List<BoundedContext> BoundedContexts { get; set; }
+
+        public Documentation()
+        {
+             BoundedContexts= new List<BoundedContext>();
+        }
     }
-    }
+    
     public class BoundedContext
     {
         public string Name { get; set; }
         public string Description { get; set; }
         public List<ScenarioPack> ScenariPack { get; set; }
+
+        public BoundedContext()
+        {
+            ScenariPack= new List<ScenarioPack>();
+        }
     }
 
     public class ScenarioPack
@@ -33,17 +43,35 @@ namespace CommonSpecs.Documentation
         public string Description { get; set; }
 
         public List<Scenario> Scenari { get; set; }
+
+        public ScenarioPack()
+        {
+            Scenari=new List<Scenario>();
+        }
     }
 
     public class Scenario
     {
         public string Title { get; set; }
         public List<Given> Given { get; set; }
-        public string When  { get; set; }
+        public When When { get; set; }
         public List<Then> Then  { get; set; }
+
+        public Scenario()
+        {
+            Given= new List<Given>();
+            When = new When();
+            Then = new List<Then>();
+        }
     }
 
     public class Given
+    {
+        public string Description { get; set; }
+        public string Details { get; set; }
+    }
+
+    public class When
     {
         public string Description { get; set; }
         public string Details { get; set; }
@@ -151,16 +179,72 @@ namespace CommonSpecs.Documentation
         {
             Scenario scenario = new Scenario();
 
+            var instance = Activator.CreateInstance(type);
+
+            MethodInfo[] methodInfos = type.GetMethods();
+
+            var given = (IEnumerable<IEvent>)methodInfos.Single(x => x.Name == "Given").Invoke(instance, null);
+
+            if (given.Any())
+            {
+                
+                foreach (var evt in given)
+                {
+                    scenario.Given.Add(new Given()
+                    { 
+                        Description = evt.ToDescription(),
+                        Details = evt.ToDetails()
+                    });
+                }
+            }
+
+
+
+            var when = (ICommand)methodInfos.Single(x => x.Name == "When").Invoke(instance, null);
+            scenario.When = new When()
+                                {
+                                    Description = when.ToDescription(),
+                                    Details = when.ToDetails()
+                                };
+
+
+            var expect = (IEnumerable<IEvent>)methodInfos.Single(x => x.Name == "Expect").Invoke(instance, null);
+            var expectedTest = methodInfos.Where(x => Attribute.GetCustomAttribute(x, typeof(TestAttribute), false) is TestAttribute);
+
+          
+            if (expect.Any() || expectedTest.Any())
+            {
+                
+                foreach (var evt in expect)
+                {
+                    scenario.Then.Add(new Then()
+                                          {
+                                               Description = evt.ToDescription(),
+                                               Details = evt.ToDetails()
+                                          });
+                }
+
+                foreach (var mtd in expectedTest)
+                {
+                    var nameTest = mtd.Name.Replace('_', ' ');
+                    scenario.Then.Add(new Then()
+                                          {
+                                              Description = nameTest
+                                          });
+                }
+            }
 
             return scenario;
         }
 
         public static ScenarioPack CreateScenarioPack(string @namespace, Assembly assembly)
         {
+            var typeBaseClass = typeof(BaseClass<CommandBase>);
+
             var scenarioPack = new ScenarioPack() ;
             scenarioPack.Name = @namespace;
 
-            var types = assembly.GetTypes().Where(x => x.Namespace == @namespace);
+            var types = assembly.GetTypes().Where(x => x.Namespace == @namespace && x.BaseType.Name == typeBaseClass.Name);
 
             foreach (var type in types)
             {
@@ -189,7 +273,7 @@ namespace CommonSpecs.Documentation
         public static CommonSpecs.Documentation.Documentation CreateDocumentation(string name, params Assembly[] assemblies)
         {
             var documentation = new CommonSpecs.Documentation.Documentation(){ Name = name};
-            documentation.BoundedContexts= new List<BoundedContext>();
+            
             foreach (var assembly in assemblies)
             {
                 documentation.BoundedContexts.Add(CreateBoundedContext(assembly));
