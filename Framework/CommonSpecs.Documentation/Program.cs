@@ -7,6 +7,7 @@ using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonSpecs;
+using CommonSpecs.Documentation;
 using NUnit.Framework;
 
 
@@ -16,16 +17,17 @@ namespace CommonSpecs.Documentation
     public class Documentation
     {
         public string Name { get; set; }
+        public List<BoundedContext> BoundedContexts { get; set; }
     }
     }
     public class BoundedContext
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<Modules> Modules { get; set; }
+        public List<ScenarioPack> ScenariPack { get; set; }
     }
 
-    public class Modules
+    public class ScenarioPack
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -145,6 +147,56 @@ namespace CommonSpecs.Documentation
             return sb.ToString();
         }
 
+        public static Scenario CreateScenario(Type type , Assembly assembly)
+        {
+            Scenario scenario = new Scenario();
+
+
+            return scenario;
+        }
+
+        public static ScenarioPack CreateScenarioPack(string @namespace, Assembly assembly)
+        {
+            var scenarioPack = new ScenarioPack() ;
+            scenarioPack.Name = @namespace;
+
+            var types = assembly.GetTypes().Where(x => x.Namespace == @namespace);
+
+            foreach (var type in types)
+            {
+                scenarioPack.Scenari.Add(CreateScenario(type,assembly));
+            }
+
+        }
+
+        public static BoundedContext CreateBoundedContext(Assembly assembly)
+        {
+            var bc = new BoundedContext();
+
+            bc.Name = assembly.FullName;
+            bc.Description = assembly.FullName;
+
+
+            var namespaces = assembly.GetTypes().Select(x => x.Namespace).Distinct().OrderBy(x => x);
+            foreach (var @namespace in namespaces)
+            {
+                bc.ScenariPack.Add(CreateScenarioPack(@namespace,assembly));
+            }
+
+            return bc;
+        }
+
+        public static CommonSpecs.Documentation.Documentation CreateDocumentation(string name, params Assembly[] assemblies)
+        {
+            var documentation = new CommonSpecs.Documentation.Documentation(){ Name = name};
+            documentation.BoundedContexts= new List<BoundedContext>();
+            foreach (var assembly in assemblies)
+            {
+                documentation.BoundedContexts.Add(CreateBoundedContext(assembly));
+            }
+            return documentation;
+        }
+
         static void Main(string[] args)
         {
             Assembly specsAdministration = typeof(Super.Administration.Specs.Creation_of_a_new_area_intervento).Assembly;
@@ -156,6 +208,11 @@ namespace CommonSpecs.Documentation
             Console.Write(GetDoccumentation(specsSchedulazione));
             Console.Write(GetDoccumentation(specsAppaltatore));
             Console.Write(GetDoccumentation(specsControllo));
+
+
+            //html Documentation
+            var doc = CreateDocumentation("tette", specsAdministration, specsSchedulazione, specsAppaltatore,
+                                          specsControllo);
             
 
             Console.Read();
