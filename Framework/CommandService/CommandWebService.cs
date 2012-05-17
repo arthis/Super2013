@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.Contracts;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Description;
@@ -20,7 +21,7 @@ namespace CommandService
             //do not know if it is really the place to do that....
             service.Init();
         }
-
+        
         public ExecuteResponse Execute(ExecuteRequest executeRequest)
         {
             Contract.Requires(executeRequest != null);

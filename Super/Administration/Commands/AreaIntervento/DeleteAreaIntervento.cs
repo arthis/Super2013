@@ -6,7 +6,7 @@ using CommonDomain.Core;
 
 namespace Super.Administration.Commands.AreaIntervento
 {
-    [DataContract]
+    
     public class DeleteAreaIntervento : CommandBase
     {
 

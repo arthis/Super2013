@@ -10,6 +10,7 @@ using System.ServiceModel;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using Super.Administration.Commands.AreaIntervento;
 using UI_Console.ServiceReference1;
 
 
@@ -38,12 +39,12 @@ namespace UI_Console
             client.Endpoint.Behaviors.Add(
                    new SimpleEndpointBehavior()
                    );
-            var executeRequest = new ExecuteRequest(cmd);
+            var executeRequest = new ExecuteRequest(){ CommandBase = cmd};
 
 
-            var validation = client.Execute(cmd);
+            var validation = client.Execute(executeRequest);
 
-            
+            string s = "dfdf";
 
             //client.Execute(cmd);    
             //Bus = RabbitHutch.CreateBus("host=localhost");

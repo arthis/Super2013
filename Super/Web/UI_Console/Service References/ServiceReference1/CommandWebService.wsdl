@@ -4,31 +4,31 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonDomain.Core" />
-      <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Super.Administration.Commands.AreaIntervento" />
+      <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommandService" />
+      <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CommonDomain.Core" />
       <xsd:import schemaLocation="http://localhost:1338/Administration?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CommonDomain" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ExecuteRequest">
-    <wsdl:part name="parameters" element="tns:ExecuteRequest" />
+  <wsdl:message name="ICommandWebService_Execute_InputMessage">
+    <wsdl:part name="parameters" element="tns:Execute" />
   </wsdl:message>
-  <wsdl:message name="ExecuteResponse">
+  <wsdl:message name="ICommandWebService_Execute_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExecuteResponse" />
   </wsdl:message>
   <wsdl:portType name="ICommandWebService">
     <wsdl:operation name="Execute">
-      <wsdl:input wsaw:Action="ExecuteRequest" name="ExecuteRequest" message="tns:ExecuteRequest" />
-      <wsdl:output wsaw:Action="ExecuteResponse" name="ExecuteResponse" message="tns:ExecuteResponse" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandWebService/Execute" message="tns:ICommandWebService_Execute_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandWebService/ExecuteResponse" message="tns:ICommandWebService_Execute_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICommandWebService" type="tns:ICommandWebService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Execute">
-      <soap:operation soapAction="ExecuteRequest" style="document" />
-      <wsdl:input name="ExecuteRequest">
+      <soap:operation soapAction="http://tempuri.org/ICommandWebService/Execute" style="document" />
+      <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="ExecuteResponse">
+      <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

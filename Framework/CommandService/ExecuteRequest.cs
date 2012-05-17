@@ -4,10 +4,9 @@ using CommonDomain.Core;
 
 namespace CommandService
 {
-    [MessageContract(WrapperName = "ExecuteRequest")]
     public class ExecuteRequest
     {
-        [MessageBodyMember]
+
         public CommandBase CommandBase { get; set; }
 
         public ExecuteRequest()

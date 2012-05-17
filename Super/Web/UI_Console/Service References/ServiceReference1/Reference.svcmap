@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3b35e124-a26c-4204-a4b5-d49d430fa827" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="791c3d88-7148-43cd-8e7a-5c4fec50abbb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -13,7 +13,10 @@
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
     <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
-    <ReferencedAssemblies />
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="CommonDomain" />
+      <ReferencedAssembly AssemblyName="CommonDomain.Core" />
+    </ReferencedAssemblies>
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
   </ClientOptions>
@@ -21,13 +24,13 @@
     <MetadataSource Address="http://localhost:1338/Administration" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Administration4.xsd" MetadataType="Schema" ID="0a98cd3f-1658-4709-bb32-5b3c1100de5c" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd4" />
-    <MetadataFile FileName="Administration.xsd" MetadataType="Schema" ID="24d58d16-ba87-4d17-b040-0239100e0d37" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd2" />
-    <MetadataFile FileName="Administration1.xsd" MetadataType="Schema" ID="e182bd00-58f9-4343-a175-9fc2204e9034" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd3" />
-    <MetadataFile FileName="Administration2.xsd" MetadataType="Schema" ID="2ce48cd8-be62-4ad6-990d-ad3f2804e34b" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd1" />
-    <MetadataFile FileName="Administration3.xsd" MetadataType="Schema" ID="5dc81eee-9685-4cbe-8648-6a3f174d0961" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd0" />
-    <MetadataFile FileName="CommandWebService.wsdl" MetadataType="Wsdl" ID="e200417f-ab28-406e-b303-16b98cce6918" SourceId="1" SourceUrl="http://localhost:1338/Administration?wsdl" />
-    <MetadataFile FileName="Administration.disco" MetadataType="Disco" ID="48aa2175-bdaf-4247-bedc-e6ba8ae14b3f" SourceId="1" SourceUrl="http://localhost:1338/Administration?disco" />
+    <MetadataFile FileName="Administration.xsd" MetadataType="Schema" ID="9ea327f1-24e7-4a0b-870e-b18737dd04ce" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd4" />
+    <MetadataFile FileName="CommandWebService.wsdl" MetadataType="Wsdl" ID="640017ee-fb33-4e5f-81d6-197335257d70" SourceId="1" SourceUrl="http://localhost:1338/Administration?wsdl" />
+    <MetadataFile FileName="Administration1.xsd" MetadataType="Schema" ID="cd0d7313-9cf6-448d-b110-eae9c17ae23d" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd1" />
+    <MetadataFile FileName="Administration2.xsd" MetadataType="Schema" ID="8975586c-714c-41a8-80d1-671dd6269a5f" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd2" />
+    <MetadataFile FileName="Administration3.xsd" MetadataType="Schema" ID="03a2a5f5-80bd-4d0d-8f2d-97c4a0db2b73" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd0" />
+    <MetadataFile FileName="Administration4.xsd" MetadataType="Schema" ID="1d566501-c0e8-4c66-9f2e-0e073c09ac39" SourceId="1" SourceUrl="http://localhost:1338/Administration?xsd=xsd3" />
+    <MetadataFile FileName="Administration.disco" MetadataType="Disco" ID="48338557-331e-461f-be02-ed64278716e4" SourceId="1" SourceUrl="http://localhost:1338/Administration?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

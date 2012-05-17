@@ -4,7 +4,6 @@ using System.Runtime.Serialization;
 namespace CommonDomain.Core
 {
     [Serializable]
-    [DataContract]
     public class ValidationMessage : IValidationMessage
     {
         private string _message;

@@ -138,7 +138,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference1\CommandWebService.wsdl" />
-    <None Include="Service References\ServiceReference1\UI_Console.ServiceReference1.CommandValidation.datasource">
+    <None Include="Service References\ServiceReference1\UI_Console.ServiceReference1.ExecuteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -159,6 +159,20 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
+      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
+      <Name>CommonDomain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
+      <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
+      <Name>CommonDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Administration\Commands\Commands.csproj">
+      <Project>{CB1EFF69-B658-48FC-A075-113D40F81E7C}</Project>
+      <Name>Commands %28Super\Administration\Commands%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

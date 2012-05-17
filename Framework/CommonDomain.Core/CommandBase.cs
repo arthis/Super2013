@@ -5,13 +5,10 @@ using System.Runtime.Serialization;
 namespace CommonDomain.Core
 {
     [Serializable]
-    [DataContract]
     [KnownType("GetKnownTypes")]
     public abstract class CommandBase : ICommand
     {
-        [DataMember]
         public Guid Id { get; set; }
-        [DataMember]
         public Guid CommitId { get; set; }
     
         public abstract string ToDescription();

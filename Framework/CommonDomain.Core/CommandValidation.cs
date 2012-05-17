@@ -5,10 +5,9 @@ using System.Runtime.Serialization;
 namespace CommonDomain.Core
 {
     [Serializable]
-    [DataContract]
     public class CommandValidation 
     {
-        [DataMember]
+
         private List<ValidationMessage> Messages { get; set; }
 
         public CommandValidation()

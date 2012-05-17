@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
@@ -14,8 +15,7 @@ namespace CommandService
         /// <summary>
         /// 
         /// </summary>
-        [OperationContract(Action = "ExecuteRequest",
-                           ReplyAction = "ExecuteResponse")]
+        [OperationContract]
         ExecuteResponse Execute(ExecuteRequest executeRequest);
     }
 }

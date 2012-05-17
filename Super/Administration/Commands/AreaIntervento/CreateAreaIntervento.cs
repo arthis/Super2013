@@ -6,16 +6,16 @@ using CommonDomain.Core;
 
 namespace Super.Administration.Commands.AreaIntervento
 {
-    [DataContract]
+    
     public class CreateAreaIntervento : CommandBase
     {
-        [DataMember]
+        
         public DateTime Start { get; set; }
-        [DataMember]
+        
         public DateTime? End { get; set; }
-        [DataMember]
+        
         public string Description { get; set; }
-        [DataMember]
+        
         public DateTime CreationDate { get; set; }
 
 
