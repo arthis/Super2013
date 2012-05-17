@@ -36,9 +36,6 @@ namespace UI_Console
                           };
             var client = new CommandWebServiceClient();
 
-            client.Endpoint.Behaviors.Add(
-                   new SimpleEndpointBehavior()
-                   );
             var executeRequest = new ExecuteRequest(){ CommandBase = cmd};
 
 
@@ -74,55 +71,5 @@ namespace UI_Console
         //}
     }
 
-    public class SimpleEndpointBehavior : IEndpointBehavior
-    {
-        public void AddBindingParameters(ServiceEndpoint endpoint, System.ServiceModel.Channels.BindingParameterCollection bindingParameters)
-        { }
-        public void ApplyClientBehavior(ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.ClientRuntime clientRuntime)
-        {
-            clientRuntime.MessageInspectors.Add(
-                new SimpleMessageInspector()
-                );
-        }
-        public void ApplyDispatchBehavior(ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.EndpointDispatcher endpointDispatcher)
-        { }
-        public void Validate(ServiceEndpoint endpoint)
-        { }
-    }
-
-    public class SimpleMessageInspector : IClientMessageInspector, IDispatchMessageInspector
-    {
-        #region IClientMessageInspector Members
-
-        public void AfterReceiveReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
-        { }
-
-        public object BeforeSendRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel)
-        {
-
-            Console.WriteLine("====SimpleMessageInspector+BeforeSendRequest is called=====");
-
-            
-
-            return null;
-        }
-
-
-
-
-        #endregion
-
-
-
-        #region IDispatchMessageInspector Members
-
-        public object AfterReceiveRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel, System.ServiceModel.InstanceContext instanceContext)
-        {
-            return null;
-        }
-
-        public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
-        { }
-        #endregion
-    }
+    
 }

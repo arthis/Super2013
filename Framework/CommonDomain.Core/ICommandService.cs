@@ -1,7 +1,4 @@
-using CommonDomain;
-using CommonDomain.Core;
-
-namespace CommandService
+namespace CommonDomain.Core
 {
     public interface ICommandService
     {

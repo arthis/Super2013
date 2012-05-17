@@ -5,6 +5,7 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
+using CommonDomain.Core;
 
 namespace CommandService
 {

@@ -6,11 +6,59 @@ using System.Text;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonSpecs;
 using NUnit.Framework;
 
 
 namespace CommonSpecs.Documentation
 {
+
+    public class Documentation
+    {
+        public string Name { get; set; }
+    }
+    }
+    public class BoundedContext
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public List<Modules> Modules { get; set; }
+    }
+
+    public class Modules
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+
+        public List<Scenario> Scenari { get; set; }
+    }
+
+    public class Scenario
+    {
+        public string Title { get; set; }
+        public List<Given> Given { get; set; }
+        public string When  { get; set; }
+        public List<Then> Then  { get; set; }
+    }
+
+    public class Given
+    {
+        public string Description { get; set; }
+        public string Details { get; set; }
+    }
+
+    public class Then
+    {
+        public string Description { get; set; }
+        public string Details { get; set; }
+    }
+
+    
+
+
+    
+    
+
     class Program
     {
 
@@ -18,8 +66,6 @@ namespace CommonSpecs.Documentation
         {
             var sb = new StringBuilder();
             var index = 0;
-
-            
 
             var instance = Activator.CreateInstance(type);
 

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CommonCommands;
 using CommonDomain;
+using CommonDomain.Core;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 

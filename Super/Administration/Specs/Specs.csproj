@@ -83,10 +83,6 @@
       <Project>{22C1CCB4-63E1-47A8-8DD1-865E7E4F280A}</Project>
       <Name>CommandService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Framework\CommonCommands\CommonCommands.csproj">
-      <Project>{4DA3C403-3B72-42BF-84E0-0B3E837BBE42}</Project>
-      <Name>CommonCommands</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
       <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
       <Name>CommonDomain.Core</Name>

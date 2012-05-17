@@ -72,10 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandHandler.cs" />
-    <Compile Include="ICommandService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonDomain.Core\CommonDomain.Core.csproj">

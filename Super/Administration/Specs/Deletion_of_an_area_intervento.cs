@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using CommonCommands;
 using CommonDomain;
+using CommonDomain.Core;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Administration.Commands;

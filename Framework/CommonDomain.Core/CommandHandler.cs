@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
-using CommonDomain;
-using CommonDomain.Core;
 using CommonDomain.Persistence;
 
-namespace CommonCommands
+namespace CommonDomain.Core
 {
     public abstract class CommandHandler<TCommand> where TCommand : ICommand
     {
@@ -18,4 +16,5 @@ namespace CommonCommands
             Repository = repository;
         }
     }
+
 }

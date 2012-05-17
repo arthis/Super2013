@@ -72,11 +72,14 @@
     </Compile>
     <Compile Include="AggregateBase.cs" />
     <Compile Include="CommandBase.cs" />
+    <Compile Include="CommandHandler.cs" />
     <Compile Include="CommandValidation.cs" />
     <Compile Include="ConflictDetector.cs" />
     <Compile Include="ConventionEventRouter.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="HandlerForDomainEventNotFoundException.cs" />
+    <Compile Include="ICommandService.cs" />
+    <Compile Include="IEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationEventRouter.cs" />
     <Compile Include="SagaBase.cs" />
@@ -89,6 +92,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
+      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
+      <Name>CommonDomain.Persistence</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CommonDomain\CommonDomain.csproj">
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>

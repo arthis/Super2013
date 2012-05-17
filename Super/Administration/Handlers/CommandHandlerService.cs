@@ -6,6 +6,7 @@ using CommonDomain.Core;
 using CommonDomain.Persistence;
 using Super.Administration.Commands.AreaIntervento;
 
+
 namespace Super.Administration.Handlers
 {
     public class CommandHandlerService
@@ -22,6 +23,8 @@ namespace Super.Administration.Handlers
                           (cmd) => new UpdateAreaInterventoHandler(repositoryEvent).Execute((UpdateAreaIntervento)cmd));
             _handlers.Add(typeof(DeleteAreaIntervento),
                           (cmd) => new DeleteAreaInterventoHandler(repositoryEvent).Execute((DeleteAreaIntervento)cmd));
+
+            
         }
 
         public CommandValidation Execute(ICommand commandBase)
@@ -37,4 +40,5 @@ namespace Super.Administration.Handlers
           
         }
     }
+
 }

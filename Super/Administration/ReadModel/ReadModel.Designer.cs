@@ -31,8 +31,7 @@ namespace Super.Administration.ReadModel
         /// <summary>
         /// Initializes a new Super2013Container object using the connection string found in the 'Super2013Container' section of the application configuration file.
         /// </summary>
-        public Super2013Container()
-            : base("name=ReadModelContainer", "Super2013Container")
+        public Super2013Container() : base("name=Super2013Container", "Super2013Container")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -41,8 +40,7 @@ namespace Super.Administration.ReadModel
         /// <summary>
         /// Initialize a new Super2013Container object.
         /// </summary>
-        public Super2013Container(string connectionString)
-            : base(connectionString, "Super2013Container")
+        public Super2013Container(string connectionString) : base(connectionString, "Super2013Container")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -51,8 +49,7 @@ namespace Super.Administration.ReadModel
         /// <summary>
         /// Initialize a new Super2013Container object.
         /// </summary>
-        public Super2013Container(EntityConnection connection)
-            : base(connection, "Super2013Container")
+        public Super2013Container(EntityConnection connection) : base(connection, "Super2013Container")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();

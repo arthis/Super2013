@@ -1,5 +1,5 @@
 using System;
-using CommonCommands;
+using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence.EventStore;
@@ -7,7 +7,9 @@ using EasyNetQ;
 using EventStore;
 using EventStore.Serialization;
 using Super.Administration.Commands.AreaIntervento;
+using Super.Administration.Events.AreaIntervento;
 using Super.Administration.Handlers;
+using Super.Administration.Projection;
 
 namespace CommandService
 {
@@ -51,10 +53,19 @@ namespace CommandService
 
             string subscriptionId = "Super";
 
+            //Commands
+            //to dry
             _bus.Subscribe<CreateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
             _bus.Subscribe<UpdateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
             _bus.Subscribe<DeleteAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
 
+            //Events
+            //to dry
+            _bus.Subscribe<AreaInterventoCreated>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt) );
+            _bus.Subscribe<AreaInterventoUpdated>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt));
+            _bus.Subscribe<AreaInterventoDeleted>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt));
+
+            
         }
 
         private void DispatchCommit(Commit commit)
@@ -65,7 +76,7 @@ namespace CommandService
             try
             {
                 foreach (var @event in commit.Events)
-                    _bus.Publish(@event);
+                    _bus.Publish(@event.Body, @event.Body.GetType());
             }
             catch (Exception e)
             {
