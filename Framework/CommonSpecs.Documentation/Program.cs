@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -8,7 +9,11 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonSpecs;
 using CommonSpecs.Documentation;
+using Commons.Collections;
 using NUnit.Framework;
+using NVelocity;
+using NVelocity.App;
+using NVelocity.Context;
 
 
 namespace CommonSpecs.Documentation
@@ -23,6 +28,25 @@ namespace CommonSpecs.Documentation
         {
              BoundedContexts= new List<BoundedContext>();
         }
+
+        public IEnumerable<DocumentationPage> CreateDocumentationPages()
+        {
+            foreach (var boundedContext in BoundedContexts)
+            {
+                foreach (var scenarioPack in boundedContext.ScenariPack)
+                {
+                    yield return new DocumentationPage()
+                                     {
+                                         BoundedContexts = this.BoundedContexts,
+                                         CurrentBoundedContext = boundedContext,
+                                         ScenariPack = boundedContext.ScenariPack,
+                                         CurrentScenarioPack = scenarioPack,
+                                         DocumentationName = Name
+                                     };
+                }
+            }
+        }
+
     }
     
     public class BoundedContext
@@ -83,6 +107,43 @@ namespace CommonSpecs.Documentation
         public string Details { get; set; }
     }
 
+
+    public class DocumentationPage
+    {
+        public string DocumentationName { get; set; }
+        public List<BoundedContext> BoundedContexts { get; set; }
+        public BoundedContext CurrentBoundedContext { get; set; }
+        public List<ScenarioPack> ScenariPack { get; set; }
+        public ScenarioPack CurrentScenarioPack { get; set; }
+
+        public void ExportToTemplate()
+        {
+            VelocityEngine velocity = new VelocityEngine();
+
+            ExtendedProperties props = new ExtendedProperties();
+            velocity.Init(props);
+
+            Template template = velocity.GetTemplate(@"template.vm");
+
+
+            VelocityContext context = new VelocityContext();
+            context.Put("DocumentationName", DocumentationName );
+            context.Put("boundedContexts", BoundedContexts);
+            context.Put("currentBoundedContext", CurrentBoundedContext);
+
+            context.Put("scenariPack", ScenariPack);
+            context.Put("currentScenarioPack", CurrentScenarioPack);
+
+            context.Put("scenariList", CurrentScenarioPack.Scenari.Select(x=>x.Title));
+            context.Put("scenari", CurrentScenarioPack.Scenari);
+
+
+
+            StringWriter writer = new StringWriter();
+            template.Merge(context, writer);
+            Console.WriteLine(writer.GetStringBuilder().ToString());
+        }
+    }
     
 
 
@@ -91,6 +152,21 @@ namespace CommonSpecs.Documentation
 
     class Program
     {
+
+        public static string GetDetails(object instance)
+        {
+            StringBuilder sb= new StringBuilder();
+            Type myType = instance.GetType();
+            IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
+
+            foreach (PropertyInfo prop in props)
+            {
+                object propValue = prop.GetValue(instance, null);
+                sb.AppendLine(string.Format("{0} : {1}", prop.Name, propValue));
+            }
+
+            return sb.ToString();
+        }
 
         public static string GetDocumentation(Type type)
         {
@@ -179,6 +255,8 @@ namespace CommonSpecs.Documentation
         {
             Scenario scenario = new Scenario();
 
+            scenario.Title = type.FullName;
+
             var instance = Activator.CreateInstance(type);
 
             MethodInfo[] methodInfos = type.GetMethods();
@@ -193,7 +271,7 @@ namespace CommonSpecs.Documentation
                     scenario.Given.Add(new Given()
                     { 
                         Description = evt.ToDescription(),
-                        Details = evt.ToDetails()
+                        Details = GetDetails(evt)
                     });
                 }
             }
@@ -204,7 +282,7 @@ namespace CommonSpecs.Documentation
             scenario.When = new When()
                                 {
                                     Description = when.ToDescription(),
-                                    Details = when.ToDetails()
+                                    Details = GetDetails(when)
                                 };
 
 
@@ -220,7 +298,7 @@ namespace CommonSpecs.Documentation
                     scenario.Then.Add(new Then()
                                           {
                                                Description = evt.ToDescription(),
-                                               Details = evt.ToDetails()
+                                               Details = GetDetails(evt)
                                           });
                 }
 
@@ -251,6 +329,8 @@ namespace CommonSpecs.Documentation
                 scenarioPack.Scenari.Add(CreateScenario(type,assembly));
             }
 
+
+            return scenarioPack;
         }
 
         public static BoundedContext CreateBoundedContext(Assembly assembly)
@@ -288,16 +368,23 @@ namespace CommonSpecs.Documentation
             Assembly specsAppaltatore = typeof(Super.Appaltatore.Specs.Creation_of_a_new_inventory_item).Assembly;
             Assembly specsControllo = typeof(Super.Controllo.Specs.Creation_of_a_new_inventory_item).Assembly;
 
-            Console.Write(GetDoccumentation(specsAdministration));
-            Console.Write(GetDoccumentation(specsSchedulazione));
-            Console.Write(GetDoccumentation(specsAppaltatore));
-            Console.Write(GetDoccumentation(specsControllo));
+            //Console.Write(GetDoccumentation(specsAdministration));
+            //Console.Write(GetDoccumentation(specsSchedulazione));
+            //Console.Write(GetDoccumentation(specsAppaltatore));
+            //Console.Write(GetDoccumentation(specsControllo));
 
 
             //html Documentation
             var doc = CreateDocumentation("tette", specsAdministration, specsSchedulazione, specsAppaltatore,
                                           specsControllo);
-            
+
+
+            var pages = doc.CreateDocumentationPages();
+
+            foreach (var page in pages)
+            {
+                page.ExportToTemplate();
+            }
 
             Console.Read();
         }

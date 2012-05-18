@@ -89,6 +89,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\NUnit 2.5.10\framework\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="NVelocity">
+      <HintPath>..\..\lib\NVelocity.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -100,6 +103,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Site\template.vm" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Super\Administration\Specs\Specs.csproj">
@@ -179,6 +183,9 @@
     <Content Include="Site\style.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)Site\template.vm $(ProjectDir)$(OutDir)template.vm</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

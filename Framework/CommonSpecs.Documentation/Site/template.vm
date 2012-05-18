@@ -1,0 +1,50 @@
+﻿$DocumentationName
+
+boundedContexts:
+#foreach($boundedContext in $boundedContexts)
+    #if($boundedContext.Name==$currentBoundedContext.Name)
+        <li><a  class="current_page_item" href="#">$boundedContext.Name</a></li>
+    #else
+        <li><a href="#">$boundedContext.Name</a></li>
+    #end
+#end
+
+currentScenarioPack.Name : $currentScenarioPack.Name
+currentScenarioPack.Description :$currentScenarioPack.Description
+
+scenariPack:
+#foreach($scenarioPack in $scenariPack)
+    #if($scenarioPack.Name!=$currentScenarioPack.Name)
+        <li><a href="#">$scenarioPack.Name</a></li>
+    #end
+#end
+
+
+scenariList:
+#foreach($scenarioTitle in $scenariList)
+   #scenarioTitle
+#end
+
+scenari:
+#foreach($scenario in $scenari)
+   ---------------
+   $scenario.Title
+   ---------------
+   Given 
+   #foreach ($given in $scenario.Given)
+      Description : $given.Description
+      Details : $given.Details
+   #end
+
+    When 
+      Description :  $scenario.When.Description
+      Details : $scenario.When.Details
+
+   Then
+   #foreach ($then in $scenario.Then)
+      Description : $then.Description
+      Details : $then.Details
+
+   #end
+#end
+

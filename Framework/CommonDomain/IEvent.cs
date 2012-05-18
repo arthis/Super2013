@@ -10,11 +10,4 @@ namespace CommonDomain
         string ToDescription();
     }
 
-    public static class IEventExtensionMethod
-    {
-        public static string ToDetails (IEvent this)
-        {
-            
-        }
-    }
 }
