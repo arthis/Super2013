@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B2759F91-46E5-42EC-ABFA-33DEA9C9D120}</ProjectGuid>
+    <ProjectGuid>{EF2E815F-012E-414E-9EF6-67335E10D26E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Super.Appaltatore.Handlers</RootNamespace>
-    <AssemblyName>Super.Appaltatore.Handlers</AssemblyName>
+    <RootNamespace>Super.Saga.Events</RootNamespace>
+    <AssemblyName>Super.Saga.Events</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Super.Appaltatore.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,37 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateInventoryItemHandler.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Framework\CommonCommands\CommonCommands.csproj">
-      <Project>{4DA3C403-3B72-42BF-84E0-0B3E837BBE42}</Project>
-      <Name>CommonCommands</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
-      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
-      <Name>CommonDomain.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Framework\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
-      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
-      <Name>CommonDomain.Persistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
-      <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
-      <Name>CommonDomain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Commands\Commands.csproj">
-      <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
-      <Name>Commands</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\domain\Domain.csproj">
-      <Project>{15903C05-3822-4034-AF0B-DB1A3611FB46}</Project>
-      <Name>Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Super.Appaltatore.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

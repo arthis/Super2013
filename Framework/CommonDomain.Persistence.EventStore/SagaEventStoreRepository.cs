@@ -23,6 +23,7 @@ namespace CommonDomain.Persistence.EventStore
 			this.Dispose(true);
 			GC.SuppressFinalize(this);
 		}
+
 		protected virtual void Dispose(bool disposing)
 		{
 			if (!disposing)
@@ -41,6 +42,7 @@ namespace CommonDomain.Persistence.EventStore
 		{
 			return BuildSaga<TSaga>(this.OpenStream(sagaId));
 		}
+
 		private IEventStream OpenStream(Guid sagaId)
 		{
 			IEventStream stream;
@@ -84,6 +86,7 @@ namespace CommonDomain.Persistence.EventStore
 			saga.ClearUncommittedEvents();
 			saga.ClearUndispatchedMessages();
 		}
+
 		private static Dictionary<string, object> PrepareHeaders(ISaga saga, Action<IDictionary<string, object>> updateHeaders)
 		{
 			var headers = new Dictionary<string, object>();

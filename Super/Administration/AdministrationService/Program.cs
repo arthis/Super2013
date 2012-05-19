@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using log4net;
+using CommandService;
 
-namespace CommandService
+namespace Super.Administration.AdministrationService
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
-            var administrationService = new AdministrationService();
-            var commandWebService = new CommandWebService(administrationService);
 
+            var administrationService = new Service();
+            var commandWebService = new CommandWebService(administrationService);
+            
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {
                 commandServiceHost.Open();

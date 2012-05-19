@@ -8,8 +8,8 @@
     <ProjectGuid>{05EBFB01-166E-484C-9D17-700433609C23}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CommandService</RootNamespace>
-    <AssemblyName>CommandService</AssemblyName>
+    <RootNamespace>Super.Administration.AdministrationService</RootNamespace>
+    <AssemblyName>Super.Administration.AdministrationService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -98,7 +98,7 @@
     <Compile Include="IAdministrationService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AdministrationService.cs" />
+    <Compile Include="Service.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
@@ -120,10 +120,6 @@
     <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Framework\CommonEvents\CommonEvents.csproj">
-      <Project>{35918484-9E0C-400A-973A-7E8601C8C0A3}</Project>
-      <Name>CommonEvents</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
       <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>

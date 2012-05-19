@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence.EventStore;
@@ -11,9 +10,9 @@ using Super.Administration.Events.AreaIntervento;
 using Super.Administration.Handlers;
 using Super.Administration.Projection;
 
-namespace CommandService
+namespace Super.Administration.AdministrationService
 {
-    public class AdministrationService :  ICommandService
+    public class Service :  ICommandService
     {
         private CommandHandlerService _commandHandlerService;
         private IBus _bus;
