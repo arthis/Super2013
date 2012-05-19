@@ -73,9 +73,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Deletion_of_an_area_intervento.cs" />
-    <Compile Include="Update_of_an_area_intervento.cs" />
-    <Compile Include="Creation_of_a_new_area_intervento.cs" />
+    <Compile Include="AreaIntervento\Deletion_of_an_area_intervento.cs" />
+    <Compile Include="AreaIntervento\Update_of_an_area_intervento.cs" />
+    <Compile Include="AreaIntervento\Creation_of_a_new_area_intervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

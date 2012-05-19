@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
@@ -11,21 +11,18 @@
 <div id="wrapper">
 	<div id="header">
 		<div id="logo">
-			<h1><a href="#">$DocumentationName</a></h1>
+			<h1><a href="#">Specifications</a></h1>
 			<p>by ict makers</p>
 		</div>
 	</div>
 	<!-- end #header -->
 	<div id="menu">
 		<ul>
-		#foreach($boundedContext in $boundedContexts)
-			#if($boundedContext.Name==$currentBoundedContext.Name)
-				<li><a  class="current_page_item" href="$boundedContext.GetPageUrl()">$boundedContext.Name</a></li>
-			#else
-				<li><a href="$boundedContext.GetPageUrl()">$boundedContext.Name</a></li>
-			#end
-		#end
-		</ul>
+									<li><a href="Administration.html">Administration</a></li>
+												<li><a href="Schedulazione.html">Schedulazione</a></li>
+												<li><a href="Appaltatore.html">Appaltatore</a></li>
+												<li><a  class="current_page_item" href="Controllo.html">Controllo</a></li>
+							</ul>
 	</div>
 	<!-- end #menu -->
 	<div id="page">
@@ -37,38 +34,13 @@
 		        <p class="meta">elenco degli scenari per  $currentScenarioPack.Name</p>
 		        <div class="entry">
 		            <ul>
-					#foreach($scenario in $scenari)
-						<li><a href="$currentScenarioPack.GetPageUrl()#$scenario.Title">$scenario.Title</a></li>
-					#end
-		            </ul>
+							            </ul>
 		        </div>
 		    </div>
 			
 			<div class="post">
 				
-				#foreach($scenario in $scenari)
-					<h2 class="title"><a name="$scenario.Title">$scenario.Title</a></h2>
-					<p class="meta">$scenario.Description</p>
-					<div class="entry">
-					<p>
-					Given that
-					#foreach ($given in $scenario.Given)
-						$given.Description &nbsp;<a class="more" title="$given.Details"></a>
-					#end
-					</p>
-					<p>
-					When 
-						$scenario.When.Description &nbsp;<a class="more" title="$scenario.When.Details"></a>
-					</p>
-					<p>
-					Then
-					#foreach ($then in $scenario.Then)
-						$then.Description  &nbsp;<a class="more" title="$then.Details"></a>
-					</p>
-					#end
-					</div>
-				#end
-			</div>
+							</div>
 			
 			<div style="clear: both;">&nbsp;</div>
 		</div>
@@ -76,21 +48,13 @@
 		<div id="sidebar">
 			<ul>
 				<li>
-					#if ( ! $currentScenarioPack )
-					<h2> $currentScenarioPack.Name</h2>
-					<p>$currentScenarioPack.Description</p>
-					#end
-				</li>
+									</li>
 				<li>
 				
 					<h2>Categories</h2>
 					<ul>
-					#foreach($scenarioPack in $scenariPack)
-						#if($scenarioPack.Name!=$currentScenarioPack.Name)
-							<li><span>$scenarioPack.Scenari.Count()</span><a href="$scenarioPack.GetPageUrl()">$scenarioPack.Name</a></li>
-						#end
-					#end
-					</ul>
+																		<li><span>1</span><a href="Controllo_Specs.html">Specs</a></li>
+																</ul>
 				
 				</li>
 			</ul>

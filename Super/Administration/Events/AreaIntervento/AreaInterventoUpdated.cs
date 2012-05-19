@@ -11,7 +11,7 @@ namespace Super.Administration.Events.AreaIntervento
         public string Description { get; set; }
         public string ToDescription()
         {
-            return string.Format("The area intervento is updated (Description:'{0}',Start:'{1}',End:'{2}', Id:'{3}')", Description, Start, End, Id);
+            return string.Format("The area intervento is updated '{0}'.", Description);
         }
 
         public override bool Equals(object obj)

@@ -101,8 +101,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoundedContext.cs" />
+    <Compile Include="Documentation.cs" />
+    <Compile Include="DocumentationFactory.cs" />
+    <Compile Include="DocumentationPage.cs" />
+    <Compile Include="Given.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenario.cs" />
+    <Compile Include="ScenarioPack.cs" />
+    <Compile Include="Then.cs" />
+    <Compile Include="When.cs" />
     <None Include="Site\template.vm" />
   </ItemGroup>
   <ItemGroup>
@@ -184,7 +193,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(ProjectDir)Site\template.vm $(ProjectDir)$(OutDir)template.vm</PostBuildEvent>
+    <PostBuildEvent>copy $(ProjectDir)Site\template.vm $(OutDir)template.vm
+xcopy $(ProjectDir)Site  $(SolutionDir)\Documentation\Specs /E /I /F /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -36,7 +36,7 @@ namespace Super.Administration.Commands.AreaIntervento
 
         public override string ToDescription()
         {
-            return string.Format("We create an Area Intervento (description:'{0}',start:'{1}',End :'{2}',  Id :'{3}', CreationDate:'{4}', )", Description, Start, End, Id, CreationDate);
+            return string.Format("We create an Area Intervento '{0}'.", Description);
         }
 
     }

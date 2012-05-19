@@ -13,7 +13,7 @@ namespace Super.Administration.Events.AreaIntervento
 
         public string ToDescription()
         {
-            return string.Format("The area intervento is created (Description:'{0}',Start:'{1}',End:'{2}', Id:'{3}')", Description, Start, End, Id);
+            return string.Format("The area intervento is created '{0}'.", Description);
         }
 
         public override bool Equals(object obj)

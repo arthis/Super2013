@@ -4,15 +4,12 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence;
 using NUnit.Framework;
-using Super.Administration.Commands;
 using CommonSpecs;
 using Super.Administration.Commands.AreaIntervento;
-using Super.Administration.Events;
 using Super.Administration.Events.AreaIntervento;
 using Super.Administration.Handlers;
 
-
-namespace Super.Administration.Specs
+namespace Super.Administration.Specs.AreaIntervento
 {
     public class Creation_of_a_new_area_intervento : BaseClass<CreateAreaIntervento>
     {
