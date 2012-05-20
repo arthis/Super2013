@@ -75,6 +75,27 @@
     <AssemblyOriginatorKeyFile>Super.Saga.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EventStore">
+      <HintPath>..\..\..\lib\EventStore\EventStore.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Logging.Log4Net">
+      <HintPath>..\..\..\lib\EventStore\logging\log4net\EventStore.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Persistence.MongoPersistence">
+      <HintPath>..\..\..\lib\EventStore\persistence\mongo\EventStore.Persistence.MongoPersistence.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Serialization.Json">
+      <HintPath>..\..\..\lib\EventStore\serialization\json-net\EventStore.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\lib\EventStore\logging\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\..\lib\EventStore\persistence\mongo\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\..\lib\EventStore\persistence\mongo\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -96,6 +117,14 @@
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
       <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
       <Name>CommonDomain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain.Persistence.EventStore\CommonDomain.Persistence.EventStore.csproj">
+      <Project>{F489D9D1-F275-4018-A86F-D84352BCD4E9}</Project>
+      <Name>CommonDomain.Persistence.EventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
+      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
+      <Name>CommonDomain.Persistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
@@ -128,6 +157,10 @@
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{EF2E815F-012E-414E-9EF6-67335E10D26E}</Project>
       <Name>Events %28Super\Saga\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Handlers\Handlers.csproj">
+      <Project>{ED040216-1CD7-44D0-A567-0101C9FEC2E3}</Project>
+      <Name>Handlers %28Super\Saga\Handlers%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

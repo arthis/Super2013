@@ -1,9 +1,9 @@
 using System;
 using EventStore;
 
-namespace Super.Administration.AdministrationService
+namespace CommonDomain.Persistence.EventStore
 {
-    internal class AuthorizationPipelineHook : IPipelineHook
+    public class AuthorizationPipelineHook : IPipelineHook
     {
         public void Dispose()
         {

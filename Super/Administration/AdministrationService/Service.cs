@@ -63,9 +63,6 @@ namespace Super.Administration.AdministrationService
 
         private void DispatchCommit(Commit commit)
         {
-            // This is where we'd hook into our messaging infrastructure, such as NServiceBus,
-            // MassTransit, WCF, or some other communications infrastructure.
-            // This can be a class as well--just implement IDispatchCommits.
             try
             {
                 foreach (var @event in commit.Events)

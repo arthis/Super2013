@@ -71,6 +71,7 @@
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="AggregateFactory.cs" />
+    <Compile Include="AuthorizationPipelineHook.cs" />
     <Compile Include="EventStoreRepository.cs" />
     <Compile Include="ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
