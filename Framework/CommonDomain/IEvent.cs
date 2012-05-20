@@ -5,8 +5,9 @@ using System.Text;
 
 namespace CommonDomain
 {
-    public interface IEvent :IMessage
+    public interface IEvent 
     {
+        Guid Id { get; set; }
         string ToDescription();
     }
 

@@ -16,7 +16,7 @@ namespace Super.Saga.SagaService
             _bus = RabbitHutch.CreateBus("host=localhost");
             string subscriptionId = "Super";
 
-            _bus.Subscribe<InterventoSchedulato>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt));
+            _bus.Subscribe<InterventoSchedulato>(subscriptionId, evt => new InterventoSagaHandler().Handle(evt));
         }
 
         public void Start()

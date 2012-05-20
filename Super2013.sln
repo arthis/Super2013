@@ -91,6 +91,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagaService", "Super\Saga\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handlers", "Super\Saga\Handlers\Handlers.csproj", "{ED040216-1CD7-44D0-A567-0101C9FEC2E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Super\Saga\Domain\Domain.csproj", "{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Super2013.vsmdi
@@ -464,6 +466,16 @@ Global
 		{ED040216-1CD7-44D0-A567-0101C9FEC2E3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{ED040216-1CD7-44D0-A567-0101C9FEC2E3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{ED040216-1CD7-44D0-A567-0101C9FEC2E3}.Release|x86.ActiveCfg = Release|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -512,5 +524,6 @@ Global
 		{EF2E815F-012E-414E-9EF6-67335E10D26E} = {0BA9C73F-4E95-4AE6-821B-9BAB5BFAA657}
 		{85F80C55-075E-4149-83D4-C32D09660E3A} = {0BA9C73F-4E95-4AE6-821B-9BAB5BFAA657}
 		{ED040216-1CD7-44D0-A567-0101C9FEC2E3} = {0BA9C73F-4E95-4AE6-821B-9BAB5BFAA657}
+		{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90} = {0BA9C73F-4E95-4AE6-821B-9BAB5BFAA657}
 	EndGlobalSection
 EndGlobal

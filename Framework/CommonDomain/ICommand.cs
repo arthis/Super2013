@@ -7,7 +7,7 @@ using System.Text;
 namespace CommonDomain
 {
     
-    public interface ICommand : IMessage
+    public interface ICommand 
     {
         string ToDescription();
     }

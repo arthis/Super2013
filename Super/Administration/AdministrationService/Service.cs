@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence.EventStore;
@@ -12,7 +13,7 @@ using Super.Administration.Projection;
 
 namespace Super.Administration.AdministrationService
 {
-    public class Service :  ICommandService
+    public class Service : ICommandService
     {
         private CommandHandlerService _commandHandlerService;
         private IBus _bus;
@@ -52,18 +53,11 @@ namespace Super.Administration.AdministrationService
 
             string subscriptionId = "Super";
 
-            //Commands
-            //to dry
-            _bus.Subscribe<CreateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
-            _bus.Subscribe<UpdateAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
-            _bus.Subscribe<DeleteAreaIntervento>(subscriptionId, cmd => _commandHandlerService.Execute(cmd));
-
             //Events
             //to dry
-            _bus.Subscribe<AreaInterventoCreated>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt) );
-            _bus.Subscribe<AreaInterventoUpdated>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt));
-            _bus.Subscribe<AreaInterventoDeleted>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt));
-
+            _bus.SubscribeToMessage(subscriptionId, typeof(AreaInterventoCreated), evt => new AreaInterventoProjection().Handle((AreaInterventoCreated)evt.PayLoad));
+            _bus.SubscribeToMessage(subscriptionId, typeof(AreaInterventoUpdated), evt => new AreaInterventoProjection().Handle((AreaInterventoUpdated)evt.PayLoad));
+            _bus.SubscribeToMessage(subscriptionId, typeof(AreaInterventoDeleted), evt => new AreaInterventoProjection().Handle((AreaInterventoDeleted)evt.PayLoad));
             
         }
 
@@ -75,7 +69,12 @@ namespace Super.Administration.AdministrationService
             try
             {
                 foreach (var @event in commit.Events)
-                    _bus.Publish(@event.Body, @event.Body.GetType());
+                {
+                    var message = new Message() { CommitId = commit.CommitId,  PayLoad = (IEvent)@event.Body };
+
+                    _bus.Publish(message, @event.Body.GetType());
+                }
+
             }
             catch (Exception e)
             {
@@ -89,11 +88,11 @@ namespace Super.Administration.AdministrationService
             try
             {
                 return _commandHandlerService.Execute(command);
-                
+
             }
             catch (Exception e)
             {
-                return new CommandValidation(new ValidationMessage(e.ToString()) );
+                return new CommandValidation(new ValidationMessage(e.ToString()));
             }
         }
     }

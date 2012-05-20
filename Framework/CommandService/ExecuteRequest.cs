@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace CommandService
 {
-    public class ExecuteRequest
+    public class ExecuteRequest 
     {
 
         public CommandBase CommandBase { get; set; }
