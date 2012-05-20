@@ -1,38 +1,50 @@
-This Project is a try out at re analysing the super application through means of :
+Introduction
+------------
 
-  Domain driven development
-  Command Query Responsibility Segregation
-  Event sourcing.
+This Project is a try out at re analysing the super application(cleaning management system) through means of :
+
+ - Domain driven development  
+ - Command Query Responsibility Segregation  
+ - Event sourcing.
 
 nCQRS framework has been used used but is totally discarded now. Current solution implies the use of Joliver Commain domain and events store.
 
+Documentation
+-------------
+
+A basic contextmap can be found in the documentation folder.
 The initial aim of this project was to give tools to develop a full blown solution using BDD.
 
-Given (events)
-Then (Command)
-Expect (events)
+    Given (events)
+    Then (Command)
+    Expect (events)
 
-And to generate some documentation on the fly of the different tests available.
+And to generate some documentation on the fly of the different tests available. Triggering Specs.Documentation will generate html pages in Documentation/Specs,where all test are gathered
 
-The application is under hardcore development and so might work or not depending on the day you get it.
-
-My future points of interest are :
-
-define the bounded context and their interactions8 see contextmap.png in documentation)
+define the bounded context and their interactions (see contextmap.png in documentation)
 so far I have found :
  
-    - Administration (CRUD like)
+    - Administration :  (CRUD like)
     - Schedulazione : 	BC responsible for the generation of intervento
     - Appaltatore : 	Handling of Intervento by the appaltatore
     - Controllo :       Control of the intervento through the means of schede and various tools
     - Accounting :      BC responsible for giving numbers and reports depending on accounting rules 
 
+*The application is under hardcore development and so might work or not depending on the day you get it.*
 
+current worries
+---------------
 
-current worries are :
+ 
 
--dealing nicely with command in a sync fashion ?
--putting in one single exe command handling, eventhandling, and projection generation?
--having one readModel per bounded context, I am afraid it is the only way. Should then I have different copies of Area Intervento. 
-I mean to be using one server only, does it make sense then to duplicate this information? use a trick to have every bounded context look at the same part of the read model...
+ - dealing nicely with command in a sync fashion ?
+ - putting in one single exe command handling, eventhandling, and     projection generation?
+ - having one readModel per bounded context, I am afraid it is the only way. Should then I have different copies of Area Intervento. I mean to be using one server only, does it make sense then to duplicate this information? use a trick to have every bounded context look at the same part of the read model...
 to be think better later
+ - experimenting with sagas
+
+Dependencies:
+-------------
+
+ - CodeContracts
+ - MongoDB
