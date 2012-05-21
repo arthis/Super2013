@@ -7,9 +7,28 @@ namespace CommonDomain.Core
 {
     public class Message : IMessage
     {
-        public Guid AggregateId { get; set; }
-        public Guid CommitId { get; set; }
-        public IEvent PayLoad { get; set; }
+        public IEnumerable<KeyValuePair<string, object>> Headers { get; set; }
 
+        public Message()
+        {
+            Headers= new Dictionary<string, object>();
+        }
+
+        public void SetHeader(string key, object value)
+        {
+            ((Dictionary<string, object>)Headers).Add(key,value);
+        }
+
+
+
+        public Guid GetCommitId()
+        {
+            return (Guid)((Dictionary<string, object>)Headers)["CommitId"];
+        }
+
+        public Guid GetCorrelationId()
+        {
+            return (Guid)((Dictionary<string, object>)Headers)["CommitId"];
+        }
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using CommonDomain;
 using CommonDomain.Core;
@@ -15,8 +17,12 @@ namespace Super.Administration.AdministrationService
 {
     public class Service : ICommandService
     {
+        private const string AggregateIdKey = "AggregateId";
+        private const string CommitVersionKey = "CommitVersion";
+        private const string EventVersionKey = "EventVersion";
+        private const string BusPrefixKey = "Bus.";
         private CommandHandlerService _commandHandlerService;
-        private IBus _bus;
+        private IBus bus;
 
         private readonly byte[] _encryptionKey = new byte[]
                                                      {
@@ -49,29 +55,56 @@ namespace Super.Administration.AdministrationService
             _commandHandlerService = new CommandHandlerService();
             _commandHandlerService.InitHandlers(eventRepository);
 
-            _bus = RabbitHutch.CreateBus("host=localhost");
+            bus = RabbitHutch.CreateBus("host=localhost");
 
             string subscriptionId = "Super";
 
             //Events
             //to dry
-            _bus.SubscribeToMessage(subscriptionId, typeof(AreaInterventoCreated), evt => new AreaInterventoProjection().Handle((AreaInterventoCreated)evt.PayLoad));
-            _bus.SubscribeToMessage(subscriptionId, typeof(AreaInterventoUpdated), evt => new AreaInterventoProjection().Handle((AreaInterventoUpdated)evt.PayLoad));
-            _bus.SubscribeToMessage(subscriptionId, typeof(AreaInterventoDeleted), evt => new AreaInterventoProjection().Handle((AreaInterventoDeleted)evt.PayLoad));
+            bus.Subscribe<AreaInterventoCreated>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt));
+            bus.Subscribe<AreaInterventoUpdated>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt));
+            bus.Subscribe<AreaInterventoDeleted>(subscriptionId, evt => new AreaInterventoProjection().Handle(evt));
             
+        }
+
+        private static void AppendHeaders(IMessage message, IEnumerable<KeyValuePair<string, object>> headers)
+        {
+            headers = headers.Where(x => x.Key.StartsWith(BusPrefixKey));
+            foreach (var header in headers)
+            {
+                var key = header.Key.Substring(BusPrefixKey.Length);
+                var value = (header.Value ?? string.Empty).ToString();
+                message.SetHeader(key, value);
+            }
+        }
+
+        private static void AppendVersion(Commit commit, int index)
+        {
+            var busMessage = commit.Events[index].Body as IMessage;
+            busMessage.SetHeader(AggregateIdKey, commit.StreamId.ToString());
+            busMessage.SetHeader(CommitVersionKey, commit.StreamRevision.ToString());
+            busMessage.SetHeader(EventVersionKey, GetSpecificEventVersion(commit, index).ToString());
+        }
+        private static int GetSpecificEventVersion(Commit commit, int index)
+        {
+            // e.g. (StreamRevision: 120) - (5 events) + 1 + (index @ 4: the last index) = event version: 120
+            return commit.StreamRevision - commit.Events.Count + 1 + index;
         }
 
         private void DispatchCommit(Commit commit)
         {
             try
             {
-                foreach (var @event in commit.Events)
+                for (var i = 0; i < commit.Events.Count; i++)
                 {
-                    var message = new Message() { CommitId = commit.CommitId,  PayLoad = (IEvent)@event.Body };
-
-                    _bus.Publish(message, @event.Body.GetType());
+                    var eventMessage = commit.Events[i];
+                    var busMessage = eventMessage.Body as IMessage;
+                    AppendHeaders(busMessage, commit.Headers); // optional
+                    AppendHeaders(busMessage, eventMessage.Headers); // optional
+                    AppendVersion(commit, i); // optional
+                    this.bus.Publish(busMessage);
                 }
-
+                
             }
             catch (Exception e)
             {

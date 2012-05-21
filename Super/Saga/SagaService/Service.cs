@@ -16,7 +16,7 @@ namespace Super.Saga.SagaService
 {
     public class Service
     {
-        private static IBus _bus;
+        private static IBus bus;
         private readonly byte[] _encryptionKey = new byte[]
                                                      {
                                                          0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf
@@ -41,14 +41,15 @@ namespace Super.Saga.SagaService
 
         public void Init()
         {
-            _bus = RabbitHutch.CreateBus("host=localhost");
+            bus = RabbitHutch.CreateBus("host=localhost");
             string subscriptionId = "Super";
 
             var storeEvents = WireupEventStore();
             
             var repository = new SagaEventStoreRepository(storeEvents);
 
-            _bus.SubscribeToMessage(subscriptionId, typeof(InterventoSchedulato), msg => new InterventoSagaHandler(repository).Handle(msg));
+
+            bus.Subscribe<InterventoSchedulato>(subscriptionId, evt => new InterventoSagaHandler(repository, bus).Handle(evt));
         }
 
         private void DispatchCommit(Commit commit)
@@ -57,9 +58,9 @@ namespace Super.Saga.SagaService
             {
                 foreach (var @event in commit.Events)
                 {
-                    var message = new Message() { CommitId = commit.CommitId, PayLoad = (IEvent)@event.Body };
+                    //var message = new Message() { CommitId = commit.CommitId, PayLoad = (IEvent)@event.Body };
 
-                    _bus.Publish(message, @event.Body.GetType());
+                    //_bus.Publish(message, @event.Body.GetType());
                 }
 
             }

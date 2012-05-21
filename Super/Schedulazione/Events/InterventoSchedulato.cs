@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CommonDomain;
+using CommonDomain.Core;
+
 
 namespace Super.Schedulazione.Events
 {
-    public class InterventoSchedulato : IEvent
+    public class InterventoSchedulato : Message,IEvent
     {
         public Guid Id { get; set; }
         public Guid IdAreaIntervento { get; set; }
@@ -17,5 +19,7 @@ namespace Super.Schedulazione.Events
         {
             return string.Format("The Intervento {0} is Schedulato.", Id);
         }
+
+        
     }
 }

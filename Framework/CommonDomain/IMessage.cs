@@ -7,7 +7,7 @@ namespace CommonDomain
 {
     public interface IMessage
     {
-        Guid CommitId { get; set; }
-        IEvent PayLoad { get; set; }
+        IEnumerable<KeyValuePair<string, object>> Headers { get; set; }
+        void SetHeader(string key, object value);
     }
 }

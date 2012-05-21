@@ -1,9 +1,11 @@
 ﻿using System;
 using CommonDomain;
+using CommonDomain.Core;
+
 
 namespace Super.Administration.Events.AreaIntervento
 {
-    public class AreaInterventoDeleted : IEvent 
+    public class AreaInterventoDeleted : Message,IEvent
     {
         public Guid Id { get; set; }
 

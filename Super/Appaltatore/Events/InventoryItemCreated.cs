@@ -1,9 +1,10 @@
 ﻿using System;
 using CommonDomain;
 
+
 namespace Super.Appaltatore.Events
 {
-	public class InventoryItemCreatedAdded :IEvent
+    public class InventoryItemCreatedAdded : IEvent
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

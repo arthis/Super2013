@@ -1,26 +1,52 @@
 ﻿using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence;
+using EasyNetQ;
 using Super.Saga.Domain;
+using Super.Saga.Events;
 using Super.Schedulazione.Events;
 
 namespace Super.Saga.Handlers
 {
-    public class InterventoSagaHandler : SagaHandler
+    public class InterventoSagaHandler : SagaHandler, IEventHandler<InterventoSchedulato>
     {
-        public InterventoSagaHandler(ISagaRepository repository) : base(repository)
+
+        public InterventoProgrammato CreateInterventoProgramato(InterventoSchedulato e)
+        {
+            var evt =  new InterventoProgrammato()
+            {
+                End = e.End,
+                Id = e.Id,
+                IdAreaIntervento = e.IdAreaIntervento,
+                Start = e.Start,
+                Headers = e.Headers
+            };
+
+            return evt;
+        }
+
+        public InterventoSagaHandler(ISagaRepository repository, IBus bus)
+            : base(repository, bus)
         {
         }
 
-        public void Handle( IMessage message)
+        public void Handle(InterventoSchedulato @event)
         {
-            var sagaId = message.PayLoad.Id; 
+            var sagaId = @event.GetCorrelationId();
+
             // purchase correlation 
             var saga = Repository.GetById<InterventoSaga>(sagaId);
 
-            saga.Transition(message);
+            if (saga.GetState() == InterventoSaga.State.Start)
+            {
+                var interventoProgrammato = CreateInterventoProgramato(@event);
 
-            Repository.Save(saga, message.CommitId,null);
+                Bus.Publish(interventoProgrammato);
+
+                saga.Transition(@event);
+
+                Repository.Save(saga, @event.GetCommitId(), null);
+            }
         }
     }
 }

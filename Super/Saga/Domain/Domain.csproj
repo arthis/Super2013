@@ -71,6 +71,9 @@
     <AssemblyOriginatorKeyFile>Super.Saga.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Stateless">
+      <HintPath>..\..\..\lib\Stateless 2.3.1\Stateless.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -95,6 +98,14 @@
     <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Schedulazione\Events\Events.csproj">
+      <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
+      <Name>Events %28Super\Schedulazione\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Events.csproj">
+      <Project>{EF2E815F-012E-414E-9EF6-67335E10D26E}</Project>
+      <Name>Events %28Super\Saga\Events%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

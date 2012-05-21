@@ -86,6 +86,16 @@
   <ItemGroup>
     <None Include="Super.Saga.snk" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
+      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
+      <Name>CommonDomain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
+      <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
+      <Name>CommonDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

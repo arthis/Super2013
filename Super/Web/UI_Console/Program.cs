@@ -28,22 +28,22 @@ namespace UI_Console
         static void Main(string[] args)
         {
 
-            //var cmd = new CreateAreaIntervento()
-            //              {
-            //                  CommitId = Guid.NewGuid(),
-            //                  Id = Guid.NewGuid(),
-            //                  CreationDate = DateTime.Now,
-            //                  Description = "ttt",
-            //                  End = DateTime.Now,
-            //                  Start = DateTime.Now,
+            var cmd = new CreateAreaIntervento()
+                          {
+                              CommitId = Guid.NewGuid(),
+                              Id = Guid.NewGuid(),
+                              CreationDate = DateTime.Now,
+                              Description = "ttt",
+                              End = DateTime.Now,
+                              Start = DateTime.Now,
 
-            //              };
-            //var client = new CommandWebServiceClient();
+                          };
+            var client = new CommandWebServiceClient();
 
-            //var executeRequest = new ExecuteRequest(){ CommandBase = cmd};
+            var executeRequest = new ExecuteRequest() { CommandBase = cmd };
 
 
-            //var validation = client.Execute(executeRequest);
+            var validation = client.Execute(executeRequest);
 
             //string s = "dfdf";
 
