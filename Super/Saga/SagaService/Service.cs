@@ -49,7 +49,9 @@ namespace Super.Saga.SagaService
             var repository = new SagaEventStoreRepository(storeEvents);
 
 
-            bus.Subscribe<InterventoSchedulato>(subscriptionId, evt => new InterventoSagaHandler(repository, bus).Handle(evt));
+            bus.Subscribe<InterventoRotSchedulato>(subscriptionId, evt => new InterventoRotSchedulatoHandler(repository, bus).Handle(evt));
+            bus.Subscribe<InterventoRotManSchedulato>(subscriptionId, evt => new InterventoRotManSchedulatoHandler(repository, bus).Handle(evt));
+            bus.Subscribe<InterventoAmbSchedulato>(subscriptionId, evt => new InterventoAmbSchedulatoHandler(repository, bus).Handle(evt));
         }
 
         private void DispatchCommit(Commit commit)

@@ -73,7 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClass.cs" />
+    <Compile Include="CommandBaseClass.cs" />
     <Compile Include="FakeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +97,10 @@
     <ProjectReference Include="..\..\Super\Appaltatore\domain\Domain.csproj">
       <Project>{15903C05-3822-4034-AF0B-DB1A3611FB46}</Project>
       <Name>Domain %28Super\Appaltatore\Domain%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
+      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
+      <Name>EasyNetQ</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

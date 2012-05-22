@@ -93,7 +93,7 @@ namespace CommonSpecs.Documentation
 
         public static ScenarioPack CreateScenarioPack(BoundedContext bc, string @namespace, string name, Assembly assembly)
         {
-            var typeBaseClass = typeof(BaseClass<CommandBase>);
+            var typeBaseClass = typeof(CommandBaseClass<CommandBase>);
 
             var scenarioPack = new ScenarioPack(bc);
             scenarioPack.Name = name;

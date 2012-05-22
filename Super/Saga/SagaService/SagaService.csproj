@@ -154,10 +154,6 @@
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
       <Name>Events %28Super\Schedulazione\Events%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Events\Events.csproj">
-      <Project>{EF2E815F-012E-414E-9EF6-67335E10D26E}</Project>
-      <Name>Events %28Super\Saga\Events%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Handlers\Handlers.csproj">
       <Project>{ED040216-1CD7-44D0-A567-0101C9FEC2E3}</Project>
       <Name>Handlers %28Super\Saga\Handlers%29</Name>

@@ -11,7 +11,7 @@ using Super.Administration.Handlers;
 
 namespace Super.Administration.Specs.AreaIntervento
 {
-    public class Deletion_of_an_area_intervento : BaseClass<DeleteAreaIntervento>
+    public class Deletion_of_an_area_intervento : CommandBaseClass<DeleteAreaIntervento>
     {
         private Guid _Id = Guid.NewGuid();
         private string _Description = "test";

@@ -8,7 +8,7 @@ using EasyNetQ;
 
 namespace CommonDomain.Core
 {
-    public class SagaHandler
+    public abstract class SagaHandler<TMessage> where TMessage:IMessage
     {
         protected ISagaRepository Repository;
         protected IBus Bus;
@@ -21,6 +21,23 @@ namespace CommonDomain.Core
 
             Repository = repository;
             Bus = bus;
+        }
+
+        protected abstract ISaga OnHandle(TMessage message);
+
+        public void Handle(TMessage message)
+        {
+            var saga = OnHandle(message);
+            Dispatch(saga);
+        }
+
+        public void Dispatch(ISaga saga)
+        {
+            foreach (var msg in saga.GetUndispatchedMessages())
+            {
+                var message = msg as IMessage;
+                Bus.Publish(message);
+            }
         }
     }
 

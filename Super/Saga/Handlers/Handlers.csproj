@@ -80,7 +80,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InterventoSagaHandler.cs" />
+    <Compile Include="InterventoAmbSagaHandler.cs" />
+    <Compile Include="InterventoRotManSagaHandler.cs" />
+    <Compile Include="InterventoRotSchedulatoHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,10 +109,6 @@
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}</Project>
       <Name>Domain %28Super\Saga\Domain%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Events\Events.csproj">
-      <Project>{EF2E815F-012E-414E-9EF6-67335E10D26E}</Project>
-      <Name>Events %28Super\Saga\Events%29</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using CommonDomain;
 using CommonDomain.Persistence;
 using CommonDomain.Persistence.EventStore;
+using EasyNetQ;
+using ISaga = CommonDomain.ISaga;
 
 
 namespace CommonSpecs
@@ -37,6 +40,73 @@ namespace CommonSpecs
         }
 
         
+    }
+
+
+    public class FakeSagaRepository : ISagaRepository
+    {
+
+        public IEnumerable<IEvent> CommittedEvents { get; set; }
+
+        public TSaga GetById<TSaga>(Guid sagaId) where TSaga : class, ISaga, new()
+        {
+            var saga = new TSaga();
+            foreach (var @event in CommittedEvents)
+                saga.Transition(@event);
+
+            return saga;
+        }
+
+        public void Save(ISaga saga, Guid commitId, Action<IDictionary<string, object>> updateHeaders)
+        {
+            CommittedEvents = saga.GetUncommittedEvents() as ICollection<IEvent>;
+        }
+    }
+
+    public class FakeBus : IBus
+    {
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Publish<T>(T message) where T : IMessage
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Subscribe<T>(string subscriptionId, Action<T> onMessage) where T : IMessage
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SubscribeAsync<T>(string subscriptionId, Func<T, Task> onMessage) where T : IMessage
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Request<TRequest, TResponse>(TRequest request, Action<TResponse> onResponse)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Respond<TRequest, TResponse>(Func<TRequest, TResponse> responder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RespondAsync<TRequest, TResponse>(Func<TRequest, Task<TResponse>> responder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public event Action Connected;
+        public event Action Disconnected;
+
+        public bool IsConnected
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 
    

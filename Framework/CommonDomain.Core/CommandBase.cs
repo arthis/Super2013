@@ -6,10 +6,9 @@ namespace CommonDomain.Core
 {
     [Serializable]
     [KnownType("GetKnownTypes")]
-    public abstract class CommandBase : ICommand
+    public abstract class CommandBase : Message, ICommand
     {
         public Guid Id { get; set; }
-        public Guid CommitId { get; set; }
     
         public abstract string ToDescription();
 
@@ -24,4 +23,7 @@ namespace CommonDomain.Core
             return types.ToArray();
         }
     }
+
+
+
 }

@@ -11,7 +11,7 @@ using Super.Administration.Handlers;
 
 namespace Super.Administration.Specs.AreaIntervento
 {
-    public class Creation_of_a_new_area_intervento : CommandBaseClass<CreateAreaIntervento>
+    public class Start_of_interventoRot_saga : CommandBaseClass<CreateAreaIntervento>
     {
         private Guid _Id = Guid.NewGuid();
         private string _Description = "test";

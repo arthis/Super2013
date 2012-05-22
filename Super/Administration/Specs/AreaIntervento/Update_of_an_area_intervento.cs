@@ -11,7 +11,7 @@ using Super.Administration.Handlers;
 
 namespace Super.Administration.Specs.AreaIntervento
 {
-    public class Update_of_an_area_intervento : BaseClass<UpdateAreaIntervento>
+    public class Update_of_an_area_intervento : CommandBaseClass<UpdateAreaIntervento>
     {
         private Guid _Id = Guid.NewGuid();
         private string _Description = "test";

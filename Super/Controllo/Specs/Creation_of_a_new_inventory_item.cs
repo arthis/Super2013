@@ -11,7 +11,7 @@ using Super.Controllo.Handlers;
 
 namespace Super.Controllo.Specs
 {
-    public class Creation_of_a_new_inventory_item : BaseClass<CreateInventoryItem>
+    public class Creation_of_a_new_inventory_item : CommandBaseClass<CreateInventoryItem>
     {
         private Guid _Id = Guid.NewGuid();
         private string _Name = "test";

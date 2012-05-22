@@ -5,13 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EF2E815F-012E-414E-9EF6-67335E10D26E}</ProjectGuid>
+    <ProjectGuid>{50D571A4-A3F3-46EC-9762-CACEBED9DFA7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Super.Saga.Events</RootNamespace>
-    <AssemblyName>Super.Saga.Events</AssemblyName>
+    <RootNamespace>Super.Administration.Specs</RootNamespace>
+    <AssemblyName>Super.Administration.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,14 +34,6 @@
     <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
     <CodeContractsEnumObligations>False</CodeContractsEnumObligations>
     <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
-    <CodeContractsInferRequires>False</CodeContractsInferRequires>
-    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
-    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
-    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
-    <CodeContractsSuggestRequires>True</CodeContractsSuggestRequires>
-    <CodeContractsSuggestEnsures>False</CodeContractsSuggestEnsures>
-    <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
-    <CodeContractsDisjunctiveRequires>False</CodeContractsDisjunctiveRequires>
     <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
     <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
     <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
@@ -68,33 +61,57 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Super.Saga.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Super.Administration.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\NUnit 2.5.10\framework\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Start_of_interventoRot_saga.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Super.Saga.snk" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
+      <Project>{22C1CCB4-63E1-47A8-8DD1-865E7E4F280A}</Project>
+      <Name>CommandService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
       <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
       <Name>CommonDomain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
+      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
+      <Name>CommonDomain.Persistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonSpecs\CommonSpecs.csproj">
+      <Project>{F954F13E-C818-485F-98BF-91579AA21127}</Project>
+      <Name>CommonSpecs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Administration\Commands\Commands.csproj">
+      <Project>{CB1EFF69-B658-48FC-A075-113D40F81E7C}</Project>
+      <Name>Commands %28Super\Administration\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Events.csproj">
+      <Project>{DDD34014-317B-46DF-B363-1A0610103AC3}</Project>
+      <Name>Events %28Super\Administration\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Handlers\Handlers.csproj">
+      <Project>{B5916099-8813-4954-A02E-AF7BC9E2CB4D}</Project>
+      <Name>Handlers %28Super\Administration\Handlers%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Super.Administration.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
