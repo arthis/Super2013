@@ -17,9 +17,9 @@ Documentation
 A basic contextmap can be found in the documentation folder.
 The initial aim of this project was to give tools to develop a full blown solution using BDD.
 
-    Given (events)
-    Then (Command)
-    Expect (events)
+    Given some Messages
+    Then one Message
+    Expect some other Messages
 
 And to generate some documentation on the fly of the different tests available. Triggering Specs.Documentation will generate html pages in Documentation/Specs,where all test are gathered
 
@@ -32,7 +32,20 @@ so far I have found :
     - Controllo :       Control of the intervento through the means of schede and various tools
     - Accounting :      BC responsible for giving numbers and reports depending on accounting rules 
 
+**current basic architecture **
 
+              ICommand    |
+                          | -------> CommandBase ---> misc Command           
+IMesssage --> Message --> |
+                          
+
+           
+              IEvent|
+                          | -------> misc Event
+IMesssage --> Message --> |
+
+
+Message is responsible for having the headers. This headers allows command and events to have CommitId, CorrelationId...
 
 current worries
 ---------------
@@ -42,7 +55,8 @@ current worries
  - having one readModel per bounded context, I am afraid it is the only way. Should then I have different copies of Area Intervento. I mean to be using one server only, does it make sense then to duplicate this information? use a trick to have every bounded context look at the same part of the read model...
 to be think better later
  - experimenting with sagas
- - Rethinking pusblishing , events on their own are not enough, I need to add headers to my enveloppe
+
+
 
 Dependencies:
 -------------
