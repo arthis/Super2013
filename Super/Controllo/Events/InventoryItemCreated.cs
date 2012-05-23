@@ -1,9 +1,10 @@
 ﻿using System;
 using CommonDomain;
+using CommonDomain.Core;
 
 namespace Super.Controllo.Events
 {
-    public class InventoryItemCreatedAdded :  IEvent
+    public class InventoryItemCreatedAdded : Message,IEvent
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

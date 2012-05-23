@@ -24,9 +24,6 @@ namespace Super.Appaltatore.Domain
             Id = e.Id;
         }
 
-        public override string ToDescription()
-        {
-            return string.Format("Inventory Item {0}, {1}", Id, _name);
-        }
+       
     }
 }

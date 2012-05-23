@@ -15,8 +15,7 @@ namespace Super.Schedulazione.Events
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
 
-        public abstract string ToDescription();
-
+                               
         public override bool Equals(object obj)
         {
             return base.Equals(obj);

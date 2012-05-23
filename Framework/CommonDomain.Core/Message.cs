@@ -5,16 +5,15 @@ using System.Text;
 
 namespace CommonDomain.Core
 {
-    public class Message : IMessage
+    public abstract class Message : IMessage
     {
         public const string CommitId = "CommitId";
         public const string CorrelationitId = "CorrelationitId";
 
         public IEnumerable<KeyValuePair<string, object>> Headers { get; set; }
-        public virtual string ToDescription()
-        {
-            
-        }
+
+        public abstract string ToDescription();
+
 
         public Message()
         {
@@ -30,6 +29,8 @@ namespace CommonDomain.Core
         {
             ((Dictionary<string, object>)Headers).Add(key,value);
         }
+
+        
 
 
         public void SetCommitId(Guid id)

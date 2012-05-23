@@ -27,7 +27,7 @@ namespace CommonSpecs.Documentation
         }
 
 
-        public static Scenario CreateCommandScenario(Type type, Assembly assembly)
+        public static Scenario CreateScenario(Type type, Assembly assembly)
         {
             Scenario scenario = new Scenario();
 
@@ -37,7 +37,7 @@ namespace CommonSpecs.Documentation
 
             MethodInfo[] methodInfos = type.GetMethods();
 
-            var given = (IEnumerable<IEvent>)methodInfos.Single(x => x.Name == "Given").Invoke(instance, null);
+            var given = (IEnumerable<IMessage>)methodInfos.Single(x => x.Name == "Given").Invoke(instance, null);
 
             if (given.Any())
             {
@@ -54,7 +54,7 @@ namespace CommonSpecs.Documentation
 
 
 
-            var when = (ICommand)methodInfos.Single(x => x.Name == "When").Invoke(instance, null);
+            var when = (IMessage)methodInfos.Single(x => x.Name == "When").Invoke(instance, null);
             scenario.When = new When()
                                 {
                                     Description = when.ToDescription(),
@@ -62,7 +62,7 @@ namespace CommonSpecs.Documentation
                                 };
 
 
-            var expect = (IEnumerable<IEvent>)methodInfos.Single(x => x.Name == "Expect").Invoke(instance, null);
+            var expect = (IEnumerable<IMessage>)methodInfos.Single(x => x.Name == "Expect").Invoke(instance, null);
             var expectedTest = methodInfos.Where(x => Attribute.GetCustomAttribute(x, typeof(TestAttribute), false) is TestAttribute);
 
 
@@ -91,73 +91,11 @@ namespace CommonSpecs.Documentation
             return scenario;
         }
 
-        public static Scenario CreateSagaScenario(Type type, Assembly assembly)
+       
+
+        public static ScenarioPack CreateScenarioPack(BoundedContext bc, Type typeBaseClass, string @namespace, string name, Assembly assembly)
         {
-            Scenario scenario = new Scenario();
-
-            scenario.Title = type.FullName.Substring(type.FullName.LastIndexOf('.') + 1).Replace('_', ' ');
-
-            var instance = Activator.CreateInstance(type);
-
-            MethodInfo[] methodInfos = type.GetMethods();
-
-            var given = (IEnumerable<IMessage>)methodInfos.Single(x => x.Name == "Given").Invoke(instance, null);
-
-            if (given.Any())
-            {
-
-                foreach (var evt in given)
-                {
-                    scenario.Given.Add(new Given()
-                    {
-                        Description = evt.ToDescription(),
-                        Details = GetDetails(evt)
-                    });
-                }
-            }
-
-
-
-            var when = (ICommand)methodInfos.Single(x => x.Name == "When").Invoke(instance, null);
-            scenario.When = new When()
-            {
-                Description = when.ToDescription(),
-                Details = GetDetails(when)
-            };
-
-
-            var expect = (IEnumerable<IEvent>)methodInfos.Single(x => x.Name == "Expect").Invoke(instance, null);
-            var expectedTest = methodInfos.Where(x => Attribute.GetCustomAttribute(x, typeof(TestAttribute), false) is TestAttribute);
-
-
-            if (expect.Any() || expectedTest.Any())
-            {
-
-                foreach (var evt in expect)
-                {
-                    scenario.Then.Add(new Then()
-                    {
-                        Description = evt.ToDescription(),
-                        Details = GetDetails(evt)
-                    });
-                }
-
-                foreach (var mtd in expectedTest)
-                {
-                    var nameTest = mtd.Name.Replace('_', ' ');
-                    scenario.Then.Add(new Then()
-                    {
-                        Description = nameTest
-                    });
-                }
-            }
-
-            return scenario;
-        }
-
-        public static ScenarioPack CreateSagaScenarioPack(BoundedContext bc, string @namespace, string name, Assembly assembly)
-        {
-            var typeBaseClass = typeof(SagaBaseClass<Message>);
+            
             var scenarioPack = new ScenarioPack(bc);
 
             scenarioPack.Name = name;
@@ -166,30 +104,14 @@ namespace CommonSpecs.Documentation
 
             foreach (var type in types)
             {
-                scenarioPack.Scenari.Add(CreateSagaScenario(type, assembly));
+                scenarioPack.Scenari.Add(CreateScenario(type, assembly));
             }
 
 
             return scenarioPack;
         }
 
-        public static ScenarioPack CreateCommandScenarioPack(BoundedContext bc, string @namespace, string name, Assembly assembly)
-        {
-            var typeBaseClass = typeof(CommandBaseClass<CommandBase>);
-
-            var scenarioPack = new ScenarioPack(bc);
-            scenarioPack.Name = name;
-
-            var types = assembly.GetTypes().Where(x => x.Namespace == @namespace && x.BaseType.Name == typeBaseClass.Name);
-
-            foreach (var type in types)
-            {
-                scenarioPack.Scenari.Add(CreateCommandScenario(type, assembly));
-            }
-
-
-            return scenarioPack;
-        }
+       
 
         public static BoundedContext CreateBoundedContext(Assembly assembly, string docName)
         {
@@ -210,7 +132,10 @@ namespace CommonSpecs.Documentation
                     namespaceTruncated = namespaceTruncated.Substring(namespaceTruncated.IndexOf('.') + 1);//specs.yyy
                     namespaceTruncated = namespaceTruncated.Substring(namespaceTruncated.IndexOf('.') + 1);//yyy
 
-                    bc.ScenariPack.Add(CreateScenarioPack(bc, @namespace, namespaceTruncated.Replace('_',' '), assembly));
+                    if (@namespace.Contains("Saga"))
+                        bc.ScenariPack.Add(CreateScenarioPack(bc, typeof(SagaBaseClass<Message>),  @namespace, namespaceTruncated.Replace('_',' '), assembly));
+                    else
+                        bc.ScenariPack.Add(CreateScenarioPack(bc,typeof(CommandBaseClass<CommandBase>), @namespace, namespaceTruncated.Replace('_', ' '), assembly));
                 }
             }
 
