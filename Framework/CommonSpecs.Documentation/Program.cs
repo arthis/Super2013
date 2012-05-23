@@ -57,10 +57,10 @@ namespace CommonSpecs.Documentation
 
             //html Documentation
             var doc = DocumentationFactory.CreateDocumentation("Specifications"
-                                                               //, specsAdministration
+                                                               , specsAdministration
                                                                //, specsSchedulazione
-                                                               //, specsAppaltatore
-                                                               //, specsControllo
+                                                               , specsAppaltatore
+                                                               , specsControllo
                                                                , specsSaga
                                                                );
 

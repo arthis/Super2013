@@ -21,7 +21,7 @@ namespace Super.Appaltatore.Specs
             return new CreateInventoryItemHandler(repository);
         }
 
-        public override IEnumerable<IEvent> Given()
+        public override IEnumerable<IMessage> Given()
         {
             yield break;
         }
@@ -35,7 +35,7 @@ namespace Super.Appaltatore.Specs
             };
         }
 
-        public override IEnumerable<IEvent> Expect()
+        public override IEnumerable<IMessage> Expect()
         {
             yield return new InventoryItemCreatedAdded()
             {

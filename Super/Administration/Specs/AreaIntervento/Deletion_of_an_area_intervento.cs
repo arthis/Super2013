@@ -24,7 +24,7 @@ namespace Super.Administration.Specs.AreaIntervento
             return new DeleteAreaInterventoHandler(repository);
         }
 
-        public override IEnumerable<IEvent> Given()
+        public override IEnumerable<IMessage> Given()
         {
             yield return new AreaInterventoCreated()
             {
@@ -41,7 +41,7 @@ namespace Super.Administration.Specs.AreaIntervento
             return new DeleteAreaIntervento(_Id);
         }
 
-        public override IEnumerable<IEvent> Expect()
+        public override IEnumerable<IMessage> Expect()
         {
             yield return new AreaInterventoDeleted()
             {

@@ -15,7 +15,7 @@ namespace CommonSpecs
     public class FakeRepository : IRepository
     {
         private readonly IConstructAggregates _factory = new AggregateFactory();
-        public IEnumerable<IEvent> CommittedEvents { get; set; }
+        public IEnumerable<IMessage> CommittedEvents { get; set; }
 
         public TAggregate GetById<TAggregate>(Guid id) where TAggregate : class, IAggregate
         {

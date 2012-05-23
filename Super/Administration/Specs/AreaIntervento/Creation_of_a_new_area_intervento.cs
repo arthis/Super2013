@@ -24,7 +24,7 @@ namespace Super.Administration.Specs.AreaIntervento
             return new CreateAreaInterventoHandler(repository);
         }
 
-        public override IEnumerable<IEvent> Given()
+        public override IEnumerable<IMessage> Given()
         {
             yield break;
         }
@@ -34,7 +34,7 @@ namespace Super.Administration.Specs.AreaIntervento
             return new CreateAreaIntervento(_Id, _Start, _End, _Description, _CreationDate);
         }
 
-        public override IEnumerable<IEvent> Expect()
+        public override IEnumerable<IMessage> Expect()
         {
             yield return new AreaInterventoCreated()
             {

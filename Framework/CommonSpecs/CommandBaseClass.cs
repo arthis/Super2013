@@ -11,13 +11,13 @@ namespace CommonSpecs
 
 
     [TestFixture]
-    public abstract class CommandBaseClass<TCommand> where TCommand : class, ICommand
+    public abstract class CommandBaseClass<TCommand> where TCommand : class, IMessage
     {
         
         public Guid Id { get; set; }
-        public abstract IEnumerable<IEvent> Given();
+        public abstract IEnumerable<IMessage> Given();
         public abstract TCommand When();
-        public abstract IEnumerable<IEvent> Expect();
+        public abstract IEnumerable<IMessage> Expect();
         protected Exception Caught;
         protected abstract CommandHandler<TCommand> OnHandle(IRepository repository);
         FakeRepository fakeRepository = new FakeRepository();

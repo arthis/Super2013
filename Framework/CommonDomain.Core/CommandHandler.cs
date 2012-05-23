@@ -4,7 +4,7 @@ using CommonDomain.Persistence;
 
 namespace CommonDomain.Core
 {
-    public abstract class CommandHandler<TCommand> where TCommand : ICommand
+    public abstract class CommandHandler<TCommand> where TCommand : IMessage
     {
         protected IRepository Repository;
         public abstract CommandValidation Execute(TCommand command);

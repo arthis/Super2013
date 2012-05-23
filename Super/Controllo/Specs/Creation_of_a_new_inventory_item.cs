@@ -21,7 +21,7 @@ namespace Super.Controllo.Specs
             return new CreateInventoryItemHandler(repository);
         }
 
-        public override IEnumerable<IEvent> Given()
+        public override IEnumerable<IMessage> Given()
         {
             yield break;
         }
@@ -35,7 +35,7 @@ namespace Super.Controllo.Specs
             };
         }
 
-        public override IEnumerable<IEvent> Expect()
+        public override IEnumerable<IMessage> Expect()
         {
             yield return new InventoryItemCreatedAdded()
             {

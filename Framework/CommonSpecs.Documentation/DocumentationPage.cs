@@ -44,12 +44,15 @@ namespace CommonSpecs.Documentation
              
             string superDirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(fullpath).FullName).FullName).FullName).FullName).FullName;
 
-
-            var filename = superDirectory + @"\Documentation\Specs\" + CurrentScenarioPack.GetPageUrl();
+            var directoryPath = superDirectory + @"\Documentation\Specs\";
+            var filename = directoryPath + CurrentScenarioPack.GetPageUrl();
                            
             
             if (File.Exists(filename))
                 File.Delete(filename);
+
+            if (!Directory.Exists(directoryPath))
+                Directory.CreateDirectory(directoryPath);
 
             using (var sw = File.CreateText(filename))
             {
