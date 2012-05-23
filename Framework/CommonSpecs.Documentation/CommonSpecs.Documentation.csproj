@@ -127,6 +127,10 @@
       <Project>{4BCB5CDB-9E7E-4353-BA61-4595B94E96F9}</Project>
       <Name>Specs %28Super\Controllo\Specs%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Super\Saga\Specs\Specs.csproj">
+      <Project>{50D571A4-A3F3-46EC-9762-CACEBED9DFA7}</Project>
+      <Name>Specs %28Super\Saga\Specs%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Super\Schedulazione\Specs\Specs.csproj">
       <Project>{F3F4B32D-9E1F-4ADA-A94E-E5762C33743F}</Project>
       <Name>Specs %28Super\Schedulazione\Specs%29</Name>
@@ -193,8 +197,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(ProjectDir)Site\template.vm $(OutDir)template.vm
-xcopy $(ProjectDir)Site  $(SolutionDir)\Documentation\Specs /E /I /F /Y</PostBuildEvent>
+    <PostBuildEvent>copy $(ProjectDir)Site\template.vm  $(ProjectDir)$(OutDir)template.vm</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

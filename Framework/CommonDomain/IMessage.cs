@@ -9,5 +9,7 @@ namespace CommonDomain
     {
         IEnumerable<KeyValuePair<string, object>> Headers { get; set; }
         void SetHeader(string key, object value);
+
+        string ToDescription();
     }
 }

@@ -11,7 +11,7 @@ namespace Super.Administration.Events.AreaIntervento
         public DateTime Start { get; set; }
         public DateTime? End { get; set; }
         public string Description { get; set; }
-        public string ToDescription()
+        public override string ToDescription()
         {
             return string.Format("The area intervento is updated '{0}'.", Description);
         }

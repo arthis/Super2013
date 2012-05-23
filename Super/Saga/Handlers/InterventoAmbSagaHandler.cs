@@ -15,7 +15,7 @@ namespace Super.Saga.Handlers
         {
         }
 
-        protected sealed override ISaga OnHandle(InterventoAmbSchedulato @event)
+        public sealed override ISaga OnHandle(InterventoAmbSchedulato @event)
         {
             var sagaId = @event.GetCorrelationId();
 

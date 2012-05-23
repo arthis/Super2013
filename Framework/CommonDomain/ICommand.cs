@@ -9,6 +9,5 @@ namespace CommonDomain
     
     public interface ICommand 
     {
-        string ToDescription();
     }
 }

@@ -13,7 +13,7 @@ namespace Super.Administration.Events.AreaIntervento
         public DateTime CreationDate { get; set; }
         public string Description { get; set; }
 
-        public string ToDescription()
+        public override string ToDescription()
         {
             return string.Format("The area intervento is created '{0}'.", Description);
         }

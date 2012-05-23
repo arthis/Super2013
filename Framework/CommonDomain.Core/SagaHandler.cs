@@ -23,7 +23,7 @@ namespace CommonDomain.Core
             Bus = bus;
         }
 
-        protected abstract ISaga OnHandle(TMessage message);
+        public abstract ISaga OnHandle(TMessage message);
 
         public void Handle(TMessage message)
         {

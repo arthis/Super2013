@@ -8,7 +8,6 @@ namespace CommonDomain
     public interface IEvent 
     {
         Guid Id { get; set; }
-        string ToDescription();
     }
 
 }

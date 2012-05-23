@@ -30,7 +30,6 @@ namespace UI_Console
 
             var cmd = new CreateAreaIntervento()
                           {
-                              CommitId = Guid.NewGuid(),
                               Id = Guid.NewGuid(),
                               CreationDate = DateTime.Now,
                               Description = "ttt",

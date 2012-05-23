@@ -24,7 +24,7 @@ namespace Super.Controllo.Domain
             Id = e.Id;
         }
 
-        public string ToDescription()
+        public override string ToDescription()
         {
             return string.Format("Inventory Item {0}, {1}", Id, _name);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CommonDomain;
+using CommonDomain.Core;
 using CommonDomain.Persistence;
 using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
@@ -46,7 +47,7 @@ namespace CommonSpecs
     public class FakeSagaRepository : ISagaRepository
     {
 
-        public IEnumerable<IEvent> CommittedEvents { get; set; }
+        public IEnumerable<IMessage> CommittedEvents { get; set; }
 
         public TSaga GetById<TSaga>(Guid sagaId) where TSaga : class, ISaga, new()
         {
@@ -59,7 +60,7 @@ namespace CommonSpecs
 
         public void Save(ISaga saga, Guid commitId, Action<IDictionary<string, object>> updateHeaders)
         {
-            CommittedEvents = saga.GetUncommittedEvents() as ICollection<IEvent>;
+            CommittedEvents = saga.GetUncommittedEvents() as LinkedList<Message>;
         }
     }
 
@@ -72,7 +73,7 @@ namespace CommonSpecs
 
         public void Publish<T>(T message) where T : IMessage
         {
-            throw new NotImplementedException();
+            //Do nothing
         }
 
         public void Subscribe<T>(string subscriptionId, Action<T> onMessage) where T : IMessage

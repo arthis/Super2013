@@ -17,6 +17,29 @@ namespace Super.Schedulazione.Events
 
         public abstract string ToDescription();
 
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public bool Equals(InterventoSchedulato other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return other.Id.Equals(Id) && other.IdAreaIntervento.Equals(IdAreaIntervento) && other.Start.Equals(Start) && other.End.Equals(End);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int result = Id.GetHashCode();
+                result = (result*397) ^ IdAreaIntervento.GetHashCode();
+                result = (result*397) ^ Start.GetHashCode();
+                result = (result*397) ^ End.GetHashCode();
+                return result;
+            }
+        }
     }
 
     public class InterventoRotSchedulato : InterventoSchedulato

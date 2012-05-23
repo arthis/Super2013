@@ -10,7 +10,7 @@ namespace Super.Administration.Events.AreaIntervento
         public Guid Id { get; set; }
 
 
-        public string ToDescription()
+        public override string ToDescription()
         {
             return string.Format("The area intervento is deleted (Id:'{0}')", Id);
         }

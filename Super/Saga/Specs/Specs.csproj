@@ -8,8 +8,8 @@
     <ProjectGuid>{50D571A4-A3F3-46EC-9762-CACEBED9DFA7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Super.Administration.Specs</RootNamespace>
-    <AssemblyName>Super.Administration.Specs</AssemblyName>
+    <RootNamespace>Super.Saga.Specs</RootNamespace>
+    <AssemblyName>Super.Saga.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -61,7 +61,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Super.Administration.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Super.Saga.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
@@ -73,7 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Start_of_interventoRot_saga.cs" />
+    <Compile Include="Saga_Intervento\Start_of_interventoRot_saga_started.cs" />
+    <Compile Include="Saga_Intervento\Start_of_interventoRot_saga_not_started.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,21 +98,37 @@
       <Project>{F954F13E-C818-485F-98BF-91579AA21127}</Project>
       <Name>CommonSpecs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
+      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
+      <Name>EasyNetQ</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Administration\Commands\Commands.csproj">
       <Project>{CB1EFF69-B658-48FC-A075-113D40F81E7C}</Project>
       <Name>Commands %28Super\Administration\Commands%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Events\Events.csproj">
+    <ProjectReference Include="..\..\Administration\Events\Events.csproj">
       <Project>{DDD34014-317B-46DF-B363-1A0610103AC3}</Project>
       <Name>Events %28Super\Administration\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Appaltatore\Commands\Commands.csproj">
+      <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
+      <Name>Commands %28Super\Appaltatore\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Schedulazione\Events\Events.csproj">
+      <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
+      <Name>Events %28Super\Schedulazione\Events%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Handlers\Handlers.csproj">
       <Project>{B5916099-8813-4954-A02E-AF7BC9E2CB4D}</Project>
       <Name>Handlers %28Super\Administration\Handlers%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Handlers\Handlers.csproj">
+      <Project>{ED040216-1CD7-44D0-A567-0101C9FEC2E3}</Project>
+      <Name>Handlers %28Super\Saga\Handlers%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Super.Administration.snk" />
+    <None Include="Super.Saga.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -32,7 +32,7 @@ namespace Super.Appaltatore.Events
 	        }
 	    }
 
-        public string ToDescription()
+        public override string ToDescription()
         {
             return string.Format("The Inventory item '{0}' is created.",  Name);
         }

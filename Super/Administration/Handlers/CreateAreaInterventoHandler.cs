@@ -24,7 +24,7 @@ namespace Super.Administration.Handlers
 
             var area = new AreaIntervento(cmd.Id, cmd.Start, cmd.End, cmd.CreationDate, cmd.Description);
 
-            Repository.Save(area, cmd.CommitId);
+            Repository.Save(area, cmd.GetCommitId());
 
 
             return area.CommandValidationMessages;
