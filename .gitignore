@@ -16,3 +16,7 @@ _ReSharper.*
 packages
 Documentation\Specs
 Documentation/Specs/
+Framework/EasyNetQ/
+Framework/Specs/Toxicity/_UpgradeReport_Files
+Framework/Specs/Toxicity/tools
+lib/Reflector

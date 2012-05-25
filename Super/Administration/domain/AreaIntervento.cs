@@ -15,7 +15,7 @@ namespace Super.Administration.Domain
         public DateTime Start { get; set; }
         public DateTime? End { get; set; }
         public DateTime CreationDate { get; set; }
-        public bool Cancellata { get; set; }
+        public bool Deleted { get; set; }
 
         public AreaIntervento()
         {
@@ -57,6 +57,7 @@ namespace Super.Administration.Domain
         {
             var evt = new AreaInterventoUpdated()
             {
+                Id = this.Id,
                 Start = start,
                 End = end,
                 Description = description,
@@ -74,17 +75,25 @@ namespace Super.Administration.Domain
 
         public void Delete()
         {
-            var evt = new AreaInterventoDeleted()
-            {
-                Id = this.Id
-            };
 
-            RaiseEvent(evt);
+            var Is_Already_Deleted = new Is_Already_Deleted();
+
+            ISpecification<AreaIntervento> specs = Is_Already_Deleted;
+
+            if (specs.IsSatisfiedBy(this))
+            {
+                var evt = new AreaInterventoDeleted()
+                              {
+                                  Id = this.Id
+                              };
+
+                RaiseEvent(evt);
+            }
         }
 
         public void Apply(AreaInterventoDeleted e)
         {
-            this.Cancellata = true;
+            this.Deleted = true;
         }
 
 

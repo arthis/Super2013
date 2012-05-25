@@ -21,6 +21,10 @@ namespace Super.Administration.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
+            var existingArea = Repository.GetById<AreaIntervento>(cmd.Id);
+
+            if (!existingArea.IsNull())
+                throw new AlreadyCreatedAggregateRootException();
 
             var area = new AreaIntervento(cmd.Id, cmd.Start, cmd.End, cmd.CreationDate, cmd.Description);
 

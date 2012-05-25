@@ -15,22 +15,20 @@ namespace Super.Administration.Events.AreaIntervento
 
         public override string ToDescription()
         {
-            return string.Format("The area intervento is created '{0}'.", Description);
+            return string.Format("L'area intervento é stata creata '{0}'.", Description);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof (AreaInterventoCreated)) return false;
-            return Equals((AreaInterventoCreated) obj);
-        }
 
-        public bool Equals(AreaInterventoCreated other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return other.Id.Equals(Id) && other.Start.Equals(Start) && other.End.Equals(End) && other.CreationDate.Equals(CreationDate) && Equals(other.Description, Description);
+            if (obj.GetType() != this.GetType()) return false;
+
+            var other = (AreaInterventoCreated)obj;
+
+            return base.Equals(obj)
+             && other.Id.Equals(Id) && other.Start.Equals(Start) && other.End.Equals(End) && other.CreationDate.Equals(CreationDate) && Equals(other.Description, Description);
         }
 
         public override int GetHashCode()

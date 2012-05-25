@@ -1,5 +1,6 @@
 ﻿using System;
 using CommonDomain.Core;
+using CommonDomain.Core.Super;
 
 namespace Super.Appaltatore.Commands
 {

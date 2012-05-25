@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonDomain.Core;
+using CommonDomain.Core.Super;
 
 namespace Super.Appaltatore.Commands
 {

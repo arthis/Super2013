@@ -76,7 +76,6 @@
     <Compile Include="ConsuntivareNonResoTrenitalia.cs" />
     <Compile Include="ConsuntivareReso.cs" />
     <Compile Include="CreateInventoryItem.cs" />
-    <Compile Include="OggettoIntervento.cs" />
     <Compile Include="ProgrammareIntervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

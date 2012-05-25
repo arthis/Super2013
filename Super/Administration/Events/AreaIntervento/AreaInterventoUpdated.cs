@@ -13,19 +13,20 @@ namespace Super.Administration.Events.AreaIntervento
         public string Description { get; set; }
         public override string ToDescription()
         {
-            return string.Format("The area intervento is updated '{0}'.", Description);
+            return string.Format("L'area intervento é stata aggiornata '{0}'.", Description);
         }
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
-        }
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-        public bool Equals(AreaInterventoUpdated other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return other.Id.Equals(Id) && other.Start.Equals(Start) && other.End.Equals(End) && Equals(other.Description, Description);
+            if (obj.GetType() != this.GetType()) return false;
+
+            var other = (AreaInterventoUpdated)obj;
+
+            return base.Equals(obj)
+             && other.Id.Equals(Id) && other.Start.Equals(Start) && other.End.Equals(End) && Equals(other.Description, Description);
         }
 
         public override int GetHashCode()

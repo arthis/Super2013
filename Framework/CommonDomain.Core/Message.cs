@@ -7,8 +7,8 @@ namespace CommonDomain.Core
 {
     public abstract class Message : IMessage
     {
-        public const string CommitId = "CommitId";
-        public const string CorrelationitId = "CorrelationitId";
+        public const string CommitKey = "CommitKey";
+        public const string CorrelationKey = "CorrelationKey";
 
         public IEnumerable<KeyValuePair<string, object>> Headers { get; set; }
 
@@ -21,8 +21,8 @@ namespace CommonDomain.Core
 
 
             //initialisation of the message headers
-            ((Dictionary<string, object>) Headers).Add(CommitId, Guid.NewGuid());
-            ((Dictionary<string, object>)Headers).Add(CorrelationitId, Guid.NewGuid());
+            ((Dictionary<string, object>) Headers).Add(CommitKey, Guid.NewGuid());
+            ((Dictionary<string, object>)Headers).Add(CorrelationKey, Guid.NewGuid());
         }
 
         public void SetHeader(string key, object value)
@@ -35,34 +35,34 @@ namespace CommonDomain.Core
 
         public void SetCommitId(Guid id)
         {
-            if (!((Dictionary<string, object>)Headers).ContainsKey(CommitId))
-                ((Dictionary<string, object>)Headers)[CommitId] = id;
+            if (!((Dictionary<string, object>)Headers).ContainsKey(CommitKey))
+                ((Dictionary<string, object>)Headers)[CommitKey] = id;
             else
-                ((Dictionary<string, object>)Headers).Add(CommitId, id);
+                ((Dictionary<string, object>)Headers).Add(CommitKey, id);
         }
 
         public void SetCorrelationitId(Guid id)
         {
-            if (!((Dictionary<string, object>)Headers).ContainsKey(CorrelationitId))
-                ((Dictionary<string, object>)Headers)[CorrelationitId] = id;
+            if (!((Dictionary<string, object>)Headers).ContainsKey(CorrelationKey))
+                ((Dictionary<string, object>)Headers)[CorrelationKey] = id;
             else
-                ((Dictionary<string, object>)Headers).Add(CorrelationitId, id);
+                ((Dictionary<string, object>)Headers).Add(CorrelationKey, id);
         }
 
         public Guid GetCommitId()
         {
-            if (!((Dictionary<string, object>)Headers).ContainsKey(CommitId))
-                throw new Exception("CommitId not found for this message");
+            if (!((Dictionary<string, object>)Headers).ContainsKey(CommitKey))
+                throw new Exception("CommitKey not found for this message");
 
-            return (Guid)((Dictionary<string, object>)Headers)[CommitId];
+            return (Guid)((Dictionary<string, object>)Headers)[CommitKey];
         }
 
         public Guid GetCorrelationId()
         {
-            if (!((Dictionary<string, object>)Headers).ContainsKey(CorrelationitId))
+            if (!((Dictionary<string, object>)Headers).ContainsKey(CorrelationKey))
                 throw new Exception("CorrelationId not found for this message");
 
-            return (Guid)((Dictionary<string, object>)Headers)[CorrelationitId];
+            return (Guid)((Dictionary<string, object>)Headers)[CorrelationKey];
         }
 
        
@@ -74,8 +74,10 @@ namespace CommonDomain.Core
             if (obj.GetType() != this.GetType()) return false;
 
             var other = (Message)obj;
-
-            return Equals(other.Headers, Headers);
+            
+            // CommitId and CorrelationId are not relevant to see if two messages are equals
+            //if there was something different in Headers, we might do something different
+            return true;
         }
 
         public override int GetHashCode()

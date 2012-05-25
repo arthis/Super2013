@@ -74,6 +74,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Creation_of_a_new_inventory_item.cs" />
+    <Compile Include="Intervento\Programmazione\Rotabile\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
+    <Compile Include="Intervento\Programmazione\Rotabile\Programmazione_di_intervento_rotabile_non_esistente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +95,7 @@
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Framework\CommonSpecs\CommonSpecs.csproj">
+    <ProjectReference Include="..\..\..\Framework\Specs\CommonSpecs\CommonSpecs.csproj">
       <Project>{F954F13E-C818-485F-98BF-91579AA21127}</Project>
       <Name>CommonSpecs</Name>
     </ProjectReference>

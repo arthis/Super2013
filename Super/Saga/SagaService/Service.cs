@@ -60,7 +60,7 @@ namespace Super.Saga.SagaService
             {
                 foreach (var @event in commit.Events)
                 {
-                    //var message = new Message() { CommitId = commit.CommitId, PayLoad = (IEvent)@event.Body };
+                    //var message = new Message() { CommitKey = commit.CommitKey, PayLoad = (IEvent)@event.Body };
 
                     //_bus.Publish(message, @event.Body.GetType());
                 }

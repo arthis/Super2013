@@ -21,11 +21,13 @@ namespace Super.Administration.Handlers
             Contract.Requires<ArgumentNullException>(cmd != null);
 
             var area = Repository.GetById<AreaIntervento>(cmd.Id);
-            var commitId = Guid.NewGuid();
+
+            if (area.IsNull())
+                throw new AggregateRootInstanceNotFoundException();
 
             area.Delete();
 
-            Repository.Save(area, commitId);
+            Repository.Save(area, cmd.GetCommitId());
 
             return area.CommandValidationMessages;
         }

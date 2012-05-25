@@ -40,7 +40,20 @@ namespace Super.Saga.Domain.Intervento
                               End = evt.End,
                               Headers = evt.Headers,
                               IdAreaIntervento = evt.IdAreaIntervento,
-                              Start = evt.Start
+                              Start = evt.Start,
+                              IdTipoIntervento = evt.IdTipoIntervento,
+                              IdAppaltatore = evt.IdAppaltatore,
+                              IdCategoriaCommerciale = evt.IdCategoriaCommerciale,
+                              IdDirezioneRegionale = evt.IdDirezioneRegionale,
+                              Note = evt.Note,
+                              Oggetti = evt.Oggetti,
+                              NumeroTrenoArrivo = evt.NumeroTrenoArrivo,
+                              DataTrenoArrivo = evt.DataTrenoArrivo,
+                              NumeroTrenoPartenza = evt.NumeroTrenoPartenza,
+                              DataTrenoPartenza = evt.DataTrenoPartenza,
+                              TurnoTreno = evt.TurnoTreno,
+                              RigaTurnoTreno = evt.RigaTurnoTreno,
+                              Convoglio = evt.Convoglio
                           };
             Dispatch(cmd);
 

@@ -82,6 +82,11 @@ namespace CommonDomain.Core
             return null;
         }
 
+        public bool IsNull()
+        {
+            return Id == Guid.Empty;
+        }
+
         public override int GetHashCode()
         {
             return this.Id.GetHashCode();

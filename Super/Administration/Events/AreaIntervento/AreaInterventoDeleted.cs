@@ -12,21 +12,22 @@ namespace Super.Administration.Events.AreaIntervento
 
         public override string ToDescription()
         {
-            return string.Format("The area intervento is deleted (Id:'{0}')", Id);
+            return string.Format("L'area intervento é stata cancellata (Id:'{0}')", Id);
         }
 
-        
+
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
-        }
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-        public bool Equals(AreaInterventoDeleted other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return other.Id.Equals(Id);
+            if (obj.GetType() != this.GetType()) return false;
+
+            var other = (AreaInterventoDeleted)obj;
+
+            return base.Equals(obj)
+             && other.Id.Equals(Id);
         }
 
         public override int GetHashCode()

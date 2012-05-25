@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Metrics>
+  <TypeMetrics>
+    <ClassLength>1500</ClassLength>
+    <NumberOfFields>10</NumberOfFields>
+    <NumberOfMethods>20</NumberOfMethods>
+    <NumberOfProperties>10</NumberOfProperties>
+    <NumberOfNestedTypes>2</NumberOfNestedTypes>
+    <ClassDepthInTree>4</ClassDepthInTree>
+  </TypeMetrics>
+  <MethodMetrics>
+    <MethodLength>400</MethodLength>
+    <CyclomaticComplexity>5</CyclomaticComplexity>
+    <NumberOfLocales>15</NumberOfLocales>
+    <MaxStackSize>5</MaxStackSize>
+    <NumberOfExceptionHandlers>3</NumberOfExceptionHandlers>
+    <NumberOfExceptionThrows>3</NumberOfExceptionThrows>
+    <NumberOfCreatedObjects>6</NumberOfCreatedObjects>
+  </MethodMetrics>
+</Metrics>
