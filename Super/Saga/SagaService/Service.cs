@@ -10,7 +10,7 @@ using EventStore;
 using EventStore.Serialization;
 using Super.Administration.AdministrationService;
 using Super.Saga.Handlers;
-using Super.Schedulazione.Events;
+using Super.Programmazione.Events;
 
 namespace Super.Saga.SagaService
 {
@@ -49,9 +49,9 @@ namespace Super.Saga.SagaService
             var repository = new SagaEventStoreRepository(storeEvents);
 
 
-            bus.Subscribe<InterventoRotSchedulato>(subscriptionId, evt => new InterventoRotSchedulatoHandler(repository, bus).Handle(evt));
-            bus.Subscribe<InterventoRotManSchedulato>(subscriptionId, evt => new InterventoRotManSchedulatoHandler(repository, bus).Handle(evt));
-            bus.Subscribe<InterventoAmbSchedulato>(subscriptionId, evt => new InterventoAmbSchedulatoHandler(repository, bus).Handle(evt));
+            bus.Subscribe<InterventoRotPianificato>(subscriptionId, evt => new InterventoRotPianificatoHandler(repository, bus).Handle(evt));
+            bus.Subscribe<InterventoRotManPianificato>(subscriptionId, evt => new InterventoRotManPianificatoHandler(repository, bus).Handle(evt));
+            bus.Subscribe<InterventoAmbPianificato>(subscriptionId, evt => new InterventoAmbPianificatoHandler(repository, bus).Handle(evt));
         }
 
         private void DispatchCommit(Commit commit)

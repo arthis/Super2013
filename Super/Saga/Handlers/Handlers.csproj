@@ -68,7 +68,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Super.Saga.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,9 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InterventoAmbSagaHandler.cs" />
-    <Compile Include="InterventoRotManSagaHandler.cs" />
-    <Compile Include="InterventoRotSchedulatoHandler.cs" />
+    <Compile Include="InterventoAmbPianificatoHandler.cs" />
+    <Compile Include="InterventoRotManPianificatoHandler.cs" />
+    <Compile Include="InterventoRotPianificatoHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,17 +103,14 @@
       <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
       <Name>EasyNetQ</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Schedulazione\Events\Events.csproj">
+    <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
-      <Name>Events %28Super\Schedulazione\Events%29</Name>
+      <Name>Events %28Super\Programmazione\Events%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}</Project>
       <Name>Domain %28Super\Saga\Domain%29</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Super.Saga.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

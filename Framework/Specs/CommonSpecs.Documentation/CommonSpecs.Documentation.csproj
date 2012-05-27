@@ -76,10 +76,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>CommonDomain.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -132,10 +133,6 @@
       <Project>{50D571A4-A3F3-46EC-9762-CACEBED9DFA7}</Project>
       <Name>Specs %28Super\Saga\Specs%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Super\Schedulazione\Specs\Specs.csproj">
-      <Project>{F3F4B32D-9E1F-4ADA-A94E-E5762C33743F}</Project>
-      <Name>Specs %28Super\Schedulazione\Specs%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\CommandService\CommandService.csproj">
       <Project>{22C1CCB4-63E1-47A8-8DD1-865E7E4F280A}</Project>
       <Name>CommandService</Name>
@@ -152,10 +149,13 @@
       <Project>{F954F13E-C818-485F-98BF-91579AA21127}</Project>
       <Name>CommonSpecs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Toxicity\Toxicity\Toxicity.csproj">
+      <Project>{03076AC8-E51D-4256-8911-F1288B3B4550}</Project>
+      <Name>Toxicity</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="CommonDomain.snk" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

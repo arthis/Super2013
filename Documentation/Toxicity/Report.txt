@@ -1,0 +1,41 @@
+<Report>
+  <Metric Name="Type">
+    <Type Name="&lt;Module&gt;" CodeSize="0" WeightedCyclomaticComplexity="0" Fields="0" Methods="0" Properties="0" Events="0" NestedTypes="0" Attributes="0" DepthInTree="0" />
+    <Type Name="CommandService.ICommandWebService" CodeSize="0" WeightedCyclomaticComplexity="-1" Fields="0" Methods="1" Properties="0" Events="0" NestedTypes="0" Attributes="1" DepthInTree="0" />
+    <Type Name="CommandService.ICommandWebServiceClient" CodeSize="0" WeightedCyclomaticComplexity="0" Fields="0" Methods="0" Properties="0" Events="0" NestedTypes="0" Attributes="0" DepthInTree="0" />
+    <Type Name="CommandService.CommandWebServiceFault" CodeSize="85" WeightedCyclomaticComplexity="6" Fields="2" Methods="6" Properties="2" Events="0" NestedTypes="0" Attributes="0" DepthInTree="1" />
+    <Type Name="CommandService.ChannelHelper" CodeSize="118" WeightedCyclomaticComplexity="5" Fields="0" Methods="2" Properties="0" Events="0" NestedTypes="0" Attributes="0" DepthInTree="1" />
+    <Type Name="CommandService.CommandWebService" CodeSize="191" WeightedCyclomaticComplexity="3" Fields="1" Methods="2" Properties="0" Events="0" NestedTypes="0" Attributes="2" DepthInTree="1" />
+    <Type Name="CommandService.ExecuteRequest" CodeSize="50" WeightedCyclomaticComplexity="4" Fields="1" Methods="4" Properties="1" Events="0" NestedTypes="0" Attributes="0" DepthInTree="1" />
+    <Type Name="CommandService.ExecuteResponse" CodeSize="32" WeightedCyclomaticComplexity="2" Fields="1" Methods="2" Properties="1" Events="0" NestedTypes="0" Attributes="1" DepthInTree="1" />
+    <Type Name="System.Diagnostics.Contracts.__ContractsRuntime" CodeSize="283" WeightedCyclomaticComplexity="7" Fields="1" Methods="4" Properties="0" Events="0" NestedTypes="1" Attributes="1" DepthInTree="1" />
+    <Type Name="System.Diagnostics.Contracts.RuntimeContractsFlags" CodeSize="0" WeightedCyclomaticComplexity="0" Fields="13" Methods="0" Properties="0" Events="0" NestedTypes="0" Attributes="2" DepthInTree="3" />
+    <Type Name="System.Diagnostics.Contracts.RuntimeContractsAttribute" CodeSize="7" WeightedCyclomaticComplexity="1" Fields="0" Methods="1" Properties="0" Events="0" NestedTypes="0" Attributes="1" DepthInTree="2" />
+  </Metric>
+  <Metric Name="Method">
+    <Method Name="CommandService.CommandWebServiceFault.get_CommandBase() : CommandBase" CodeSize="14" CyclomaticComplexity="1" Instructions="6" Locals="1" MaxStack="1" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.CommandWebServiceFault.set_CommandBase(CommandBase) : Void" CodeSize="8" CyclomaticComplexity="1" Instructions="4" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.CommandWebServiceFault.get_Message() : String" CodeSize="14" CyclomaticComplexity="1" Instructions="6" Locals="1" MaxStack="1" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.CommandWebServiceFault.set_Message(String) : Void" CodeSize="8" CyclomaticComplexity="1" Instructions="4" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.CommandWebServiceFault..ctor()" CodeSize="10" CyclomaticComplexity="1" Instructions="6" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.CommandWebServiceFault..ctor(CommandBase, Exception)" CodeSize="31" CyclomaticComplexity="1" Instructions="15" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.ChannelHelper.ProperClose(ICommunicationObject) : Void" CodeSize="85" CyclomaticComplexity="4" Instructions="44" Locals="1" MaxStack="7" ExceptionHandlers="1" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.ChannelHelper.Use&lt;TChannel&gt;(TChannel, Action&lt;TChannel&gt;) : Void" CodeSize="33" CyclomaticComplexity="1" Instructions="17" Locals="0" MaxStack="3" ExceptionHandlers="1" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.CommandWebService..ctor(ICommandService)" CodeSize="23" CyclomaticComplexity="1" Instructions="11" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.CommandWebService.Execute(ExecuteRequest) : ExecuteResponse" CodeSize="168" CyclomaticComplexity="2" Instructions="66" Locals="4" MaxStack="8" ExceptionHandlers="2" Throw="1" NewObj="3" Ret="1" CastClass="0" />
+    <Method Name="CommandService.ExecuteRequest.get_CommandBase() : CommandBase" CodeSize="14" CyclomaticComplexity="1" Instructions="6" Locals="1" MaxStack="1" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.ExecuteRequest.set_CommandBase(CommandBase) : Void" CodeSize="8" CyclomaticComplexity="1" Instructions="4" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.ExecuteRequest..ctor()" CodeSize="10" CyclomaticComplexity="1" Instructions="6" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.ExecuteRequest..ctor(CommandBase)" CodeSize="18" CyclomaticComplexity="1" Instructions="10" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.ExecuteResponse.get_Validation() : CommandValidation" CodeSize="15" CyclomaticComplexity="1" Instructions="7" Locals="1" MaxStack="1" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="CommandService.ExecuteResponse..ctor(CommandValidation)" CodeSize="17" CyclomaticComplexity="1" Instructions="9" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="System.Diagnostics.Contracts.__ContractsRuntime.ReportFailure(ContractFailureKind, String, String, Exception) : Void" CodeSize="27" CyclomaticComplexity="2" Instructions="15" Locals="1" MaxStack="6" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="System.Diagnostics.Contracts.__ContractsRuntime.TriggerFailure(ContractFailureKind, String, String, String, Exception) : Void" CodeSize="12" CyclomaticComplexity="1" Instructions="7" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="1" NewObj="1" Ret="0" CastClass="0" />
+    <Method Name="System.Diagnostics.Contracts.__ContractsRuntime.Requires(Boolean, String, String) : Void" CodeSize="16" CyclomaticComplexity="2" Instructions="8" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="System.Diagnostics.Contracts.__ContractsRuntime.Ensures(Boolean, String, String) : Void" CodeSize="16" CyclomaticComplexity="2" Instructions="8" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+    <Method Name="System.Diagnostics.Contracts.RuntimeContractsAttribute..ctor(RuntimeContractsFlags)" CodeSize="7" CyclomaticComplexity="1" Instructions="3" Locals="0" MaxStack="8" ExceptionHandlers="0" Throw="0" NewObj="0" Ret="1" CastClass="0" />
+  </Metric>
+  <Metric Name="Module">
+    <Module Name="CommandService.dll" Size="10752" Types="11" Abstracts="4" EfferentCouplings="3" AfferentCouplings="6" Abstractness="0.363636363636364" Instability="0.333333333333333" Distance="0.151515151515151" />
+  </Metric>
+</Report>

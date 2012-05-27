@@ -9,11 +9,11 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Appaltatore.Commands;
 using Super.Saga.Handlers;
-using Super.Schedulazione.Events;
+using Super.Programmazione.Events;
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile
 {
-    public class Inizio_della_saga_intervento_rotabile_non_iniziata : SagaBaseClass<InterventoRotSchedulato>
+    public class Inizio_della_saga_intervento_rotabile_non_iniziata : SagaBaseClass<InterventoRotPianificato>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idAreaIntervento = Guid.NewGuid();
@@ -38,9 +38,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
             return "un inizo di saga normale";
         }
 
-        protected override SagaHandler<InterventoRotSchedulato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoRotPianificato> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoRotSchedulatoHandler(repository,bus);
+            return new InterventoRotPianificatoHandler(repository,bus);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -48,9 +48,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
             yield break;
         }
 
-        public override InterventoRotSchedulato When()
+        public override InterventoRotPianificato When()
         {
-            return new InterventoRotSchedulato()
+            return new InterventoRotPianificato()
                        {
                            End = _end,
                            Start = _start,

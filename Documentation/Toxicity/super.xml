@@ -1,0 +1,5 @@
+<Report>
+  <Metric Name="Type" />
+  <Metric Name="Method" />
+  <Metric Name="Module" />
+</Report>

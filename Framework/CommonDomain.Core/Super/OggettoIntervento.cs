@@ -37,7 +37,7 @@ namespace CommonDomain.Core.Super
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            return base.Equals((OggettoRot)obj);
         }
 
         public bool Equals(OggettoRot other)
@@ -62,7 +62,7 @@ namespace CommonDomain.Core.Super
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            return base.Equals((OggettoRotMan)obj);
         }
 
         public bool Equals(OggettoRotMan other)

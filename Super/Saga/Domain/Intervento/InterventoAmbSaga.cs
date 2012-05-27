@@ -2,7 +2,7 @@
 using CommonDomain.Core;
 using Stateless;
 using Super.Appaltatore.Commands;
-using Super.Schedulazione.Events;
+using Super.Programmazione.Events;
 
 namespace Super.Saga.Domain.Intervento
 {
@@ -14,7 +14,7 @@ namespace Super.Saga.Domain.Intervento
 
         public InterventoAmbSaga()
         {
-            Register<InterventoAmbSchedulato>(OnInterventoAmbSchedulato);
+            Register<InterventoAmbPianificato>(OnInterventoAmbPianificato);
 
             _stateMachine = new StateMachine<State, Trigger>(() => _state, newState => _state = newState);
 
@@ -29,7 +29,7 @@ namespace Super.Saga.Domain.Intervento
 
         }
 
-        public void ProgrammareIntervento(InterventoAmbSchedulato evt)
+        public void ProgrammareIntervento(InterventoAmbPianificato evt)
         {
             if (!_stateMachine.IsInState(State.Start))
                 throw  new Exception("Saga already started");
@@ -42,12 +42,15 @@ namespace Super.Saga.Domain.Intervento
                               IdAreaIntervento = evt.IdAreaIntervento,
                               Start = evt.Start
                           };
+
+            cmd.SetCorrelationitId(evt.Id);
+
             Dispatch(cmd);
 
             Transition(evt);
         }
 
-        private void OnInterventoAmbSchedulato(InterventoAmbSchedulato evt)
+        private void OnInterventoAmbPianificato(InterventoAmbPianificato evt)
         {
             //publish intervento to appaltatore
             _stateMachine.Fire(Trigger.Scheduled);

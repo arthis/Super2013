@@ -81,7 +81,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Oggetti, Oggetti) && Equals(other.NumeroTrenoArrivo, NumeroTrenoArrivo) && other.DataTrenoArrivo.Equals(DataTrenoArrivo) && Equals(other.NumeroTrenoPartenza, NumeroTrenoPartenza) && other.DataTrenoPartenza.Equals(DataTrenoPartenza) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.Convoglio, Convoglio);
+            return base.Equals(other) && other.Oggetti.SequenceEqual(Oggetti) && Equals(other.NumeroTrenoArrivo, NumeroTrenoArrivo) && other.DataTrenoArrivo.Equals(DataTrenoArrivo) && Equals(other.NumeroTrenoPartenza, NumeroTrenoPartenza) && other.DataTrenoPartenza.Equals(DataTrenoPartenza) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.Convoglio, Convoglio);
         }
 
         public override int GetHashCode()
@@ -113,14 +113,14 @@ namespace Super.Appaltatore.Commands
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            return Equals(obj as ProgrammareInterventoRotMan);
         }
 
         public bool Equals(ProgrammareInterventoRotMan other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) && other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override int GetHashCode()
@@ -145,7 +145,7 @@ namespace Super.Appaltatore.Commands
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            return Equals(obj as ProgrammareInterventoAmb);
         }
 
         public bool Equals(ProgrammareInterventoAmb other)

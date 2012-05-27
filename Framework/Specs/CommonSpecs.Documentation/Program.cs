@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -49,14 +50,39 @@ namespace CommonSpecs.Documentation
 
         private static void GenerateToxicity()
         {
+            // Use ProcessStartInfo class
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.CreateNoWindow = false;
+            startInfo.UseShellExecute = false;
+            //Give the name as Xcopy
+            startInfo.FileName = @"D:\Projects\Super2013\lib\Reflector\Reflector.exe";
+            //make the window Hidden
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            //Send the Source and destination as Arguments to the process
+            startInfo.Arguments =
+                @"/Run:Reflector.CodeMetrics /Assembly:""D:\Projects\Super2013\Framework\CommonSpecs.Documentation\bin\Debug\CommandService.dll"" /OutputPath:""D:\Projects\Super2013\Documentation\Toxicity\super.xml";
+           
+            try
+            {
+                // Start the process with the info we specified.
+                // Call WaitForExit and then the using statement will close.
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    exeProcess.WaitForExit();
+                }
+            }
+            catch (Exception exp)
+            {
+                throw exp;
+            }
 
+            var toxicRunner = new Toxicity.Runner();
+            toxicRunner.Run(@"D:\Projects\Super2013\Documentation\Toxicity\super.xml", new List<string>());
             //D:\Projects\Super2013\lib\Reflector\Reflector.exe /Run:Reflector.CodeMetrics /Assembly:"D:\Projects\Super2013\Framework\CommonSpecs.Documentation\bin\Debug\*.dll" /OutputPath:"c:\Report.txt"
         }
 
         static void Main(string[] args)
         {
-
-            
             //-------------------------------------------------
             //copy the site resources (images, css,...)
             //-------------------------------------------------
@@ -75,14 +101,14 @@ namespace CommonSpecs.Documentation
             //create the documentation pages
             //-------------------------------------------------
             Assembly specsAdministration = typeof(Creazione_di_una_nuova_area_intervento).Assembly;
-            //Assembly specsSchedulazione = typeof(Super.Schedulazione.Specs.Creation_of_a_new_inventory_item).Assembly;
+            //Assembly specsProgrammazione = typeof(Super.Programmazione.Specs.Creation_of_a_new_inventory_item).Assembly;
             Assembly specsAppaltatore = typeof(Super.Appaltatore.Specs.Creation_of_a_new_inventory_item).Assembly;
             Assembly specsControllo = typeof(Super.Controllo.Specs.Creation_of_a_new_inventory_item).Assembly;
             Assembly specsSaga = typeof(Inizio_della_saga_intervento_rotabile_gia_iniziata).Assembly;
 
             var doc = DocumentationFactory.CreateDocumentation("Specifications"
                                                                , specsAdministration
-                //, specsSchedulazione
+                //, specsProgrammazione
                                                                , specsAppaltatore
                                                                //, specsControllo
                                                                , specsSaga
@@ -95,7 +121,9 @@ namespace CommonSpecs.Documentation
             {
                 page.ExportToTemplate();
             }
-         
+
+            GenerateToxicity();
+
         }
     }
 }

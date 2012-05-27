@@ -2,21 +2,28 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super;
 using CommonDomain.Persistence;
 using EasyNetQ;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Saga.Handlers;
-using Super.Schedulazione.Events;
+using Super.Programmazione.Events;
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 {
-    public class Inizio_della_saga_intervento_rotabile_in_manutenzione_gia_iniziata : SagaBaseClass<InterventoRotManSchedulato>
+    public class Inizio_della_saga_intervento_rotabile_in_manutenzione_gia_iniziata : SagaBaseClass<InterventoRotManPianificato>
     {
-        private Guid _Id = Guid.NewGuid();
-        private Guid _IdAreaIntervento = Guid.NewGuid();
-        private DateTime _Start = DateTime.Now.AddHours(12);
-        private DateTime _End = DateTime.Now.AddHours(13);
+        readonly Guid _id = Guid.NewGuid();
+        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idTipoIntervento = Guid.NewGuid();
+        readonly Guid _idAppaltatore = Guid.NewGuid();
+        readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
+        readonly Guid _idDirezioneRegionale = Guid.NewGuid();
+        readonly DateTime _start = DateTime.Now.AddHours(12);
+        readonly DateTime _end = DateTime.Now.AddHours(13);
+        List<OggettoRotMan> oggetti = new List<OggettoRotMan>() { new OggettoRotMan() { Descrizione = "desc", IdTipoOggettoInterventoRotMan = Guid.NewGuid(), Quantita = 15 } };
+        string _note = "note";
         
 
         public override string ToDescription()
@@ -24,31 +31,43 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
             return "Une saga gia inziata non può essere iniziata di nuovo. vero?.";
         }
 
-        protected override SagaHandler<InterventoRotManSchedulato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoRotManPianificato> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoRotManSchedulatoHandler(repository, bus);
+            return new InterventoRotManPianificatoHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoRotManSchedulato()
+            yield return new InterventoRotManPianificato()
             {
-                End = _End,
-                Start = _Start,
-                Id = _Id,
-                IdAreaIntervento = _IdAreaIntervento,
+                End = _end,
+                Start = _start,
+                Id = _id,
+                IdAreaIntervento = _idAreaIntervento,
+                IdTipoIntervento = _idTipoIntervento,
+                IdAppaltatore = _idAppaltatore,
+                IdCategoriaCommerciale = _idCategoriaCommerciale,
+                IdDirezioneRegionale = _idDirezioneRegionale,
+                Note = _note,
+                Oggetti = oggetti.ToArray(),
                 Headers = _Headers
             };
         }
 
-        public override InterventoRotManSchedulato When()
+        public override InterventoRotManPianificato When()
         {
-            return new InterventoRotManSchedulato()
+            return new InterventoRotManPianificato()
                        {
-                           End = _End,
-                           Start = _Start,
-                           Id = _Id,
-                           IdAreaIntervento = _IdAreaIntervento,
+                           End = _end,
+                           Start = _start,
+                           Id = _id,
+                           IdAreaIntervento = _idAreaIntervento,
+                           IdTipoIntervento = _idTipoIntervento,
+                           IdAppaltatore = _idAppaltatore,
+                           IdCategoriaCommerciale = _idCategoriaCommerciale,
+                           IdDirezioneRegionale = _idDirezioneRegionale,
+                           Note = _note,
+                           Oggetti = oggetti.ToArray(),
                            Headers = _Headers
                        };
         }

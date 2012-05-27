@@ -72,7 +72,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Super.Saga.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EventStore">
@@ -111,7 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Super.Saga.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
@@ -150,9 +150,9 @@
       <Project>{54B96050-5AB3-4EA7-A62C-5986C5D9650D}</Project>
       <Name>Events %28Super\Controllo\Events%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Schedulazione\Events\Events.csproj">
+    <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
-      <Name>Events %28Super\Schedulazione\Events%29</Name>
+      <Name>Events %28Super\Programmazione\Events%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Handlers\Handlers.csproj">
       <Project>{ED040216-1CD7-44D0-A567-0101C9FEC2E3}</Project>

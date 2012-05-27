@@ -6,11 +6,11 @@ using System.Xml;
 
 namespace Toxicity
 {
-    internal class Program
+    public class Runner
     {
         private const int NumberOfTypesToChart = 30;
 
-        private static int Main(string[] args)
+        private int Main(string[] args)
         {
             if (args.Length < 1)
             {
@@ -21,10 +21,10 @@ namespace Toxicity
             var inputFileName = args[0];
             var typesToExclude = new string[args.Length - 1];
             Array.Copy(args, 1, typesToExclude, 0, typesToExclude.Length);
-            return new Program().Run(inputFileName, new List<string>(typesToExclude));
+            return Run(inputFileName, new List<string>(typesToExclude));
         }
 
-        private int Run(string inputFileName, List<string> typesToExclude)
+        public int Run(string inputFileName, List<string> typesToExclude)
         {
             XmlDocument doc = new XmlDocument();
             try
