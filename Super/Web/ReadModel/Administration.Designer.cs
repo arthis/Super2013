@@ -24,32 +24,32 @@ namespace Super.Administration.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class Super2013Container : ObjectContext
+    public partial class AdministrationContainer : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new Super2013Container object using the connection string found in the 'Super2013Container' section of the application configuration file.
+        /// Initializes a new AdministrationContainer object using the connection string found in the 'AdministrationContainer' section of the application configuration file.
         /// </summary>
-        public Super2013Container() : base("name=Super2013Container", "Super2013Container")
+        public AdministrationContainer() : base("name=AdministrationContainer", "AdministrationContainer")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new Super2013Container object.
+        /// Initialize a new AdministrationContainer object.
         /// </summary>
-        public Super2013Container(string connectionString) : base(connectionString, "Super2013Container")
+        public AdministrationContainer(string connectionString) : base(connectionString, "AdministrationContainer")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new Super2013Container object.
+        /// Initialize a new AdministrationContainer object.
         /// </summary>
-        public Super2013Container(EntityConnection connection) : base(connection, "Super2013Container")
+        public AdministrationContainer(EntityConnection connection) : base(connection, "AdministrationContainer")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -127,7 +127,7 @@ namespace Super.Administration.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Super2013Model", Name="AreaIntervento")]
+    [EdmEntityTypeAttribute(NamespaceName="AdministrationModel", Name="AreaIntervento")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class AreaIntervento : EntityObject
@@ -308,7 +308,7 @@ namespace Super.Administration.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Super2013Model", Name="TipoIntervento")]
+    [EdmEntityTypeAttribute(NamespaceName="AdministrationModel", Name="TipoIntervento")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TipoIntervento : EntityObject

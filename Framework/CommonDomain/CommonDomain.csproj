@@ -76,6 +76,7 @@
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="IAggregate.cs" />
+    <Compile Include="IBus.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="ICommandValidation.cs" />
     <Compile Include="IEvent.cs" />

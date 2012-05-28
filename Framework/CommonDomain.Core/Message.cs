@@ -35,7 +35,7 @@ namespace CommonDomain.Core
 
         public void SetCommitId(Guid id)
         {
-            if (!((Dictionary<string, object>)Headers).ContainsKey(CommitKey))
+            if (((Dictionary<string, object>)Headers).ContainsKey(CommitKey))
                 ((Dictionary<string, object>)Headers)[CommitKey] = id;
             else
                 ((Dictionary<string, object>)Headers).Add(CommitKey, id);
@@ -43,7 +43,7 @@ namespace CommonDomain.Core
 
         public void SetCorrelationitId(Guid id)
         {
-            if (!((Dictionary<string, object>)Headers).ContainsKey(CorrelationKey))
+            if (((Dictionary<string, object>)Headers).ContainsKey(CorrelationKey))
                 ((Dictionary<string, object>)Headers)[CorrelationKey] = id;
             else
                 ((Dictionary<string, object>)Headers).Add(CorrelationKey, id);

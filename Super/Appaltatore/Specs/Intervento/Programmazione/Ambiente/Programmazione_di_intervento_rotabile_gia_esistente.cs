@@ -30,7 +30,7 @@ namespace Super.Appaltatore.Specs.Intervento.Programmazione.Ambiente
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoAmbPianificato()
+            yield return new InterventoAmbProgrammato()
             {
                 End = _end,
                 Start = _start,

@@ -73,9 +73,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Copy of ProgrammareInterventoRotHandler.cs" />
+    <Compile Include="CommandHandlerService.cs" />
+    <Compile Include="ProgrammareInterventoRotManHandler.cs" />
     <Compile Include="ProgrammareInterventoAmbHandler.cs" />
-    <Compile Include="CreateInventoryItemHandler.cs" />
     <Compile Include="ProgrammareInterventoRotHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

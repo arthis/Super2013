@@ -337,7 +337,7 @@
       <Project>{CB1EFF69-B658-48FC-A075-113D40F81E7C}</Project>
       <Name>Commands %28Super\Administration\Commands%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Administration\ReadModel\ReadModel.csproj">
+    <ProjectReference Include="..\ReadModel\ReadModel.csproj">
       <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>
       <Name>ReadModel</Name>
     </ProjectReference>

@@ -55,7 +55,7 @@ namespace Super.Appaltatore.Specs.Intervento.Programmazione.RotManabile
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new InterventoRotManPianificato()
+            yield return new InterventoRotManProgrammato()
             {
                 End = _end,
                 Start = _start,

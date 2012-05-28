@@ -7,6 +7,7 @@ using CommonDomain.Core;
 using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
 using EventStore;
+using EventStore.Dispatcher;
 using EventStore.Serialization;
 using Super.Administration.AdministrationService;
 using Super.Saga.Handlers;
@@ -16,12 +17,18 @@ namespace Super.Saga.SagaService
 {
     public class Service
     {
+        private MessageHandlerService _messageHandlerService; 
         private static IBus bus;
         private readonly byte[] _encryptionKey = new byte[]
                                                      {
                                                          0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf
                                                      };
 
+
+        public Service(MessageHandlerService _messageHandlerService)
+        {
+            this._messageHandlerService = _messageHandlerService;
+        }
 
         private IStoreEvents WireupEventStore()
         {
@@ -42,16 +49,12 @@ namespace Super.Saga.SagaService
         public void Init()
         {
             bus = RabbitHutch.CreateBus("host=localhost");
-            string subscriptionId = "Super";
 
             var storeEvents = WireupEventStore();
             
             var repository = new SagaEventStoreRepository(storeEvents);
 
-
-            bus.Subscribe<InterventoRotPianificato>(subscriptionId, evt => new InterventoRotPianificatoHandler(repository, bus).Handle(evt));
-            bus.Subscribe<InterventoRotManPianificato>(subscriptionId, evt => new InterventoRotManPianificatoHandler(repository, bus).Handle(evt));
-            bus.Subscribe<InterventoAmbPianificato>(subscriptionId, evt => new InterventoAmbPianificatoHandler(repository, bus).Handle(evt));
+            _messageHandlerService.Subscribe(repository, bus);
         }
 
         private void DispatchCommit(Commit commit)

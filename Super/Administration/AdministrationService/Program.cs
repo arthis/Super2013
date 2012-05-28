@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using CommandService;
+using Super.Administration.Handlers;
+using Super.Administration.Projection;
 
 namespace Super.Administration.AdministrationService
 {
@@ -9,8 +11,9 @@ namespace Super.Administration.AdministrationService
         static void Main(string[] args)
         {
 
-            var administrationService = new Service();
-            var commandWebService = new CommandWebService(administrationService);
+            var commandHandler = new CommandHandlerService();
+            var projectionHandler = new ProjectionHandlerService();
+            var commandWebService = new CommandWebService( commandHandler, projectionHandler);
             
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {

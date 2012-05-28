@@ -32,7 +32,7 @@ namespace Super.Appaltatore.Specs.Intervento.Programmazione.RotManabile
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoRotManPianificato()
+            yield return new InterventoRotManProgrammato()
             {
                 End = _end,
                 Start = _start,

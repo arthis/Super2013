@@ -84,6 +84,7 @@
     <Compile Include="InterventoAmbPianificatoHandler.cs" />
     <Compile Include="InterventoRotManPianificatoHandler.cs" />
     <Compile Include="InterventoRotPianificatoHandler.cs" />
+    <Compile Include="MessageHandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

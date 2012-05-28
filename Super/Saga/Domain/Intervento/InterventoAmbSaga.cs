@@ -40,7 +40,12 @@ namespace Super.Saga.Domain.Intervento
                               End = evt.End,
                               Headers = evt.Headers,
                               IdAreaIntervento = evt.IdAreaIntervento,
-                              Start = evt.Start
+                              Start = evt.Start,
+                              IdTipoIntervento = evt.IdTipoIntervento,
+                              IdAppaltatore = evt.IdAppaltatore,
+                              IdCategoriaCommerciale = evt.IdCategoriaCommerciale,
+                              IdDirezioneRegionale = evt.IdDirezioneRegionale,
+                              Note = evt.Note,
                           };
 
             cmd.SetCorrelationitId(evt.Id);

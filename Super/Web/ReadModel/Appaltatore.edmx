@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Super2013Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Super2013ModelStoreContainer">
+          <EntitySet Name="ConsuntivazioneRot" EntityType="Super2013Model.Store.ConsuntivazioneRot" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ConsuntivazioneRot">
+          <Key>
+            <PropertyRef Name="IdIntervento" />
+          </Key>
+          <Property Name="IdIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCommittente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAreaIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CodiceOrdine" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsAvvisoIspezione" Type="bit" Nullable="false" />
+          <Property Name="IsSpunta" Type="bit" Nullable="false" />
+          <Property Name="IsReso" Type="bit" Nullable="false" />
+          <Property Name="IsNonResoAppaltatore" Type="bit" Nullable="false" />
+          <Property Name="IsNonReso20mn" Type="bit" Nullable="false" />
+          <Property Name="IsNonResoTrenitalia" Type="bit" Nullable="false" />
+          <Property Name="IsRilevatoNonReso" Type="bit" Nullable="false" />
+          <Property Name="IsRettifica" Type="bit" Nullable="false" />
+          <Property Name="IsSostituito" Type="bit" Nullable="false" />
+          <Property Name="HasSchedaV" Type="bit" Nullable="false" />
+          <Property Name="HasSchedaQ" Type="bit" Nullable="false" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" Nullable="false" />
+          <Property Name="AreaInterventoDescrizione" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="CategoriaTreno" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumeroTrenoPartenza" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataTrenoPartenza" Type="datetime" />
+          <Property Name="TipoInterventoDescrizione" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="DataInizioProgrammata" Type="datetime" Nullable="false" />
+          <Property Name="DataFineProgrammata" Type="datetime" Nullable="false" />
+          <Property Name="ComposizioneProgrammata" Type="nvarchar" MaxLength="255" />
+          <Property Name="DataInizioConsuntivataAppaltatore" Type="datetime" Nullable="false" />
+          <Property Name="DataFineConsuntivataAppaltatore" Type="datetime" Nullable="false" />
+          <Property Name="IsProgrammato" Type="bit" Nullable="false" />
+          <Property Name="IsPLX" Type="bit" Nullable="false" />
+          <Property Name="IsEstemporaneo" Type="bit" Nullable="false" />
+          <Property Name="IsSostitutivo" Type="bit" Nullable="false" />
+          <Property Name="HasTreni" Type="bit" Nullable="false" />
+          <Property Name="HasRotabiliSingoli" Type="bit" Nullable="false" />
+          <Property Name="HasCarozze" Type="bit" Nullable="false" />
+          <Property Name="HasLocomotive" Type="bit" Nullable="false" />
+          <Property Name="IsModificatoTrenitaliaRispettoAlProgramma" Type="bit" Nullable="false" />
+          <Property Name="IsModificatoAppaltatoreRispettoAlProgramma" Type="bit" Nullable="false" />
+          <Property Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Type="bit" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AppaltatoreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AppaltatoreContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConsuntivazioneRots" EntityType="AppaltatoreModel.ConsuntivazioneRot" />
+        </EntityContainer>
+        <EntityType Name="ConsuntivazioneRot">
+          <Key>
+            <PropertyRef Name="IdIntervento" />
+          </Key>
+          <Property Type="Guid" Name="IdIntervento" Nullable="false" />
+          <Property Type="Guid" Name="IdCommittente" Nullable="false" />
+          <Property Type="Guid" Name="IdLotto" Nullable="false" />
+          <Property Type="Guid" Name="IdAreaIntervento" Nullable="false" />
+          <Property Type="Guid" Name="IdTipoIntervento" Nullable="false" />
+          <Property Type="String" Name="CodiceOrdine" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAvvisoIspezione" Nullable="false" />
+          <Property Type="Boolean" Name="IsSpunta" Nullable="false" />
+          <Property Type="Boolean" Name="IsReso" Nullable="false" />
+          <Property Type="Boolean" Name="IsNonResoAppaltatore" Nullable="false" />
+          <Property Type="Boolean" Name="IsNonReso20mn" Nullable="false" />
+          <Property Type="Boolean" Name="IsNonResoTrenitalia" Nullable="false" />
+          <Property Type="Boolean" Name="IsRilevatoNonReso" Nullable="false" />
+          <Property Type="Boolean" Name="IsRettifica" Nullable="false" />
+          <Property Type="Boolean" Name="IsSostituito" Nullable="false" />
+          <Property Type="Boolean" Name="HasSchedaV" Nullable="false" />
+          <Property Type="Boolean" Name="HasSchedaQ" Nullable="false" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" Nullable="false" />
+          <Property Type="String" Name="AreaInterventoDescrizione" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CategoriaTreno" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumeroTrenoPartenza" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataTrenoPartenza" />
+          <Property Type="String" Name="TipoInterventoDescrizione" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataInizioProgrammata" Nullable="false" />
+          <Property Type="DateTime" Name="DataFineProgrammata" Nullable="false" />
+          <Property Type="String" Name="ComposizioneProgrammata" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataInizioConsuntivataAppaltatore" Nullable="false" />
+          <Property Type="DateTime" Name="DataFineConsuntivataAppaltatore" Nullable="false" />
+          <Property Type="Boolean" Name="IsProgrammato" Nullable="false" />
+          <Property Type="Boolean" Name="IsPLX" Nullable="false" />
+          <Property Type="Boolean" Name="IsEstemporaneo" Nullable="false" />
+          <Property Type="Boolean" Name="IsSostitutivo" Nullable="false" />
+          <Property Type="Boolean" Name="HasTreni" Nullable="false" />
+          <Property Type="Boolean" Name="HasRotabiliSingoli" Nullable="false" />
+          <Property Type="Boolean" Name="HasCarozze" Nullable="false" />
+          <Property Type="Boolean" Name="HasLocomotive" Nullable="false" />
+          <Property Type="Boolean" Name="IsModificatoTrenitaliaRispettoAlProgramma" Nullable="false" />
+          <Property Type="Boolean" Name="IsModificatoAppaltatoreRispettoAlProgramma" Nullable="false" />
+          <Property Type="Boolean" Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Super2013ModelStoreContainer" CdmEntityContainer="AppaltatoreContainer">
+          <EntitySetMapping Name="ConsuntivazioneRots">
+            <EntityTypeMapping TypeName="AppaltatoreModel.ConsuntivazioneRot">
+              <MappingFragment StoreEntitySet="ConsuntivazioneRot">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="IsModificatoTrenitaliaRispettoAllAppaltatore" ColumnName="IsModificatoTrenitaliaRispettoAllAppaltatore" />
+                <ScalarProperty Name="IsModificatoAppaltatoreRispettoAlProgramma" ColumnName="IsModificatoAppaltatoreRispettoAlProgramma" />
+                <ScalarProperty Name="IsModificatoTrenitaliaRispettoAlProgramma" ColumnName="IsModificatoTrenitaliaRispettoAlProgramma" />
+                <ScalarProperty Name="HasLocomotive" ColumnName="HasLocomotive" />
+                <ScalarProperty Name="HasCarozze" ColumnName="HasCarozze" />
+                <ScalarProperty Name="HasRotabiliSingoli" ColumnName="HasRotabiliSingoli" />
+                <ScalarProperty Name="HasTreni" ColumnName="HasTreni" />
+                <ScalarProperty Name="IsSostitutivo" ColumnName="IsSostitutivo" />
+                <ScalarProperty Name="IsEstemporaneo" ColumnName="IsEstemporaneo" />
+                <ScalarProperty Name="IsPLX" ColumnName="IsPLX" />
+                <ScalarProperty Name="IsProgrammato" ColumnName="IsProgrammato" />
+                <ScalarProperty Name="DataFineConsuntivataAppaltatore" ColumnName="DataFineConsuntivataAppaltatore" />
+                <ScalarProperty Name="DataInizioConsuntivataAppaltatore" ColumnName="DataInizioConsuntivataAppaltatore" />
+                <ScalarProperty Name="ComposizioneProgrammata" ColumnName="ComposizioneProgrammata" />
+                <ScalarProperty Name="DataFineProgrammata" ColumnName="DataFineProgrammata" />
+                <ScalarProperty Name="DataInizioProgrammata" ColumnName="DataInizioProgrammata" />
+                <ScalarProperty Name="TipoInterventoDescrizione" ColumnName="TipoInterventoDescrizione" />
+                <ScalarProperty Name="DataTrenoPartenza" ColumnName="DataTrenoPartenza" />
+                <ScalarProperty Name="NumeroTrenoPartenza" ColumnName="NumeroTrenoPartenza" />
+                <ScalarProperty Name="CategoriaTreno" ColumnName="CategoriaTreno" />
+                <ScalarProperty Name="AreaInterventoDescrizione" ColumnName="AreaInterventoDescrizione" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="HasSchedaQ" ColumnName="HasSchedaQ" />
+                <ScalarProperty Name="HasSchedaV" ColumnName="HasSchedaV" />
+                <ScalarProperty Name="IsSostituito" ColumnName="IsSostituito" />
+                <ScalarProperty Name="IsRettifica" ColumnName="IsRettifica" />
+                <ScalarProperty Name="IsRilevatoNonReso" ColumnName="IsRilevatoNonReso" />
+                <ScalarProperty Name="IsNonResoTrenitalia" ColumnName="IsNonResoTrenitalia" />
+                <ScalarProperty Name="IsNonReso20mn" ColumnName="IsNonReso20mn" />
+                <ScalarProperty Name="IsNonResoAppaltatore" ColumnName="IsNonResoAppaltatore" />
+                <ScalarProperty Name="IsReso" ColumnName="IsReso" />
+                <ScalarProperty Name="IsSpunta" ColumnName="IsSpunta" />
+                <ScalarProperty Name="IsAvvisoIspezione" ColumnName="IsAvvisoIspezione" />
+                <ScalarProperty Name="CodiceOrdine" ColumnName="CodiceOrdine" />
+                <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+                <ScalarProperty Name="IdAreaIntervento" ColumnName="IdAreaIntervento" />
+                <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+                <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+                <ScalarProperty Name="IdIntervento" ColumnName="IdIntervento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Appaltatore" ZoomLevel="77">
+        <EntityTypeShape EntityType="AppaltatoreModel.ConsuntivazioneRot" Width="3.25" PointX="0.75" PointY="0.75" Height="9.095439453125" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -35,10 +35,10 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Super2013Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="Super2013Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AreaInterventoes" EntityType="Super2013Model.AreaIntervento" />
-          <EntitySet Name="TipoInterventoes" EntityType="Super2013Model.TipoIntervento" />
+      <Schema Namespace="AdministrationModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AdministrationContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AreaInterventoes" EntityType="AdministrationModel.AreaIntervento" />
+          <EntitySet Name="TipoInterventoes" EntityType="AdministrationModel.TipoIntervento" />
         </EntityContainer>
         <EntityType Name="AreaIntervento">
           <Key>
@@ -67,8 +67,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Super2013ModelStoreContainer" CdmEntityContainer="Super2013Container">
-          <EntitySetMapping Name="AreaInterventoes"><EntityTypeMapping TypeName="Super2013Model.AreaIntervento"><MappingFragment StoreEntitySet="AreaIntervento">
+        <EntityContainerMapping StorageEntityContainer="Super2013ModelStoreContainer" CdmEntityContainer="AdministrationContainer">
+          <EntitySetMapping Name="AreaInterventoes"><EntityTypeMapping TypeName="AdministrationModel.AreaIntervento"><MappingFragment StoreEntitySet="AreaIntervento">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Description" ColumnName="Description" />
             <ScalarProperty Name="Start" ColumnName="Start" />
@@ -76,7 +76,7 @@
             <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
             <ScalarProperty Name="Deleted" ColumnName="Deleted" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TipoInterventoes"><EntityTypeMapping TypeName="Super2013Model.TipoIntervento"><MappingFragment StoreEntitySet="TipoIntervento">
+          <EntitySetMapping Name="TipoInterventoes"><EntityTypeMapping TypeName="AdministrationModel.TipoIntervento"><MappingFragment StoreEntitySet="TipoIntervento">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Description" ColumnName="Description" />
             <ScalarProperty Name="Start" ColumnName="Start" />
@@ -104,9 +104,9 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ReadModel">
-        <EntityTypeShape EntityType="Super2013Model.AreaIntervento" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super2013Model.TipoIntervento" Width="1.5" PointX="2.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
+      <Diagram Name="Administration">
+        <EntityTypeShape EntityType="AdministrationModel.AreaIntervento" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdministrationModel.TipoIntervento" Width="1.5" PointX="2.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

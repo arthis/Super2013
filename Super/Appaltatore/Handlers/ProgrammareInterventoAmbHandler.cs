@@ -16,18 +16,27 @@ namespace Super.Appaltatore.Handlers
 
         public override CommandValidation Execute(ProgrammareInterventoAmb cmd)
         {
+            Contract.Requires<ArgumentNullException>(cmd != null);
 
-            throw new NotImplementedException();
 
-            //Contract.Requires<ArgumentNullException>(cmd != null);
+            var existingIntervento = Repository.GetById<InterventoAmb>(cmd.Id);
 
-            //var commitId = Guid.NewGuid();
+            if (!existingIntervento.IsNull())
+                throw new AlreadyCreatedAggregateRootException();
 
-            //var entity = new InventoryItem(cmd.Id, cmd.Name);
+            existingIntervento.Programmare(cmd.Id
+                                , cmd.IdAreaIntervento
+                                , cmd.IdTipoIntervento
+                                , cmd.IdAppaltatore
+                                , cmd.IdCategoriaCommerciale
+                                , cmd.IdDirezioneRegionale
+                                , cmd.Start
+                                , cmd.End
+                                , cmd.Note);
 
-            //Repository.Save(entity, commitId);
+            Repository.Save(existingIntervento, cmd.GetCommitId());
 
-            //return entity.CommandValidationMessages;
+            return existingIntervento.CommandValidationMessages;
         }
     }
 }

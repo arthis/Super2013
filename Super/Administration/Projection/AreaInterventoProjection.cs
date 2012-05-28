@@ -12,10 +12,10 @@ namespace Super.Administration.Projection
                                             IEventHandler<AreaInterventoDeleted>
     {
 
-        private Super2013Container GetContainer()
+        private AdministrationContainer GetContainer()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Super2013Entities"].ConnectionString;
-            return new Super2013Container(connectionString);
+            var connectionString = ConfigurationManager.ConnectionStrings["Super2013"].ConnectionString;
+            return new AdministrationContainer(connectionString);
         }
 
         public void Handle(AreaInterventoCreated @event)

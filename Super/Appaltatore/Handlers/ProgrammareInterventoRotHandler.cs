@@ -17,17 +17,35 @@ namespace Super.Appaltatore.Handlers
         public override CommandValidation Execute(ProgrammareInterventoRot cmd)
         {
 
-            throw new NotImplementedException();
+            Contract.Requires<ArgumentNullException>(cmd != null);
 
-            //Contract.Requires<ArgumentNullException>(cmd != null);
 
-            //var commitId = Guid.NewGuid();
+            var existingIntervento = Repository.GetById<InterventoRot>(cmd.Id);
 
-            //var entity = new InventoryItem(cmd.Id, cmd.Name);
+            if (!existingIntervento.IsNull())
+                throw new AlreadyCreatedAggregateRootException();
 
-            //Repository.Save(entity, commitId);
+            existingIntervento.Programmare(cmd.Id
+                                , cmd.IdAreaIntervento
+                                , cmd.IdTipoIntervento
+                                , cmd.IdAppaltatore
+                                , cmd.IdCategoriaCommerciale
+                                , cmd.IdDirezioneRegionale
+                                , cmd.Start
+                                , cmd.End
+                                , cmd.Note
+                                , cmd.Oggetti
+                                , cmd.NumeroTrenoArrivo
+                                , cmd.DataTrenoArrivo
+                                , cmd.NumeroTrenoPartenza
+                                , cmd.DataTrenoPartenza
+                                , cmd.TurnoTreno
+                                , cmd.RigaTurnoTreno
+                                , cmd.Convoglio);
 
-            //return entity.CommandValidationMessages;
+            Repository.Save(existingIntervento, cmd.GetCommitId());
+
+            return existingIntervento.CommandValidationMessages;
         }
     }
 }

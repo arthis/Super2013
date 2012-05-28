@@ -76,9 +76,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AreaInterventoProjection.cs" />
+    <Compile Include="ProjectionHandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
+      <Project>{22C1CCB4-63E1-47A8-8DD1-865E7E4F280A}</Project>
+      <Name>CommandService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
       <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
       <Name>CommonDomain.Core</Name>
@@ -87,13 +92,13 @@
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Web\ReadModel\ReadModel.csproj">
+      <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>
+      <Name>ReadModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{DDD34014-317B-46DF-B363-1A0610103AC3}</Project>
       <Name>Events %28Super\Administration\Events%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ReadModel\ReadModel.csproj">
-      <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>
-      <Name>ReadModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

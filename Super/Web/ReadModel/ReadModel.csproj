@@ -78,22 +78,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadModel.Designer.cs">
+    <Compile Include="Administration.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReadModel.edmx</DependentUpon>
+      <DependentUpon>Administration.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Appaltatore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Appaltatore.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <EntityDeploy Include="ReadModel.edmx">
+    <EntityDeploy Include="Administration.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ReadModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Administration.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Appaltatore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Appaltatore.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ReadModel.edmx.sql" />
+    <Content Include="Administration_ReadModel.edmx.sql" />
+    <Content Include="Appaltatore_ReadModel.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

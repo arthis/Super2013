@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.ServiceModel;
+using CommandService;
 using CommonDomain;
-using Super.Administration.ReadModel;
 using Super.Administration.Commands.AreaIntervento;
+using Super.Administration.ReadModel;
 using UI_Web.Models;
 using System.Text;
 using EasyNetQ;
@@ -32,7 +33,7 @@ namespace UI_Web.Controllers
         
         public JsonResult GetItems(VisualizzareAreaIntervento command)
         {
-            using (var context = new Super2013Container())
+            using (var context = new AdministrationContainer())
             {
                 var query = context.AreaInterventoes.Where(item => !item.Deleted);
 

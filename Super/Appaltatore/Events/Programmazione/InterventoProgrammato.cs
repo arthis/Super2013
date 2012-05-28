@@ -52,7 +52,7 @@ namespace Super.Appaltatore.Events.Programmazione
 
     }
 
-    public class InterventoRotPianificato : InterventoProgrammato
+    public class InterventoRotProgrammato : InterventoProgrammato
     {
         public OggettoRot[] Oggetti { get; set; }
         public string NumeroTrenoArrivo { get; set; }
@@ -72,10 +72,10 @@ namespace Super.Appaltatore.Events.Programmazione
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as InterventoRotPianificato);
+            return Equals(obj as InterventoRotProgrammato);
         }
 
-        public bool Equals(InterventoRotPianificato other)
+        public bool Equals(InterventoRotProgrammato other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -100,7 +100,7 @@ namespace Super.Appaltatore.Events.Programmazione
         }
     }
 
-    public class InterventoRotManPianificato : InterventoProgrammato
+    public class InterventoRotManProgrammato : InterventoProgrammato
     {
         public OggettoRotMan[] Oggetti { get; set; }
 
@@ -112,10 +112,10 @@ namespace Super.Appaltatore.Events.Programmazione
 
         public override bool Equals(object obj)
         {
-            return Equals(obj as InterventoRotManPianificato);
+            return Equals(obj as InterventoRotManProgrammato);
         }
 
-        public bool Equals(InterventoRotManPianificato other)
+        public bool Equals(InterventoRotManProgrammato other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -131,7 +131,7 @@ namespace Super.Appaltatore.Events.Programmazione
         }
     }
 
-    public class InterventoAmbPianificato : InterventoProgrammato
+    public class InterventoAmbProgrammato : InterventoProgrammato
     {
 
         public int Quantita { get; set; }
@@ -144,10 +144,10 @@ namespace Super.Appaltatore.Events.Programmazione
 
         public override bool Equals(object obj)
         {
-            return Equals(obj as InterventoAmbPianificato);
+            return Equals(obj as InterventoAmbProgrammato);
         }
 
-        public bool Equals(InterventoAmbPianificato other)
+        public bool Equals(InterventoAmbProgrammato other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
