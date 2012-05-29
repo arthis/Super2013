@@ -48,8 +48,6 @@ namespace Super.Saga.Domain.Intervento
                               Note = evt.Note,
                           };
 
-            cmd.SetCorrelationitId(evt.Id);
-
             Dispatch(cmd);
 
             Transition(evt);

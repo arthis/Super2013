@@ -42,7 +42,7 @@ namespace Super.Administration.Specs.AreaIntervento
                            Start = _StartUpdated,
                            End = _EndUpdated,
                            Description = _DescriptionUpdated,
-                           Headers = _Headers
+                           Headers = Headers
                        };
         }
 

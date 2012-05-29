@@ -10,7 +10,7 @@ using CommonSpecs;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
 
-namespace Super.Appaltatore.Specs.Intervento.Programmazione.Rotabile
+namespace Super.Appaltatore.Specs.Programmazione.Rotabile
 {
     public class Programmazione_di_intervento_rotabile_gia_esistente : CommandBaseClass<ProgrammareInterventoRot>
     {
@@ -58,7 +58,7 @@ namespace Super.Appaltatore.Specs.Intervento.Programmazione.Rotabile
                 TurnoTreno = _turnoTreno,
                 RigaTurnoTreno = _rigaTurnoTreno,
                 Convoglio = _convoglio,
-                Headers = _Headers
+                Headers = Headers
             };
         }
 
@@ -83,7 +83,7 @@ namespace Super.Appaltatore.Specs.Intervento.Programmazione.Rotabile
                 TurnoTreno = _turnoTreno,
                 RigaTurnoTreno = _rigaTurnoTreno,
                 Convoglio = _convoglio,
-                Headers = _Headers
+                Headers = Headers
             };
         }
 

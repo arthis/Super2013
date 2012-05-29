@@ -20,12 +20,12 @@ namespace CommonSpecs
         protected abstract CommandHandler<TCommand> OnHandle(IRepository repository);
         FakeRepository fakeRepository = new FakeRepository();
 
-        protected Dictionary<string, object> _Headers = new Dictionary<string, object>();
+        protected Dictionary<string, object> Headers = new Dictionary<string, object>();
 
         public CommandBaseClass()
         {
-            _Headers[Message.CommitKey] = Guid.NewGuid();
-            _Headers[Message.CorrelationKey] = Guid.NewGuid();
+            Headers[Message.CommitKey] = Guid.NewGuid();
+            //Headers[Message.CorrelationKey] = Guid.NewGuid();
         }
 
         [SetUp]

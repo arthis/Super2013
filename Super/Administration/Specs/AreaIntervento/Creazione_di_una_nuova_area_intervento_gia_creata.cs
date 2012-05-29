@@ -51,7 +51,7 @@ namespace Super.Administration.Specs.AreaIntervento
                 CreationDate = _CreationDate,
                 End = _End,
                 Start = _Start,
-                Headers = _Headers
+                Headers = Headers
             };
         }
 

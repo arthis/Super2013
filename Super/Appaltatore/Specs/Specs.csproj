@@ -74,12 +74,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Intervento\Programmazione\Ambiente\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
-    <Compile Include="Intervento\Programmazione\Ambiente\Programmazione_di_intervento_rotabile_non_esistente.cs" />
-    <Compile Include="Intervento\Programmazione\Rotabile in Manutenzione\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
-    <Compile Include="Intervento\Programmazione\Rotabile in Manutenzione\Programmazione_di_intervento_rotabile_non_esistente.cs" />
-    <Compile Include="Intervento\Programmazione\Rotabile\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
-    <Compile Include="Intervento\Programmazione\Rotabile\Programmazione_di_intervento_rotabile_non_esistente.cs" />
+    <Compile Include="Consuntivazione\Ambiente\Consuntivazione_reso_di_intervento_ambiente_gia_consuntivato_reso.cs" />
+    <Compile Include="Consuntivazione\Ambiente\Consuntivazione_reso_di_intervento_ambiente_programmato.cs" />
+    <Compile Include="Programmazione\Ambiente\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
+    <Compile Include="Programmazione\Ambiente\Programmazione_di_intervento_rotabile_non_esistente.cs" />
+    <Compile Include="Programmazione\Rotabile in Manutenzione\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
+    <Compile Include="Programmazione\Rotabile in Manutenzione\Programmazione_di_intervento_rotabile_non_esistente.cs" />
+    <Compile Include="Programmazione\Rotabile\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
+    <Compile Include="Programmazione\Rotabile\Programmazione_di_intervento_rotabile_non_esistente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +118,10 @@
       <Name>Handlers %28Super\Appaltatore\Handlers%29</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Consuntivazione\Rotabile in Manutenzione\" />
+    <Folder Include="Consuntivazione\Rotabile\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -131,8 +131,8 @@ namespace Super.Administration.ReadModel
         /// <param name="hasSchedaQ">Initial value of the HasSchedaQ property.</param>
         /// <param name="start">Initial value of the Start property.</param>
         /// <param name="end">Initial value of the End property.</param>
-        /// <param name="areaInterventoDescrizione">Initial value of the AreaInterventoDescrizione property.</param>
-        /// <param name="tipoInterventoDescrizione">Initial value of the TipoInterventoDescrizione property.</param>
+        /// <param name="areaInterventoDescription">Initial value of the AreaInterventoDescription property.</param>
+        /// <param name="tipoInterventoDescription">Initial value of the TipoInterventoDescription property.</param>
         /// <param name="dataInizioProgrammata">Initial value of the DataInizioProgrammata property.</param>
         /// <param name="dataFineProgrammata">Initial value of the DataFineProgrammata property.</param>
         /// <param name="dataInizioConsuntivataAppaltatore">Initial value of the DataInizioConsuntivataAppaltatore property.</param>
@@ -150,7 +150,7 @@ namespace Super.Administration.ReadModel
         /// <param name="isModificatoTrenitaliaRispettoAllAppaltatore">Initial value of the IsModificatoTrenitaliaRispettoAllAppaltatore property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static ConsuntivazioneRot CreateConsuntivazioneRot(global::System.Guid idIntervento, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idAreaIntervento, global::System.Guid idTipoIntervento, global::System.Boolean isAvvisoIspezione, global::System.Boolean isSpunta, global::System.Boolean isReso, global::System.Boolean isNonResoAppaltatore, global::System.Boolean isNonReso20mn, global::System.Boolean isNonResoTrenitalia, global::System.Boolean isRilevatoNonReso, global::System.Boolean isRettifica, global::System.Boolean isSostituito, global::System.Boolean hasSchedaV, global::System.Boolean hasSchedaQ, global::System.DateTime start, global::System.DateTime end, global::System.String areaInterventoDescrizione, global::System.String tipoInterventoDescrizione, global::System.DateTime dataInizioProgrammata, global::System.DateTime dataFineProgrammata, global::System.DateTime dataInizioConsuntivataAppaltatore, global::System.DateTime dataFineConsuntivataAppaltatore, global::System.Boolean isProgrammato, global::System.Boolean isPLX, global::System.Boolean isEstemporaneo, global::System.Boolean isSostitutivo, global::System.Boolean hasTreni, global::System.Boolean hasRotabiliSingoli, global::System.Boolean hasCarozze, global::System.Boolean hasLocomotive, global::System.Boolean isModificatoTrenitaliaRispettoAlProgramma, global::System.Boolean isModificatoAppaltatoreRispettoAlProgramma, global::System.Boolean isModificatoTrenitaliaRispettoAllAppaltatore, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static ConsuntivazioneRot CreateConsuntivazioneRot(global::System.Guid idIntervento, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idAreaIntervento, global::System.Guid idTipoIntervento, global::System.Boolean isAvvisoIspezione, global::System.Boolean isSpunta, global::System.Boolean isReso, global::System.Boolean isNonResoAppaltatore, global::System.Boolean isNonReso20mn, global::System.Boolean isNonResoTrenitalia, global::System.Boolean isRilevatoNonReso, global::System.Boolean isRettifica, global::System.Boolean isSostituito, global::System.Boolean hasSchedaV, global::System.Boolean hasSchedaQ, global::System.DateTime start, global::System.DateTime end, global::System.String areaInterventoDescription, global::System.String tipoInterventoDescription, global::System.DateTime dataInizioProgrammata, global::System.DateTime dataFineProgrammata, global::System.DateTime dataInizioConsuntivataAppaltatore, global::System.DateTime dataFineConsuntivataAppaltatore, global::System.Boolean isProgrammato, global::System.Boolean isPLX, global::System.Boolean isEstemporaneo, global::System.Boolean isSostitutivo, global::System.Boolean hasTreni, global::System.Boolean hasRotabiliSingoli, global::System.Boolean hasCarozze, global::System.Boolean hasLocomotive, global::System.Boolean isModificatoTrenitaliaRispettoAlProgramma, global::System.Boolean isModificatoAppaltatoreRispettoAlProgramma, global::System.Boolean isModificatoTrenitaliaRispettoAllAppaltatore, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             ConsuntivazioneRot consuntivazioneRot = new ConsuntivazioneRot();
             consuntivazioneRot.IdIntervento = idIntervento;
@@ -171,8 +171,8 @@ namespace Super.Administration.ReadModel
             consuntivazioneRot.HasSchedaQ = hasSchedaQ;
             consuntivazioneRot.Start = start;
             consuntivazioneRot.End = end;
-            consuntivazioneRot.AreaInterventoDescrizione = areaInterventoDescrizione;
-            consuntivazioneRot.TipoInterventoDescrizione = tipoInterventoDescrizione;
+            consuntivazioneRot.AreaInterventoDescription = areaInterventoDescription;
+            consuntivazioneRot.TipoInterventoDescription = tipoInterventoDescription;
             consuntivazioneRot.DataInizioProgrammata = dataInizioProgrammata;
             consuntivazioneRot.DataFineProgrammata = dataFineProgrammata;
             consuntivazioneRot.DataInizioConsuntivataAppaltatore = dataInizioConsuntivataAppaltatore;
@@ -660,24 +660,24 @@ namespace Super.Administration.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String AreaInterventoDescrizione
+        public global::System.String AreaInterventoDescription
         {
             get
             {
-                return _AreaInterventoDescrizione;
+                return _AreaInterventoDescription;
             }
             set
             {
-                OnAreaInterventoDescrizioneChanging(value);
-                ReportPropertyChanging("AreaInterventoDescrizione");
-                _AreaInterventoDescrizione = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("AreaInterventoDescrizione");
-                OnAreaInterventoDescrizioneChanged();
+                OnAreaInterventoDescriptionChanging(value);
+                ReportPropertyChanging("AreaInterventoDescription");
+                _AreaInterventoDescription = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("AreaInterventoDescription");
+                OnAreaInterventoDescriptionChanged();
             }
         }
-        private global::System.String _AreaInterventoDescrizione;
-        partial void OnAreaInterventoDescrizioneChanging(global::System.String value);
-        partial void OnAreaInterventoDescrizioneChanged();
+        private global::System.String _AreaInterventoDescription;
+        partial void OnAreaInterventoDescriptionChanging(global::System.String value);
+        partial void OnAreaInterventoDescriptionChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -756,24 +756,24 @@ namespace Super.Administration.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String TipoInterventoDescrizione
+        public global::System.String TipoInterventoDescription
         {
             get
             {
-                return _TipoInterventoDescrizione;
+                return _TipoInterventoDescription;
             }
             set
             {
-                OnTipoInterventoDescrizioneChanging(value);
-                ReportPropertyChanging("TipoInterventoDescrizione");
-                _TipoInterventoDescrizione = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("TipoInterventoDescrizione");
-                OnTipoInterventoDescrizioneChanged();
+                OnTipoInterventoDescriptionChanging(value);
+                ReportPropertyChanging("TipoInterventoDescription");
+                _TipoInterventoDescription = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TipoInterventoDescription");
+                OnTipoInterventoDescriptionChanged();
             }
         }
-        private global::System.String _TipoInterventoDescrizione;
-        partial void OnTipoInterventoDescrizioneChanging(global::System.String value);
-        partial void OnTipoInterventoDescrizioneChanged();
+        private global::System.String _TipoInterventoDescription;
+        partial void OnTipoInterventoDescriptionChanging(global::System.String value);
+        partial void OnTipoInterventoDescriptionChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

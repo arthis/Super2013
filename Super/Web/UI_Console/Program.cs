@@ -69,8 +69,8 @@ namespace UI_Console
         //        Id = Guid.NewGuid(),
         //        CreationDate = DateTime.Now,
         //        Descrizione = "test descrizione",
-        //        Inizio = DateTime.Now,
-        //        Fine = DateTime.Now,
+        //        Start = DateTime.Now,
+        //        End = DateTime.Now,
         //        IdAreaInterventoSuper = 12
         //    };
 

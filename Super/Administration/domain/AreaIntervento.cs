@@ -10,11 +10,8 @@ namespace Super.Administration.Domain
 {
     public class AreaIntervento : AggregateBase
     {
-        public int IdAreaInterventoSuper { get; set; }
-        public string Description { get; set; }
         public DateTime Start { get; set; }
         public DateTime? End { get; set; }
-        public DateTime CreationDate { get; set; }
         public bool Deleted { get; set; }
 
         public AreaIntervento()
@@ -44,11 +41,8 @@ namespace Super.Administration.Domain
 
         public void Apply(AreaInterventoCreated e)
         {
-            this.Id = e.Id;
-            this.Start = e.Start;
-            this.End = e.End;
-            this.CreationDate = e.CreationDate;
-            this.Description = e.Description;
+            Start = e.Start;
+            End = e.End;
         }
 
         
@@ -68,9 +62,8 @@ namespace Super.Administration.Domain
 
         public void Apply(AreaInterventoUpdated e)
         {
-            this.Start = e.Start;
-            this.End = e.End;
-            this.Description = e.Description;
+            Start = e.Start;
+            End = e.End;
         }
 
         public void Delete()

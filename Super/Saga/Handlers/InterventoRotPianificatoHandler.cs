@@ -18,7 +18,7 @@ namespace Super.Saga.Handlers
 
         public sealed override ISaga OnHandle(InterventoRotPianificato @event)
         {
-            var sagaId = @event.GetCorrelationId();
+            var sagaId = @event.Id;
 
             // purchase correlation 
             var saga = Repository.GetById<InterventoRotSaga>(sagaId);

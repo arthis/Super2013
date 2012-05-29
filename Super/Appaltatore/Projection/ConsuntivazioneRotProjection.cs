@@ -2,12 +2,15 @@
 using System.Configuration;
 using System.Linq;
 using CommonDomain.Core;
+using Super.Administration.Events.AreaIntervento;
 using Super.Administration.ReadModel;
 using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Projection
 {
-    public class ConsuntivazioneRotProjection : IEventHandler<InterventoRotProgrammato>
+    public class ConsuntivazioneRotProjection : IEventHandler<InterventoRotProgrammato>,
+                                                IEventHandler<AreaInterventoUpdated>
+
     {
 
         private AppaltatoreContainer GetContainer()
@@ -15,6 +18,8 @@ namespace Super.Appaltatore.Projection
             var connectionString = ConfigurationManager.ConnectionStrings["Super2013"].ConnectionString;
             return new AppaltatoreContainer(connectionString);
         }
+
+
 
         public void Handle(InterventoRotProgrammato evt)
         {
@@ -47,6 +52,22 @@ namespace Super.Appaltatore.Projection
             //    container.ConsuntivazioneRots.AddObject(cons);
             //    container.SaveChanges();
             //}
+        }
+
+        public void Handle(AreaInterventoUpdated evt)
+        {
+            using (var container = GetContainer())
+            {
+                var cons = container.ConsuntivazioneRots.ToList();
+
+
+                foreach (var consuntivazioneRot in cons)
+                {
+                    consuntivazioneRot.AreaInterventoDescription = evt.Description;
+                }
+
+                container.SaveChanges();
+            }
         }
 
     }

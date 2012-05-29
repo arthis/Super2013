@@ -45,7 +45,7 @@ namespace Super.Administration.Specs.AreaIntervento
             return new DeleteAreaIntervento()
                        {
                            Id = _Id,
-                           Headers = _Headers
+                           Headers = Headers
                        };
         }
 

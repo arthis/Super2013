@@ -29,7 +29,7 @@ namespace CommonSpecs
         public SagaBaseClass()
         {
             _Headers[Message.CommitKey] = Guid.NewGuid();
-            _Headers[Message.CorrelationKey] = Guid.NewGuid();
+            //_Headers[Message.CorrelationKey] = Guid.NewGuid();
         }
 
         [SetUp]

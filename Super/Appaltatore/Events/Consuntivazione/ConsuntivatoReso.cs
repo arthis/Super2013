@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super;
 
-namespace Super.Appaltatore.Commands
+namespace Super.Appaltatore.Events.Consuntivazione
 {
-    
-    public abstract class ConsuntivareReso : CommandBase
+    public abstract class ConsuntivatoReso : Message, IEvent
     {
         public Guid Id { get; set; }
         public string IdInterventoAppaltatore { get; set; }
@@ -15,8 +18,7 @@ namespace Super.Appaltatore.Commands
         public string Note { get; set; }
     }
 
-    
-    public class ConsuntivareRotReso : ConsuntivareReso
+    public class ConsuntivatoRotReso : ConsuntivatoReso
     {
         public OggettoRot[] Oggetti { get; set; }
         public string NumeroTrenoArrivo { get; set; }
@@ -27,34 +29,30 @@ namespace Super.Appaltatore.Commands
         public string RigaTurnoTreno { get; set; }
         public string Convoglio { get; set; }
 
-
         public override string ToDescription()
         {
-            return string.Format("Consuntivare reso il intervento rotabile '{0}' ", Id);
+            return string.Format("Il intervento rotabile '{0}' é stato consuntivato reso.", Id);
         }
     }
 
-    public class ConsuntivareRotManReso : ConsuntivareReso
+    public class ConsuntivatoRotManReso : ConsuntivatoReso
     {
         public OggettoRotMan[] Oggetti { get; set; }
 
-       
-
         public override string ToDescription()
         {
-            return string.Format("Consuntivare reso il intervento rotabile in manutenzione '{0}' ", Id);
+            return string.Format("Il intervento rotabile in manutenzione '{0}' é stato consuntivato reso.", Id);
         }
     }
 
-    public class ConsuntivareAmbReso : ConsuntivareReso
+    public class ConsuntivatoAmbReso : ConsuntivatoReso
     {
         public int Quantita { get; set; }
         public string Descrizione { get; set; }
 
         public override string ToDescription()
         {
-            return string.Format("Consuntivare reso il intervento ambiente '{0}' ", Id);
+            return string.Format("Il intervento ambiente '{0}' é stato consuntivato reso.", Id);
         }
     }
-
 }

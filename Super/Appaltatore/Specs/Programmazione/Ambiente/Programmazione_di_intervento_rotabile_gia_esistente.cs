@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Appaltatore.Commands;
@@ -10,9 +9,9 @@ using CommonSpecs;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
 
-namespace Super.Appaltatore.Specs.Intervento.Programmazione.RotManabile
+namespace Super.Appaltatore.Specs.Programmazione.Ambiente
 {
-    public class Programmazione_di_intervento_rotabile_in_manutenzione_non_esistente : CommandBaseClass<ProgrammareInterventoRotMan>
+    public class Programmazione_di_intervento_ambiente_gia_esistente : CommandBaseClass<ProgrammareInterventoAmb>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idAreaIntervento = Guid.NewGuid();
@@ -22,22 +21,16 @@ namespace Super.Appaltatore.Specs.Intervento.Programmazione.RotManabile
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
         readonly DateTime _start = DateTime.Now.AddHours(12);
         readonly DateTime _end = DateTime.Now.AddHours(13);
-        List<OggettoRotMan> oggetti = new List<OggettoRotMan>() { new OggettoRotMan() { Descrizione = "desc", IdTipoOggettoInterventoRotMan = Guid.NewGuid(), Quantita = 15 } };
         string _note = "note";
 
-        protected override CommandHandler<ProgrammareInterventoRotMan> OnHandle(IRepository repository)
+        protected override CommandHandler<ProgrammareInterventoAmb> OnHandle(IRepository repository)
         {
-            return new ProgrammareInterventoRotManHandler(repository);
+            return new ProgrammareInterventoAmbHandler(repository);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield break;
-        }
-
-        public override ProgrammareInterventoRotMan When()
-        {
-            return new ProgrammareInterventoRotMan()
+            yield return new InterventoAmbProgrammato()
             {
                 End = _end,
                 Start = _start,
@@ -48,33 +41,37 @@ namespace Super.Appaltatore.Specs.Intervento.Programmazione.RotManabile
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
-                Oggetti = oggetti.ToArray(),
-                Headers = _Headers
+                Headers = Headers
+            };
+        }
+
+        public override ProgrammareInterventoAmb When()
+        {
+            return new ProgrammareInterventoAmb()
+            {
+                End = _end,
+                Start = _start,
+                Id = _id,
+                IdAreaIntervento = _idAreaIntervento,
+                IdTipoIntervento = _idTipoIntervento,
+                IdAppaltatore = _idAppaltatore,
+                IdCategoriaCommerciale = _idCategoriaCommerciale,
+                IdDirezioneRegionale = _idDirezioneRegionale,
+                Note = _note,
+                Headers = Headers
             };
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new InterventoRotManProgrammato()
-            {
-                End = _end,
-                Start = _start,
-                Id = _id,
-                IdAreaIntervento = _idAreaIntervento,
-                IdTipoIntervento = _idTipoIntervento,
-                IdAppaltatore = _idAppaltatore,
-                IdCategoriaCommerciale = _idCategoriaCommerciale,
-                IdDirezioneRegionale = _idDirezioneRegionale,
-                Note = _note,
-                Oggetti = oggetti.ToArray(),
-                Headers = _Headers
-            };
+            yield break;
         }
 
         [Test]
-        public void non_genera_un_eccezzione()
+        public void genera_un_eccezzione()
         {
-            Assert.IsNull(Caught);
+            Assert.IsNotNull(Caught);
+            Assert.AreEqual(typeof(Exception), Caught.GetType());
         }
 
 
