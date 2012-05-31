@@ -10,7 +10,7 @@ using CommonSpecs;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
 
-namespace Super.Appaltatore.Specs.Programmazione.RotManabile
+namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
 {
     public class Programmazione_di_intervento_rotabile_in_manutenzione_non_esistente : CommandBaseClass<ProgrammareInterventoRotMan>
     {
