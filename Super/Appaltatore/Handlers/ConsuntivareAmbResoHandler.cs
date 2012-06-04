@@ -18,26 +18,23 @@ namespace Super.Appaltatore.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            throw  new NotImplementedException();
+            var existingIntervento = Repository.GetById<InterventoAmb>(cmd.Id);
 
-            //var existingIntervento = Repository.GetById<InterventoAmb>(cmd.Id);
+            if (existingIntervento.IsNull())
+                throw new HandlerForDomainEventNotFoundException();
 
-            //if (existingIntervento.IsNull())
-            //    throw new HandlerForDomainEventNotFoundException();
+            existingIntervento.ConsuntivareReso(cmd.Id
+                                , cmd.DataConsuntivazione
+                                , cmd.End
+                                , cmd.Start
+                                , cmd.IdInterventoAppaltatore
+                                , cmd.Note
+                                , cmd.Descrizione
+                                , cmd.Quantita);
 
-            //existingIntervento.(cmd.Id
-            //                    , cmd.IdAreaIntervento
-            //                    , cmd.IdTipoIntervento
-            //                    , cmd.IdAppaltatore
-            //                    , cmd.IdCategoriaCommerciale
-            //                    , cmd.IdDirezioneRegionale
-            //                    , cmd.Start
-            //                    , cmd.End
-            //                    , cmd.Note);
+            Repository.Save(existingIntervento, cmd.GetCommitId());
 
-            //Repository.Save(existingIntervento, cmd.GetCommitId());
-
-            //return existingIntervento.CommandValidationMessages;
+            return existingIntervento.CommandValidationMessages;
         }
     }
 }

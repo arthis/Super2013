@@ -3,6 +3,7 @@ using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Commands;
+using Super.Appaltatore.Domain;
 
 namespace Super.Appaltatore.Handlers
 {
@@ -17,26 +18,20 @@ namespace Super.Appaltatore.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            throw new NotImplementedException();
+            var existingIntervento = Repository.GetById<InterventoRot>(cmd.Id);
 
-            //var existingIntervento = Repository.GetById<InterventoAmb>(cmd.Id);
+            if (existingIntervento.IsNull())
+                throw new HandlerForDomainEventNotFoundException();
 
-            //if (existingIntervento.IsNull())
-            //    throw new HandlerForDomainEventNotFoundException();
+            existingIntervento.ConsuntivareNonReso(cmd.Id
+                                 , cmd.IdInterventoAppaltatore
+                                 , cmd.DataConsuntivazione
+                                 , cmd.IdCausale
+                                 , cmd.Note);
 
-            //existingIntervento.(cmd.Id
-            //                    , cmd.IdAreaIntervento
-            //                    , cmd.IdTipoIntervento
-            //                    , cmd.IdAppaltatore
-            //                    , cmd.IdCategoriaCommerciale
-            //                    , cmd.IdDirezioneRegionale
-            //                    , cmd.Start
-            //                    , cmd.End
-            //                    , cmd.Note);
+            Repository.Save(existingIntervento, cmd.GetCommitId());
 
-            //Repository.Save(existingIntervento, cmd.GetCommitId());
-
-            //return existingIntervento.CommandValidationMessages;
+            return existingIntervento.CommandValidationMessages;
         }
     }
 }

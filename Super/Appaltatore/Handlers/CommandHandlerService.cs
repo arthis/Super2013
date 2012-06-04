@@ -21,6 +21,27 @@ namespace Super.Appaltatore.Handlers
                           (cmd) => new ProgrammareInterventoRotHandler(repositoryEvent).Execute((ProgrammareInterventoRot)cmd));
             _handlers.Add(typeof(ProgrammareInterventoRotMan),
                           (cmd) => new ProgrammareInterventoRotManHandler(repositoryEvent).Execute((ProgrammareInterventoRotMan)cmd));
+
+            _handlers.Add(typeof(ConsuntivareAmbNonReso),
+                          (cmd) => new ConsuntivareAmbNonResoHandler(repositoryEvent).Execute((ConsuntivareAmbNonReso)cmd));
+            _handlers.Add(typeof(ConsuntivareRotNonReso),
+                          (cmd) => new ConsuntivareRotNonResoHandler(repositoryEvent).Execute((ConsuntivareRotNonReso)cmd));
+            _handlers.Add(typeof(ConsuntivareRotManNonReso),
+                          (cmd) => new ConsuntivareRotManNonResoHandler(repositoryEvent).Execute((ConsuntivareRotManNonReso)cmd));
+
+            _handlers.Add(typeof(ConsuntivareAmbReso),
+                          (cmd) => new ConsuntivareAmbResoHandler(repositoryEvent).Execute((ConsuntivareAmbReso)cmd));
+            _handlers.Add(typeof(ConsuntivareRotReso),
+                          (cmd) => new ConsuntivareRotResoHandler(repositoryEvent).Execute((ConsuntivareRotReso)cmd));
+            _handlers.Add(typeof(ConsuntivareRotManReso),
+                          (cmd) => new ConsuntivareRotManResoHandler(repositoryEvent).Execute((ConsuntivareRotManReso)cmd));
+
+            _handlers.Add(typeof(ConsuntivareAmbNonResoTrenitalia),
+                          (cmd) => new ConsuntivareAmbNonResoTrenitaliaHandler(repositoryEvent).Execute((ConsuntivareAmbNonResoTrenitalia)cmd));
+            _handlers.Add(typeof(ConsuntivareRotNonResoTrenitalia),
+                          (cmd) => new ConsuntivareRotNonResoTrenitaliaHandler(repositoryEvent).Execute((ConsuntivareRotNonResoTrenitalia)cmd));
+            _handlers.Add(typeof(ConsuntivareRotManNonResoTrenitalia),
+                          (cmd) => new ConsuntivareRotManNonResoTrenitaliaHandler(repositoryEvent).Execute((ConsuntivareRotManNonResoTrenitalia)cmd));
         }
 
 

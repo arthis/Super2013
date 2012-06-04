@@ -85,6 +85,7 @@
     <Compile Include="InterventoAmb.cs" />
     <Compile Include="InterventoRot.cs" />
     <Compile Include="InterventoRotMan.cs" />
+    <Compile Include="InterventoSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
