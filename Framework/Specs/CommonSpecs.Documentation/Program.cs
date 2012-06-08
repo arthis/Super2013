@@ -123,7 +123,7 @@ namespace CommonSpecs.Documentation
                 page.ExportToTemplate();
             }
 
-            GenerateToxicity();
+            //GenerateToxicity();
 
         }
     }

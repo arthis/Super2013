@@ -63,3 +63,5 @@ Dependencies:
 
  - CodeContracts
  - MongoDB
+ - Easy netQ ( my version is to be cloned in Super2013\Framework )
+ 
