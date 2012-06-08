@@ -75,7 +75,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
         public void genera_un_eccezzione()
         {
             Assert.IsNotNull(Caught);
-            Assert.AreEqual(typeof(Exception), Caught.GetType());
+            Assert.AreEqual(typeof(AlreadyCreatedAggregateRootException), Caught.GetType());
         }
 
 

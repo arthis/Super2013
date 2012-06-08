@@ -14,7 +14,7 @@ namespace Super.Appaltatore.Domain
 
         public Is_data_consuntivazione_valid(DateTime dataConsuntivazione)
         {
-            Contract.Requires<ArgumentNullException>(dataConsuntivazione == DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(dataConsuntivazione != DateTime.MinValue);
 
             _dataConsuntivazione = dataConsuntivazione;
         }
@@ -38,8 +38,8 @@ namespace Super.Appaltatore.Domain
 
         public Has_start_date_greater_than_end_date(DateTime start, DateTime end)
         {
-            Contract.Requires<ArgumentNullException>(start == DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(start == DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(start != DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(start != DateTime.MinValue);
 
             _start = start;
             _end = end;

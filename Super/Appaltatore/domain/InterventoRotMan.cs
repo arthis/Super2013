@@ -43,6 +43,7 @@ namespace Super.Appaltatore.Domain
 
         public void Apply(InterventoRotManProgrammato e)
         {
+            Id = e.Id;
             //do something here if needed
         }
 

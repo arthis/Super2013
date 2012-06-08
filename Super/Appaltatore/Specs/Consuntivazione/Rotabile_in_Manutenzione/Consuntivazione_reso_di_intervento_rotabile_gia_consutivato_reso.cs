@@ -37,7 +37,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
 
         //Cons 2
         readonly string _idInterventoAppaltatoreCons2 = "id intervento appaltatore Cons2";
-        readonly DateTime _dataConsuntivazioneCons2 = DateTime.Now.AddMinutes(1);
+        readonly DateTime _dataConsuntivazioneCons2 = DateTime.Now.AddSeconds(-20);
         readonly DateTime _startCons2 = DateTime.Now.AddMinutes(-50);
         readonly DateTime _endCons2 = DateTime.Now.AddMinutes(-10);
         string _noteCons2 = "note  Cons2";

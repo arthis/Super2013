@@ -57,6 +57,7 @@ namespace Super.Appaltatore.Domain
 
         public void Apply(InterventoRotProgrammato e)
         {
+            Id = e.Id;
               //do something here if needed
         }
 
@@ -143,7 +144,7 @@ namespace Super.Appaltatore.Domain
             }
         }
 
-        public void Apply(ConsuntivatoAmbReso e)
+        public void Apply(ConsuntivatoRotReso e)
         {
             //do something here if needed
         }

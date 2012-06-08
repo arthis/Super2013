@@ -41,6 +41,7 @@ namespace Super.Administration.Domain
 
         public void Apply(AreaInterventoCreated e)
         {
+            Id = e.Id;
             Start = e.Start;
             End = e.End;
         }

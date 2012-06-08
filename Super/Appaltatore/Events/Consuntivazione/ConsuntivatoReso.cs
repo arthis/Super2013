@@ -8,7 +8,7 @@ using CommonDomain.Core.Super;
 
 namespace Super.Appaltatore.Events.Consuntivazione
 {
-    public abstract class ConsuntivatoReso : Message, IEvent
+    public abstract class ConsuntivatoReso : Message, IEvent, IConsuntivato
     {
         public Guid Id { get; set; }
         public string IdInterventoAppaltatore { get; set; }

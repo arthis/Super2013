@@ -40,6 +40,7 @@ namespace Super.Appaltatore.Domain
 
         public void Apply(InterventoAmbProgrammato e)
         {
+            Id = e.Id;
             //do something here if needed
         }
 
