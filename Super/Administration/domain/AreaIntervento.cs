@@ -4,57 +4,48 @@ using System.Linq;
 using System.Text;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.ValueObjects;
 using Super.Administration.Events.AreaIntervento;
 
 namespace Super.Administration.Domain
 {
     public class AreaIntervento : AggregateBase
     {
-        public DateTime Start { get; set; }
-        public DateTime? End { get; set; }
         public bool Deleted { get; set; }
 
         public AreaIntervento()
         {
         }
 
-        public AreaIntervento(Guid id,  DateTime start, DateTime? end, DateTime creationDate, string description)
+        public AreaIntervento(Guid id, RangeDateUnfinished rangeDate, DateTime creationDate, string description)
         {
-            var has_start_date_greater_than_end_date = new Has_start_date_greater_than_end_date();
-            
-            ISpecification<AreaIntervento> specs = has_start_date_greater_than_end_date;
+            var evt = new AreaInterventoCreated()
+                          {
+                              Start = rangeDate.GetStart(),
+                              End = rangeDate.GetEnd(),
+                              CreationDate = creationDate,
+                              Description = description,
+                              Id = id
+                          };
 
-            if (specs.IsSatisfiedBy(this))
-            {
-                var evt = new AreaInterventoCreated()
-                              {
-                                  Start = start,
-                                  End = end,
-                                  CreationDate = creationDate,
-                                  Description = description,
-                                  Id = id
-                              };
+            RaiseEvent(evt);
 
-                RaiseEvent(evt);
-            }
         }
 
         public void Apply(AreaInterventoCreated e)
         {
             Id = e.Id;
-            Start = e.Start;
-            End = e.End;
         }
 
-        
 
-        public void Update( DateTime start, DateTime? end, string description)
+
+        public void Update(RangeDateUnfinished rangeDate, string description)
         {
             var evt = new AreaInterventoUpdated()
             {
                 Id = this.Id,
-                Start = start,
-                End = end,
+                Start = rangeDate.GetStart(),
+                End = rangeDate.GetEnd(),
                 Description = description,
             };
 
@@ -63,16 +54,14 @@ namespace Super.Administration.Domain
 
         public void Apply(AreaInterventoUpdated e)
         {
-            Start = e.Start;
-            End = e.End;
+
         }
 
         public void Delete()
         {
+            var isAlreadyDeleted = new Is_Already_Deleted();
 
-            var Is_Already_Deleted = new Is_Already_Deleted();
-
-            ISpecification<AreaIntervento> specs = Is_Already_Deleted;
+            ISpecification<AreaIntervento> specs = isAlreadyDeleted;
 
             if (specs.IsSatisfiedBy(this))
             {

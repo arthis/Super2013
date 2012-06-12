@@ -22,17 +22,5 @@ namespace Super.Administration.Domain
         }
     }
 
-    public class Has_start_date_greater_than_end_date : ISpecification<AreaIntervento> 
-    {
-        public bool IsSatisfiedBy(AreaIntervento ai)
-        {
-            if (ai.Start > ai.End)
-            {
-                ai.CommandValidationMessages.Add(new ValidationMessage("Fatale : data inizio maggiore di data fine"));
-                return false;
-            }
-
-            return true;
-        }
-    }
+   
 }

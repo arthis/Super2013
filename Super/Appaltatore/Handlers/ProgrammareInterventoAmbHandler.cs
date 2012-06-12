@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics.Contracts;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Commands;
 using Super.Appaltatore.Domain;
@@ -30,8 +31,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdAppaltatore
                                 , cmd.IdCategoriaCommerciale
                                 , cmd.IdDirezioneRegionale
-                                , cmd.Start
-                                , cmd.End
+                                , new RangeDate(cmd.Start, cmd.End)
                                 , cmd.Note);
 
             Repository.Save(existingIntervento, cmd.GetCommitId());

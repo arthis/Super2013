@@ -1,6 +1,7 @@
 ﻿using System;
 using CommonDomain.Core;
-using CommonDomain.Core.Super;
+using CommonDomain.Core.Super.ValueObjects;
+using CommonDomain.Core.Super.ValueObjects;
 
 namespace Super.Appaltatore.Commands
 {

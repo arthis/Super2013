@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super;
+using CommonDomain.Core.Super.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Appaltatore.Commands;

@@ -20,8 +20,8 @@ namespace Super.Saga.Handlers
             bus.Subscribe<InterventoAmbPianificato>(subscriptionId, evt => new InterventoAmbPianificatoHandler(repository, bus).Handle(evt));
 
             bus.Subscribe<ConsuntivatoRotReso>(subscriptionId, evt => new ConsuntivatoRotResoHandler(repository, bus).Handle(evt));
-            bus.Subscribe<ConsuntivatoRotManReso>(subscriptionId, evt => new ConsuntivatoRotManHandler(repository, bus).Handle(evt));
-            bus.Subscribe<ConsuntivatoAmbReso>(subscriptionId, evt => new ConsuntivatoAmbResoHandler(repository, bus).Handle(evt));
+            //bus.Subscribe<ConsuntivatoRotManReso>(subscriptionId, evt => new ConsuntivatoRotManHandler(repository, bus).Handle(evt));
+            //bus.Subscribe<ConsuntivatoAmbReso>(subscriptionId, evt => new ConsuntivatoAmbResoHandler(repository, bus).Handle(evt));
 
             
 

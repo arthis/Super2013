@@ -89,7 +89,8 @@
     <Compile Include="RegistrationEventRouter.cs" />
     <Compile Include="SagaBase.cs" />
     <Compile Include="Specifications.cs" />
-    <Compile Include="Super\OggettoIntervento.cs" />
+    <Compile Include="Super\ValueObjects\OggettoIntervento.cs" />
+    <Compile Include="Super\ValueObjects\RangeDate.cs" />
     <Compile Include="ValidationMessage.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CommonDomain.Core.Super
+namespace CommonDomain.Core.Super.ValueObjects
 {
     public abstract class OggettoIntervento
     {

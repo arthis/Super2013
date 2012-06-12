@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.ValueObjects;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -17,15 +18,14 @@ namespace Super.Appaltatore.Domain
                                 , Guid idAppaltatore
                                 , Guid idCategoriaCommerciale
                                 , Guid idDirezioneRegionale
-                                , DateTime start
-                                , DateTime end
+                                , RangeDate rangeDate
                                 , string note
             )
         {
             var evt = new InterventoAmbProgrammato()
             {
-                End = end,
-                Start = start,
+                End = rangeDate.GetEnd(),
+                Start = rangeDate.GetStart(),
                 Id = id,
                 IdAreaIntervento = idAreaIntervento,
                 IdTipoIntervento = idTipoIntervento,
@@ -97,12 +97,11 @@ namespace Super.Appaltatore.Domain
             //do something here if needed
         }
 
-        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, DateTime end, DateTime start, string idInterventoAppaltatore, string note, string descrizione, int quantita)
+        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, RangeDate rangeDate, string idInterventoAppaltatore, string note, string descrizione, int quantita)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
-            var has_start_date_greater_than_end_date = new Has_start_date_greater_than_end_date(start, end);
 
-            ISpecification<Intervento> specs = is_data_consuntivazione_valid.And(has_start_date_greater_than_end_date);
+            ISpecification<Intervento> specs = is_data_consuntivazione_valid;
 
             if (specs.IsSatisfiedBy(this))
             {
@@ -113,9 +112,9 @@ namespace Super.Appaltatore.Domain
                     DataConsuntivazione = dataConsuntivazione,
                     Note = note,
                     Descrizione = descrizione,
-                    End = end,
+                    End = rangeDate.GetEnd(),
                     Quantita = quantita,
-                    Start = start
+                    Start = rangeDate.GetStart()
                 };
                 RaiseEvent(evt);
             }
