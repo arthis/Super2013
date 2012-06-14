@@ -92,7 +92,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
                 Convoglio = _convoglio,
                 Start = _start
             };
-            yield return new ConsuntivatoRotReso()
+            yield return new InterventoConsuntivatoRotReso()
             {
                 End = _endCons,
                 Start = _startCons,
@@ -136,7 +136,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new ConsuntivatoRotReso()
+            yield return new InterventoConsuntivatoRotReso()
             {
                 End = _endCons2,
                 Start = _startCons2,

@@ -53,7 +53,7 @@ namespace Super.Appaltatore.Domain
 
             if(specs.IsSatisfiedBy(this))
             {
-                var evt = new ConsuntivatoAmbNonReso()
+                var evt = new InterventoConsuntivatoAmbNonReso()
                 {
                     Id = id,
                     IdInterventoAppaltatore = idInterventoAppaltatore,
@@ -66,7 +66,7 @@ namespace Super.Appaltatore.Domain
             }
         }
 
-        public void Apply(ConsuntivatoAmbNonReso e)
+        public void Apply(InterventoConsuntivatoAmbNonReso e)
         {
             //do something here if needed
         }
@@ -79,7 +79,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = new ConsuntivatoAmbNonResoTrenitalia()
+                var evt = new InterventoConsuntivatoAmbNonResoTrenitalia()
                 {
                     Id = id,
                     IdInterventoAppaltatore = idInterventoAppaltatore,
@@ -92,7 +92,7 @@ namespace Super.Appaltatore.Domain
             }
         }
 
-        public void Apply(ConsuntivatoAmbNonResoTrenitalia e)
+        public void Apply(InterventoConsuntivatoAmbNonResoTrenitalia e)
         {
             //do something here if needed
         }
@@ -105,7 +105,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = new ConsuntivatoAmbReso()
+                var evt = new InterventoConsuntivatoAmbReso()
                 {
                     Id = id,
                     IdInterventoAppaltatore = idInterventoAppaltatore,
@@ -120,7 +120,7 @@ namespace Super.Appaltatore.Domain
             }
         }
 
-        public void Apply(ConsuntivatoAmbReso e)
+        public void Apply(InterventoConsuntivatoAmbReso e)
         {
             //do something here if needed
         }

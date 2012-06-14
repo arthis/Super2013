@@ -2,6 +2,7 @@
 using CommonDomain.Core;
 using Stateless;
 using Super.Appaltatore.Commands;
+using Super.Appaltatore.Events.Consuntivazione;
 using Super.Programmazione.Events;
 
 namespace Super.Saga.Domain.Intervento
@@ -57,6 +58,16 @@ namespace Super.Saga.Domain.Intervento
         {
             //publish intervento to appaltatore
             _stateMachine.Fire(Trigger.Scheduled);
+        }
+
+        public void ConsuntivareIntervento(IInterventoRotManConsuntivato @event)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnInterventoAmbConsuntivato(IInterventoRotManConsuntivato evt)
+        {
+            throw new NotImplementedException();
         }
 
     }

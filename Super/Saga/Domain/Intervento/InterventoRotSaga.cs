@@ -68,7 +68,11 @@ namespace Super.Saga.Domain.Intervento
         }
 
 
-        public void ConsuntivareIntervento(IConsuntivato @event)
+        public void ConsuntivareIntervento(IInterventoRotConsuntivato @event)
+        {
+            throw new NotImplementedException();
+        }
+        private void OnInterventoAmbConsuntivato(IInterventoRotConsuntivato evt)
         {
             throw new NotImplementedException();
         }

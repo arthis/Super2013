@@ -8,8 +8,8 @@ namespace CommonDomain
     public interface IMessage
     {
         IEnumerable<KeyValuePair<string, object>> Headers { get; set; }
+        Guid GetCommitId();
         void SetHeader(string key, object value);
-
         string ToDescription();
     }
 }

@@ -11,7 +11,6 @@ namespace Super.Appaltatore.Commands
 
     public abstract class ProgrammareIntervento : CommandBase
     {
-        public Guid Id { get; set; }
         public Guid IdAreaIntervento { get; set; }
         public Guid IdTipoIntervento { get; set; }
         public Guid IdAppaltatore { get; set; }

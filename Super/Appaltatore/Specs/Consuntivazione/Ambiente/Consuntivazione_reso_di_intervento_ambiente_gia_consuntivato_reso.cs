@@ -63,7 +63,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 Note = _note,
                 Headers = Headers
             };
-            yield return new ConsuntivatoAmbReso()
+            yield return new InterventoConsuntivatoAmbReso()
             {
                 End = _endCons,
                 Start = _startCons,
@@ -95,7 +95,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new ConsuntivatoAmbReso()
+            yield return new InterventoConsuntivatoAmbReso()
             {
                 End = _endCons2,
                 Start = _startCons2,

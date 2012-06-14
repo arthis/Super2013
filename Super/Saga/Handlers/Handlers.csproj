@@ -81,7 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsuntivatoRotResoHandler.cs" />
+    <Compile Include="InterventoRotManConsuntivatoHandler.cs" />
+    <Compile Include="InterventoRotConsuntivatoHandler.cs" />
+    <Compile Include="InterventoAmbConsuntivatoHandler.cs" />
     <Compile Include="InterventoAmbPianificatoHandler.cs" />
     <Compile Include="InterventoRotManPianificatoHandler.cs" />
     <Compile Include="InterventoRotPianificatoHandler.cs" />

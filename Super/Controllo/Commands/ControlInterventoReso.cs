@@ -1,31 +1,35 @@
 ﻿using System;
+using System.Linq;
+using CommandService;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.ValueObjects;
-using CommonDomain.Core.Super.ValueObjects;
 
-namespace Super.Appaltatore.Commands
+namespace Super.Controllo.Commands
 {
-    
-    public abstract class ConsuntivareReso : CommandBase
+
+    public abstract class ControlInterventoReso : CommandBase
     {
+        public Guid IdUtente { get; set; }
+        public Guid ControlDate { get; set; }
         public string IdInterventoAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public string Note { get; set; }
 
-        public bool Equals(ConsuntivareReso other)
+        public bool Equals(ControlInterventoReso other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione) && other.Start.Equals(Start) && other.End.Equals(End) && Equals(other.Note, Note);
+            return base.Equals(other) && other.IdUtente.Equals(IdUtente) && other.ControlDate.Equals(ControlDate) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione) && other.Start.Equals(Start) && other.End.Equals(End) && Equals(other.Note, Note);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as ConsuntivareReso);
+            return Equals(obj as ControlInterventoReso);
         }
 
         public override int GetHashCode()
@@ -33,6 +37,8 @@ namespace Super.Appaltatore.Commands
             unchecked
             {
                 int result = base.GetHashCode();
+                result = (result*397) ^ IdUtente.GetHashCode();
+                result = (result*397) ^ ControlDate.GetHashCode();
                 result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
                 result = (result*397) ^ DataConsuntivazione.GetHashCode();
                 result = (result*397) ^ Start.GetHashCode();
@@ -43,8 +49,7 @@ namespace Super.Appaltatore.Commands
         }
     }
 
-    
-    public class ConsuntivareRotReso : ConsuntivareReso
+    public class ControlInterventoRotReso : ControlInterventoReso
     {
         public OggettoRot[] Oggetti { get; set; }
         public string NumeroTrenoArrivo { get; set; }
@@ -55,13 +60,12 @@ namespace Super.Appaltatore.Commands
         public string RigaTurnoTreno { get; set; }
         public string Convoglio { get; set; }
 
-
         public override string ToDescription()
         {
-            return string.Format("Consuntivare reso il intervento rotabile '{0}' ", Id);
+            return string.Format("si controlla reso il intervento rotabile {0}.", Id);
         }
 
-        public bool Equals(ConsuntivareRotReso other)
+        public bool Equals(ControlInterventoRotReso other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -72,7 +76,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as ConsuntivareRotReso);
+            return Equals(obj as ControlInterventoRotReso);
         }
 
         public override int GetHashCode()
@@ -93,18 +97,16 @@ namespace Super.Appaltatore.Commands
         }
     }
 
-    public class ConsuntivareRotManReso : ConsuntivareReso
+    public class ControlInterventoRotManReso : ControlInterventoReso
     {
         public OggettoRotMan[] Oggetti { get; set; }
 
-       
-
         public override string ToDescription()
         {
-            return string.Format("Consuntivare reso il intervento rotabile in manutenzione '{0}' ", Id);
+            return string.Format("si controlla reso il intervento rotabile in manutenzione {0}.", Id);
         }
 
-        public bool Equals(ConsuntivareRotManReso other)
+        public bool Equals(ControlInterventoRotManReso other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -115,7 +117,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as ConsuntivareRotManReso);
+            return Equals(obj as ControlInterventoRotManReso);
         }
 
         public override int GetHashCode()
@@ -127,17 +129,17 @@ namespace Super.Appaltatore.Commands
         }
     }
 
-    public class ConsuntivareAmbReso : ConsuntivareReso
+    public class ControlInterventoAmbReso : ControlInterventoReso
     {
         public int Quantita { get; set; }
         public string Descrizione { get; set; }
 
         public override string ToDescription()
         {
-            return string.Format("Consuntivare reso il intervento ambiente '{0}' ", Id);
+            return string.Format("si controlla reso il intervento ambiente '{0}' ", Id);
         }
 
-        public bool Equals(ConsuntivareAmbReso other)
+        public bool Equals(ControlInterventoAmbReso other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -148,7 +150,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as ConsuntivareAmbReso);
+            return Equals(obj as ControlInterventoAmbReso);
         }
 
         public override int GetHashCode()
@@ -162,5 +164,6 @@ namespace Super.Appaltatore.Commands
             }
         }
     }
+
 
 }

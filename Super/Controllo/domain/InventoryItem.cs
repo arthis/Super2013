@@ -6,24 +6,24 @@ namespace Super.Controllo.Domain
 {
     public class InventoryItem : AggregateBase
     {
-        private string _name;
+        //private string _name;
 
-        public InventoryItem(Guid id, string name)
-        {
-            var evt = new InventoryItemCreatedAdded()
-            {
-                Id = id,
-                Name = name
-            };
+        //public InventoryItem(Guid id, string name)
+        //{
+        //    var evt = new InventoryItemCreatedAdded()
+        //    {
+        //        Id = id,
+        //        Name = name
+        //    };
 
-            RaiseEvent(evt);
-        }
+        //    RaiseEvent(evt);
+        //}
 
-        public void Apply(InventoryItemCreatedAdded e)
-        {
-            Id = e.Id;
-        }
+        //public void Apply(InventoryItemCreatedAdded e)
+        //{
+        //    Id = e.Id;
+        //}
 
-       
+
     }
 }

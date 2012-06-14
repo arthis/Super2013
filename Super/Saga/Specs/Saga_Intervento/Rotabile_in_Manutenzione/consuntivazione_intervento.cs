@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.ValueObjects;
 using CommonDomain.Persistence;
+using EasyNetQ;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Appaltatore.Events.Consuntivazione;
+using Super.Controllo.Commands;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
 
-namespace Super.Saga.Specs.Saga_Intervento.Ambiente
+namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 {
-    public class Inizio_della_saga_intervento_ambiente_gia_iniziata : SagaBaseClass<InterventoAmbPianificato>
+    public class consuntivazione_intervento : SagaBaseClass<IInterventoRotManConsuntivato>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idAreaIntervento = Guid.NewGuid();
@@ -20,22 +25,23 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
         readonly DateTime _start = DateTime.Now.AddHours(12);
         readonly DateTime _end = DateTime.Now.AddHours(13);
+        List<OggettoRotMan> oggetti = new List<OggettoRotMan>() { new OggettoRotMan() { Descrizione = "desc", IdTipoOggettoInterventoRotMan = Guid.NewGuid(), Quantita = 15 } };
         string _note = "note";
         
 
         public override string ToDescription()
         {
-            return "Une saga gia inziata non può essere iniziata di nuovo. vero?.";
+            return "";
         }
 
-        protected override SagaHandler<InterventoAmbPianificato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<IInterventoRotManConsuntivato> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoAmbPianificatoHandler(repository, bus);
+            return new InterventoRotManConsuntivatoHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoAmbPianificato()
+            yield return new InterventoRotManPianificato()
             {
                 End = _end,
                 Start = _start,
@@ -46,37 +52,36 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
+                Oggetti = oggetti.ToArray(),
                 Headers = _Headers
             };
         }
 
-        public override InterventoAmbPianificato When()
+        public override IInterventoRotManConsuntivato When()
         {
-            return new InterventoAmbPianificato()
+            return new InterventoConsuntivatoRotManReso()
                        {
                            End = _end,
                            Start = _start,
                            Id = _id,
-                           IdAreaIntervento = _idAreaIntervento,
-                           IdTipoIntervento = _idTipoIntervento,
-                           IdAppaltatore = _idAppaltatore,
-                           IdCategoriaCommerciale = _idCategoriaCommerciale,
-                           IdDirezioneRegionale = _idDirezioneRegionale,
                            Note = _note,
+                           Oggetti = oggetti.ToArray(),
                            Headers = _Headers
                        };
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield break;
+            yield return new AllowControlIntervento()
+            {
+                Id = _id
+            };
         }
 
         [Test]
-        public void genera_un_eccezzione()
+        public void non_genera_un_eccezzione()
         {
-            Assert.IsNotNull(Caught);
-            Assert.AreEqual(typeof(Exception), Caught.GetType());
+            Assert.IsNull(Caught);
         }
 
 

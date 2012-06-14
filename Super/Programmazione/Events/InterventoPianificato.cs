@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.ValueObjects;
 
 namespace Super.Programmazione.Events
 {
-    public abstract class InterventoPianificato : Message,IEvent
+    public abstract class InterventoPianificato : Message,IEvent, IInterventoPianificato
     {
         public Guid Id { get; set; }
         public Guid IdAreaIntervento { get; set; }

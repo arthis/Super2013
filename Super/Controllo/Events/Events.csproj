@@ -73,7 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InventoryItemCreated.cs" />
+    <Compile Include="InterventoControlledNonReso.cs" />
+    <Compile Include="InterventoReopened.cs" />
+    <Compile Include="InterventoClosed.cs" />
+    <Compile Include="InterventoControlAllowed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

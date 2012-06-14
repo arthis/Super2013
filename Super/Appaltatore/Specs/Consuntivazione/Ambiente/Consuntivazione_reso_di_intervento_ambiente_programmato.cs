@@ -74,7 +74,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new ConsuntivatoAmbReso()
+            yield return new InterventoConsuntivatoAmbReso()
             {
                 End = _endCons,
                 Start = _startCons,

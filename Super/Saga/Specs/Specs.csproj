@@ -74,8 +74,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Saga_Intervento\Ambiente\consuntivazione_intervento.cs" />
     <Compile Include="Saga_Intervento\Ambiente\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
     <Compile Include="Saga_Intervento\Ambiente\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
+    <Compile Include="Saga_Intervento\Rotabile\consuntivazione_intervento.cs" />
+    <Compile Include="Saga_Intervento\Rotabile_in_Manutenzione\consuntivazione_intervento.cs" />
     <Compile Include="Saga_Intervento\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
     <Compile Include="Saga_Intervento\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
     <Compile Include="Saga_Intervento\Rotabile\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
@@ -118,6 +121,14 @@
     <ProjectReference Include="..\..\Appaltatore\Commands\Commands.csproj">
       <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
       <Name>Commands %28Super\Appaltatore\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Appaltatore\Events\Events.csproj">
+      <Project>{11241956-CC2D-46B0-B46C-C2E2F34AE693}</Project>
+      <Name>Events %28Super\Appaltatore\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Controllo\Commands\Commands.csproj">
+      <Project>{CB4B07C5-EAAF-4392-844E-D5C59F4C937E}</Project>
+      <Name>Commands %28Super\Controllo\Commands%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>

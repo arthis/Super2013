@@ -73,10 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consuntivazione\ConsuntivatoNonReso.cs" />
-    <Compile Include="Consuntivazione\ConsuntivatoNonResoTrenitalia.cs" />
-    <Compile Include="Consuntivazione\ConsuntivatoReso.cs" />
-    <Compile Include="Consuntivazione\IConsuntivato.cs" />
+    <Compile Include="Consuntivazione\IInterventoRotConsuntivato.cs" />
+    <Compile Include="Consuntivazione\InterventoConsuntivatoNonReso.cs" />
+    <Compile Include="Consuntivazione\InterventoConsuntivatoNonResoTrenitalia.cs" />
+    <Compile Include="Consuntivazione\InterventoConsuntivatoReso.cs" />
     <Compile Include="Programmazione\InterventoProgrammato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

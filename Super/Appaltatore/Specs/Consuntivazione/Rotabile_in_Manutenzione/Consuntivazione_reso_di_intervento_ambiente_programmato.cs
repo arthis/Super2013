@@ -76,7 +76,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new ConsuntivatoRotManReso()
+            yield return new InterventoConsuntivatoRotManReso()
             {
                 End = _endCons,
                 Start = _startCons,

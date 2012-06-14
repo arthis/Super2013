@@ -104,7 +104,7 @@ namespace CommonSpecs.Documentation
             Assembly specsAdministration = typeof(Creazione_di_una_nuova_area_intervento).Assembly;
             //Assembly specsProgrammazione = typeof(Super.Programmazione.Specs.Creation_of_a_new_inventory_item).Assembly;
             Assembly specsAppaltatore = typeof(Programmazione_di_intervento_rotabile_gia_esistente).Assembly;
-            Assembly specsControllo = typeof(Super.Controllo.Specs.Creation_of_a_new_inventory_item).Assembly;
+            //Assembly specsControllo = typeof(Super.Controllo.Specs.Creation_of_a_new_inventory_item).Assembly;
             Assembly specsSaga = typeof(Inizio_della_saga_intervento_rotabile_gia_iniziata).Assembly;
 
             var doc = DocumentationFactory.CreateDocumentation("Specifications"

@@ -65,7 +65,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
                 Oggetti = oggetti.ToArray(),
                 Start = _start
             };
-            yield return new ConsuntivatoRotManReso()
+            yield return new InterventoConsuntivatoRotManReso()
             {
                 End = _endCons,
                 Start = _startCons,
@@ -95,7 +95,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new ConsuntivatoRotManReso()
+            yield return new InterventoConsuntivatoRotManReso()
             {
                 End = _endCons2,
                 Start = _startCons2,

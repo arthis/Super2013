@@ -65,3 +65,9 @@ Dependencies:
  - MongoDB
  - Easy netQ ( my version is to be cloned in Super2013\Framework )
  
+ 
+Intervento Saga
+-------------
+
+Programmazione aims at creating interventi that are going to be handled by the people of both Appaltatore and Controllo. Albeit the start and end date are vital information for the Appaltatore coming from Programmazione. The subsequent change is not so important when done by the appaltatore.
+Furthermore, the controll is aimed to take place once the job is done. Therefore the saga will only handle the information that some intervento was consuntivato , the read model of the controllo should have then plenty of time to get the information from the appaltatore.
