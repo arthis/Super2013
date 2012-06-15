@@ -81,7 +81,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InventoryItem.cs" />
+    <Compile Include="InterventoAmb.cs" />
+    <Compile Include="InterventoRotMan.cs" />
+    <Compile Include="Intervento.cs" />
+    <Compile Include="InterventoRot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

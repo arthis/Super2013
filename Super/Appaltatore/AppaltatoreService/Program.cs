@@ -1,8 +1,9 @@
 ﻿using System;
 using System.ServiceModel;
 using CommandService;
-using Super.Administration.Handlers;
-using Super.Administration.Projection;
+using EasyNetQ;
+using Super.Appaltatore.Handlers;
+using Super.Appaltatore.Projection;
 
 namespace Super.Appaltatore.AppaltatoreService
 {
@@ -10,10 +11,10 @@ namespace Super.Appaltatore.AppaltatoreService
     {
         static void Main(string[] args)
         {
-
+            var bus = RabbitHutch.CreateBus("host=localhost"); ;
             var commandHandlerService = new CommandHandlerService();
             var projectionHandler = new ProjectionHandlerService();
-            var commandWebService = new CommandWebService(commandHandlerService , projectionHandler);
+            var commandWebService = new CommandWebService(bus, commandHandlerService , projectionHandler);
             
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {

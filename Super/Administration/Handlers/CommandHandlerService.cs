@@ -24,6 +24,11 @@ namespace Super.Administration.Handlers
                           (cmd) => new DeleteAreaInterventoHandler(repositoryEvent).Execute((DeleteAreaIntervento)cmd));
         }
 
+        public void Subscribe(IBus bus)
+        {
+            //do nothing
+        }
+
 
         public CommandValidation Execute(ICommand commandBase)
         {
@@ -34,7 +39,7 @@ namespace Super.Administration.Handlers
             if (_handlers.ContainsKey(type))
                 return _handlers[type](commandBase);
 
-            throw new Exception(string.Format("No handler found for the command '{0}'", commandBase.GetType()));
+            throw new HandlerForDomainEventNotFoundException(string.Format("No handler found for the command '{0}'", commandBase.GetType()));
           
         }
     }

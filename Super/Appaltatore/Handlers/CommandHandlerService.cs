@@ -44,6 +44,15 @@ namespace Super.Appaltatore.Handlers
                           (cmd) => new ConsuntivareRotManNonResoTrenitaliaHandler(repositoryEvent).Execute((ConsuntivareRotManNonResoTrenitalia)cmd));
         }
 
+        public void Subscribe(IBus bus)
+        {
+            string subscriptionId = "Super";
+
+            bus.Subscribe<ProgrammareInterventoRot>(subscriptionId, cmd => Execute(cmd));
+            bus.Subscribe<ProgrammareInterventoRotMan>(subscriptionId, cmd => Execute(cmd));
+            bus.Subscribe<ProgrammareInterventoAmb>(subscriptionId, cmd => Execute(cmd));
+        }
+
 
         public CommandValidation Execute(ICommand commandBase)
         {
@@ -54,7 +63,7 @@ namespace Super.Appaltatore.Handlers
             if (_handlers.ContainsKey(type))
                 return _handlers[type](commandBase);
 
-            throw new Exception(string.Format("No handler found for the command '{0}'", commandBase.GetType()));
+            throw new HandlerForDomainEventNotFoundException(string.Format("No handler found for the command '{0}'", commandBase.GetType()));
           
         }
     }

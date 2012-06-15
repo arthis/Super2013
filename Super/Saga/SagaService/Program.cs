@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using EasyNetQ;
 using Super.Saga.Handlers;
 
 namespace Super.Saga.SagaService
@@ -8,7 +9,8 @@ namespace Super.Saga.SagaService
     {
         static void Main(string[] args)
         {
-            var messageHandler = new MessageHandlerService();
+            var bus = RabbitHutch.CreateBus("host=localhost");
+            var messageHandler = new MessageHandlerService(bus);
             var service = new Service(messageHandler);
 
             service.Start();

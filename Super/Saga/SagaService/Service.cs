@@ -17,7 +17,7 @@ namespace Super.Saga.SagaService
 {
     public class Service
     {
-        private MessageHandlerService _messageHandlerService; 
+        private readonly MessageHandlerService _messageHandlerService; 
         private static IBus bus;
         private readonly byte[] _encryptionKey = new byte[]
                                                      {
@@ -25,9 +25,9 @@ namespace Super.Saga.SagaService
                                                      };
 
 
-        public Service(MessageHandlerService _messageHandlerService)
+        public Service(MessageHandlerService messageHandlerService)
         {
-            this._messageHandlerService = _messageHandlerService;
+            _messageHandlerService = messageHandlerService;
         }
 
         private IStoreEvents WireupEventStore()
@@ -48,13 +48,13 @@ namespace Super.Saga.SagaService
 
         public void Init()
         {
-            bus = RabbitHutch.CreateBus("host=localhost");
 
             var storeEvents = WireupEventStore();
             
             var repository = new SagaEventStoreRepository(storeEvents);
 
-            _messageHandlerService.Subscribe(repository, bus);
+            _messageHandlerService.InitHandlers(repository);
+            _messageHandlerService.Subscribe();
         }
 
         private void DispatchCommit(Commit commit)

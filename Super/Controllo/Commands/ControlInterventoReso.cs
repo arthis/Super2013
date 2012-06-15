@@ -12,8 +12,6 @@ namespace Super.Controllo.Commands
     {
         public Guid IdUtente { get; set; }
         public Guid ControlDate { get; set; }
-        public string IdInterventoAppaltatore { get; set; }
-        public DateTime DataConsuntivazione { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public string Note { get; set; }
@@ -22,7 +20,7 @@ namespace Super.Controllo.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdUtente.Equals(IdUtente) && other.ControlDate.Equals(ControlDate) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione) && other.Start.Equals(Start) && other.End.Equals(End) && Equals(other.Note, Note);
+            return base.Equals(other) && other.IdUtente.Equals(IdUtente) && other.ControlDate.Equals(ControlDate) && other.Start.Equals(Start) && other.End.Equals(End) && Equals(other.Note, Note);
         }
 
         public override bool Equals(object obj)
@@ -39,8 +37,6 @@ namespace Super.Controllo.Commands
                 int result = base.GetHashCode();
                 result = (result*397) ^ IdUtente.GetHashCode();
                 result = (result*397) ^ ControlDate.GetHashCode();
-                result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
-                result = (result*397) ^ DataConsuntivazione.GetHashCode();
                 result = (result*397) ^ Start.GetHashCode();
                 result = (result*397) ^ End.GetHashCode();
                 result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);

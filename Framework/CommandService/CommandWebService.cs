@@ -7,7 +7,6 @@ using System.ServiceModel.Activation;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence.EventStore;
-using EasyNetQ;
 using EventStore;
 using EventStore.Serialization;
 
@@ -26,16 +25,16 @@ namespace CommandService
                                                          0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf
                                                      };
 
-        protected IBus bus;
+        protected IBus _bus;
         private ICommandHandlerService _commandHandler;
         private IProjectionHandlerService _projectionHandler;
 
-        public CommandWebService(ICommandHandlerService commandHandlerService, IProjectionHandlerService projectionHandlerService)
+        public CommandWebService(IBus bus, ICommandHandlerService commandHandlerService, IProjectionHandlerService projectionHandlerService)
         {
 
             _commandHandler = commandHandlerService;
             _projectionHandler = projectionHandlerService;
-
+            _bus = bus;
             //do not know if it is really the place to do that....
             Init();
         }
@@ -67,10 +66,8 @@ namespace CommandService
             var eventRepository = new EventStoreRepository(storeEvents, aggregateFactory, conflictDetector);
 
             _commandHandler.InitHandlers(eventRepository);
-
-            bus = RabbitHutch.CreateBus("host=localhost");
-
-            _projectionHandler.Subscribe(bus);
+            _commandHandler.Subscribe(_bus);
+            _projectionHandler.Subscribe(_bus);
         }
 
 
@@ -130,7 +127,7 @@ namespace CommandService
                     AppendHeaders(busMessage, commit.Headers); // optional
                     AppendHeaders(busMessage, eventMessage.Headers); // optional
                     AppendVersion(commit, i); // optional
-                    this.bus.Publish(busMessage);
+                    _bus.Publish(busMessage);
                 }
 
             }

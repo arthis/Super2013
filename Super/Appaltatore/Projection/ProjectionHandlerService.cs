@@ -4,7 +4,7 @@ using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Projection
 {
-    class ProjectionHandlerService : IProjectionHandlerService
+    public class ProjectionHandlerService : IProjectionHandlerService
     {
         public void Subscribe(IBus bus)
         {

@@ -73,7 +73,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateInventoryItemHandler.cs" />
+    <Compile Include="AllowControlInterventoHandler.cs" />
+    <Compile Include="CloseInterventoHandler.cs" />
+    <Compile Include="CommandHandlerService.cs" />
+    <Compile Include="ControlInterventoNonResoHandler.cs" />
+    <Compile Include="ControlInterventoRotResoHandler.cs" />
+    <Compile Include="ControlInterventoRotManResoHandler.cs" />
+    <Compile Include="ControlInterventoAmbResoHandler.cs" />
+    <Compile Include="ReopenInterventoHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

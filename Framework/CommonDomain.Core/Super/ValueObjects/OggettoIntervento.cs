@@ -37,7 +37,7 @@ namespace CommonDomain.Core.Super.ValueObjects
 
         public override bool Equals(object obj)
         {
-            return base.Equals((OggettoRot)obj);
+            return Equals((OggettoRot)obj);
         }
 
         public bool Equals(OggettoRot other)
@@ -56,13 +56,14 @@ namespace CommonDomain.Core.Super.ValueObjects
         }
     }
 
+    [Serializable]
     public class OggettoRotMan : OggettoIntervento
     {
         public Guid IdTipoOggettoInterventoRotMan { get; set; }
 
         public override bool Equals(object obj)
         {
-            return base.Equals((OggettoRotMan)obj);
+            return Equals((OggettoRotMan)obj);
         }
 
         public bool Equals(OggettoRotMan other)

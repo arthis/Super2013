@@ -77,6 +77,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\json4.5r7\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
@@ -169,9 +173,17 @@
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
+      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
+      <Name>EasyNetQ</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Administration\Commands\Commands.csproj">
       <Project>{CB1EFF69-B658-48FC-A075-113D40F81E7C}</Project>
       <Name>Commands %28Super\Administration\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
+      <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
+      <Name>Events %28Super\Programmazione\Events%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

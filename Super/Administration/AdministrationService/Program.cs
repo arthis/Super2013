@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using CommandService;
+using CommonDomain;
+using EasyNetQ;
 using Super.Administration.Handlers;
 using Super.Administration.Projection;
 
@@ -10,10 +12,10 @@ namespace Super.Administration.AdministrationService
     {
         static void Main(string[] args)
         {
-
+            var bus = RabbitHutch.CreateBus("host=localhost"); ;
             var commandHandler = new CommandHandlerService();
             var projectionHandler = new ProjectionHandlerService();
-            var commandWebService = new CommandWebService( commandHandler, projectionHandler);
+            var commandWebService = new CommandWebService(bus, commandHandler, projectionHandler);
             
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {

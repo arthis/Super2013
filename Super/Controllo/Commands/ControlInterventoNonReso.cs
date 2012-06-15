@@ -11,7 +11,7 @@ namespace Super.Controllo.Commands
     public class ControlInterventoNonReso : CommandBase
     {
         public Guid IdUtente { get; set; }
-        public Guid ControlDate { get; set; }
+        public DateTime ControlDate { get; set; }
         public Guid IdCausale { get; set; }
         public string Note { get; set; }
 

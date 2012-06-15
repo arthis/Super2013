@@ -1,7 +1,6 @@
 ﻿using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence;
-using EasyNetQ;
 using Super.Saga.Domain;
 using Super.Saga.Domain.Intervento;
 using Super.Programmazione.Events;

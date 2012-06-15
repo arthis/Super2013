@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterventoControlledReso.cs" />
     <Compile Include="InterventoControlledNonReso.cs" />
     <Compile Include="InterventoReopened.cs" />
     <Compile Include="InterventoClosed.cs" />

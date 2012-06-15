@@ -91,6 +91,7 @@
     <Compile Include="Specifications.cs" />
     <Compile Include="Super\ValueObjects\OggettoIntervento.cs" />
     <Compile Include="Super\ValueObjects\RangeDate.cs" />
+    <Compile Include="Super\ValueObjects\Treno.cs" />
     <Compile Include="ValidationMessage.cs" />
   </ItemGroup>
   <ItemGroup>
