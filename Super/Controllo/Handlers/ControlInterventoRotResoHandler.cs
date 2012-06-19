@@ -35,7 +35,7 @@ namespace Super.Controllo.Handlers
 
             existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, new RolloutPeriod(cmd.Start, cmd.End), trenoPartenza, trenoArrivo, cmd.Convoglio, cmd.Note, cmd.Oggetti, cmd.RigaTurnoTreno, cmd.TurnoTreno);
 
-            Repository.Save(existingIntervento, cmd.GetCommitId());
+            Repository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages; 
         }

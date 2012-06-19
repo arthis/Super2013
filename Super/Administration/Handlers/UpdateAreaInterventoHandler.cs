@@ -29,7 +29,7 @@ namespace Super.Administration.Handlers
 
             area.Update(Build.RollonPeriod.FromPeriod(cmd.Period).Build(), cmd.Description);
 
-            Repository.Save(area, cmd.GetCommitId());
+            Repository.Save(area, cmd.CommitId);
 
             return area.CommandValidationMessages;
         }

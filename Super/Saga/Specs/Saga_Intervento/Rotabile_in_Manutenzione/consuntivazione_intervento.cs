@@ -53,7 +53,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
                 Oggetti = oggetti.ToArray(),
-                Headers = _Headers
+                
             };
         }
 
@@ -65,8 +65,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
                            Start = _start,
                            Id = _id,
                            Note = _note,
-                           Oggetti = oggetti.ToArray(),
-                           Headers = _Headers
+                           Oggetti = oggetti.ToArray()
                        };
         }
 

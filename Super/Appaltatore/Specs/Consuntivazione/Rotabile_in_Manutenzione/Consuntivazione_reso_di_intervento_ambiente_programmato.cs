@@ -47,7 +47,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
             {
                 Id = _id,
                 End = _end,
-                Headers = Headers,
+                
                 IdAreaIntervento = _idAreaIntervento,
                 IdTipoIntervento = _idTipoIntervento,
                 IdAppaltatore = _idAppaltatore,
@@ -69,7 +69,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
                 IdInterventoAppaltatore = _idInterventoAppaltatore,
                 DataConsuntivazione = _dataConsuntivazione,
                 Note = _noteCons,
-               Headers = Headers,
+               
                 Oggetti = oggettiCons.ToArray()
             };
         }
@@ -84,7 +84,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
                 IdInterventoAppaltatore = _idInterventoAppaltatore,
                 DataConsuntivazione = _dataConsuntivazione,
                 Note = _noteCons,
-                Headers = Headers,
+                
                 Oggetti = oggettiCons.ToArray()
             };
         }

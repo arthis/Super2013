@@ -43,7 +43,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.RigaTurnoTreno
                                 , cmd.Convoglio);
 
-            Repository.Save(existingIntervento, cmd.GetCommitId());
+            Repository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages;
         }

@@ -34,7 +34,7 @@ namespace Super.Administration.Handlers
                                           cmd.CreationDate,
                                           cmd.Description);
 
-            Repository.Save(area, cmd.GetCommitId());
+            Repository.Save(area, cmd.CommitId);
 
 
             return area.CommandValidationMessages;

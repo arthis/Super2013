@@ -28,7 +28,7 @@ namespace Super.Controllo.Handlers
 
             existingIntervento.Reopen(cmd.IdUtente, cmd.ReopeningDate);
 
-            Repository.Save(existingIntervento, cmd.GetCommitId());
+            Repository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages; 
         }

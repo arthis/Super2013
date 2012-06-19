@@ -26,7 +26,7 @@ namespace Super.Controllo.Handlers
 
             existingIntervento.ControlNonReso( cmd.IdUtente, cmd.ControlDate, cmd.IdCausale, cmd.Note);
 
-            Repository.Save(existingIntervento, cmd.GetCommitId());
+            Repository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages; 
         }

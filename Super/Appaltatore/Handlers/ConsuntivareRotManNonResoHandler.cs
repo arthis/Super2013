@@ -29,7 +29,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdCausale
                                 , cmd.Note);
 
-            Repository.Save(existingIntervento, cmd.GetCommitId());
+            Repository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages;
         }

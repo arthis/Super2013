@@ -75,7 +75,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
             {
                 Id = _id,
                 End = _end,
-                Headers = Headers,
+                
                 IdAreaIntervento = _idAreaIntervento,
                 IdTipoIntervento = _idTipoIntervento,
                 IdAppaltatore = _idAppaltatore,
@@ -100,7 +100,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
                 IdInterventoAppaltatore = _idInterventoAppaltatore,
                 DataConsuntivazione = _dataConsuntivazione,
                 Note = _noteCons,
-                Headers = Headers,
+                
                 Oggetti = oggettiCons.ToArray(),
                 NumeroTrenoArrivo = _numeroTrenoArrivoCons,
                 DataTrenoArrivo = _dataTrenoArrivoCons,
@@ -122,7 +122,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
                 IdInterventoAppaltatore = _idInterventoAppaltatoreCons2,
                 DataConsuntivazione = _dataConsuntivazioneCons2,
                 Note = _noteCons2,
-               Headers = Headers,
+               
                 Oggetti = oggettiCons2.ToArray(),
                 NumeroTrenoArrivo = _numeroTrenoArrivoCons2,
                 DataTrenoArrivo = _dataTrenoArrivoCons2,
@@ -144,7 +144,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
                 IdInterventoAppaltatore = _idInterventoAppaltatoreCons2,
                 DataConsuntivazione = _dataConsuntivazioneCons2,
                 Note = _noteCons2,
-                Headers = Headers,
+                
                 Oggetti = oggettiCons2.ToArray(),
                 NumeroTrenoArrivo = _numeroTrenoArrivoCons2,
                 DataTrenoArrivo = _dataTrenoArrivoCons2,

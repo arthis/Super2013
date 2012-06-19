@@ -65,7 +65,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
                 TurnoTreno = _turnoTreno,
                 RigaTurnoTreno = _rigaTurnoTreno,
                 Convoglio = _convoglio,
-                Headers = _Headers
+                
             };
         }
 
@@ -85,7 +85,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
                 TurnoTreno = _turnoTreno,
                 RigaTurnoTreno = _rigaTurnoTreno,
                 Convoglio = _convoglio,
-                Headers = _Headers
+                
             };
         }
 

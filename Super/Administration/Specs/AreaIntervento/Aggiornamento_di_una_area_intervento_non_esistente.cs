@@ -24,7 +24,7 @@ namespace Super.Administration.Specs.AreaIntervento
         private DateTime _StartUpdated = DateTime.Now.AddHours(14);
         private DateTime _EndUpdated = DateTime.Now.AddHours(15);
 
-        
+
         protected override CommandHandler<UpdateAreaIntervento> OnHandle(IRepository repository)
         {
             return new UpdateAreaInterventoHandler(repository);
@@ -37,14 +37,11 @@ namespace Super.Administration.Specs.AreaIntervento
 
         public override UpdateAreaIntervento When()
         {
-            return new UpdateAreaIntervento()
-                       {
-                           Id = _id,
-                           Start = _StartUpdated,
-                           End = _EndUpdated,
-                           Description = _DescriptionUpdated,
-                           Headers = Headers
-                       };
+            return new UpdateAreaIntervento(
+                            id: _id,
+                            version: _version,
+                            period: _rollonPeriod,
+                            description: _description);
         }
 
         public override IEnumerable<IMessage> Expect()

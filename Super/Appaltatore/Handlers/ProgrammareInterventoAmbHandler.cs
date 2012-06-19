@@ -34,7 +34,7 @@ namespace Super.Appaltatore.Handlers
                                 , new RolloutPeriod(cmd.Start, cmd.End)
                                 , cmd.Note);
 
-            Repository.Save(existingIntervento, cmd.GetCommitId());
+            Repository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages;
         }

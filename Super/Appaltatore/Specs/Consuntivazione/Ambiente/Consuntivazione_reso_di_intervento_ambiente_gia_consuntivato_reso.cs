@@ -61,7 +61,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
-                Headers = Headers
+                
             };
             yield return new InterventoConsuntivatoAmbReso()
             {
@@ -73,7 +73,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 Note = _noteCons,
                 Quantita = _quantita,
                 Descrizione = _descrizione,
-                Headers = Headers
+                
             };
         }
 
@@ -89,7 +89,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 Note = _noteCons2,
                 Quantita = _quantitaCons2,
                 Descrizione = _descrizioneCons2,
-                Headers = Headers
+                
             };
         }
 
@@ -105,7 +105,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 Note = _noteCons2,
                 Quantita = _quantitaCons2,
                 Descrizione = _descrizioneCons2,
-                Headers = Headers
+                
             };
         }
 

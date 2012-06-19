@@ -44,26 +44,20 @@ namespace Super.Administration.Specs.AreaIntervento
 
         public override UpdateAreaIntervento When()
         {
-            return new UpdateAreaIntervento()
-                       {
-                           Id = _id,
-                           Start = _StartUpdated,
-                           End = _EndUpdated,
-                           Description = _DescriptionUpdated,
-                           Headers = Headers
-                       };
+            return new UpdateAreaIntervento(
+                            id: _id,
+                            version: _version,
+                            period: _rollonPeriod,
+                            description: _description);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new AreaInterventoUpdated()
-            {
-                Id = _id,
-                Start = _StartUpdated,
-                End = _EndUpdated,
-                Description = _DescriptionUpdated,
-                Headers = Headers
-            };
+            yield return new UpdateAreaIntervento(
+                            id: _id,
+                            version: _version,
+                            period: _rollonPeriod,
+                            description: _description);
         }
 
         [Test]

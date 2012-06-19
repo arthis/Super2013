@@ -41,7 +41,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
-                Headers = Headers
+                
             };
         }
 
@@ -58,7 +58,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
-                Headers = Headers
+                
             };
         }
 

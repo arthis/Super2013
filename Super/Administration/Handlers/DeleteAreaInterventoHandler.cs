@@ -27,7 +27,7 @@ namespace Super.Administration.Handlers
 
             area.Delete();
 
-            Repository.Save(area, cmd.GetCommitId());
+            Repository.Save(area, cmd.CommitId);
 
             return area.CommandValidationMessages;
         }

@@ -20,38 +20,23 @@ namespace UI_Console
 
             InterventoRotPianificato evt = new InterventoRotPianificato()
                                               {
-                                                  Convoglio = "convoglio"
-                                                  ,
-                                                  DataTrenoArrivo = DateTime.Now
-                                                  ,
-                                                  DataTrenoPartenza = DateTime.Now
-                                                  ,
-                                                  End = DateTime.Now.AddHours(12)
-                                                  ,
-                                                  Id = Guid.NewGuid()
-                                                  ,
-                                                  IdAppaltatore = Guid.NewGuid()
-                                                  ,
-                                                  IdAreaIntervento = Guid.NewGuid()
-                                                  ,
-                                                  IdCategoriaCommerciale = Guid.NewGuid()
-                                                  ,
-                                                  IdDirezioneRegionale = Guid.NewGuid()
-                                                  ,
-                                                  Note = "note"
-                                                  ,
-                                                  IdTipoIntervento = Guid.NewGuid()
-                                                  ,
-                                                  NumeroTrenoArrivo = "999"
-                                                  ,
-                                                  NumeroTrenoPartenza = "888"
-                                                  ,
-                                                  RigaTurnoTreno = "riga"
-                                                  ,
-                                                  Start = DateTime.Now.AddHours(10)
-                                                  ,
-                                                  TurnoTreno = "turno"
-                                                  ,
+                                                  CommitId = Guid.NewGuid(),
+                                                  Convoglio = "convoglio",
+                                                  DataTrenoArrivo = DateTime.Now,
+                                                  DataTrenoPartenza = DateTime.Now,
+                                                  End = DateTime.Now.AddHours(12),
+                                                  Id = Guid.NewGuid(),
+                                                  IdAppaltatore = Guid.NewGuid(),
+                                                  IdAreaIntervento = Guid.NewGuid(),
+                                                  IdCategoriaCommerciale = Guid.NewGuid(),
+                                                  IdDirezioneRegionale = Guid.NewGuid(),
+                                                  Note = "note",
+                                                  IdTipoIntervento = Guid.NewGuid(),
+                                                  NumeroTrenoArrivo = "999",
+                                                  NumeroTrenoPartenza = "888",
+                                                  RigaTurnoTreno = "riga",
+                                                  Start = DateTime.Now.AddHours(10),
+                                                  TurnoTreno = "turno",
                                                   Oggetti = new List<OggettoRot>() { new OggettoRot()
                                                                                      {
                                                                                          Descrizione = "desc",

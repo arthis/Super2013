@@ -52,7 +52,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
-                Headers = Headers
+                
             };
         }
 
@@ -68,7 +68,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 Note = _note,
                 Quantita = _quantita,
                 Descrizione = _descrizione,
-                Headers = Headers
+                
             };
         }
 
@@ -84,7 +84,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 Note = _noteCons,
                 Quantita = _quantita,
                 Descrizione = _descrizione,
-                Headers = Headers
+                
             };
         }
 

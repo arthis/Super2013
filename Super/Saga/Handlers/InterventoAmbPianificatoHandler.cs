@@ -23,7 +23,7 @@ namespace Super.Saga.Handlers
 
             saga.ProgrammareIntervento(@event);
 
-            Repository.Save(saga, @event.GetCommitId(), null);
+            Repository.Save(saga, @event.CommitId, null);
 
             return saga;
         }

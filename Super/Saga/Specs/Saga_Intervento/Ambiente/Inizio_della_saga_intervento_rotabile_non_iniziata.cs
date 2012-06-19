@@ -51,7 +51,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
                            IdCategoriaCommerciale =  _idCategoriaCommerciale,
                            IdDirezioneRegionale = _idDirezioneRegionale,
                            Note = _note,
-                           Headers = _Headers
+                           
                        };
         }
 
@@ -61,7 +61,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
             {
                 Id = _id,
                 End = _end,
-                Headers = _Headers,
+                
                 IdAreaIntervento = _idAreaIntervento,
                 IdTipoIntervento = _idTipoIntervento,
                 IdAppaltatore = _idAppaltatore,

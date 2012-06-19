@@ -24,8 +24,7 @@ namespace CommonSpecs
 
         public CommandBaseClass()
         {
-            Headers[Message.CommitKey] = Guid.NewGuid();
-            //Headers[Message.CorrelationKey] = Guid.NewGuid();
+
         }
 
         [SetUp]

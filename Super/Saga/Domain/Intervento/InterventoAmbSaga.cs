@@ -39,7 +39,7 @@ namespace Super.Saga.Domain.Intervento
                           {
                               Id = evt.Id,
                               End = evt.End,
-                              Headers = evt.Headers,
+                              
                               IdAreaIntervento = evt.IdAreaIntervento,
                               Start = evt.Start,
                               IdTipoIntervento = evt.IdTipoIntervento,

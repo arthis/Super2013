@@ -27,7 +27,7 @@ namespace Super.Saga.Handlers
 
             saga.ConsuntivareIntervento(@event);
 
-            Repository.Save(saga, @event.GetCommitId(), null);
+            Repository.Save(saga, @event.CommitId, null);
 
             return saga;
         }

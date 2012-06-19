@@ -63,7 +63,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
                 TurnoTreno = _turnoTreno,
                 RigaTurnoTreno = _rigaTurnoTreno,
                 Convoglio = _convoglio,
-                Headers = Headers
+                
             };
         }
 
@@ -88,7 +88,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
                 TurnoTreno = _turnoTreno,
                 RigaTurnoTreno = _rigaTurnoTreno,
                 Convoglio = _convoglio,
-                Headers = Headers
+                
             };
         }
 

@@ -44,7 +44,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
                 Oggetti = oggetti.ToArray(),
-                Headers = Headers
+                
             };
         }
 
@@ -62,7 +62,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
                 Oggetti = oggetti.ToArray(),
-                Headers = Headers
+                
             };
         }
 
