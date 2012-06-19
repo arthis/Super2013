@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
@@ -13,11 +14,11 @@ namespace Super.Administration.Specs.AreaIntervento
 {
     public class Cancellazione_di_una_area_intervento_gia_creata : CommandBaseClass<DeleteAreaIntervento>
     {
-        private Guid _Id = Guid.NewGuid();
-        private string _Description = "test";
-        private DateTime _Start = DateTime.Now.AddHours(12);
-        private DateTime _End = DateTime.Now.AddHours(13);
-        private DateTime _CreationDate = DateTime.Now;
+        private Guid _id = Guid.NewGuid();
+        private string _description = "test";
+        private DateTime _creationDate = DateTime.Now;
+        private long _version;
+        private RollonPeriod _rollonPeriod = new RollonPeriod(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         protected override CommandHandler<DeleteAreaIntervento> OnHandle(IRepository repository)
         {
@@ -26,22 +27,19 @@ namespace Super.Administration.Specs.AreaIntervento
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new AreaInterventoCreated()
-            {
-                Id = _Id,
-                Description = _Description,
-                CreationDate = _CreationDate,
-                End = _End,
-                Start = _Start
-            };
+            yield return new AreaInterventoCreated(
+                            id: _id,
+                            version: _version,
+                            period: _rollonPeriod,
+                            creationDate: _creationDate,
+                            description: _description);
         }
 
         public override DeleteAreaIntervento When()
         {
             return new DeleteAreaIntervento()
             {
-                Id = _Id,
-                Headers = Headers
+                Id = _id
             }; 
         }
 
@@ -49,8 +47,7 @@ namespace Super.Administration.Specs.AreaIntervento
         {
             yield return new AreaInterventoDeleted()
             {
-                Id = _Id,
-                Headers = Headers
+                Id = _id
             };
         }
 

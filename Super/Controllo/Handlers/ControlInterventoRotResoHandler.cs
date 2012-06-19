@@ -1,7 +1,7 @@
 ﻿using System;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.ValueObjects;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Controllo.Commands;
 using Super.Controllo.Domain;
 using CommonDomain.Persistence;
@@ -33,7 +33,7 @@ namespace Super.Controllo.Handlers
             if (Treno.IsValid(cmd.NumeroTrenoArrivo, cmd.DataTrenoArrivo))
                  trenoArrivo = new Treno(cmd.NumeroTrenoArrivo, cmd.DataTrenoArrivo);
 
-            existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, new RangeDate(cmd.Start, cmd.End), trenoPartenza, trenoArrivo, cmd.Convoglio, cmd.Note, cmd.Oggetti, cmd.RigaTurnoTreno, cmd.TurnoTreno);
+            existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, new RolloutPeriod(cmd.Start, cmd.End), trenoPartenza, trenoArrivo, cmd.Convoglio, cmd.Note, cmd.Oggetti, cmd.RigaTurnoTreno, cmd.TurnoTreno);
 
             Repository.Save(existingIntervento, cmd.GetCommitId());
 

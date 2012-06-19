@@ -89,9 +89,16 @@
     <Compile Include="RegistrationEventRouter.cs" />
     <Compile Include="SagaBase.cs" />
     <Compile Include="Specifications.cs" />
-    <Compile Include="Super\ValueObjects\OggettoIntervento.cs" />
-    <Compile Include="Super\ValueObjects\RangeDate.cs" />
-    <Compile Include="Super\ValueObjects\Treno.cs" />
+    <Compile Include="Super\Domain\Builders\Build.cs" />
+    <Compile Include="Super\Domain\Builders\RollonPeriodBuilder.cs" />
+    <Compile Include="Super\Domain\ValueObjects\OggettoIntervento.cs" />
+    <Compile Include="Super\Domain\ValueObjects\RangeDate.cs" />
+    <Compile Include="Super\Domain\ValueObjects\RollonPeriod.cs" />
+    <Compile Include="Super\Domain\ValueObjects\RolloutPeriod.cs" />
+    <Compile Include="Super\Domain\ValueObjects\Treno.cs" />
+    <Compile Include="Super\Messaging\Builders\RollonPeriodBuilder.cs" />
+    <Compile Include="Super\Messaging\ValueObjects\RollonPeriod.cs" />
+    <Compile Include="Super\Messaging\ValueObjects\RolloutPeriod.cs" />
     <Compile Include="ValidationMessage.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +124,7 @@
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

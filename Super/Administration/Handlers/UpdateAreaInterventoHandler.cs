@@ -2,7 +2,8 @@
 using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.ValueObjects;
+using CommonDomain.Core.Super.Domain.Builders;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Administration.Commands.AreaIntervento;
 using Super.Administration.Domain;
@@ -26,7 +27,7 @@ namespace Super.Administration.Handlers
             if (area.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            area.Update(new RangeDateUnfinished(cmd.Start, cmd.End), cmd.Description);
+            area.Update(Build.RollonPeriod.FromPeriod(cmd.Period).Build(), cmd.Description);
 
             Repository.Save(area, cmd.GetCommitId());
 

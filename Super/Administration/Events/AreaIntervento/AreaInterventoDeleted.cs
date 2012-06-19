@@ -8,14 +8,24 @@ namespace Super.Administration.Events.AreaIntervento
     public class AreaInterventoDeleted : Message,IEvent
     {
         public Guid Id { get; set; }
+        public long Version { get; private set; }
 
+
+        public AreaInterventoDeleted()
+        {
+            
+        }
+
+        public AreaInterventoDeleted(Guid id, long version)
+        {
+            Id = id;
+            Version = version;
+        }
 
         public override string ToDescription()
         {
             return string.Format("L'area intervento é stata cancellata (Id:'{0}')", Id);
         }
-
-
 
         public override bool Equals(object obj)
         {

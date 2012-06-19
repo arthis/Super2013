@@ -1,0 +1,38 @@
+﻿using System;
+using CommonDomain;
+using CommonDomain.Core.Super.Messaging.Builders;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
+using Super.Administration.Commands.AreaIntervento;
+
+namespace Super.Administration.Commands.Builders
+{
+    public class CreateAreaInterventoBuilder : ICommandBuilder<CreateAreaIntervento>
+    {
+        RollonPeriod _period;
+        private DateTime _creationDate;
+        private string _description;
+
+        public CreateAreaIntervento Build(Guid id, long version)
+        {
+            return new CreateAreaIntervento(id, version, _period, _creationDate, _description);
+        }
+
+        public CreateAreaInterventoBuilder ForCreationDate(DateTime creationDate)
+        {
+            _creationDate = creationDate;
+            return this;
+        }
+
+        public CreateAreaInterventoBuilder ForDescription(string description)
+        {
+            _description = description;
+            return this;
+        }
+
+        public CreateAreaInterventoBuilder ForPeriod(RollonPeriod period)
+        {
+            _period = period;
+            return this;
+        }
+    }
+}

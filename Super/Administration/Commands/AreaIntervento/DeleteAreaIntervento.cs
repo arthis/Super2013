@@ -9,6 +9,7 @@ namespace Super.Administration.Commands.AreaIntervento
     
     public class DeleteAreaIntervento : CommandBase
     {
+        public long Version { get; private set; }
 
         public DeleteAreaIntervento()
         {

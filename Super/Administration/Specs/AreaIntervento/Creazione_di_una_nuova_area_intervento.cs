@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects ;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
@@ -13,13 +14,11 @@ namespace Super.Administration.Specs.AreaIntervento
 {
     public class Creazione_di_una_nuova_area_intervento : CommandBaseClass<CreateAreaIntervento>
     {
-        private Guid _Id = Guid.NewGuid();
-        private string _Description = "test";
-        private DateTime _Start = DateTime.Now.AddHours(12);
-        private DateTime _End = DateTime.Now.AddHours(13);
-        private DateTime _CreationDate = DateTime.Now;
-
-       
+        private Guid _id = Guid.NewGuid();
+        private string _description = "test";
+        private DateTime _creationDate = DateTime.Now;
+        private long _version;
+        private RollonPeriod _rollonPeriod = new RollonPeriod(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         protected override CommandHandler<CreateAreaIntervento> OnHandle(IRepository repository)
         {
@@ -33,28 +32,22 @@ namespace Super.Administration.Specs.AreaIntervento
 
         public override CreateAreaIntervento When()
         {
-            return new CreateAreaIntervento()
-            {
-                Id = _Id,
-                Description = _Description,
-                CreationDate = _CreationDate,
-                End = _End,
-                Start = _Start,
-                Headers = Headers
-            };
+            return new CreateAreaIntervento(
+                id: _id,
+                version: _version,
+                period: _rollonPeriod,
+                creationDate: _creationDate,
+                description: _description); 
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new AreaInterventoCreated()
-            {
-                Id = _Id,
-                Description = _Description,
-                CreationDate = _CreationDate,
-                End = _End,
-                Start = _Start,
-                Headers = Headers
-            };
+            yield return new AreaInterventoCreated(
+                id: _id,
+                version: _version,
+                period: _rollonPeriod,
+                creationDate: _creationDate,
+                description: _description);
         }
 
         [Test]

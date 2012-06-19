@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.ValueObjects;
-using CommonDomain.Core.Super.ValueObjects;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -20,7 +19,7 @@ namespace Super.Appaltatore.Domain
                                 , Guid idAppaltatore
                                 , Guid idCategoriaCommerciale
                                 , Guid idDirezioneRegionale
-                                , RangeDate rangeDate
+                                , RolloutPeriod rolloutPeriod
                                 , string note
                                 , OggettoRot[] oggetti
                                 , string numeroTrenoArrivo
@@ -34,8 +33,8 @@ namespace Super.Appaltatore.Domain
        {
            var evt = new InterventoRotProgrammato()
                 {
-                    End = rangeDate.GetEnd(),
-                    Start = rangeDate.GetStart(),
+                    End = rolloutPeriod.GetEnd(),
+                    Start = rolloutPeriod.GetStart(),
                     Id = id,
                     IdAreaIntervento = idAreaIntervento,
                     IdTipoIntervento = idTipoIntervento,
@@ -114,7 +113,7 @@ namespace Super.Appaltatore.Domain
         }
 
 
-       public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, RangeDate rangeDate, string idInterventoAppaltatore, string note, OggettoRot[] oggetti, string convoglio, DateTime dataTrenoArrivo, DateTime dataTrenoPartenza, string numeroTrenoArrivo, string numeroTrenoPartenza, string rigaTurnoTreno, string turnoTreno)
+       public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, RolloutPeriod rolloutPeriod, string idInterventoAppaltatore, string note, OggettoRot[] oggetti, string convoglio, DateTime dataTrenoArrivo, DateTime dataTrenoPartenza, string numeroTrenoArrivo, string numeroTrenoPartenza, string rigaTurnoTreno, string turnoTreno)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
             
@@ -129,8 +128,8 @@ namespace Super.Appaltatore.Domain
                     , IdInterventoAppaltatore = idInterventoAppaltatore
                     , DataConsuntivazione = dataConsuntivazione
                     , Note = note
-                    , End = rangeDate.GetEnd()
-                    , Start = rangeDate.GetStart()
+                    , End = rolloutPeriod.GetEnd()
+                    , Start = rolloutPeriod.GetStart()
                     , Oggetti = oggetti
                     , Convoglio = convoglio
                     , DataTrenoArrivo = dataTrenoArrivo

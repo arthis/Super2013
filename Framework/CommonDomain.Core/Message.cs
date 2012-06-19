@@ -30,9 +30,6 @@ namespace CommonDomain.Core
             ((Dictionary<string, object>)Headers).Add(key,value);
         }
 
-        
-
-
         public void SetCommitId(Guid id)
         {
             if (((Dictionary<string, object>)Headers).ContainsKey(CommitKey))

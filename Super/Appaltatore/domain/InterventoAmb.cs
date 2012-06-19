@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.ValueObjects;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -18,14 +18,14 @@ namespace Super.Appaltatore.Domain
                                 , Guid idAppaltatore
                                 , Guid idCategoriaCommerciale
                                 , Guid idDirezioneRegionale
-                                , RangeDate rangeDate
+                                , RolloutPeriod rolloutPeriod
                                 , string note
             )
         {
             var evt = new InterventoAmbProgrammato()
             {
-                End = rangeDate.GetEnd(),
-                Start = rangeDate.GetStart(),
+                End = rolloutPeriod.GetEnd(),
+                Start = rolloutPeriod.GetStart(),
                 Id = id,
                 IdAreaIntervento = idAreaIntervento,
                 IdTipoIntervento = idTipoIntervento,
@@ -97,7 +97,7 @@ namespace Super.Appaltatore.Domain
             //do something here if needed
         }
 
-        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, RangeDate rangeDate, string idInterventoAppaltatore, string note, string descrizione, int quantita)
+        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, RolloutPeriod rolloutPeriod, string idInterventoAppaltatore, string note, string descrizione, int quantita)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
 
@@ -112,9 +112,9 @@ namespace Super.Appaltatore.Domain
                     DataConsuntivazione = dataConsuntivazione,
                     Note = note,
                     Descrizione = descrizione,
-                    End = rangeDate.GetEnd(),
+                    End = rolloutPeriod.GetEnd(),
                     Quantita = quantita,
-                    Start = rangeDate.GetStart()
+                    Start = rolloutPeriod.GetStart()
                 };
                 RaiseEvent(evt);
             }

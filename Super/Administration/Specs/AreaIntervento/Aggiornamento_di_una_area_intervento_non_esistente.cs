@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
@@ -13,11 +14,11 @@ namespace Super.Administration.Specs.AreaIntervento
 {
     public class Aggiornamento_di_una_area_intervento_non_esistente : CommandBaseClass<UpdateAreaIntervento>
     {
-        private Guid _Id = Guid.NewGuid();
-        private string _Description = "test";
-        private DateTime _Start = DateTime.Now.AddHours(12);
-        private DateTime _End = DateTime.Now.AddHours(13);
-        private DateTime _CreationDate = DateTime.Now;
+        private Guid _id = Guid.NewGuid();
+        private string _description = "test";
+        private DateTime _creationDate = DateTime.Now;
+        private long _version;
+        private RollonPeriod _rollonPeriod = new RollonPeriod(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         private string _DescriptionUpdated = "test 2";
         private DateTime _StartUpdated = DateTime.Now.AddHours(14);
@@ -38,7 +39,7 @@ namespace Super.Administration.Specs.AreaIntervento
         {
             return new UpdateAreaIntervento()
                        {
-                           Id = _Id,
+                           Id = _id,
                            Start = _StartUpdated,
                            End = _EndUpdated,
                            Description = _DescriptionUpdated,

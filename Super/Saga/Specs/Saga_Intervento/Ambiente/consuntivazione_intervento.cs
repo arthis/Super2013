@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.ValueObjects;
 using CommonDomain.Persistence;
 using EasyNetQ;
 using NUnit.Framework;

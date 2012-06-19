@@ -3,7 +3,6 @@ using System.Linq;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.ValueObjects;
 
 namespace Super.Controllo.Commands
 {

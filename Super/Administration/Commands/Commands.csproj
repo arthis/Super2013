@@ -78,6 +78,9 @@
     <Compile Include="AreaIntervento\DeleteAreaIntervento.cs" />
     <Compile Include="AreaIntervento\CreateAreaIntervento.cs" />
     <Compile Include="AreaIntervento\specs.cs" />
+    <Compile Include="Builders\CreateAreaInterventoBuilder.cs" />
+    <Compile Include="Builders\Build.cs" />
+    <Compile Include="Builders\UpdateAreaInterventoBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonDomain;
-using CommonDomain.Core.Super.ValueObjects;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 using EasyNetQ;
 using Newtonsoft.Json;
 using Super.Programmazione.Events;

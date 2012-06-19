@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics.Contracts;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.ValueObjects;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Commands;
 using Super.Appaltatore.Domain;
@@ -32,7 +32,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdAppaltatore
                                 , cmd.IdCategoriaCommerciale
                                 , cmd.IdDirezioneRegionale
-                                , new RangeDate(cmd.Start, cmd.End)
+                                , new RolloutPeriod(cmd.Start, cmd.End)
                                 , cmd.Note
                                 , cmd.Oggetti
                                 , cmd.NumeroTrenoArrivo

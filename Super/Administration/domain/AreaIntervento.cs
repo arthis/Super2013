@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.ValueObjects;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Administration.Events.AreaIntervento;
+using Super.Administration.Events.Builders;
 
 namespace Super.Administration.Domain
 {
@@ -17,19 +18,14 @@ namespace Super.Administration.Domain
         {
         }
 
-        public AreaIntervento(Guid id, RangeDateUnfinished rangeDate, DateTime creationDate, string description)
+        public AreaIntervento(Guid id, RollonPeriod rollonPeriod, DateTime creationDate, string description)
         {
-            var evt = new AreaInterventoCreated()
-                          {
-                              Start = rangeDate.GetStart(),
-                              End = rangeDate.GetEnd(),
-                              CreationDate = creationDate,
-                              Description = description,
-                              Id = id
-                          };
-
+            var evt = Build.AreaInterventoCreated
+                          .ForPeriod(rollonPeriod)
+                          .ForCreationDate(creationDate)
+                          .ForDescription(description)
+                          .Build(id,Version);
             RaiseEvent(evt);
-
         }
 
         public void Apply(AreaInterventoCreated e)
@@ -39,16 +35,12 @@ namespace Super.Administration.Domain
 
 
 
-        public void Update(RangeDateUnfinished rangeDate, string description)
+        public void Update(RollonPeriod rollonPeriod, string description)
         {
-            var evt = new AreaInterventoUpdated()
-            {
-                Id = this.Id,
-                Start = rangeDate.GetStart(),
-                End = rangeDate.GetEnd(),
-                Description = description,
-            };
-
+            var evt = Build.AreaInterventoUpdated
+                          .ForPeriod(rollonPeriod)
+                          .ForDescription(description)
+                          .Build(Id, Version);
             RaiseEvent(evt);
         }
 
@@ -65,11 +57,8 @@ namespace Super.Administration.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = new AreaInterventoDeleted()
-                              {
-                                  Id = this.Id
-                              };
-
+                var evt = Build.AreaInterventoDeleted
+                               .Build(Id, Version);
                 RaiseEvent(evt);
             }
         }

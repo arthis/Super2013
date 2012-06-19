@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
@@ -13,11 +14,7 @@ namespace Super.Administration.Specs.AreaIntervento
 {
     public class Cancellazione_di_una_area_intervento_non_esistente : CommandBaseClass<DeleteAreaIntervento>
     {
-        private Guid _Id = Guid.NewGuid();
-        private string _Description = "test";
-        private DateTime _Start = DateTime.Now.AddHours(12);
-        private DateTime _End = DateTime.Now.AddHours(13);
-        private DateTime _CreationDate = DateTime.Now;
+        private Guid _id = Guid.NewGuid();
 
         protected override CommandHandler<DeleteAreaIntervento> OnHandle(IRepository repository)
         {
@@ -31,7 +28,7 @@ namespace Super.Administration.Specs.AreaIntervento
 
         public override DeleteAreaIntervento When()
         {
-            return new DeleteAreaIntervento(_Id);
+            return new DeleteAreaIntervento(_id);
         }
 
         public override IEnumerable<IMessage> Expect()

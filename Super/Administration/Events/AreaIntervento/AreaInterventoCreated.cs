@@ -1,6 +1,7 @@
 ﻿using System;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 
 namespace Super.Administration.Events.AreaIntervento
@@ -8,10 +9,19 @@ namespace Super.Administration.Events.AreaIntervento
     public class AreaInterventoCreated :  Message ,IEvent
     {
         public Guid Id { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime? End { get; set; }
-        public DateTime CreationDate { get; set; }
-        public string Description { get; set; }
+        public RollonPeriod Period { get; private set; }
+        public DateTime CreationDate { get; private set; }
+        public string Description { get; private set; }
+        public long Version { get; private set; }
+
+        public AreaInterventoCreated(Guid id, long version, RollonPeriod period, DateTime creationDate, string description)
+        {
+            Id = id;
+            Version = version;
+            Period = period;
+            CreationDate = creationDate;
+            Description = description;
+        }
 
         public override string ToDescription()
         {
@@ -22,24 +32,26 @@ namespace Super.Administration.Events.AreaIntervento
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
+            return Equals(obj as AreaInterventoCreated);
+        }
 
-            if (obj.GetType() != this.GetType()) return false;
-
-            var other = (AreaInterventoCreated)obj;
-
-            return base.Equals(obj)
-             && other.Id.Equals(Id) && other.Start.Equals(Start) && other.End.Equals(End) && other.CreationDate.Equals(CreationDate) && Equals(other.Description, Description);
+        public bool Equals(AreaInterventoCreated other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return base.Equals(other) && other.Id.Equals(Id) && Equals(other.Period, Period) && other.CreationDate.Equals(CreationDate) && Equals(other.Description, Description) && other.Version == Version;
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                int result = Id.GetHashCode();
-                result = (result*397) ^ Start.GetHashCode();
-                result = (result*397) ^ (End.HasValue ? End.Value.GetHashCode() : 0);
+                int result = base.GetHashCode();
+                result = (result*397) ^ Id.GetHashCode();
+                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
                 result = (result*397) ^ CreationDate.GetHashCode();
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
+                result = (result*397) ^ Version.GetHashCode();
                 return result;
             }
         }

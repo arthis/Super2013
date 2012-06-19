@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
 
-namespace CommonDomain.Core.Super.ValueObjects
+namespace CommonDomain.Core.Super.Domain.ValueObjects
 {
     public class Treno
     {

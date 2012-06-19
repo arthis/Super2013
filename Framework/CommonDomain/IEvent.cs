@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CommonDomain
 {
-    public interface IEvent 
+    public interface IEvent : IMessage
     {
         Guid Id { get; set; }
     }

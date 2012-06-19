@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Administration.Commands.AreaIntervento;
 using Super.Administration.Events.AreaIntervento;
+using Super.Administration.Events.Builders;
 using Super.Administration.Handlers;
+using RollonPeriod = CommonDomain.Core.Super.Messaging.ValueObjects.RollonPeriod;
 
 namespace Super.Administration.Specs.AreaIntervento
 {
     public class Aggiornamento_di_una_area_intervento_gia_creata : CommandBaseClass<UpdateAreaIntervento>
     {
-        private Guid _Id = Guid.NewGuid();
-        private string _Description = "test";
-        private DateTime _Start = DateTime.Now.AddHours(12);
-        private DateTime _End = DateTime.Now.AddHours(13);
-        private DateTime _CreationDate = DateTime.Now;
+        private Guid _id = Guid.NewGuid();
+        private string _description = "test";
+        private DateTime _creationDate = DateTime.Now;
+        private long _version;
+        private CommonDomain.Core.Super.Messaging.ValueObjects.RollonPeriod _rollonPeriod = new RollonPeriod(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         private string _DescriptionUpdated = "test 2";
         private DateTime _StartUpdated = DateTime.Now.AddHours(14);
@@ -31,21 +34,19 @@ namespace Super.Administration.Specs.AreaIntervento
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new AreaInterventoCreated()
-            {
-                Id = _Id,
-                Description = _Description,
-                CreationDate = _CreationDate,
-                End = _End,
-                Start = _Start
-            };
+            yield return new AreaInterventoCreated(
+                            id: _id,
+                            version: _version,
+                            period: _rollonPeriod,
+                            creationDate: _creationDate,
+                            description: _description);
         }
 
         public override UpdateAreaIntervento When()
         {
             return new UpdateAreaIntervento()
                        {
-                           Id = _Id,
+                           Id = _id,
                            Start = _StartUpdated,
                            End = _EndUpdated,
                            Description = _DescriptionUpdated,
@@ -57,7 +58,7 @@ namespace Super.Administration.Specs.AreaIntervento
         {
             yield return new AreaInterventoUpdated()
             {
-                Id = _Id,
+                Id = _id,
                 Start = _StartUpdated,
                 End = _EndUpdated,
                 Description = _DescriptionUpdated,

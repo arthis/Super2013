@@ -1,7 +1,7 @@
 ﻿using System;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.ValueObjects;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Controllo.Commands;
 using Super.Controllo.Domain;
 using CommonDomain.Persistence;
@@ -29,7 +29,7 @@ namespace Super.Controllo.Handlers
                 throw new AggregateRootInstanceNotFoundException();
 
 
-            existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, new RangeDate(cmd.Start, cmd.End),   cmd.Note, cmd.Quantita, cmd.Descrizione);
+            existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, new RolloutPeriod(cmd.Start, cmd.End),   cmd.Note, cmd.Quantita, cmd.Descrizione);
 
             Repository.Save(existingIntervento, cmd.GetCommitId());
 

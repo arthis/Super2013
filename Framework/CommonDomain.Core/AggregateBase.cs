@@ -51,6 +51,12 @@ namespace CommonDomain.Core
             this.RegisteredRoutes.Register(route);
         }
 
+        protected void ApplyEvent(IEventBuilder<IEvent> builder)
+        {
+            var @event = builder.Build(Id, Version);
+            RaiseEvent(@event);
+        }
+
         protected void RaiseEvent(IMessage @event)
         {
             ((IAggregate)this).ApplyEvent(@event);

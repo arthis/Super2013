@@ -32,8 +32,8 @@ namespace Super.Administration.Projection
                              CreationDate = @event.CreationDate,
                              Deleted = false,
                              Description = @event.Description,
-                             End = @event.End,
-                             Start = @event.Start
+                             End = @event.Period.End,
+                             Start = @event.Period.Start
                          };
 
                 container.AreaInterventoes.AddObject(ai);
@@ -50,8 +50,8 @@ namespace Super.Administration.Projection
                     throw new Exception("Entity not found");
 
                 ai.Description = @event.Description;
-                ai.End = @event.End;
-                ai.Start = @event.Start;
+                ai.End = @event.Period.End;
+                ai.Start = @event.Period.Start;
 
                 container.SaveChanges();
             }

@@ -3,36 +3,31 @@ using System.Runtime.Serialization;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Administration.Commands.AreaIntervento
 {
     
     public class CreateAreaIntervento : CommandBase
     {
-        
-        public DateTime Start { get; set; }
-        
-        public DateTime? End { get; set; }
-        
-        public string Description { get; set; }
-        
-        public DateTime CreationDate { get; set; }
-
+        public RollonPeriod Period { get; private set; }
+        public string Description { get; private set; }
+        public DateTime CreationDate { get; private set; }
+        public long Version { get; private set; }
 
         public CreateAreaIntervento()
         {
             
         }
 
-        public CreateAreaIntervento(Guid id, DateTime start, DateTime? end, string description, DateTime creationDate)
+        public CreateAreaIntervento(Guid id, long version, RollonPeriod period, DateTime creationDate, string description)
         {
             this.Id = id;
-            this.Start = start;
-            this.End = end;
+            this.Version = version;
+            this.Period = period;
             this.Description = description;
             this.CreationDate = creationDate;
         }
-
 
         public override string ToDescription()
         {
@@ -43,43 +38,27 @@ namespace Super.Administration.Commands.AreaIntervento
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-
-            if (obj.GetType() != this.GetType()) return false;
-
-            var other = (CreateAreaIntervento)obj;
-
-            return base.Equals(obj)
-             && base.Equals(other) && other.Start.Equals(Start) && other.End.Equals(End) && Equals(other.Description, Description) && other.CreationDate.Equals(CreationDate);
+            return Equals(obj as CreateAreaIntervento);
         }
 
-        /// <summary>
-        /// Serves as a hash function for a particular type. 
-        /// </summary>
-        /// <returns>
-        /// A hash code for the current <see cref="T:System.Object"/>.
-        /// </returns>
-        /// <filterpriority>2</filterpriority>
+        public bool Equals(CreateAreaIntervento other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return base.Equals(other) && Equals(other.Period, Period) && Equals(other.Description, Description) && other.CreationDate.Equals(CreationDate) && other.Version == Version;
+        }
+
         public override int GetHashCode()
         {
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ Start.GetHashCode();
-                result = (result*397) ^ (End.HasValue ? End.Value.GetHashCode() : 0);
+                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
                 result = (result*397) ^ CreationDate.GetHashCode();
+                result = (result*397) ^ Version.GetHashCode();
                 return result;
             }
-        }
-
-        public static bool operator ==(CreateAreaIntervento left, CreateAreaIntervento right)
-        {
-            return Equals(left, right);
-        }
-
-        public static bool operator !=(CreateAreaIntervento left, CreateAreaIntervento right)
-        {
-            return !Equals(left, right);
         }
     }
 }
