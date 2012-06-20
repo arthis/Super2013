@@ -8,6 +8,7 @@ using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
 using EventStore;
 using EventStore.Dispatcher;
+using EventStore.Persistence.SqlPersistence.SqlDialects;
 using EventStore.Serialization;
 using Super.Administration.AdministrationService;
 using Super.Saga.Handlers;
@@ -35,6 +36,7 @@ namespace Super.Saga.SagaService
             return Wireup.Init()
                 .LogToOutputWindow()
                 .UsingSqlPersistence("EventStore")
+                .WithDialect(new MsSqlDialect())
                 .InitializeStorageEngine()
                 .UsingJsonSerialization()
                 .Compress()
