@@ -35,11 +35,13 @@ namespace Super.Saga.Domain.Intervento
             if (!_stateMachine.IsInState(State.Start))
                 throw  new Exception("Saga already started");
 
+            
+
             var cmd = new ProgrammareInterventoRot()
                           {
                               Id = evt.Id,
                               End = evt.End,
-                              
+                              CommitId = Guid.NewGuid(),
                               IdAreaIntervento = evt.IdAreaIntervento,
                               Start = evt.Start,
                               IdTipoIntervento = evt.IdTipoIntervento,
@@ -63,6 +65,8 @@ namespace Super.Saga.Domain.Intervento
 
         private void OnInterventoRotPianificato(InterventoRotPianificato evt)
         {
+            //assign the Id for the Saga
+            Id = evt.Id;
             //publish intervento to appaltatore
             _stateMachine.Fire(Trigger.Scheduled);
         }

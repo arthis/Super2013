@@ -84,7 +84,7 @@ namespace CommonDomain.Persistence.EventStore
 			Persist(stream, commitId);
 
 			saga.ClearUncommittedEvents();
-			saga.ClearUndispatchedMessages();
+            
 		}
 
 		private static Dictionary<string, object> PrepareHeaders(ISaga saga, Action<IDictionary<string, object>> updateHeaders)

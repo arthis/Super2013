@@ -38,6 +38,7 @@ namespace CommonDomain.Core
                 var message = msg as IMessage;
                 Bus.Publish(message);
             }
+            saga.ClearUndispatchedMessages();
         }
     }
 

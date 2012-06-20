@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
@@ -10,7 +9,7 @@ using Super.Administration.Commands.AreaIntervento;
 using Super.Administration.Events.AreaIntervento;
 using Super.Administration.Events.Builders;
 using Super.Administration.Handlers;
-using RollonPeriod = CommonDomain.Core.Super.Messaging.ValueObjects.RollonPeriod;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Administration.Specs.AreaIntervento
 {
@@ -20,7 +19,7 @@ namespace Super.Administration.Specs.AreaIntervento
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
         private long _version;
-        private CommonDomain.Core.Super.Messaging.ValueObjects.RollonPeriod _rollonPeriod = new RollonPeriod(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
+        private RollonPeriod _rollonPeriod = new RollonPeriod(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         private string _DescriptionUpdated = "test 2";
         private DateTime _StartUpdated = DateTime.Now.AddHours(14);

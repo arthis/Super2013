@@ -34,7 +34,7 @@ namespace Super.Saga.SagaService
         {
             return Wireup.Init()
                 .LogToOutputWindow()
-                .UsingMongoPersistence("EventStore", new DocumentObjectSerializer())
+                .UsingSqlPersistence("EventStore")
                 .InitializeStorageEngine()
                 .UsingJsonSerialization()
                 .Compress()

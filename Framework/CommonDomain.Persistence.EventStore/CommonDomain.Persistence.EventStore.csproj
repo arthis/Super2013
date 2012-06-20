@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="AggregateFactory.cs" />
     <Compile Include="AuthorizationPipelineHook.cs" />
+    <Compile Include="ConnectionStringConnectionFactory .cs" />
     <Compile Include="EventStoreRepository.cs" />
     <Compile Include="ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -104,6 +105,8 @@
       <HintPath>..\..\lib\EventStore\EventStore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ExceptionMessages.resx">

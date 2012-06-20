@@ -22,6 +22,8 @@ namespace Super.Saga.Handlers
             // purchase correlation 
             var saga = Repository.GetById<InterventoRotSaga>(sagaId);
 
+            
+
             saga.ProgrammareIntervento(@event);
             
             Repository.Save(saga, @event.CommitId, null);

@@ -56,6 +56,8 @@ namespace Super.Saga.Domain.Intervento
 
         private void OnInterventoRotManPianificato(InterventoRotManPianificato evt)
         {
+            //assign the Id for the Saga
+            Id = evt.Id;
             //publish intervento to appaltatore
             _stateMachine.Fire(Trigger.Scheduled);
         }
