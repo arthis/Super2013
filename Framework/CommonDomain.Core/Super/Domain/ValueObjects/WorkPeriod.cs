@@ -1,13 +1,14 @@
 ﻿using System;
+using CommonDomain.Core.Super.Messaging.Builders;
 
 namespace CommonDomain.Core.Super.Domain.ValueObjects
 {
-    public class RolloutPeriod
+    public class WorkPeriod
         {
         private readonly DateTime _start;
         private readonly DateTime _end;
 
-        public RolloutPeriod(DateTime start, DateTime end)
+        public WorkPeriod(DateTime start, DateTime end)
         {
             if (!IsValid(start, end))
                 throw  new Exception();
@@ -34,5 +35,17 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
         {
             return _end;
         }
+
+        public void BuildValue(WorkPeriodBuilder builder)
+        {
+            builder.From(_start).To(_end);
+        }
+
+        public static WorkPeriod FromMessage(Messaging.ValueObjects.WorkPeriod workPeriod)
+        {
+            return new WorkPeriod(workPeriod.StartDate, workPeriod.EndDate);
+        }
+
+
     }
 }

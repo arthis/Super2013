@@ -18,7 +18,7 @@ namespace Super.Administration.Specs.AreaIntervento
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
         private long _version;
-        private RollonPeriod _rollonPeriod = new RollonPeriod(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
+        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         private string _DescriptionUpdated = "test 2";
         private DateTime _StartUpdated = DateTime.Now.AddHours(14);
@@ -40,7 +40,7 @@ namespace Super.Administration.Specs.AreaIntervento
             return new UpdateAreaIntervento(
                             id: _id,
                             version: _version,
-                            period: _rollonPeriod,
+                            period: _intervall,
                             description: _description);
         }
 

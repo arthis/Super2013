@@ -26,7 +26,7 @@ namespace Super.Appaltatore.Handlers
 
             existingIntervento.ConsuntivareReso(cmd.Id
                                 , cmd.DataConsuntivazione
-                                , new RolloutPeriod(cmd.Start, cmd.End)
+                                , new WorkPeriod(cmd.Start, cmd.End)
                                 , cmd.IdInterventoAppaltatore
                                 , cmd.Note
                                 ,cmd.Oggetti);

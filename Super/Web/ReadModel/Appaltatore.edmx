@@ -31,16 +31,13 @@
           <Property Name="HasSchedaQ" Type="bit" Nullable="false" />
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" Nullable="false" />
-          <Property Name="AreaInterventoDescription" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="CategoriaTreno" Type="nvarchar" MaxLength="255" />
           <Property Name="NumeroTrenoPartenza" Type="nvarchar" MaxLength="50" />
           <Property Name="DataTrenoPartenza" Type="datetime" />
-          <Property Name="TipoInterventoDescription" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="DataInizioProgrammata" Type="datetime" Nullable="false" />
-          <Property Name="DataFineProgrammata" Type="datetime" Nullable="false" />
+          <Property Name="StartDateProgrammata" Type="datetime" Nullable="false" />
+          <Property Name="EndDateProgrammata" Type="datetime" Nullable="false" />
           <Property Name="ComposizioneProgrammata" Type="nvarchar" MaxLength="255" />
-          <Property Name="DataInizioConsuntivataAppaltatore" Type="datetime" Nullable="false" />
-          <Property Name="DataFineConsuntivataAppaltatore" Type="datetime" Nullable="false" />
+          <Property Name="StartDateConsuntivataAppaltatore" Type="datetime" Nullable="false" />
+          <Property Name="EndDateConsuntivataAppaltatore" Type="datetime" Nullable="false" />
           <Property Name="IsProgrammato" Type="bit" Nullable="false" />
           <Property Name="IsPLX" Type="bit" Nullable="false" />
           <Property Name="IsEstemporaneo" Type="bit" Nullable="false" />
@@ -85,16 +82,13 @@
           <Property Type="Boolean" Name="HasSchedaQ" Nullable="false" />
           <Property Type="DateTime" Name="Start" Nullable="false" />
           <Property Type="DateTime" Name="End" Nullable="false" />
-          <Property Type="String" Name="AreaInterventoDescription" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CategoriaTreno" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="NumeroTrenoPartenza" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="DataTrenoPartenza" />
-          <Property Type="String" Name="TipoInterventoDescription" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="DataInizioProgrammata" Nullable="false" />
-          <Property Type="DateTime" Name="DataFineProgrammata" Nullable="false" />
+          <Property Type="DateTime" Name="StartDateProgrammata" Nullable="false" />
+          <Property Type="DateTime" Name="EndDateProgrammata" Nullable="false" />
           <Property Type="String" Name="ComposizioneProgrammata" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="DataInizioConsuntivataAppaltatore" Nullable="false" />
-          <Property Type="DateTime" Name="DataFineConsuntivataAppaltatore" Nullable="false" />
+          <Property Type="DateTime" Name="StartDateConsuntivataAppaltatore" Nullable="false" />
+          <Property Type="DateTime" Name="EndDateConsuntivataAppaltatore" Nullable="false" />
           <Property Type="Boolean" Name="IsProgrammato" Nullable="false" />
           <Property Type="Boolean" Name="IsPLX" Nullable="false" />
           <Property Type="Boolean" Name="IsEstemporaneo" Nullable="false" />
@@ -131,16 +125,13 @@
                 <ScalarProperty Name="IsEstemporaneo" ColumnName="IsEstemporaneo" />
                 <ScalarProperty Name="IsPLX" ColumnName="IsPLX" />
                 <ScalarProperty Name="IsProgrammato" ColumnName="IsProgrammato" />
-                <ScalarProperty Name="DataFineConsuntivataAppaltatore" ColumnName="DataFineConsuntivataAppaltatore" />
-                <ScalarProperty Name="DataInizioConsuntivataAppaltatore" ColumnName="DataInizioConsuntivataAppaltatore" />
+                <ScalarProperty Name="EndDateConsuntivataAppaltatore" ColumnName="EndDateConsuntivataAppaltatore" />
+                <ScalarProperty Name="StartDateConsuntivataAppaltatore" ColumnName="StartDateConsuntivataAppaltatore" />
                 <ScalarProperty Name="ComposizioneProgrammata" ColumnName="ComposizioneProgrammata" />
-                <ScalarProperty Name="DataFineProgrammata" ColumnName="DataFineProgrammata" />
-                <ScalarProperty Name="DataInizioProgrammata" ColumnName="DataInizioProgrammata" />
-                <ScalarProperty Name="TipoInterventoDescription" ColumnName="TipoInterventoDescription" />
+                <ScalarProperty Name="EndDateProgrammata" ColumnName="EndDateProgrammata" />
+                <ScalarProperty Name="StartDateProgrammata" ColumnName="StartDateProgrammata" />
                 <ScalarProperty Name="DataTrenoPartenza" ColumnName="DataTrenoPartenza" />
                 <ScalarProperty Name="NumeroTrenoPartenza" ColumnName="NumeroTrenoPartenza" />
-                <ScalarProperty Name="CategoriaTreno" ColumnName="CategoriaTreno" />
-                <ScalarProperty Name="AreaInterventoDescription" ColumnName="AreaInterventoDescription" />
                 <ScalarProperty Name="End" ColumnName="End" />
                 <ScalarProperty Name="Start" ColumnName="Start" />
                 <ScalarProperty Name="HasSchedaQ" ColumnName="HasSchedaQ" />
@@ -184,7 +175,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Appaltatore" ZoomLevel="77">
-        <EntityTypeShape EntityType="AppaltatoreModel.ConsuntivazioneRot" Width="1.5" PointX="0.75" PointY="0.75" Height="9.095439453125" />
+        <EntityTypeShape EntityType="AppaltatoreModel.ConsuntivazioneRot" Width="1.5" PointX="0.75" PointY="0.75" Height="8.51853515625" />
       </Diagram>
     </Diagrams>
   </Designer>

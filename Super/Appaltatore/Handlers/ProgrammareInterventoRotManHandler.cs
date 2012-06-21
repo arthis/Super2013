@@ -32,9 +32,9 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdAppaltatore
                                 , cmd.IdCategoriaCommerciale
                                 , cmd.IdDirezioneRegionale
-                                , new RolloutPeriod(cmd.Start, cmd.End)
+                                , WorkPeriod.FromMessage(cmd.Period)
                                 , cmd.Note
-                                , cmd.Oggetti);
+                                , cmd.Oggetti.ToValueObject());
 
             Repository.Save(existingIntervento, cmd.CommitId);
 

@@ -12,7 +12,7 @@ namespace Super.Administration.Events.Builders
 {
     public class AreaInterventoCreatedBuilder : IEventBuilder<AreaInterventoCreated>
     {
-        RollonPeriod _period;
+        Intervall _period;
         private DateTime _creationDate;
         private string _description;
 
@@ -33,7 +33,7 @@ namespace Super.Administration.Events.Builders
             return this;
         }
 
-        public AreaInterventoCreatedBuilder ForPeriod(RollonPeriodBuilder builder)
+        public AreaInterventoCreatedBuilder ForPeriod(IntervallBuilder builder)
         {
             _period = builder.Build();
             return this;
@@ -42,9 +42,9 @@ namespace Super.Administration.Events.Builders
 
     public  static partial class BuildExtensions
     {
-        public static AreaInterventoCreatedBuilder ForPeriod(this AreaInterventoCreatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.RollonPeriod period)
+        public static AreaInterventoCreatedBuilder ForPeriod(this AreaInterventoCreatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Intervall period)
         {
-            var valueBuilder = new RollonPeriodBuilder();
+            var valueBuilder = new IntervallBuilder();
             period.BuildValue(valueBuilder);
             builder.ForPeriod(valueBuilder);
             return builder;

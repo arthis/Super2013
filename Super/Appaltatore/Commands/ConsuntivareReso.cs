@@ -1,6 +1,6 @@
 ﻿using System;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Appaltatore.Commands
 {
@@ -9,15 +9,14 @@ namespace Super.Appaltatore.Commands
     {
         public string IdInterventoAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
+        public WorkPeriod workPeriod { get; set; }
         public string Note { get; set; }
 
         public bool Equals(ConsuntivareReso other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione) && other.Start.Equals(Start) && other.End.Equals(End) && Equals(other.Note, Note);
+            return base.Equals(other) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione) && Equals(other.workPeriod, workPeriod) && Equals(other.Note, Note);
         }
 
         public override bool Equals(object obj)
@@ -34,8 +33,7 @@ namespace Super.Appaltatore.Commands
                 int result = base.GetHashCode();
                 result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
                 result = (result*397) ^ DataConsuntivazione.GetHashCode();
-                result = (result*397) ^ Start.GetHashCode();
-                result = (result*397) ^ End.GetHashCode();
+                result = (result*397) ^ (workPeriod != null ? workPeriod.GetHashCode() : 0);
                 result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
                 return result;
             }

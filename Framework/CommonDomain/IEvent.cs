@@ -7,7 +7,7 @@ namespace CommonDomain
 {
     public interface IEvent : IMessage
     {
-        Guid Id { get; set; }
+        Guid Id { get;  }
     }
 
 }

@@ -8,6 +8,7 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence.EventStore;
 using EventStore;
+using EventStore.Persistence.SqlPersistence.SqlDialects;
 using EventStore.Serialization;
 
 namespace CommandService
@@ -46,7 +47,8 @@ namespace CommandService
         {
             return Wireup.Init()
                 .LogToOutputWindow()
-                .UsingMongoPersistence("EventStore", new DocumentObjectSerializer())
+                .UsingSqlPersistence("EventStore")
+                .WithDialect(new MsSqlDialect())
                 .InitializeStorageEngine()
                 .UsingJsonSerialization()
                 .Compress()

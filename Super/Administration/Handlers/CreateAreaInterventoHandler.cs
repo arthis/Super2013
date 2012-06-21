@@ -30,7 +30,7 @@ namespace Super.Administration.Handlers
 
 
             var area =  new AreaIntervento(cmd.Id,
-                                          Build.RollonPeriod.FromPeriod(cmd.Period).Build(),
+                                          Build.Intervall.FromPeriod(cmd.Period).Build(),
                                           cmd.CreationDate,
                                           cmd.Description);
 

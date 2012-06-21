@@ -4,6 +4,8 @@ using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.Builders;
+using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -19,24 +21,28 @@ namespace Super.Appaltatore.Domain
                                         , Guid idAppaltatore
                                         , Guid idCategoriaCommerciale
                                         , Guid idDirezioneRegionale
-                                        , RolloutPeriod rolloutPeriod
+                                        , WorkPeriod workPeriod
                                         , string note
-                                        , OggettoRotMan[] oggetti
+                                        , IEnumerable<OggettoRotMan> oggetti
                     )
         {
-            var evt = new InterventoRotManProgrammato()
-            {
-                End = rolloutPeriod.GetEnd(),
-                Start = rolloutPeriod.GetStart(),
-                Id = id,
-                IdAreaIntervento = idAreaIntervento,
-                IdTipoIntervento = idTipoIntervento,
-                IdAppaltatore = idAppaltatore,
-                IdCategoriaCommerciale = idCategoriaCommerciale,
-                IdDirezioneRegionale = idDirezioneRegionale,
-                Note = note,
-                Oggetti = oggetti.ToArray(),
-            };
+            //builders
+            var builder = new InterventoRotManProgrammatoBuilder();
+            var periodBuilder = new WorkPeriodBuilder();
+
+            workPeriod.BuildValue(periodBuilder);
+
+            var evt = builder.WithOggetti(oggetti.ToMessage().ToArray())
+                            .ForPeriod(periodBuilder.Build())
+                            .ForId(id)
+                            .In(idAreaIntervento)
+                            .OfType(idTipoIntervento)
+                            .ForAppaltatore(idAppaltatore)
+                            .OfCategoriaCommerciale(idCategoriaCommerciale)
+                            .OfDirezioneRegionale(idDirezioneRegionale)
+                            .WithNote(note)
+                            .Build();
+
             RaiseEvent(evt);
         }
 
@@ -100,7 +106,7 @@ namespace Super.Appaltatore.Domain
             //do something here if needed
         }
 
-        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, RolloutPeriod rolloutPeriod, string idInterventoAppaltatore, string note, OggettoRotMan[] oggetti)
+        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, WorkPeriod workPeriod, string idInterventoAppaltatore, string note, OggettoRotMan[] oggetti)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
 
@@ -114,8 +120,8 @@ namespace Super.Appaltatore.Domain
                     IdInterventoAppaltatore = idInterventoAppaltatore,
                     DataConsuntivazione = dataConsuntivazione,
                     Note = note,
-                    Start = rolloutPeriod.GetStart(),
-                    End = rolloutPeriod.GetEnd(),
+                    Start = workPeriod.GetStart(),
+                    End = workPeriod.GetEnd(),
                      Oggetti = oggetti
                 };
                 RaiseEvent(evt);

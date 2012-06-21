@@ -131,12 +131,10 @@ namespace Super.Administration.ReadModel
         /// <param name="hasSchedaQ">Initial value of the HasSchedaQ property.</param>
         /// <param name="start">Initial value of the Start property.</param>
         /// <param name="end">Initial value of the End property.</param>
-        /// <param name="areaInterventoDescription">Initial value of the AreaInterventoDescription property.</param>
-        /// <param name="tipoInterventoDescription">Initial value of the TipoInterventoDescription property.</param>
-        /// <param name="dataInizioProgrammata">Initial value of the DataInizioProgrammata property.</param>
-        /// <param name="dataFineProgrammata">Initial value of the DataFineProgrammata property.</param>
-        /// <param name="dataInizioConsuntivataAppaltatore">Initial value of the DataInizioConsuntivataAppaltatore property.</param>
-        /// <param name="dataFineConsuntivataAppaltatore">Initial value of the DataFineConsuntivataAppaltatore property.</param>
+        /// <param name="startDateProgrammata">Initial value of the StartDateProgrammata property.</param>
+        /// <param name="endDateProgrammata">Initial value of the EndDateProgrammata property.</param>
+        /// <param name="startDateConsuntivataAppaltatore">Initial value of the StartDateConsuntivataAppaltatore property.</param>
+        /// <param name="endDateConsuntivataAppaltatore">Initial value of the EndDateConsuntivataAppaltatore property.</param>
         /// <param name="isProgrammato">Initial value of the IsProgrammato property.</param>
         /// <param name="isPLX">Initial value of the IsPLX property.</param>
         /// <param name="isEstemporaneo">Initial value of the IsEstemporaneo property.</param>
@@ -150,7 +148,7 @@ namespace Super.Administration.ReadModel
         /// <param name="isModificatoTrenitaliaRispettoAllAppaltatore">Initial value of the IsModificatoTrenitaliaRispettoAllAppaltatore property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static ConsuntivazioneRot CreateConsuntivazioneRot(global::System.Guid idIntervento, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idAreaIntervento, global::System.Guid idTipoIntervento, global::System.Boolean isAvvisoIspezione, global::System.Boolean isSpunta, global::System.Boolean isReso, global::System.Boolean isNonResoAppaltatore, global::System.Boolean isNonReso20mn, global::System.Boolean isNonResoTrenitalia, global::System.Boolean isRilevatoNonReso, global::System.Boolean isRettifica, global::System.Boolean isSostituito, global::System.Boolean hasSchedaV, global::System.Boolean hasSchedaQ, global::System.DateTime start, global::System.DateTime end, global::System.String areaInterventoDescription, global::System.String tipoInterventoDescription, global::System.DateTime dataInizioProgrammata, global::System.DateTime dataFineProgrammata, global::System.DateTime dataInizioConsuntivataAppaltatore, global::System.DateTime dataFineConsuntivataAppaltatore, global::System.Boolean isProgrammato, global::System.Boolean isPLX, global::System.Boolean isEstemporaneo, global::System.Boolean isSostitutivo, global::System.Boolean hasTreni, global::System.Boolean hasRotabiliSingoli, global::System.Boolean hasCarozze, global::System.Boolean hasLocomotive, global::System.Boolean isModificatoTrenitaliaRispettoAlProgramma, global::System.Boolean isModificatoAppaltatoreRispettoAlProgramma, global::System.Boolean isModificatoTrenitaliaRispettoAllAppaltatore, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static ConsuntivazioneRot CreateConsuntivazioneRot(global::System.Guid idIntervento, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idAreaIntervento, global::System.Guid idTipoIntervento, global::System.Boolean isAvvisoIspezione, global::System.Boolean isSpunta, global::System.Boolean isReso, global::System.Boolean isNonResoAppaltatore, global::System.Boolean isNonReso20mn, global::System.Boolean isNonResoTrenitalia, global::System.Boolean isRilevatoNonReso, global::System.Boolean isRettifica, global::System.Boolean isSostituito, global::System.Boolean hasSchedaV, global::System.Boolean hasSchedaQ, global::System.DateTime start, global::System.DateTime end, global::System.DateTime startDateProgrammata, global::System.DateTime endDateProgrammata, global::System.DateTime startDateConsuntivataAppaltatore, global::System.DateTime endDateConsuntivataAppaltatore, global::System.Boolean isProgrammato, global::System.Boolean isPLX, global::System.Boolean isEstemporaneo, global::System.Boolean isSostitutivo, global::System.Boolean hasTreni, global::System.Boolean hasRotabiliSingoli, global::System.Boolean hasCarozze, global::System.Boolean hasLocomotive, global::System.Boolean isModificatoTrenitaliaRispettoAlProgramma, global::System.Boolean isModificatoAppaltatoreRispettoAlProgramma, global::System.Boolean isModificatoTrenitaliaRispettoAllAppaltatore, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             ConsuntivazioneRot consuntivazioneRot = new ConsuntivazioneRot();
             consuntivazioneRot.IdIntervento = idIntervento;
@@ -171,12 +169,10 @@ namespace Super.Administration.ReadModel
             consuntivazioneRot.HasSchedaQ = hasSchedaQ;
             consuntivazioneRot.Start = start;
             consuntivazioneRot.End = end;
-            consuntivazioneRot.AreaInterventoDescription = areaInterventoDescription;
-            consuntivazioneRot.TipoInterventoDescription = tipoInterventoDescription;
-            consuntivazioneRot.DataInizioProgrammata = dataInizioProgrammata;
-            consuntivazioneRot.DataFineProgrammata = dataFineProgrammata;
-            consuntivazioneRot.DataInizioConsuntivataAppaltatore = dataInizioConsuntivataAppaltatore;
-            consuntivazioneRot.DataFineConsuntivataAppaltatore = dataFineConsuntivataAppaltatore;
+            consuntivazioneRot.StartDateProgrammata = startDateProgrammata;
+            consuntivazioneRot.EndDateProgrammata = endDateProgrammata;
+            consuntivazioneRot.StartDateConsuntivataAppaltatore = startDateConsuntivataAppaltatore;
+            consuntivazioneRot.EndDateConsuntivataAppaltatore = endDateConsuntivataAppaltatore;
             consuntivazioneRot.IsProgrammato = isProgrammato;
             consuntivazioneRot.IsPLX = isPLX;
             consuntivazioneRot.IsEstemporaneo = isEstemporaneo;
@@ -658,54 +654,6 @@ namespace Super.Administration.ReadModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String AreaInterventoDescription
-        {
-            get
-            {
-                return _AreaInterventoDescription;
-            }
-            set
-            {
-                OnAreaInterventoDescriptionChanging(value);
-                ReportPropertyChanging("AreaInterventoDescription");
-                _AreaInterventoDescription = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("AreaInterventoDescription");
-                OnAreaInterventoDescriptionChanged();
-            }
-        }
-        private global::System.String _AreaInterventoDescription;
-        partial void OnAreaInterventoDescriptionChanging(global::System.String value);
-        partial void OnAreaInterventoDescriptionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String CategoriaTreno
-        {
-            get
-            {
-                return _CategoriaTreno;
-            }
-            set
-            {
-                OnCategoriaTrenoChanging(value);
-                ReportPropertyChanging("CategoriaTreno");
-                _CategoriaTreno = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("CategoriaTreno");
-                OnCategoriaTrenoChanged();
-            }
-        }
-        private global::System.String _CategoriaTreno;
-        partial void OnCategoriaTrenoChanging(global::System.String value);
-        partial void OnCategoriaTrenoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NumeroTrenoPartenza
@@ -756,72 +704,48 @@ namespace Super.Administration.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String TipoInterventoDescription
+        public global::System.DateTime StartDateProgrammata
         {
             get
             {
-                return _TipoInterventoDescription;
+                return _StartDateProgrammata;
             }
             set
             {
-                OnTipoInterventoDescriptionChanging(value);
-                ReportPropertyChanging("TipoInterventoDescription");
-                _TipoInterventoDescription = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("TipoInterventoDescription");
-                OnTipoInterventoDescriptionChanged();
+                OnStartDateProgrammataChanging(value);
+                ReportPropertyChanging("StartDateProgrammata");
+                _StartDateProgrammata = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDateProgrammata");
+                OnStartDateProgrammataChanged();
             }
         }
-        private global::System.String _TipoInterventoDescription;
-        partial void OnTipoInterventoDescriptionChanging(global::System.String value);
-        partial void OnTipoInterventoDescriptionChanged();
+        private global::System.DateTime _StartDateProgrammata;
+        partial void OnStartDateProgrammataChanging(global::System.DateTime value);
+        partial void OnStartDateProgrammataChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime DataInizioProgrammata
+        public global::System.DateTime EndDateProgrammata
         {
             get
             {
-                return _DataInizioProgrammata;
+                return _EndDateProgrammata;
             }
             set
             {
-                OnDataInizioProgrammataChanging(value);
-                ReportPropertyChanging("DataInizioProgrammata");
-                _DataInizioProgrammata = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DataInizioProgrammata");
-                OnDataInizioProgrammataChanged();
+                OnEndDateProgrammataChanging(value);
+                ReportPropertyChanging("EndDateProgrammata");
+                _EndDateProgrammata = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndDateProgrammata");
+                OnEndDateProgrammataChanged();
             }
         }
-        private global::System.DateTime _DataInizioProgrammata;
-        partial void OnDataInizioProgrammataChanging(global::System.DateTime value);
-        partial void OnDataInizioProgrammataChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime DataFineProgrammata
-        {
-            get
-            {
-                return _DataFineProgrammata;
-            }
-            set
-            {
-                OnDataFineProgrammataChanging(value);
-                ReportPropertyChanging("DataFineProgrammata");
-                _DataFineProgrammata = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DataFineProgrammata");
-                OnDataFineProgrammataChanged();
-            }
-        }
-        private global::System.DateTime _DataFineProgrammata;
-        partial void OnDataFineProgrammataChanging(global::System.DateTime value);
-        partial void OnDataFineProgrammataChanged();
+        private global::System.DateTime _EndDateProgrammata;
+        partial void OnEndDateProgrammataChanging(global::System.DateTime value);
+        partial void OnEndDateProgrammataChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -852,48 +776,48 @@ namespace Super.Administration.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime DataInizioConsuntivataAppaltatore
+        public global::System.DateTime StartDateConsuntivataAppaltatore
         {
             get
             {
-                return _DataInizioConsuntivataAppaltatore;
+                return _StartDateConsuntivataAppaltatore;
             }
             set
             {
-                OnDataInizioConsuntivataAppaltatoreChanging(value);
-                ReportPropertyChanging("DataInizioConsuntivataAppaltatore");
-                _DataInizioConsuntivataAppaltatore = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DataInizioConsuntivataAppaltatore");
-                OnDataInizioConsuntivataAppaltatoreChanged();
+                OnStartDateConsuntivataAppaltatoreChanging(value);
+                ReportPropertyChanging("StartDateConsuntivataAppaltatore");
+                _StartDateConsuntivataAppaltatore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDateConsuntivataAppaltatore");
+                OnStartDateConsuntivataAppaltatoreChanged();
             }
         }
-        private global::System.DateTime _DataInizioConsuntivataAppaltatore;
-        partial void OnDataInizioConsuntivataAppaltatoreChanging(global::System.DateTime value);
-        partial void OnDataInizioConsuntivataAppaltatoreChanged();
+        private global::System.DateTime _StartDateConsuntivataAppaltatore;
+        partial void OnStartDateConsuntivataAppaltatoreChanging(global::System.DateTime value);
+        partial void OnStartDateConsuntivataAppaltatoreChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime DataFineConsuntivataAppaltatore
+        public global::System.DateTime EndDateConsuntivataAppaltatore
         {
             get
             {
-                return _DataFineConsuntivataAppaltatore;
+                return _EndDateConsuntivataAppaltatore;
             }
             set
             {
-                OnDataFineConsuntivataAppaltatoreChanging(value);
-                ReportPropertyChanging("DataFineConsuntivataAppaltatore");
-                _DataFineConsuntivataAppaltatore = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DataFineConsuntivataAppaltatore");
-                OnDataFineConsuntivataAppaltatoreChanged();
+                OnEndDateConsuntivataAppaltatoreChanging(value);
+                ReportPropertyChanging("EndDateConsuntivataAppaltatore");
+                _EndDateConsuntivataAppaltatore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndDateConsuntivataAppaltatore");
+                OnEndDateConsuntivataAppaltatoreChanged();
             }
         }
-        private global::System.DateTime _DataFineConsuntivataAppaltatore;
-        partial void OnDataFineConsuntivataAppaltatoreChanging(global::System.DateTime value);
-        partial void OnDataFineConsuntivataAppaltatoreChanged();
+        private global::System.DateTime _EndDateConsuntivataAppaltatore;
+        partial void OnEndDateConsuntivataAppaltatoreChanging(global::System.DateTime value);
+        partial void OnEndDateConsuntivataAppaltatoreChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

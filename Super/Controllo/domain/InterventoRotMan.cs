@@ -10,7 +10,7 @@ namespace Super.Controllo.Domain
 {
     public class InterventoRotMan : Intervento
     {
-        public void ControlReso(Guid idUtente, Guid controlDate, RolloutPeriod rolloutPeriod, string note, OggettoRotMan[] oggetti)
+        public void ControlReso(Guid idUtente, Guid controlDate, WorkPeriod workPeriod, string note, OggettoRotMan[] oggetti)
         {
             throw new NotImplementedException();
         }

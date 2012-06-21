@@ -73,6 +73,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\InterventoAmbProgrammatoBuilder.cs" />
+    <Compile Include="Builders\InterventoRotManProgrammatoBuilder.cs" />
+    <Compile Include="Builders\InterventoRotProgrammatoBuilder.cs" />
     <Compile Include="Consuntivazione\IInterventoRotConsuntivato.cs" />
     <Compile Include="Consuntivazione\InterventoConsuntivatoNonReso.cs" />
     <Compile Include="Consuntivazione\InterventoConsuntivatoNonResoTrenitalia.cs" />

@@ -27,7 +27,7 @@ namespace Super.Administration.Handlers
             if (area.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            area.Update(Build.RollonPeriod.FromPeriod(cmd.Period).Build(), cmd.Description);
+            area.Update(Build.Intervall.FromPeriod(cmd.Period).Build(), cmd.Description);
 
             Repository.Save(area, cmd.CommitId);
 

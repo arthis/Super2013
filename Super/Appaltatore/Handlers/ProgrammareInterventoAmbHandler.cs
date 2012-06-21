@@ -31,8 +31,10 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdAppaltatore
                                 , cmd.IdCategoriaCommerciale
                                 , cmd.IdDirezioneRegionale
-                                , new RolloutPeriod(cmd.Start, cmd.End)
-                                , cmd.Note);
+                                , WorkPeriod.FromMessage(cmd.Period)
+                                , cmd.Note
+                                , cmd.Quantita
+                                , cmd.Description);
 
             Repository.Save(existingIntervento, cmd.CommitId);
 

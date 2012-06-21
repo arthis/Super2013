@@ -8,7 +8,7 @@ namespace Super.Administration.Commands.Builders
 {
     public class CreateAreaInterventoBuilder : ICommandBuilder<CreateAreaIntervento>
     {
-        RollonPeriod _period;
+        Intervall _period;
         private DateTime _creationDate;
         private string _description;
 
@@ -29,7 +29,7 @@ namespace Super.Administration.Commands.Builders
             return this;
         }
 
-        public CreateAreaInterventoBuilder ForPeriod(RollonPeriod period)
+        public CreateAreaInterventoBuilder ForPeriod(Intervall period)
         {
             _period = period;
             return this;

@@ -100,6 +100,7 @@
   <ItemGroup>
     <Compile Include="Attributes\SetCultureAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppaltatoreController.cs" />
     <Compile Include="Controllers\AreaInterventoController.cs" />
     <Compile Include="Controllers\ControllerBaseSuper.cs" />
     <Compile Include="Controllers\TipoInterventoController.cs" />
@@ -312,6 +313,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\AreaIntervento\" />
+    <Folder Include="Views\Appaltatore\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -336,6 +338,10 @@
     <ProjectReference Include="..\..\Administration\Commands\Commands.csproj">
       <Project>{CB1EFF69-B658-48FC-A075-113D40F81E7C}</Project>
       <Name>Commands %28Super\Administration\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Appaltatore\Commands\Commands.csproj">
+      <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
+      <Name>Commands %28Super\Appaltatore\Commands%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReadModel\ReadModel.csproj">
       <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>

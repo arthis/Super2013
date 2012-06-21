@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.Builders;
+using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -18,23 +20,33 @@ namespace Super.Appaltatore.Domain
                                 , Guid idAppaltatore
                                 , Guid idCategoriaCommerciale
                                 , Guid idDirezioneRegionale
-                                , RolloutPeriod rolloutPeriod
+                                , WorkPeriod workPeriod
                                 , string note
+                                , int quantity
+                                , string description
+
             )
         {
-            var evt = new InterventoAmbProgrammato()
-            {
-                End = rolloutPeriod.GetEnd(),
-                Start = rolloutPeriod.GetStart(),
-                Id = id,
-                IdAreaIntervento = idAreaIntervento,
-                IdTipoIntervento = idTipoIntervento,
-                IdAppaltatore = idAppaltatore,
-                IdCategoriaCommerciale = idCategoriaCommerciale,
-                IdDirezioneRegionale = idDirezioneRegionale,
-                Note = note
-              
-            };
+
+            //builders
+            var builder = new InterventoAmbProgrammatoBuilder();
+            var periodBuilder = new WorkPeriodBuilder();
+
+            workPeriod.BuildValue(periodBuilder);
+
+            var evt = builder
+                            .ForPeriod(periodBuilder.Build())
+                            .ForId(id)
+                            .In(idAreaIntervento)
+                            .OfType(idTipoIntervento)
+                            .ForAppaltatore(idAppaltatore)
+                            .OfCategoriaCommerciale(idCategoriaCommerciale)
+                            .OfDirezioneRegionale(idDirezioneRegionale)
+                            .WithNote(note)
+                            .WithQuantity(quantity)
+                            .WithDescription((description))
+                            .Build();
+
             RaiseEvent(evt);
         }
 
@@ -97,7 +109,7 @@ namespace Super.Appaltatore.Domain
             //do something here if needed
         }
 
-        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, RolloutPeriod rolloutPeriod, string idInterventoAppaltatore, string note, string descrizione, int quantita)
+        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, WorkPeriod workPeriod, string idInterventoAppaltatore, string note, string descrizione, int quantita)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
 
@@ -112,9 +124,9 @@ namespace Super.Appaltatore.Domain
                     DataConsuntivazione = dataConsuntivazione,
                     Note = note,
                     Descrizione = descrizione,
-                    End = rolloutPeriod.GetEnd(),
+                    End = workPeriod.GetEnd(),
                     Quantita = quantita,
-                    Start = rolloutPeriod.GetStart()
+                    Start = workPeriod.GetStart()
                 };
                 RaiseEvent(evt);
             }

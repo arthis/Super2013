@@ -9,7 +9,7 @@ namespace Super.Administration.Events.AreaIntervento
     public class AreaInterventoUpdated : Message,IEvent
     {
         public Guid Id { get; set; }
-        public RollonPeriod Period { get; private set; }
+        public Intervall Period { get; private set; }
         public string Description { get; private set; }
         public long Version { get; private set; }
 
@@ -18,7 +18,7 @@ namespace Super.Administration.Events.AreaIntervento
             
         }
 
-        public AreaInterventoUpdated(Guid id, long version, RollonPeriod period, string description)
+        public AreaInterventoUpdated(Guid id, long version, Intervall period, string description)
         {
             Id = id;
             Version = version;

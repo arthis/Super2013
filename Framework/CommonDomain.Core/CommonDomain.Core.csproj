@@ -90,15 +90,23 @@
     <Compile Include="SagaBase.cs" />
     <Compile Include="Specifications.cs" />
     <Compile Include="Super\Domain\Builders\Build.cs" />
-    <Compile Include="Super\Domain\Builders\RollonPeriodBuilder.cs" />
+    <Compile Include="Super\Domain\Builders\OggettoRotBuilder.cs" />
+    <Compile Include="Super\Domain\Builders\OggettoRotManBuilder.cs" />
+    <Compile Include="Super\Domain\Builders\IntervallBuilder.cs" />
+    <Compile Include="Super\Domain\Builders\WorkPeriodBuilder.cs" />
     <Compile Include="Super\Domain\ValueObjects\OggettoIntervento.cs" />
-    <Compile Include="Super\Domain\ValueObjects\RangeDate.cs" />
-    <Compile Include="Super\Domain\ValueObjects\RollonPeriod.cs" />
-    <Compile Include="Super\Domain\ValueObjects\RolloutPeriod.cs" />
+    <Compile Include="Super\Domain\ValueObjects\Intervall.cs" />
+    <Compile Include="Super\Domain\ValueObjects\WorkPeriod.cs" />
     <Compile Include="Super\Domain\ValueObjects\Treno.cs" />
-    <Compile Include="Super\Messaging\Builders\RollonPeriodBuilder.cs" />
-    <Compile Include="Super\Messaging\ValueObjects\RollonPeriod.cs" />
-    <Compile Include="Super\Messaging\ValueObjects\RolloutPeriod.cs" />
+    <Compile Include="Super\Messaging\Builders\TrenoBuilder.cs" />
+    <Compile Include="Super\Messaging\Builders\OggettoRotManBuilder.cs" />
+    <Compile Include="Super\Messaging\Builders\OggettoRotBuilder.cs" />
+    <Compile Include="Super\Messaging\Builders\IntervallBuilder.cs" />
+    <Compile Include="Super\Messaging\Builders\WorkPeriodBuilder.cs" />
+    <Compile Include="Super\Messaging\ValueObjects\OggettoIntervento.cs" />
+    <Compile Include="Super\Messaging\ValueObjects\Intervall.cs" />
+    <Compile Include="Super\Messaging\ValueObjects\WorkPeriod.cs" />
+    <Compile Include="Super\Messaging\ValueObjects\Treno.cs" />
     <Compile Include="ValidationMessage.cs" />
   </ItemGroup>
   <ItemGroup>

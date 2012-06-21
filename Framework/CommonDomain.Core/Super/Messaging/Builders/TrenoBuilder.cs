@@ -6,26 +6,26 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace CommonDomain.Core.Super.Messaging.Builders
 {
-    public class RollonPeriodBuilder
+    public class TrenoBuilder
     {
-        DateTime _from;
-        DateTime? _to;
+        string _numero;
+        DateTime _date;
 
-        public RollonPeriodBuilder From(DateTime value)
+        public TrenoBuilder WithNumeroTreno(string numero)
         {
-            _from = value;
+            _numero = numero;
             return this;
         }
 
-        public RollonPeriodBuilder To(DateTime? value)
+        public TrenoBuilder When(DateTime value)
         {
-            _to = value;
+            _date = value;
             return this;
         }
 
-        public RollonPeriod Build()
+        public Treno Build()
         {
-            return new RollonPeriod(_from, _to);
+            return new Treno(_numero, _date);
         }
 
        

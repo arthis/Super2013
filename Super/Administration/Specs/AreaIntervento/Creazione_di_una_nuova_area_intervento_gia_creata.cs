@@ -18,7 +18,7 @@ namespace Super.Administration.Specs.AreaIntervento
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
         private long _version;
-        private RollonPeriod _rollonPeriod = new RollonPeriod(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
+        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         public override string ToDescription()
         {
@@ -36,7 +36,7 @@ namespace Super.Administration.Specs.AreaIntervento
             yield return new AreaInterventoCreated(
                 id: _id,
                 version: _version,
-                period: _rollonPeriod,
+                period: _intervall,
                 creationDate: _creationDate,
                 description: _description);
         }
@@ -46,7 +46,7 @@ namespace Super.Administration.Specs.AreaIntervento
             return new CreateAreaIntervento(
                                     id: _id,
                                     version: _version,
-                                    period: _rollonPeriod,
+                                    period: _intervall,
                                     creationDate: _creationDate,
                                     description: _description); 
         }

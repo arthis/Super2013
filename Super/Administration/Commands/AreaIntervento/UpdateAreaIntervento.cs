@@ -11,14 +11,14 @@ namespace Super.Administration.Commands.AreaIntervento
     public class UpdateAreaIntervento : CommandBase
     {
 
-        public RollonPeriod Period { get; private set; }
+        public Intervall Period { get; private set; }
         public string Description { get; private set; }
         public long Version { get; private set; }
 
         public UpdateAreaIntervento()
         {}
 
-        public UpdateAreaIntervento(Guid id, long version, RollonPeriod period,  string description)
+        public UpdateAreaIntervento(Guid id, long version, Intervall period,  string description)
         {
             this.Id = id;
             this.Version = version;

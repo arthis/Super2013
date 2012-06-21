@@ -9,12 +9,12 @@ namespace Super.Administration.Events.AreaIntervento
     public class AreaInterventoCreated :  Message ,IEvent
     {
         public Guid Id { get; set; }
-        public RollonPeriod Period { get; private set; }
+        public Intervall Period { get; private set; }
         public DateTime CreationDate { get; private set; }
         public string Description { get; private set; }
         public long Version { get; private set; }
 
-        public AreaInterventoCreated(Guid id, long version, RollonPeriod period, DateTime creationDate, string description)
+        public AreaInterventoCreated(Guid id, long version, Intervall period, DateTime creationDate, string description)
         {
             Id = id;
             Version = version;

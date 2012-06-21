@@ -4,6 +4,8 @@ using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.Builders;
+using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -19,38 +21,43 @@ namespace Super.Appaltatore.Domain
                                 , Guid idAppaltatore
                                 , Guid idCategoriaCommerciale
                                 , Guid idDirezioneRegionale
-                                , RolloutPeriod rolloutPeriod
+                                , WorkPeriod period
                                 , string note
-                                , OggettoRot[] oggetti
-                                , string numeroTrenoArrivo
-                                , DateTime dataTrenoArrivo
-                                , string numeroTrenoPartenza
-                                , DateTime dataTrenoPartenza
+                                , IEnumerable<OggettoRot> oggetti
+                                ,Treno trenoArrivo
+                                ,Treno trenoPartenza
                                 , string turnoTreno
                                 , string rigaTurnoTreno
                                 , string convoglio
             )
-       {
-           var evt = new InterventoRotProgrammato()
-                {
-                    End = rolloutPeriod.GetEnd(),
-                    Start = rolloutPeriod.GetStart(),
-                    Id = id,
-                    IdAreaIntervento = idAreaIntervento,
-                    IdTipoIntervento = idTipoIntervento,
-                    IdAppaltatore = idAppaltatore,
-                    IdCategoriaCommerciale = idCategoriaCommerciale,
-                    IdDirezioneRegionale = idDirezioneRegionale,
-                    Note = note,
-                    Oggetti = oggetti.ToArray(),
-                    NumeroTrenoArrivo = numeroTrenoArrivo,
-                    DataTrenoArrivo = dataTrenoArrivo,
-                    NumeroTrenoPartenza = numeroTrenoPartenza,
-                    DataTrenoPartenza = dataTrenoPartenza,
-                    TurnoTreno = turnoTreno,
-                    RigaTurnoTreno = rigaTurnoTreno,
-                    Convoglio = convoglio
-                };
+        {
+
+            //builders
+            var builder = new InterventoRotProgrammatoBuilder();
+            var periodBuilder = new WorkPeriodBuilder();
+            var trenoPartenzaBuilder = new TrenoBuilder();
+            var trenoArrivoBuilder = new TrenoBuilder();
+
+            period.BuildValue(periodBuilder);
+            trenoPartenza.BuildValue(trenoPartenzaBuilder);
+            trenoArrivo.BuildValue(trenoArrivoBuilder);
+
+            var evt = builder.WithOggetti(oggetti.ToMessage().ToArray())
+                            .ForPeriod(periodBuilder.Build())
+                            .ForId(id)
+                            .In(idAreaIntervento)
+                            .OfType(idTipoIntervento)
+                            .ForAppaltatore(idAppaltatore)
+                            .OfCategoriaCommerciale(idCategoriaCommerciale)
+                            .OfDirezioneRegionale(idDirezioneRegionale)
+                            .WithNote(note)
+                            .WithTrenoPartenza(trenoPartenzaBuilder.Build())
+                            .WithTrenoArrivo(trenoArrivoBuilder.Build())
+                            .WithTurnoTreno(turnoTreno)
+                            .WithRigaTurnoTreno(rigaTurnoTreno)
+                            .ForConvoglio(convoglio)
+                            .Build();
+         
            RaiseEvent(evt);
        }
 
@@ -113,7 +120,7 @@ namespace Super.Appaltatore.Domain
         }
 
 
-       public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, RolloutPeriod rolloutPeriod, string idInterventoAppaltatore, string note, OggettoRot[] oggetti, string convoglio, DateTime dataTrenoArrivo, DateTime dataTrenoPartenza, string numeroTrenoArrivo, string numeroTrenoPartenza, string rigaTurnoTreno, string turnoTreno)
+       public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, WorkPeriod workPeriod, string idInterventoAppaltatore, string note, OggettoRot[] oggetti, string convoglio, DateTime dataTrenoArrivo, DateTime dataTrenoPartenza, string numeroTrenoArrivo, string numeroTrenoPartenza, string rigaTurnoTreno, string turnoTreno)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
             
@@ -128,9 +135,8 @@ namespace Super.Appaltatore.Domain
                     , IdInterventoAppaltatore = idInterventoAppaltatore
                     , DataConsuntivazione = dataConsuntivazione
                     , Note = note
-                    , End = rolloutPeriod.GetEnd()
-                    , Start = rolloutPeriod.GetStart()
-                    , Oggetti = oggetti
+                    , End = workPeriod.GetEnd()
+                    , Start = workPeriod.GetStart()
                     , Convoglio = convoglio
                     , DataTrenoArrivo = dataTrenoArrivo
                     , DataTrenoPartenza = dataTrenoPartenza

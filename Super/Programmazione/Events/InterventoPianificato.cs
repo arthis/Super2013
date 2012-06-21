@@ -1,7 +1,7 @@
 using System;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Programmazione.Events
 {

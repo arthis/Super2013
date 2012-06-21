@@ -6,24 +6,24 @@ using CommonDomain.Core.Super.Domain.ValueObjects;
 
 namespace CommonDomain.Core.Super.Domain.Builders
 {
-    public class RollonPeriodBuilder
+    public class IntervallBuilder
     {
         DateTime _from;
         DateTime? _to;
 
-        public RollonPeriodBuilder From(DateTime value)
+        public IntervallBuilder From(DateTime value)
         {
             _from = value;
             return this;
         }
 
-        public RollonPeriodBuilder To(DateTime? value)
+        public IntervallBuilder To(DateTime? value)
         {
             _to = value;
             return this;
         }
 
-        public RollonPeriodBuilder FromPeriod(CommonDomain.Core.Super.Messaging.ValueObjects.RollonPeriod period)
+        public IntervallBuilder FromPeriod(CommonDomain.Core.Super.Messaging.ValueObjects.Intervall period)
         {
             _from = period.Start;
             _to = period.End;
@@ -32,9 +32,9 @@ namespace CommonDomain.Core.Super.Domain.Builders
 
 
 
-        public RollonPeriod Build()
+        public Intervall Build()
         {
-            return new RollonPeriod(_from, _to);
+            return new Intervall(_from, _to);
         }
 
     }

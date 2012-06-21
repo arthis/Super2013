@@ -10,7 +10,7 @@ namespace Super.Administration.Commands.AreaIntervento
     
     public class CreateAreaIntervento : CommandBase
     {
-        public RollonPeriod Period { get; private set; }
+        public Intervall Period { get; private set; }
         public string Description { get; private set; }
         public DateTime CreationDate { get; private set; }
         public long Version { get; private set; }
@@ -20,7 +20,7 @@ namespace Super.Administration.Commands.AreaIntervento
             
         }
 
-        public CreateAreaIntervento(Guid id, long version, RollonPeriod period, DateTime creationDate, string description)
+        public CreateAreaIntervento(Guid id, long version, Intervall period, DateTime creationDate, string description)
         {
             this.Id = id;
             this.Version = version;

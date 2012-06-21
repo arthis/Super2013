@@ -18,10 +18,10 @@ namespace Super.Administration.Domain
         {
         }
 
-        public AreaIntervento(Guid id, RollonPeriod rollonPeriod, DateTime creationDate, string description)
+        public AreaIntervento(Guid id, Intervall intervall, DateTime creationDate, string description)
         {
             var evt = Build.AreaInterventoCreated
-                          .ForPeriod(rollonPeriod)
+                          .ForPeriod(intervall)
                           .ForCreationDate(creationDate)
                           .ForDescription(description)
                           .Build(id,Version);
@@ -35,10 +35,10 @@ namespace Super.Administration.Domain
 
 
 
-        public void Update(RollonPeriod rollonPeriod, string description)
+        public void Update(Intervall intervall, string description)
         {
             var evt = Build.AreaInterventoUpdated
-                          .ForPeriod(rollonPeriod)
+                          .ForPeriod(intervall)
                           .ForDescription(description)
                           .Build(Id, Version);
             RaiseEvent(evt);

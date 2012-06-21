@@ -1,4 +1,5 @@
 ﻿using System;
+using CommonDomain.Core.Super.Messaging.Builders;
 
 namespace CommonDomain.Core.Super.Domain.ValueObjects
 {
@@ -28,6 +29,16 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
         public DateTime Data
         {
             get { return _data; }
+        }
+
+        public void BuildValue(TrenoBuilder builder)
+        {
+            builder.WithNumeroTreno(_numeroTreno).When(_data);
+        }
+
+        public static Treno FromMessage(Messaging.ValueObjects.Treno treno)
+        {
+            return new Treno(treno.NumeroTreno,treno.Data);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Super.Administration.Commands.Builders
 {
     public class UpdateAreaInterventoBuilder : ICommandBuilder<UpdateAreaIntervento>
     {
-        RollonPeriod _period;
+        Intervall _period;
         private string _description;
 
         public UpdateAreaIntervento Build(Guid id, long version)
@@ -23,7 +23,7 @@ namespace Super.Administration.Commands.Builders
             return this;
         }
 
-        public UpdateAreaInterventoBuilder ForPeriod(RollonPeriod period)
+        public UpdateAreaInterventoBuilder ForPeriod(Intervall period)
         {
             _period = period;
             return this;

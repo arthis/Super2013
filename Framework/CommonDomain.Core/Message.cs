@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace CommonDomain.Core
 {
+    [Serializable]
     public abstract class Message : IMessage
     {
         public Guid CommitId { get; set; }

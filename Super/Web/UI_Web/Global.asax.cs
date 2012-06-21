@@ -19,6 +19,13 @@ namespace UI_Web
 
         public static void RegisterRoutes(RouteCollection routes)
         {
+
+            routes.MapRoute(
+               "Appaltatore", // Route name
+               "Appaltatore/{action}/{id}", // URL with parameters
+               new { controller = "Appaltatore", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+               );
+
             routes.MapRoute(
             "AreaIntervento", // Route name
             "AreaIntervento/{action}/{id}", // URL with parameters

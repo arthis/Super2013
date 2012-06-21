@@ -7,6 +7,8 @@ namespace CommonDomain.Core.Super.Domain.Builders
 {
     public static class Build
     {
-        public static RollonPeriodBuilder RollonPeriod { get { return new RollonPeriodBuilder(); } }
+        public static IntervallBuilder Intervall { get { return new IntervallBuilder(); } }
+        public static OggettoRotManBuilder OggettoRotMan { get { return new OggettoRotManBuilder(); } }
+        public static OggettoRotBuilder OggettoRot { get { return new OggettoRotBuilder(); } }
     }
 }

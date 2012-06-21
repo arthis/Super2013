@@ -3,15 +3,15 @@ using CommonDomain.Core.Super.Messaging.Builders;
 
 namespace CommonDomain.Core.Super.Domain.ValueObjects
 {
-    public class RollonPeriod
+    public class Intervall
     {
         private readonly DateTime _start;
         private readonly DateTime? _end;
 
-        public RollonPeriod(DateTime start, DateTime? end)
+        public Intervall(DateTime start, DateTime? end)
         {
             if (!IsValid(start, end))
-                throw new Exception();
+                throw new Exception("Intervall not valid");
             _start = start;
             _end = end;
         }
@@ -37,7 +37,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             return _end;
         }
 
-        public void BuildValue(RollonPeriodBuilder builder)
+        public void BuildValue(IntervallBuilder builder)
         {
             builder.From(_start).To(_end);
         }

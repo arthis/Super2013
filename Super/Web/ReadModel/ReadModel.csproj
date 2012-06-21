@@ -104,6 +104,7 @@
   <ItemGroup>
     <Content Include="Administration_ReadModel.edmx.sql" />
     <Content Include="Appaltatore_ReadModel.edmx.sql" />
+    <Content Include="EventStore.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

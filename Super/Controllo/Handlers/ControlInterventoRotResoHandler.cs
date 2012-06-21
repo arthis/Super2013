@@ -33,7 +33,7 @@ namespace Super.Controllo.Handlers
             if (Treno.IsValid(cmd.NumeroTrenoArrivo, cmd.DataTrenoArrivo))
                  trenoArrivo = new Treno(cmd.NumeroTrenoArrivo, cmd.DataTrenoArrivo);
 
-            existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, new RolloutPeriod(cmd.Start, cmd.End), trenoPartenza, trenoArrivo, cmd.Convoglio, cmd.Note, cmd.Oggetti, cmd.RigaTurnoTreno, cmd.TurnoTreno);
+            existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, new WorkPeriod(cmd.Start, cmd.End), trenoPartenza, trenoArrivo, cmd.Convoglio, cmd.Note, cmd.Oggetti, cmd.RigaTurnoTreno, cmd.TurnoTreno);
 
             Repository.Save(existingIntervento, cmd.CommitId);
 

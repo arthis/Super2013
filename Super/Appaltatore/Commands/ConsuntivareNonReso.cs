@@ -5,16 +5,46 @@ namespace Super.Appaltatore.Commands
 {
     public abstract class ConsuntivareNonReso : CommandBase
     {
-        public string IdInterventoAppaltatore { get; set; }
-        public DateTime DataConsuntivazione { get; set; }
-        public Guid IdCausale { get; set; }
-        public string Note { get; set; }
+        private readonly string _idInterventoAppaltatore;
+        private readonly DateTime _dataConsuntivazione;
+        private readonly Guid _idCausaleAppaltatore;
+        private readonly string _note;
+
+        public string Note
+        {
+            get { return _note; }
+        }
+        public Guid IdCausaleAppaltatore
+        {
+            get { return _idCausaleAppaltatore; }
+        }
+        public DateTime DataConsuntivazione
+        {
+            get { return _dataConsuntivazione; }
+        }
+        public string IdInterventoAppaltatore
+        {
+            get { return _idInterventoAppaltatore; }
+        }
+
+        public ConsuntivareNonReso(Guid id,
+                                string idInterventoAppaltatore,
+                                DateTime dataConsuntivazione,
+                                Guid idCausaleAppaltatore,
+                                string note)
+        {
+            Id = id;
+            _idInterventoAppaltatore = idInterventoAppaltatore;
+            _dataConsuntivazione = dataConsuntivazione;
+            _idCausaleAppaltatore = idCausaleAppaltatore;
+            _note = note;
+        }
 
         public bool Equals(ConsuntivareNonReso other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione) && other.IdCausale.Equals(IdCausale) && Equals(other.Note, Note);
+            return base.Equals(other) && Equals(other._idInterventoAppaltatore, _idInterventoAppaltatore) && other._dataConsuntivazione.Equals(_dataConsuntivazione) && other._idCausaleAppaltatore.Equals(_idCausaleAppaltatore) && Equals(other._note, _note);
         }
 
         public override bool Equals(object obj)
@@ -29,10 +59,10 @@ namespace Super.Appaltatore.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
-                result = (result*397) ^ DataConsuntivazione.GetHashCode();
-                result = (result*397) ^ IdCausale.GetHashCode();
-                result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+                result = (result*397) ^ (_idInterventoAppaltatore != null ? _idInterventoAppaltatore.GetHashCode() : 0);
+                result = (result*397) ^ _dataConsuntivazione.GetHashCode();
+                result = (result*397) ^ _idCausaleAppaltatore.GetHashCode();
+                result = (result*397) ^ (_note != null ? _note.GetHashCode() : 0);
                 return result;
             }
         }
@@ -42,33 +72,37 @@ namespace Super.Appaltatore.Commands
     public class ConsuntivareRotNonReso : ConsuntivareNonReso
     {
 
+        public ConsuntivareRotNonReso(Guid id,
+                                string idInterventoAppaltatore,
+                                DateTime dataConsuntivazione,
+                                Guid idCausaleAppaltatore,
+                                string note)
+            : base (id,idInterventoAppaltatore,dataConsuntivazione, idCausaleAppaltatore, note)
+        {
+            
+        }
+
         public override string ToDescription()
         {
             return string.Format("Si consuntiva non reso il intervento rotabile '{0}' ", Id);
         }
 
 
-        public bool Equals(ConsuntivareRotNonReso other)
-        {
-            return base.Equals(other);
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as ConsuntivareRotNonReso);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        
     }
 
     
     public class ConsuntivareRotManNonReso : ConsuntivareNonReso
     {
+        public ConsuntivareRotManNonReso(Guid id,
+                                string idInterventoAppaltatore,
+                                DateTime dataConsuntivazione,
+                                Guid idCausaleAppaltatore,
+                                string note)
+            : base (id,idInterventoAppaltatore,dataConsuntivazione, idCausaleAppaltatore, note)
+        {
+            
+        }
        
         public override string ToDescription()
         {
@@ -96,11 +130,21 @@ namespace Super.Appaltatore.Commands
     
     public class ConsuntivareAmbNonReso : ConsuntivareNonReso
     {
+        public ConsuntivareAmbNonReso(Guid id,
+                                string idInterventoAppaltatore,
+                                DateTime dataConsuntivazione,
+                                Guid idCausaleAppaltatore,
+                                string note)
+            : base (id,idInterventoAppaltatore,dataConsuntivazione, idCausaleAppaltatore, note)
+        {
+            
+        }
 
         public override string ToDescription()
         {
             return string.Format("Si consuntiva non reso il intervento ambiente '{0}' ", Id);
         }
+
 
         public bool Equals(ConsuntivareAmbNonReso other)
         {

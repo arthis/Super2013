@@ -8,14 +8,12 @@ using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Projection
 {
-    public class ConsuntivazioneRotProjection : IEventHandler<InterventoRotProgrammato>,
-                                                IEventHandler<AreaInterventoUpdated>
-
+    public class ConsuntivazioneRotProjection : IEventHandler<InterventoRotProgrammato>
     {
 
         private AppaltatoreContainer GetContainer()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Super2013"].ConnectionString;
+            var connectionString = ConfigurationManager.ConnectionStrings["Super2013.Appaltatore"].ConnectionString;
             return new AppaltatoreContainer(connectionString);
         }
 
@@ -23,52 +21,38 @@ namespace Super.Appaltatore.Projection
 
         public void Handle(InterventoRotProgrammato evt)
         {
-            throw new NotImplementedException();
-
-            //Do something useful here ...
-
-            //using (var container = GetContainer())
-            //{
-            //    ConsuntivazioneRot cons = container.ConsuntivazioneRots.SingleOrDefault(x => x.IdIntervento == @event.Id);
-            //    if (cons != null)
-            //        throw new Exception("Entity already created with the same id");
-
-            //    cons = new ConsuntivazioneRot()
-            //             {
-            //                 IdIntervento = evt.Id,
-            //                 CreationDate = DateTime.Now,
-            //                 Start = evt.Start,
-            //                 End = evt.End,
-            //                 IdLotto = Guid.Empty,
-            //                 IdAreaIntervento = evt.IdAreaIntervento,
-            //                 IdTipoIntervento = evt.IdTipoIntervento,
-            //                 IdCommittente = Guid.Empty,
-            //                 AreaInterventoDescrizione = "to be fetched",
-            //                 TipoInterventoDescrizione = "to be fetched",
-            //                 Deleted = false,
-            //                 //etc... to be done later
-            //             };
-
-            //    container.ConsuntivazioneRots.AddObject(cons);
-            //    container.SaveChanges();
-            //}
-        }
-
-        public void Handle(AreaInterventoUpdated evt)
-        {
             using (var container = GetContainer())
             {
-                var cons = container.ConsuntivazioneRots.ToList();
+                ConsuntivazioneRot cons = container.ConsuntivazioneRots.SingleOrDefault(x => x.IdIntervento == evt.Id);
+                if (cons != null)
+                    throw new Exception("Entity already created with the same id");
 
+                cons = new ConsuntivazioneRot()
+                         {
+                             IdIntervento = evt.Id,
+                             CreationDate = DateTime.Now,
+                             Start = evt.Start,
+                             End = evt.End,
+                             IdLotto = Guid.Empty,
+                             IdAreaIntervento = evt.IdAreaIntervento,
+                             IdTipoIntervento = evt.IdTipoIntervento,
+                             IdCommittente = Guid.Empty,
+                             Deleted = false,
+                             NumeroTrenoPartenza = evt.NumeroTrenoPartenza,
+                             DataTrenoPartenza = evt.DataTrenoPartenza,
+                             StartDateProgrammata = evt.Start,
+                             EndDateProgrammata = evt.End,
+                             ComposizioneProgrammata = "to be done",
+                             StartDateConsuntivataAppaltatore = evt.Start,
+                             EndDateConsuntivataAppaltatore = evt.End
+                         };
 
-                foreach (var consuntivazioneRot in cons)
-                {
-                    consuntivazioneRot.AreaInterventoDescription = evt.Description;
-                }
-
+                container.ConsuntivazioneRots.AddObject(cons);
                 container.SaveChanges();
             }
         }
+
+       
 
     }
 }

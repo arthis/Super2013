@@ -6,15 +6,16 @@ using CommonDomain.Core.Super.Domain.Builders;
 
 namespace CommonDomain.Core.Super.Messaging.ValueObjects
 {
-    public class RollonPeriod
+    [Serializable]
+    public class Intervall
     {
-        //i.e. CommonDomain.Core.Super.Domain.ValueObjects.RollonPeriod,
+        //i.e. CommonDomain.Core.Super.Domain.ValueObjects.Intervall,
         //the event representation of a value object
 
         public readonly DateTime Start;
         public readonly DateTime? End;
 
-        public RollonPeriod(DateTime startDate, DateTime? endDate)
+        public Intervall(DateTime startDate, DateTime? endDate)
         {
             Start = startDate;
             End = endDate;

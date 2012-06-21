@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.Contracts;
+using System.Linq;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
@@ -32,13 +33,11 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdAppaltatore
                                 , cmd.IdCategoriaCommerciale
                                 , cmd.IdDirezioneRegionale
-                                , new RolloutPeriod(cmd.Start, cmd.End)
+                                , WorkPeriod.FromMessage(cmd.Period)
                                 , cmd.Note
-                                , cmd.Oggetti
-                                , cmd.NumeroTrenoArrivo
-                                , cmd.DataTrenoArrivo
-                                , cmd.NumeroTrenoPartenza
-                                , cmd.DataTrenoPartenza
+                                , cmd.Oggetti.ToValueObject()
+                                , Treno.FromMessage(cmd.TrenoArrivo)
+                                , Treno.FromMessage(cmd.TrenoPartenza)
                                 , cmd.TurnoTreno
                                 , cmd.RigaTurnoTreno
                                 , cmd.Convoglio);

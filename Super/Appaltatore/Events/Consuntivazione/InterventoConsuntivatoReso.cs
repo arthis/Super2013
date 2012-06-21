@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Appaltatore.Events.Consuntivazione
 {

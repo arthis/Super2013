@@ -8,7 +8,7 @@ namespace Super.Administration.Events.Builders
 {
     public class AreaInterventoUpdatedBuilder : IEventBuilder<AreaInterventoUpdated>
     {
-        RollonPeriod _period;
+        Intervall _period;
         private string _description;
 
         public AreaInterventoUpdated Build(Guid id, long version)
@@ -23,7 +23,7 @@ namespace Super.Administration.Events.Builders
             return this;
         }
 
-        public AreaInterventoUpdatedBuilder ForPeriod(RollonPeriodBuilder builder)
+        public AreaInterventoUpdatedBuilder ForPeriod(IntervallBuilder builder)
         {
             _period = builder.Build();
             return this;
@@ -32,9 +32,9 @@ namespace Super.Administration.Events.Builders
 
     public static partial class BuildExtensions
     {
-        public static AreaInterventoUpdatedBuilder ForPeriod(this AreaInterventoUpdatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.RollonPeriod period)
+        public static AreaInterventoUpdatedBuilder ForPeriod(this AreaInterventoUpdatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Intervall period)
         {
-            var valueBuilder = new RollonPeriodBuilder();
+            var valueBuilder = new IntervallBuilder();
             period.BuildValue(valueBuilder);
             builder.ForPeriod(valueBuilder);
             return builder;
