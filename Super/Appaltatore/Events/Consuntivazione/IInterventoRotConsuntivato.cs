@@ -5,7 +5,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 {
     public interface IInterventoConsuntivato :IMessage
     {
-        Guid Id { get; set; }
+        Guid Id { get; }
     }
     public interface IInterventoRotConsuntivato : IInterventoConsuntivato
     {

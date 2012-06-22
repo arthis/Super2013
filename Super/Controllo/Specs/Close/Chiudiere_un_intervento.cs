@@ -6,7 +6,9 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Controllo.Commands;
 using CommonSpecs;
+using Super.Controllo.Commands.Builders;
 using Super.Controllo.Events;
+using Super.Controllo.Events.Builders;
 using Super.Controllo.Handlers;
 
 namespace Super.Controllo.Specs.Close
@@ -32,22 +34,22 @@ namespace Super.Controllo.Specs.Close
 
         public override CloseIntervento When()
         {
-            return new CloseIntervento()
-                       {
-                           ClosingDate = _closingDate,
-                           Id = _Id,
-                           IdUtente = _idUtente
-                       };
+            var builder = new CloseInterventoBuilder();
+
+            return builder.ForId(_Id)
+                .By(_idUtente)
+                .When(_closingDate)
+                .Build();
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new InterventoClosed()
-            {
-                 Id = _Id
-               , ClosingDate = _closingDate
-               , IdUtente = _idUtente
-            };
+            var builder = new InterventoClosedBuilder();
+
+            yield return builder.ForId(_Id)
+                .By(_idUtente)
+                .When(_closingDate)
+                .Build();
         }
 
         [Test]

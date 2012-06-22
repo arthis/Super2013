@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using CommandService;
 using CommonDomain;
@@ -9,10 +10,44 @@ namespace Super.Controllo.Commands
 
     public class ControlInterventoNonReso : CommandBase
     {
-        public Guid IdUtente { get; set; }
-        public DateTime ControlDate { get; set; }
-        public Guid IdCausale { get; set; }
-        public string Note { get; set; }
+        
+        private readonly Guid _idUtente;
+        private readonly DateTime _controlDate;
+        private readonly Guid _idCausale;
+        private readonly string _note;
+
+        public string Note
+        {
+            get { return _note; }
+        }
+        public Guid IdCausale
+        {
+            get { return _idCausale; }
+        }
+        public DateTime ControlDate
+        {
+            get { return _controlDate; }
+        }
+        public Guid IdUtente
+        {
+            get { return _idUtente; }
+        }
+        
+        public ControlInterventoNonReso(Guid id, Guid idUtente, DateTime controlDate, Guid idCausale, string note)
+        {
+            Contract.Requires<ArgumentNullException>( id== Guid.Empty);
+            Contract.Requires<ArgumentNullException>( idUtente == Guid.Empty);
+            Contract.Requires<ArgumentOutOfRangeException>(controlDate== DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(idCausale == Guid.Empty);
+
+            Id = id;
+            _idUtente = idUtente;
+            _controlDate = controlDate;
+            _idCausale = idCausale;
+            _note = note;
+        }
+
+        
 
         public override string ToDescription()
         {
@@ -23,7 +58,7 @@ namespace Super.Controllo.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdUtente.Equals(IdUtente) && other.ControlDate.Equals(ControlDate) && other.IdCausale.Equals(IdCausale) && Equals(other.Note, Note);
+            return base.Equals(other) && other._idUtente.Equals(_idUtente) && other._controlDate.Equals(_controlDate) && other._idCausale.Equals(_idCausale) && Equals(other._note, _note);
         }
 
         public override bool Equals(object obj)
@@ -38,10 +73,10 @@ namespace Super.Controllo.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ IdUtente.GetHashCode();
-                result = (result*397) ^ ControlDate.GetHashCode();
-                result = (result*397) ^ IdCausale.GetHashCode();
-                result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+                result = (result*397) ^ _idUtente.GetHashCode();
+                result = (result*397) ^ _controlDate.GetHashCode();
+                result = (result*397) ^ _idCausale.GetHashCode();
+                result = (result*397) ^ (_note != null ? _note.GetHashCode() : 0);
                 return result;
             }
         }

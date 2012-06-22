@@ -36,10 +36,7 @@ namespace Super.Controllo.Specs.Permessi_Controllo
 
         public override AllowControlIntervento When()
         {
-            return new AllowControlIntervento()
-            {
-                Id = _Id
-            };
+            return new AllowControlIntervento(_Id);
         }
 
         public override IEnumerable<IMessage> Expect()

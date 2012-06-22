@@ -26,10 +26,10 @@ namespace Super.Appaltatore.Handlers
 
             existingIntervento.ConsuntivareReso(cmd.Id
                                 , cmd.DataConsuntivazione
-                                , new WorkPeriod(cmd.Start, cmd.End)
+                                , WorkPeriod.FromMessage(cmd.Period)
                                 , cmd.IdInterventoAppaltatore
                                 , cmd.Note
-                                ,cmd.Oggetti);
+                                ,cmd.Oggetti.ToValueObject());
 
             Repository.Save(existingIntervento, cmd.CommitId);
 

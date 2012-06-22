@@ -7,6 +7,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Controllo.Commands;
 using CommonSpecs;
+using Super.Controllo.Commands.Builders;
 using Super.Controllo.Events;
 using Super.Controllo.Handlers;
 
@@ -33,14 +34,14 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
 
         public override ControlInterventoNonReso When()
         {
-            return new ControlInterventoNonReso()
-                       {
-                           ControlDate = _controlDate,
-                           Id = _Id,
-                           IdUtente = _idUtente,
-                           IdCausale = _idCausale,
-                           Note = _note
-                       };
+            var builder = new ControlInterventoNonResoBuilder();
+
+            return builder.ForId(_Id)
+                .By(_idUtente)
+                .Because(_idCausale)
+                .When(_controlDate)
+                .WithNote(_note)
+                .Build();
         }
 
         public override IEnumerable<IMessage> Expect()

@@ -77,7 +77,7 @@
     <Compile Include="Close\Chiudiere_un_intervento.cs" />
     <Compile Include="Close\Chiudiere_un_intervento_cui_controllo_non_era_permesso.cs" />
     <Compile Include="Controllo_intervento_non_reso\Controllare_un_intervento_non_reso.cs" />
-    <Compile Include="Controllo_intervento_non_reso\Copy of Controllare_un_intervento_non_reso.cs" />
+    <Compile Include="Controllo_intervento_non_reso\Controllare_un_intervento_non_reso_cui_controllo_non_era_permesso.cs" />
     <Compile Include="Permessi_Controllo\Permettere_il_controllo_di_un_intervento_gia_permesso_prima.cs" />
     <Compile Include="Permessi_Controllo\Permettere_il_controllo_di_un_intervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,6 +2,7 @@
 using CommonDomain.Core;
 using Stateless;
 using Super.Appaltatore.Commands;
+using Super.Appaltatore.Commands.Builders;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Programmazione.Events;
 
@@ -35,29 +36,23 @@ namespace Super.Saga.Domain.Intervento
             if (!_stateMachine.IsInState(State.Start))
                 throw  new Exception("Saga already started");
 
-            
+            var builder = new ProgrammareInterventoRotBuilder();
+            var cmd = builder.ForId(evt.Id)
+                                .ForPeriod(evt.Period)
+                                .ForArea(evt.IdAreaIntervento)
+                                .ForTipo(evt.IdTipoIntervento)
+                                .ForAppaltatore(evt.IdAppaltatore)
+                                .OfCategoriaCommerciale(evt.IdCategoriaCommerciale)
+                                .OfDirezioneRegionale(evt.IdDirezioneRegionale)
+                                .WithNote(evt.Note)
+                                .WithOggetti(evt.Oggetti)
+                                .WithTrenoPartenza(evt.TrenoPartenza)
+                                .WithTrenoArrivo(evt.TrenoArrivo)
+                                .WithTurnoTreno(evt.TurnoTreno)
+                                .WithRigaTurnoTreno(evt.RigaTurnoTreno)
+                                .ForConvoglio(evt.Convoglio)
+                                .Build();
 
-            var cmd = new ProgrammareInterventoRot()
-                          {
-                              Id = evt.Id,
-                              End = evt.End,
-                              CommitId = Guid.NewGuid(),
-                              IdAreaIntervento = evt.IdAreaIntervento,
-                              Start = evt.Start,
-                              IdTipoIntervento = evt.IdTipoIntervento,
-                              IdAppaltatore = evt.IdAppaltatore,
-                              IdCategoriaCommerciale = evt.IdCategoriaCommerciale,
-                              IdDirezioneRegionale = evt.IdDirezioneRegionale,
-                              Note = evt.Note,
-                              Oggetti = evt.Oggetti,
-                              NumeroTrenoArrivo = evt.NumeroTrenoArrivo,
-                              DataTrenoArrivo = evt.DataTrenoArrivo,
-                              NumeroTrenoPartenza = evt.NumeroTrenoPartenza,
-                              DataTrenoPartenza = evt.DataTrenoPartenza,
-                              TurnoTreno = evt.TurnoTreno,
-                              RigaTurnoTreno = evt.RigaTurnoTreno,
-                              Convoglio = evt.Convoglio
-                          };
             Dispatch(cmd);
 
             Transition(evt);

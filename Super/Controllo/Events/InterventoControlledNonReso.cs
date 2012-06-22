@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
 
@@ -6,23 +7,57 @@ namespace Super.Controllo.Events
 {
     public class InterventoControlledNonReso : Message, IEvent
     {
-        public Guid Id { get; set; }
-        public Guid IdUtente { get; set; }
-        public DateTime ControlDate { get; set; }
-        public Guid IdCausale { get; set; }
-        public string Note { get; set; }
+        private readonly Guid _id;
+        private readonly Guid _idUtente;
+        private readonly DateTime _controlDate;
+        private readonly Guid _idCausale;
+        private readonly string _note;
 
-       
+        public Guid Id
+        {
+            get { return _id; }
+        }
+        public string Note
+        {
+            get { return _note; }
+        }
+        public Guid IdCausale
+        {
+            get { return _idCausale; }
+        }
+        public DateTime ControlDate
+        {
+            get { return _controlDate; }
+        }
+        public Guid IdUtente
+        {
+            get { return _idUtente; }
+        }
+
+        public InterventoControlledNonReso(Guid id, Guid idUtente, DateTime controlDate, Guid idCausale, string note)
+        {
+            Contract.Requires<ArgumentNullException>( id== Guid.Empty);
+            Contract.Requires<ArgumentNullException>( idUtente == Guid.Empty);
+            Contract.Requires<ArgumentOutOfRangeException>(controlDate== DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(idCausale == Guid.Empty);
+
+            _id = id;
+            _idUtente = idUtente;
+            _controlDate = controlDate;
+            _idCausale = idCausale;
+            _note = note;
+        }
         public override string ToDescription()
         {
             return string.Format("Il intervento '{0}' é stato controllato non reso.", Id);
         }
 
+
         public bool Equals(InterventoControlledNonReso other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.Id.Equals(Id) && other.IdUtente.Equals(IdUtente) && other.ControlDate.Equals(ControlDate) && other.IdCausale.Equals(IdCausale) && Equals(other.Note, Note);
+            return base.Equals(other) && other._id.Equals(_id) && other._idUtente.Equals(_idUtente) && other._controlDate.Equals(_controlDate) && other._idCausale.Equals(_idCausale) && Equals(other._note, _note);
         }
 
         public override bool Equals(object obj)
@@ -37,11 +72,11 @@ namespace Super.Controllo.Events
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ Id.GetHashCode();
-                result = (result*397) ^ IdUtente.GetHashCode();
-                result = (result*397) ^ ControlDate.GetHashCode();
-                result = (result*397) ^ IdCausale.GetHashCode();
-                result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+                result = (result*397) ^ _id.GetHashCode();
+                result = (result*397) ^ _idUtente.GetHashCode();
+                result = (result*397) ^ _controlDate.GetHashCode();
+                result = (result*397) ^ _idCausale.GetHashCode();
+                result = (result*397) ^ (_note != null ? _note.GetHashCode() : 0);
                 return result;
             }
         }

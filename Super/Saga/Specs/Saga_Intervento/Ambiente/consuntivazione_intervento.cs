@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using EasyNetQ;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Controllo.Commands;
 using Super.Saga.Handlers;
@@ -22,12 +24,17 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        readonly DateTime _start = DateTime.Now.AddHours(12);
-        readonly DateTime _end = DateTime.Now.AddHours(13);
+        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         private int _quantita = 12;
-        private string _descrizione = "desc";
+        private string _description = "desc";
         string _note = "note";
-        
+
+        readonly string _idInterventoAppaltatore = "dsfsd";
+        readonly WorkPeriod _periodCons = new WorkPeriod(DateTime.Now.AddHours(-19), DateTime.Now.AddMinutes(-17));
+        private int _quantitaCons = 13;
+        private DateTime DataCons = DateTime.Now;
+        private string _descriptionCons = "desc cons";
+        string _noteCons = "note cons";
 
         public override string ToDescription()
         {
@@ -43,8 +50,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
         {
             yield return new InterventoAmbPianificato()
             {
-                End = _end,
-                Start = _start,
+                Period = _period,
                 Id = _id,
                 IdAreaIntervento = _idAreaIntervento,
                 IdTipoIntervento = _idTipoIntervento,
@@ -58,24 +64,22 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 
         public override IInterventoAmbConsuntivato When()
         {
-            return new InterventoConsuntivatoAmbReso()
-                       {
-                           End = _end
-                           , Start = _start
-                           , Id = _id
-                           , Quantita = _quantita
-                           , Descrizione = _descrizione
-                           , Note = _note
-                           , 
-                       };
+            var builder = new InterventoConsuntivatoAmbResoBuilder();
+
+            return builder.ForId(_id)
+                            .ForDescription(_description)
+                            .ForInterventoAppaltatore(_idInterventoAppaltatore)
+                            .ForPeriod(_periodCons)
+                            .ForQuantity(_quantitaCons)
+                            .When(DataCons)
+                            .WithNote(_noteCons)
+                            .Build();
+            
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new AllowControlIntervento()
-                      {
-                           Id = _id
-                      };
+            yield return new AllowControlIntervento(_id);
         }
 
         [Test]

@@ -2,6 +2,7 @@
 using CommonDomain.Core;
 using Stateless;
 using Super.Appaltatore.Commands;
+using Super.Appaltatore.Commands.Builders;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Programmazione.Events;
 
@@ -35,20 +36,18 @@ namespace Super.Saga.Domain.Intervento
             if (!_stateMachine.IsInState(State.Start))
                 throw new Exception("Saga already started");
 
-            var cmd = new ProgrammareInterventoRotMan()
-            {
-                Id = evt.Id,
-                End = evt.End,
-                
-                IdAreaIntervento = evt.IdAreaIntervento,
-                Start = evt.Start,
-                IdTipoIntervento = evt.IdTipoIntervento,
-                IdAppaltatore = evt.IdAppaltatore,
-                IdCategoriaCommerciale = evt.IdCategoriaCommerciale,
-                IdDirezioneRegionale = evt.IdDirezioneRegionale,
-                Note = evt.Note,
-                Oggetti = evt.Oggetti
-            };
+            var builder = new ProgrammareInterventoRotManBuilder();
+            var cmd = builder.ForId(evt.Id)
+                                .ForPeriod(evt.Period)
+                                .ForArea(evt.IdAreaIntervento)
+                                .ForTipo(evt.IdTipoIntervento)
+                                .ForAppaltatore(evt.IdAppaltatore)
+                                .OfCategoriaCommerciale(evt.IdCategoriaCommerciale)
+                                .OfDirezioneRegionale(evt.IdDirezioneRegionale)
+                                .WithNote(evt.Note)
+                                .WithOggetti(evt.Oggetti)
+                                .Build();
+
             Dispatch(cmd);
 
             Transition(evt);

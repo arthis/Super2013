@@ -31,20 +31,20 @@ namespace Super.Appaltatore.Projection
                          {
                              IdIntervento = evt.Id,
                              CreationDate = DateTime.Now,
-                             Start = evt.Start,
-                             End = evt.End,
+                             Start = evt.Period.StartDate,
+                             End = evt.Period.EndDate,
                              IdLotto = Guid.Empty,
                              IdAreaIntervento = evt.IdAreaIntervento,
                              IdTipoIntervento = evt.IdTipoIntervento,
                              IdCommittente = Guid.Empty,
                              Deleted = false,
-                             NumeroTrenoPartenza = evt.NumeroTrenoPartenza,
-                             DataTrenoPartenza = evt.DataTrenoPartenza,
-                             StartDateProgrammata = evt.Start,
-                             EndDateProgrammata = evt.End,
+                             NumeroTrenoPartenza = evt.TrenoPartenza.NumeroTreno,
+                             DataTrenoPartenza = evt.TrenoPartenza.Data,
+                             StartDateProgrammata = evt.Period.StartDate,
+                             EndDateProgrammata = evt.Period.EndDate,
                              ComposizioneProgrammata = "to be done",
-                             StartDateConsuntivataAppaltatore = evt.Start,
-                             EndDateConsuntivataAppaltatore = evt.End
+                             StartDateConsuntivataAppaltatore = evt.Period.StartDate,
+                             EndDateConsuntivataAppaltatore = evt.Period.EndDate
                          };
 
                 container.ConsuntivazioneRots.AddObject(cons);

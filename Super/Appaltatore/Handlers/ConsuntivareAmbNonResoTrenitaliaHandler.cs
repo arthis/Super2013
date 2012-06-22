@@ -27,7 +27,7 @@ namespace Super.Appaltatore.Handlers
 
             existingIntervento.ConsuntivareNonResoTrenitalia(cmd.Id
                                 , cmd.DataConsuntivazione
-                                , cmd.IdCausale
+                                , cmd.IdCausaleTrenitalia
                                 , cmd.IdInterventoAppaltatore
                                 , cmd.Note);
 

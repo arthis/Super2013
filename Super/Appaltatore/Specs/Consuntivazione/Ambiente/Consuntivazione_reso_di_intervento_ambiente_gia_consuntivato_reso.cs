@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Appaltatore.Commands;
@@ -21,27 +22,26 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        readonly DateTime _start = DateTime.Now.AddHours(12);
-        readonly DateTime _end = DateTime.Now.AddHours(13);
+        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
+        readonly int _quantita = 12;
+        private readonly string _descrizione = "bla bla bla description oggetto";
         string _note = "note";
         
         //Consuntivato 1
         readonly string _idInterventoAppaltatore = "id intervento appaltatore";
         readonly DateTime _dataConsuntivazione = DateTime.Now;
-        readonly DateTime _startCons = DateTime.Now.AddHours(-1);
-        readonly DateTime _endCons = DateTime.Now.AddMinutes(-13);
+        readonly WorkPeriod _periodCons = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-13));
         string _noteCons = "note";
-        readonly int _quantita = 12;
-        private readonly string _descrizione = "bla bla bla descrizione oggetto";
+        readonly int _quantitaCons = 12;
+        private readonly string _descrizioneCons = "bla bla bla description oggetto";
 
         //Consuntivato 2
         readonly string _idInterventoAppaltatoreCons2 = "id intervento appaltatore Cons2";
         readonly DateTime _dataConsuntivazioneCons2 = DateTime.Now.AddSeconds(-20);
-        readonly DateTime _startCons2 = DateTime.Now.AddMinutes(-50);
-        readonly DateTime _endCons2 = DateTime.Now.AddMinutes(-10);
+        readonly WorkPeriod _periodCons2 = new WorkPeriod(DateTime.Now.AddMinutes(-50), DateTime.Now.AddMinutes(-10));
         string _noteCons2 = "note Cons2";
         readonly int _quantitaCons2 = 24;
-        private readonly string _descrizioneCons2 = "bla bla bla descrizione oggetto Cons2";
+        private readonly string _descrizioneCons2 = "bla bla bla description oggetto Cons2";
 
         protected override CommandHandler<ConsuntivareAmbReso> OnHandle(IRepository repository)
         {
@@ -50,63 +50,50 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoAmbProgrammato()
-            {
-                End = _end,
-                Start = _start,
-                Id = _id,
-                IdAreaIntervento = _idAreaIntervento,
-                IdTipoIntervento = _idTipoIntervento,
-                IdAppaltatore = _idAppaltatore,
-                IdCategoriaCommerciale = _idCategoriaCommerciale,
-                IdDirezioneRegionale = _idDirezioneRegionale,
-                Note = _note,
-                
-            };
-            yield return new InterventoConsuntivatoAmbReso()
-            {
-                End = _endCons,
-                Start = _startCons,
-                Id = _id,
-                IdInterventoAppaltatore = _idInterventoAppaltatore,
-                DataConsuntivazione = _dataConsuntivazione,
-                Note = _noteCons,
-                Quantita = _quantita,
-                Descrizione = _descrizione,
-                
-            };
+            yield return new InterventoAmbProgrammato(
+                                    _id,
+                                    _idAreaIntervento,
+                                    _idTipoIntervento,
+                                    _idAppaltatore,
+                                    _idCategoriaCommerciale,
+                                    _idDirezioneRegionale,
+                                    _period,
+                                    _note,
+                                    _quantita,
+                                    _descrizione );
+            yield return new InterventoConsuntivatoAmbReso(
+                                    _id,
+                                    _idInterventoAppaltatore,
+                                    _dataConsuntivazione,
+                                    _periodCons,
+                                    _noteCons,
+                                    _quantitaCons,
+                                    _descrizioneCons   );
         }
 
         public override ConsuntivareAmbReso When()
         {
-            return new ConsuntivareAmbReso()
-            {
-                End = _endCons2,
-                Start = _startCons2,
-                Id = _id,
-                IdInterventoAppaltatore = _idInterventoAppaltatoreCons2,
-                DataConsuntivazione = _dataConsuntivazioneCons2,
-                Note = _noteCons2,
-                Quantita = _quantitaCons2,
-                Descrizione = _descrizioneCons2,
+            return new ConsuntivareAmbReso(
+                                            Id = _id,
+                                            _idInterventoAppaltatoreCons2,
+                                            _dataConsuntivazioneCons2,
+                                            _periodCons2,
+                                            _noteCons2,
+                                            _quantitaCons2,
+                                            _descrizioneCons2);
                 
-            };
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new InterventoConsuntivatoAmbReso()
-            {
-                End = _endCons2,
-                Start = _startCons2,
-                Id = _id,
-                IdInterventoAppaltatore = _idInterventoAppaltatoreCons2,
-                DataConsuntivazione = _dataConsuntivazioneCons2,
-                Note = _noteCons2,
-                Quantita = _quantitaCons2,
-                Descrizione = _descrizioneCons2,
-                
-            };
+            yield return new InterventoConsuntivatoAmbReso(
+                                    _id,
+                                    _idInterventoAppaltatoreCons2,
+                                    _dataConsuntivazioneCons2,
+                                    _periodCons2,
+                                    _noteCons2,
+                                    _quantitaCons2,
+                                    _descrizioneCons2);
         }
 
         [Test]

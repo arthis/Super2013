@@ -73,9 +73,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\ConsuntivareAmbResoBuilder.cs" />
     <Compile Include="Builders\ConsuntivareNonResoAmbBuilder.cs" />
     <Compile Include="Builders\ConsuntivareNonResoRotBuilder.cs" />
     <Compile Include="Builders\ConsuntivareNonResoRotManBuilder.cs" />
+    <Compile Include="Builders\ConsuntivareNonResoTrenitaliaAmbBuilder.cs" />
+    <Compile Include="Builders\ConsuntivareNonResoTrenitaliaRotBuilder.cs" />
+    <Compile Include="Builders\ConsuntivareNonResoTrenitaliaRotManBuilder.cs" />
+    <Compile Include="Builders\ConsuntivareRotManResoBuilder.cs" />
+    <Compile Include="Builders\ConsuntivareRotResoBuilder.cs" />
     <Compile Include="Builders\ProgrammareInterventoAmbBuilder.cs" />
     <Compile Include="Builders\ProgrammareInterventoRotManBuilder.cs" />
     <Compile Include="Builders\ProgrammareInterventoRotBuilder.cs" />

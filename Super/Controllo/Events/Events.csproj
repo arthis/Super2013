@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\InterventoClosedBuilder.cs" />
+    <Compile Include="Builders\InterventoControlledNonResoBuilder.cs" />
+    <Compile Include="Builders\InterventoAmbControlledResoBuilder.cs" />
+    <Compile Include="Builders\InterventoRotControlledResoBuilder.cs" />
+    <Compile Include="Builders\InterventoRotManControlledResoBuilder.cs" />
+    <Compile Include="Builders\ReopenInterventoBuilder.cs" />
     <Compile Include="InterventoControlledReso.cs" />
     <Compile Include="InterventoControlledNonReso.cs" />
     <Compile Include="InterventoReopened.cs" />

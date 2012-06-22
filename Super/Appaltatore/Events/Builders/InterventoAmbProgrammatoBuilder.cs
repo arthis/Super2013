@@ -35,7 +35,7 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoAmbProgrammatoBuilder In(Guid idAreaIntervento)
+        public InterventoAmbProgrammatoBuilder ForArea(Guid idAreaIntervento)
         {
             _idAreaIntervento = idAreaIntervento;
             return this;

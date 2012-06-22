@@ -20,20 +20,22 @@ namespace Super.Controllo.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            Treno trenoPartenza=null, trenoArrivo=null;
-
-
             var existingIntervento = Repository.GetById<InterventoRot>(cmd.Id);
 
             if (existingIntervento.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            if (Treno.IsValid(cmd.NumeroTrenoPartenza, cmd.DataTrenoPartenza))
-                 trenoPartenza = new Treno(cmd.NumeroTrenoPartenza, cmd.DataTrenoPartenza);
-            if (Treno.IsValid(cmd.NumeroTrenoArrivo, cmd.DataTrenoArrivo))
-                 trenoArrivo = new Treno(cmd.NumeroTrenoArrivo, cmd.DataTrenoArrivo);
 
-            existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, new WorkPeriod(cmd.Start, cmd.End), trenoPartenza, trenoArrivo, cmd.Convoglio, cmd.Note, cmd.Oggetti, cmd.RigaTurnoTreno, cmd.TurnoTreno);
+            existingIntervento.ControlReso(cmd.IdUtente,
+                                            cmd.ControlDate,
+                                            WorkPeriod.FromMessage(cmd.Period),
+                                            Treno.FromMessage(cmd.TrenoPartenza),
+                                            Treno.FromMessage(cmd.TrenoArrivo),
+                                            cmd.Convoglio,
+                                            cmd.Note,
+                                            cmd.Oggetti.ToValueObject(),
+                                            cmd.RigaTurnoTreno, 
+                                            cmd.TurnoTreno);
 
             Repository.Save(existingIntervento, cmd.CommitId);
 

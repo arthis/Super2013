@@ -21,9 +21,9 @@ namespace Super.Administration.Specs.AreaIntervento
         private long _version;
         private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
-        private string _DescriptionUpdated = "test 2";
-        private DateTime _StartUpdated = DateTime.Now.AddHours(14);
-        private DateTime _EndUpdated = DateTime.Now.AddHours(15);
+        private string _descriptionUpdated = "test 2";
+        private Intervall _intervallUpdated = new Intervall(DateTime.Now.AddHours(14), DateTime.Now.AddHours(15));
+        
 
         
         protected override CommandHandler<UpdateAreaIntervento> OnHandle(IRepository repository)
@@ -38,7 +38,7 @@ namespace Super.Administration.Specs.AreaIntervento
                             version: _version,
                             period: _intervall,
                             creationDate: _creationDate,
-                            description: _description);
+                            description: _descriptionUpdated);
         }
 
         public override UpdateAreaIntervento When()
@@ -46,7 +46,7 @@ namespace Super.Administration.Specs.AreaIntervento
             return new UpdateAreaIntervento(
                             id: _id,
                             version: _version,
-                            period: _intervall,
+                            period: _intervallUpdated,
                             description: _description);
         }
 

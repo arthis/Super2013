@@ -6,9 +6,30 @@ namespace Super.Controllo.Events
 {
     public class InterventoReopened : Message, IEvent
     {
-        public Guid Id { get; set; }
-        public Guid IdUtente { get; set; }
-        public DateTime ReopeningDate { get; set; }
+        private readonly Guid _id;
+        private readonly Guid _idUtente;
+        private readonly DateTime _reopeningDate;
+
+        public Guid Id
+        {
+            get { return _id; }
+        }
+        public DateTime ReopeningDate
+        {
+            get { return _reopeningDate; }
+        }
+        public Guid IdUtente
+        {
+            get { return _idUtente; }
+        }
+
+        public InterventoReopened(Guid id, Guid idUtente, DateTime reopeningDate)
+        {
+            _id = id;
+            _idUtente = idUtente;
+            _reopeningDate = reopeningDate;
+        }
+
 
        
         public override string ToDescription()
@@ -20,7 +41,7 @@ namespace Super.Controllo.Events
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.Id.Equals(Id) && other.IdUtente.Equals(IdUtente) && other.ReopeningDate.Equals(ReopeningDate);
+            return base.Equals(other) && other._id.Equals(_id) && other._idUtente.Equals(_idUtente) && other._reopeningDate.Equals(_reopeningDate);
         }
 
         public override bool Equals(object obj)
@@ -35,9 +56,9 @@ namespace Super.Controllo.Events
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ Id.GetHashCode();
-                result = (result*397) ^ IdUtente.GetHashCode();
-                result = (result * 397) ^ ReopeningDate.GetHashCode();
+                result = (result*397) ^ _id.GetHashCode();
+                result = (result*397) ^ _idUtente.GetHashCode();
+                result = (result*397) ^ _reopeningDate.GetHashCode();
                 return result;
             }
         }

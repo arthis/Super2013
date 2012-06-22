@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 
 namespace Super.Appaltatore.Commands
@@ -33,6 +34,11 @@ namespace Super.Appaltatore.Commands
                                 Guid idCausaleAppaltatore,
                                 string note)
         {
+            Contract.Requires<ArgumentNullException>(id==null || id == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires<ArgumentNullException>(dataConsuntivazione== DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(idCausaleAppaltatore == null || idCausaleAppaltatore == Guid.Empty);
+
             Id = id;
             _idInterventoAppaltatore = idInterventoAppaltatore;
             _dataConsuntivazione = dataConsuntivazione;

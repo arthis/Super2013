@@ -26,7 +26,7 @@ namespace Super.Appaltatore.Handlers
             existingIntervento.ConsuntivareNonReso(cmd.Id
                                 , cmd.IdInterventoAppaltatore
                                 , cmd.DataConsuntivazione
-                                , cmd.IdCausale
+                                , cmd.IdCausaleAppaltatore
                                 , cmd.Note);
 
             Repository.Save(existingIntervento, cmd.CommitId);

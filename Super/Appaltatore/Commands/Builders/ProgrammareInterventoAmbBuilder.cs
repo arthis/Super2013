@@ -42,12 +42,6 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ProgrammareInterventoAmbBuilder In(Guid idAreaIntervento)
-        {
-            _idAreaIntervento = idAreaIntervento;
-            return this;
-        }
-
         public ProgrammareInterventoAmbBuilder OfType(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
@@ -78,11 +72,19 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
+        public ProgrammareInterventoAmbBuilder ForArea(Guid idAreaIntervento)
+        {
+            _idAreaIntervento = idAreaIntervento;
+            return this;
+        }
+
+        
+
       
 
         public ProgrammareInterventoAmb Build()
         {
-            return new ProgrammareInterventoAmb(_id,
+            var cmd = new ProgrammareInterventoAmb(_id,
                                       _idAreaIntervento,
                                       _idTipoIntervento,
                                       _idAppaltatore,
@@ -92,6 +94,10 @@ namespace Super.Appaltatore.Commands.Builders
                                       _note,
                                       _quantity,
                                       _description);
+
+            cmd.CommitId = Guid.NewGuid();
+
+            return cmd;
         }
 
     }

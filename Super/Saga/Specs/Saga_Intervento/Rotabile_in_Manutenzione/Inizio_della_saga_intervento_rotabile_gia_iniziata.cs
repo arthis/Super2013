@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using EasyNetQ;
 using NUnit.Framework;
@@ -21,9 +21,8 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        readonly DateTime _start = DateTime.Now.AddHours(12);
-        readonly DateTime _end = DateTime.Now.AddHours(13);
-        List<OggettoRotMan> oggetti = new List<OggettoRotMan>() { new OggettoRotMan() { Descrizione = "desc", IdTipoOggettoInterventoRotMan = Guid.NewGuid(), Quantita = 15 } };
+        List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desc", 15, Guid.NewGuid()) };
+        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         string _note = "note";
         
 
@@ -41,8 +40,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
         {
             yield return new InterventoRotManPianificato()
             {
-                End = _end,
-                Start = _start,
+                Period = _period,
                 Id = _id,
                 IdAreaIntervento = _idAreaIntervento,
                 IdTipoIntervento = _idTipoIntervento,
@@ -50,7 +48,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
-                Oggetti = oggetti.ToArray(),
+                Oggetti = _oggetti.ToArray(),
                 
             };
         }
@@ -59,8 +57,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
         {
             return new InterventoRotManPianificato()
                        {
-                           End = _end,
-                           Start = _start,
+                           Period = _period,
                            Id = _id,
                            IdAreaIntervento = _idAreaIntervento,
                            IdTipoIntervento = _idTipoIntervento,
@@ -68,8 +65,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
                            IdCategoriaCommerciale = _idCategoriaCommerciale,
                            IdDirezioneRegionale = _idDirezioneRegionale,
                            Note = _note,
-                           Oggetti = oggetti.ToArray(),
-                           
+                           Oggetti = _oggetti.ToArray(),
                        };
         }
 

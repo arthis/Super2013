@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using EasyNetQ;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Appaltatore.Commands;
+using Super.Appaltatore.Commands.Builders;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
 
@@ -22,13 +23,10 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        readonly DateTime _start = DateTime.Now.AddHours(12);
-        readonly DateTime _end = DateTime.Now.AddHours(13);
-        List<OggettoRot> oggetti = new List<OggettoRot>() { new OggettoRot() { Descrizione = "desc", IdTipoOggettoInterventoRot = Guid.NewGuid(), Quantita = 15 } };
-        string _numeroTrenoArrivo = "numeroA";
-        DateTime _dataTrenoArrivo = DateTime.Now.AddHours(9);
-        string _numeroTrenoPartenza = "numeroP";
-        DateTime _dataTrenoPartenza = DateTime.Now.AddHours(14);
+        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15, Guid.NewGuid()) };
+        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
+        Treno _trenoArrivo = new Treno("numeroA", DateTime.Now.AddHours(9));
+        Treno _trenoPartenza = new Treno("numeroP", DateTime.Now.AddHours(14));
         string _turnoTreno = "turno";
         string _rigaTurnoTreno = "rigaturno";
         string _convoglio = "convoglio";
@@ -52,51 +50,37 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
         public override InterventoRotPianificato When()
         {
             return new InterventoRotPianificato()
-                       {
-                           End = _end,
-                           Start = _start,
-                           Id = _id,
-                           IdAreaIntervento = _idAreaIntervento,
-                           IdTipoIntervento = _idTipoIntervento,
-                           IdAppaltatore = _idAppaltatore,
-                           IdCategoriaCommerciale =  _idCategoriaCommerciale,
-                           IdDirezioneRegionale = _idDirezioneRegionale,
-                           Note = _note,
-                           Oggetti = oggetti.ToArray(),
-                           NumeroTrenoArrivo = _numeroTrenoArrivo,
-                           DataTrenoArrivo = _dataTrenoArrivo,
-                           NumeroTrenoPartenza = _numeroTrenoPartenza,
-                           DataTrenoPartenza = _dataTrenoPartenza,
-                           TurnoTreno = _turnoTreno,
-                           RigaTurnoTreno = _rigaTurnoTreno,
-                           Convoglio = _convoglio,
-                           
-                       };
-        }
-
-        public override IEnumerable<IMessage> Expect()
-        {
-            yield return new ProgrammareInterventoRot()
             {
+                Period = _period,
                 Id = _id,
-                End = _end,
-                
                 IdAreaIntervento = _idAreaIntervento,
                 IdTipoIntervento = _idTipoIntervento,
                 IdAppaltatore = _idAppaltatore,
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
                 IdDirezioneRegionale = _idDirezioneRegionale,
                 Note = _note,
-                Oggetti = oggetti.ToArray(),
-                NumeroTrenoArrivo = _numeroTrenoArrivo,
-                DataTrenoArrivo = _dataTrenoArrivo,
-                NumeroTrenoPartenza = _numeroTrenoPartenza,
-                DataTrenoPartenza = _dataTrenoPartenza,
+                Oggetti = _oggetti.ToArray(),
+                TrenoArrivo = _trenoArrivo,
+                TrenoPartenza = _trenoPartenza,
                 TurnoTreno = _turnoTreno,
                 RigaTurnoTreno = _rigaTurnoTreno,
-                Convoglio = _convoglio,
-                Start = _start
+                Convoglio = _convoglio
             };
+        }
+
+        public override IEnumerable<IMessage> Expect()
+        {
+            var builder = new ProgrammareInterventoRotBuilder();
+            yield return builder.ForPeriod(_period)
+                            .ForId(_id)
+                            .ForArea(_idAreaIntervento)
+                            .OfType(_idTipoIntervento)
+                            .ForAppaltatore(_idAppaltatore)
+                            .OfCategoriaCommerciale(_idCategoriaCommerciale)
+                            .OfDirezioneRegionale(_idDirezioneRegionale)
+                            .WithNote(_note)
+                            .ForConvoglio(_convoglio)
+                            .Build();
         }
 
         [Test]

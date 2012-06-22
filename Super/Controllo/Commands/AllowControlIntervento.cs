@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using CommandService;
 using CommonDomain;
@@ -9,6 +10,15 @@ namespace Super.Controllo.Commands
 
     public class AllowControlIntervento : CommandBase
     {
+        
+        public AllowControlIntervento(Guid id)
+        {
+            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
+
+            Id = id;
+        }
+
+
         public override string ToDescription()
         {
             return string.Format("si permette il controllo dell'intervento {0}.", Id);

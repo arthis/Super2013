@@ -74,6 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllowControlIntervento.cs" />
+    <Compile Include="Builders\CloseInterventoBuilder.cs" />
+    <Compile Include="Builders\ControlInterventoNonResoBuilder.cs" />
+    <Compile Include="Builders\ControlInterventoRotResoBuilder.cs" />
+    <Compile Include="Builders\ControlInterventoRotManResoBuilder.cs" />
+    <Compile Include="Builders\ControlInterventoAmbResoBuilder.cs" />
+    <Compile Include="Builders\ReopenInterventoBuilder.cs" />
     <Compile Include="CloseIntervento.cs" />
     <Compile Include="ControlInterventoReso.cs" />
     <Compile Include="ControlInterventoNonReso.cs" />

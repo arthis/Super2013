@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using CommonDomain.Core;
@@ -56,6 +57,14 @@ namespace Super.Appaltatore.Commands
                                      WorkPeriod period,
                                      string note)
         {
+            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idAreaIntervento== Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idTipoIntervento == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idAppaltatore == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idDirezioneRegionale == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(period == null);
+
             Id = id;
             _idAreaIntervento = idAreaIntervento;
             _idTipoIntervento = idTipoIntervento;
@@ -66,12 +75,11 @@ namespace Super.Appaltatore.Commands
             _note = note;
         }
 
-
         public bool Equals(ProgrammareIntervento other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._id.Equals(_id) && other._idAreaIntervento.Equals(_idAreaIntervento) && other._idTipoIntervento.Equals(_idTipoIntervento) && other._idAppaltatore.Equals(_idAppaltatore) && other._idCategoriaCommerciale.Equals(_idCategoriaCommerciale) && other._idDirezioneRegionale.Equals(_idDirezioneRegionale) && Equals(other._period, _period) && Equals(other._note, _note);
+            return base.Equals(other) && other._idAreaIntervento.Equals(_idAreaIntervento) && other._idTipoIntervento.Equals(_idTipoIntervento) && other._idAppaltatore.Equals(_idAppaltatore) && other._idCategoriaCommerciale.Equals(_idCategoriaCommerciale) && other._idDirezioneRegionale.Equals(_idDirezioneRegionale) && Equals(other._period, _period) && Equals(other._note, _note);
         }
 
         public override bool Equals(object obj)
@@ -86,7 +94,6 @@ namespace Super.Appaltatore.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _id.GetHashCode();
                 result = (result*397) ^ _idAreaIntervento.GetHashCode();
                 result = (result*397) ^ _idTipoIntervento.GetHashCode();
                 result = (result*397) ^ _idAppaltatore.GetHashCode();
@@ -255,11 +262,13 @@ namespace Super.Appaltatore.Commands
                                      Guid idDirezioneRegionale,
                                      WorkPeriod period,
                                      string note,
-                                     int quantita,
+                                     int quantity,
                                      string description)
             : base(id, idAreaIntervento, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
-            _quantita = quantita;
+            Contract.Requires<ArgumentOutOfRangeException>(quantity <= 0);
+
+            _quantita = quantity;
             _description = description;
         }
 

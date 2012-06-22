@@ -37,7 +37,7 @@ namespace Super.Appaltatore.Domain
             var evt = builder
                             .ForPeriod(periodBuilder.Build())
                             .ForId(id)
-                            .In(idAreaIntervento)
+                            .ForArea(idAreaIntervento)
                             .OfType(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)
                             .OfCategoriaCommerciale(idCategoriaCommerciale)
@@ -57,7 +57,7 @@ namespace Super.Appaltatore.Domain
         }
 
 
-        public void ConsuntivareNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausale, string note)
+        public void ConsuntivareNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
         {
            var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
 
@@ -65,15 +65,15 @@ namespace Super.Appaltatore.Domain
 
             if(specs.IsSatisfiedBy(this))
             {
-                var evt = new InterventoConsuntivatoAmbNonReso()
-                {
-                    Id = id,
-                    IdInterventoAppaltatore = idInterventoAppaltatore,
-                    IdCausale =  idCausale,
-                    DataConsuntivazione = dataConsuntivazione,
-                    Note = note
+                var builder = new InterventoConsuntivatoAmbNonResoBuilder();
 
-                };
+                var evt = builder.ForId(id)
+                                .ForInterventoAppaltatore(idInterventoAppaltatore)
+                                .Because(idCausaleAppaltatore)
+                                .When(dataConsuntivazione)
+                                .WithNote(note)
+                                .Build();
+
                 RaiseEvent(evt);
             }
         }
@@ -83,7 +83,7 @@ namespace Super.Appaltatore.Domain
             //do something here if needed
         }
 
-        public void ConsuntivareNonResoTrenitalia(Guid id, DateTime dataConsuntivazione, Guid idCausale, string idInterventoAppaltatore, string note)
+        public void ConsuntivareNonResoTrenitalia(Guid id, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string idInterventoAppaltatore, string note)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
 
@@ -91,15 +91,15 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = new InterventoConsuntivatoAmbNonResoTrenitalia()
-                {
-                    Id = id,
-                    IdInterventoAppaltatore = idInterventoAppaltatore,
-                    IdCausale = idCausale,
-                    DataConsuntivazione = dataConsuntivazione,
-                    Note = note
+                var builder = new InterventoConsuntivatoAmbNonResoTrenitaliaBuilder();
 
-                };
+                var evt = builder.ForId(id)
+                                .ForInterventoAppaltatore(idInterventoAppaltatore)
+                                .Because(idCausaleTrenitalia)
+                                .When(dataConsuntivazione)
+                                .WithNote(note)
+                                .Build();
+
                 RaiseEvent(evt);
             }
         }
@@ -109,7 +109,7 @@ namespace Super.Appaltatore.Domain
             //do something here if needed
         }
 
-        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, WorkPeriod workPeriod, string idInterventoAppaltatore, string note, string descrizione, int quantita)
+        public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, WorkPeriod workPeriod, string idInterventoAppaltatore, string note, string description, int quantity)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
 
@@ -117,18 +117,22 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = new InterventoConsuntivatoAmbReso()
-                {
-                    Id = id,
-                    IdInterventoAppaltatore = idInterventoAppaltatore,
-                    DataConsuntivazione = dataConsuntivazione,
-                    Note = note,
-                    Descrizione = descrizione,
-                    End = workPeriod.GetEnd(),
-                    Quantita = quantita,
-                    Start = workPeriod.GetStart()
-                };
+                var builder = new InterventoConsuntivatoAmbResoBuilder();
+                var periodBuilder = new WorkPeriodBuilder();
+
+                workPeriod.BuildValue(periodBuilder);
+
+                var evt = builder.ForId(id)
+                                .ForInterventoAppaltatore(idInterventoAppaltatore)
+                                .When(dataConsuntivazione)
+                                .WithNote(note)
+                                .ForPeriod(periodBuilder.Build())
+                                .ForQuantity(quantity)
+                                .ForDescription(description)
+                                .Build();
+
                 RaiseEvent(evt);
+
             }
         }
 

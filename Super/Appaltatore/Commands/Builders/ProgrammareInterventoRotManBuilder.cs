@@ -71,11 +71,22 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
+        public ProgrammareInterventoRotManBuilder ForArea(Guid idAreaIntervento)
+        {
+            _idAreaIntervento = idAreaIntervento;
+            return this;
+        }
+
+        public ProgrammareInterventoRotManBuilder ForTipo(Guid idTipoIntervento)
+        {
+            _idTipoIntervento = idTipoIntervento;
+            return this;
+        }
       
 
         public ProgrammareInterventoRotMan Build()
         {
-            return new ProgrammareInterventoRotMan(_id,
+            var cmd = new  ProgrammareInterventoRotMan(_id,
                                       _idAreaIntervento,
                                       _idTipoIntervento,
                                       _idAppaltatore,
@@ -84,7 +95,13 @@ namespace Super.Appaltatore.Commands.Builders
                                       _period,
                                       _note,
                                       _oggetti);
+
+            cmd.CommitId = Guid.NewGuid();
+
+            return cmd;
         }
 
+
+       
     }
 }

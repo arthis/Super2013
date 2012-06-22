@@ -33,6 +33,7 @@ namespace Super.Appaltatore.Commands.Builders
             _idCausaleAppaltatore = idCausaleAppalatatore;
             return this;
         }
+
         public ConsuntivareNonResoAmbBuilder WithNote(string note)
         {
             _note = note;
@@ -41,7 +42,11 @@ namespace Super.Appaltatore.Commands.Builders
 
         public ConsuntivareAmbNonReso Build()
         {
-            return new ConsuntivareAmbNonReso(_id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
+            var cmd = new  ConsuntivareAmbNonReso(_id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
+
+            cmd.CommitId = Guid.NewGuid();
+
+            return cmd;
         }
 
     }

@@ -73,6 +73,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\InterventoConsuntivatoAmbNonResoBuilder.cs" />
+    <Compile Include="Builders\InterventoConsuntivatoRotNonResoBuilder.cs" />
+    <Compile Include="Builders\InterventoConsuntivatoRotManNonResoBuilder.cs" />
+    <Compile Include="Builders\InterventoConsuntivatoAmbNonResoTrenitaliaBuilder.cs" />
+    <Compile Include="Builders\InterventoConsuntivatoRotNonResoTrenitaliaBuilder.cs" />
+    <Compile Include="Builders\InterventoConsuntivatoRotManNonResoTrenitaliaBuilder.cs" />
+    <Compile Include="Builders\InterventoConsuntivatoRotManResoBuilder.cs" />
+    <Compile Include="Builders\InterventoConsuntivatoRotResoBuilder.cs" />
+    <Compile Include="Builders\InterventoConsuntivatoAmbResoBuilder.cs" />
     <Compile Include="Builders\InterventoAmbProgrammatoBuilder.cs" />
     <Compile Include="Builders\InterventoRotManProgrammatoBuilder.cs" />
     <Compile Include="Builders\InterventoRotProgrammatoBuilder.cs" />

@@ -11,7 +11,7 @@ namespace Super.Controllo.Domain
     public class InterventoRot : Intervento
     {
 
-        public void ControlReso(Guid idUtente, Guid controlDate, WorkPeriod workPeriod, Treno trenoPartenza, Treno trenoArrivo, string convoglio, string note, OggettoRot[] oggetti, string rigaTurnoTreno, string turnoTreno)
+        public void ControlReso(Guid idUtente, DateTime  controlDate, WorkPeriod workPeriod, Treno trenoPartenza, Treno trenoArrivo, string convoglio, string note,IEnumerable<OggettoRot> oggetti, string rigaTurnoTreno, string turnoTreno)
         {
             throw new NotImplementedException();
         }
