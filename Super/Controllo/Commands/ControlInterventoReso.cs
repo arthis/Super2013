@@ -33,6 +33,12 @@ namespace Super.Controllo.Commands
             get { return _idUtente; }
         }
 
+        //for serialization
+        public ControlInterventoReso()
+        {
+            
+        }
+
         public ControlInterventoReso(Guid id, Guid idUtente, DateTime controlDate, WorkPeriod period, string note)
         {
             Contract.Requires<ArgumentNullException>(id == Guid.Empty);
@@ -110,6 +116,12 @@ namespace Super.Controllo.Commands
             get { return _oggetti; }
         }
 
+        //for serialization
+        public ControlInterventoRotReso()
+        {
+            
+        }
+
         public ControlInterventoRotReso(Guid id,
                                         Guid idUtente,
                                         DateTime controlDate,
@@ -177,6 +189,12 @@ namespace Super.Controllo.Commands
             get { return _oggetti; }
         }
 
+        //for serialization
+        public ControlInterventoRotManReso()
+        {
+            
+        }
+
         public ControlInterventoRotManReso(Guid id,
                                         Guid idUtente,
                                         DateTime controlDate,
@@ -228,6 +246,12 @@ namespace Super.Controllo.Commands
         public int Quantita
         {
             get { return _quantita; }
+        }
+
+        //for serialization
+        public ControlInterventoAmbReso()
+        {
+            
         }
 
         public ControlInterventoAmbReso(Guid id,

@@ -28,6 +28,12 @@ namespace Super.Appaltatore.Commands
             get { return _idInterventoAppaltatore; }
         }
 
+        //for serialization
+        public ConsuntivareNonReso()
+        {
+            
+        }
+
         public ConsuntivareNonReso(Guid id,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
@@ -44,6 +50,12 @@ namespace Super.Appaltatore.Commands
             _dataConsuntivazione = dataConsuntivazione;
             _idCausaleAppaltatore = idCausaleAppaltatore;
             _note = note;
+        }
+
+
+        public override string ToDescription()
+        {
+            return string.Format("Consuntivare non reso il intervento rotabile '{0}' ", Id);
         }
 
         public bool Equals(ConsuntivareNonReso other)
@@ -78,6 +90,12 @@ namespace Super.Appaltatore.Commands
     public class ConsuntivareRotNonReso : ConsuntivareNonReso
     {
 
+        //for serialization
+        public ConsuntivareRotNonReso()
+        {
+            
+        }
+
         public ConsuntivareRotNonReso(Guid id,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
@@ -100,6 +118,12 @@ namespace Super.Appaltatore.Commands
     
     public class ConsuntivareRotManNonReso : ConsuntivareNonReso
     {
+        //for serialization
+        public ConsuntivareRotManNonReso()
+        {
+            
+        }
+
         public ConsuntivareRotManNonReso(Guid id,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
@@ -136,6 +160,12 @@ namespace Super.Appaltatore.Commands
     
     public class ConsuntivareAmbNonReso : ConsuntivareNonReso
     {
+        //for serialization
+        public ConsuntivareAmbNonReso()
+        {
+            
+        }
+
         public ConsuntivareAmbNonReso(Guid id,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,

@@ -42,10 +42,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Elmah">
+      <HintPath>..\..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\..\..\packages\Elmah.MVC.2.0.0\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ElmahR.Elmah">
+      <HintPath>..\..\..\packages\ElmahR.Elmah.0.7.2.0\lib\net35\ElmahR.Elmah.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\packages\MicrosoftWebInfrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="RabbitMQ.Client, Version=2.8.1.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -96,8 +105,12 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator">
+      <HintPath>..\..\..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_start\ElmahMvc_Start.cs" />
     <Compile Include="Attributes\SetCultureAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppaltatoreController.cs" />
@@ -272,6 +285,8 @@
     <None Include="Node\node_modules\amqp\README.md" />
     <None Include="Node\package.json" />
     <None Include="Node\README.md" />
+    <Content Include="Views\Appaltatore\ConsuntivareRotNonReso.cshtml" />
+    <Content Include="Views\Appaltatore\IndexRotabile.cshtml" />
     <None Include="Views\ConsuntivoRotabileApplatatore\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -313,7 +328,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\AreaIntervento\" />
-    <Folder Include="Views\Appaltatore\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -335,13 +349,13 @@
       <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
       <Name>EasyNetQ</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Administration\Commands\Commands.csproj">
-      <Project>{CB1EFF69-B658-48FC-A075-113D40F81E7C}</Project>
-      <Name>Commands %28Super\Administration\Commands%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Appaltatore\Commands\Commands.csproj">
       <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
       <Name>Commands %28Super\Appaltatore\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Contabilita\Commands\Commands.csproj">
+      <Project>{7C1A8FCA-5A29-4A72-9D3E-D477CF0B96BF}</Project>
+      <Name>Commands %28Super\Contabilita\Commands%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReadModel\ReadModel.csproj">
       <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>

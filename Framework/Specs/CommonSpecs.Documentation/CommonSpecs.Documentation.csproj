@@ -117,13 +117,13 @@
     <None Include="Site\template.vm" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Super\Administration\Specs\Specs.csproj">
-      <Project>{B22B86C5-0E44-4165-B87D-FAA8ECAC06AB}</Project>
-      <Name>Specs %28Super\Administration\Specs%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Super\Appaltatore\Specs\Specs.csproj">
       <Project>{E8213E3C-0E8D-481E-84B3-475AAF93E2C4}</Project>
       <Name>Specs %28Super\Appaltatore\Specs%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Super\Contabilita\Specs\Specs.csproj">
+      <Project>{12998A3B-893C-4804-806F-950AF3F82E43}</Project>
+      <Name>Specs %28Super\Contabilita\Specs%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Super\Controllo\Specs\Specs.csproj">
       <Project>{4BCB5CDB-9E7E-4353-BA61-4595B94E96F9}</Project>

@@ -37,6 +37,12 @@ namespace Super.Appaltatore.Events.Consuntivazione
             get { return _idInterventoAppaltatore; }
         }
 
+        //for serialization 
+        public InterventoConsuntivatoNonResoTrenitalia()
+        {
+            
+        }
+
         public InterventoConsuntivatoNonResoTrenitalia(Guid id,
                                                        string idInterventoAppaltatore,
                                                        DateTime dataConsuntivazione,
@@ -86,6 +92,12 @@ namespace Super.Appaltatore.Events.Consuntivazione
 
     public class InterventoConsuntivatoRotNonResoTrenitalia : InterventoConsuntivatoNonResoTrenitalia, IInterventoRotConsuntivato
     {
+        //for serialization
+        public InterventoConsuntivatoRotNonResoTrenitalia()
+        {
+            
+        }
+
         public InterventoConsuntivatoRotNonResoTrenitalia(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
         {
         }
@@ -115,6 +127,14 @@ namespace Super.Appaltatore.Events.Consuntivazione
 
     public class InterventoConsuntivatoRotManNonResoTrenitalia : InterventoConsuntivatoNonResoTrenitalia, IInterventoRotManConsuntivato
     {
+
+        //for serialization
+        public InterventoConsuntivatoRotManNonResoTrenitalia()
+        {
+            
+
+        }
+
         public InterventoConsuntivatoRotManNonResoTrenitalia(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
         {
         }
@@ -144,6 +164,13 @@ namespace Super.Appaltatore.Events.Consuntivazione
 
     public class InterventoConsuntivatoAmbNonResoTrenitalia : InterventoConsuntivatoNonResoTrenitalia, IInterventoAmbConsuntivato
     {
+
+        //for serialization
+        public InterventoConsuntivatoAmbNonResoTrenitalia()
+        {
+            
+        }
+
         public InterventoConsuntivatoAmbNonResoTrenitalia(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
         {
         }

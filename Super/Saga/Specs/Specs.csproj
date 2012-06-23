@@ -110,14 +110,6 @@
       <Project>{F954F13E-C818-485F-98BF-91579AA21127}</Project>
       <Name>CommonSpecs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Administration\Commands\Commands.csproj">
-      <Project>{CB1EFF69-B658-48FC-A075-113D40F81E7C}</Project>
-      <Name>Commands %28Super\Administration\Commands%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Administration\Events\Events.csproj">
-      <Project>{DDD34014-317B-46DF-B363-1A0610103AC3}</Project>
-      <Name>Events %28Super\Administration\Events%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Appaltatore\Commands\Commands.csproj">
       <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
       <Name>Commands %28Super\Appaltatore\Commands%29</Name>
@@ -133,10 +125,6 @@
     <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
       <Name>Events %28Super\Programmazione\Events%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Handlers\Handlers.csproj">
-      <Project>{B5916099-8813-4954-A02E-AF7BC9E2CB4D}</Project>
-      <Name>Handlers %28Super\Administration\Handlers%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Handlers\Handlers.csproj">
       <Project>{ED040216-1CD7-44D0-A567-0101C9FEC2E3}</Project>

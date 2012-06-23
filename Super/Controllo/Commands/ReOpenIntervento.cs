@@ -12,6 +12,12 @@ namespace Super.Controllo.Commands
         private readonly Guid _idUtente;
         private readonly DateTime _reopeningDate;
 
+        //for serialization
+        public ReopenIntervento()
+        {
+            
+        }
+
         public ReopenIntervento(Guid id, Guid idUtente, DateTime reopeningDate)
         {
             Id = id;

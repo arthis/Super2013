@@ -68,10 +68,6 @@
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Administration\Events\Events.csproj">
-      <Project>{DDD34014-317B-46DF-B363-1A0610103AC3}</Project>
-      <Name>Events %28Super\Administration\Events%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Web\ReadModel\ReadModel.csproj">
       <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>
       <Name>ReadModel</Name>

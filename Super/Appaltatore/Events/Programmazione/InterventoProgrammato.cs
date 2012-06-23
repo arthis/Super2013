@@ -50,6 +50,12 @@ namespace Super.Appaltatore.Events.Programmazione
             get { return _id; }
         }
 
+        //for serialization
+        public InterventoProgrammato()
+        {
+            
+        }
+
         public InterventoProgrammato(Guid id,
                                      Guid idAreaIntervento,
                                      Guid idTipoIntervento,
@@ -135,6 +141,12 @@ namespace Super.Appaltatore.Events.Programmazione
         {
             get { return _oggetti; }  
         }
+
+        //for serialization
+        public InterventoRotProgrammato()
+        {
+            
+        }
         
         public InterventoRotProgrammato(Guid id,
                                      Guid idAreaIntervento,
@@ -202,6 +214,12 @@ namespace Super.Appaltatore.Events.Programmazione
 
         public OggettoRotMan[] Oggetti { get { return _oggetti; } }
 
+        //for serialization
+        public InterventoRotManProgrammato()
+        {
+            
+        }
+
         public InterventoRotManProgrammato(Guid id,
                                      Guid idAreaIntervento,
                                      Guid idTipoIntervento,
@@ -249,6 +267,12 @@ namespace Super.Appaltatore.Events.Programmazione
     {
         private readonly int _quantita;
         private readonly string _description;
+
+        //for serialization
+        public InterventoAmbProgrammato()
+        {
+            
+        }
 
         public InterventoAmbProgrammato(Guid id,
                                      Guid idAreaIntervento,

@@ -30,7 +30,10 @@ namespace Super.Appaltatore.Commands
         {
             get { return _dataConsuntivazione; }
         }
-
+        
+        //for serialization
+        public ConsuntivareReso()
+        {}
 
         public ConsuntivareReso(Guid id,
                                      string idInterventoAppaltatore,
@@ -48,6 +51,11 @@ namespace Super.Appaltatore.Commands
             _dataConsuntivazione = dataConsuntivazione;
             _period = period;
             _note = note;
+        }
+
+        public override string ToDescription()
+        {
+            return string.Format("Si consuntiva reso il intervento  '{0}' ", Id);
         }
 
         public bool Equals(ConsuntivareReso other)
@@ -112,6 +120,9 @@ namespace Super.Appaltatore.Commands
             get { return _oggetti; }
         }
 
+        //for serialization
+        public ConsuntivareRotReso()
+        {}
 
         public ConsuntivareRotReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, WorkPeriod period, string note, 
                 OggettoRot[] oggetti, Treno trenoPartenza, Treno trenoArrivo, string turnoTreno, string rigaTurnoTreno, string convoglio) 
@@ -171,6 +182,11 @@ namespace Super.Appaltatore.Commands
             get { return _oggetti; }
         }
 
+        public ConsuntivareRotManReso()
+        {
+            
+        }
+
         public ConsuntivareRotManReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, WorkPeriod period, string note, OggettoRotMan[] oggetti) : base(id, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
             _oggetti = oggetti;
@@ -209,6 +225,10 @@ namespace Super.Appaltatore.Commands
     {
         private readonly int _quantity;
         private readonly string _description;
+
+        //for serialization
+        public ConsuntivareAmbReso()
+        {}
 
         public ConsuntivareAmbReso(Guid id,
                                     string idInterventoAppaltatore,

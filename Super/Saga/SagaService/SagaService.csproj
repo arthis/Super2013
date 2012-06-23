@@ -135,14 +135,6 @@
       <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
       <Name>EasyNetQ</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Administration\AdministrationService\AdministrationService.csproj">
-      <Project>{05EBFB01-166E-484C-9D17-700433609C23}</Project>
-      <Name>AdministrationService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Administration\Events\Events.csproj">
-      <Project>{DDD34014-317B-46DF-B363-1A0610103AC3}</Project>
-      <Name>Events %28Super\Administration\Events%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Appaltatore\Events\Events.csproj">
       <Project>{11241956-CC2D-46B0-B46C-C2E2F34AE693}</Project>
       <Name>Events %28Super\Appaltatore\Events%29</Name>

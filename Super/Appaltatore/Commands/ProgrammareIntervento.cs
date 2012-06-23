@@ -48,6 +48,10 @@ namespace Super.Appaltatore.Commands
             get { return _idAreaIntervento; }
         }
 
+        //for serialization
+        public ProgrammareIntervento()
+        {}
+
         public ProgrammareIntervento(Guid id,
                                      Guid idAreaIntervento,
                                      Guid idTipoIntervento,
@@ -140,6 +144,10 @@ namespace Super.Appaltatore.Commands
             get { return _oggetti; }  
         }
 
+        //for serialization
+        public ProgrammareInterventoRot()
+        {}
+
         public ProgrammareInterventoRot(Guid id,
                                      Guid idAreaIntervento,
                                      Guid idTipoIntervento,
@@ -206,6 +214,10 @@ namespace Super.Appaltatore.Commands
 
         public OggettoRotMan[] Oggetti { get { return _oggetti; } }
 
+        //for serialization
+        public ProgrammareInterventoRotMan()
+        {}
+
         public ProgrammareInterventoRotMan(Guid id,
                                      Guid idAreaIntervento,
                                      Guid idTipoIntervento,
@@ -253,6 +265,10 @@ namespace Super.Appaltatore.Commands
     {
         private readonly int _quantita;
         private readonly string _description;
+
+        //for serialization
+        public ProgrammareInterventoAmb()
+        {}
 
         public ProgrammareInterventoAmb(Guid id,
                                      Guid idAreaIntervento,

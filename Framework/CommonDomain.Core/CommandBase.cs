@@ -15,7 +15,7 @@ namespace CommonDomain.Core
         {
             var types = from asm in AppDomain.CurrentDomain.GetAssemblies()
                         from type in asm.GetTypes()
-                        where typeof(CommandBase).IsAssignableFrom(type)
+                        where typeof(CommandBase).IsAssignableFrom(type) && !type.IsAbstract
                         select type;
 
             return types.ToArray();

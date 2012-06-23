@@ -23,6 +23,12 @@ namespace Super.Controllo.Events
             get { return _idUtente; }
         }
 
+        //for serialization
+        public InterventoClosed()
+        {
+            
+        }
+
         public InterventoClosed(Guid id, Guid idUtente, DateTime closingDate)
         {
             _id = id;

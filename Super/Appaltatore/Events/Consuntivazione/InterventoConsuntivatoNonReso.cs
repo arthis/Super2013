@@ -38,6 +38,12 @@ namespace Super.Appaltatore.Events.Consuntivazione
             get { return _idInterventoAppaltatore; }
         }
 
+        //for serialization
+        public InterventoConsuntivatoNonReso()
+        {
+            
+        }
+
         public InterventoConsuntivatoNonReso(Guid id,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
@@ -87,6 +93,12 @@ namespace Super.Appaltatore.Events.Consuntivazione
 
     public class InterventoConsuntivatoRotNonReso : InterventoConsuntivatoNonReso, IInterventoRotConsuntivato
     {
+        //for serialization
+        public InterventoConsuntivatoRotNonReso()
+        {
+            
+        }
+
         public InterventoConsuntivatoRotNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
         }
@@ -117,6 +129,12 @@ namespace Super.Appaltatore.Events.Consuntivazione
 
     public class InterventoConsuntivatoRotManNonReso : InterventoConsuntivatoNonReso, IInterventoRotManConsuntivato
     {
+        //for serialization
+        public InterventoConsuntivatoRotManNonReso()
+        {
+            
+        }
+
         public InterventoConsuntivatoRotManNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
         }
@@ -146,6 +164,12 @@ namespace Super.Appaltatore.Events.Consuntivazione
 
     public class InterventoConsuntivatoAmbNonReso : InterventoConsuntivatoNonReso,  IInterventoAmbConsuntivato
     {
+        //for serialization
+        public InterventoConsuntivatoAmbNonReso()
+        {
+            
+        }
+
         public InterventoConsuntivatoAmbNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
         }

@@ -10,6 +10,11 @@ namespace Super.Controllo.Commands
 
     public class AllowControlIntervento : CommandBase
     {
+        //for serialization
+        public AllowControlIntervento()
+        {
+            
+        }
         
         public AllowControlIntervento(Guid id)
         {

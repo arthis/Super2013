@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Linq;
 using CommonDomain.Core;
-using Super.Administration.Events.AreaIntervento;
 using Super.Administration.ReadModel;
 using Super.Appaltatore.Events.Programmazione;
 

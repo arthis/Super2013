@@ -10,7 +10,6 @@ using EventStore;
 using EventStore.Dispatcher;
 using EventStore.Persistence.SqlPersistence.SqlDialects;
 using EventStore.Serialization;
-using Super.Administration.AdministrationService;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
 

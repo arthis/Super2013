@@ -38,6 +38,11 @@ namespace Super.Appaltatore.Events.Consuntivazione
             get { return _dataConsuntivazione; }
         }
 
+        //for serialization
+        public InterventoConsuntivatoReso()
+        {
+            
+        }
 
         public InterventoConsuntivatoReso(Guid id,
                                      string idInterventoAppaltatore,
@@ -121,6 +126,12 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 
 
+        //for serialization
+        public InterventoConsuntivatoRotReso()
+        {
+            
+        }
+
         public InterventoConsuntivatoRotReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, WorkPeriod period, string note, 
                 OggettoRot[] oggetti, Treno trenoPartenza, Treno trenoArrivo, string turnoTreno, string rigaTurnoTreno, string convoglio) 
             : base(id, idInterventoAppaltatore, dataConsuntivazione, period, note)
@@ -177,6 +188,12 @@ namespace Super.Appaltatore.Events.Consuntivazione
             get { return _oggetti; }
         }
 
+        //for serialization
+        public InterventoConsuntivatoRotManReso()
+        {
+            
+        }
+
         public InterventoConsuntivatoRotManReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, WorkPeriod period, string note, OggettoRotMan[] oggetti)
             : base(id, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
@@ -216,6 +233,12 @@ namespace Super.Appaltatore.Events.Consuntivazione
     {
         private readonly int _quantity;
         private readonly string _description;
+
+        //for serialization
+        public InterventoConsuntivatoAmbReso()
+        {
+            
+        }
 
         public InterventoConsuntivatoAmbReso(Guid id,
                                             string idInterventoAppaltatore,

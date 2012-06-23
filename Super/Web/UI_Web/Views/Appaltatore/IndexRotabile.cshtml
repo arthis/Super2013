@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Content/Layout/Earthlingtwo/_Layout.cshtml";
+}
+
+<h2> Consuntivazione appaltatore </h2>
+
+<div id="List" data-bind='template: "interventoListTemplate"'></div>
+<br />
+<div id="pagination" class="pagebar">
+</div>
+
+<script type="text/html" id="areaInterventoListTemplate">
+    <table width=100% class="table-standard"> 
+            <tr>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Start
+                </th>
+                <th>
+                    End
+                </th>
+                <th>
+                    CreationDate
+                </th>
+                <th colspan="2">
+                    Azione
+                </th>
+            </tr>
+        
+         <% _.each(Items(), function(item) { %>
+         <tr>
+            
+            <td>
+                <%= item.Description() %>
+            </td>
+            
+            <td>
+                <%= item.Start() %>
+            </td>
+            <td>
+                <%= item.End() %>
+            </td>
+            <td>
+                <%= item.CreationDate() %>
+            </td>
+             <td>
+                <a data-bind="click: function() { viewModel.ShowEditItem(item) }" href="#"><img src="@Url.Content("~/Images/Edit.gif")" border=0></a>
+            </td>
+            <td>
+                <a data-bind="click: function() { viewModel.DeleteItem(item) }" href="#"><img src="@Url.Content("~/Images/Delete.gif")" border=0></a>
+            </td>
+        </tr>
+         <% }) %>
+        </table>
+</script>

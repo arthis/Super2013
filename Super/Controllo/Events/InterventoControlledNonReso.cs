@@ -34,6 +34,12 @@ namespace Super.Controllo.Events
             get { return _idUtente; }
         }
 
+        //for serialization
+        public InterventoControlledNonReso()
+        {
+            
+        }
+
         public InterventoControlledNonReso(Guid id, Guid idUtente, DateTime controlDate, Guid idCausale, string note)
         {
             Contract.Requires<ArgumentNullException>( id== Guid.Empty);

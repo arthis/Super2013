@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonDomain;
-using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using EasyNetQ;
 using Newtonsoft.Json;
+using Super.Appaltatore.Commands.Builders;
 using Super.Programmazione.Events;
 
 
@@ -16,42 +17,48 @@ namespace UI_Console
 
         static void Main(string[] args)
         {
+            var id = Guid.NewGuid();
+            var idAppaltatore = Guid.NewGuid();
+            var trenoArrivo = new Treno("99", DateTime.Now.AddHours(-12));
+            var trenoPartenza = new Treno("999", DateTime.Now.AddHours(-1));
+            string convoglio = "convoglio";
+
+            var noteCons = "noteCons";
+            var period = new WorkPeriod(DateTime.Now.AddHours(-4), DateTime.Now.AddHours(-2));
 
 
-            //InterventoRotPianificato evt = new InterventoRotPianificato()
-            //                                  {
-            //                                      CommitId = Guid.NewGuid(),
-            //                                      Convoglio = "convoglio",
-            //                                      DataTrenoArrivo = DateTime.Now,
-            //                                      DataTrenoPartenza = DateTime.Now,
-            //                                      End = DateTime.Now.AddHours(12),
-            //                                      Id = Guid.NewGuid(),
-            //                                      IdAppaltatore = Guid.NewGuid(),
-            //                                      IdAreaIntervento = Guid.NewGuid(),
-            //                                      IdCategoriaCommerciale = Guid.NewGuid(),
-            //                                      IdDirezioneRegionale = Guid.NewGuid(),
-            //                                      Note = "note",
-            //                                      IdTipoIntervento = Guid.NewGuid(),
-            //                                      NumeroTrenoArrivo = "999",
-            //                                      NumeroTrenoPartenza = "888",
-            //                                      RigaTurnoTreno = "riga",
-            //                                      Start = DateTime.Now.AddHours(10),
-            //                                      TurnoTreno = "turno",
-            //                                      Oggetti = new List<OggettoRot>() { new OggettoRot()
-            //                                                                         {
-            //                                                                             Description = "desc",
-            //                                                                             IdTipoOggettoInterventoRot = Guid.NewGuid(),
-            //                                                                             Quantity = 12
-            //                                                                         } 
-            //                                                                    }.ToArray()
 
-            //                                  };
+            InterventoRotPianificato evt = new InterventoRotPianificato()
+                                              {
+                                                  CommitId = Guid.NewGuid(),
+                                                  Convoglio = convoglio,
+                                                  TrenoArrivo = trenoArrivo,
+                                                  TrenoPartenza = trenoPartenza,
+                                                  Id = id,
+                                                  IdAppaltatore = idAppaltatore,
+                                                  IdAreaIntervento = Guid.NewGuid(),
+                                                  IdCategoriaCommerciale = Guid.NewGuid(),
+                                                  IdDirezioneRegionale = Guid.NewGuid(),
+                                                  Note = "note",
+                                                  IdTipoIntervento = Guid.NewGuid(),
+                                                  Period = new WorkPeriod(DateTime.Now.AddHours(-5),DateTime.Now.AddHours(-4)),
+                                                  RigaTurnoTreno = "riga",
+                                                  TurnoTreno = "turno",
+                                                  Oggetti = new List<OggettoRot>() { new OggettoRot("desc",12, Guid.NewGuid())}
+                                                                                   .ToArray()
+                                              };
 
-            ////client.Execute(cmd);    
-            //Bus = RabbitHutch.CreateBus("host=localhost");
+            //client.Execute(cmd);    
+            Bus = RabbitHutch.CreateBus("host=localhost");
 
-            //Bus.Publish(evt);
+            Bus.Publish(evt);
 
+            //var service = new Appaltatore.CommandWebServiceClient();
+            //var builder = new ConsuntivareRotResoBuilder();
+            //builder.
+            //var executeRequest = new Appaltatore.ExecuteRequest()
+            //                         { CommandBase = };
+            //service.Execute()
         }
 
 

@@ -32,6 +32,12 @@ namespace Super.Controllo.Commands
         {
             get { return _idUtente; }
         }
+
+        //for serialization
+        public ControlInterventoNonReso()
+        {
+            
+        }
         
         public ControlInterventoNonReso(Guid id, Guid idUtente, DateTime controlDate, Guid idCausale, string note)
         {

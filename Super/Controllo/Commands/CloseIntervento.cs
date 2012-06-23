@@ -12,6 +12,12 @@ namespace Super.Controllo.Commands
         private readonly Guid _idUtente;
         private readonly DateTime _closingDate;
 
+        //for serialization
+        public CloseIntervento()
+        {
+            
+        }
+
         public CloseIntervento(Guid id, Guid idUtente, DateTime closingDate)
         {
             Id = id;
