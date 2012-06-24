@@ -81,6 +81,9 @@
     <Compile Include="Builders\CreateAreaInterventoBuilder.cs" />
     <Compile Include="Builders\Build.cs" />
     <Compile Include="Builders\UpdateAreaInterventoBuilder.cs" />
+    <Compile Include="Lotto\CreateLotto.cs" />
+    <Compile Include="Lotto\DeleteLotto.cs" />
+    <Compile Include="Lotto\UpdateAreaIntervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

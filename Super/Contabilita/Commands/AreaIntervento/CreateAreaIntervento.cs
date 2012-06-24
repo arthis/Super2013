@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
@@ -7,28 +8,61 @@ namespace Super.Contabilita.Commands.AreaIntervento
     
     public class CreateAreaIntervento : CommandBase
     {
-        public Intervall Period { get; private set; }
-        public string Description { get; private set; }
-        public DateTime CreationDate { get; private set; }
-        public long Version { get; private set; }
-
+        
+        private readonly Intervall _period;
+        private readonly DateTime _creationDate;
+        private readonly string _description;
+        private readonly Guid _idLotto;
+        
         public CreateAreaIntervento()
         {
             
         }
-
-        public CreateAreaIntervento(Guid id, long version, Intervall period, DateTime creationDate, string description)
+        
+        public CreateAreaIntervento(Guid id,  Intervall period, DateTime creationDate, string description, Guid idLotto)
         {
+            Contract.Requires<ArgumentNullException>(period==null);
+            Contract.Requires<ArgumentOutOfRangeException>(creationDate ==DateTime.MinValue );
+            Contract.Requires<ArgumentException>(string.IsNullOrEmpty(description) || string.IsNullOrWhiteSpace(description));
+            Contract.Requires<ArgumentNullException>(idLotto== Guid.Empty);
+
+
+            _version = version;
+            _period = period;
+            _creationDate = creationDate;
+            _description = description;
+            _idLotto = idLotto;
             this.Id = id;
-            this.Version = version;
-            this.Period = period;
-            this.Description = description;
-            this.CreationDate = creationDate;
+            
+        }
+
+        public string Description
+        {
+            get { return _description; }
+        }
+        public DateTime CreationDate
+        {
+            get { return _creationDate; }
+        }
+        public Intervall Period
+        {
+            get { return _period; }
+        }
+        public Guid IdLotto
+        {
+            get { return _idLotto; }
         }
 
         public override string ToDescription()
         {
             return string.Format("Creiamo il area Intervento '{0}'.", Description);
+        }
+
+        public bool Equals(CreateAreaIntervento other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return base.Equals(other) && Equals(other._period, _period) && other._creationDate.Equals(_creationDate) && Equals(other._description, _description) && other._idLotto.Equals(_idLotto);
         }
 
         public override bool Equals(object obj)
@@ -38,22 +72,15 @@ namespace Super.Contabilita.Commands.AreaIntervento
             return Equals(obj as CreateAreaIntervento);
         }
 
-        public bool Equals(CreateAreaIntervento other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Period, Period) && Equals(other.Description, Description) && other.CreationDate.Equals(CreationDate) && other.Version == Version;
-        }
-
         public override int GetHashCode()
         {
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
-                result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
-                result = (result*397) ^ CreationDate.GetHashCode();
-                result = (result*397) ^ Version.GetHashCode();
+                result = (result*397) ^ (_period != null ? _period.GetHashCode() : 0);
+                result = (result*397) ^ _creationDate.GetHashCode();
+                result = (result*397) ^ (_description != null ? _description.GetHashCode() : 0);
+                result = (result*397) ^ _idLotto.GetHashCode();
                 return result;
             }
         }

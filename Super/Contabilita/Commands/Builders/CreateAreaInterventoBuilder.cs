@@ -10,15 +10,22 @@ namespace Super.Contabilita.Commands.Builders
         Intervall _period;
         private DateTime _creationDate;
         private string _description;
+        private Guid _idLotto;
 
-        public CreateAreaIntervento Build(Guid id, long version)
+        public CreateAreaIntervento Build(Guid id)
         {
-            return new CreateAreaIntervento(id, version, _period, _creationDate, _description);
+            return new CreateAreaIntervento(id, _period, _creationDate, _description, _idLotto);
         }
 
         public CreateAreaInterventoBuilder ForCreationDate(DateTime creationDate)
         {
             _creationDate = creationDate;
+            return this;
+        }
+
+        public CreateAreaInterventoBuilder ForLotto(Guid idLotto)
+        {
+            _idLotto = idLotto;
             return this;
         }
 
