@@ -1,13 +1,13 @@
 ﻿using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Appaltatore.Commands.Builders
 {
 
-    public class ProgrammareInterventoAmbBuilder
+    public class ProgrammareInterventoAmbBuilder : ICommandBuilder<ProgrammareInterventoAmb>
     {
-        private Guid _id;
-        private Guid _idAreaIntervento;
+        private Guid _idImpianto;
         private Guid _idTipoIntervento;
         private Guid _idAppaltatore;
         private Guid _idCategoriaCommerciale;
@@ -33,12 +33,6 @@ namespace Super.Appaltatore.Commands.Builders
         public ProgrammareInterventoAmbBuilder ForPeriod(WorkPeriod period)
         {
             _period = period;
-            return this;
-        }
-
-        public ProgrammareInterventoAmbBuilder ForId(Guid id)
-        {
-            _id = id;
             return this;
         }
 
@@ -72,20 +66,16 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ProgrammareInterventoAmbBuilder ForArea(Guid idAreaIntervento)
+        public ProgrammareInterventoAmbBuilder ForArea(Guid idImpianto)
         {
-            _idAreaIntervento = idAreaIntervento;
+            _idImpianto = idImpianto;
             return this;
         }
 
-        
-
-      
-
-        public ProgrammareInterventoAmb Build()
+        public ProgrammareInterventoAmb Build(Guid id)
         {
-            var cmd = new ProgrammareInterventoAmb(_id,
-                                      _idAreaIntervento,
+            var cmd = new ProgrammareInterventoAmb(id,
+                                      _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,
                                       _idCategoriaCommerciale,

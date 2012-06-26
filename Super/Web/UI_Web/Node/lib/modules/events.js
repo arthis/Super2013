@@ -22,7 +22,7 @@ function subscribeEvents(connection, sockets) {
         });
     }
 
-    subscribeEvent('Events_AreaIntervento_AreaInterventoCreata:Events_Super', 'Events_AreaIntervento_AreaInterventoCreata:Events');
+    subscribeEvent('Events_Impianto_ImpiantoCreata:Events_Super', 'Events_Impianto_ImpiantoCreata:Events');
 }
 
 exports.subscribeEvents = subscribeEvents;

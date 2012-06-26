@@ -1,11 +1,11 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Controllo.Events.Builders
 {
-    public class InterventoAmbControlledResoBuilder
+    public class InterventoAmbControlledResoBuilder : IEventBuilder<IEvent>
     {
-        private Guid _id;
         private Guid _idUtente;
         private DateTime _controlDate;
         private string _note;
@@ -13,11 +13,7 @@ namespace Super.Controllo.Events.Builders
         private int _quantity;
         private string _description;
 
-        public InterventoAmbControlledResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
+        
 
         public InterventoAmbControlledResoBuilder By(Guid idUtente)
         {
@@ -55,9 +51,9 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public InterventoAmbControlledReso Build()
+        public IEvent Build(Guid id)
         {
-            var cmd = new InterventoAmbControlledReso(_id, _idUtente, _controlDate, _period, _note, _quantity, _description);
+            var cmd = new InterventoAmbControlledReso(id, _idUtente, _controlDate, _period, _note, _quantity, _description);
 
             cmd.CommitId = Guid.NewGuid();
 

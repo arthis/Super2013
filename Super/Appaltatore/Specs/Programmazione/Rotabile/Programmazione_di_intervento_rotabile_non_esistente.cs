@@ -17,7 +17,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
     public class Programmazione_di_intervento_rotabile_non_esistente : CommandBaseClass<ProgrammareInterventoRot>
     {
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -47,8 +47,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
             var builder = new ProgrammareInterventoRotBuilder();
             return builder.WithOggetti(_oggetti.ToArray())
                             .ForPeriod(_period)
-                            .ForId(_id)
-                            .In(_idAreaIntervento)
+                            .ForArea(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
@@ -59,7 +58,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
                             .WithTurnoTreno(_turnoTreno)
                             .WithRigaTurnoTreno(_rigaTurnoTreno)
                             .ForConvoglio(_convoglio)
-                            .Build();
+                            .Build(_id);
         }
 
         public override IEnumerable<IMessage> Expect()
@@ -69,7 +68,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
             yield return builder.WithOggetti(_oggetti.ToArray())
                             .ForPeriod(_period)
                             .ForId(_id)
-                            .In(_idAreaIntervento)
+                            .In(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)

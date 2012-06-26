@@ -75,7 +75,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaInterventoProjection.cs" />
+    <Compile Include="ReadOnce.cs" />
+    <Compile Include="LottoProjection.cs" />
+    <Compile Include="ImpiantoProjection.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="ProjectionHandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

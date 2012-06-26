@@ -44,7 +44,7 @@ namespace Website.Controllers
         //                                             i.HasSchedaV,
         //                                             i.HasSchedaQ,
         //                                             i.Data,
-        //                                             i.AreaInterventoDescrizione,
+        //                                             i.ImpiantoDescrizione,
         //                                             i.CategoriaTreno,
         //                                             i.NumeroTrenoPartenza,
         //                                             i.DataTrenoPartenza,

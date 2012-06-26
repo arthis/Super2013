@@ -11,7 +11,7 @@ namespace Super.Appaltatore.Commands
 
     public abstract class ProgrammareIntervento : CommandBase
     {
-        private readonly Guid _idAreaIntervento;
+        private readonly Guid _idImpianto;
         private readonly Guid _idTipoIntervento;
         private readonly Guid _idAppaltatore;
         private readonly Guid _idCategoriaCommerciale;
@@ -43,9 +43,9 @@ namespace Super.Appaltatore.Commands
         {
             get { return _idTipoIntervento; }
         }
-        public Guid IdAreaIntervento
+        public Guid IdImpianto
         {
-            get { return _idAreaIntervento; }
+            get { return _idImpianto; }
         }
 
         //for serialization
@@ -53,7 +53,7 @@ namespace Super.Appaltatore.Commands
         {}
 
         public ProgrammareIntervento(Guid id,
-                                     Guid idAreaIntervento,
+                                     Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
                                      Guid idCategoriaCommerciale,
@@ -62,7 +62,7 @@ namespace Super.Appaltatore.Commands
                                      string note)
         {
             Contract.Requires<ArgumentNullException>(id == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idAreaIntervento== Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idImpianto== Guid.Empty);
             Contract.Requires<ArgumentNullException>(idTipoIntervento == Guid.Empty);
             Contract.Requires<ArgumentNullException>(idAppaltatore == Guid.Empty);
             Contract.Requires<ArgumentNullException>(idCategoriaCommerciale == Guid.Empty);
@@ -70,7 +70,7 @@ namespace Super.Appaltatore.Commands
             Contract.Requires<ArgumentNullException>(period == null);
 
             Id = id;
-            _idAreaIntervento = idAreaIntervento;
+            _idImpianto = idImpianto;
             _idTipoIntervento = idTipoIntervento;
             _idAppaltatore = idAppaltatore;
             _idCategoriaCommerciale = idCategoriaCommerciale;
@@ -83,7 +83,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._idAreaIntervento.Equals(_idAreaIntervento) && other._idTipoIntervento.Equals(_idTipoIntervento) && other._idAppaltatore.Equals(_idAppaltatore) && other._idCategoriaCommerciale.Equals(_idCategoriaCommerciale) && other._idDirezioneRegionale.Equals(_idDirezioneRegionale) && Equals(other._period, _period) && Equals(other._note, _note);
+            return base.Equals(other) && other._idImpianto.Equals(_idImpianto) && other._idTipoIntervento.Equals(_idTipoIntervento) && other._idAppaltatore.Equals(_idAppaltatore) && other._idCategoriaCommerciale.Equals(_idCategoriaCommerciale) && other._idDirezioneRegionale.Equals(_idDirezioneRegionale) && Equals(other._period, _period) && Equals(other._note, _note);
         }
 
         public override bool Equals(object obj)
@@ -98,7 +98,7 @@ namespace Super.Appaltatore.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _idAreaIntervento.GetHashCode();
+                result = (result*397) ^ _idImpianto.GetHashCode();
                 result = (result*397) ^ _idTipoIntervento.GetHashCode();
                 result = (result*397) ^ _idAppaltatore.GetHashCode();
                 result = (result*397) ^ _idCategoriaCommerciale.GetHashCode();
@@ -149,7 +149,7 @@ namespace Super.Appaltatore.Commands
         {}
 
         public ProgrammareInterventoRot(Guid id,
-                                     Guid idAreaIntervento,
+                                     Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
                                      Guid idCategoriaCommerciale,
@@ -163,7 +163,7 @@ namespace Super.Appaltatore.Commands
             string rigaTurnoTreno,
             string convoglio
             )
-            : base(id, idAreaIntervento, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             _oggetti = oggetti;
             _trenoPartenza = trenoPartenza;
@@ -219,7 +219,7 @@ namespace Super.Appaltatore.Commands
         {}
 
         public ProgrammareInterventoRotMan(Guid id,
-                                     Guid idAreaIntervento,
+                                     Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
                                      Guid idCategoriaCommerciale,
@@ -227,7 +227,7 @@ namespace Super.Appaltatore.Commands
                                      WorkPeriod period,
                                      string note,
                                      OggettoRotMan[] oggetti)
-            : base(id, idAreaIntervento, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             _oggetti = oggetti;
         }
@@ -271,7 +271,7 @@ namespace Super.Appaltatore.Commands
         {}
 
         public ProgrammareInterventoAmb(Guid id,
-                                     Guid idAreaIntervento,
+                                     Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
                                      Guid idCategoriaCommerciale,
@@ -280,7 +280,7 @@ namespace Super.Appaltatore.Commands
                                      string note,
                                      int quantity,
                                      string description)
-            : base(id, idAreaIntervento, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Contract.Requires<ArgumentOutOfRangeException>(quantity <= 0);
 

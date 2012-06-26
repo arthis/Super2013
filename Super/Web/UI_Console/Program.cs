@@ -36,7 +36,7 @@ namespace UI_Console
                                                   TrenoPartenza = trenoPartenza,
                                                   Id = id,
                                                   IdAppaltatore = idAppaltatore,
-                                                  IdAreaIntervento = Guid.NewGuid(),
+                                                  IdImpianto = Guid.NewGuid(),
                                                   IdCategoriaCommerciale = Guid.NewGuid(),
                                                   IdDirezioneRegionale = Guid.NewGuid(),
                                                   Note = "note",
@@ -67,21 +67,21 @@ namespace UI_Console
 
 
 
-        //static void ExecutorMessage(CreareNuovoAreaIntervento cmd)
+        //static void ExecutorMessage(CreareNuovoImpianto cmd)
         //{
         //    Console.WriteLine("---------------------------------");
 
-        //    var evt = new AreaInterventoCreata()
+        //    var evt = new ImpiantoCreata()
         //    {
         //        Id = Guid.NewGuid(),
         //        CreationDate = DateTime.Now,
         //        Description = "test descrizione",
         //        Start = DateTime.Now,
         //        End = DateTime.Now,
-        //        IdAreaInterventoSuper = 12
+        //        IdImpiantoSuper = 12
         //    };
 
-        //    Bus.Publish<AreaInterventoCreata>(evt);
+        //    Bus.Publish<ImpiantoCreata>(evt);
 
 
 

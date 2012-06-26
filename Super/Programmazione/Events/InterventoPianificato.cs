@@ -8,7 +8,7 @@ namespace Super.Programmazione.Events
     public abstract class InterventoPianificato : Message,IEvent, IInterventoPianificato
     {
         public Guid Id { get; set; }
-        public Guid IdAreaIntervento { get; set; }
+        public Guid IdImpianto { get; set; }
         public Guid IdTipoIntervento { get; set; }
         public Guid IdAppaltatore { get; set; }
         public Guid IdCategoriaCommerciale { get; set; }
@@ -21,7 +21,7 @@ namespace Super.Programmazione.Events
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.Id.Equals(Id) && other.IdAreaIntervento.Equals(IdAreaIntervento) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && Equals(other.Period, Period) && Equals(other.Note, Note);
+            return base.Equals(other) && other.Id.Equals(Id) && other.IdImpianto.Equals(IdImpianto) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && Equals(other.Period, Period) && Equals(other.Note, Note);
         }
 
         public override bool Equals(object obj)
@@ -37,7 +37,7 @@ namespace Super.Programmazione.Events
             {
                 int result = base.GetHashCode();
                 result = (result*397) ^ Id.GetHashCode();
-                result = (result*397) ^ IdAreaIntervento.GetHashCode();
+                result = (result*397) ^ IdImpianto.GetHashCode();
                 result = (result*397) ^ IdTipoIntervento.GetHashCode();
                 result = (result*397) ^ IdAppaltatore.GetHashCode();
                 result = (result*397) ^ IdCategoriaCommerciale.GetHashCode();

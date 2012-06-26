@@ -12,7 +12,7 @@ namespace Super.Appaltatore.Events.Builders
     public class InterventoRotProgrammatoBuilder
     {
         private Guid _id;
-        private Guid _idAreaIntervento;
+        private Guid _idImpianto;
         private Guid _idTipoIntervento;
         private Guid _idAppaltatore;
         private Guid _idCategoriaCommerciale;
@@ -44,9 +44,9 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoRotProgrammatoBuilder In(Guid idAreaIntervento)
+        public InterventoRotProgrammatoBuilder In(Guid idImpianto)
         {
-            _idAreaIntervento = idAreaIntervento;
+            _idImpianto = idImpianto;
             return this;
         }
 
@@ -113,7 +113,7 @@ namespace Super.Appaltatore.Events.Builders
         public InterventoRotProgrammato Build()
         {
             return new InterventoRotProgrammato(_id,
-                                      _idAreaIntervento,
+                                      _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,
                                       _idCategoriaCommerciale,

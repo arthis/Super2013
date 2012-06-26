@@ -74,13 +74,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaIntervento\Cancellazione_di_una_area_intervento_gia_creata.cs" />
-    <Compile Include="AreaIntervento\Aggiornamento_di_una_area_intervento_gia_creata.cs" />
-    <Compile Include="AreaIntervento\Cancellazione_di_una_area_intervento_non esistente.cs" />
-    <Compile Include="AreaIntervento\Cancellazione_di_una_area_intervento_gia_cancellata.cs" />
-    <Compile Include="AreaIntervento\Aggiornamento_di_una_area_intervento_non_esistente.cs" />
-    <Compile Include="AreaIntervento\Creazione_di_una_nuova_area_intervento_gia_creata.cs" />
-    <Compile Include="AreaIntervento\Creazione_di_una_nuova_area_intervento.cs" />
+    <Compile Include="Impianto\Aggiornamento_di_una_area_intervento_gia_creata.cs" />
+    <Compile Include="Impianto\Aggiornamento_di_una_area_intervento_non_esistente.cs" />
+    <Compile Include="Impianto\Cancellazione_di_una_area_intervento_gia_cancellata.cs" />
+    <Compile Include="Impianto\Cancellazione_di_una_area_intervento_gia_creata.cs" />
+    <Compile Include="Impianto\Cancellazione_di_una_area_intervento_non esistente.cs" />
+    <Compile Include="Impianto\Creazione_di_una_nuova_area_intervento.cs" />
+    <Compile Include="Impianto\Creazione_di_una_nuova_area_intervento_gia_creata.cs" />
+    <Compile Include="Lotto\Aggiornamento_di_un_lotto_gia_creato.cs" />
+    <Compile Include="Lotto\Aggiornamento_di_un_lotto_non_esistente.cs" />
+    <Compile Include="Lotto\Cancellazione_di_un_lotto_gia_cancellato.cs" />
+    <Compile Include="Lotto\Cancellazione_di_un_lotto_gia_creato.cs" />
+    <Compile Include="Lotto\Cancellazione_di_un_lotto_non_esistente.cs" />
+    <Compile Include="Lotto\Creazione_di_un_nuovo_lotto.cs" />
+    <Compile Include="Lotto\Creazione_di_un_nuovo_lotto_gia_creato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

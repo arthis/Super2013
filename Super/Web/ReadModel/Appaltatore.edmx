@@ -7,6 +7,7 @@
     <Schema Namespace="Super2013Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="Super2013ModelStoreContainer">
           <EntitySet Name="ConsuntivazioneRot" EntityType="Super2013Model.Store.ConsuntivazioneRot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LastEventsReadAppaltatore" EntityType="Super2013Model.Store.LastEventsReadAppaltatore" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="ConsuntivazioneRot">
           <Key>
@@ -15,7 +16,7 @@
           <Property Name="IdIntervento" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IdCommittente" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="IdAreaIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdImpianto" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IdTipoIntervento" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CodiceOrdine" Type="nvarchar" MaxLength="255" />
           <Property Name="IsAvvisoIspezione" Type="bit" Nullable="false" />
@@ -52,13 +53,28 @@
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="LastEventsReadAppaltatore">
+          <Key>
+            <PropertyRef Name="CommitId" />
+          </Key>
+          <Property Name="CommitId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AppaltatoreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="AppaltatoreContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LastEventsReadAppaltatores" EntityType="AppaltatoreModel.LastEventsReadAppaltatore" />
           <EntitySet Name="ConsuntivazioneRots" EntityType="AppaltatoreModel.ConsuntivazioneRot" />
         </EntityContainer>
+        <EntityType Name="LastEventsReadAppaltatore">
+          <Key>
+            <PropertyRef Name="CommitId" />
+          </Key>
+          <Property Type="Guid" Name="CommitId" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+        </EntityType>
         <EntityType Name="ConsuntivazioneRot">
           <Key>
             <PropertyRef Name="IdIntervento" />
@@ -66,7 +82,7 @@
           <Property Type="Guid" Name="IdIntervento" Nullable="false" />
           <Property Type="Guid" Name="IdCommittente" Nullable="false" />
           <Property Type="Guid" Name="IdLotto" Nullable="false" />
-          <Property Type="Guid" Name="IdAreaIntervento" Nullable="false" />
+          <Property Type="Guid" Name="IdImpianto" Nullable="false" />
           <Property Type="Guid" Name="IdTipoIntervento" Nullable="false" />
           <Property Type="String" Name="CodiceOrdine" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsAvvisoIspezione" Nullable="false" />
@@ -109,6 +125,14 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Super2013ModelStoreContainer" CdmEntityContainer="AppaltatoreContainer">
+          <EntitySetMapping Name="LastEventsReadAppaltatores">
+            <EntityTypeMapping TypeName="AppaltatoreModel.LastEventsReadAppaltatore">
+              <MappingFragment StoreEntitySet="LastEventsReadAppaltatore">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CommitId" ColumnName="CommitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ConsuntivazioneRots">
             <EntityTypeMapping TypeName="AppaltatoreModel.ConsuntivazioneRot">
               <MappingFragment StoreEntitySet="ConsuntivazioneRot">
@@ -147,7 +171,7 @@
                 <ScalarProperty Name="IsAvvisoIspezione" ColumnName="IsAvvisoIspezione" />
                 <ScalarProperty Name="CodiceOrdine" ColumnName="CodiceOrdine" />
                 <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
-                <ScalarProperty Name="IdAreaIntervento" ColumnName="IdAreaIntervento" />
+                <ScalarProperty Name="IdImpianto" ColumnName="IdImpianto" />
                 <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
                 <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
                 <ScalarProperty Name="IdIntervento" ColumnName="IdIntervento" />
@@ -174,8 +198,9 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Appaltatore" ZoomLevel="77">
-        <EntityTypeShape EntityType="AppaltatoreModel.ConsuntivazioneRot" Width="1.5" PointX="0.75" PointY="0.75" Height="8.51853515625" />
+      <Diagram Name="Appaltatore" ZoomLevel="59">
+        <EntityTypeShape EntityType="AppaltatoreModel.LastEventsReadAppaltatore" Width="1.5" PointX="3.375" PointY="1.375" Height="1.4033821614583335" />
+        <EntityTypeShape EntityType="AppaltatoreModel.ConsuntivazioneRot" Width="1.5" PointX="0.875" PointY="1.125" Height="8.51853515625" />
       </Diagram>
     </Diagrams>
   </Designer>

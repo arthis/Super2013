@@ -1,21 +1,14 @@
 using System;
+using CommonDomain;
 
 namespace Super.Controllo.Commands.Builders
 {
-    public class ControlInterventoNonResoBuilder
+    public class ControlInterventoNonResoBuilder : ICommandBuilder<ControlInterventoNonReso>
     {
-        private Guid _id;
         private Guid _idUtente;
         private DateTime _controlDate;
         private Guid _idCausale;
         private string _note;
-
-
-        public ControlInterventoNonResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public ControlInterventoNonResoBuilder By(Guid idUtente)
         {
@@ -41,9 +34,9 @@ namespace Super.Controllo.Commands.Builders
             return this;
         }
 
-        public ControlInterventoNonReso Build()
+        public ControlInterventoNonReso Build(Guid id)
         {
-            var cmd = new ControlInterventoNonReso(_id, _idUtente, _controlDate,_idCausale,_note);
+            var cmd = new ControlInterventoNonReso(id, _idUtente, _controlDate,_idCausale,_note);
 
             cmd.CommitId = Guid.NewGuid();
 

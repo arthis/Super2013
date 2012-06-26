@@ -12,13 +12,14 @@ using Super.Appaltatore.Commands;
 using Super.Appaltatore.Commands.Builders;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
+using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile
 {
     public class Inizio_della_saga_intervento_rotabile_non_iniziata : SagaBaseClass<InterventoRotPianificato>
     {
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -53,7 +54,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
             {
                 Period = _period,
                 Id = _id,
-                IdAreaIntervento = _idAreaIntervento,
+                IdImpianto = _idImpianto,
                 IdTipoIntervento = _idTipoIntervento,
                 IdAppaltatore = _idAppaltatore,
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
@@ -71,16 +72,16 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
         public override IEnumerable<IMessage> Expect()
         {
             var builder = new ProgrammareInterventoRotBuilder();
-            yield return builder.ForPeriod(_period)
-                            .ForId(_id)
-                            .ForArea(_idAreaIntervento)
+            yield return BuildCmd.ProgrammareInterventoRot
+                            .ForPeriod(_period)
+                            .ForArea(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
                             .ForConvoglio(_convoglio)
-                            .Build();
+                            .Build(_id);
         }
 
         [Test]

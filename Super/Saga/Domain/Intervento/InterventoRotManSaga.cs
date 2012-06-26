@@ -36,17 +36,16 @@ namespace Super.Saga.Domain.Intervento
             if (!_stateMachine.IsInState(State.Start))
                 throw new Exception("Saga already started");
 
-            var builder = new ProgrammareInterventoRotManBuilder();
-            var cmd = builder.ForId(evt.Id)
+            var cmd = Build.ProgrammareInterventoRotMan
                                 .ForPeriod(evt.Period)
-                                .ForArea(evt.IdAreaIntervento)
+                                .ForArea(evt.IdImpianto)
                                 .ForTipo(evt.IdTipoIntervento)
                                 .ForAppaltatore(evt.IdAppaltatore)
                                 .OfCategoriaCommerciale(evt.IdCategoriaCommerciale)
                                 .OfDirezioneRegionale(evt.IdDirezioneRegionale)
                                 .WithNote(evt.Note)
                                 .WithOggetti(evt.Oggetti)
-                                .Build();
+                                .Build(evt.Id);
 
             Dispatch(cmd);
 

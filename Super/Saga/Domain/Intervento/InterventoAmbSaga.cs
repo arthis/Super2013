@@ -37,9 +37,9 @@ namespace Super.Saga.Domain.Intervento
                 throw  new Exception("Saga already started");
 
             var builder = new ProgrammareInterventoAmbBuilder();
-            var cmd  = builder.ForId(evt.Id)
+            var cmd  = Build.ProgrammareInterventoAmb
                                 .ForPeriod(evt.Period)
-                                .ForArea(evt.IdAreaIntervento)
+                                .ForArea(evt.IdImpianto)
                                 .OfType(evt.IdTipoIntervento)
                                 .ForAppaltatore(evt.IdAppaltatore)
                                 .OfCategoriaCommerciale(evt.IdCategoriaCommerciale)
@@ -47,7 +47,7 @@ namespace Super.Saga.Domain.Intervento
                                 .WithNote(evt.Note)
                                 .WithQuantity(evt.Quantity)
                                 .WithDescription(evt.Description)
-                                .Build();
+                                .Build(evt.Id);
 
             Dispatch(cmd);
 

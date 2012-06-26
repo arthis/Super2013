@@ -1,24 +1,17 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Controllo.Commands.Builders
 {
-    public class ControlInterventoRotManResoBuilder
+    public class ControlInterventoRotManResoBuilder : ICommandBuilder<ControlInterventoRotManReso>
     {
-        private Guid _id;
         private Guid _idUtente;
         private DateTime _controlDate;
         private string _note;
         private WorkPeriod _period;
         private OggettoRotMan[] _oggetti;
-
-
-
-        public ControlInterventoRotManResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
+        
 
         public ControlInterventoRotManResoBuilder By(Guid idUtente)
         {
@@ -54,9 +47,9 @@ namespace Super.Controllo.Commands.Builders
 
 
 
-        public ControlInterventoRotManReso Build()
+        public ControlInterventoRotManReso Build(Guid id)
         {
-            var cmd = new ControlInterventoRotManReso(_id, _idUtente, _controlDate, _period, _note, _oggetti);
+            var cmd = new ControlInterventoRotManReso(id, _idUtente, _controlDate, _period, _note, _oggetti);
 
             cmd.CommitId = Guid.NewGuid();
 

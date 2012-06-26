@@ -11,13 +11,15 @@ using Super.Appaltatore.Commands.Builders;
 using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
+using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+using BuildEvt = Super.Appaltatore.Events.Builders.Build;
 
 namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
 {
     public class Programmazione_di_intervento_rotabile_in_manutenzione_gia_esistente : CommandBaseClass<ProgrammareInterventoRotMan>
     {
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -33,33 +35,30 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Given()
         {
-            var builder = new InterventoRotManProgrammatoBuilder();
-
-            yield return builder.WithOggetti(_oggetti.ToArray())
+            yield return BuildEvt.InterventoRotManProgrammato
+                            .WithOggetti(_oggetti.ToArray())
                             .ForPeriod(_period)
-                            .ForId(_id)
-                            .In(_idAreaIntervento)
+                            .In(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
-                            .Build();
+                            .Build(_id);
         }
 
         public override ProgrammareInterventoRotMan When()
         {
-            var builder = new ProgrammareInterventoRotManBuilder();
-            return builder.WithOggetti(_oggetti.ToArray())
+            return BuildCmd.ProgrammareInterventoRotMan
+                            .WithOggetti(_oggetti.ToArray())
                             .ForPeriod(_period)
-                            .ForId(_id)
-                            .In(_idAreaIntervento)
+                            .In(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
-                            .Build();
+                            .Build(_id);
 
         }
 

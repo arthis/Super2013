@@ -1,11 +1,11 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Controllo.Commands.Builders
 {
-    public class ControlInterventoRotResoBuilder
+    public class ControlInterventoRotResoBuilder: ICommandBuilder< ControlInterventoRotReso>
     {
-        private Guid _id;
         private Guid _idUtente;
         private DateTime _controlDate;
         private string _note;
@@ -17,13 +17,6 @@ namespace Super.Controllo.Commands.Builders
         private string _rigaTurnoTreno;
         private string _convoglio;
 
-
-
-        public ControlInterventoRotResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public ControlInterventoRotResoBuilder By(Guid idUtente)
         {
@@ -87,9 +80,9 @@ namespace Super.Controllo.Commands.Builders
             return this;
         }
 
-        public ControlInterventoRotReso Build()
+        public ControlInterventoRotReso Build(Guid id)
         {
-            var cmd = new ControlInterventoRotReso(_id, _idUtente, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
+            var cmd = new ControlInterventoRotReso(id, _idUtente, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
                                       _rigaTurnoTreno,
                                       _convoglio);
 

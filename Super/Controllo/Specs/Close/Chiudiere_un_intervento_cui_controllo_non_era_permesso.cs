@@ -8,6 +8,8 @@ using Super.Controllo.Commands;
 using CommonSpecs;
 using Super.Controllo.Commands.Builders;
 using Super.Controllo.Handlers;
+using BuildCmd = Super.Controllo.Commands.Builders.Build;
+using BuildEvt = Super.Controllo.Events.Builders.Build;
 
 namespace Super.Controllo.Specs.Close
 {
@@ -31,10 +33,10 @@ namespace Super.Controllo.Specs.Close
         {
             var builder = new CloseInterventoBuilder();
 
-            return builder.ForId(_Id)
+            return BuildCmd.CloseIntervento
                 .By(_idUtente)
                 .When(_closingDate)
-                .Build();
+                .Build(_Id);
         }
 
         public override IEnumerable<IMessage> Expect()

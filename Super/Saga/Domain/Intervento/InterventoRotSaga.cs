@@ -36,10 +36,9 @@ namespace Super.Saga.Domain.Intervento
             if (!_stateMachine.IsInState(State.Start))
                 throw  new Exception("Saga already started");
 
-            var builder = new ProgrammareInterventoRotBuilder();
-            var cmd = builder.ForId(evt.Id)
+            var cmd = Build.ProgrammareInterventoRot
                                 .ForPeriod(evt.Period)
-                                .ForArea(evt.IdAreaIntervento)
+                                .ForArea(evt.IdImpianto)
                                 .ForTipo(evt.IdTipoIntervento)
                                 .ForAppaltatore(evt.IdAppaltatore)
                                 .OfCategoriaCommerciale(evt.IdCategoriaCommerciale)
@@ -51,7 +50,7 @@ namespace Super.Saga.Domain.Intervento
                                 .WithTurnoTreno(evt.TurnoTreno)
                                 .WithRigaTurnoTreno(evt.RigaTurnoTreno)
                                 .ForConvoglio(evt.Convoglio)
-                                .Build();
+                                .Build(evt.Id);
 
             Dispatch(cmd);
 

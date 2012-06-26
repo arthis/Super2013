@@ -14,7 +14,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
     public class Inizio_della_saga_intervento_ambiente_gia_iniziata : SagaBaseClass<InterventoAmbPianificato>
     {
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -39,7 +39,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
             {
                 Period = _period,
                 Id = _id,
-                IdAreaIntervento = _idAreaIntervento,
+                IdImpianto = _idImpianto,
                 IdTipoIntervento = _idTipoIntervento,
                 IdAppaltatore = _idAppaltatore,
                 IdCategoriaCommerciale = _idCategoriaCommerciale,
@@ -55,7 +55,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
                        {
                            Period = _period,
                            Id = _id,
-                           IdAreaIntervento = _idAreaIntervento,
+                           IdImpianto = _idImpianto,
                            IdTipoIntervento = _idTipoIntervento,
                            IdAppaltatore = _idAppaltatore,
                            IdCategoriaCommerciale = _idCategoriaCommerciale,

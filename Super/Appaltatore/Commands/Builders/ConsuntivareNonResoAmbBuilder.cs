@@ -1,20 +1,15 @@
 using System;
+using CommonDomain;
 
 namespace Super.Appaltatore.Commands.Builders
 {
-    public class ConsuntivareNonResoAmbBuilder
+    public class ConsuntivareNonResoAmbBuilder : ICommandBuilder<ConsuntivareAmbNonReso>
     {
-        private Guid _id;
         private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
         private Guid _idCausaleAppaltatore;
         private string _note;
 
-        public ConsuntivareNonResoAmbBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public ConsuntivareNonResoAmbBuilder ForInterventoAppaltatore(string idInterventoAppaltatore)
         {
@@ -40,9 +35,9 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ConsuntivareAmbNonReso Build()
+        public ConsuntivareAmbNonReso Build(Guid id)
         {
-            var cmd = new  ConsuntivareAmbNonReso(_id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
+            var cmd = new  ConsuntivareAmbNonReso(id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
 
             cmd.CommitId = Guid.NewGuid();
 

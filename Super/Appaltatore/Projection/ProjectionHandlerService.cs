@@ -10,14 +10,15 @@ namespace Super.Appaltatore.Projection
         {
             string subscriptionId = "Super";
 
-            //Consuntivazione Rotabile Projection
-            bus.Subscribe<InterventoRotProgrammato>(subscriptionId, evt => new ConsuntivazioneRotProjection().Handle(evt));
+            bus.Subscribe<InterventoRotProgrammato>(subscriptionId, evt => new ReadOnce<InterventoRotProgrammato>()
+                                                                                .Handle(evt, new ConsuntivazioneRotProjection()));
 
-            //Consuntivazione Rotabile in manutenzione Projection
-            bus.Subscribe<InterventoRotManProgrammato>(subscriptionId, evt => new ConsuntivazioneRotManProjection().Handle(evt));
+            bus.Subscribe<InterventoRotManProgrammato>(subscriptionId, evt => new ReadOnce<InterventoRotManProgrammato>()
+                                                                                .Handle(evt, new ConsuntivazioneRotManProjection()));
 
-            //Consuntivazione Ambiente Projection
-            bus.Subscribe<InterventoAmbProgrammato>(subscriptionId, evt => new ConsuntivazioneAmbProjection().Handle(evt));
+            bus.Subscribe<InterventoAmbProgrammato>(subscriptionId, evt => new ReadOnce<InterventoAmbProgrammato>()
+                                                                                .Handle(evt, new ConsuntivazioneAmbProjection()));
+
         }
     }
 }

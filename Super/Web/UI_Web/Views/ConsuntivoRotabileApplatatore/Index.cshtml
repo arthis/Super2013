@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Area Intervento";
+    ViewBag.Title = "impianto";
     Layout = "~/Content/Layout/Earthlingtwo/_Layout.cshtml";// "~/Views/Shared/_LayoutDetailTemplate.cshtml"
 }
 <h2>Consuntivo Rot Appaltatore</h2>
@@ -375,7 +375,7 @@
             ko.utils.arrayForEach(items.results, function (i) {
                 self.Items.push(new Intervento(
                                     i.Id, i.IdSuper2010, i.CodiceOrdine, i.IsAvvisoIspezione, i.IsSpunta, i.HasSchedaV, i.HasSchedaQ, ToDate(i.Data),
-                                    i.AreaInterventoDescrizione, i.CategoriaTreno, i.NumeroTrenoPartenza, ToDate(i.DataOraTrenoPartenza),
+                                    i.ImpiantoDescrizione, i.CategoriaTreno, i.NumeroTrenoPartenza, ToDate(i.DataOraTrenoPartenza),
                                     i.TipoInterventoDescrizione, ToDate(i.DataOraInizioProgrammata), ToDate(i.DataOraFineProgrammata),
                                     i.ComposizioneProgrammata, ToDate(i.DataOraInizioConsuntivataAppaltatore), ToDate(i.DataOraFineConsuntivataAppaltatore),
                                     i.IsProgrammato, i.IsPLX, i.IsEstemporaneo, i.IsSostitutivo, i.IsReso, i.IsNonResoAppaltatore,

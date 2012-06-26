@@ -1,11 +1,11 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Appaltatore.Commands.Builders
 {
-    public class ConsuntivareAmbResoBuilder
+    public class ConsuntivareAmbResoBuilder : ICommandBuilder<ConsuntivareAmbReso>
     {
-        private Guid _id;
         private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
         private WorkPeriod _period;
@@ -32,11 +32,6 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ConsuntivareAmbResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public ConsuntivareAmbResoBuilder ForInterventoAppaltatore(string IdInterventoAppaltatore)
         {
@@ -57,9 +52,9 @@ namespace Super.Appaltatore.Commands.Builders
         }
 
 
-        public ConsuntivareAmbReso Build()
+        public ConsuntivareAmbReso Build(Guid id)
         {
-            var cmd = new  ConsuntivareAmbReso(_id, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,_quantity, _description);
+            var cmd = new  ConsuntivareAmbReso(id, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,_quantity, _description);
 
             cmd.CommitId = Guid.NewGuid();
 

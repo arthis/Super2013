@@ -74,6 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandlerService.cs" />
+    <Compile Include="CreateLottoHandler.cs" />
+    <Compile Include="DeleteLottoHandler.cs" />
+    <Compile Include="UpdateLottoHandler.cs" />
     <Compile Include="UpdateAreaInterventoHandler.cs" />
     <Compile Include="DeleteAreaInterventoHandler.cs" />
     <Compile Include="CreateAreaInterventoHandler.cs" />

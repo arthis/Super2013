@@ -1,13 +1,13 @@
 ﻿using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Appaltatore.Commands.Builders
 {
 
-    public class ProgrammareInterventoRotManBuilder
+    public class ProgrammareInterventoRotManBuilder : ICommandBuilder<ProgrammareInterventoRotMan>
     {
-        private Guid _id;
-        private Guid _idAreaIntervento;
+        private Guid _idImpianto;
         private Guid _idTipoIntervento;
         private Guid _idAppaltatore;
         private Guid _idCategoriaCommerciale;
@@ -29,15 +29,9 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ProgrammareInterventoRotManBuilder ForId(Guid id)
+        public ProgrammareInterventoRotManBuilder In(Guid idImpianto)
         {
-            _id = id;
-            return this;
-        }
-
-        public ProgrammareInterventoRotManBuilder In(Guid idAreaIntervento)
-        {
-            _idAreaIntervento = idAreaIntervento;
+            _idImpianto = idImpianto;
             return this;
         }
 
@@ -71,9 +65,9 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ProgrammareInterventoRotManBuilder ForArea(Guid idAreaIntervento)
+        public ProgrammareInterventoRotManBuilder ForArea(Guid idImpianto)
         {
-            _idAreaIntervento = idAreaIntervento;
+            _idImpianto = idImpianto;
             return this;
         }
 
@@ -84,10 +78,10 @@ namespace Super.Appaltatore.Commands.Builders
         }
       
 
-        public ProgrammareInterventoRotMan Build()
+        public ProgrammareInterventoRotMan Build(Guid id)
         {
-            var cmd = new  ProgrammareInterventoRotMan(_id,
-                                      _idAreaIntervento,
+            var cmd = new  ProgrammareInterventoRotMan(id,
+                                      _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,
                                       _idCategoriaCommerciale,

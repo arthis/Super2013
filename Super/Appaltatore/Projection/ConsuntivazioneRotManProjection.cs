@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Linq;
 using CommonDomain.Core;
-using Super.Administration.ReadModel;
+using Super.ReadModel;
 using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Projection
@@ -16,7 +16,7 @@ namespace Super.Appaltatore.Projection
             return new AppaltatoreContainer(connectionString);
         }
 
-        public void Handle(InterventoRotManProgrammato evt)
+        public void Handle(InterventoRotManProgrammato evt,IEventHandler<InterventoRotManProgrammato> next)
         {
 
             throw  new NotImplementedException();
@@ -37,10 +37,10 @@ namespace Super.Appaltatore.Projection
             //                 Start = evt.Start,
             //                 End = evt.End,
             //                 IdLotto = Guid.Empty,
-            //                 IdAreaIntervento = evt.IdAreaIntervento,
+            //                 IdImpianto = evt.IdImpianto,
             //                 IdTipoIntervento = evt.IdTipoIntervento,
             //                 IdCommittente = Guid.Empty,
-            //                 AreaInterventoDescrizione = "to be fetched",
+            //                 ImpiantoDescrizione = "to be fetched",
             //                 TipoInterventoDescrizione = "to be fetched",
             //                 Deleted = false,
             //                 //etc... to be done later

@@ -1,13 +1,13 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
-    public class InterventoRotManProgrammatoBuilder
+    public class InterventoRotManProgrammatoBuilder : IEventBuilder<InterventoRotManProgrammato>
     {
-        private Guid _id;
-        private Guid _idAreaIntervento;
+        private Guid _idImpianto;
         private Guid _idTipoIntervento;
         private Guid _idAppaltatore;
         private Guid _idCategoriaCommerciale;
@@ -28,15 +28,10 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoRotManProgrammatoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
-        public InterventoRotManProgrammatoBuilder In(Guid idAreaIntervento)
+        public InterventoRotManProgrammatoBuilder In(Guid idImpianto)
         {
-            _idAreaIntervento = idAreaIntervento;
+            _idImpianto = idImpianto;
             return this;
         }
 
@@ -70,10 +65,10 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoRotManProgrammato Build()
+        public InterventoRotManProgrammato Build(Guid id)
         {
-            return new InterventoRotManProgrammato(_id,
-                                                   _idAreaIntervento,
+            return new InterventoRotManProgrammato(id,
+                                                   _idImpianto,
                                                    _idTipoIntervento,
                                                    _idAppaltatore,
                                                    _idCategoriaCommerciale,

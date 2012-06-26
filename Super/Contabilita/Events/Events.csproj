@@ -73,13 +73,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaIntervento\AreaInterventoUpdated.cs" />
-    <Compile Include="AreaIntervento\AreaInterventoDeleted.cs" />
-    <Compile Include="AreaIntervento\AreaInterventoCreated.cs" />
-    <Compile Include="Builders\AreaInterventoCreatedBuilder.cs" />
-    <Compile Include="Builders\AreaInterventoDeletedBuilder.cs" />
-    <Compile Include="Builders\AreaInterventoUpdatedBuilder.cs" />
+    <Compile Include="Builders\LottoDeletedBuilder.cs" />
+    <Compile Include="Builders\LottoUpdatedBuilder.cs" />
+    <Compile Include="Builders\ImpiantoDeletedBuilder.cs" />
     <Compile Include="Builders\Build.cs" />
+    <Compile Include="Builders\ImpiantoCreatedBuilder.cs" />
+    <Compile Include="Builders\ImpiantoUpdatedBuilder.cs" />
+    <Compile Include="Builders\LottoCreatedBuilder.cs" />
+    <Compile Include="Impianto\ImpiantoCreated.cs" />
+    <Compile Include="Impianto\ImpiantoDeleted.cs" />
+    <Compile Include="Impianto\ImpiantoUpdated.cs" />
+    <Compile Include="Lotto\LottoCreated.cs" />
+    <Compile Include="Lotto\LottoDeleted.cs" />
+    <Compile Include="Lotto\LottoUpdated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

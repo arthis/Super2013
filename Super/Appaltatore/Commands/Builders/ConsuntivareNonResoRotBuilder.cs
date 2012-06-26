@@ -1,22 +1,17 @@
 ﻿using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Appaltatore.Commands.Builders
 {
 
-    public class ConsuntivareNonResoRotBuilder
+    public class ConsuntivareNonResoRotBuilder : ICommandBuilder<ConsuntivareRotNonReso>
     {
-        private Guid _id;
         private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
         private Guid _idCausaleAppaltatore;
         private string _note;
 
-        public ConsuntivareNonResoRotBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public ConsuntivareNonResoRotBuilder ForInterventoAppaltatore(string idInterventoAppaltatore)
         {
@@ -41,9 +36,9 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ConsuntivareRotNonReso Build()
+        public ConsuntivareRotNonReso Build(Guid id)
         {
-            var cmd = new  ConsuntivareRotNonReso(_id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
+            var cmd = new  ConsuntivareRotNonReso(id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
             
             cmd.CommitId = Guid.NewGuid();
 

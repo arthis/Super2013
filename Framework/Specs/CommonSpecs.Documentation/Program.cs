@@ -7,7 +7,7 @@ using CommandService;
 using CommonSpecs;
 using CommonSpecs.Documentation;
 using NVelocity.Context;
-using Super.Contabilita.Specs.AreaIntervento;
+using Super.Contabilita.Specs.Impianto;
 using Super.Appaltatore.Specs.Programmazione.Rotabile;
 using Super.Saga.Specs.Saga_Intervento.Rotabile;
 
@@ -101,7 +101,7 @@ namespace CommonSpecs.Documentation
             //-------------------------------------------------
             //create the documentation pages
             //-------------------------------------------------
-            Assembly specsContabilita = typeof(Creazione_di_una_nuova_area_intervento).Assembly;
+            Assembly specsContabilita = typeof(Creazione_di_una_nuova_impianto).Assembly;
             //Assembly specsProgrammazione = typeof(Super.Programmazione.Specs.Creation_of_a_new_inventory_item).Assembly;
             Assembly specsAppaltatore = typeof(Programmazione_di_intervento_rotabile_gia_esistente).Assembly;
             Assembly specsControllo = typeof(Super.Controllo.Specs.Close.Chiudiere_un_intervento).Assembly;

@@ -18,7 +18,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
     public class Programmazione_di_intervento_ambiente_gia_esistente : CommandBaseClass<ProgrammareInterventoAmb>
     {
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -41,7 +41,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
             yield return  builder
                             .ForPeriod(_period)
                             .ForId(_id)
-                            .ForArea(_idAreaIntervento)
+                            .ForArea(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
@@ -56,8 +56,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
         {
             var builder = new ProgrammareInterventoAmbBuilder();
             return builder.ForPeriod(_period)
-                            .ForId(_id)
-                            .ForArea(_idAreaIntervento)
+                            .ForArea(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
@@ -66,7 +65,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
                             .WithNote(_note)
                             .WithQuantity(_quantity)
                             .WithDescription(_description)
-                            .Build();
+                            .Build(_id);
           
         }
 

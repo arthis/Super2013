@@ -18,7 +18,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
     public class Programmazione_di_intervento_rotabile_in_manutenzione_non_esistente : CommandBaseClass<ProgrammareInterventoRotMan>
     {
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -42,14 +42,13 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
             var builder = new ProgrammareInterventoRotManBuilder();
             return builder.WithOggetti(_oggetti.ToArray())
                             .ForPeriod(_period)
-                            .ForId(_id)
-                            .In(_idAreaIntervento)
+                            .In(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
-                            .Build();
+                            .Build(_id);
         }
 
         public override IEnumerable<IMessage> Expect()
@@ -58,14 +57,13 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
 
             yield return builder.WithOggetti(_oggetti.ToArray())
                             .ForPeriod(_period)
-                            .ForId(_id)
-                            .In(_idAreaIntervento)
+                            .In(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
-                            .Build();
+                            .Build(_id);
         }
 
         [Test]

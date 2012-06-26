@@ -8,8 +8,8 @@
     <ProjectGuid>{34152F74-4330-4271-83D0-2A2438CCE5FF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Super.Administration.ReadModel</RootNamespace>
-    <AssemblyName>Super.Administration.ReadModel</AssemblyName>
+    <RootNamespace>Super.ReadModel</RootNamespace>
+    <AssemblyName>Super.ReadModel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
@@ -78,31 +78,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administration.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Administration.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Appaltatore.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Appaltatore.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Contabilita.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contabilita.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Administration.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Administration.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="App.Config" />
     <EntityDeploy Include="Appaltatore.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Appaltatore.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Contabilita.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Contabilita.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Administration_ReadModel.edmx.sql" />
+    <Content Include="Contabilita_ReadModel.edmx.sql" />
     <Content Include="Appaltatore_ReadModel.edmx.sql" />
     <Content Include="EventStore.sql" />
   </ItemGroup>

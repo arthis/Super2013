@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace CommonSpecs
 {
     [TestFixture]
-    public abstract class CommandBaseClass<TCommand> : SpecsBaseClass where TCommand : class, IMessage
+    public abstract class CommandBaseClass<TCommand> : SpecsBaseClass where TCommand : class, ICommand
     {
         
         public Guid Id { get; set; }
@@ -37,7 +37,7 @@ namespace CommonSpecs
 
             try
             {
-                commandHandler.Execute(command);
+                commandHandler.Execute(command,null);
                 var actual = fakeRepository.CommittedEvents.ToList();
 
                 Assert.IsNotNull(actual);

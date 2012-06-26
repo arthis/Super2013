@@ -17,7 +17,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
     {
         //programmato
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -51,7 +51,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         {
             yield return new InterventoRotManProgrammato(
                 _id,
-                _idAreaIntervento,
+                _idImpianto,
                 _idTipoIntervento,
                 _idAppaltatore,
                 _idCategoriaCommerciale,

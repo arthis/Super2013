@@ -2,11 +2,17 @@ namespace Super.Contabilita.Events.Builders
 {
     public static class Build
     {
-        public static AreaInterventoCreatedBuilder AreaInterventoCreated { get { return new AreaInterventoCreatedBuilder(); } }
+        public static ImpiantoCreatedBuilder ImpiantoCreated { get { return new ImpiantoCreatedBuilder(); } }
 
-        public static AreaInterventoUpdatedBuilder AreaInterventoUpdated { get { return new AreaInterventoUpdatedBuilder(); } }
+        public static ImpiantoUpdatedBuilder ImpiantoUpdated { get { return new ImpiantoUpdatedBuilder(); } }
 
-        public static AreaInterventoDeletedBuilder AreaInterventoDeleted { get { return new AreaInterventoDeletedBuilder(); } }
+        public static ImpiantoDeletedBuilder ImpiantoDeleted { get { return new ImpiantoDeletedBuilder(); } }
+
+        public static LottoCreatedBuilder LottoCreated { get { return new LottoCreatedBuilder(); } }
+
+        public static LottoUpdatedBuilder LottoUpdated { get { return new LottoUpdatedBuilder(); } }
+
+        public static LottoDeletedBuilder LottoDeleted { get { return new LottoDeletedBuilder(); } }
 
        
     }

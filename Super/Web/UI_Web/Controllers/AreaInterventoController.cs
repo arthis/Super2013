@@ -6,8 +6,8 @@ using System.Web.Mvc;
 using System.ServiceModel;
 using CommandService;
 using CommonDomain;
-using Super.Administration.ReadModel;
-using Super.Contabilita.Commands.AreaIntervento;
+using Super.ReadModel;
+using Super.Contabilita.Commands.Impianto;
 using UI_Web.Models;
 using System.Text;
 using EasyNetQ;
@@ -15,11 +15,11 @@ using EasyNetQ;
 
 namespace UI_Web.Controllers
 {
-    public class AreaInterventoController : ControllerBaseSuper
+    public class ImpiantoController : ControllerBaseSuper
     {
         private readonly IBus _bus;
 
-        public AreaInterventoController()
+        public ImpiantoController()
         {
             _bus = RabbitHutch.CreateBus("host=localhost");
 
@@ -31,11 +31,11 @@ namespace UI_Web.Controllers
         }
 
         
-        public JsonResult GetItems(VisualizzareAreaIntervento command)
+        public JsonResult GetItems(VisualizzareImpianto command)
         {
-            using (var context = new AdministrationContainer())
+            using (var context = new ContabilitaContainer())
             {
-                var query = context.AreaInterventoes.Where(item => !item.Deleted);
+                var query = context.Impiantoes.Where(item => !item.Deleted);
 
                 if (!string.IsNullOrEmpty(command.Description))
                     query = query.Where(item => item.Description.IndexOf(command.Description) > -1);
@@ -61,11 +61,11 @@ namespace UI_Web.Controllers
         }
 
         [HttpPost]
-        public void Create(CreateAreaIntervento command)
+        public void Create(CreateImpianto command)
         {
             if (ModelState.IsValid)
             {
-                //var valid = _bus.Request<CreateAreaIntervento, ICommandValidation>(command, 30);
+                //var valid = _bus.Request<CreateImpianto, ICommandValidation>(command, 30);
                 //sync call here.... or at least waiting to do so...
             }
         }
@@ -80,7 +80,7 @@ namespace UI_Web.Controllers
 
 
         [HttpPost]
-        public void Update(UpdateAreaIntervento command)
+        public void Update(UpdateImpianto command)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace UI_Web.Controllers
 
 
         [HttpPost]
-        public void Delete(DeleteAreaIntervento command)
+        public void Delete(DeleteImpianto command)
         {
             if (ModelState.IsValid)
             {

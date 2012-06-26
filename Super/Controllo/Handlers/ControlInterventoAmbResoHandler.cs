@@ -16,7 +16,7 @@ namespace Super.Controllo.Handlers
         {
         }
 
-        public override CommandValidation Execute(ControlInterventoAmbReso cmd)
+        public override CommandValidation Execute(ControlInterventoAmbReso cmd, ICommandHandler<ControlInterventoAmbReso> next)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 

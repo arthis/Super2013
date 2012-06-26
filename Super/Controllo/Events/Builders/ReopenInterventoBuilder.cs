@@ -1,19 +1,12 @@
 using System;
+using CommonDomain;
 
 namespace Super.Controllo.Events.Builders
 {
-    public class InterventoReopenedBuilder
+    public class InterventoReopenedBuilder : IEventBuilder<InterventoReopened>
     {
-        private Guid _id;
         private Guid _idUtente;
         private DateTime _reopeningDate;
-
-
-        public InterventoReopenedBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public InterventoReopenedBuilder By(Guid idUtente)
         {
@@ -27,9 +20,9 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public InterventoReopened Build()
+        public InterventoReopened Build(Guid id)
         {
-            var cmd = new InterventoReopened(_id, _idUtente, _reopeningDate);
+            var cmd = new InterventoReopened(id, _idUtente, _reopeningDate);
 
             cmd.CommitId = Guid.NewGuid();
 

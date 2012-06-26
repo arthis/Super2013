@@ -16,7 +16,7 @@
     </fieldset>
     </form>
 </div>
-<div id="List" data-bind='template: "areaInterventoListTemplate"'></div>
+<div id="List" data-bind='template: "impiantoListTemplate"'></div>
 <br />
 <div id="pagination" class="pagebar">
 </div>
@@ -25,7 +25,7 @@
 </p>
 <div id="details" style="overflow: hidden;"></div>
 
-<script type="text/html" id="areaInterventoListTemplate">
+<script type="text/html" id="impiantoListTemplate">
     <table width=100% class="table-standard"> 
             <tr>
                 <th>
@@ -330,7 +330,7 @@
         this.ShowEditItem = function (item) {
             view.Spin({title: "Please Wait", message: "Opening form..."});
             viewModel.SelectedItem(item);
-            view.OpenDetails("@Url.Action("Update")", 'Update un area Intervento');
+            view.OpenDetails("@Url.Action("Update")", 'Update un impianto');
             view.StopSpin();
         };
         this.ShowAddItem = function () {
@@ -338,12 +338,12 @@
             var now = new Date();
             var newItem = new TipoIntervento(guidGenerator(),0, now, now, now, '', true)
             viewModel.SelectedItem(newItem);
-            view.OpenDetails("@Url.Action("Create")",'Aggiungere un area Intervento');
+            view.OpenDetails("@Url.Action("Create")",'Aggiungere un impianto');
             view.StopSpin();
         };
         this.DeleteItem = function (item) {
             
-            view.Spin({title: "Please Wait", message: "Deleting area..."});
+            view.Spin({title: "Please Wait", message: "Deleting impianto..."});
             repository.Delete(item,viewModel.DeleteItemSuccess,viewModel.DeleteItemError);
         };
 

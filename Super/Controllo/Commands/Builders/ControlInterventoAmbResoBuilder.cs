@@ -1,11 +1,11 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Controllo.Commands.Builders
 {
-    public class ControlInterventoAmbResoBuilder
+    public class ControlInterventoAmbResoBuilder: ICommandBuilder<ControlInterventoAmbReso>
     {
-        private Guid _id;
         private Guid _idUtente;
         private DateTime _controlDate;
         private string _note;
@@ -13,11 +13,6 @@ namespace Super.Controllo.Commands.Builders
         private int _quantity;
         private string _description;
 
-        public ControlInterventoAmbResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public ControlInterventoAmbResoBuilder By(Guid idUtente)
         {
@@ -55,9 +50,9 @@ namespace Super.Controllo.Commands.Builders
             return this;
         }
 
-        public ControlInterventoAmbReso Build()
+        public ControlInterventoAmbReso Build(Guid id)
         {
-            var cmd = new ControlInterventoAmbReso(_id, _idUtente, _controlDate, _period, _note, _quantity, _description);
+            var cmd = new ControlInterventoAmbReso(id, _idUtente, _controlDate, _period, _note, _quantity, _description);
 
             cmd.CommitId = Guid.NewGuid();
 

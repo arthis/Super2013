@@ -1,21 +1,15 @@
 using System;
+using CommonDomain;
 
 namespace Super.Controllo.Events.Builders
 {
-    public class InterventoControlledNonResoBuilder
+    public class InterventoControlledNonResoBuilder : IEventBuilder<InterventoControlledNonReso>
     {
-        private Guid _id;
         private Guid _idUtente;
         private DateTime _controlDate;
         private Guid _idCausale;
         private string _note;
-
-
-        public InterventoControlledNonResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
+      
 
         public InterventoControlledNonResoBuilder By(Guid idUtente)
         {
@@ -41,9 +35,9 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public InterventoControlledNonReso Build()
+        public InterventoControlledNonReso Build(Guid id)
         {
-            var cmd = new InterventoControlledNonReso(_id, _idUtente, _controlDate,_idCausale,_note);
+            var cmd = new InterventoControlledNonReso(id, _idUtente, _controlDate,_idCausale,_note);
 
             cmd.CommitId = Guid.NewGuid();
 

@@ -15,7 +15,7 @@ namespace Super.Appaltatore.Handlers
         {
         }
 
-        public override CommandValidation Execute(ProgrammareInterventoAmb cmd)
+        public override CommandValidation Execute(ProgrammareInterventoAmb cmd, ICommandHandler<ProgrammareInterventoAmb> next)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
@@ -26,7 +26,7 @@ namespace Super.Appaltatore.Handlers
                 throw new AlreadyCreatedAggregateRootException();
 
             existingIntervento.Programmare(cmd.Id
-                                , cmd.IdAreaIntervento
+                                , cmd.IdImpianto
                                 , cmd.IdTipoIntervento
                                 , cmd.IdAppaltatore
                                 , cmd.IdCategoriaCommerciale

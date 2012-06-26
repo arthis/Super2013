@@ -11,29 +11,17 @@ namespace Super.Controllo.Handlers
 {
     public class CommandHandlerService : ICommandHandlerService
     {
-        private readonly Dictionary<Type, Func<Object, CommandValidation>> _handlers = new Dictionary<Type, Func<Object, CommandValidation>>();
+        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
 
         public void InitHandlers(IRepository repositoryEvent)
         {
-            _handlers.Add(typeof(AllowControlIntervento),
-                          (cmd) => new AllowControlInterventoHandler(repositoryEvent).Execute((AllowControlIntervento)cmd));
-
-            _handlers.Add(typeof(CloseIntervento),
-                          (cmd) => new CloseInterventoHandler(repositoryEvent).Execute((CloseIntervento)cmd));
-
-            _handlers.Add(typeof(ControlInterventoNonReso),
-                          (cmd) => new ControlInterventoNonResoHandler(repositoryEvent).Execute((ControlInterventoNonReso)cmd));
-            
-            _handlers.Add(typeof(ControlInterventoAmbReso),
-                          (cmd) => new ControlInterventoAmbResoHandler(repositoryEvent).Execute((ControlInterventoAmbReso)cmd));
-            _handlers.Add(typeof(ControlInterventoRotReso),
-                          (cmd) => new ControlInterventoRotResoHandler(repositoryEvent).Execute((ControlInterventoRotReso)cmd));
-            _handlers.Add(typeof(ControlInterventoRotManReso),
-                          (cmd) => new ControlInterventoRotManResoHandler(repositoryEvent).Execute((ControlInterventoRotManReso)cmd));
-
-            _handlers.Add(typeof(ReopenIntervento),
-                         (cmd) => new ReopenInterventoHandler(repositoryEvent).Execute((ReopenIntervento)cmd));
-            
+            CustomHandler.Add<AllowControlIntervento>(_handlers, new AllowControlInterventoHandler(repositoryEvent));
+            CustomHandler.Add<CloseIntervento>(_handlers, new CloseInterventoHandler(repositoryEvent));
+            CustomHandler.Add<ControlInterventoNonReso>(_handlers, new ControlInterventoNonResoHandler(repositoryEvent));
+            CustomHandler.Add<ControlInterventoAmbReso>(_handlers, new ControlInterventoAmbResoHandler(repositoryEvent));
+            CustomHandler.Add<ControlInterventoRotReso>(_handlers, new ControlInterventoRotResoHandler(repositoryEvent));
+            CustomHandler.Add<ControlInterventoRotManReso>(_handlers, new ControlInterventoRotManResoHandler(repositoryEvent));
+            CustomHandler.Add<ReopenIntervento>(_handlers, new ReopenInterventoHandler(repositoryEvent));
         }
 
         public void Subscribe(IBus bus)

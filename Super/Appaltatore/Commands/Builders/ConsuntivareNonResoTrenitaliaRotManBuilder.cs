@@ -1,20 +1,14 @@
 using System;
+using CommonDomain;
 
 namespace Super.Appaltatore.Commands.Builders
 {
-    public class ConsuntivareNonResoTrenitaliaRotManBuilder
+    public class ConsuntivareNonResoTrenitaliaRotManBuilder : ICommandBuilder<ConsuntivareRotManNonResoTrenitalia>
     {
-        private Guid _id;
         private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
         private Guid _idCausaleTrenitalia;
         private string _note;
-
-        public ConsuntivareNonResoTrenitaliaRotManBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public ConsuntivareNonResoTrenitaliaRotManBuilder ForInterventoAppaltatore(string idInterventoAppaltatore)
         {
@@ -39,9 +33,9 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ConsuntivareRotManNonResoTrenitalia Build()
+        public ConsuntivareRotManNonResoTrenitalia Build(Guid id)
         {
-            var cmd = new  ConsuntivareRotManNonResoTrenitalia(_id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleTrenitalia, _note);
+            var cmd = new  ConsuntivareRotManNonResoTrenitalia(id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleTrenitalia, _note);
 
             cmd.CommitId = Guid.NewGuid();
 

@@ -10,6 +10,8 @@ using Super.Controllo.Commands.Builders;
 using Super.Controllo.Events;
 using Super.Controllo.Events.Builders;
 using Super.Controllo.Handlers;
+using BuildCmd = Super.Controllo.Commands.Builders.Build;
+using BuildEvt = Super.Controllo.Events.Builders.Build;
 
 namespace Super.Controllo.Specs.Close
 {
@@ -34,22 +36,18 @@ namespace Super.Controllo.Specs.Close
 
         public override CloseIntervento When()
         {
-            var builder = new CloseInterventoBuilder();
-
-            return builder.ForId(_Id)
-                .By(_idUtente)
-                .When(_closingDate)
-                .Build();
+            return BuildCmd.CloseIntervento
+                        .By(_idUtente)
+                        .When(_closingDate)
+                        .Build(_Id);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            var builder = new InterventoClosedBuilder();
-
-            yield return builder.ForId(_Id)
+            yield return BuildEvt.InterventoClosed
                 .By(_idUtente)
                 .When(_closingDate)
-                .Build();
+                .Build(_Id);
         }
 
         [Test]

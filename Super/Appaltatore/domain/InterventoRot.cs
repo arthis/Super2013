@@ -16,7 +16,7 @@ namespace Super.Appaltatore.Domain
     {
 
         public void Programmare(Guid id
-                                , Guid idAreaIntervento
+                                , Guid idImpianto
                                 , Guid idTipoIntervento
                                 , Guid idAppaltatore
                                 , Guid idCategoriaCommerciale
@@ -33,7 +33,6 @@ namespace Super.Appaltatore.Domain
         {
 
             //builders
-            var builder = new InterventoRotProgrammatoBuilder();
             var periodBuilder = new WorkPeriodBuilder();
             var trenoPartenzaBuilder = new TrenoBuilder();
             var trenoArrivoBuilder = new TrenoBuilder();
@@ -42,10 +41,11 @@ namespace Super.Appaltatore.Domain
             trenoPartenza.BuildValue(trenoPartenzaBuilder);
             trenoArrivo.BuildValue(trenoArrivoBuilder);
 
-            var evt = builder.WithOggetti(oggetti.ToMessage().ToArray())
+            var evt = Build.InterventoRotProgrammato
+                            .WithOggetti(oggetti.ToMessage().ToArray())
                             .ForPeriod(periodBuilder.Build())
                             .ForId(id)
-                            .In(idAreaIntervento)
+                            .In(idImpianto)
                             .OfType(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)
                             .OfCategoriaCommerciale(idCategoriaCommerciale)
@@ -75,9 +75,8 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var builder = new InterventoConsuntivatoRotNonResoBuilder();
-
-                var evt = builder.ForId(id)
+                var evt = Build.InterventoConsuntivatoRotNonReso
+                                .ForId(id)
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .Because(idCausaleAppaltatore)
                                 .When(dataConsuntivazione)
@@ -101,9 +100,8 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var builder = new InterventoConsuntivatoRotNonResoTrenitaliaBuilder();
-
-                var evt = builder.ForId(id)
+                var evt = Build.InterventoConsuntivatoRotNonResoTrenitalia
+                                .ForId(id)
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .Because(idCausaleTrenitalia)
                                 .When(dataConsuntivazione)
@@ -131,7 +129,6 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var builder = new InterventoConsuntivatoRotResoBuilder();
                 var periodBuilder = new WorkPeriodBuilder();
                 var trenoPartenzaBuilder = new TrenoBuilder();
                 var trenoArrivoBuilder = new TrenoBuilder();
@@ -140,7 +137,8 @@ namespace Super.Appaltatore.Domain
                 trenoPartenza.BuildValue(trenoPartenzaBuilder);
                 trenoArrivo.BuildValue(trenoArrivoBuilder);
 
-                var evt = builder.ForId(id)
+                var evt = Build.InterventoConsuntivatoRotReso       
+                                .ForId(id)
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .When(dataConsuntivazione)
                                 .WithNote(note)

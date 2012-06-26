@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UI_Web.Models
 {
-    public class VisualizzareAreaIntervento
+    public class VisualizzareImpianto
     {
         public string Description { get; set; }
         public int PageNum { get; set; }

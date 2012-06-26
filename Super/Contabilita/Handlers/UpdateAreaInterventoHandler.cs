@@ -3,33 +3,33 @@ using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.Builders;
 using CommonDomain.Persistence;
-using Super.Contabilita.Commands.AreaIntervento;
+using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Domain;
 
 namespace Super.Contabilita.Handlers
 {
-    public class UpdateAreaInterventoHandler : CommandHandler<UpdateAreaIntervento>
+    public class UpdateImpiantoHandler : CommandHandler<UpdateImpianto>
     {
-        public UpdateAreaInterventoHandler(IRepository repository)
+        public UpdateImpiantoHandler(IRepository repository)
             : base(repository)
         {
         }
 
 
-        public override CommandValidation Execute(UpdateAreaIntervento cmd)
+        public override CommandValidation Execute(UpdateImpianto cmd, ICommandHandler<UpdateImpianto> next)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var area = Repository.GetById<AreaIntervento>(cmd.Id);
+            var impianto= Repository.GetById<Impianto>(cmd.Id);
 
-            if (area.IsNull())
+            if (impianto.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            area.Update(Build.Intervall.FromPeriod(cmd.Period).Build(), cmd.Description);
+            impianto.Update(Build.Intervall.FromPeriod(cmd.Period).Build(), cmd.Description);
 
-            Repository.Save(area, cmd.CommitId);
+            Repository.Save(impianto, cmd.CommitId);
 
-            return area.CommandValidationMessages;
+            return impianto.CommandValidationMessages;
         }
       
     }

@@ -10,13 +10,14 @@ using Super.Appaltatore.Commands;
 using Super.Appaltatore.Commands.Builders;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
+using BuildCmd= Super.Appaltatore.Commands.Builders.Build;
 
 namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 {
     public class Inizio_della_saga_intervento_ambiente_non_iniziata : SagaBaseClass<InterventoAmbPianificato>
     {
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -47,7 +48,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
                        {
                            Period = _period,
                            Id = _id,
-                           IdAreaIntervento = _idAreaIntervento,
+                           IdImpianto = _idImpianto,
                            IdTipoIntervento = _idTipoIntervento,
                            IdAppaltatore = _idAppaltatore,
                            IdCategoriaCommerciale =  _idCategoriaCommerciale,
@@ -60,10 +61,10 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            var builder = new ProgrammareInterventoAmbBuilder();
-            yield return builder.ForPeriod(_period)
-                            .ForId(_id)
-                            .ForArea(_idAreaIntervento)
+            
+            yield return BuildCmd.ProgrammareInterventoAmb
+                            .ForPeriod(_period)
+                            .ForArea(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
@@ -72,7 +73,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
                             .WithNote(_note)
                             .WithQuantity(_quantity)
                             .WithDescription(_description)
-                            .Build();
+                            .Build(_id);
         }
 
         [Test]

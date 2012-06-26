@@ -1,6 +1,37 @@
 USE [Super2013]
 GO
 
+
+
+/****** Object:  Table [dbo].[LastEventsReadAppaltatore]    Script Date: 06/26/2012 10:45:39 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LastEventsReadAppaltatore]') AND type in (N'U'))
+DROP TABLE [dbo].[LastEventsReadAppaltatore]
+GO
+
+USE [Super2013]
+GO
+
+/****** Object:  Table [dbo].[LastEventsReadAppaltatore]    Script Date: 06/26/2012 10:45:39 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LastEventsReadAppaltatore](
+	[CommitId] [uniqueidentifier] NOT NULL,
+	[Date] [datetime] NOT NULL,
+ CONSTRAINT [PK_LastEventsReadAppaltatore] PRIMARY KEY CLUSTERED 
+(
+	[CommitId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
 IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__Consuntiv__IsAvv__0519C6AF]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[ConsuntivazioneRot] DROP CONSTRAINT [DF__Consuntiv__IsAvv__0519C6AF]
@@ -184,7 +215,7 @@ CREATE TABLE [dbo].[ConsuntivazioneRot](
 	[IdIntervento] [uniqueidentifier] NOT NULL,
 	[IdCommittente] [uniqueidentifier] NOT NULL,
 	[IdLotto] [uniqueidentifier] NOT NULL,
-	[IdAreaIntervento] [uniqueidentifier] NOT NULL,
+	[IdImpianto] [uniqueidentifier] NOT NULL,
 	[IdTipoIntervento] [uniqueidentifier] NOT NULL,
 	[CodiceOrdine] [nvarchar](255) NULL,
 	[IsAvvisoIspezione] [bit] NOT NULL,
@@ -202,7 +233,6 @@ CREATE TABLE [dbo].[ConsuntivazioneRot](
 	[End] [datetime] NOT NULL,
 	[NumeroTrenoPartenza] [nvarchar](50) NULL,
 	[DataTrenoPartenza] [datetime] NULL,
-	
 	StartDateProgrammata [datetime] NOT NULL,
 	EndDateProgrammata [datetime] NOT NULL,
 	[ComposizioneProgrammata] [nvarchar](255) NULL,

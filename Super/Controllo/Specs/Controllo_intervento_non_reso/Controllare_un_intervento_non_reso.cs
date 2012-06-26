@@ -10,6 +10,8 @@ using Super.Controllo.Commands.Builders;
 using Super.Controllo.Events;
 using Super.Controllo.Events.Builders;
 using Super.Controllo.Handlers;
+using BuildCmd = Super.Controllo.Commands.Builders.Build;
+using BuildEvt = Super.Controllo.Events.Builders.Build;
 
 namespace Super.Controllo.Specs.Controllo_intervento_non_reso
 {
@@ -37,26 +39,23 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
 
         public override ControlInterventoNonReso When()
         {
-            var builder = new ControlInterventoNonResoBuilder();
 
-            return builder.ForId(_Id)
+            return BuildCmd.ControlInterventoNonReso
                 .By(_idUtente)
                 .Because(_idCausale)
                 .When(_controlDate)
                 .WithNote(_note)
-                .Build();
+                .Build(_Id);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            var builder = new InterventoControlledNonResoBuilder();
-
-            yield return builder.ForId(_Id)
+            yield return BuildEvt.InterventoControlledNonReso
                 .By(_idUtente)
                 .Because(_idCausale)
                 .When(_controlDate)
                 .WithNote(_note)
-                .Build();
+                .Build(_Id);
         }
 
         [Test]

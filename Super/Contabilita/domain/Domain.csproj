@@ -81,8 +81,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaIntervento.cs" />
-    <Compile Include="AreaInterventoSpecs.cs" />
+    <Compile Include="LottoSpecs.cs" />
+    <Compile Include="Lotto.cs" />
+    <Compile Include="Impianto.cs" />
+    <Compile Include="ImpiantoSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

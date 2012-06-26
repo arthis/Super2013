@@ -5,20 +5,18 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
-using EasyNetQ;
 using NUnit.Framework;
 using CommonSpecs;
-using Super.Appaltatore.Commands;
-using Super.Appaltatore.Commands.Builders;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
+using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 {
     public class Inizio_della_saga_intervento_rotabile_in_manutenzione_non_iniziata : SagaBaseClass<InterventoRotManPianificato>
     {
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -48,7 +46,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
                        {
                            Period = _period,
                            Id = _id,
-                           IdAreaIntervento = _idAreaIntervento,
+                           IdImpianto = _idImpianto,
                            IdTipoIntervento = _idTipoIntervento,
                            IdAppaltatore = _idAppaltatore,
                            IdCategoriaCommerciale = _idCategoriaCommerciale,
@@ -61,16 +59,15 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            var builder = new ProgrammareInterventoRotManBuilder();
-            yield return builder.ForPeriod(_period)
-                            .ForId(_id)
-                            .ForArea(_idAreaIntervento)
+            yield return BuildCmd.ProgrammareInterventoRotMan
+                            .ForPeriod(_period)
+                            .ForArea(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
-                            .Build();
+                            .Build(_id);
         }
 
         [Test]

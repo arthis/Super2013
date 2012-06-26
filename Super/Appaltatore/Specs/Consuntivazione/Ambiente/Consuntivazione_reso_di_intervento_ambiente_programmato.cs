@@ -17,7 +17,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
     {
         //programmato
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -45,7 +45,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
         {
             yield return new InterventoAmbProgrammato(
                                     _id,
-                                    _idAreaIntervento,
+                                    _idImpianto,
                                     _idTipoIntervento,
                                     _idAppaltatore,
                                     _idCategoriaCommerciale,

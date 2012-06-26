@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\Build.cs" />
     <Compile Include="Builders\ConsuntivareAmbResoBuilder.cs" />
     <Compile Include="Builders\ConsuntivareNonResoAmbBuilder.cs" />
     <Compile Include="Builders\ConsuntivareNonResoRotBuilder.cs" />

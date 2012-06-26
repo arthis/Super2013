@@ -19,7 +19,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
     public class consuntivazione_intervento : SagaBaseClass<IInterventoRotManConsuntivato>
     {
         readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idAreaIntervento = Guid.NewGuid();
+        readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -51,7 +51,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
             {
                 Period = _period,
                 Id = _id,
-                IdAreaIntervento = _idAreaIntervento,
+                IdImpianto = _idImpianto,
                 IdTipoIntervento = _idTipoIntervento,
                 IdAppaltatore = _idAppaltatore,
                 IdCategoriaCommerciale = _idCategoriaCommerciale,

@@ -1,19 +1,12 @@
 using System;
+using CommonDomain;
 
 namespace Super.Controllo.Commands.Builders
 {
-    public class ReopenInterventoBuilder
+    public class ReopenInterventoBuilder : ICommandBuilder<ReopenIntervento>
     {
-        private Guid _id;
         private Guid _idUtente;
         private DateTime _reopeningDate;
-
-
-        public ReopenInterventoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public ReopenInterventoBuilder By(Guid idUtente)
         {
@@ -27,9 +20,9 @@ namespace Super.Controllo.Commands.Builders
             return this;
         }
 
-        public ReopenIntervento Build()
+        public ReopenIntervento Build(Guid id)
         {
-            var cmd = new ReopenIntervento(_id, _idUtente, _reopeningDate);
+            var cmd = new ReopenIntervento(id, _idUtente, _reopeningDate);
 
             cmd.CommitId = Guid.NewGuid();
 

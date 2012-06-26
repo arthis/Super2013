@@ -2,33 +2,33 @@
 using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Persistence;
-using Super.Contabilita.Commands.AreaIntervento;
+using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Domain;
 
 namespace Super.Contabilita.Handlers
 {
-    public class DeleteAreaInterventoHandler : CommandHandler<DeleteAreaIntervento>
+    public class DeleteImpiantoHandler : CommandHandler<DeleteImpianto>
     {
-        public DeleteAreaInterventoHandler(IRepository repository)
+        public DeleteImpiantoHandler(IRepository repository)
             : base(repository)
         {
         }
 
 
-        public override CommandValidation Execute(DeleteAreaIntervento cmd)
+        public override CommandValidation Execute(DeleteImpianto cmd, ICommandHandler<DeleteImpianto> next)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var area = Repository.GetById<AreaIntervento>(cmd.Id);
+            var impianto= Repository.GetById<Impianto>(cmd.Id);
 
-            if (area.IsNull())
+            if (impianto.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            area.Delete();
+            impianto.Delete();
 
-            Repository.Save(area, cmd.CommitId);
+            Repository.Save(impianto, cmd.CommitId);
 
-            return area.CommandValidationMessages;
+            return impianto.CommandValidationMessages;
         }
     }
 }

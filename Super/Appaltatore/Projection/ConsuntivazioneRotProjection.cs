@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Linq;
 using CommonDomain.Core;
-using Super.Administration.ReadModel;
+using Super.ReadModel;
 using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Projection
@@ -18,7 +18,7 @@ namespace Super.Appaltatore.Projection
 
 
 
-        public void Handle(InterventoRotProgrammato evt)
+        public void Handle(InterventoRotProgrammato evt,IEventHandler<InterventoRotProgrammato> next)
         {
             using (var container = GetContainer())
             {
@@ -33,7 +33,7 @@ namespace Super.Appaltatore.Projection
                              Start = evt.Period.StartDate,
                              End = evt.Period.EndDate,
                              IdLotto = Guid.Empty,
-                             IdAreaIntervento = evt.IdAreaIntervento,
+                             IdImpianto = evt.IdImpianto,
                              IdTipoIntervento = evt.IdTipoIntervento,
                              IdCommittente = Guid.Empty,
                              Deleted = false,

@@ -1,24 +1,16 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Controllo.Events.Builders
 {
-    public class InterventoRotManControlledResoBuilder
+    public class InterventoRotManControlledResoBuilder : IEventBuilder<InterventoRotManControlledReso>
     {
-        private Guid _id;
         private Guid _idUtente;
         private DateTime _controlDate;
         private string _note;
         private WorkPeriod _period;
         private OggettoRotMan[] _oggetti;
-
-
-
-        public InterventoRotManControlledResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public InterventoRotManControlledResoBuilder By(Guid idUtente)
         {
@@ -32,13 +24,11 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-
         public InterventoRotManControlledResoBuilder WithNote(string note)
         {
             _note = note;
             return this;
         }
-
 
         public InterventoRotManControlledResoBuilder ForPeriod(WorkPeriod period)
         {
@@ -52,11 +42,9 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-
-
-        public InterventoRotManControlledReso Build()
+        public InterventoRotManControlledReso Build(Guid id)
         {
-            var cmd = new InterventoRotManControlledReso(_id, _idUtente, _controlDate, _period, _note, _oggetti);
+            var cmd = new InterventoRotManControlledReso(id, _idUtente, _controlDate, _period, _note, _oggetti);
 
             cmd.CommitId = Guid.NewGuid();
 

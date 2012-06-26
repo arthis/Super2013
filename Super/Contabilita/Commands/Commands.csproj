@@ -74,16 +74,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaIntervento\UpdateAreaIntervento.cs" />
-    <Compile Include="AreaIntervento\DeleteAreaIntervento.cs" />
-    <Compile Include="AreaIntervento\CreateAreaIntervento.cs" />
-    <Compile Include="AreaIntervento\specs.cs" />
-    <Compile Include="Builders\CreateAreaInterventoBuilder.cs" />
+    <Compile Include="Builders\CreateImpiantoBuilder.cs" />
     <Compile Include="Builders\Build.cs" />
-    <Compile Include="Builders\UpdateAreaInterventoBuilder.cs" />
+    <Compile Include="Builders\CreateLottoBuilder.cs" />
+    <Compile Include="Builders\UpdateImpiantoBuilder.cs" />
+    <Compile Include="Builders\UpdateLottoBuilder.cs" />
+    <Compile Include="TipoIntervento\CreateTipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\DeleteTipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\UpdateTipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\CreateTipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\DeleteTipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\UpdateTipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\CreateTipoInterventoRot.cs" />
+    <Compile Include="TipoIntervento\DeleteTipoInterventoRot.cs" />
+    <Compile Include="TipoIntervento\UpdateTipoInterventoRot.cs" />
+    <Compile Include="Impianto\CreateImpianto.cs" />
+    <Compile Include="Impianto\DeleteImpianto.cs" />
+    <Compile Include="Impianto\specs.cs" />
+    <Compile Include="Impianto\UpdateImpianto.cs" />
     <Compile Include="Lotto\CreateLotto.cs" />
     <Compile Include="Lotto\DeleteLotto.cs" />
-    <Compile Include="Lotto\UpdateAreaIntervento.cs" />
+    <Compile Include="Lotto\UpdateLotto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
