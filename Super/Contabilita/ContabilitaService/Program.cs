@@ -19,7 +19,7 @@ namespace Super.Contabilita.ContabilitaService
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {
                 commandServiceHost.Open();
-                Console.WriteLine("Administration service started");
+                Console.WriteLine("Contabilita service started");
                 var quitFlag = false;
                 while (!quitFlag)
                 {
