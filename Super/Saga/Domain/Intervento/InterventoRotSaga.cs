@@ -52,6 +52,7 @@ namespace Super.Saga.Domain.Intervento
                                 .ForConvoglio(evt.Convoglio)
                                 .Build(evt.Id);
 
+
             Dispatch(cmd);
 
             Transition(evt);

@@ -1,28 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.Impianto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.Impianto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CommonDomain.Core" />
-  <xs:complexType name="DeleteImpianto">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.TipoIntervento" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.TipoIntervento" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonDomain.Core" />
+  <xs:complexType name="UpdateTipoInterventoAmb">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q1:CommandBase">
         <xs:sequence />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="DeleteImpianto" nillable="true" type="tns:DeleteImpianto" />
-  <xs:complexType name="CreateImpianto">
+  <xs:element name="UpdateTipoInterventoAmb" nillable="true" type="tns:UpdateTipoInterventoAmb" />
+  <xs:complexType name="DeleteTipoInterventoAmb">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q2:CommandBase">
         <xs:sequence />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="CreateImpianto" nillable="true" type="tns:CreateImpianto" />
-  <xs:complexType name="UpdateImpianto">
+  <xs:element name="DeleteTipoInterventoAmb" nillable="true" type="tns:DeleteTipoInterventoAmb" />
+  <xs:complexType name="UpdateTipoInterventoRot">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q3:CommandBase">
         <xs:sequence />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="UpdateImpianto" nillable="true" type="tns:UpdateImpianto" />
+  <xs:element name="UpdateTipoInterventoRot" nillable="true" type="tns:UpdateTipoInterventoRot" />
+  <xs:complexType name="DeleteTipoInterventoRot">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q4:CommandBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteTipoInterventoRot" nillable="true" type="tns:DeleteTipoInterventoRot" />
+  <xs:complexType name="CreateTipoInterventoRotMan">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q5:CommandBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateTipoInterventoRotMan" nillable="true" type="tns:CreateTipoInterventoRotMan" />
+  <xs:complexType name="UpdateTipoInterventoRotMan">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q6:CommandBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateTipoInterventoRotMan" nillable="true" type="tns:UpdateTipoInterventoRotMan" />
+  <xs:complexType name="DeleteTipoInterventoRotMan">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q7:CommandBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteTipoInterventoRotMan" nillable="true" type="tns:DeleteTipoInterventoRotMan" />
+  <xs:complexType name="CreateTipoInterventoAmb">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q8:CommandBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateTipoInterventoAmb" nillable="true" type="tns:CreateTipoInterventoAmb" />
+  <xs:complexType name="CreateTipoInterventoRot">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q9:CommandBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateTipoInterventoRot" nillable="true" type="tns:CreateTipoInterventoRot" />
 </xs:schema>

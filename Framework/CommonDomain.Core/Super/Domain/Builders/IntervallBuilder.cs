@@ -23,10 +23,10 @@ namespace CommonDomain.Core.Super.Domain.Builders
             return this;
         }
 
-        public IntervallBuilder FromPeriod(CommonDomain.Core.Super.Messaging.ValueObjects.Intervall period)
+        public IntervallBuilder FromPeriod(CommonDomain.Core.Super.Messaging.ValueObjects.Intervall intervall)
         {
-            _from = period.Start;
-            _to = period.End;
+            _from = intervall.Start;
+            _to = intervall.End;
             return this;
         }
 

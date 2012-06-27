@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using CommonDomain.Core;
 
 namespace CommandService
 {
@@ -16,6 +17,6 @@ namespace CommandService
         /// 
         /// </summary>
         [OperationContract]
-        ExecuteResponse Execute(ExecuteRequest executeRequest);
+        ExecuteResponse Execute(CommandBase command);
     }
 }

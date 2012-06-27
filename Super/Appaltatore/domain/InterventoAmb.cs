@@ -13,7 +13,6 @@ namespace Super.Appaltatore.Domain
     
     public class InterventoAmb : Intervento
     {
-
         public void Programmare(Guid id
                                 , Guid idImpianto
                                 , Guid idTipoIntervento
@@ -54,7 +53,6 @@ namespace Super.Appaltatore.Domain
             Id = e.Id;
             //do something here if needed
         }
-
 
         public void ConsuntivareNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
         {

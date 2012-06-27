@@ -4,11 +4,11 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommandService" />
-      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CommonDomain.Core" />
-      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.Impianto" />
-      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.TipoIntervento" />
-      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.Lotto" />
+      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonDomain.Core" />
+      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.Impianto" />
+      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.TipoIntervento" />
+      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.Lotto" />
+      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CommandService" />
       <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CommonDomain" />
     </xsd:schema>
   </wsdl:types>

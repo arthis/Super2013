@@ -32,15 +32,12 @@ namespace CommandService
 
         public CommandWebService(IBus bus, ICommandHandlerService commandHandlerService, IProjectionHandlerService projectionHandlerService)
         {
-
             _commandHandler = commandHandlerService;
             _projectionHandler = projectionHandlerService;
             _bus = bus;
             //do not know if it is really the place to do that....
             Init();
         }
-
-      
 
 
         private IStoreEvents WireupEventStore()
@@ -73,17 +70,16 @@ namespace CommandService
         }
 
 
-        
-        public ExecuteResponse Execute(ExecuteRequest executeRequest)
+
+        public ExecuteResponse Execute(CommandBase command)
         {
-            Contract.Requires(executeRequest != null);
-            Contract.Requires(executeRequest.CommandBase != null);
+            Contract.Requires(command != null);
             Contract.Ensures(Contract.Result<ExecuteResponse>() != null);
             //Contract.EnsuresOnThrow<FaultException<CommandWebServiceFault>>(Contract.Result<ExecuteResponse>() == null);
 
             try
             {
-                var validation = _commandHandler.Execute(executeRequest.CommandBase);
+                var validation = _commandHandler.Execute(command);
                 return new ExecuteResponse(validation);
             }
             catch (Exception ex)

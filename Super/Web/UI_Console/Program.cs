@@ -1,17 +1,73 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
+using System.ServiceModel.Configuration;
+using System.ServiceModel.Description;
+using System.ServiceModel.Dispatcher;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using EasyNetQ;
 using Newtonsoft.Json;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Commands.Lotto;
-using Super.Programmazione.Events;
 using UI_Console.Contabilita;
 
 
 namespace UI_Console
 {
+    class MyInspector : IClientMessageInspector
+    {
+        public HashSet<string> oneWayActions;
+
+        public MyInspector(ServiceEndpoint endpoint)
+        {
+            this.oneWayActions = new HashSet<string>();
+            foreach (var operation in endpoint.Contract.Operations)
+            {
+                if (operation.IsOneWay)
+                {
+                    oneWayActions.Add(operation.Messages[0].Action);
+                }
+            }
+        }
+
+        public void AfterReceiveReply(ref Message reply, object correlationState)
+        {
+            Console.WriteLine("In AfterReceiveReply");
+        }
+
+        public object BeforeSendRequest(ref Message request, IClientChannel channel)
+        {
+            Console.WriteLine("In BeginSendRequest");
+            if (this.oneWayActions.Contains(request.Headers.Action))
+            {
+                Console.WriteLine("This is a one-way operation");
+            }
+
+            return null;
+        }
+    }
+    class MyBehavior : IEndpointBehavior
+    {
+        public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
+        {
+        }
+
+        public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
+        {
+            clientRuntime.MessageInspectors.Add(new MyInspector(endpoint));
+        }
+
+        public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
+        {
+        }
+
+        public void Validate(ServiceEndpoint endpoint)
+        {
+        }
+    }
+
     class Program
     {
         static IBus Bus;
@@ -19,6 +75,7 @@ namespace UI_Console
 
         static void Main(string[] args)
         {
+
             var id = Guid.NewGuid();
             var cmdCreate = Build.CreateLotto
                 .ForCreationDate(DateTime.Now)
@@ -26,22 +83,34 @@ namespace UI_Console
                 .ForIntervall(new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
                 .Build(id);
 
-            var client = new Contabilita.CommandWebServiceClient();
 
-            client.Execute(new ExecuteRequest()
-                               {
-                                   CommandBase = cmdCreate
-                               });
+            string baseAddress = "http://localhost:1338/Contabilita";
+            var factory = new ChannelFactory<ICommandWebService>(new BasicHttpBinding(), new EndpointAddress(baseAddress));
+            factory.Endpoint.Behaviors.Add(new MyBehavior());
+            ICommandWebService proxy = factory.CreateChannel();
 
-            var cmdUpdate = Build.UpdateLotto
-               .ForDescription("test updated")
-               .ForIntervall(new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
-               .Build(id);
+            proxy.Execute(cmdCreate);
 
-            client.Execute(new ExecuteRequest()
-            {
-                CommandBase = cmdCreate
-            });
+            ((IClientChannel)proxy).Close();
+            factory.Close();
+
+            //var id = Guid.NewGuid();
+            //var cmdCreate = Build.CreateLotto
+            //    .ForCreationDate(DateTime.Now)
+            //    .ForDescription("test")
+            //    .ForIntervall(new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
+            //    .Build(id);
+
+            //var client = new Contabilita.CommandWebServiceClient();
+
+            //client.Execute(cmdCreate);
+
+            //var cmdUpdate = Build.UpdateLotto
+            //   .ForDescription("test updated")
+            //   .ForIntervall(new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
+            //   .Build(id);
+
+            //client.Execute(cmdUpdate);
 
             //var id = Guid.NewGuid();
             //var idAppaltatore = Guid.NewGuid();

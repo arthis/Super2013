@@ -102,7 +102,6 @@
     <Compile Include="ICommandHandlerService.cs" />
     <Compile Include="ICommandWebService.cs" />
     <Compile Include="CommandWebServiceFault.cs" />
-    <Compile Include="ExecuteRequest.cs" />
     <Compile Include="ExecuteResponse.cs" />
     <Compile Include="ICommandWebServiceClient.cs" />
     <Compile Include="IProjectionHandler.cs" />
