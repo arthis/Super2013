@@ -11,17 +11,17 @@ namespace Super.Controllo.Handlers
 {
     public class CommandHandlerService : ICommandHandlerService
     {
-        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
+        private readonly Dictionary<Type, Func<IMessage, CommandValidation>> _handlers = new Dictionary<Type, Func<IMessage, CommandValidation>>();
 
         public void InitHandlers(IRepository repositoryEvent)
         {
-            CustomHandler.Add<AllowControlIntervento>(_handlers, new AllowControlInterventoHandler(repositoryEvent));
-            CustomHandler.Add<CloseIntervento>(_handlers, new CloseInterventoHandler(repositoryEvent));
-            CustomHandler.Add<ControlInterventoNonReso>(_handlers, new ControlInterventoNonResoHandler(repositoryEvent));
-            CustomHandler.Add<ControlInterventoAmbReso>(_handlers, new ControlInterventoAmbResoHandler(repositoryEvent));
-            CustomHandler.Add<ControlInterventoRotReso>(_handlers, new ControlInterventoRotResoHandler(repositoryEvent));
-            CustomHandler.Add<ControlInterventoRotManReso>(_handlers, new ControlInterventoRotManResoHandler(repositoryEvent));
-            CustomHandler.Add<ReopenIntervento>(_handlers, new ReopenInterventoHandler(repositoryEvent));
+            TypicalHandler.Add<AllowControlIntervento>(_handlers, new AllowControlInterventoHandler(repositoryEvent));
+            TypicalHandler.Add<CloseIntervento>(_handlers, new CloseInterventoHandler(repositoryEvent));
+            TypicalHandler.Add<ControlInterventoNonReso>(_handlers, new ControlInterventoNonResoHandler(repositoryEvent));
+            TypicalHandler.Add<ControlInterventoAmbReso>(_handlers, new ControlInterventoAmbResoHandler(repositoryEvent));
+            TypicalHandler.Add<ControlInterventoRotReso>(_handlers, new ControlInterventoRotResoHandler(repositoryEvent));
+            TypicalHandler.Add<ControlInterventoRotManReso>(_handlers, new ControlInterventoRotManResoHandler(repositoryEvent));
+            TypicalHandler.Add<ReopenIntervento>(_handlers, new ReopenInterventoHandler(repositoryEvent));
         }
 
         public void Subscribe(IBus bus)
@@ -32,7 +32,7 @@ namespace Super.Controllo.Handlers
         }
 
 
-        public CommandValidation Execute(ICommand commandBase)
+        public CommandValidation Execute(IMessage commandBase)
         {
             Contract.Requires<ArgumentNullException>(commandBase != null);
 

@@ -4,9 +4,9 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Lotto
 {
-    public class LottoDeleted : Message,IEvent
+    public class LottoDeleted : Message
     {
-        public Guid Id { get; set; }
+        
 
         public LottoDeleted()
         {

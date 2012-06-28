@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.Contracts;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Consuntivazione;
 
@@ -17,6 +18,9 @@ namespace Super.Appaltatore.Events.Builders
 
         public InterventoConsuntivatoAmbResoBuilder ForQuantity(int quantity)
         {
+           Contract.Requires<ArgumentException>(this._quantity <= 0);
+
+ 
             _quantity = quantity;
             return this;
         }

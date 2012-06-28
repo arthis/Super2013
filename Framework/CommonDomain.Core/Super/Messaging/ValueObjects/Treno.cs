@@ -1,26 +1,43 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 
 namespace CommonDomain.Core.Super.Messaging.ValueObjects
 {
     public class Treno
     {
-        private readonly string _numeroTreno;
-        private readonly DateTime _data;
+        public string NumeroTreno { get; set; }
+        public DateTime Data { get; set; }
 
         public Treno(string numeroTreno, DateTime data)
         {
-            _numeroTreno = numeroTreno;
-            _data = data;
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(numeroTreno));
+            Contract.Requires<ArgumentOutOfRangeException>(data> DateTime.MinValue);
+
+            NumeroTreno = numeroTreno;
+            Data = data;
         }
 
-        public string NumeroTreno
+        public bool Equals(Treno other)
         {
-            get { return _numeroTreno; }
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Equals(other.NumeroTreno, NumeroTreno) && other.Data.Equals(Data);
         }
 
-        public DateTime Data
+        public override bool Equals(object obj)
         {
-            get { return _data; }
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (Treno)) return false;
+            return Equals((Treno) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((NumeroTreno != null ? NumeroTreno.GetHashCode() : 0)*397) ^ Data.GetHashCode();
+            }
         }
     }
 }

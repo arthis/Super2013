@@ -7,7 +7,7 @@ using Super.ReadModel;
 
 namespace Super.Contabilita.Projection
 {
-    public class ReadOnce<T> : IEventHandler<T> where T:IEvent
+    public class ReadOnce<T> : IEventHandler<T> where T:IMessage
     {
         
 

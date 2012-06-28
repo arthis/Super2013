@@ -5,18 +5,13 @@ using CommonDomain.Core;
 
 namespace Super.Controllo.Events
 {
-    public class InterventoControlledNonReso : Message, IEvent
+    public class InterventoControlledNonReso : Message
     {
-        private readonly Guid _id;
         private readonly Guid _idUtente;
         private readonly DateTime _controlDate;
         private readonly Guid _idCausale;
         private readonly string _note;
 
-        public Guid Id
-        {
-            get { return _id; }
-        }
         public string Note
         {
             get { return _note; }
@@ -47,7 +42,7 @@ namespace Super.Controllo.Events
             Contract.Requires<ArgumentOutOfRangeException>(controlDate== DateTime.MinValue);
             Contract.Requires<ArgumentNullException>(idCausale == Guid.Empty);
 
-            _id = id;
+            Id = id;
             _idUtente = idUtente;
             _controlDate = controlDate;
             _idCausale = idCausale;
@@ -63,7 +58,7 @@ namespace Super.Controllo.Events
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._id.Equals(_id) && other._idUtente.Equals(_idUtente) && other._controlDate.Equals(_controlDate) && other._idCausale.Equals(_idCausale) && Equals(other._note, _note);
+            return base.Equals(other) && other._idUtente.Equals(_idUtente) && other._controlDate.Equals(_controlDate) && other._idCausale.Equals(_idCausale) && Equals(other._note, _note);
         }
 
         public override bool Equals(object obj)
@@ -78,7 +73,7 @@ namespace Super.Controllo.Events
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _id.GetHashCode();
+                
                 result = (result*397) ^ _idUtente.GetHashCode();
                 result = (result*397) ^ _controlDate.GetHashCode();
                 result = (result*397) ^ _idCausale.GetHashCode();

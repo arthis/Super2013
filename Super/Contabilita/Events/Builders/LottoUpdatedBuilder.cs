@@ -13,7 +13,9 @@ namespace Super.Contabilita.Events.Builders
 
         public LottoUpdated Build(Guid id)
         {
-            return new LottoUpdated(id, _intervall, _description);
+            var evt = new LottoUpdated(id, _intervall, _description);
+            evt.CommitId = Guid.NewGuid();
+            return evt;
         }
 
         

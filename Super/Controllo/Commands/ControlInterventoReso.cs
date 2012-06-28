@@ -9,7 +9,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 namespace Super.Controllo.Commands
 {
 
-    public abstract class ControlInterventoReso : CommandBase
+    public abstract class ControlInterventoReso : Message
     {
         private readonly Guid _idUtente;
         private readonly DateTime _controlDate;

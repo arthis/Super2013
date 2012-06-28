@@ -8,7 +8,7 @@ using CommonDomain.Core;
 namespace Super.Controllo.Commands
 {
 
-    public class AllowControlIntervento : CommandBase
+    public class AllowControlIntervento : Message
     {
         //for serialization
         public AllowControlIntervento()

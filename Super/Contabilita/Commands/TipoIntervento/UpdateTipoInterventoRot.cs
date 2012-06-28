@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommandService;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Commands.TipoIntervento
@@ -6,53 +8,34 @@ namespace Super.Contabilita.Commands.TipoIntervento
 
     public class UpdateTipoInterventoRot : CommandBase
     {
-        private readonly string _mnemo;
-        private readonly Guid _measuringUnit;
-        private readonly Guid _idContract;
-        private readonly bool _calcoloDetrazioni;
-        private readonly bool _aiTreni;
-        private readonly char _classe;
-
-        public bool AiTreni
-        {
-            get { return _aiTreni; }
-        }
-        public bool CalcoloDetrazioni
-        {
-            get { return _calcoloDetrazioni; }
-        }
-        public char Classe
-        {
-            get { return _classe; }
-        }
-        public Guid IdContract
-        {
-            get { return _idContract; }
-        }
-        public Guid MeasuringUnit
-        {
-            get { return _measuringUnit; }
-        }
-        public string Description { get; private set; }
-        public string Mnemo
-        {
-            get { return _mnemo; }
-        }
+        public bool AiTreni { get; set; }
+        public bool CalcoloDetrazioni { get; set; }
+        public char Classe { get; set; }
+        public Guid IdContract { get; set; }
+        public Guid IdMasuringUnit { get; set; }
+        public string Description { get; set; }
+        public string Mnemo { get; set; }
  
 
         public UpdateTipoInterventoRot()
         {}
 
-        public UpdateTipoInterventoRot(Guid id, string mnemo, Guid measuringUnit, Guid idContract, bool calcoloDetrazioni, bool aiTreni, char classe, string description)
+        public UpdateTipoInterventoRot(Guid id, string mnemo, Guid idMeasuringUnit, Guid idContract, bool calcoloDetrazioni, bool aiTreni, char classe, string description)
         {
-            _mnemo = mnemo;
-            _measuringUnit = measuringUnit;
-            _idContract = idContract;
-            _calcoloDetrazioni = calcoloDetrazioni;
-            _aiTreni = aiTreni;
-            _classe = classe;
-            this.Id = id;
-            this.Description = description;
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(mnemo));
+            Contract.Requires<ArgumentNullException>(idMeasuringUnit != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idContract != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+
+            Mnemo = mnemo;
+            IdMasuringUnit = idMeasuringUnit;
+            IdContract = idContract;
+            CalcoloDetrazioni = calcoloDetrazioni;
+            AiTreni = aiTreni;
+            Classe = classe;
+            Id = id;
+            Description = description;
         }
 
         public override string ToDescription()

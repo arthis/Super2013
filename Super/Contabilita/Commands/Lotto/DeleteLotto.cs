@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommandService;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Commands.Lotto
@@ -16,7 +18,9 @@ namespace Super.Contabilita.Commands.Lotto
 
          public DeleteLotto(Guid id)
         {
-            this.Id = id;
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+
+            Id = id;
         }
 
 

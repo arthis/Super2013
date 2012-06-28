@@ -5,9 +5,9 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Impianto
 {
-    public class ImpiantoUpdated : Message,IEvent
+    public class ImpiantoUpdated : Message
     {
-        public Guid Id { get; set; }
+        
         public Intervall Period { get; private set; }
         public string Description { get; private set; }
 

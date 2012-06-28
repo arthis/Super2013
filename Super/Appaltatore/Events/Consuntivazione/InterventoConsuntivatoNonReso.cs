@@ -8,35 +8,14 @@ using CommonDomain.Core;
 
 namespace Super.Appaltatore.Events.Consuntivazione
 {
-    public abstract class InterventoConsuntivatoNonReso : Message, IEvent
+    public abstract class InterventoConsuntivatoNonReso : Message
     {
 
-        private Guid _id;
-        private readonly string _idInterventoAppaltatore;
-        private readonly DateTime _dataConsuntivazione;
-        private readonly Guid _idCausaleAppaltatore;
-        private readonly string _note;
 
-        public Guid Id
-        {
-            get { return _id; }
-        }
-        public string Note
-        {
-            get { return _note; }
-        }
-        public Guid IdCausaleAppaltatore
-        {
-            get { return _idCausaleAppaltatore; }
-        }
-        public DateTime DataConsuntivazione
-        {
-            get { return _dataConsuntivazione; }
-        }
-        public string IdInterventoAppaltatore
-        {
-            get { return _idInterventoAppaltatore; }
-        }
+        public string Note { get; set; }
+        public Guid IdCausaleAppaltatore { get; set; }
+        public DateTime DataConsuntivazione { get; set; }
+        public string IdInterventoAppaltatore { get; set; }
 
         //for serialization
         public InterventoConsuntivatoNonReso()
@@ -50,23 +29,23 @@ namespace Super.Appaltatore.Events.Consuntivazione
                                 Guid idCausaleAppaltatore,
                                 string note)
         {
-            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(string.IsNullOrEmpty(idInterventoAppaltatore));
-            Contract.Requires<ArgumentNullException>(dataConsuntivazione == DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(idCausaleAppaltatore == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires<ArgumentNullException>(dataConsuntivazione > DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(idCausaleAppaltatore != Guid.Empty);
 
-            _id = id;
-            _idInterventoAppaltatore = idInterventoAppaltatore;
-            _dataConsuntivazione = dataConsuntivazione;
-            _idCausaleAppaltatore = idCausaleAppaltatore;
-            _note = note;
+            Id = id;
+            IdInterventoAppaltatore = idInterventoAppaltatore;
+            DataConsuntivazione = dataConsuntivazione;
+            IdCausaleAppaltatore = idCausaleAppaltatore;
+            Note = note;
         }
 
         public bool Equals(InterventoConsuntivatoNonReso other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._id.Equals(_id) && Equals(other._idInterventoAppaltatore, _idInterventoAppaltatore) && other._dataConsuntivazione.Equals(_dataConsuntivazione) && other._idCausaleAppaltatore.Equals(_idCausaleAppaltatore) && Equals(other._note, _note);
+            return base.Equals(other) && Equals(other.Note, Note) && other.IdCausaleAppaltatore.Equals(IdCausaleAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore);
         }
 
         public override bool Equals(object obj)
@@ -81,11 +60,10 @@ namespace Super.Appaltatore.Events.Consuntivazione
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _id.GetHashCode();
-                result = (result*397) ^ (_idInterventoAppaltatore != null ? _idInterventoAppaltatore.GetHashCode() : 0);
-                result = (result*397) ^ _dataConsuntivazione.GetHashCode();
-                result = (result*397) ^ _idCausaleAppaltatore.GetHashCode();
-                result = (result*397) ^ (_note != null ? _note.GetHashCode() : 0);
+                result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+                result = (result*397) ^ IdCausaleAppaltatore.GetHashCode();
+                result = (result*397) ^ DataConsuntivazione.GetHashCode();
+                result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
                 return result;
             }
         }
@@ -170,8 +148,10 @@ namespace Super.Appaltatore.Events.Consuntivazione
             
         }
 
+        
         public InterventoConsuntivatoAmbNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
+            
         }
     
 

@@ -9,7 +9,9 @@ namespace Super.Contabilita.Events.Builders
 
         public ImpiantoDeleted Build(Guid id)
         {
-            return new ImpiantoDeleted(id);
+            var evt = new ImpiantoDeleted(id);
+            evt.CommitId = Guid.NewGuid();
+            return evt;
         }
 
     }

@@ -6,29 +6,13 @@ using CommonDomain.Core;
 namespace Super.Appaltatore.Commands
 {
 
-    public abstract class ConsuntivareNonResoTrenitalia : CommandBase
+    public abstract class ConsuntivareNonResoTrenitalia : Message
     {
-        private readonly string _idInterventoAppaltatore;
-        private readonly DateTime _dataConsuntivazione;
-        private readonly Guid _idCausaleTrenitalia;
-        private readonly string _note;
 
-        public string Note
-        {
-            get { return _note; }
-        }
-        public Guid IdCausaleTrenitalia
-        {
-            get { return _idCausaleTrenitalia; }
-        }
-        public DateTime DataConsuntivazione
-        {
-            get { return _dataConsuntivazione; }
-        }
-        public string IdInterventoAppaltatore
-        {
-            get { return _idInterventoAppaltatore; }
-        }
+        public string Note { get; set; }
+        public Guid IdCausaleTrenitalia { get; set; }
+        public DateTime DataConsuntivazione { get; set; }
+        public string IdInterventoAppaltatore { get; set; }
 
         //for serialization
         public ConsuntivareNonResoTrenitalia()
@@ -42,16 +26,16 @@ namespace Super.Appaltatore.Commands
                                 Guid idCausaleTrenitalia,
                                 string note)
         {
-            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(string.IsNullOrEmpty(idInterventoAppaltatore));
-            Contract.Requires<ArgumentNullException>(dataConsuntivazione == DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(idCausaleTrenitalia == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires<ArgumentNullException>(dataConsuntivazione > DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(idCausaleTrenitalia != Guid.Empty);
 
             Id = id;
-            _idInterventoAppaltatore = idInterventoAppaltatore;
-            _dataConsuntivazione = dataConsuntivazione;
-            _idCausaleTrenitalia = idCausaleTrenitalia;
-            _note = note;
+            IdInterventoAppaltatore = idInterventoAppaltatore;
+            DataConsuntivazione = dataConsuntivazione;
+            IdCausaleTrenitalia = idCausaleTrenitalia;
+            Note = note;
         }
 
 
@@ -64,7 +48,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other._idInterventoAppaltatore, _idInterventoAppaltatore) && other._dataConsuntivazione.Equals(_dataConsuntivazione) && other._idCausaleTrenitalia.Equals(_idCausaleTrenitalia) && Equals(other._note, _note);
+            return base.Equals(other) && Equals(other.Note, Note) && other.IdCausaleTrenitalia.Equals(IdCausaleTrenitalia) && other.DataConsuntivazione.Equals(DataConsuntivazione) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore);
         }
 
         public override bool Equals(object obj)
@@ -79,10 +63,10 @@ namespace Super.Appaltatore.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ (_idInterventoAppaltatore != null ? _idInterventoAppaltatore.GetHashCode() : 0);
-                result = (result*397) ^ _dataConsuntivazione.GetHashCode();
-                result = (result*397) ^ _idCausaleTrenitalia.GetHashCode();
-                result = (result*397) ^ (_note != null ? _note.GetHashCode() : 0);
+                result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+                result = (result*397) ^ IdCausaleTrenitalia.GetHashCode();
+                result = (result*397) ^ DataConsuntivazione.GetHashCode();
+                result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
                 return result;
             }
         }

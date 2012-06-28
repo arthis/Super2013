@@ -4,16 +4,13 @@ using CommonDomain.Core;
 
 namespace Super.Controllo.Events
 {
-    public class InterventoReopened : Message, IEvent
+    public class InterventoReopened : Message
     {
-        private readonly Guid _id;
+        
         private readonly Guid _idUtente;
         private readonly DateTime _reopeningDate;
 
-        public Guid Id
-        {
-            get { return _id; }
-        }
+
         public DateTime ReopeningDate
         {
             get { return _reopeningDate; }
@@ -31,7 +28,7 @@ namespace Super.Controllo.Events
 
         public InterventoReopened(Guid id, Guid idUtente, DateTime reopeningDate)
         {
-            _id = id;
+            Id = id;
             _idUtente = idUtente;
             _reopeningDate = reopeningDate;
         }
@@ -47,7 +44,7 @@ namespace Super.Controllo.Events
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._id.Equals(_id) && other._idUtente.Equals(_idUtente) && other._reopeningDate.Equals(_reopeningDate);
+            return base.Equals(other) && other._idUtente.Equals(_idUtente) && other._reopeningDate.Equals(_reopeningDate);
         }
 
         public override bool Equals(object obj)
@@ -62,7 +59,7 @@ namespace Super.Controllo.Events
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _id.GetHashCode();
+                
                 result = (result*397) ^ _idUtente.GetHashCode();
                 result = (result*397) ^ _reopeningDate.GetHashCode();
                 return result;

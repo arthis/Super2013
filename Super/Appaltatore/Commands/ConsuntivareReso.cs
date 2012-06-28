@@ -6,30 +6,12 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 namespace Super.Appaltatore.Commands
 {
     
-    public abstract class ConsuntivareReso : CommandBase
+    public abstract class ConsuntivareReso : Message
     {
-
-        private readonly string _idInterventoAppaltatore;
-        private readonly DateTime _dataConsuntivazione;
-        private readonly WorkPeriod _period;
-        private readonly string _note;
-
-        public string Note
-        {
-            get { return _note; }
-        }
-        public WorkPeriod Period
-        {
-            get { return _period; }
-        }
-        public string IdInterventoAppaltatore
-        {
-            get { return _idInterventoAppaltatore; }
-        }
-        public DateTime DataConsuntivazione
-        {
-            get { return _dataConsuntivazione; }
-        }
+        public string Note { get; set; }
+        public WorkPeriod Period { get; set; }
+        public string IdInterventoAppaltatore { get; set; }
+        public DateTime DataConsuntivazione { get; set; }
         
         //for serialization
         public ConsuntivareReso()
@@ -41,16 +23,16 @@ namespace Super.Appaltatore.Commands
                                      WorkPeriod period,
                                      string note)
         {
-            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(string.IsNullOrEmpty(idInterventoAppaltatore));
-            Contract.Requires<ArgumentNullException>(dataConsuntivazione == DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(period == null);
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires<ArgumentNullException>(dataConsuntivazione > DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(period != null);
 
             Id = id;
-            _idInterventoAppaltatore = idInterventoAppaltatore;
-            _dataConsuntivazione = dataConsuntivazione;
-            _period = period;
-            _note = note;
+            IdInterventoAppaltatore = idInterventoAppaltatore;
+            DataConsuntivazione = dataConsuntivazione;
+            Period = period;
+            Note = note;
         }
 
         public override string ToDescription()
@@ -62,7 +44,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other._idInterventoAppaltatore, _idInterventoAppaltatore) && other._dataConsuntivazione.Equals(_dataConsuntivazione) && Equals(other._period, _period) && Equals(other._note, _note);
+            return base.Equals(other) && Equals(other.Note, Note) && Equals(other.Period, Period) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione);
         }
 
         public override bool Equals(object obj)
@@ -77,10 +59,10 @@ namespace Super.Appaltatore.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ (_idInterventoAppaltatore != null ? _idInterventoAppaltatore.GetHashCode() : 0);
-                result = (result*397) ^ _dataConsuntivazione.GetHashCode();
-                result = (result*397) ^ (_period != null ? _period.GetHashCode() : 0);
-                result = (result*397) ^ (_note != null ? _note.GetHashCode() : 0);
+                result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
+                result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
+                result = (result*397) ^ DataConsuntivazione.GetHashCode();
                 return result;
             }
         }
@@ -88,37 +70,14 @@ namespace Super.Appaltatore.Commands
     
     public class ConsuntivareRotReso : ConsuntivareReso
     {
-        private readonly OggettoRot[] _oggetti;
-        private readonly Treno _trenoPartenza;
-        private readonly Treno _trenoArrivo;
-        private readonly string _turnoTreno;
-        private readonly string _rigaTurnoTreno;
-        private readonly string _convoglio;
 
-        public string Convoglio
-        {
-            get { return _convoglio; }
-        }
-        public string RigaTurnoTreno
-        {
-            get { return _rigaTurnoTreno; }
-        }
-        public string TurnoTreno
-        {
-            get { return _turnoTreno; }
-        }
-        public Treno TrenoArrivo
-        {
-            get { return _trenoArrivo; }
-        }
-        public Treno TrenoPartenza
-        {
-            get { return _trenoPartenza; }
-        }
-        public OggettoRot[] Oggetti
-        {
-            get { return _oggetti; }
-        }
+
+        public string Convoglio { get; set; }
+        public string RigaTurnoTreno { get; set; }
+        public string TurnoTreno { get; set; }
+        public Treno TrenoArrivo { get; set; }
+        public Treno TrenoPartenza { get; set; }
+        public OggettoRot[] Oggetti { get; set; }
 
         //for serialization
         public ConsuntivareRotReso()
@@ -128,12 +87,12 @@ namespace Super.Appaltatore.Commands
                 OggettoRot[] oggetti, Treno trenoPartenza, Treno trenoArrivo, string turnoTreno, string rigaTurnoTreno, string convoglio) 
             : base(id, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
-            _oggetti = oggetti;
-            _trenoPartenza = trenoPartenza;
-            _trenoArrivo = trenoArrivo;
-            _turnoTreno = turnoTreno;
-            _rigaTurnoTreno = rigaTurnoTreno;
-            _convoglio = convoglio;
+            Oggetti = oggetti;
+            TrenoPartenza = trenoPartenza;
+            TrenoArrivo = trenoArrivo;
+            TurnoTreno = turnoTreno;
+            RigaTurnoTreno = rigaTurnoTreno;
+            Convoglio = convoglio;
         }
 
 
@@ -146,7 +105,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other._oggetti, _oggetti) && Equals(other._trenoPartenza, _trenoPartenza) && Equals(other._trenoArrivo, _trenoArrivo) && Equals(other._turnoTreno, _turnoTreno) && Equals(other._rigaTurnoTreno, _rigaTurnoTreno) && Equals(other._convoglio, _convoglio);
+            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) && Equals(other.Oggetti, Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -161,12 +120,12 @@ namespace Super.Appaltatore.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ (_oggetti != null ? _oggetti.GetHashCode() : 0);
-                result = (result*397) ^ (_trenoPartenza != null ? _trenoPartenza.GetHashCode() : 0);
-                result = (result*397) ^ (_trenoArrivo != null ? _trenoArrivo.GetHashCode() : 0);
-                result = (result*397) ^ (_turnoTreno != null ? _turnoTreno.GetHashCode() : 0);
-                result = (result*397) ^ (_rigaTurnoTreno != null ? _rigaTurnoTreno.GetHashCode() : 0);
-                result = (result*397) ^ (_convoglio != null ? _convoglio.GetHashCode() : 0);
+                result = (result*397) ^ (Convoglio != null ? Convoglio.GetHashCode() : 0);
+                result = (result*397) ^ (RigaTurnoTreno != null ? RigaTurnoTreno.GetHashCode() : 0);
+                result = (result*397) ^ (TurnoTreno != null ? TurnoTreno.GetHashCode() : 0);
+                result = (result*397) ^ (TrenoArrivo != null ? TrenoArrivo.GetHashCode() : 0);
+                result = (result*397) ^ (TrenoPartenza != null ? TrenoPartenza.GetHashCode() : 0);
+                result = (result*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
                 return result;
             }
         }
@@ -174,13 +133,8 @@ namespace Super.Appaltatore.Commands
 
     public class ConsuntivareRotManReso : ConsuntivareReso
     {
-        private readonly OggettoRotMan[] _oggetti;
 
-
-        public OggettoRotMan[] Oggetti
-        {
-            get { return _oggetti; }
-        }
+        public OggettoRotMan[] Oggetti { get; set; }
 
         public ConsuntivareRotManReso()
         {
@@ -189,7 +143,7 @@ namespace Super.Appaltatore.Commands
 
         public ConsuntivareRotManReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, WorkPeriod period, string note, OggettoRotMan[] oggetti) : base(id, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
-            _oggetti = oggetti;
+            Oggetti = oggetti;
         }
 
 
@@ -202,7 +156,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other._oggetti, _oggetti);
+            return base.Equals(other) && Equals(other.Oggetti, Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -216,15 +170,15 @@ namespace Super.Appaltatore.Commands
         {
             unchecked
             {
-                return (base.GetHashCode()*397) ^ (_oggetti != null ? _oggetti.GetHashCode() : 0);
+                return (base.GetHashCode()*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
             }
         }
     }
 
     public class ConsuntivareAmbReso : ConsuntivareReso
     {
-        private readonly int _quantity;
-        private readonly string _description;
+        public string Description { get; set; }
+        public int Quantity { get; set; }
 
         //for serialization
         public ConsuntivareAmbReso()
@@ -239,21 +193,14 @@ namespace Super.Appaltatore.Commands
                                     string description)
             : base(id, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(quantity<=0);
+            Contract.Requires<ArgumentOutOfRangeException>(quantity>0);
 
-            _quantity = quantity;
-            _description = description;
+            Quantity = quantity;
+            Description = description;
         }
 
 
-        public string Description
-        {
-            get { return _description; }
-        }
-        public int Quantity
-        {
-            get { return _quantity; }
-        }
+        
 
         public override string ToDescription()
         {
@@ -264,7 +211,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._quantity == _quantity && Equals(other._description, _description);
+            return base.Equals(other) && Equals(other.Description, Description) && other.Quantity == Quantity;
         }
 
         public override bool Equals(object obj)
@@ -279,8 +226,8 @@ namespace Super.Appaltatore.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _quantity;
-                result = (result*397) ^ (_description != null ? _description.GetHashCode() : 0);
+                result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
+                result = (result*397) ^ Quantity;
                 return result;
             }
         }

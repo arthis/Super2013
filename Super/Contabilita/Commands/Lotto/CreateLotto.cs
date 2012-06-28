@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommandService;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
@@ -7,9 +9,9 @@ namespace Super.Contabilita.Commands.Lotto
     
     public class CreateLotto : CommandBase
     {
-        public Intervall Period { get; private set; }
-        public string Description { get; private set; }
-        public DateTime CreationDate { get; private set; }
+        public Intervall Period { get;  set; }
+        public string Description { get;  set; }
+        public DateTime CreationDate { get;  set; }
 
         public CreateLotto()
         {
@@ -18,6 +20,11 @@ namespace Super.Contabilita.Commands.Lotto
 
         public CreateLotto(Guid id,  Intervall period, DateTime creationDate, string description)
         {
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires<ArgumentOutOfRangeException>(creationDate > DateTime.MinValue);
+            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
+
             this.Id = id;
             this.Period = period;
             this.Description = description;

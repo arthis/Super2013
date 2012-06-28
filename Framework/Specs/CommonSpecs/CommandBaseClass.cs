@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace CommonSpecs
 {
     [TestFixture]
-    public abstract class CommandBaseClass<TCommand> : SpecsBaseClass where TCommand : class, ICommand
+    public abstract class CommandBaseClass<TCommand> : SpecsBaseClass where TCommand : class, IMessage
     {
         
         public Guid Id { get; set; }

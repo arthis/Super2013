@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommandService;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
@@ -8,17 +10,21 @@ namespace Super.Contabilita.Commands.Impianto
     public class UpdateImpianto : CommandBase
     {
 
-        public Intervall Period { get; private set; }
-        public string Description { get; private set; }
+        public Intervall Period { get; set; }
+        public string Description { get;  set; }
 
         public UpdateImpianto()
         {}
 
         public UpdateImpianto(Guid id,  Intervall period,  string description)
         {
-            this.Id = id;
-            this.Period = period;
-            this.Description = description;
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
+            Contract.Requires<ArgumentNullException>(period != null);
+
+            Id = id;
+            Period = period;
+            Description = description;
         }
 
         public override string ToDescription()

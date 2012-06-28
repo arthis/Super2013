@@ -12,7 +12,11 @@ namespace Super.Contabilita.Commands.Builders
 
         public UpdateImpianto Build(Guid id)
         {
-            return new UpdateImpianto(id, _intervall, _description);
+            var cmd = new UpdateImpianto(id, _intervall, _description);
+
+            cmd.CommitId = Guid.NewGuid();
+
+            return cmd;
         }
 
 

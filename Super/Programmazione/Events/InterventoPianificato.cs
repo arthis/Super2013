@@ -5,9 +5,9 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Programmazione.Events
 {
-    public abstract class InterventoPianificato : Message,IEvent, IInterventoPianificato
+    public abstract class InterventoPianificato : Message, IInterventoPianificato
     {
-        public Guid Id { get; set; }
+        
         public Guid IdImpianto { get; set; }
         public Guid IdTipoIntervento { get; set; }
         public Guid IdAppaltatore { get; set; }

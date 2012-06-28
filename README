@@ -9,6 +9,8 @@ This Project is a try out at re analysing the super application(cleaning managem
 
 nCQRS framework has been used used but is totally discarded now. Current solution implies the use of Joliver Commain domain and events store.
 
+The application deals with one website in ASP.net MVC
+
 *The application is under hardcore development and so might work or not depending on the day you get it.*
 
 Documentation
@@ -26,43 +28,46 @@ And to generate some documentation on the fly of the different tests available. 
 To define the bounded context and their interactions (see contextmap.png in documentation)
 so far I have found :
  
-    - Administration :  (CRUD like)
     - Schedulazione : 	BC responsible for the generation of intervento
     - Appaltatore : 	Handling of Intervento by the appaltatore
     - Controllo :       Control of the intervento through the means of schede and various tools
-    - Accounting :      BC responsible for giving numbers and reports depending on accounting rules 
+    - Accounting :      BC responsible for creating the context in which the other BCs evolve. Besides it uses information provided by the other Bcs to create reports depending on accounting rules.
 
 **current basic architecture **
 
-              ICommand    |
-                          | -------> CommandBase ---> misc Command           
-IMesssage --> Message --> |
                           
+IMesssage --> Message --> | -------> CommandBase ---> misc Command           
 
-           
-              IEvent|
-                          | -------> misc Event
-IMesssage --> Message --> |
+IMesssage --> Message --> | -------> misc Event
 
 
-Message is responsible for having the headers. This headers allows command and events to have CommitId, CorrelationId...
+Message is responsible for having the Id and the commitId of the message.
+CommandBase is a "fake" class used to bypass WCF. Its only use is to get the various Command each BC has to its WCF contract.
 
 current worries
 ---------------
 
- - dealing nicely with command in a sync fashion ?
- - putting in one single exe command handling, eventhandling, and     projection generation?
+ 
  - having one readModel per bounded context, I am afraid it is the only way. Should then I have different copies of Area Intervento. I mean to be using one server only, does it make sense then to duplicate this information? use a trick to have every bounded context look at the same part of the read model...
 to be think better later
- - experimenting with sagas
-
+ - experimenting with sagas ( among other things, I have to add a alarm clock to trigger a time out..)
+ - experimenting with code contracts
+ - rethinking command and event handlers
+ 
+ 
+next worries (fun??)
+---------------
+ - having fun again with node.js or look around signalR
+ - Elmah for mvc
+ - Create a build server
+ - Create a production server to hold the Mammuth!!!!
 
 
 Dependencies:
 -------------
 
  - CodeContracts
- - MongoDB
+ - Sql server
  - Easy netQ ( my version is to be cloned in Super2013\Framework )
  
  

@@ -4,9 +4,9 @@ using CommonDomain.Core;
 
 namespace Super.Controllo.Events
 {
-    public class InterventoControlAllowed : Message, IEvent
+    public class InterventoControlAllowed : Message
     {
-        public Guid Id { get; set; }
+        
 
         public override bool Equals(object obj)
         {

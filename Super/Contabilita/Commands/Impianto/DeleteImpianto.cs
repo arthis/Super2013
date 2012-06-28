@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommandService;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Commands.Impianto
@@ -6,7 +8,7 @@ namespace Super.Contabilita.Commands.Impianto
     
     public class DeleteImpianto : CommandBase
     {
-        public long Version { get; private set; }
+        public long Version { get;  set; }
 
         public DeleteImpianto()
         {
@@ -16,6 +18,8 @@ namespace Super.Contabilita.Commands.Impianto
 
          public DeleteImpianto(Guid id)
         {
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+
             this.Id = id;
         }
 

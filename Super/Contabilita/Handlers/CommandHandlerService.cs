@@ -12,17 +12,17 @@ namespace Super.Contabilita.Handlers
 {
     public class CommandHandlerService : ICommandHandlerService
     {
-        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
+        private readonly Dictionary<Type, Func<IMessage, CommandValidation>> _handlers = new Dictionary<Type, Func<IMessage, CommandValidation>>();
 
         public void InitHandlers(IRepository repositoryEvent)
         {
-            CustomHandler.Add<CreateImpianto>(_handlers, new CreateImpiantoHandler(repositoryEvent));
-            CustomHandler.Add<UpdateImpianto>(_handlers, new UpdateImpiantoHandler(repositoryEvent));
-            CustomHandler.Add<DeleteImpianto>(_handlers, new DeleteImpiantoHandler(repositoryEvent));
+            TypicalHandler.Add<CreateImpianto>(_handlers, new CreateImpiantoHandler(repositoryEvent));
+            TypicalHandler.Add<UpdateImpianto>(_handlers, new UpdateImpiantoHandler(repositoryEvent));
+            TypicalHandler.Add<DeleteImpianto>(_handlers, new DeleteImpiantoHandler(repositoryEvent));
 
-            CustomHandler.Add<CreateLotto>(_handlers, new CreateLottoHandler(repositoryEvent));
-            CustomHandler.Add<UpdateLotto>(_handlers, new UpdateLottoHandler(repositoryEvent));
-            CustomHandler.Add<DeleteLotto>(_handlers, new DeleteLottoHandler(repositoryEvent));
+            TypicalHandler.Add<CreateLotto>(_handlers, new CreateLottoHandler(repositoryEvent));
+            TypicalHandler.Add<UpdateLotto>(_handlers, new UpdateLottoHandler(repositoryEvent));
+            TypicalHandler.Add<DeleteLotto>(_handlers, new DeleteLottoHandler(repositoryEvent));
 
         }
 
@@ -32,7 +32,7 @@ namespace Super.Contabilita.Handlers
         }
 
 
-        public CommandValidation Execute(ICommand commandBase)
+        public CommandValidation Execute(IMessage commandBase)
         {
             Contract.Requires<ArgumentNullException>(commandBase != null);
 

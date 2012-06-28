@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommandService;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Commands.TipoIntervento
@@ -6,35 +8,29 @@ namespace Super.Contabilita.Commands.TipoIntervento
 
     public class UpdateTipoInterventoRotMan : CommandBase
     {
-        private readonly string _mnemo;
-        private readonly Guid _measuringUnit;
-        private readonly Guid _idContract;
+        public Guid IdContract { get; set; }
+        public Guid IdMasuringUnit { get; set; }
+        public string Description { get; set; }
+        public string Mnemo { get; set; }
         
 
-        public Guid IdContract
-        {
-            get { return _idContract; }
-        }
-        public Guid MeasuringUnit
-        {
-            get { return _measuringUnit; }
-        }
-        public string Description { get; private set; }
-        public string Mnemo
-        {
-            get { return _mnemo; }
-        }
  
         public UpdateTipoInterventoRotMan()
         {}
 
-        public UpdateTipoInterventoRotMan(Guid id, string mnemo, Guid measuringUnit, Guid idContract,   string description)
+        public UpdateTipoInterventoRotMan(Guid id, string mnemo, Guid idMeasuringUnit, Guid idContract, string description)
         {
-            _mnemo = mnemo;
-            _measuringUnit = measuringUnit;
-            _idContract = idContract;
-            this.Id = id;
-            this.Description = description;
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(mnemo));
+            Contract.Requires<ArgumentNullException>(idMeasuringUnit != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idContract != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+
+            Mnemo = mnemo;
+            IdMasuringUnit = idMeasuringUnit;
+            IdContract = idContract;
+            Id = id;
+            Description = description;
         }
 
         public override string ToDescription()

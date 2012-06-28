@@ -5,18 +5,14 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Impianto
 {
-    public class ImpiantoCreated :  Message ,IEvent
+    public class ImpiantoCreated :  Message 
     {
-        private readonly Guid _idLotto;
 
-        public Guid Id { get; set; }
-        public Intervall Period { get; private set; }
-        public DateTime CreationDate { get; private set; }
-        public string Description { get; private set; }
-        public Guid IdLotto
-        {
-            get { return _idLotto; }
-        }
+        public Intervall Period { get;  set; }
+        public DateTime CreationDate { get;  set; }
+        public string Description { get;  set; }
+        public Guid IdLotto { get;  set; }
+        
 
         //for serialization
         public ImpiantoCreated()
@@ -26,7 +22,7 @@ namespace Super.Contabilita.Events.Impianto
 
         public ImpiantoCreated(Guid id, Intervall period, Guid idLotto, DateTime creationDate, string description)
         {
-            _idLotto = idLotto;
+            IdLotto = idLotto;
             Id = id;
             Period = period;
             CreationDate = creationDate;

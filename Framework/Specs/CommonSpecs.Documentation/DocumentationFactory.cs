@@ -136,7 +136,7 @@ namespace CommonSpecs.Documentation
                     if (@namespace.Contains("Saga"))
                         bc.ScenariPack.Add(CreateScenarioPack(bc, typeof(SagaBaseClass<Message>), @namespace, namespaceStylised, assembly));
                     else
-                        bc.ScenariPack.Add(CreateScenarioPack(bc, typeof(CommandBaseClass<CommandBase>), @namespace, namespaceStylised, assembly));
+                        bc.ScenariPack.Add(CreateScenarioPack(bc, typeof(CommandBaseClass<Message>), @namespace, namespaceStylised, assembly));
                 }
             }
 

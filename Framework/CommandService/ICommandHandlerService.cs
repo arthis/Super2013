@@ -8,6 +8,6 @@ namespace CommandService
     {
         void InitHandlers(IRepository repositoryEvent);
         void Subscribe( IBus bus);
-        CommandValidation Execute(ICommand commandBase);
+        CommandValidation Execute(IMessage commandBase);
     }
 }

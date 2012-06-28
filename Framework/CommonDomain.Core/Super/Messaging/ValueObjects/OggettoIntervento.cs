@@ -1,33 +1,32 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 
 namespace CommonDomain.Core.Super.Messaging.ValueObjects
 {
     [Serializable]
     public abstract class OggettoIntervento
     {
-        protected readonly string _description;
-        protected readonly int _quantity;
 
-        public string Description
-        {
-            get { return _description;  }
-        }
-        public int Quantity
-        {
-            get { return _quantity; }
-        }
+        public string Description { get; set; }
+        public int Quantity { get; set; }
+
+        public OggettoIntervento()
+        {}
 
         public OggettoIntervento(string description, int quantity)
         {
-            _description = description;
-            _quantity = quantity;
+            Contract.Requires<ArgumentOutOfRangeException>(quantity>0);
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+
+            Description = description;
+            Quantity = quantity;
         }
 
         public bool Equals(OggettoIntervento other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Equals(other._description, _description) && other._quantity == _quantity;
+            return Equals(other.Description, Description) && other.Quantity == Quantity;
         }
 
         public override bool Equals(object obj)
@@ -42,7 +41,7 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         {
             unchecked
             {
-                return ((_description != null ? _description.GetHashCode() : 0)*397) ^ _quantity;
+                return ((Description != null ? Description.GetHashCode() : 0)*397) ^ Quantity;
             }
         }
     }
@@ -53,24 +52,22 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         //i.e. CommonDomain.Core.Super.Domain.ValueObjects.OggettoRot,
         //the event representation of a value object
 
-        private readonly Guid _idTipoOggettoInterventoRot;
 
-        public Guid IdTipoOggettoInterventoRot
-        {
-            get { return _idTipoOggettoInterventoRot; }
-        }
+        public Guid IdTipoOggettoInterventoRot { get; set; }
 
         public OggettoRot(string description, int quantity, Guid idTipoOggettoInterventoRot)
             : base(description,quantity)
         {
-            _idTipoOggettoInterventoRot = idTipoOggettoInterventoRot;
+            Contract.Requires<ArgumentNullException>(idTipoOggettoInterventoRot!= Guid.Empty);
+
+            IdTipoOggettoInterventoRot = idTipoOggettoInterventoRot;
         }
 
         public bool Equals(OggettoRot other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._idTipoOggettoInterventoRot.Equals(_idTipoOggettoInterventoRot);
+            return base.Equals(other) && other.IdTipoOggettoInterventoRot.Equals(IdTipoOggettoInterventoRot);
         }
 
         public override bool Equals(object obj)
@@ -84,7 +81,7 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         {
             unchecked
             {
-                return (base.GetHashCode()*397) ^ _idTipoOggettoInterventoRot.GetHashCode();
+                return (base.GetHashCode()*397) ^ IdTipoOggettoInterventoRot.GetHashCode();
             }
         }
     }
@@ -95,24 +92,22 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         //i.e. CommonDomain.Core.Super.Domain.ValueObjects.OggettoRotMan,
         //the event representation of a value object
 
-        private Guid _idTipoOggettoInterventoRotMan;
 
-        public Guid IdTipoOggettoInterventoRotMan
-        {
-            get { return _idTipoOggettoInterventoRotMan; }
-        }
+        public Guid IdTipoOggettoInterventoRotMan { get; set; }
 
         public OggettoRotMan(string description, int quantity, Guid idTipoOggettoInterventoRotMan)
             : base(description,quantity)
         {
-            _idTipoOggettoInterventoRotMan = idTipoOggettoInterventoRotMan;
+            Contract.Requires<ArgumentNullException>(idTipoOggettoInterventoRotMan != Guid.Empty);
+
+            IdTipoOggettoInterventoRotMan = idTipoOggettoInterventoRotMan;
         }
 
         public bool Equals(OggettoRotMan other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._idTipoOggettoInterventoRotMan.Equals(_idTipoOggettoInterventoRotMan);
+            return base.Equals(other) && other.IdTipoOggettoInterventoRotMan.Equals(IdTipoOggettoInterventoRotMan);
         }
 
         public override bool Equals(object obj)
@@ -126,7 +121,7 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         {
             unchecked
             {
-                return (base.GetHashCode()*397) ^ _idTipoOggettoInterventoRotMan.GetHashCode();
+                return (base.GetHashCode()*397) ^ IdTipoOggettoInterventoRotMan.GetHashCode();
             }
         }
     }

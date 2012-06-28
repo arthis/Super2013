@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommandService;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Commands.TipoIntervento
@@ -6,7 +8,7 @@ namespace Super.Contabilita.Commands.TipoIntervento
     
     public class DeleteTipoInterventoRot : CommandBase
     {
-        public long Version { get; private set; }
+        
 
         public DeleteTipoInterventoRot()
         {
@@ -16,7 +18,9 @@ namespace Super.Contabilita.Commands.TipoIntervento
 
          public DeleteTipoInterventoRot(Guid id)
         {
-            this.Id = id;
+            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
+
+            Id = id;
         }
 
 
@@ -26,26 +30,6 @@ namespace Super.Contabilita.Commands.TipoIntervento
         }
 
 
-        public bool Equals(DeleteTipoInterventoRot other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.Version == Version;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as DeleteTipoInterventoRot);
-        }
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode()*397) ^ Version.GetHashCode();
-            }
-        }
+       
     }
 }

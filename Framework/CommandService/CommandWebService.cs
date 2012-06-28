@@ -75,7 +75,6 @@ namespace CommandService
         {
             Contract.Requires(command != null);
             Contract.Ensures(Contract.Result<ExecuteResponse>() != null);
-            //Contract.EnsuresOnThrow<FaultException<CommandWebServiceFault>>(Contract.Result<ExecuteResponse>() == null);
 
             try
             {

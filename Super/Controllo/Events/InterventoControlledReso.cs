@@ -6,18 +6,15 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Controllo.Events
 {
-    public abstract class InterventoControlledReso : Message, IEvent
+    public abstract class InterventoControlledReso : Message
     {
-        private readonly Guid _id;
+        
         private readonly Guid _idUtente;
         private readonly DateTime _controlDate;
         private readonly WorkPeriod _period;
         private readonly string _note;
 
-        public Guid Id
-        {
-            get { return _id; }
-        }
+        
         public string Note
         {
             get { return _note; }
@@ -48,7 +45,7 @@ namespace Super.Controllo.Events
             Contract.Requires<ArgumentOutOfRangeException>(controlDate == DateTime.MinValue);
             Contract.Requires<ArgumentNullException>(period == null);
 
-            _id = id;
+            Id = id;
             _idUtente = idUtente;
             _controlDate = controlDate;
             _period = period;
@@ -61,7 +58,7 @@ namespace Super.Controllo.Events
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._id.Equals(_id) && other._idUtente.Equals(_idUtente) && other._controlDate.Equals(_controlDate) && Equals(other._period, _period) && Equals(other._note, _note);
+            return base.Equals(other)  && other._idUtente.Equals(_idUtente) && other._controlDate.Equals(_controlDate) && Equals(other._period, _period) && Equals(other._note, _note);
         }
 
         public override bool Equals(object obj)
@@ -76,7 +73,6 @@ namespace Super.Controllo.Events
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _id.GetHashCode();
                 result = (result*397) ^ _idUtente.GetHashCode();
                 result = (result*397) ^ _controlDate.GetHashCode();
                 result = (result*397) ^ (_period != null ? _period.GetHashCode() : 0);

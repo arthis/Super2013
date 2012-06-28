@@ -5,10 +5,10 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Lotto
 {
-    public class LottoCreated :  Message ,IEvent
+    public class LottoCreated :  Message 
     {
 
-        public Guid Id { get; set; }
+        
         public Intervall Period { get; private set; }
         public DateTime CreationDate { get; private set; }
         public string Description { get; private set; }

@@ -15,25 +15,25 @@ namespace Super.Appaltatore.Handlers
     {
 
 
-        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
+        private readonly Dictionary<Type, Func<IMessage, CommandValidation>> _handlers = new Dictionary<Type, Func<IMessage, CommandValidation>>();
 
         public void InitHandlers(IRepository repositoryEvent)
         {
-            CustomHandler.Add<ProgrammareInterventoAmb>(_handlers, new ProgrammareInterventoAmbHandler(repositoryEvent));
-            CustomHandler.Add<ProgrammareInterventoRot>(_handlers, new ProgrammareInterventoRotHandler(repositoryEvent));
-            CustomHandler.Add<ProgrammareInterventoRotMan>(_handlers, new ProgrammareInterventoRotManHandler(repositoryEvent));
+            TypicalHandler.Add<ProgrammareInterventoAmb>(_handlers, new ProgrammareInterventoAmbHandler(repositoryEvent));
+            TypicalHandler.Add<ProgrammareInterventoRot>(_handlers, new ProgrammareInterventoRotHandler(repositoryEvent));
+            TypicalHandler.Add<ProgrammareInterventoRotMan>(_handlers, new ProgrammareInterventoRotManHandler(repositoryEvent));
 
-            CustomHandler.Add<ConsuntivareAmbNonReso>(_handlers, new ConsuntivareAmbNonResoHandler(repositoryEvent));
-            CustomHandler.Add<ConsuntivareRotNonReso>(_handlers, new ConsuntivareRotNonResoHandler(repositoryEvent));
-            CustomHandler.Add<ConsuntivareRotManNonReso>(_handlers, new ConsuntivareRotManNonResoHandler(repositoryEvent));
+            TypicalHandler.Add<ConsuntivareAmbNonReso>(_handlers, new ConsuntivareAmbNonResoHandler(repositoryEvent));
+            TypicalHandler.Add<ConsuntivareRotNonReso>(_handlers, new ConsuntivareRotNonResoHandler(repositoryEvent));
+            TypicalHandler.Add<ConsuntivareRotManNonReso>(_handlers, new ConsuntivareRotManNonResoHandler(repositoryEvent));
 
-            CustomHandler.Add<ConsuntivareAmbReso>(_handlers, new ConsuntivareAmbResoHandler(repositoryEvent));
-            CustomHandler.Add<ConsuntivareRotReso>(_handlers, new ConsuntivareRotResoHandler(repositoryEvent));
-            CustomHandler.Add<ConsuntivareRotManReso>(_handlers, new ConsuntivareRotManResoHandler(repositoryEvent));
+            TypicalHandler.Add<ConsuntivareAmbReso>(_handlers, new ConsuntivareAmbResoHandler(repositoryEvent));
+            TypicalHandler.Add<ConsuntivareRotReso>(_handlers, new ConsuntivareRotResoHandler(repositoryEvent));
+            TypicalHandler.Add<ConsuntivareRotManReso>(_handlers, new ConsuntivareRotManResoHandler(repositoryEvent));
 
-            CustomHandler.Add<ConsuntivareAmbNonResoTrenitalia>(_handlers, new ConsuntivareAmbNonResoTrenitaliaHandler(repositoryEvent));
-            CustomHandler.Add<ConsuntivareRotNonResoTrenitalia>(_handlers, new ConsuntivareRotNonResoTrenitaliaHandler(repositoryEvent));
-            CustomHandler.Add<ConsuntivareRotManNonResoTrenitalia>(_handlers, new ConsuntivareRotManNonResoTrenitaliaHandler(repositoryEvent));
+            TypicalHandler.Add<ConsuntivareAmbNonResoTrenitalia>(_handlers, new ConsuntivareAmbNonResoTrenitaliaHandler(repositoryEvent));
+            TypicalHandler.Add<ConsuntivareRotNonResoTrenitalia>(_handlers, new ConsuntivareRotNonResoTrenitaliaHandler(repositoryEvent));
+            TypicalHandler.Add<ConsuntivareRotManNonResoTrenitalia>(_handlers, new ConsuntivareRotManNonResoTrenitaliaHandler(repositoryEvent));
         }
 
         public void Subscribe(IBus bus)
@@ -46,7 +46,7 @@ namespace Super.Appaltatore.Handlers
         }
 
 
-        public CommandValidation Execute(ICommand commandBase)
+        public CommandValidation Execute(IMessage commandBase)
         {
             Contract.Requires<ArgumentNullException>(commandBase != null);
 

@@ -8,7 +8,7 @@ using CommonDomain.Core;
 namespace Super.Controllo.Commands
 {
 
-    public class ControlInterventoNonReso : CommandBase
+    public class ControlInterventoNonReso : Message
     {
         
         private readonly Guid _idUtente;

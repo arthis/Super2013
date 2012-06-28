@@ -7,7 +7,9 @@ namespace CommonDomain
 {
     public interface IMessage
     {
+        Guid Id { get; }
         Guid CommitId { get; }
+
         string ToDescription();
     }
 }

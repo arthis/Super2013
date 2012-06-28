@@ -9,7 +9,9 @@ namespace Super.Contabilita.Events.Builders
 
         public LottoDeleted Build(Guid id)
         {
-            return new LottoDeleted(id);
+            var evt = new LottoDeleted(id);
+            evt.CommitId= Guid.NewGuid();
+            return evt;
         }
 
     }

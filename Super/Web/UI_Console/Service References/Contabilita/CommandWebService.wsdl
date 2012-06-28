@@ -8,8 +8,9 @@
       <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.Impianto" />
       <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.TipoIntervento" />
       <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Super.Contabilita.Commands.Lotto" />
-      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CommandService" />
-      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CommonDomain" />
+      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CommonDomain.Core.Super.Messaging.ValueObjects" />
+      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CommandService" />
+      <xsd:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CommonDomain" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICommandWebService_Execute_InputMessage">

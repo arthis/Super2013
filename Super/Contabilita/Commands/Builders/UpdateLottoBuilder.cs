@@ -12,7 +12,11 @@ namespace Super.Contabilita.Commands.Builders
 
         public UpdateLotto Build(Guid id)
         {
-            return new UpdateLotto(id,  _intervall, _description);
+            var cmd = new UpdateLotto(id, _intervall, _description);
+
+            cmd.CommitId = Guid.NewGuid();
+
+            return cmd;
         }
 
 

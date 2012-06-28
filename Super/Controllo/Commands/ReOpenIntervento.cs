@@ -7,7 +7,7 @@ using CommonDomain.Core;
 namespace Super.Controllo.Commands
 {
 
-    public class ReopenIntervento : CommandBase
+    public class ReopenIntervento : Message
     {   
         private readonly Guid _idUtente;
         private readonly DateTime _reopeningDate;

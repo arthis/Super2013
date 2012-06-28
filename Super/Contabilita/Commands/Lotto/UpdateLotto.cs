@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommandService;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
@@ -8,17 +10,21 @@ namespace Super.Contabilita.Commands.Lotto
     public class UpdateLotto : CommandBase
     {
 
-        public Intervall Period { get; private set; }
-        public string Description { get; private set; }
+        public Intervall Period { get;  set; }
+        public string Description { get;  set; }
 
         public UpdateLotto()
         {}
 
         public UpdateLotto(Guid id,  Intervall period,  string description)
         {
-            this.Id = id;
-            this.Period = period;
-            this.Description = description;
+            Contract.Requires<ArgumentNullException>(id!= Guid.Empty);
+            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+
+            Id = id;
+            Period = period;
+            Description = description;
         }
 
         public override string ToDescription()

@@ -9,31 +9,34 @@ namespace CommonDomain.Core
     [Serializable]
     public abstract class Message : IMessage
     {
+        public Guid Id { get; set; }
         public Guid CommitId { get; set; }
 
         public abstract string ToDescription();
 
-
-        public Message()
-        {
-            
-        }
-
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj as Message);
-        }
+    
 
         public bool Equals(Message other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return other.CommitId.Equals(CommitId);
+            return other.Id.Equals(Id) && other.CommitId.Equals(CommitId);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (Message)) return false;
+            return Equals((Message) obj);
         }
 
         public override int GetHashCode()
         {
-            return CommitId.GetHashCode();
+            unchecked
+            {
+                return (Id.GetHashCode()*397) ^ CommitId.GetHashCode();
+            }
         }
     }
 }

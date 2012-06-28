@@ -15,7 +15,9 @@ namespace Super.Contabilita.Events.Builders
 
         public ImpiantoCreated Build(Guid id)
         {
-            return new ImpiantoCreated(id,  _intervall,_idLotto, _creationDate, _description);
+            var evt = new ImpiantoCreated(id,  _intervall,_idLotto, _creationDate, _description);
+            evt.CommitId = Guid.NewGuid();
+            return evt;
         }
 
         public ImpiantoCreatedBuilder ForCreationDate(DateTime creationDate)
