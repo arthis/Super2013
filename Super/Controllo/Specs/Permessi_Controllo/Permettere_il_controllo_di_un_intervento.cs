@@ -16,9 +16,9 @@ namespace Super.Controllo.Specs.Permessi_Controllo
         private Guid _Id = Guid.NewGuid();
 
 
-        protected override CommandHandler<AllowControlIntervento> OnHandle(IRepository repository)
+        protected override CommandHandler<AllowControlIntervento> OnHandle(IEventRepository eventRepository)
         {
-            return new AllowControlInterventoHandler(repository);
+            return new AllowControlInterventoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

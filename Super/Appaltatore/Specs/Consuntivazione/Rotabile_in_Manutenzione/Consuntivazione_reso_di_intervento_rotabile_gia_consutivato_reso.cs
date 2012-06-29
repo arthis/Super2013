@@ -42,9 +42,9 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         readonly WorkPeriod _periodCons2 = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
 
         
-        protected override CommandHandler<ConsuntivareRotManReso> OnHandle(IRepository repository)
+        protected override CommandHandler<ConsuntivareRotManReso> OnHandle(IEventRepository eventRepository)
         {
-            return new ConsuntivareRotManResoHandler(repository);
+            return new ConsuntivareRotManResoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

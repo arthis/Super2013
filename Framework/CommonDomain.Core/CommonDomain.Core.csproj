@@ -74,19 +74,22 @@
     <Compile Include="AggregateBase.cs" />
     <Compile Include="AggregateRootInstanceNotFoundException.cs" />
     <Compile Include="AlreadyCreatedAggregateRootException.cs" />
+    <Compile Include="HandlerHelper.cs" />
+    <Compile Include="CommandAlreadyProcessedException.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="CommandHandler.cs" />
     <Compile Include="CommandValidation.cs" />
     <Compile Include="ConflictDetector.cs" />
     <Compile Include="ConventionEventRouter.cs" />
-    <Compile Include="TypicalHandler.cs" />
+    <Compile Include="ExecuteCommandOnceOnlyHandler.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="HandlerForDomainEventNotFoundException.cs" />
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="ICommandService.cs" />
     <Compile Include="IEventHandler.cs" />
+    <Compile Include="JsonSerializer.cs" />
+    <Compile Include="LogCommandPerfomanceHandler.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="ReadOnce.cs" />
     <Compile Include="SagaHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationEventRouter.cs" />
@@ -133,6 +136,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CommonDomain.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\json4.5r7\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>

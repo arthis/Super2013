@@ -10,8 +10,8 @@ namespace Super.Contabilita.Handlers
 {
     public class UpdateImpiantoHandler : CommandHandler<UpdateImpianto>
     {
-        public UpdateImpiantoHandler(IRepository repository)
-            : base(repository)
+        public UpdateImpiantoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -20,14 +20,14 @@ namespace Super.Contabilita.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var impianto= Repository.GetById<Impianto>(cmd.Id);
+            var impianto= EventRepository.GetById<Impianto>(cmd.Id);
 
             if (impianto.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
             impianto.Update(Build.Intervall.FromPeriod(cmd.Period).Build(), cmd.Description);
 
-            Repository.Save(impianto, cmd.CommitId);
+            EventRepository.Save(impianto, cmd.CommitId);
 
             return impianto.CommandValidationMessages;
         }

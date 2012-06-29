@@ -38,7 +38,12 @@ namespace CommonDomain.Persistence.EventStore
 			}
 		}
 
-		public TSaga GetById<TSaga>(Guid sagaId) where TSaga : class, ISaga, new()
+	    public bool IsHandled(Guid commitId)
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    public TSaga GetById<TSaga>(Guid sagaId) where TSaga : class, ISaga, new()
 		{
 			return BuildSaga<TSaga>(this.OpenStream(sagaId));
 		}

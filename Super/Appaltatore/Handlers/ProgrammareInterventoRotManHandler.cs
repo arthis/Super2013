@@ -10,8 +10,8 @@ namespace Super.Appaltatore.Handlers
 {
     public class ProgrammareInterventoRotManHandler : CommandHandler<ProgrammareInterventoRotMan>
     {
-        public ProgrammareInterventoRotManHandler(IRepository repository)
-            : base(repository)
+        public ProgrammareInterventoRotManHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -21,7 +21,7 @@ namespace Super.Appaltatore.Handlers
             Contract.Requires<ArgumentNullException>(cmd != null);
 
 
-            var existingIntervento = Repository.GetById<InterventoRotMan>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<InterventoRotMan>(cmd.Id);
 
             if (!existingIntervento.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
@@ -36,7 +36,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.Note
                                 , cmd.Oggetti.ToValueObject());
 
-            Repository.Save(existingIntervento, cmd.CommitId);
+            EventRepository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages;
         }

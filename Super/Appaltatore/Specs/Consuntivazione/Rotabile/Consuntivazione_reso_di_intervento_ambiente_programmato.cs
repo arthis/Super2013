@@ -43,9 +43,9 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
         string _rigaTurnoTrenoCons = "rigaturno Cons";
         string _convoglioCons = "convoglio Cons";
         
-        protected override CommandHandler<ConsuntivareRotReso> OnHandle(IRepository repository)
+        protected override CommandHandler<ConsuntivareRotReso> OnHandle(IEventRepository eventRepository)
         {
-            return new ConsuntivareRotResoHandler(repository);
+            return new ConsuntivareRotResoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

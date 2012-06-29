@@ -6,8 +6,10 @@ namespace CommonDomain.Core
 {
     [Serializable]
     [KnownType("GetKnownTypes")]
-    public abstract class CommandBase : Message
+    public abstract class CommandBase : Message, ICommand
     {
+        public bool IsExecuted { get; set; }
+
         public static Type[] GetKnownTypes()
         {
             var types = from asm in AppDomain.CurrentDomain.GetAssemblies()

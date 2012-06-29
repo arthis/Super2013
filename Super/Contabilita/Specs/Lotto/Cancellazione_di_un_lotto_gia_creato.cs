@@ -21,9 +21,9 @@ namespace Super.Contabilita.Specs.Lotto
         private long _version;
         private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
-        protected override CommandHandler<DeleteLotto> OnHandle(IRepository repository)
+        protected override CommandHandler<DeleteLotto> OnHandle(IEventRepository eventRepository)
         {
-            return new DeleteLottoHandler(repository);
+            return new DeleteLottoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

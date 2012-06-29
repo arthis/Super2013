@@ -9,31 +9,29 @@ using Super.Appaltatore.Commands;
 
 namespace Super.Appaltatore.Handlers
 {
-   
-
     public class CommandHandlerService : ICommandHandlerService
     {
+        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
 
-
-        private readonly Dictionary<Type, Func<IMessage, CommandValidation>> _handlers = new Dictionary<Type, Func<IMessage, CommandValidation>>();
-
-        public void InitHandlers(IRepository repositoryEvent)
+        public void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent)
         {
-            TypicalHandler.Add<ProgrammareInterventoAmb>(_handlers, new ProgrammareInterventoAmbHandler(repositoryEvent));
-            TypicalHandler.Add<ProgrammareInterventoRot>(_handlers, new ProgrammareInterventoRotHandler(repositoryEvent));
-            TypicalHandler.Add<ProgrammareInterventoRotMan>(_handlers, new ProgrammareInterventoRotManHandler(repositoryEvent));
+            var handlerHelper = new HandlerHelper(commandRepository);
 
-            TypicalHandler.Add<ConsuntivareAmbNonReso>(_handlers, new ConsuntivareAmbNonResoHandler(repositoryEvent));
-            TypicalHandler.Add<ConsuntivareRotNonReso>(_handlers, new ConsuntivareRotNonResoHandler(repositoryEvent));
-            TypicalHandler.Add<ConsuntivareRotManNonReso>(_handlers, new ConsuntivareRotManNonResoHandler(repositoryEvent));
+            handlerHelper.Add<ProgrammareInterventoAmb>(_handlers, new ProgrammareInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.Add<ProgrammareInterventoRot>(_handlers, new ProgrammareInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.Add<ProgrammareInterventoRotMan>(_handlers, new ProgrammareInterventoRotManHandler(eventRepositoryEvent));
 
-            TypicalHandler.Add<ConsuntivareAmbReso>(_handlers, new ConsuntivareAmbResoHandler(repositoryEvent));
-            TypicalHandler.Add<ConsuntivareRotReso>(_handlers, new ConsuntivareRotResoHandler(repositoryEvent));
-            TypicalHandler.Add<ConsuntivareRotManReso>(_handlers, new ConsuntivareRotManResoHandler(repositoryEvent));
+            handlerHelper.Add<ConsuntivareAmbNonReso>(_handlers, new ConsuntivareAmbNonResoHandler(eventRepositoryEvent));
+            handlerHelper.Add<ConsuntivareRotNonReso>(_handlers, new ConsuntivareRotNonResoHandler(eventRepositoryEvent));
+            handlerHelper.Add<ConsuntivareRotManNonReso>(_handlers, new ConsuntivareRotManNonResoHandler(eventRepositoryEvent));
 
-            TypicalHandler.Add<ConsuntivareAmbNonResoTrenitalia>(_handlers, new ConsuntivareAmbNonResoTrenitaliaHandler(repositoryEvent));
-            TypicalHandler.Add<ConsuntivareRotNonResoTrenitalia>(_handlers, new ConsuntivareRotNonResoTrenitaliaHandler(repositoryEvent));
-            TypicalHandler.Add<ConsuntivareRotManNonResoTrenitalia>(_handlers, new ConsuntivareRotManNonResoTrenitaliaHandler(repositoryEvent));
+            handlerHelper.Add<ConsuntivareAmbReso>(_handlers, new ConsuntivareAmbResoHandler(eventRepositoryEvent));
+            handlerHelper.Add<ConsuntivareRotReso>(_handlers, new ConsuntivareRotResoHandler(eventRepositoryEvent));
+            handlerHelper.Add<ConsuntivareRotManReso>(_handlers, new ConsuntivareRotManResoHandler(eventRepositoryEvent));
+
+            handlerHelper.Add<ConsuntivareAmbNonResoTrenitalia>(_handlers, new ConsuntivareAmbNonResoTrenitaliaHandler(eventRepositoryEvent));
+            handlerHelper.Add<ConsuntivareRotNonResoTrenitalia>(_handlers, new ConsuntivareRotNonResoTrenitaliaHandler(eventRepositoryEvent));
+            handlerHelper.Add<ConsuntivareRotManNonResoTrenitalia>(_handlers, new ConsuntivareRotManNonResoTrenitaliaHandler(eventRepositoryEvent));
         }
 
         public void Subscribe(IBus bus)
@@ -46,7 +44,7 @@ namespace Super.Appaltatore.Handlers
         }
 
 
-        public CommandValidation Execute(IMessage commandBase)
+        public CommandValidation Execute(ICommand commandBase)
         {
             Contract.Requires<ArgumentNullException>(commandBase != null);
 

@@ -11,8 +11,8 @@ namespace Super.Controllo.Handlers
 {
     public class ControlInterventoAmbResoHandler : CommandHandler<ControlInterventoAmbReso>
     {
-        public ControlInterventoAmbResoHandler(IRepository repository)
-            : base(repository)
+        public ControlInterventoAmbResoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -23,7 +23,7 @@ namespace Super.Controllo.Handlers
             Treno trenoPartenza=null, trenoArrivo=null;
 
 
-            var existingIntervento = Repository.GetById<InterventoAmb>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
 
             if (existingIntervento.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
@@ -31,7 +31,7 @@ namespace Super.Controllo.Handlers
 
             existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, WorkPeriod.FromMessage(cmd.Period),   cmd.Note, cmd.Quantita, cmd.Descrizione);
 
-            Repository.Save(existingIntervento, cmd.CommitId);
+            EventRepository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages; 
         }

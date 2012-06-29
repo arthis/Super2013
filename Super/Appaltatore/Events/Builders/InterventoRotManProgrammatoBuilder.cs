@@ -65,9 +65,10 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoRotManProgrammato Build(Guid id)
+        public InterventoRotManProgrammato Build(Guid id, Guid commitId)
         {
             return new InterventoRotManProgrammato(id,
+                                                    commitId,
                                                    _idImpianto,
                                                    _idTipoIntervento,
                                                    _idAppaltatore,

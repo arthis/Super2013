@@ -14,7 +14,7 @@ using Super.Programmazione.Events;
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile
 {
-    public class consuntivazione_intervento : SagaBaseClass<IInterventoRotConsuntivato>
+    public class consuntivazione_intervento : SagaBaseClass<InterventoConsuntivatoRotReso>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -47,9 +47,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
             return "Une saga gia inziata non può essere iniziata di nuovo. vero?.";
         }
 
-        protected override SagaHandler<IInterventoRotConsuntivato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoConsuntivatoRotReso> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoRotConsuntivatoHandler(repository, bus);
+            return new InterventoConsuntivatoRotResoHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -73,7 +73,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
             };
         }
 
-        public override IInterventoRotConsuntivato When()
+        public override InterventoConsuntivatoRotReso When()
         {
             var builder = new InterventoConsuntivatoRotResoBuilder();
 

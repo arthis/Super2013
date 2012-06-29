@@ -11,7 +11,6 @@ namespace Super.Appaltatore.Events.Builders
 
     public class InterventoRotProgrammatoBuilder
     {
-        private Guid _id;
         private Guid _idImpianto;
         private Guid _idTipoIntervento;
         private Guid _idAppaltatore;
@@ -38,11 +37,7 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoRotProgrammatoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
+     
 
         public InterventoRotProgrammatoBuilder In(Guid idImpianto)
         {
@@ -110,9 +105,10 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoRotProgrammato Build()
+        public InterventoRotProgrammato Build(Guid id, Guid commitId)
         {
-            return new InterventoRotProgrammato(_id,
+            return new InterventoRotProgrammato(id,
+                                      commitId,
                                       _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,

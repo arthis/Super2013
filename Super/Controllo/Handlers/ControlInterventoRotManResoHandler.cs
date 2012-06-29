@@ -11,8 +11,8 @@ namespace Super.Controllo.Handlers
 {
     public class ControlInterventoRotManResoHandler : CommandHandler<ControlInterventoRotManReso>
     {
-        public ControlInterventoRotManResoHandler(IRepository repository)
-            : base(repository)
+        public ControlInterventoRotManResoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -22,14 +22,14 @@ namespace Super.Controllo.Handlers
 
             Treno trenoPartenza=null, trenoArrivo=null;
 
-            var existingIntervento = Repository.GetById<InterventoRotMan>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<InterventoRotMan>(cmd.Id);
 
             if (existingIntervento.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
             existingIntervento.ControlReso(cmd.IdUtente, cmd.ControlDate, WorkPeriod.FromMessage(cmd.Period),  cmd.Note, cmd.Oggetti.ToValueObject());
 
-            Repository.Save(existingIntervento, cmd.CommitId);
+            EventRepository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages; 
         }

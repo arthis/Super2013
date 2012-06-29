@@ -11,6 +11,11 @@ namespace CommonSpecs
 
         public IEnumerable<IMessage> CommittedEvents { get; set; }
 
+        public bool IsHandled(Guid commitId)
+        {
+            throw new NotImplementedException();
+        }
+
         public TSaga GetById<TSaga>(Guid sagaId) where TSaga : class, ISaga, new()
         {
             var saga = new TSaga();

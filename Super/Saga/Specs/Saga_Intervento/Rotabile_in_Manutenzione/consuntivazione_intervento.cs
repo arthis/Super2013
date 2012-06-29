@@ -16,7 +16,7 @@ using Super.Programmazione.Events;
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 {
-    public class consuntivazione_intervento : SagaBaseClass<IInterventoRotManConsuntivato>
+    public class consuntivazione_intervento : SagaBaseClass<InterventoConsuntivatoRotManReso>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -40,9 +40,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
             return "";
         }
 
-        protected override SagaHandler<IInterventoRotManConsuntivato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoConsuntivatoRotManReso> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoRotManConsuntivatoHandler(repository, bus);
+            return new InterventoConsuntivatoRotManResoHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -61,7 +61,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
             };
         }
 
-        public override IInterventoRotManConsuntivato When()
+        public override InterventoConsuntivatoRotManReso When()
         {
             var builder = new InterventoConsuntivatoRotManResoBuilder();
 

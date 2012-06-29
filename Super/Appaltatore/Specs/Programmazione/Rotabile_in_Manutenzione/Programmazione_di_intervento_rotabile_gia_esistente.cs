@@ -28,9 +28,9 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
         List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desccons", 22, Guid.NewGuid()) };
         string _note = "note";
 
-        protected override CommandHandler<ProgrammareInterventoRotMan> OnHandle(IRepository repository)
+        protected override CommandHandler<ProgrammareInterventoRotMan> OnHandle(IEventRepository eventRepository)
         {
-            return new ProgrammareInterventoRotManHandler(repository);
+            return new ProgrammareInterventoRotManHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

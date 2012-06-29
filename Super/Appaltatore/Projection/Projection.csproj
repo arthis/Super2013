@@ -55,7 +55,7 @@
     <Compile Include="Container.cs" />
     <Compile Include="ProjectionHandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadOnce.cs" />
+    <Compile Include="HandleEventOnlyOnceHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">

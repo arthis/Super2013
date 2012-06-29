@@ -81,14 +81,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterventoConsuntivatoAmbNonResoHandler.cs" />
+    <Compile Include="InterventoConsuntivatoAmbNonResoTrenitaliaHandler.cs" />
+    <Compile Include="InterventoConsuntivatoRotManNonResoHandler.cs" />
+    <Compile Include="InterventoConsuntivatoRotManNonResoTrenitaliaHandler.cs" />
+    <Compile Include="InterventoConsuntivatoRotNonResoHandler.cs" />
+    <Compile Include="InterventoConsuntivatoRotNonResoTrenitaliaHandler.cs" />
     <Compile Include="InterventoRotManConsuntivatoHandler.cs" />
-    <Compile Include="InterventoRotConsuntivatoHandler.cs" />
+    <Compile Include="InterventoConsuntivatoRotResoHandler.cs" />
     <Compile Include="InterventoAmbConsuntivatoHandler.cs" />
     <Compile Include="InterventoAmbPianificatoHandler.cs" />
     <Compile Include="InterventoRotManPianificatoHandler.cs" />
     <Compile Include="InterventoRotPianificatoHandler.cs" />
     <Compile Include="MessageHandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadOnce.cs" />
+    <Compile Include="SagaHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">

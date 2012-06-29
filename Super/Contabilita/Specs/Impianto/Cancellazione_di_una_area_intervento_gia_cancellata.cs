@@ -21,9 +21,9 @@ namespace Super.Contabilita.Specs.Impianto
         private long _version;
         private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
-        protected override CommandHandler<DeleteImpianto> OnHandle(IRepository repository)
+        protected override CommandHandler<DeleteImpianto> OnHandle(IEventRepository eventRepository)
         {
-            return new DeleteImpiantoHandler(repository);
+            return new DeleteImpiantoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

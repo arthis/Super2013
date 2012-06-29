@@ -9,7 +9,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 namespace Super.Appaltatore.Commands
 {
 
-    public abstract class ProgrammareIntervento : Message
+    public abstract class ProgrammareIntervento : CommandBase
     {
 
         public string Note { get; set; }

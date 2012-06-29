@@ -9,8 +9,8 @@ namespace Super.Contabilita.Handlers
 {
     public class DeleteLottoHandler : CommandHandler<DeleteLotto>
     {
-        public DeleteLottoHandler(IRepository repository)
-            : base(repository)
+        public DeleteLottoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -19,14 +19,14 @@ namespace Super.Contabilita.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var lotto= Repository.GetById<Lotto>(cmd.Id);
+            var lotto= EventRepository.GetById<Lotto>(cmd.Id);
 
             if (lotto.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
             lotto.Delete();
 
-            Repository.Save(lotto, cmd.CommitId);
+            EventRepository.Save(lotto, cmd.CommitId);
 
             return lotto.CommandValidationMessages;
         }

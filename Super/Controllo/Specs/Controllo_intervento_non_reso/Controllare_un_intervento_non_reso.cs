@@ -24,9 +24,9 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
         private string _note = "note";
 
 
-        protected override CommandHandler<ControlInterventoNonReso> OnHandle(IRepository repository)
+        protected override CommandHandler<ControlInterventoNonReso> OnHandle(IEventRepository eventRepository)
         {
-            return new ControlInterventoNonResoHandler(repository);
+            return new ControlInterventoNonResoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

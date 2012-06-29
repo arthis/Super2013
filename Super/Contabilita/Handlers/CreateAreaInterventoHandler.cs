@@ -11,8 +11,8 @@ namespace Super.Contabilita.Handlers
 
     public class CreateImpiantoHandler : CommandHandler<CreateImpianto>
     {
-        public CreateImpiantoHandler(IRepository repository)
-            : base(repository)
+        public CreateImpiantoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -21,7 +21,7 @@ namespace Super.Contabilita.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var existingImpianto = Repository.GetById<Impianto>(cmd.Id);
+            var existingImpianto = EventRepository.GetById<Impianto>(cmd.Id);
 
             if (!existingImpianto.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
@@ -32,7 +32,7 @@ namespace Super.Contabilita.Handlers
                                           cmd.CreationDate,
                                           cmd.Description);
 
-            Repository.Save(impianto, cmd.CommitId);
+            EventRepository.Save(impianto, cmd.CommitId);
 
 
             return impianto.CommandValidationMessages;

@@ -6,14 +6,14 @@ namespace CommonDomain.Core
 {
     public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where TCommand : IMessage
     {
-        protected IRepository Repository;
+        protected IEventRepository EventRepository;
         public abstract CommandValidation Execute(TCommand command, ICommandHandler<TCommand> next);
 
-        public CommandHandler(IRepository repository)
+        public CommandHandler(IEventRepository eventRepository)
         {
-            Contract.Requires<ArgumentNullException>(repository != null);
+            Contract.Requires<ArgumentNullException>(eventRepository != null);
 
-            Repository = repository;
+            EventRepository = eventRepository;
         }
     }
 }

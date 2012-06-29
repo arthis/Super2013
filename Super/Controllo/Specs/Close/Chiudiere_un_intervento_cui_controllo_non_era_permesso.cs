@@ -19,9 +19,9 @@ namespace Super.Controllo.Specs.Close
         private DateTime _closingDate = DateTime.Now;
         private Guid _idUtente = Guid.NewGuid();
 
-        protected override CommandHandler<CloseIntervento> OnHandle(IRepository repository)
+        protected override CommandHandler<CloseIntervento> OnHandle(IEventRepository eventRepository)
         {
-            return new CloseInterventoHandler(repository);
+            return new CloseInterventoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

@@ -11,7 +11,7 @@ namespace Super.Appaltatore.Events.Builders
 
     public class InterventoAmbProgrammatoBuilder
     {
-        private Guid _id;
+
         private Guid _idImpianto;
         private Guid _idTipoIntervento;
         private Guid _idAppaltatore;
@@ -29,11 +29,6 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoAmbProgrammatoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public InterventoAmbProgrammatoBuilder ForArea(Guid idImpianto)
         {
@@ -85,9 +80,10 @@ namespace Super.Appaltatore.Events.Builders
 
  
 
-        public InterventoAmbProgrammato Build()
+        public InterventoAmbProgrammato Build(Guid id, Guid commitId)
         {
-            return new InterventoAmbProgrammato(_id,
+            return new InterventoAmbProgrammato(id,
+                                        commitId,
                                       _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,

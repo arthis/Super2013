@@ -10,8 +10,8 @@ namespace Super.Contabilita.Handlers
 {
     public class UpdateLottoHandler : CommandHandler<UpdateLotto>
     {
-        public UpdateLottoHandler(IRepository repository)
-            : base(repository)
+        public UpdateLottoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -20,14 +20,14 @@ namespace Super.Contabilita.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var lotto= Repository.GetById<Lotto>(cmd.Id);
+            var lotto= EventRepository.GetById<Lotto>(cmd.Id);
 
             if (lotto.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
             lotto.Update(Build.Intervall.FromPeriod(cmd.Period).Build(), cmd.Description);
 
-            Repository.Save(lotto, cmd.CommitId);
+            EventRepository.Save(lotto, cmd.CommitId);
 
             return lotto.CommandValidationMessages;
         }

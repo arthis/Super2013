@@ -25,6 +25,7 @@ namespace Super.Appaltatore.Events.Programmazione
         }
 
         public InterventoProgrammato(Guid id,
+                                     Guid commitId,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -33,15 +34,17 @@ namespace Super.Appaltatore.Events.Programmazione
                                      WorkPeriod period,
                                      string note)
         {
-            Contract.Requires<ArgumentNullException>(id!= Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idImpianto != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(Period != null);
+            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(commitId == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idImpianto == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idTipoIntervento == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idAppaltatore == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idDirezioneRegionale == Guid.Empty);
+            Contract.Requires<ArgumentNullException>(Period == null);
 
             Id = id;
+            CommitId = commitId;
             IdImpianto = idImpianto;
             IdTipoIntervento = idTipoIntervento;
             IdAppaltatore = idAppaltatore;
@@ -99,6 +102,7 @@ namespace Super.Appaltatore.Events.Programmazione
         }
         
         public InterventoRotProgrammato(Guid id,
+                                     Guid commitId,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -113,7 +117,7 @@ namespace Super.Appaltatore.Events.Programmazione
                                     string rigaTurnoTreno,
                                     string convoglio
             )
-            : base(id, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id,commitId, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Oggetti = oggetti;
             TrenoPartenza = trenoPartenza;
@@ -170,6 +174,7 @@ namespace Super.Appaltatore.Events.Programmazione
         }
 
         public InterventoRotManProgrammato(Guid id,
+                                     Guid commitId,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -178,7 +183,7 @@ namespace Super.Appaltatore.Events.Programmazione
                                      WorkPeriod period,
                                      string note,
                                      OggettoRotMan[] oggetti)
-            : base(id, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id,commitId, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Oggetti = oggetti;
         }
@@ -222,6 +227,7 @@ namespace Super.Appaltatore.Events.Programmazione
         }
 
         public InterventoAmbProgrammato(Guid id,
+                                     Guid commitId,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -231,7 +237,7 @@ namespace Super.Appaltatore.Events.Programmazione
                                      string note,
                                      int quantita,
                                      string description)
-            : base(id, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Quantita = quantita;
             Description = description;

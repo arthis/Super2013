@@ -1,6 +1,5 @@
-Introduction
-------------
-   
+** Introduction **
+
 This Project is a try out at re analysing the super application(cleaning management system) through means of :
 
  - Domain driven development  
@@ -9,21 +8,17 @@ This Project is a try out at re analysing the super application(cleaning managem
 
 nCQRS framework has been used used but is totally discarded now. Current solution implies the use of Joliver Commain domain and events store.
 
-The application deals with one website in ASP.net MVC
+The application deals currently with one website in ASP.net MVC which communicates with 4 webservices each responsible for a bounded context.
 
 *The application is under hardcore development and so might work or not depending on the day you get it.*
+	
+---------------
+DOMAIN NOTES
+---------------
 
-Documentation
--------------
+** General **
 
 A basic contextmap can be found in the documentation folder.
-The initial aim of this project was to give tools to develop a full blown solution using BDD.
-
-    Given some Messages
-    Then one Message
-    Expect some other Messages
-
-And to generate some documentation on the fly of the different tests available. Triggering Specs.Documentation will generate html pages in Documentation/Specs,where all test are gathered
 
 To define the bounded context and their interactions (see contextmap.png in documentation)
 so far I have found :
@@ -33,21 +28,51 @@ so far I have found :
     - Controllo :       Control of the intervento through the means of schede and various tools
     - Accounting :      BC responsible for creating the context in which the other BCs evolve. Besides it uses information provided by the other Bcs to create reports depending on accounting rules.
 
-**current basic architecture **
+
+The initial aim of this project was to give tools to develop a full blown solution using BDD.
+
+    Given some Messages
+    Then one Message
+    Expect some other Messages
+
+And to generate some documentation on the fly of the different tests available. Triggering Specs.Documentation will generate html pages in Documentation/Specs,where all test are gathered
+
+** current basic architecture **
 
                           
 IMesssage --> Message --> | -------> CommandBase ---> misc Command           
 
 IMesssage --> Message --> | -------> misc Event
 
-
 Message is responsible for having the Id and the commitId of the message.
 CommandBase is a "fake" class used to bypass WCF. Its only use is to get the various Command each BC has to its WCF contract.
 
-current worries
+
+** Intervento Saga **
+
+Programmazione aims at creating interventi that are going to be handled by the people of both Appaltatore and Controllo. Albeit the start and end date are vital information for the Appaltatore coming from Programmazione. The subsequent change is not so important when done by the appaltatore.
+Furthermore, the controll is aimed to take place once the job is done. Therefore the saga will only handle the information that some intervento was consuntivato , the read model of the controllo should have then plenty of time to get the information from the appaltatore.
+
+
+
+
+---------------
+TECHNICAL NOTES
 ---------------
 
- 
+** Eventstore **
+
+A command like every message has an Id and a CommitId. The event produced by the execution od the command will have the same commitId.
+Therefore if the same command arrives twice, the second produced event will not be saved in the database (DuplicateCommitException).
+
+An event like every message has an Id and a CommitId. The command produced by the handling of the event will have the same commitId.
+Therefore if the same event arrives twice, the second produced command will not be saved in the database (DuplicateCommitException).
+
+Projection have a HandleEventOnlyOnceHandler which save the id already projected and its date to disable further handling.
+
+
+** current worries **
+ - Serialization of the command and Command Repository to be enhanced... for now, quick n' dirty! 
  - having one readModel per bounded context, I am afraid it is the only way. Should then I have different copies of Area Intervento. I mean to be using one server only, does it make sense then to duplicate this information? use a trick to have every bounded context look at the same part of the read model...
 to be think better later
  - experimenting with sagas ( among other things, I have to add a alarm clock to trigger a time out..)
@@ -55,24 +80,21 @@ to be think better later
  - rethinking command and event handlers
  
  
-next worries (fun??)
----------------
- - having fun again with node.js or look around signalR
+** next threads of fun **
+
+ - Swap xml soap for json serialization of the messages
+ - swap wcf webservice for something different REST Call?, ServiceStack? do not know what yet but it smells like something not so good there... to be continued
+ - having fun again with node.js and/or looking around signalR
+ - Use another server (node.js, Rx,...) and drop MVC?
  - Elmah for mvc
  - Create a build server
  - Create a production server to hold the Mammuth!!!!
 
 
-Dependencies:
--------------
+** Dependencies **
 
  - CodeContracts
  - Sql server
  - Easy netQ ( my version is to be cloned in Super2013\Framework )
  
  
-Intervento Saga
--------------
-
-Programmazione aims at creating interventi that are going to be handled by the people of both Appaltatore and Controllo. Albeit the start and end date are vital information for the Appaltatore coming from Programmazione. The subsequent change is not so important when done by the appaltatore.
-Furthermore, the controll is aimed to take place once the job is done. Therefore the saga will only handle the information that some intervento was consuntivato , the read model of the controllo should have then plenty of time to get the information from the appaltatore.

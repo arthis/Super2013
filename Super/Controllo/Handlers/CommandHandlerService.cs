@@ -11,17 +11,19 @@ namespace Super.Controllo.Handlers
 {
     public class CommandHandlerService : ICommandHandlerService
     {
-        private readonly Dictionary<Type, Func<IMessage, CommandValidation>> _handlers = new Dictionary<Type, Func<IMessage, CommandValidation>>();
+        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
 
-        public void InitHandlers(IRepository repositoryEvent)
+        public void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository)
         {
-            TypicalHandler.Add<AllowControlIntervento>(_handlers, new AllowControlInterventoHandler(repositoryEvent));
-            TypicalHandler.Add<CloseIntervento>(_handlers, new CloseInterventoHandler(repositoryEvent));
-            TypicalHandler.Add<ControlInterventoNonReso>(_handlers, new ControlInterventoNonResoHandler(repositoryEvent));
-            TypicalHandler.Add<ControlInterventoAmbReso>(_handlers, new ControlInterventoAmbResoHandler(repositoryEvent));
-            TypicalHandler.Add<ControlInterventoRotReso>(_handlers, new ControlInterventoRotResoHandler(repositoryEvent));
-            TypicalHandler.Add<ControlInterventoRotManReso>(_handlers, new ControlInterventoRotManResoHandler(repositoryEvent));
-            TypicalHandler.Add<ReopenIntervento>(_handlers, new ReopenInterventoHandler(repositoryEvent));
+            var handlerHelper = new HandlerHelper(commandRepository);
+
+            handlerHelper.Add<AllowControlIntervento>(_handlers, new AllowControlInterventoHandler(eventRepository));
+            handlerHelper.Add<CloseIntervento>(_handlers, new CloseInterventoHandler(eventRepository));
+            handlerHelper.Add<ControlInterventoNonReso>(_handlers, new ControlInterventoNonResoHandler(eventRepository));
+            handlerHelper.Add<ControlInterventoAmbReso>(_handlers, new ControlInterventoAmbResoHandler(eventRepository));
+            handlerHelper.Add<ControlInterventoRotReso>(_handlers, new ControlInterventoRotResoHandler(eventRepository));
+            handlerHelper.Add<ControlInterventoRotManReso>(_handlers, new ControlInterventoRotManResoHandler(eventRepository));
+            handlerHelper.Add<ReopenIntervento>(_handlers, new ReopenInterventoHandler(eventRepository));
         }
 
         public void Subscribe(IBus bus)
@@ -32,7 +34,7 @@ namespace Super.Controllo.Handlers
         }
 
 
-        public CommandValidation Execute(IMessage commandBase)
+        public CommandValidation Execute(ICommand commandBase)
         {
             Contract.Requires<ArgumentNullException>(commandBase != null);
 

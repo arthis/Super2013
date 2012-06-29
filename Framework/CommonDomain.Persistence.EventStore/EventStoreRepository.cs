@@ -6,7 +6,7 @@ namespace CommonDomain.Persistence.EventStore
 	using global::EventStore;
 	using global::EventStore.Persistence;
 
-	public class EventStoreRepository : IRepository, IDisposable
+	public class EventStoreRepository : IEventRepository, IDisposable
 	{
 		private const string AggregateTypeHeader = "AggregateType";
 		private readonly IDictionary<Guid, Snapshot> snapshots = new Dictionary<Guid, Snapshot>();

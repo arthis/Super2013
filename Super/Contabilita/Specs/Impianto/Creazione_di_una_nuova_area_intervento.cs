@@ -24,9 +24,9 @@ namespace Super.Contabilita.Specs.Impianto
         private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
         private Guid _idLotto = Guid.NewGuid();
 
-        protected override CommandHandler<CreateImpianto> OnHandle(IRepository repository)
+        protected override CommandHandler<CreateImpianto> OnHandle(IEventRepository eventRepository)
         {
-            return new CreateImpiantoHandler(repository);
+            return new CreateImpiantoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

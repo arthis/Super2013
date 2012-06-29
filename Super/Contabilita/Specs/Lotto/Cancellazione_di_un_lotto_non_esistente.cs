@@ -14,9 +14,9 @@ namespace Super.Contabilita.Specs.Lotto
     {
         private Guid _id = Guid.NewGuid();
 
-        protected override CommandHandler<DeleteLotto> OnHandle(IRepository repository)
+        protected override CommandHandler<DeleteLotto> OnHandle(IEventRepository eventRepository)
         {
-            return new DeleteLottoHandler(repository);
+            return new DeleteLottoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

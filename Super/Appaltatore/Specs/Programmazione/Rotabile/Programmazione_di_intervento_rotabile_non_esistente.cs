@@ -32,9 +32,9 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
         string _convoglio = "convoglio";
         string _note = "note";
 
-        protected override CommandHandler<ProgrammareInterventoRot> OnHandle(IRepository repository)
+        protected override CommandHandler<ProgrammareInterventoRot> OnHandle(IEventRepository eventRepository)
         {
-            return new ProgrammareInterventoRotHandler(repository);
+            return new ProgrammareInterventoRotHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

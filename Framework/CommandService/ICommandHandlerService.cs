@@ -6,8 +6,8 @@ namespace CommandService
 {
     public interface ICommandHandlerService
     {
-        void InitHandlers(IRepository repositoryEvent);
+        void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository);
         void Subscribe( IBus bus);
-        CommandValidation Execute(IMessage commandBase);
+        CommandValidation Execute(ICommand commandBase);
     }
 }

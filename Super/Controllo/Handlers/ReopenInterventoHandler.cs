@@ -10,8 +10,8 @@ namespace Super.Controllo.Handlers
 {
     public class ReopenInterventoHandler : CommandHandler<ReopenIntervento>
     {
-        public ReopenInterventoHandler(IRepository repository)
-            : base(repository)
+        public ReopenInterventoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -21,14 +21,14 @@ namespace Super.Controllo.Handlers
 
 
 
-            var existingIntervento = Repository.GetById<Intervento>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<Intervento>(cmd.Id);
 
             if (existingIntervento.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
             existingIntervento.Reopen(cmd.IdUtente, cmd.ReopeningDate);
 
-            Repository.Save(existingIntervento, cmd.CommitId);
+            EventRepository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages; 
         }

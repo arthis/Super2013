@@ -21,9 +21,9 @@ namespace Super.Controllo.Specs.Permessi_Controllo
             return "non e possibile permettere di nuovo il controllo di un intervento gia permesso.";
         }
 
-        protected override CommandHandler<AllowControlIntervento> OnHandle(IRepository repository)
+        protected override CommandHandler<AllowControlIntervento> OnHandle(IEventRepository eventRepository)
         {
-            return new AllowControlInterventoHandler(repository);
+            return new AllowControlInterventoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

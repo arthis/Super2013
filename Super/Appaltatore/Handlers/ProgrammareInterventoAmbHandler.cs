@@ -10,8 +10,8 @@ namespace Super.Appaltatore.Handlers
 {
     public class ProgrammareInterventoAmbHandler : CommandHandler<ProgrammareInterventoAmb>
     {
-        public ProgrammareInterventoAmbHandler(IRepository repository)
-            : base(repository)
+        public ProgrammareInterventoAmbHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -20,7 +20,7 @@ namespace Super.Appaltatore.Handlers
             Contract.Requires<ArgumentNullException>(cmd != null);
 
 
-            var existingIntervento = Repository.GetById<InterventoAmb>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
 
             if (!existingIntervento.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
@@ -36,7 +36,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.Quantita
                                 , cmd.Description);
 
-            Repository.Save(existingIntervento, cmd.CommitId);
+            EventRepository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages;
         }

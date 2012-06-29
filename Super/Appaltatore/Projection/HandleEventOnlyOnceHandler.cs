@@ -7,7 +7,7 @@ using Super.ReadModel;
 
 namespace Super.Appaltatore.Projection
 {
-    public class ReadOnce<T> : IEventHandler<T> where T:IMessage
+    public class HandleEventOnlyOnceHandler<T> : IEventHandler<T> where T:IMessage
     {
         
 

@@ -43,9 +43,9 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
         readonly int _quantitaCons2 = 24;
         private readonly string _descrizioneCons2 = "bla bla bla description oggetto Cons2";
 
-        protected override CommandHandler<ConsuntivareAmbReso> OnHandle(IRepository repository)
+        protected override CommandHandler<ConsuntivareAmbReso> OnHandle(IEventRepository eventRepository)
         {
-            return new ConsuntivareAmbResoHandler(repository);
+            return new ConsuntivareAmbResoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

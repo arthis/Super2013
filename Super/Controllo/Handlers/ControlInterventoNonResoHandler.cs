@@ -10,8 +10,8 @@ namespace Super.Controllo.Handlers
 {
     public class ControlInterventoNonResoHandler : CommandHandler<ControlInterventoNonReso>
     {
-        public ControlInterventoNonResoHandler(IRepository repository)
-            : base(repository)
+        public ControlInterventoNonResoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -19,14 +19,14 @@ namespace Super.Controllo.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var existingIntervento = Repository.GetById<Intervento>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<Intervento>(cmd.Id);
 
             if (existingIntervento.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
             existingIntervento.ControlNonReso( cmd.IdUtente, cmd.ControlDate, cmd.IdCausale, cmd.Note);
 
-            Repository.Save(existingIntervento, cmd.CommitId);
+            EventRepository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages; 
         }

@@ -9,8 +9,8 @@ namespace Super.Contabilita.Handlers
 {
     public class DeleteImpiantoHandler : CommandHandler<DeleteImpianto>
     {
-        public DeleteImpiantoHandler(IRepository repository)
-            : base(repository)
+        public DeleteImpiantoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -19,14 +19,14 @@ namespace Super.Contabilita.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var impianto= Repository.GetById<Impianto>(cmd.Id);
+            var impianto= EventRepository.GetById<Impianto>(cmd.Id);
 
             if (impianto.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
             impianto.Delete();
 
-            Repository.Save(impianto, cmd.CommitId);
+            EventRepository.Save(impianto, cmd.CommitId);
 
             return impianto.CommandValidationMessages;
         }

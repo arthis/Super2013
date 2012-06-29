@@ -17,8 +17,8 @@ namespace CommonSpecs
         public abstract TCommand When();
         public abstract IEnumerable<IMessage> Expect();
         protected Exception Caught;
-        protected abstract CommandHandler<TCommand> OnHandle(IRepository repository);
-        FakeRepository fakeRepository = new FakeRepository();
+        protected abstract CommandHandler<TCommand> OnHandle(IEventRepository eventRepository);
+        FakeEventRepository _fakeEventRepository = new FakeEventRepository();
 
         protected Dictionary<string, object> Headers = new Dictionary<string, object>();
 
@@ -30,15 +30,15 @@ namespace CommonSpecs
         [SetUp]
         public void Setup()
         {
-            var commandHandler = OnHandle(fakeRepository);
-            fakeRepository.CommittedEvents = Given();
+            var commandHandler = OnHandle(_fakeEventRepository);
+            _fakeEventRepository.CommittedEvents = Given();
             var command = When();
             var expect = Expect();
 
             try
             {
                 commandHandler.Execute(command,null);
-                var actual = fakeRepository.CommittedEvents.ToList();
+                var actual = _fakeEventRepository.CommittedEvents.ToList();
 
                 Assert.IsNotNull(actual);
                 var muyb = expect.SequenceEqual(actual);

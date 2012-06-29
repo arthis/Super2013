@@ -4,4 +4,7 @@ namespace CommonDomain.Core
     {
         CommandValidation Execute(TCommand command, ICommandHandler<TCommand> next);
     }
+
+
+   
 }

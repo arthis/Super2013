@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Persistence;
 using CommonDomain.Persistence.EventStore;
 using EventStore;
 using EventStore.Persistence.SqlPersistence.SqlDialects;
@@ -54,8 +56,12 @@ namespace CommandService
                 .UsingSynchronousDispatchScheduler()
                 .DispatchTo(new DelegateMessageDispatcher(DispatchCommit))
                 .Build();
-
         }
+
+       private ICommandRepository GetCommandRepository()
+       {
+           return new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
+       }
 
         public void Init()
         {
@@ -64,7 +70,7 @@ namespace CommandService
             var conflictDetector = new ConflictDetector();
             var eventRepository = new EventStoreRepository(storeEvents, aggregateFactory, conflictDetector);
 
-            _commandHandler.InitHandlers(eventRepository);
+            _commandHandler.InitHandlers(GetCommandRepository(), eventRepository);
             _commandHandler.Subscribe(_bus);
             _projectionHandler.Subscribe(_bus);
         }

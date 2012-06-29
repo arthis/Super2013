@@ -1,3 +1,5 @@
+using System;
+
 namespace CommonDomain.Core
 {
     public interface IEventHandler<TEvent> where TEvent : IMessage

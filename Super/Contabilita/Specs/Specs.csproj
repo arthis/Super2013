@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="non_riprocessare_un_commando_gia_letto.cs" />
     <Compile Include="Impianto\Aggiornamento_di_una_area_intervento_gia_creata.cs" />
     <Compile Include="Impianto\Aggiornamento_di_una_area_intervento_non_esistente.cs" />
     <Compile Include="Impianto\Cancellazione_di_una_area_intervento_gia_cancellata.cs" />

@@ -10,7 +10,7 @@ using EasyNetQ;
 
 namespace CommonSpecs
 {
-    public class FakeRepository : IRepository
+    public class FakeEventRepository : IEventRepository
     {
         private readonly IConstructAggregates _factory = new AggregateFactory();
         public IEnumerable<IMessage> CommittedEvents { get; set; }

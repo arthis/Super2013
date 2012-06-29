@@ -84,6 +84,7 @@
     <Compile Include="SagaEventStoreRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SqlServerCommandRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\CustomDictionary.xml">
@@ -91,6 +92,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonDomain.Core\CommonDomain.Core.csproj">
+      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
+      <Name>CommonDomain.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
       <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
       <Name>CommonDomain.Persistence</Name>
@@ -103,6 +108,9 @@
   <ItemGroup>
     <Reference Include="EventStore">
       <HintPath>..\..\lib\EventStore\EventStore.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\lib\json4.5r7\Net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

@@ -7,6 +7,6 @@ namespace CommonDomain
 {
     public interface IEventBuilder<TEvent> where TEvent : IMessage
     {
-        TEvent Build(Guid id);
+        TEvent Build(Guid id, Guid commitId);
     }
 }

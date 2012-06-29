@@ -10,8 +10,8 @@ namespace Super.Appaltatore.Handlers
 {
     public class ConsuntivareAmbResoHandler : CommandHandler<ConsuntivareAmbReso>
     {
-        public ConsuntivareAmbResoHandler(IRepository repository)
-            : base(repository)
+        public ConsuntivareAmbResoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -19,7 +19,7 @@ namespace Super.Appaltatore.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var existingIntervento = Repository.GetById<InterventoAmb>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
 
             if (existingIntervento.IsNull())
                 throw new HandlerForDomainEventNotFoundException();
@@ -32,7 +32,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.Description
                                 , cmd.Quantity);
 
-            Repository.Save(existingIntervento, cmd.CommitId);
+            EventRepository.Save(existingIntervento, cmd.CommitId);
 
             return existingIntervento.CommandValidationMessages;
         }

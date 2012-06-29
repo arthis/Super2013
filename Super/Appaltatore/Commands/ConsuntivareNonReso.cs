@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Appaltatore.Commands
 {
-    public abstract class ConsuntivareNonReso : Message
+    public abstract class ConsuntivareNonReso : CommandBase
     {
 
         public string Note { get; set; }

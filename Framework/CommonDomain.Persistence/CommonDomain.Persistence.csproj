@@ -72,8 +72,9 @@
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ConflictingCommandException.cs" />
+    <Compile Include="ICommandRepository.cs" />
     <Compile Include="IConstructAggregates.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="IEventRepository.cs" />
     <Compile Include="ISagaRepository.cs" />
     <Compile Include="PersistenceException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

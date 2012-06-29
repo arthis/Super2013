@@ -35,9 +35,9 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         
 
         
-        protected override CommandHandler<ConsuntivareRotManReso> OnHandle(IRepository repository)
+        protected override CommandHandler<ConsuntivareRotManReso> OnHandle(IEventRepository eventRepository)
         {
-            return new ConsuntivareRotManResoHandler(repository);
+            return new ConsuntivareRotManResoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

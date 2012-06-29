@@ -29,9 +29,9 @@ namespace Super.Contabilita.Specs.Impianto
         }
        
 
-        protected override CommandHandler<CreateImpianto> OnHandle(IRepository repository)
+        protected override CommandHandler<CreateImpianto> OnHandle(IEventRepository eventRepository)
         {
-            return new CreateImpiantoHandler(repository);
+            return new CreateImpiantoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

@@ -11,8 +11,8 @@ namespace Super.Contabilita.Handlers
 
     public class CreateLottoHandler : CommandHandler<CreateLotto>
     {
-        public CreateLottoHandler(IRepository repository)
-            : base(repository)
+        public CreateLottoHandler(IEventRepository eventRepository)
+            : base(eventRepository)
         {
         }
 
@@ -21,7 +21,7 @@ namespace Super.Contabilita.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var existingLotto = Repository.GetById<Lotto>(cmd.Id);
+            var existingLotto = EventRepository.GetById<Lotto>(cmd.Id);
 
             if (!existingLotto.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
@@ -32,7 +32,7 @@ namespace Super.Contabilita.Handlers
                                           cmd.CreationDate,
                                           cmd.Description);
 
-            Repository.Save(lotto, cmd.CommitId);
+            EventRepository.Save(lotto, cmd.CommitId);
 
 
             return lotto.CommandValidationMessages;

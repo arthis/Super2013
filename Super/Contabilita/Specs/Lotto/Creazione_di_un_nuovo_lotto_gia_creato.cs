@@ -29,9 +29,9 @@ namespace Super.Contabilita.Specs.Lotto
         }
        
 
-        protected override CommandHandler<CreateLotto> OnHandle(IRepository repository)
+        protected override CommandHandler<CreateLotto> OnHandle(IEventRepository eventRepository)
         {
-            return new CreateLottoHandler(repository);
+            return new CreateLottoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

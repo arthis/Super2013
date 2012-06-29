@@ -12,17 +12,19 @@ namespace Super.Contabilita.Handlers
 {
     public class CommandHandlerService : ICommandHandlerService
     {
-        private readonly Dictionary<Type, Func<IMessage, CommandValidation>> _handlers = new Dictionary<Type, Func<IMessage, CommandValidation>>();
+        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
 
-        public void InitHandlers(IRepository repositoryEvent)
+        public void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository)
         {
-            TypicalHandler.Add<CreateImpianto>(_handlers, new CreateImpiantoHandler(repositoryEvent));
-            TypicalHandler.Add<UpdateImpianto>(_handlers, new UpdateImpiantoHandler(repositoryEvent));
-            TypicalHandler.Add<DeleteImpianto>(_handlers, new DeleteImpiantoHandler(repositoryEvent));
+            var handlerHelper = new HandlerHelper(commandRepository);
 
-            TypicalHandler.Add<CreateLotto>(_handlers, new CreateLottoHandler(repositoryEvent));
-            TypicalHandler.Add<UpdateLotto>(_handlers, new UpdateLottoHandler(repositoryEvent));
-            TypicalHandler.Add<DeleteLotto>(_handlers, new DeleteLottoHandler(repositoryEvent));
+            handlerHelper.Add<CreateImpianto>(_handlers, new CreateImpiantoHandler(eventRepository));
+            handlerHelper.Add<UpdateImpianto>(_handlers, new UpdateImpiantoHandler(eventRepository));
+            handlerHelper.Add<DeleteImpianto>(_handlers, new DeleteImpiantoHandler(eventRepository));
+
+            handlerHelper.Add<CreateLotto>(_handlers, new CreateLottoHandler(eventRepository));
+            handlerHelper.Add<UpdateLotto>(_handlers, new UpdateLottoHandler(eventRepository));
+            handlerHelper.Add<DeleteLotto>(_handlers, new DeleteLottoHandler(eventRepository));
 
         }
 
@@ -32,7 +34,7 @@ namespace Super.Contabilita.Handlers
         }
 
 
-        public CommandValidation Execute(IMessage commandBase)
+        public CommandValidation Execute(ICommand commandBase)
         {
             Contract.Requires<ArgumentNullException>(commandBase != null);
 

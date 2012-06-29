@@ -7,7 +7,7 @@ using CommonDomain.Core;
 namespace Super.Controllo.Commands
 {
 
-    public class CloseIntervento : Message
+    public class CloseIntervento : CommandBase
     {
         private readonly Guid _idUtente;
         private readonly DateTime _closingDate;

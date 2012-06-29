@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 namespace Super.Appaltatore.Commands
 {
     
-    public abstract class ConsuntivareReso : Message
+    public abstract class ConsuntivareReso : CommandBase
     {
         public string Note { get; set; }
         public WorkPeriod Period { get; set; }

@@ -11,14 +11,14 @@ using Super.Saga.Domain.Intervento;
 namespace Super.Saga.Handlers
 {
 
-    public class InterventoRotManConsuntivatoHandler : SagaHandler<IInterventoRotManConsuntivato>
+    public class InterventoConsuntivatoRotManResoHandler : SagaHandler<InterventoConsuntivatoRotManReso>
     {
-        public InterventoRotManConsuntivatoHandler(ISagaRepository repository, IBus bus)
+        public InterventoConsuntivatoRotManResoHandler(ISagaRepository repository, IBus bus)
             : base(repository, bus)
         {
         }
 
-        public sealed override ISaga OnHandle(IInterventoRotManConsuntivato @event)
+        public sealed override ISaga OnHandle(InterventoConsuntivatoRotManReso @event)
         {
             var sagaId = @event.Id;
 

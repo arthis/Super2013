@@ -27,9 +27,9 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
         private readonly int _quantity = 12;
         private readonly string _description = "desc";
 
-        protected override CommandHandler<ProgrammareInterventoAmb> OnHandle(IRepository repository)
+        protected override CommandHandler<ProgrammareInterventoAmb> OnHandle(IEventRepository eventRepository)
         {
-            return new ProgrammareInterventoAmbHandler(repository);
+            return new ProgrammareInterventoAmbHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

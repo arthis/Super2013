@@ -14,9 +14,9 @@ namespace Super.Contabilita.Specs.Impianto
     {
         private Guid _id = Guid.NewGuid();
 
-        protected override CommandHandler<DeleteImpianto> OnHandle(IRepository repository)
+        protected override CommandHandler<DeleteImpianto> OnHandle(IEventRepository eventRepository)
         {
-            return new DeleteImpiantoHandler(repository);
+            return new DeleteImpiantoHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

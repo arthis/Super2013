@@ -16,7 +16,7 @@ using Super.Programmazione.Events;
 
 namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 {
-    public class consuntivazione_intervento : SagaBaseClass<IInterventoAmbConsuntivato>
+    public class consuntivazione_intervento : SagaBaseClass<InterventoConsuntivatoAmbReso>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -41,9 +41,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
             return "";
         }
 
-        protected override SagaHandler<IInterventoAmbConsuntivato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoConsuntivatoAmbReso> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoAmbConsuntivatoHandler(repository, bus);
+            return new InterventoConsuntivatoAmbResoHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -62,7 +62,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
             };
         }
 
-        public override IInterventoAmbConsuntivato When()
+        public override InterventoConsuntivatoAmbReso When()
         {
             var builder = new InterventoConsuntivatoAmbResoBuilder();
 
