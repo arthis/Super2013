@@ -170,7 +170,7 @@ namespace UI_Console
         //    {
         //        Id = Guid.NewGuid(),
         //        CreationDate = DateTime.Now,
-        //        Description = "test descrizione",
+        //        Description = "test description",
         //        Start = DateTime.Now,
         //        End = DateTime.Now,
         //        IdImpiantoSuper = 12

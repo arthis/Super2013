@@ -78,12 +78,17 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ConsuntivareRotReso Build(Guid id)
+        public ConsuntivareRotReso Build(Guid id, long version)
         {
-            var cmd = new  ConsuntivareRotReso(id, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public ConsuntivareRotReso Build(Guid id, Guid idCommitId, long version)
+        {
+            var cmd = new  ConsuntivareRotReso(id,idCommitId,version, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,
                  _oggetti, _trenoPartenza, _trenoArrivo, _turnoTreno, _rigaTurnoTreno, _convoglio);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

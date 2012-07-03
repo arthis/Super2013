@@ -9,7 +9,9 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
+using BuildEvt = Super.Programmazione.Events.Builders.Build;
 using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 {
@@ -61,13 +63,14 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
         {
             yield return BuildCmd.ProgrammareInterventoRotMan
                             .ForPeriod(_period)
-                            .ForArea(_idImpianto)
+                            .ForImpianto(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
+                            .WithOggetti(_oggetti.ToArray())
                             .WithNote(_note)
-                            .Build(_id);
+                            .Build(_id,0);
         }
 
         [Test]

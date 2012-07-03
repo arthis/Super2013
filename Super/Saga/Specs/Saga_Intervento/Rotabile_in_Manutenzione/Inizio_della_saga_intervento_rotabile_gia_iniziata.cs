@@ -10,6 +10,9 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
+using BuildEvt = Super.Programmazione.Events.Builders.Build;
+using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 {

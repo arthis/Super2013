@@ -40,12 +40,14 @@ And to generate some documentation on the fly of the different tests available. 
 ** current basic architecture **
 
                           
-IMesssage --> Message --> | -------> CommandBase ---> misc Command           
+IMesssage --> Message --> | -------> CommandBase with ICommand ---> misc Command           
 
-IMesssage --> Message --> | -------> misc Event
+IMesssage --> Message --> | -------> misc Event with IEvent
 
 Message is responsible for having the Id and the commitId of the message.
-CommandBase is a "fake" class used to bypass WCF. Its only use is to get the various Command each BC has to its WCF contract.
+CommandBase is used to to centralize ICommand behavior and allows to operate specific action on the commands (e.g.  IsExecuted,...)
+
+
 
 
 ** Intervento Saga **
@@ -62,11 +64,8 @@ TECHNICAL NOTES
 
 ** Eventstore **
 
-A command like every message has an Id and a CommitId. The event produced by the execution od the command will have the same commitId.
-Therefore if the same command arrives twice, the second produced event will not be saved in the database (DuplicateCommitException).
-
-An event like every message has an Id and a CommitId. The command produced by the handling of the event will have the same commitId.
-Therefore if the same event arrives twice, the second produced command will not be saved in the database (DuplicateCommitException).
+A new Guid is produced for every use of the fluent builders associated with the events. As for the command, a new Guid might be generated, or we can pass one to create the command.
+As a consequence, the equality between two messages does not take into account the commitId, but only aggregateId and version.
 
 Projection have a HandleEventOnlyOnceHandler which save the id already projected and its date to disable further handling.
 

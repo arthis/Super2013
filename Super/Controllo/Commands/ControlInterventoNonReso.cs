@@ -39,14 +39,13 @@ namespace Super.Controllo.Commands
             
         }
         
-        public ControlInterventoNonReso(Guid id, Guid idUtente, DateTime controlDate, Guid idCausale, string note)
+        public ControlInterventoNonReso(Guid id, Guid commitId, long version, Guid idUtente, DateTime controlDate, Guid idCausale, string note)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>( id== Guid.Empty);
-            Contract.Requires<ArgumentNullException>( idUtente == Guid.Empty);
-            Contract.Requires<ArgumentOutOfRangeException>(controlDate== DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(idCausale == Guid.Empty);
+            Contract.Requires<ArgumentNullException>( idUtente != Guid.Empty);
+            Contract.Requires<ArgumentOutOfRangeException>(controlDate > DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(idCausale != Guid.Empty);
 
-            Id = id;
             _idUtente = idUtente;
             _controlDate = controlDate;
             _idCausale = idCausale;

@@ -97,7 +97,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public void BuildValue(OggettoRotBuilder builder)
         {
-            builder.OfQuantity(_quantity).OfType(_idTipoOggettoInterventoRot).WithDescription(_description);
+            builder.OfQuantity(_quantity).OfType(_idTipoOggettoInterventoRot).ForDescription(_description);
         }
     }
 
@@ -146,7 +146,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public void BuildValue(OggettoRotManBuilder builder)
         {
-            builder.OfQuantity(_quantity).OfType(_idTipoOggettoInterventoRotMan).WithDescription(_description);
+            builder.OfQuantity(_quantity).OfType(_idTipoOggettoInterventoRotMan).ForDescription(_description);
         }
     }
 

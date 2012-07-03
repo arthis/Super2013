@@ -7,7 +7,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Appaltatore.Events.Programmazione
 {
-    public abstract class InterventoProgrammato : Message
+    public abstract class InterventoProgrammato : Message, IEvent
     {
         public string Note { get;  set; }
         public WorkPeriod Period { get;  set; }
@@ -26,6 +26,7 @@ namespace Super.Appaltatore.Events.Programmazione
 
         public InterventoProgrammato(Guid id,
                                      Guid commitId,
+                                     long version,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -33,18 +34,15 @@ namespace Super.Appaltatore.Events.Programmazione
                                      Guid idDirezioneRegionale,
                                      WorkPeriod period,
                                      string note)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(commitId == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idImpianto == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idTipoIntervento == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idAppaltatore == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idDirezioneRegionale == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(Period == null);
+            Contract.Requires<ArgumentNullException>(idImpianto != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(period != null);
 
-            Id = id;
-            CommitId = commitId;
             IdImpianto = idImpianto;
             IdTipoIntervento = idTipoIntervento;
             IdAppaltatore = idAppaltatore;
@@ -102,7 +100,8 @@ namespace Super.Appaltatore.Events.Programmazione
         }
         
         public InterventoRotProgrammato(Guid id,
-                                     Guid commitId,
+                                    Guid commitId,
+                                     long version,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -117,7 +116,7 @@ namespace Super.Appaltatore.Events.Programmazione
                                     string rigaTurnoTreno,
                                     string convoglio
             )
-            : base(id,commitId, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Oggetti = oggetti;
             TrenoPartenza = trenoPartenza;
@@ -136,7 +135,7 @@ namespace Super.Appaltatore.Events.Programmazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) &&  other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -175,6 +174,7 @@ namespace Super.Appaltatore.Events.Programmazione
 
         public InterventoRotManProgrammato(Guid id,
                                      Guid commitId,
+                                     long version,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -183,7 +183,7 @@ namespace Super.Appaltatore.Events.Programmazione
                                      WorkPeriod period,
                                      string note,
                                      OggettoRotMan[] oggetti)
-            : base(id,commitId, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Oggetti = oggetti;
         }
@@ -197,7 +197,7 @@ namespace Super.Appaltatore.Events.Programmazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) &&  other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -228,6 +228,7 @@ namespace Super.Appaltatore.Events.Programmazione
 
         public InterventoAmbProgrammato(Guid id,
                                      Guid commitId,
+                                     long version,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -235,16 +236,19 @@ namespace Super.Appaltatore.Events.Programmazione
                                      Guid idDirezioneRegionale,
                                      WorkPeriod period,
                                      string note,
-                                     int quantita,
+                                     int quantity,
                                      string description)
-            : base(id, commitId, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
-            Quantita = quantita;
+            Contract.Requires(quantity>0);
+            Contract.Requires(!string.IsNullOrEmpty(description)); 
+
+            Quantity = quantity;
             Description = description;
         }
 
         public string Description { get; set; }
-        public int Quantita { get; set; }
+        public int Quantity { get; set; }
 
         public override string ToDescription()
         {
@@ -255,7 +259,7 @@ namespace Super.Appaltatore.Events.Programmazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Description, Description) && other.Quantita == Quantita;
+            return base.Equals(other) && Equals(other.Description, Description) && other.Quantity == Quantity;
         }
 
         public override bool Equals(object obj)
@@ -271,7 +275,7 @@ namespace Super.Appaltatore.Events.Programmazione
             {
                 int result = base.GetHashCode();
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
-                result = (result*397) ^ Quantita;
+                result = (result*397) ^ Quantity;
                 return result;
             }
         }

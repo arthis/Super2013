@@ -12,7 +12,9 @@ using Super.Appaltatore.Commands;
 using Super.Appaltatore.Commands.Builders;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
+using BuildEvt = Super.Programmazione.Events.Builders.Build;
 using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile
 {
@@ -40,7 +42,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
 
         protected override SagaHandler<InterventoRotPianificato> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoRotPianificatoHandler(repository,bus);
+            return new InterventoRotPianificatoHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -50,38 +52,40 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
 
         public override InterventoRotPianificato When()
         {
-            return new InterventoRotPianificato()
-            {
-                Period = _period,
-                Id = _id,
-                IdImpianto = _idImpianto,
-                IdTipoIntervento = _idTipoIntervento,
-                IdAppaltatore = _idAppaltatore,
-                IdCategoriaCommerciale = _idCategoriaCommerciale,
-                IdDirezioneRegionale = _idDirezioneRegionale,
-                Note = _note,
-                Oggetti = _oggetti.ToArray(),
-                TrenoArrivo = _trenoArrivo,
-                TrenoPartenza = _trenoPartenza,
-                TurnoTreno = _turnoTreno,
-                RigaTurnoTreno = _rigaTurnoTreno,
-                Convoglio = _convoglio
-            };
+            return BuildEvt.InterventoRotPianificato
+                .ForPeriod(_period)
+                .ForImpianto(_idImpianto)
+                .OfType(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .OfCategoriaCommerciale(_idCategoriaCommerciale)
+                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .WithOggetti(_oggetti.ToArray())
+                .WithTrenoArrivo(_trenoArrivo)
+                .WithTrenoPartenza(_trenoPartenza)
+                .WithTurnoTreno(_turnoTreno)
+                .WithRigaTurnoTreno(_rigaTurnoTreno)
+                .ForConvoglio(_convoglio)
+                .Build(_id, 0);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            var builder = new ProgrammareInterventoRotBuilder();
             yield return BuildCmd.ProgrammareInterventoRot
                             .ForPeriod(_period)
-                            .ForArea(_idImpianto)
+                            .ForImpianto(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
+                            .WithOggetti(_oggetti.ToArray())
+                            .WithTrenoPartenza(_trenoPartenza)
+                            .WithTrenoArrivo(_trenoArrivo)
+                            .WithTurnoTreno(_turnoTreno)
+                            .WithRigaTurnoTreno(_rigaTurnoTreno)
                             .ForConvoglio(_convoglio)
-                            .Build(_id);
+                            .Build(_id, 0);
         }
 
         [Test]

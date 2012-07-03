@@ -1,13 +1,13 @@
 ﻿using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Consuntivazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
 
-    public class InterventoConsuntivatoRotResoBuilder
+    public class InterventoConsuntivatoRotResoBuilder : IEventBuilder<InterventoConsuntivatoRotReso>
     {
-        private Guid _id;
         private  string _idInterventoAppaltatore;
         private  DateTime _dataConsuntivazione;
         private  WorkPeriod _period;
@@ -28,12 +28,6 @@ namespace Super.Appaltatore.Events.Builders
         public InterventoConsuntivatoRotResoBuilder ForPeriod(WorkPeriod period)
         {
             _period = period;
-            return this;
-        }
-
-        public InterventoConsuntivatoRotResoBuilder ForId(Guid id)
-        {
-            _id = id;
             return this;
         }
 
@@ -85,9 +79,9 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoConsuntivatoRotReso Build()
+        public InterventoConsuntivatoRotReso Build(Guid id, long version)
         {
-            return new InterventoConsuntivatoRotReso(_id, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,
+            return new InterventoConsuntivatoRotReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,
                  _oggetti, _trenoPartenza, _trenoArrivo, _turnoTreno, _rigaTurnoTreno, _convoglio);
         }
 

@@ -34,11 +34,16 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ConsuntivareRotManNonReso Build(Guid id)
+        public ConsuntivareRotManNonReso Build(Guid id, long version)
         {
-            var cmd = new  ConsuntivareRotManNonReso(id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
+            return Build(id, Guid.NewGuid(), version);
+        }
 
-            cmd.CommitId = Guid.NewGuid();
+        public ConsuntivareRotManNonReso Build(Guid id, Guid idCommitId, long version)
+        {
+            var cmd = new  ConsuntivareRotManNonReso(id,idCommitId,version, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
+
+            
 
             return cmd;
         }

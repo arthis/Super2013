@@ -10,7 +10,7 @@ namespace CommonDomain
 		int Version { get; }
 
 		void ApplyEvent(object @event);
-        ICollection<IMessage> GetUncommittedEvents();
+        ICollection<IEvent> GetUncommittedEvents();
 		void ClearUncommittedEvents();
 
 		IMemento GetSnapshot();

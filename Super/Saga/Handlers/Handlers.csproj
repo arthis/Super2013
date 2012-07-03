@@ -27,7 +27,7 @@
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
     <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
-    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
     <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
     <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
     <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
@@ -89,7 +89,7 @@
     <Compile Include="InterventoConsuntivatoRotNonResoTrenitaliaHandler.cs" />
     <Compile Include="InterventoRotManConsuntivatoHandler.cs" />
     <Compile Include="InterventoConsuntivatoRotResoHandler.cs" />
-    <Compile Include="InterventoAmbConsuntivatoHandler.cs" />
+    <Compile Include="InterventoConsuntivatoAmbResoHandler.cs" />
     <Compile Include="InterventoAmbPianificatoHandler.cs" />
     <Compile Include="InterventoRotManPianificatoHandler.cs" />
     <Compile Include="InterventoRotPianificatoHandler.cs" />

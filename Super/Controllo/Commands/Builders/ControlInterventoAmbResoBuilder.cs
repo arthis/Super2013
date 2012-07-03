@@ -38,21 +38,26 @@ namespace Super.Controllo.Commands.Builders
             return this;
         }
 
-        public ControlInterventoAmbResoBuilder WithQuantity(int quantity)
+        public ControlInterventoAmbResoBuilder ForQuantity(int quantity)
         {
             _quantity = quantity;
             return this;
         }
 
-        public ControlInterventoAmbResoBuilder WithDescription(string description)
+        public ControlInterventoAmbResoBuilder ForDescription(string description)
         {
             _description = description;
             return this;
         }
 
-        public ControlInterventoAmbReso Build(Guid id)
+        public ControlInterventoAmbReso Build(Guid id, long version)
         {
-            var cmd = new ControlInterventoAmbReso(id, _idUtente, _controlDate, _period, _note, _quantity, _description);
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public ControlInterventoAmbReso Build(Guid id, Guid commitId, long version)
+        {
+            var cmd = new ControlInterventoAmbReso(id, commitId, version, _idUtente, _controlDate, _period, _note, _quantity, _description);
 
             cmd.CommitId = Guid.NewGuid();
 

@@ -39,14 +39,13 @@ namespace Super.Controllo.Commands
             
         }
 
-        public ControlInterventoReso(Guid id, Guid idUtente, DateTime controlDate, WorkPeriod period, string note)
+        public ControlInterventoReso(Guid id, Guid commitId, long version, Guid idUtente, DateTime controlDate, WorkPeriod period, string note)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idUtente == Guid.Empty);
-            Contract.Requires<ArgumentOutOfRangeException>(controlDate == DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(period == null);
+            Contract.Requires<ArgumentNullException>(idUtente != Guid.Empty);
+            Contract.Requires<ArgumentOutOfRangeException>(controlDate > DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(period != null);
 
-            Id = id;
             _idUtente = idUtente;
             _controlDate = controlDate;
             _period = period;
@@ -122,7 +121,7 @@ namespace Super.Controllo.Commands
             
         }
 
-        public ControlInterventoRotReso(Guid id,
+        public ControlInterventoRotReso(Guid id, Guid commitId, long version,
                                         Guid idUtente,
                                         DateTime controlDate,
                                         WorkPeriod period,
@@ -133,7 +132,7 @@ namespace Super.Controllo.Commands
                                         string turnoTreno,
                                         string rigaTurnoTreno,
                                         string convoglio) 
-            : base(id, idUtente, controlDate, period, note)
+            : base(id, commitId, version, idUtente, controlDate, period, note)
         {
             _oggetti = oggetti;
             _trenoArrivo = trenoArrivo;
@@ -195,13 +194,13 @@ namespace Super.Controllo.Commands
             
         }
 
-        public ControlInterventoRotManReso(Guid id,
+        public ControlInterventoRotManReso(Guid id, Guid commitId, long version,
                                         Guid idUtente,
                                         DateTime controlDate,
                                         WorkPeriod period,
                                         string note,
                                         OggettoRotMan[] oggetti)
-            : base(id, idUtente, controlDate, period, note)
+            : base(id, commitId, version, idUtente, controlDate, period, note)
         {
             _oggetti = oggetti;
         }
@@ -236,16 +235,16 @@ namespace Super.Controllo.Commands
 
     public class ControlInterventoAmbReso : ControlInterventoReso
     {
-        private readonly int _quantita;
-        private readonly string _descrizione;
+        private readonly int _quantity;
+        private readonly string _description;
 
-        public string Descrizione
+        public string Description
         {
-            get { return _descrizione; }
+            get { return _description; }
         }
-        public int Quantita
+        public int Quantity
         {
-            get { return _quantita; }
+            get { return _quantity; }
         }
 
         //for serialization
@@ -254,17 +253,17 @@ namespace Super.Controllo.Commands
             
         }
 
-        public ControlInterventoAmbReso(Guid id,
+        public ControlInterventoAmbReso(Guid id, Guid commitId, long version,
                                         Guid idUtente,
                                         DateTime controlDate,
                                         WorkPeriod period,
                                         string note, 
-                                        int quantita,
-                                        string descrizione)
-            : base(id, idUtente, controlDate, period, note)
+                                        int quantity,
+                                        string description)
+            : base(id, commitId, version, idUtente, controlDate, period, note)
         {
-            _quantita = quantita;
-            _descrizione = descrizione;
+            _quantity = quantity;
+            _description = description;
         }
 
 
@@ -278,7 +277,7 @@ namespace Super.Controllo.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._quantita == _quantita && Equals(other._descrizione, _descrizione);
+            return base.Equals(other) && other._quantity == _quantity && Equals(other._description, _description);
         }
 
         public override bool Equals(object obj)
@@ -293,8 +292,8 @@ namespace Super.Controllo.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _quantita;
-                result = (result*397) ^ (_descrizione != null ? _descrizione.GetHashCode() : 0);
+                result = (result*397) ^ _quantity;
+                result = (result*397) ^ (_description != null ? _description.GetHashCode() : 0);
                 return result;
             }
         }

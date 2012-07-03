@@ -80,6 +80,7 @@
     <Compile Include="Builders\ControlInterventoRotResoBuilder.cs" />
     <Compile Include="Builders\ControlInterventoRotManResoBuilder.cs" />
     <Compile Include="Builders\ControlInterventoAmbResoBuilder.cs" />
+    <Compile Include="Builders\AllowControlInterventoBuilder.cs" />
     <Compile Include="Builders\ReopenInterventoBuilder.cs" />
     <Compile Include="CloseIntervento.cs" />
     <Compile Include="ControlInterventoReso.cs" />

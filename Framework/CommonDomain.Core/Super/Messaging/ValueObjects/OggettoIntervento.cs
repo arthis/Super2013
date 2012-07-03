@@ -22,6 +22,7 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
             Quantity = quantity;
         }
 
+
         public bool Equals(OggettoIntervento other)
         {
             if (ReferenceEquals(null, other)) return false;

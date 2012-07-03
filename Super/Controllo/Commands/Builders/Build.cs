@@ -14,5 +14,9 @@ namespace Super.Controllo.Commands.Builders
 
         public static ReopenInterventoBuilder ReopenIntervento { get { return new ReopenInterventoBuilder(); } }
 
+        public static AllowControlInterventoBuilder AllowControlIntervento { get { return new AllowControlInterventoBuilder(); } }
+
+        
+
     }
 }

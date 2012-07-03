@@ -19,7 +19,7 @@ namespace CommonDomain.Core.Super.Messaging.Builders
             return this;
         }
 
-        public OggettoRotBuilder WithDescription(string description)
+        public OggettoRotBuilder ForDescription(string description)
         {
             _description = description;
             return this;

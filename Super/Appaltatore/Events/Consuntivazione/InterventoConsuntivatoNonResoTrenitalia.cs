@@ -8,7 +8,7 @@ using CommonDomain.Core;
 
 namespace Super.Appaltatore.Events.Consuntivazione
 {
-    public abstract class InterventoConsuntivatoNonResoTrenitalia : Message
+    public abstract class InterventoConsuntivatoNonResoTrenitalia : Message, IEvent
     {
         public string Note {get; set; }
         public Guid IdCausaleTrenitalia { get;  set; }
@@ -22,10 +22,13 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 
         public InterventoConsuntivatoNonResoTrenitalia(Guid id,
+                                                        Guid commitId,
+                                                       long version,
                                                        string idInterventoAppaltatore,
                                                        DateTime dataConsuntivazione,
                                                        Guid idCausaleTrenitalia,
                                                        string note)
+            : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
@@ -75,7 +78,8 @@ namespace Super.Appaltatore.Events.Consuntivazione
             
         }
 
-        public InterventoConsuntivatoRotNonResoTrenitalia(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
+        public InterventoConsuntivatoRotNonResoTrenitalia(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
         {
         }
 
@@ -112,7 +116,8 @@ namespace Super.Appaltatore.Events.Consuntivazione
 
         }
 
-        public InterventoConsuntivatoRotManNonResoTrenitalia(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
+        public InterventoConsuntivatoRotManNonResoTrenitalia(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
         {
         }
 
@@ -148,7 +153,8 @@ namespace Super.Appaltatore.Events.Consuntivazione
             
         }
 
-        public InterventoConsuntivatoAmbNonResoTrenitalia(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
+        public InterventoConsuntivatoAmbNonResoTrenitalia(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
         {
         }
 

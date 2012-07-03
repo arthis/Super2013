@@ -21,17 +21,18 @@ namespace Super.Appaltatore.Commands
         }
 
         public ConsuntivareNonResoTrenitalia(Guid id,
+                                Guid commitId,
+                                long version,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
                                 Guid idCausaleTrenitalia,
                                 string note)
+            :base(id,commitId,version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
             Contract.Requires<ArgumentNullException>(dataConsuntivazione > DateTime.MinValue);
             Contract.Requires<ArgumentNullException>(idCausaleTrenitalia != Guid.Empty);
-
-            Id = id;
+            
             IdInterventoAppaltatore = idInterventoAppaltatore;
             DataConsuntivazione = dataConsuntivazione;
             IdCausaleTrenitalia = idCausaleTrenitalia;
@@ -81,7 +82,9 @@ namespace Super.Appaltatore.Commands
             
         }
 
-        public ConsuntivareRotNonResoTrenitalia(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
+        public ConsuntivareRotNonResoTrenitalia(Guid id, Guid commitId,
+                                long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
         {
         }
 
@@ -116,7 +119,9 @@ namespace Super.Appaltatore.Commands
         {
             
         }
-        public ConsuntivareRotManNonResoTrenitalia(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
+        public ConsuntivareRotManNonResoTrenitalia(Guid id, Guid commitId,
+                                long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
         {
         }
 
@@ -152,7 +157,9 @@ namespace Super.Appaltatore.Commands
             
         }
 
-        public ConsuntivareAmbNonResoTrenitalia(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
+        public ConsuntivareAmbNonResoTrenitalia(Guid id, Guid commitId,
+                                long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleTrenitalia, note)
         {
         }
 

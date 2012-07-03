@@ -46,10 +46,14 @@ namespace Super.Controllo.Commands.Builders
         }
 
 
-
-        public ControlInterventoRotManReso Build(Guid id)
+        public ControlInterventoRotManReso Build(Guid id, long version)
         {
-            var cmd = new ControlInterventoRotManReso(id, _idUtente, _controlDate, _period, _note, _oggetti);
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public ControlInterventoRotManReso Build(Guid id, Guid commitId, long version)
+        {
+            var cmd = new ControlInterventoRotManReso(id, commitId, version, _idUtente, _controlDate, _period, _note, _oggetti);
 
             cmd.CommitId = Guid.NewGuid();
 

@@ -42,7 +42,6 @@ namespace Super.Saga.SagaService
                 .EncryptWith(_encryptionKey)
                 .HookIntoPipelineUsing(new[] { new AuthorizationPipelineHook() })
                 .UsingSynchronousDispatchScheduler()
-                .DispatchTo(new DelegateMessageDispatcher(DispatchCommit))
                 .Build();
 
         }
@@ -58,23 +57,7 @@ namespace Super.Saga.SagaService
             _messageHandlerService.Subscribe();
         }
 
-        private void DispatchCommit(Commit commit)
-        {
-            try
-            {
-                foreach (var @event in commit.Events)
-                {
-                    //var message = new Message() { CommitKey = commit.CommitKey, PayLoad = (IMessage)@event.Body };
-
-                    //_bus.Publish(message, @event.Body.GetType());
-                }
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-        }
+      
 
         public void Start()
         {

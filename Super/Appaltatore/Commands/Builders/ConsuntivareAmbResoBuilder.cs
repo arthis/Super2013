@@ -52,11 +52,16 @@ namespace Super.Appaltatore.Commands.Builders
         }
 
 
-        public ConsuntivareAmbReso Build(Guid id)
+        public ConsuntivareAmbReso Build(Guid id, long version)
         {
-            var cmd = new  ConsuntivareAmbReso(id, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,_quantity, _description);
+            return Build(id, Guid.NewGuid(), version);
+        }
 
-            cmd.CommitId = Guid.NewGuid();
+        public ConsuntivareAmbReso Build(Guid id, Guid idCommitId, long version)
+        {
+            var cmd = new  ConsuntivareAmbReso(id,idCommitId,version, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,_quantity, _description);
+
+            
 
             return cmd;
         }

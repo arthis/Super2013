@@ -5,8 +5,10 @@ using System.Text;
 
 namespace CommonDomain
 {
-    public interface IEventBuilder<TEvent> where TEvent : IMessage
+    public interface IEventBuilder< out TEvent> where TEvent : IEvent
     {
-        TEvent Build(Guid id, Guid commitId);
+        TEvent Build(Guid id, long version);
     }
+
+    
 }

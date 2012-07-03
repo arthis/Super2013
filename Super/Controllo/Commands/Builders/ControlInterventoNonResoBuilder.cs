@@ -34,9 +34,14 @@ namespace Super.Controllo.Commands.Builders
             return this;
         }
 
-        public ControlInterventoNonReso Build(Guid id)
+        public ControlInterventoNonReso Build(Guid id, long version)
         {
-            var cmd = new ControlInterventoNonReso(id, _idUtente, _controlDate,_idCausale,_note);
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public ControlInterventoNonReso Build(Guid id, Guid commitId, long version)
+        {
+            var cmd = new ControlInterventoNonReso(id, commitId, version, _idUtente, _controlDate,_idCausale,_note);
 
             cmd.CommitId = Guid.NewGuid();
 

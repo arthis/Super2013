@@ -20,9 +20,14 @@ namespace Super.Controllo.Commands.Builders
             return this;
         }
 
-        public ReopenIntervento Build(Guid id)
+        public ReopenIntervento Build(Guid id, long version)
         {
-            var cmd = new ReopenIntervento(id, _idUtente, _reopeningDate);
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public ReopenIntervento Build(Guid id, Guid commitId, long version)
+        {
+            var cmd = new ReopenIntervento(id, commitId, version, _idUtente, _reopeningDate);
 
             cmd.CommitId = Guid.NewGuid();
 

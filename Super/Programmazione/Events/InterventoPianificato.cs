@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics.Contracts;
+using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
@@ -15,6 +17,40 @@ namespace Super.Programmazione.Events
         public Guid IdDirezioneRegionale { get; set; }
         public WorkPeriod Period { get; set; }
         public string Note { get; set; }
+
+        public InterventoPianificato()
+        {
+            
+        }
+
+        public InterventoPianificato(Guid id,
+                                     Guid commitId,
+                                     long version,
+                                     Guid idImpianto,
+                                     Guid idTipoIntervento,
+                                     Guid idAppaltatore,
+                                     Guid idCategoriaCommerciale,
+                                     Guid idDirezioneRegionale,
+                                     WorkPeriod period,
+                                     string note)
+            : base(id,commitId,  version)
+        {
+            Contract.Requires<ArgumentNullException>(idImpianto != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(period != null);
+            
+            IdImpianto = idImpianto;
+            IdTipoIntervento = idTipoIntervento;
+            IdAppaltatore = idAppaltatore;
+            IdCategoriaCommerciale = idCategoriaCommerciale;
+            IdDirezioneRegionale = idDirezioneRegionale;
+            Period = period;
+            Note = note;
+        }
+
 
 
         public bool Equals(InterventoPianificato other)
@@ -51,6 +87,24 @@ namespace Super.Programmazione.Events
 
     public class InterventoRotPianificato : InterventoPianificato
     {
+        public InterventoRotPianificato()
+        {
+            
+        }
+
+        public InterventoRotPianificato(Guid id, Guid commitId, long version, Guid idImpianto, Guid idTipoIntervento, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idDirezioneRegionale, WorkPeriod period, string note, OggettoRot[] oggetti, Treno trenoArrivo, Treno trenoPartenza, string turnoTreno, string rigaTurnoTreno, string convoglio)
+            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+        {
+            Contract.Requires(oggetti != null);
+
+            Oggetti = oggetti;
+            TrenoArrivo = trenoArrivo;
+            TrenoPartenza = trenoPartenza;
+            TurnoTreno = turnoTreno;
+            RigaTurnoTreno = rigaTurnoTreno;
+            Convoglio = convoglio;
+        }
+
         public OggettoRot[] Oggetti { get; set; }
         public Treno  TrenoArrivo { get; set; }
         public Treno TrenoPartenza { get; set; }
@@ -67,7 +121,7 @@ namespace Super.Programmazione.Events
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Oggetti, Oggetti) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.Convoglio, Convoglio);
+            return base.Equals(other) &&  other.Oggetti.SequenceEqual(Oggetti) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.Convoglio, Convoglio);
         }
 
         public override bool Equals(object obj)
@@ -95,6 +149,19 @@ namespace Super.Programmazione.Events
 
     public class InterventoRotManPianificato : InterventoPianificato
     {
+        public InterventoRotManPianificato()
+        {
+            
+        }
+
+        public InterventoRotManPianificato(Guid id, Guid commitId, long version, Guid idImpianto, Guid idTipoIntervento, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idDirezioneRegionale, WorkPeriod period, string note, OggettoRotMan[] oggetti)
+            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+        {
+            Contract.Requires(oggetti!=null);
+
+            Oggetti = oggetti;
+        }
+
         public OggettoRotMan[] Oggetti { get; set; }
 
         public override string ToDescription()
@@ -107,7 +174,7 @@ namespace Super.Programmazione.Events
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) &&  other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -128,6 +195,18 @@ namespace Super.Programmazione.Events
 
     public class InterventoAmbPianificato : InterventoPianificato
     {
+        public InterventoAmbPianificato()
+        {
+            
+        }
+
+        public InterventoAmbPianificato(Guid id, Guid commitId, long version, Guid idImpianto, Guid idTipoIntervento, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idDirezioneRegionale, WorkPeriod period, string note, int quantity, string description)
+            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+        {
+            Quantity = quantity;
+            Description = description;
+        }
+
         public int Quantity { get; set; }
         public string Description { get; set; }
 

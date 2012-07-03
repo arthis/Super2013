@@ -12,13 +12,13 @@ namespace CommonDomain.Core.Super.Domain.Builders
         int _quantity;
         string _description;
 
-        public OggettoRotBuilder OfQuantita(int value)
+        public OggettoRotBuilder OfQuantity(int value)
         {
             _quantity = value;
             return this;
         }
 
-        public OggettoRotBuilder WithDescription(string description)
+        public OggettoRotBuilder ForDescription(string description)
         {
             _description = description;
             return this;

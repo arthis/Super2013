@@ -40,8 +40,8 @@ namespace Super.Appaltatore.Projection
             //                 IdImpianto = evt.IdImpianto,
             //                 IdTipoIntervento = evt.IdTipoIntervento,
             //                 IdCommittente = Guid.Empty,
-            //                 ImpiantoDescrizione = "to be fetched",
-            //                 TipoInterventoDescrizione = "to be fetched",
+            //                 ImpiantoDescription = "to be fetched",
+            //                 TipoInterventoDescription = "to be fetched",
             //                 Deleted = false,
             //                 //etc... to be done later
             //             };

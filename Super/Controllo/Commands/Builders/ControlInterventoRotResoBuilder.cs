@@ -80,9 +80,14 @@ namespace Super.Controllo.Commands.Builders
             return this;
         }
 
-        public ControlInterventoRotReso Build(Guid id)
+        public ControlInterventoRotReso Build(Guid id, long version)
         {
-            var cmd = new ControlInterventoRotReso(id, _idUtente, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public ControlInterventoRotReso Build(Guid id, Guid commitId, long version)
+        {
+            var cmd = new ControlInterventoRotReso(id, commitId, version, _idUtente, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
                                       _rigaTurnoTreno,
                                       _convoglio);
 

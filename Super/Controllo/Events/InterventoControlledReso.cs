@@ -136,6 +136,8 @@ namespace Super.Controllo.Events
                                         string convoglio) 
             : base(id, idUtente, controlDate, period, note)
         {
+            Contract.Requires(oggetti != null);
+
             _oggetti = oggetti;
             _trenoArrivo = trenoArrivo;
             _trenoPartenza = trenoPartenza;
@@ -203,6 +205,8 @@ namespace Super.Controllo.Events
                                         OggettoRotMan[] oggetti)
             : base(id, idUtente, controlDate, period, note)
         {
+            Contract.Requires(oggetti != null);
+
             _oggetti = oggetti;
         }
 
@@ -236,16 +240,16 @@ namespace Super.Controllo.Events
 
     public class InterventoAmbControlledReso : InterventoControlledReso
     {
-         private readonly int _quantita;
-        private readonly string _descrizione;
+         private readonly int _quantity;
+        private readonly string _description;
 
-        public string Descrizione
+        public string Description
         {
-            get { return _descrizione; }
+            get { return _description; }
         }
-        public int Quantita
+        public int Quantity
         {
-            get { return _quantita; }
+            get { return _quantity; }
         }
 
         //for serialization
@@ -259,12 +263,12 @@ namespace Super.Controllo.Events
                                         DateTime controlDate,
                                         WorkPeriod period,
                                         string note, 
-                                        int quantita,
-                                        string descrizione)
+                                        int quantity,
+                                        string description)
             : base(id, idUtente, controlDate, period, note)
         {
-            _quantita = quantita;
-            _descrizione = descrizione;
+            _quantity = quantity;
+            _description = description;
         }
 
 
@@ -278,7 +282,7 @@ namespace Super.Controllo.Events
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._quantita == _quantita && Equals(other._descrizione, _descrizione);
+            return base.Equals(other) && other._quantity == _quantity && Equals(other._description, _description);
         }
 
         public override bool Equals(object obj)
@@ -293,8 +297,8 @@ namespace Super.Controllo.Events
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _quantita;
-                result = (result*397) ^ (_descrizione != null ? _descrizione.GetHashCode() : 0);
+                result = (result*397) ^ _quantity;
+                result = (result*397) ^ (_description != null ? _description.GetHashCode() : 0);
                 return result;
             }
         }

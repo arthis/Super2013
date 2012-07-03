@@ -10,6 +10,17 @@ namespace CommonDomain.Core
     {
         public bool IsExecuted { get; set; }
 
+        public CommandBase()
+        {
+            
+        }
+
+        public CommandBase(Guid id, Guid commitId, long version)
+            :base(id,commitId,version)
+        {
+            
+        }
+
         public static Type[] GetKnownTypes()
         {
             var types = from asm in AppDomain.CurrentDomain.GetAssemblies()

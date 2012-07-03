@@ -19,6 +19,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
     public class Programmazione_di_intervento_rotabile_in_manutenzione_gia_esistente : CommandBaseClass<ProgrammareInterventoRotMan>
     {
         readonly Guid _id = Guid.NewGuid();
+        readonly Guid _commitId = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
@@ -36,29 +37,29 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.InterventoRotManProgrammato
-                            .WithOggetti(_oggetti.ToArray())
-                            .ForPeriod(_period)
-                            .In(_idImpianto)
-                            .OfType(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                            .OfDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .Build(_id);
+                .WithOggetti(_oggetti.ToArray())
+                .ForPeriod(_period)
+                .ForImpianto(_idImpianto)
+                .OfType(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .OfCategoriaCommerciale(_idCategoriaCommerciale)
+                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .Build(_id, 1);
         }
 
         public override ProgrammareInterventoRotMan When()
         {
             return BuildCmd.ProgrammareInterventoRotMan
-                            .WithOggetti(_oggetti.ToArray())
-                            .ForPeriod(_period)
-                            .In(_idImpianto)
-                            .OfType(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                            .OfDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .Build(_id);
+                .WithOggetti(_oggetti.ToArray())
+                .ForPeriod(_period)
+                .In(_idImpianto)
+                .OfType(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .OfCategoriaCommerciale(_idCategoriaCommerciale)
+                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .Build(_id, _commitId, 1);
 
         }
 

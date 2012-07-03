@@ -11,6 +11,8 @@ using Super.Appaltatore.Commands.Builders;
 using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
+using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+using BuildEvt = Super.Appaltatore.Events.Builders.Build;
 
 
 namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
@@ -18,6 +20,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
     public class Programmazione_di_intervento_rotabile_in_manutenzione_non_esistente : CommandBaseClass<ProgrammareInterventoRotMan>
     {
         readonly Guid _id = Guid.NewGuid();
+        readonly Guid _commitId = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
@@ -39,31 +42,30 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
 
         public override ProgrammareInterventoRotMan When()
         {
-            var builder = new ProgrammareInterventoRotManBuilder();
-            return builder.WithOggetti(_oggetti.ToArray())
-                            .ForPeriod(_period)
-                            .In(_idImpianto)
-                            .OfType(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                            .OfDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .Build(_id);
+            return BuildCmd.ProgrammareInterventoRotMan
+                .WithOggetti(_oggetti.ToArray())
+                .ForPeriod(_period)
+                .In(_idImpianto)
+                .OfType(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .OfCategoriaCommerciale(_idCategoriaCommerciale)
+                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .Build(_id,_commitId,0);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            var builder = new InterventoRotManProgrammatoBuilder();
-
-            yield return builder.WithOggetti(_oggetti.ToArray())
-                            .ForPeriod(_period)
-                            .In(_idImpianto)
-                            .OfType(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                            .OfDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .Build(_id);
+            yield return BuildEvt.InterventoRotManProgrammato
+                .WithOggetti(_oggetti.ToArray())
+                .ForPeriod(_period)
+                .ForImpianto(_idImpianto)
+                .OfType(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .OfCategoriaCommerciale(_idCategoriaCommerciale)
+                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .Build(_id, 1);
         }
 
         [Test]

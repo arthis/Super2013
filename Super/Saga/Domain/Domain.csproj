@@ -27,7 +27,7 @@
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
     <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
-    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
     <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
     <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
     <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
@@ -110,6 +110,10 @@
     <ProjectReference Include="..\..\Appaltatore\Events\Events.csproj">
       <Project>{11241956-CC2D-46B0-B46C-C2E2F34AE693}</Project>
       <Name>Events %28Super\Appaltatore\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Controllo\Commands\Commands.csproj">
+      <Project>{CB4B07C5-EAAF-4392-844E-D5C59F4C937E}</Project>
+      <Name>Commands %28Super\Controllo\Commands%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>

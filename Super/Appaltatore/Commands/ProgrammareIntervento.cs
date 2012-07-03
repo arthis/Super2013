@@ -25,6 +25,8 @@ namespace Super.Appaltatore.Commands
         {}
 
         public ProgrammareIntervento(Guid id,
+                                     Guid commitId,
+                                     long version,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -32,8 +34,8 @@ namespace Super.Appaltatore.Commands
                                      Guid idDirezioneRegionale,
                                      WorkPeriod period,
                                      string note)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idImpianto != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
@@ -41,7 +43,6 @@ namespace Super.Appaltatore.Commands
             Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
             Contract.Requires<ArgumentNullException>(period != null);
 
-            Id = id;
             IdImpianto = idImpianto;
             IdTipoIntervento = idTipoIntervento;
             IdAppaltatore = idAppaltatore;
@@ -96,6 +97,8 @@ namespace Super.Appaltatore.Commands
         {}
 
         public ProgrammareInterventoRot(Guid id,
+                                     Guid commitId,
+                                     long version,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -110,8 +113,10 @@ namespace Super.Appaltatore.Commands
                                      string rigaTurnoTreno,
                                      string convoglio
                                      )
-            : base(id, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
+            Contract.Requires(oggetti != null);
+
             Oggetti = oggetti;
             TrenoPartenza = trenoPartenza;
             TrenoArrivo = trenoArrivo;
@@ -129,7 +134,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) &&  Oggetti.SequenceEqual(other.Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -164,6 +169,8 @@ namespace Super.Appaltatore.Commands
         {}
 
         public ProgrammareInterventoRotMan(Guid id,
+                                     Guid commitId,
+                                     long version,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -172,8 +179,10 @@ namespace Super.Appaltatore.Commands
                                      WorkPeriod period,
                                      string note,
                                      OggettoRotMan[] oggetti)
-            : base(id, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
+            Contract.Requires(oggetti != null);
+
             Oggetti = oggetti;
         }
 
@@ -187,7 +196,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) &&  other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -209,7 +218,7 @@ namespace Super.Appaltatore.Commands
     public class ProgrammareInterventoAmb : ProgrammareIntervento, IEquatable<ProgrammareInterventoAmb>
     {
         public string Description { get; set; }
-        public int Quantita { get; set; }
+        public int Quantity { get; set; }
 
 
         //for serialization
@@ -217,6 +226,8 @@ namespace Super.Appaltatore.Commands
         {}
 
         public ProgrammareInterventoAmb(Guid id,
+                                     Guid commitId,
+                                     long version,
                                      Guid idImpianto,
                                      Guid idTipoIntervento,
                                      Guid idAppaltatore,
@@ -226,11 +237,11 @@ namespace Super.Appaltatore.Commands
                                      string note,
                                      int quantity,
                                      string description)
-            : base(id, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(quantity <= 0);
+            Contract.Requires<ArgumentOutOfRangeException>(quantity >= 0);
 
-            Quantita = quantity;
+            Quantity = quantity;
             Description = description;
         }
 
@@ -244,7 +255,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Description, Description) && other.Quantita == Quantita;
+            return base.Equals(other) && Equals(other.Description, Description) && other.Quantity == Quantity;
         }
 
         public override bool Equals(object obj)
@@ -260,7 +271,7 @@ namespace Super.Appaltatore.Commands
             {
                 int result = base.GetHashCode();
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
-                result = (result*397) ^ Quantita;
+                result = (result*397) ^ Quantity;
                 return result;
             }
         }

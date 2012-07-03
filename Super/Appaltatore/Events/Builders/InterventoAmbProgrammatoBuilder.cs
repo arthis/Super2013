@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.Builders;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Programmazione;
@@ -9,7 +11,7 @@ using Super.Appaltatore.Events.Programmazione;
 namespace Super.Appaltatore.Events.Builders
 {
 
-    public class InterventoAmbProgrammatoBuilder
+    public class InterventoAmbProgrammatoBuilder : IEventBuilder<InterventoAmbProgrammato>
     {
 
         private Guid _idImpianto;
@@ -29,8 +31,7 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-
-        public InterventoAmbProgrammatoBuilder ForArea(Guid idImpianto)
+        public InterventoAmbProgrammatoBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
@@ -66,24 +67,25 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoAmbProgrammatoBuilder WithQuantity(int quantity)
+        public InterventoAmbProgrammatoBuilder ForQuantity(int quantity)
         {
             _quantity = quantity;
             return this;
         }
 
-        public InterventoAmbProgrammatoBuilder WithDescription(string description)
+        public InterventoAmbProgrammatoBuilder ForDescription(string description)
         {
             _description = description;
             return this;
         }
 
- 
 
-        public InterventoAmbProgrammato Build(Guid id, Guid commitId)
+
+        public InterventoAmbProgrammato Build(Guid id, long version)
         {
-            return new InterventoAmbProgrammato(id,
-                                        commitId,
+
+            return new InterventoAmbProgrammato(id, Guid.NewGuid(),
+                                        version,
                                       _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,

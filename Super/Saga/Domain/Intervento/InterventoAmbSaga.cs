@@ -2,9 +2,11 @@
 using CommonDomain.Core;
 using Stateless;
 using Super.Appaltatore.Commands;
-using Super.Appaltatore.Commands.Builders;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Programmazione.Events;
+using Super.Appaltatore.Events;
+using BuildApp = Super.Appaltatore.Commands.Builders.Build;
+using BuildCtrl = Super.Controllo.Commands.Builders.Build;
 
 namespace Super.Saga.Domain.Intervento
 {
@@ -17,6 +19,9 @@ namespace Super.Saga.Domain.Intervento
         public InterventoAmbSaga()
         {
             Register<InterventoAmbPianificato>(OnInterventoAmbPianificato);
+            Register<InterventoConsuntivatoAmbReso>(OnInterventoConsuntivato);
+            Register<InterventoConsuntivatoAmbNonReso>(OnInterventoConsuntivato);
+            Register<InterventoConsuntivatoAmbNonResoTrenitalia>(OnInterventoConsuntivato);
 
             _stateMachine = new StateMachine<State, Trigger>(() => _state, newState => _state = newState);
 
@@ -36,18 +41,17 @@ namespace Super.Saga.Domain.Intervento
             if (!_stateMachine.IsInState(State.Start))
                 throw  new Exception("Saga already started");
 
-            var builder = new ProgrammareInterventoAmbBuilder();
-            var cmd  = Build.ProgrammareInterventoAmb
+            var cmd = BuildApp.ProgrammareInterventoAmb
                                 .ForPeriod(evt.Period)
-                                .ForArea(evt.IdImpianto)
+                                .ForImpianto(evt.IdImpianto)
                                 .OfType(evt.IdTipoIntervento)
                                 .ForAppaltatore(evt.IdAppaltatore)
                                 .OfCategoriaCommerciale(evt.IdCategoriaCommerciale)
                                 .OfDirezioneRegionale(evt.IdDirezioneRegionale)
                                 .WithNote(evt.Note)
-                                .WithQuantity(evt.Quantity)
-                                .WithDescription(evt.Description)
-                                .Build(evt.Id);
+                                .ForQuantity(evt.Quantity)
+                                .ForDescription(evt.Description)
+                                .Build(evt.Id,0);
 
             Dispatch(cmd);
 
@@ -63,14 +67,23 @@ namespace Super.Saga.Domain.Intervento
         }
 
 
-        public void ConsuntivareIntervento(IInterventoAmbConsuntivato @event)
+        public void ConsuntivareIntervento(IInterventoAmbConsuntivato evt)
         {
-            throw new NotImplementedException();
+            if (!_stateMachine.IsInState(State.Programmation))
+                throw new Exception("Saga is not in programamtion state");
+
+            var cmd = BuildCtrl.AllowControlIntervento
+                                     .Build(Id, 0);
+
+            Dispatch(cmd);
+
+            Transition(evt);
         }
 
-        private void OnInterventoAmbConsuntivato(IInterventoAmbConsuntivato evt)
+        private void OnInterventoConsuntivato(IInterventoAmbConsuntivato evt)
         {
-            throw new NotImplementedException();
+            //publish intervento to appaltatore
+            _stateMachine.Fire(Trigger.Consuntivato);
         }
 
     }

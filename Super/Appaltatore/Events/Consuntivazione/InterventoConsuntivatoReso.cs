@@ -9,7 +9,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Appaltatore.Events.Consuntivazione
 {
-    public abstract class InterventoConsuntivatoReso : Message
+    public abstract class InterventoConsuntivatoReso : Message, IEvent
     {
 
         public string Note { get; set; }
@@ -24,10 +24,13 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 
         public InterventoConsuntivatoReso(Guid id,
+                                     Guid commitId,
+                                     long version,
                                      string idInterventoAppaltatore,
                                      DateTime dataConsuntivazione,
                                      WorkPeriod period,
                                      string note)
+            : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
@@ -86,9 +89,9 @@ namespace Super.Appaltatore.Events.Consuntivazione
             
         }
 
-        public InterventoConsuntivatoRotReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, WorkPeriod period, string note, 
-                OggettoRot[] oggetti, Treno trenoPartenza, Treno trenoArrivo, string turnoTreno, string rigaTurnoTreno, string convoglio) 
-            : base(id, idInterventoAppaltatore, dataConsuntivazione, period, note)
+        public InterventoConsuntivatoRotReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, WorkPeriod period, string note, 
+                OggettoRot[] oggetti, Treno trenoPartenza, Treno trenoArrivo, string turnoTreno, string rigaTurnoTreno, string convoglio)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
             Oggetti = oggetti;
             TrenoPartenza = trenoPartenza;
@@ -104,9 +107,11 @@ namespace Super.Appaltatore.Events.Consuntivazione
 
         public bool Equals(InterventoConsuntivatoRotReso other)
         {
+            Contract.Requires(Oggetti.First()!=null);
+
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) && Oggetti.SequenceEqual(other.Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -143,8 +148,8 @@ namespace Super.Appaltatore.Events.Consuntivazione
             
         }
 
-        public InterventoConsuntivatoRotManReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, WorkPeriod period, string note, OggettoRotMan[] oggetti)
-            : base(id, idInterventoAppaltatore, dataConsuntivazione, period, note)
+        public InterventoConsuntivatoRotManReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, WorkPeriod period, string note, OggettoRotMan[] oggetti)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
             Oggetti = oggetti;
         }
@@ -159,7 +164,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) &&  other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -189,15 +194,17 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 
         public InterventoConsuntivatoAmbReso(Guid id,
+                                            Guid commitId,
+                                            long version,
                                             string idInterventoAppaltatore,
                                             DateTime dataConsuntivazione,
                                             WorkPeriod period,
                                             string note,
                                             int quantity,
                                             string description)
-            : base(id, idInterventoAppaltatore, dataConsuntivazione, period, note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(quantity <= 0);
+            Contract.Requires<ArgumentOutOfRangeException>(quantity >= 0);
 
             Quantity = quantity;
             Description = description;

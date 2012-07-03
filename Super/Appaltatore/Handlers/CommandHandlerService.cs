@@ -17,21 +17,21 @@ namespace Super.Appaltatore.Handlers
         {
             var handlerHelper = new HandlerHelper(commandRepository);
 
-            handlerHelper.Add<ProgrammareInterventoAmb>(_handlers, new ProgrammareInterventoAmbHandler(eventRepositoryEvent));
-            handlerHelper.Add<ProgrammareInterventoRot>(_handlers, new ProgrammareInterventoRotHandler(eventRepositoryEvent));
-            handlerHelper.Add<ProgrammareInterventoRotMan>(_handlers, new ProgrammareInterventoRotManHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ProgrammareInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ProgrammareInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ProgrammareInterventoRotManHandler(eventRepositoryEvent));
 
-            handlerHelper.Add<ConsuntivareAmbNonReso>(_handlers, new ConsuntivareAmbNonResoHandler(eventRepositoryEvent));
-            handlerHelper.Add<ConsuntivareRotNonReso>(_handlers, new ConsuntivareRotNonResoHandler(eventRepositoryEvent));
-            handlerHelper.Add<ConsuntivareRotManNonReso>(_handlers, new ConsuntivareRotManNonResoHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ConsuntivareAmbNonResoHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ConsuntivareRotNonResoHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ConsuntivareRotManNonResoHandler(eventRepositoryEvent));
 
-            handlerHelper.Add<ConsuntivareAmbReso>(_handlers, new ConsuntivareAmbResoHandler(eventRepositoryEvent));
-            handlerHelper.Add<ConsuntivareRotReso>(_handlers, new ConsuntivareRotResoHandler(eventRepositoryEvent));
-            handlerHelper.Add<ConsuntivareRotManReso>(_handlers, new ConsuntivareRotManResoHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ConsuntivareAmbResoHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ConsuntivareRotResoHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ConsuntivareRotManResoHandler(eventRepositoryEvent));
 
-            handlerHelper.Add<ConsuntivareAmbNonResoTrenitalia>(_handlers, new ConsuntivareAmbNonResoTrenitaliaHandler(eventRepositoryEvent));
-            handlerHelper.Add<ConsuntivareRotNonResoTrenitalia>(_handlers, new ConsuntivareRotNonResoTrenitaliaHandler(eventRepositoryEvent));
-            handlerHelper.Add<ConsuntivareRotManNonResoTrenitalia>(_handlers, new ConsuntivareRotManNonResoTrenitaliaHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ConsuntivareAmbNonResoTrenitaliaHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ConsuntivareRotNonResoTrenitaliaHandler(eventRepositoryEvent));
+            handlerHelper.Add(_handlers, new ConsuntivareRotManNonResoTrenitaliaHandler(eventRepositoryEvent));
         }
 
         public void Subscribe(IBus bus)

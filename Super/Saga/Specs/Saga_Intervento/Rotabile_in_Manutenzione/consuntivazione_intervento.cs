@@ -13,6 +13,10 @@ using Super.Appaltatore.Events.Consuntivazione;
 using Super.Controllo.Commands;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
+using BuildEvtProg = Super.Programmazione.Events.Builders.Build;
+using BuildEvtApp = Super.Appaltatore.Events.Builders.Build;
+using BuildCmdCtrl = Super.Controllo.Commands.Builders.Build;
+
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 {
@@ -47,37 +51,33 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoRotManPianificato()
-            {
-                Period = _period,
-                Id = _id,
-                IdImpianto = _idImpianto,
-                IdTipoIntervento = _idTipoIntervento,
-                IdAppaltatore = _idAppaltatore,
-                IdCategoriaCommerciale = _idCategoriaCommerciale,
-                IdDirezioneRegionale = _idDirezioneRegionale,
-                Note = _note,
-                Oggetti = _oggetti.ToArray(),
-            };
+            yield return BuildEvtProg.InterventoRotManPianificato
+              .ForPeriod(_period)
+              .ForImpianto(_idImpianto)
+              .OfType(_idTipoIntervento)
+              .ForAppaltatore(_idAppaltatore)
+              .OfCategoriaCommerciale(_idCategoriaCommerciale)
+              .OfDirezioneRegionale(_idDirezioneRegionale)
+              .WithOggetti(_oggetti.ToArray())
+              .WithNote(_note)
+              .Build(_id, 1);
         }
 
         public override InterventoConsuntivatoRotManReso When()
         {
-            var builder = new InterventoConsuntivatoRotManResoBuilder();
-
-            return builder
-                .ForId(_id)
+            return BuildEvtApp.InterventoConsuntivatoRotManReso
                 .ForInterventoAppaltatore(_idInterventoAppaltatore)
                 .ForPeriod(_periodCons)
                 .When(DataCons)
                 .WithNote(_noteCons)
                 .WithOggetti(_oggettiCons.ToArray())
-                .Build();
+                .Build(_id,25);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new AllowControlIntervento(_id);
+            yield return BuildCmdCtrl.AllowControlIntervento
+                                     .Build(_id, 0);
         }
 
         [Test]

@@ -45,12 +45,17 @@ namespace Super.Appaltatore.Commands.Builders
         }
 
 
-        public ConsuntivareRotManReso Build(Guid id)
+        public ConsuntivareRotManReso Build(Guid id, long version)
         {
-            var cmd = new  ConsuntivareRotManReso(id, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public ConsuntivareRotManReso Build(Guid id, Guid idCommitId, long version)
+        {
+            var cmd = new  ConsuntivareRotManReso(id,idCommitId,version, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,
                                               _oggetti);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

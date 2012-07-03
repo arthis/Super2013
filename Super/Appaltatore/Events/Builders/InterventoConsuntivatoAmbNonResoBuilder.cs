@@ -1,9 +1,10 @@
 using System;
+using CommonDomain;
 using Super.Appaltatore.Events.Consuntivazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
-    public class InterventoConsuntivatoAmbNonResoBuilder
+    public class InterventoConsuntivatoAmbNonResoBuilder : IEventBuilder<InterventoConsuntivatoAmbNonReso>
     {
         private Guid _id;
         private string _idInterventoAppaltatore;
@@ -11,11 +12,6 @@ namespace Super.Appaltatore.Events.Builders
         private Guid _idCausaleAppaltatore;
         private string _note;
 
-        public InterventoConsuntivatoAmbNonResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public InterventoConsuntivatoAmbNonResoBuilder ForInterventoAppaltatore(string idInterventoAppaltatore)
         {
@@ -41,9 +37,9 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoConsuntivatoAmbNonReso Build()
+        public InterventoConsuntivatoAmbNonReso Build(Guid id, long version)
         {
-            return new InterventoConsuntivatoAmbNonReso(_id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
+            return new InterventoConsuntivatoAmbNonReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
         }
 
     }

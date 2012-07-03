@@ -20,9 +20,14 @@ namespace Super.Controllo.Commands.Builders
             return this;
         }
 
-        public CloseIntervento Build(Guid id)
+        public CloseIntervento Build(Guid id, long version)
         {
-            var cmd = new CloseIntervento(id, _idUtente, _closingDate);
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public CloseIntervento Build(Guid id, Guid commitId, long version)
+        {
+            var cmd = new CloseIntervento(id, commitId, version, _idUtente, _closingDate);
 
             cmd.CommitId = Guid.NewGuid();
 

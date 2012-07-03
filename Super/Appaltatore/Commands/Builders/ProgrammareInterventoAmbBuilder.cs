@@ -18,13 +18,13 @@ namespace Super.Appaltatore.Commands.Builders
         private string _description;
 
 
-        public ProgrammareInterventoAmbBuilder WithQuantity(int quantity)
+        public ProgrammareInterventoAmbBuilder ForQuantity(int quantity)
         {
             _quantity = quantity;
             return this;
         }
 
-        public ProgrammareInterventoAmbBuilder WithDescription(string description)
+        public ProgrammareInterventoAmbBuilder ForDescription(string description)
         {
             _description = description;
             return this;
@@ -66,15 +66,21 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ProgrammareInterventoAmbBuilder ForArea(Guid idImpianto)
+        public ProgrammareInterventoAmbBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
         }
 
-        public ProgrammareInterventoAmb Build(Guid id)
+
+        public ProgrammareInterventoAmb Build(Guid id, long version)
         {
-            var cmd = new ProgrammareInterventoAmb(id,
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public ProgrammareInterventoAmb Build(Guid id, Guid idCommitId, long version)
+        {
+            var cmd = new ProgrammareInterventoAmb(id,idCommitId,version,
                                       _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,
@@ -85,7 +91,6 @@ namespace Super.Appaltatore.Commands.Builders
                                       _quantity,
                                       _description);
 
-            cmd.CommitId = Guid.NewGuid();
 
             return cmd;
         }

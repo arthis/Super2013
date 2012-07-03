@@ -11,12 +11,15 @@ using Super.Appaltatore.Commands.Builders;
 using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
+using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+using BuildEvt = Super.Appaltatore.Events.Builders.Build;
 
 namespace Super.Appaltatore.Specs.Programmazione.Ambiente
 {
     public class Programmazione_di_intervento_ambiente_non_esistente : CommandBaseClass<ProgrammareInterventoAmb>
     {
         readonly Guid _id = Guid.NewGuid();
+        readonly Guid _commitId = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
@@ -39,36 +42,32 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
 
         public override ProgrammareInterventoAmb When()
         {
-            var builder = new ProgrammareInterventoAmbBuilder();
-            return builder.ForPeriod(_period)
-                            .ForArea(_idImpianto)
+            return BuildCmd.ProgrammareInterventoAmb
+                            .ForPeriod(_period)
+                            .ForImpianto(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
-                            .WithQuantity(_quantity)
-                            .WithDescription(_description)
-                            .Build(_id);
+                            .ForQuantity(_quantity)
+                            .ForDescription(_description)
+                            .Build(_id, _commitId,0);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            //builders
-            var builder = new InterventoAmbProgrammatoBuilder();
-
-            yield return builder
+            yield return BuildEvt.InterventoAmbProgrammato
                             .ForPeriod(_period)
-                            .ForId(_id)
-                            .ForArea(_idImpianto)
+                            .ForImpianto(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
-                            .WithQuantity(_quantity)
-                            .WithDescription(_description)
-                            .Build();
+                            .ForQuantity(_quantity)
+                            .ForDescription(_description)
+                            .Build(_id,1);
         }
 
         [Test]

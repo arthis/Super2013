@@ -23,8 +23,8 @@ namespace Super.Controllo.Domain
                         .By(idUtente)
                         .When(controlDate)
                         .WithNote(note)
-                        .WithQuantity(quantity)
-                        .WithDescription((description)));
+                        .ForQuantity(quantity)
+                        .ForDescription((description)));
             
         }
 

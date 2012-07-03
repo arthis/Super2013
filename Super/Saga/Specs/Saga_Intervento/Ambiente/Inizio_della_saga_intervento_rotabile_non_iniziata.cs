@@ -10,7 +10,9 @@ using Super.Appaltatore.Commands;
 using Super.Appaltatore.Commands.Builders;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
-using BuildCmd= Super.Appaltatore.Commands.Builders.Build;
+using BuildEvt = Super.Programmazione.Events.Builders.Build;
+using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+
 
 namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 {
@@ -26,6 +28,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
         string _note = "note";
         private int _quantity = 12;
         private string _description = "desc";
+        
 
         public override string ToDescription()
         {
@@ -44,19 +47,17 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 
         public override InterventoAmbPianificato When()
         {
-            return new InterventoAmbPianificato()
-                       {
-                           Period = _period,
-                           Id = _id,
-                           IdImpianto = _idImpianto,
-                           IdTipoIntervento = _idTipoIntervento,
-                           IdAppaltatore = _idAppaltatore,
-                           IdCategoriaCommerciale =  _idCategoriaCommerciale,
-                           IdDirezioneRegionale = _idDirezioneRegionale,
-                           Note = _note,
-                           Quantity = _quantity,
-                           Description = _description
-                       };
+            return BuildEvt.InterventoAmbPianificato
+               .ForPeriod(_period)
+               .ForImpianto(_idImpianto)
+               .OfType(_idTipoIntervento)
+               .ForAppaltatore(_idAppaltatore)
+               .OfCategoriaCommerciale(_idCategoriaCommerciale)
+               .OfDirezioneRegionale(_idDirezioneRegionale)
+               .ForQuantity(_quantity)
+               .ForDescription(_description)
+               .WithNote(_note)
+               .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
@@ -64,16 +65,16 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
             
             yield return BuildCmd.ProgrammareInterventoAmb
                             .ForPeriod(_period)
-                            .ForArea(_idImpianto)
+                            .ForImpianto(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
                             .OfCategoriaCommerciale(_idCategoriaCommerciale)
                             .OfDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
-                            .WithQuantity(_quantity)
-                            .WithDescription(_description)
-                            .Build(_id);
+                            .ForQuantity(_quantity)
+                            .ForDescription(_description)
+                            .Build(_id, 0);
         }
 
         [Test]

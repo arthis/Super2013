@@ -33,7 +33,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdDirezioneRegionale
                                 , WorkPeriod.FromMessage(cmd.Period)
                                 , cmd.Note
-                                , cmd.Quantita
+                                , cmd.Quantity
                                 , cmd.Description);
 
             EventRepository.Save(existingIntervento, cmd.CommitId);

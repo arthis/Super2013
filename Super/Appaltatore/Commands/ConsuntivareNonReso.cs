@@ -19,17 +19,18 @@ namespace Super.Appaltatore.Commands
         }
 
         public ConsuntivareNonReso(Guid id,
+                                Guid commitId,
+                                long version,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
                                 Guid idCausaleAppaltatore,
                                 string note)
+            :base (id,commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
             Contract.Requires<ArgumentNullException>(dataConsuntivazione > DateTime.MinValue);
             Contract.Requires<ArgumentNullException>(idCausaleAppaltatore != Guid.Empty);
 
-            Id = id;
             IdInterventoAppaltatore = idInterventoAppaltatore;
             DataConsuntivazione = dataConsuntivazione;
             IdCausaleAppaltatore = idCausaleAppaltatore;
@@ -81,11 +82,13 @@ namespace Super.Appaltatore.Commands
         }
 
         public ConsuntivareRotNonReso(Guid id,
+                                Guid commitId,
+                                long version,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
                                 Guid idCausaleAppaltatore,
                                 string note)
-            : base (id,idInterventoAppaltatore,dataConsuntivazione, idCausaleAppaltatore, note)
+            : base (id,commitId,version, idInterventoAppaltatore,dataConsuntivazione, idCausaleAppaltatore, note)
         {
             
         }
@@ -109,11 +112,13 @@ namespace Super.Appaltatore.Commands
         }
 
         public ConsuntivareRotManNonReso(Guid id,
+                                Guid commitId,
+                                long version,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
                                 Guid idCausaleAppaltatore,
                                 string note)
-            : base (id,idInterventoAppaltatore,dataConsuntivazione, idCausaleAppaltatore, note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
             
         }
@@ -151,11 +156,13 @@ namespace Super.Appaltatore.Commands
         }
 
         public ConsuntivareAmbNonReso(Guid id,
+                                Guid commitId,
+                                long version,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
                                 Guid idCausaleAppaltatore,
                                 string note)
-            : base (id,idInterventoAppaltatore,dataConsuntivazione, idCausaleAppaltatore, note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
             
         }

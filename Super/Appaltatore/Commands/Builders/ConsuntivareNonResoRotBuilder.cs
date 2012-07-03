@@ -36,11 +36,16 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ConsuntivareRotNonReso Build(Guid id)
+        public ConsuntivareRotNonReso Build(Guid id, long version)
         {
-            var cmd = new  ConsuntivareRotNonReso(id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
+            return Build(id, Guid.NewGuid(), version);
+        }
+
+        public ConsuntivareRotNonReso Build(Guid id, Guid idCommitId, long version)
+        {
+            var cmd = new  ConsuntivareRotNonReso(id,idCommitId,version, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
             
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

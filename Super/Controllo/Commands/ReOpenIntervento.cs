@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using CommandService;
 using CommonDomain;
@@ -18,9 +19,12 @@ namespace Super.Controllo.Commands
             
         }
 
-        public ReopenIntervento(Guid id, Guid idUtente, DateTime reopeningDate)
+        public ReopenIntervento(Guid id, Guid commitId, long version, Guid idUtente, DateTime reopeningDate)
+            : base(id, commitId, version)
         {
-            Id = id;
+            Contract.Requires(idUtente!= Guid.Empty);
+            Contract.Requires(reopeningDate > DateTime.Now);
+
             _idUtente = idUtente;
             _reopeningDate = reopeningDate;
         }

@@ -11,12 +11,15 @@ using Super.Appaltatore.Commands.Builders;
 using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
+using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+using BuildEvt = Super.Appaltatore.Events.Builders.Build;
 
 namespace Super.Appaltatore.Specs.Programmazione.Rotabile
 {
     public class Programmazione_di_intervento_rotabile_non_esistente : CommandBaseClass<ProgrammareInterventoRot>
     {
         readonly Guid _id = Guid.NewGuid();
+        readonly Guid _commitId = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
         readonly Guid _idTipoIntervento = Guid.NewGuid();
         readonly Guid _idAppaltatore = Guid.NewGuid();
@@ -44,42 +47,41 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
 
         public override ProgrammareInterventoRot When()
         {
-            var builder = new ProgrammareInterventoRotBuilder();
-            return builder.WithOggetti(_oggetti.ToArray())
-                            .ForPeriod(_period)
-                            .ForArea(_idImpianto)
-                            .OfType(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                            .OfDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .WithTrenoPartenza(_trenoPartenza)
-                            .WithTrenoArrivo(_trenoArrivo)
-                            .WithTurnoTreno(_turnoTreno)
-                            .WithRigaTurnoTreno(_rigaTurnoTreno)
-                            .ForConvoglio(_convoglio)
-                            .Build(_id);
+
+            return BuildCmd.ProgrammareInterventoRot
+                .WithOggetti(_oggetti.ToArray())
+                .ForPeriod(_period)
+                .ForImpianto(_idImpianto)
+                .OfType(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .OfCategoriaCommerciale(_idCategoriaCommerciale)
+                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .WithTrenoPartenza(_trenoPartenza)
+                .WithTrenoArrivo(_trenoArrivo)
+                .WithTurnoTreno(_turnoTreno)
+                .WithRigaTurnoTreno(_rigaTurnoTreno)
+                .ForConvoglio(_convoglio)
+                .Build(_id, _commitId, 0);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            var builder = new InterventoRotProgrammatoBuilder();
-
-            yield return builder.WithOggetti(_oggetti.ToArray())
-                            .ForPeriod(_period)
-                            .ForId(_id)
-                            .In(_idImpianto)
-                            .OfType(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                            .OfDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .WithTrenoPartenza(_trenoPartenza)
-                            .WithTrenoArrivo(_trenoArrivo)
-                            .WithTurnoTreno(_turnoTreno)
-                            .WithRigaTurnoTreno(_rigaTurnoTreno)
-                            .ForConvoglio(_convoglio)
-                            .Build();
+            yield return BuildEvt.InterventoRotProgrammato
+                .WithOggetti(_oggetti.ToArray())
+                .ForPeriod(_period)
+                .ForImpianto(_idImpianto)
+                .OfType(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .OfCategoriaCommerciale(_idCategoriaCommerciale)
+                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .WithTrenoPartenza(_trenoPartenza)
+                .WithTrenoArrivo(_trenoArrivo)
+                .WithTurnoTreno(_turnoTreno)
+                .WithRigaTurnoTreno(_rigaTurnoTreno)
+                .ForConvoglio(_convoglio)
+                .Build(_id,1);
         }
 
         [Test]

@@ -16,11 +16,9 @@ namespace Super.Controllo.Commands
             
         }
         
-        public AllowControlIntervento(Guid id)
+        public AllowControlIntervento(Guid id, Guid commitId, long version)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
-
-            Id = id;
         }
 
 

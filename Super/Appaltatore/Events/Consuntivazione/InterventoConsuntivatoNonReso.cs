@@ -8,7 +8,7 @@ using CommonDomain.Core;
 
 namespace Super.Appaltatore.Events.Consuntivazione
 {
-    public abstract class InterventoConsuntivatoNonReso : Message
+    public abstract class InterventoConsuntivatoNonReso : Message, IInterventoConsuntivato
     {
 
 
@@ -24,10 +24,13 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 
         public InterventoConsuntivatoNonReso(Guid id,
+                                Guid commitId,
+                                long version,
                                 string idInterventoAppaltatore,
                                 DateTime dataConsuntivazione,
                                 Guid idCausaleAppaltatore,
                                 string note)
+            : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
@@ -77,7 +80,8 @@ namespace Super.Appaltatore.Events.Consuntivazione
             
         }
 
-        public InterventoConsuntivatoRotNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
+        public InterventoConsuntivatoRotNonReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
         }
 
@@ -113,7 +117,8 @@ namespace Super.Appaltatore.Events.Consuntivazione
             
         }
 
-        public InterventoConsuntivatoRotManNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
+        public InterventoConsuntivatoRotManNonReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
         }
 
@@ -148,8 +153,9 @@ namespace Super.Appaltatore.Events.Consuntivazione
             
         }
 
-        
-        public InterventoConsuntivatoAmbNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note) : base(id, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
+
+        public InterventoConsuntivatoAmbNonReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
+            : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
             
         }

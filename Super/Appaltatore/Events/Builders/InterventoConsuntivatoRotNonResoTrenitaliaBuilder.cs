@@ -1,21 +1,17 @@
 using System;
+using CommonDomain;
 using Super.Appaltatore.Events.Consuntivazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
-    public class InterventoConsuntivatoRotNonResoTrenitaliaBuilder
+    public class InterventoConsuntivatoRotNonResoTrenitaliaBuilder : IEventBuilder<InterventoConsuntivatoRotNonResoTrenitalia>
     {
-        private Guid _id;
+
         private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
         private Guid _idCausaleTrenitalia;
         private string _note;
 
-        public InterventoConsuntivatoRotNonResoTrenitaliaBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public InterventoConsuntivatoRotNonResoTrenitaliaBuilder ForInterventoAppaltatore(string idInterventoAppaltatore)
         {
@@ -40,9 +36,9 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoConsuntivatoRotNonResoTrenitalia Build()
+        public InterventoConsuntivatoRotNonResoTrenitalia Build(Guid id, long version)
         {
-            return new InterventoConsuntivatoRotNonResoTrenitalia(_id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleTrenitalia, _note);
+            return new InterventoConsuntivatoRotNonResoTrenitalia(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleTrenitalia, _note);
         }
 
     }

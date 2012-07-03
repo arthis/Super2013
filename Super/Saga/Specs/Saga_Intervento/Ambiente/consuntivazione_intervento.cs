@@ -13,6 +13,11 @@ using Super.Appaltatore.Events.Consuntivazione;
 using Super.Controllo.Commands;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
+using BuildEvtProg = Super.Programmazione.Events.Builders.Build;
+using BuildEvtApp = Super.Appaltatore.Events.Builders.Build;
+using BuildCmdCtrl = Super.Controllo.Commands.Builders.Build;
+
+
 
 namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 {
@@ -25,13 +30,13 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
-        private int _quantita = 12;
+        private int _quantity = 12;
         private string _description = "desc";
         string _note = "note";
 
         readonly string _idInterventoAppaltatore = "dsfsd";
         readonly WorkPeriod _periodCons = new WorkPeriod(DateTime.Now.AddHours(-19), DateTime.Now.AddMinutes(-17));
-        private int _quantitaCons = 13;
+        private int _quantityCons = 13;
         private DateTime DataCons = DateTime.Now;
         private string _descriptionCons = "desc cons";
         string _noteCons = "note cons";
@@ -48,38 +53,36 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoAmbPianificato()
-            {
-                Period = _period,
-                Id = _id,
-                IdImpianto = _idImpianto,
-                IdTipoIntervento = _idTipoIntervento,
-                IdAppaltatore = _idAppaltatore,
-                IdCategoriaCommerciale = _idCategoriaCommerciale,
-                IdDirezioneRegionale = _idDirezioneRegionale,
-                Note = _note,
-                
-            };
+            yield return BuildEvtProg.InterventoAmbPianificato
+              .ForPeriod(_period)
+              .ForImpianto(_idImpianto)
+              .OfType(_idTipoIntervento)
+              .ForAppaltatore(_idAppaltatore)
+              .OfCategoriaCommerciale(_idCategoriaCommerciale)
+              .OfDirezioneRegionale(_idDirezioneRegionale)
+              .ForQuantity(_quantity)
+              .ForDescription(_description)
+              .WithNote(_note)
+              .Build(_id, 1);
         }
 
         public override InterventoConsuntivatoAmbReso When()
         {
-            var builder = new InterventoConsuntivatoAmbResoBuilder();
-
-            return builder.ForId(_id)
+            return BuildEvtApp.InterventoConsuntivatoAmbReso
                             .ForDescription(_description)
                             .ForInterventoAppaltatore(_idInterventoAppaltatore)
                             .ForPeriod(_periodCons)
-                            .ForQuantity(_quantitaCons)
+                            .ForQuantity(_quantityCons)
                             .When(DataCons)
                             .WithNote(_noteCons)
-                            .Build();
+                            .Build(_id,14);
             
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new AllowControlIntervento(_id);
+            yield return BuildCmdCtrl.AllowControlIntervento
+                                     .Build(_id,0);
         }
 
         [Test]

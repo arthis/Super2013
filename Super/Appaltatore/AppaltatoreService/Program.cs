@@ -11,7 +11,7 @@ namespace Super.Appaltatore.AppaltatoreService
     {
         static void Main(string[] args)
         {
-            var bus = RabbitHutch.CreateBus("host=localhost"); ;
+            var bus = RabbitHutch.CreateBus("host=localhost"); 
             var commandHandlerService = new CommandHandlerService();
             var projectionHandler = new ProjectionHandlerService();
             var commandWebService = new CommandWebService(bus, commandHandlerService , projectionHandler);

@@ -9,7 +9,7 @@
     <fieldset>
         <legend>Filtro</legend>
         @*<label>Description :</label>
-        <input type="text" id="filtroDescrizione" data-bind=" value:Description " />*@
+        <input type="text" id="filtroDescription" data-bind=" value:Description " />*@
 
         <div style="clear: both;">
             &nbsp;</div>
@@ -375,8 +375,8 @@
             ko.utils.arrayForEach(items.results, function (i) {
                 self.Items.push(new Intervento(
                                     i.Id, i.IdSuper2010, i.CodiceOrdine, i.IsAvvisoIspezione, i.IsSpunta, i.HasSchedaV, i.HasSchedaQ, ToDate(i.Data),
-                                    i.ImpiantoDescrizione, i.CategoriaTreno, i.NumeroTrenoPartenza, ToDate(i.DataOraTrenoPartenza),
-                                    i.TipoInterventoDescrizione, ToDate(i.DataOraInizioProgrammata), ToDate(i.DataOraFineProgrammata),
+                                    i.ImpiantoDescription, i.CategoriaTreno, i.NumeroTrenoPartenza, ToDate(i.DataOraTrenoPartenza),
+                                    i.TipoInterventoDescription, ToDate(i.DataOraInizioProgrammata), ToDate(i.DataOraFineProgrammata),
                                     i.ComposizioneProgrammata, ToDate(i.DataOraInizioConsuntivataAppaltatore), ToDate(i.DataOraFineConsuntivataAppaltatore),
                                     i.IsProgrammato, i.IsPLX, i.IsEstemporaneo, i.IsSostitutivo, i.IsReso, i.IsNonResoAppaltatore,
                                     i.IsNonReso20mn, i.IsNonResoTrenitalia, i.IsRilevatoNonReso

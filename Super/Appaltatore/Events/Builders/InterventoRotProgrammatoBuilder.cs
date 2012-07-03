@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.Builders;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Programmazione;
@@ -9,7 +10,7 @@ using Super.Appaltatore.Events.Programmazione;
 namespace Super.Appaltatore.Events.Builders
 {
 
-    public class InterventoRotProgrammatoBuilder
+    public class InterventoRotProgrammatoBuilder : IEventBuilder<InterventoRotProgrammato>
     {
         private Guid _idImpianto;
         private Guid _idTipoIntervento;
@@ -39,7 +40,7 @@ namespace Super.Appaltatore.Events.Builders
 
      
 
-        public InterventoRotProgrammatoBuilder In(Guid idImpianto)
+        public InterventoRotProgrammatoBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
@@ -105,10 +106,10 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoRotProgrammato Build(Guid id, Guid commitId)
+        public InterventoRotProgrammato Build(Guid id, long version)
         {
-            return new InterventoRotProgrammato(id,
-                                      commitId,
+            return new InterventoRotProgrammato(id, Guid.NewGuid(),
+                                      version,
                                       _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,

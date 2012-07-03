@@ -3,7 +3,7 @@ using CommonDomain;
 
 namespace Super.Appaltatore.Events.Consuntivazione
 {
-    public interface IInterventoConsuntivato :IMessage
+    public interface IInterventoConsuntivato :  IEvent
     {
 
     }

@@ -74,6 +74,7 @@
     <Compile Include="AggregateBase.cs" />
     <Compile Include="AggregateRootInstanceNotFoundException.cs" />
     <Compile Include="AlreadyCreatedAggregateRootException.cs" />
+    <Compile Include="Envelope.cs" />
     <Compile Include="HandlerHelper.cs" />
     <Compile Include="CommandAlreadyProcessedException.cs" />
     <Compile Include="CommandBase.cs" />

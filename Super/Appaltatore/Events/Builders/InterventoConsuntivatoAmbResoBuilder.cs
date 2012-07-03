@@ -1,13 +1,13 @@
 using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Consuntivazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
-    public class InterventoConsuntivatoAmbResoBuilder
+    public class InterventoConsuntivatoAmbResoBuilder : IEventBuilder<InterventoConsuntivatoAmbReso>
     {
-        private Guid _id;
         private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
         private WorkPeriod _period;
@@ -18,9 +18,6 @@ namespace Super.Appaltatore.Events.Builders
 
         public InterventoConsuntivatoAmbResoBuilder ForQuantity(int quantity)
         {
-           Contract.Requires<ArgumentException>(this._quantity <= 0);
-
- 
             _quantity = quantity;
             return this;
         }
@@ -37,15 +34,10 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoConsuntivatoAmbResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
-        public InterventoConsuntivatoAmbResoBuilder ForInterventoAppaltatore(string IdInterventoAppaltatore)
+        public InterventoConsuntivatoAmbResoBuilder ForInterventoAppaltatore(string idInterventoAppaltatore)
         {
-            _idInterventoAppaltatore = IdInterventoAppaltatore;
+            _idInterventoAppaltatore = idInterventoAppaltatore;
             return this;
         }
 
@@ -62,9 +54,10 @@ namespace Super.Appaltatore.Events.Builders
         }
 
 
-        public InterventoConsuntivatoAmbReso Build()
+        public InterventoConsuntivatoAmbReso Build(Guid id, long version)
         {
-            return new InterventoConsuntivatoAmbReso(_id, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note, _quantity, _description);
+
+            return new InterventoConsuntivatoAmbReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note, _quantity, _description);
         }
 
     }

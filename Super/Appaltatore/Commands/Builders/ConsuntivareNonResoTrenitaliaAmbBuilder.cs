@@ -34,11 +34,16 @@ namespace Super.Appaltatore.Commands.Builders
             return this;
         }
 
-        public ConsuntivareAmbNonResoTrenitalia Build(Guid id)
+        public ConsuntivareAmbNonResoTrenitalia Build(Guid id, long version)
         {
-            var cmd = new  ConsuntivareAmbNonResoTrenitalia(id, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleTrenitalia, _note);
+            return Build(id, Guid.NewGuid(), version);
+        }
 
-            cmd.CommitId = Guid.NewGuid();
+        public ConsuntivareAmbNonResoTrenitalia Build(Guid id, Guid idCommitId, long version)
+        {
+            var cmd = new  ConsuntivareAmbNonResoTrenitalia(id,idCommitId,version, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleTrenitalia, _note);
+
+            
 
             return cmd;
         }

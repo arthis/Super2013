@@ -10,6 +10,8 @@ using CommonSpecs;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
+using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+using BuildEvt = Super.Appaltatore.Events.Builders.Build;
 
 namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
 {
@@ -32,6 +34,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
         string _note = "note";
 
         //Cons
+        private readonly Guid _commitId = Guid.NewGuid();
         readonly string _idInterventoAppaltatore = "id intervento appaltatore";
         readonly DateTime _dataConsuntivazione = DateTime.Now;
         string _noteCons = "note";
@@ -50,53 +53,54 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoRotProgrammato(
-                _id,
-                _idImpianto,
-                _idTipoIntervento,
-                _idAppaltatore,
-                _idCategoriaCommerciale,
-                _idDirezioneRegionale,
-                _period,
-                _noteCons,
-                _oggetti.ToArray(),
-                _trenoPartenza,
-                _trenoArrivo,
-                _turnoTrenoCons,
-                _rigaTurnoTrenoCons,
-                _convoglioCons);
+            yield return BuildEvt.InterventoRotProgrammato
+                .ForImpianto(_idImpianto)
+                .OfType(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .OfCategoriaCommerciale(_idCategoriaCommerciale)
+                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .ForPeriod(_period)
+                .WithNote(_note)
+                .WithOggetti(_oggetti.ToArray())
+                .WithTrenoPartenza(_trenoPartenza)
+                .WithTrenoArrivo(_trenoArrivo)
+                .WithTurnoTreno(_turnoTreno)
+                .WithRigaTurnoTreno(_rigaTurnoTreno)
+                .ForConvoglio(_convoglio)
+                .Build(_id, 1);
         }
 
         public override ConsuntivareRotReso When()
         {
-            return new ConsuntivareRotReso(
-                _id,
-                _idInterventoAppaltatore,
-                _dataConsuntivazione,
-                _periodCons,
-                _noteCons,
-                _oggettiCons.ToArray(),
-                _trenoPartenzaCons,
-                _trenoArrivoCons,
-                _turnoTreno,
-                _rigaTurnoTreno,
-                _convoglio);
+            return BuildCmd.ConsuntivareRotReso
+               .ForInterventoAppaltatore(_idInterventoAppaltatore)
+               .When(_dataConsuntivazione)
+               .ForPeriod(_periodCons)
+               .WithNote(_noteCons)
+               .WithOggetti(_oggettiCons.ToArray())
+               .WithTrenoPartenza(_trenoPartenzaCons)
+               .WithTrenoArrivo(_trenoArrivoCons)
+               .WithTurnoTreno(_turnoTrenoCons)
+               .WithRigaTurnoTreno(_rigaTurnoTrenoCons)
+               .ForConvoglio(_convoglioCons)
+               .Build(_id, _commitId, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new InterventoConsuntivatoRotReso(
-                _id,
-                _idInterventoAppaltatore,
-                _dataConsuntivazione,
-                _period,
-                _note,
-                _oggetti.ToArray(),
-                _trenoPartenza,
-                _trenoArrivo,
-                _turnoTreno,
-                _rigaTurnoTreno,
-                _convoglio);
+            yield return BuildEvt.InterventoConsuntivatoRotReso
+                .ForInterventoAppaltatore(_idInterventoAppaltatore)
+                .When(_dataConsuntivazione)
+                .ForPeriod(_periodCons)
+                .WithNote(_noteCons)
+                .WithOggetti(_oggettiCons.ToArray())
+                .WithTrenoPartenza(_trenoPartenzaCons)
+                .WithTrenoArrivo(_trenoArrivoCons)
+                .WithTurnoTreno(_turnoTrenoCons)
+                .WithRigaTurnoTreno(_rigaTurnoTrenoCons)
+                .ForConvoglio(_convoglioCons)
+                .Build(_id, 2);
+
         }
 
         [Test]

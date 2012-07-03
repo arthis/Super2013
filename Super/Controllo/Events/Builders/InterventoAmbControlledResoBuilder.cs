@@ -39,13 +39,13 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public InterventoAmbControlledResoBuilder WithQuantity(int quantity)
+        public InterventoAmbControlledResoBuilder ForQuantity(int quantity)
         {
             _quantity = quantity;
             return this;
         }
 
-        public InterventoAmbControlledResoBuilder WithDescription(string description)
+        public InterventoAmbControlledResoBuilder ForDescription(string description)
         {
             _description = description;
             return this;

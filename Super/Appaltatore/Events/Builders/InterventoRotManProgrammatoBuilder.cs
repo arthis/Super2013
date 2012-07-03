@@ -29,7 +29,7 @@ namespace Super.Appaltatore.Events.Builders
         }
 
 
-        public InterventoRotManProgrammatoBuilder In(Guid idImpianto)
+        public InterventoRotManProgrammatoBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
@@ -65,10 +65,10 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoRotManProgrammato Build(Guid id, Guid commitId)
+        public InterventoRotManProgrammato Build(Guid id, long version)
         {
-            return new InterventoRotManProgrammato(id,
-                                                    commitId,
+            return new InterventoRotManProgrammato(id, Guid.NewGuid(),
+                                                    version,
                                                    _idImpianto,
                                                    _idTipoIntervento,
                                                    _idAppaltatore,

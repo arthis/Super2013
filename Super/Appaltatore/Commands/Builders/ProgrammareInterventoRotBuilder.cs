@@ -94,21 +94,21 @@ namespace Super.Appaltatore.Commands.Builders
         }
 
 
-        public ProgrammareInterventoRotBuilder ForArea(Guid idImpianto)
+        public ProgrammareInterventoRotBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
         }
 
-        public ProgrammareInterventoRotBuilder ForTipo(Guid idTipoIntervento)
+
+        public ProgrammareInterventoRot Build(Guid id, long version)
         {
-            _idTipoIntervento = idTipoIntervento;
-            return this;
+            return Build(id, Guid.NewGuid(), version);
         }
 
-        public ProgrammareInterventoRot Build(Guid id)
+        public ProgrammareInterventoRot Build(Guid id, Guid idCommitId, long version)
         {
-            var cmd = new ProgrammareInterventoRot(id,
+            var cmd = new ProgrammareInterventoRot(id,idCommitId,version,
                                       _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,
@@ -122,8 +122,7 @@ namespace Super.Appaltatore.Commands.Builders
                                       _turnoTreno,
                                       _rigaTurnoTreno,
                                       _convoglio);
-            
-            cmd.CommitId = Guid.NewGuid();
+
 
             return cmd;
         }

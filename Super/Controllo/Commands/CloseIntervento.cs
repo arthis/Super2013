@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using CommandService;
 using CommonDomain;
@@ -18,9 +19,12 @@ namespace Super.Controllo.Commands
             
         }
 
-        public CloseIntervento(Guid id, Guid idUtente, DateTime closingDate)
+        public CloseIntervento(Guid id, Guid commitId, long version, Guid idUtente, DateTime closingDate)
+            : base(id, commitId, version)
         {
-            Id = id;
+            Contract.Requires(idUtente!=Guid.Empty);
+            Contract.Requires(closingDate > DateTime.MinValue);
+
             _idUtente = idUtente;
             _closingDate = closingDate;
         }

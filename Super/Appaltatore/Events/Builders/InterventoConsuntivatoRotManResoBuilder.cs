@@ -1,12 +1,12 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Consuntivazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
-    public class InterventoConsuntivatoRotManResoBuilder
+    public class InterventoConsuntivatoRotManResoBuilder : IEventBuilder<InterventoConsuntivatoRotManReso>
     {
-        private Guid _id;
         private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
         private WorkPeriod _period;
@@ -26,11 +26,6 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoConsuntivatoRotManResoBuilder ForId(Guid id)
-        {
-            _id = id;
-            return this;
-        }
 
         public InterventoConsuntivatoRotManResoBuilder ForInterventoAppaltatore(string IdInterventoAppaltatore)
         {
@@ -51,9 +46,9 @@ namespace Super.Appaltatore.Events.Builders
         }
 
 
-        public InterventoConsuntivatoRotManReso Build()
+        public InterventoConsuntivatoRotManReso Build(Guid id, long version)
         {
-            return new InterventoConsuntivatoRotManReso(_id, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,
+            return new InterventoConsuntivatoRotManReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,
                                               _oggetti);
         }
 
