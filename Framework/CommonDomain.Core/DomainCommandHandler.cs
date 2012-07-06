@@ -7,7 +7,8 @@ namespace CommonDomain.Core
     public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where TCommand : IMessage
     {
         protected IEventRepository EventRepository;
-        public abstract CommandValidation Execute(TCommand command, ICommandHandler<TCommand> next);
+
+        public abstract CommandValidation Execute(TCommand command);
 
         public CommandHandler(IEventRepository eventRepository)
         {

@@ -15,7 +15,7 @@ namespace Super.Appaltatore.Handlers
         {
         }
 
-        public override CommandValidation Execute(ProgrammareInterventoRotMan cmd, ICommandHandler<ProgrammareInterventoRotMan> next)
+        public override CommandValidation Execute(ProgrammareInterventoRotMan cmd)
         {
 
             Contract.Requires<ArgumentNullException>(cmd != null);

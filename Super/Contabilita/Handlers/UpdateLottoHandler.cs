@@ -16,7 +16,7 @@ namespace Super.Contabilita.Handlers
         }
 
 
-        public override CommandValidation Execute(UpdateLotto cmd, ICommandHandler<UpdateLotto> next)
+        public override CommandValidation Execute(UpdateLotto cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 

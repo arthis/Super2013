@@ -14,7 +14,7 @@ namespace Super.Appaltatore.Handlers
         {
         }
 
-        public override CommandValidation Execute(ConsuntivareRotManNonResoTrenitalia cmd, ICommandHandler<ConsuntivareRotManNonResoTrenitalia> next)
+        public override CommandValidation Execute(ConsuntivareRotManNonResoTrenitalia cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 

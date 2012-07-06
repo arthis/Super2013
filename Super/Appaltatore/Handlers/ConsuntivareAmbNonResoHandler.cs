@@ -14,11 +14,10 @@ namespace Super.Appaltatore.Handlers
         {
         }
 
-        public override CommandValidation Execute(ConsuntivareAmbNonReso cmd, ICommandHandler<ConsuntivareAmbNonReso> next)
+        public override CommandValidation Execute(ConsuntivareAmbNonReso cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            
 
             var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
 

@@ -78,7 +78,7 @@
     <Compile Include="HandlerHelper.cs" />
     <Compile Include="CommandAlreadyProcessedException.cs" />
     <Compile Include="CommandBase.cs" />
-    <Compile Include="CommandHandler.cs" />
+    <Compile Include="DomainCommandHandler.cs" />
     <Compile Include="CommandValidation.cs" />
     <Compile Include="ConflictDetector.cs" />
     <Compile Include="ConventionEventRouter.cs" />

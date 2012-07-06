@@ -15,7 +15,7 @@ namespace Super.Contabilita.Handlers
         }
 
 
-        public override CommandValidation Execute(DeleteImpianto cmd, ICommandHandler<DeleteImpianto> next)
+        public override CommandValidation Execute(DeleteImpianto cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 

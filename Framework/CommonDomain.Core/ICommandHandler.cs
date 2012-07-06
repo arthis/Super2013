@@ -1,8 +1,8 @@
 namespace CommonDomain.Core
 {
-    public interface ICommandHandler<TCommand> where TCommand : IMessage
+    public interface ICommandHandler<in TCommand> where TCommand : IMessage
     {
-        CommandValidation Execute(TCommand command, ICommandHandler<TCommand> next);
+        CommandValidation Execute(TCommand command);
     }
 
 

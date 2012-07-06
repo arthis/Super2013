@@ -37,7 +37,7 @@ namespace CommonSpecs
 
             try
             {
-                commandHandler.Execute(command,null);
+                commandHandler.Execute(command);
                 var actual = _fakeEventRepository.CommittedEvents.ToList();
 
                 Assert.IsNotNull(actual);

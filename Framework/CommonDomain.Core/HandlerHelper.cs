@@ -13,10 +13,12 @@ namespace CommonDomain.Core
             _commandRepository = commandRepository;
         }
 
-        public void Add<T>(Dictionary<Type, Func<ICommand, CommandValidation>> dictionnary, ICommandHandler<T> finalHandler) where T : ICommand
+        public void Add<T>(Dictionary<Type, Func<ICommand, CommandValidation>> dictionnary, ICommandHandler<T> finalhandler) where T : ICommand
         {
             //to redo something does not go well here...
-            dictionnary.Add(typeof(T), (cmd) => new ExecuteCommandOnceOnlyHandler<T>(_commandRepository).Execute((T)cmd, finalHandler));
+            dictionnary.Add(typeof(T), (cmd) => new ExecuteCommandOnceOnlyHandler<T>(_commandRepository,
+                                                     new LogCommandPerfomanceHandler<T>(finalhandler))
+                                                        .Execute((T)cmd));
                     
         }
     }

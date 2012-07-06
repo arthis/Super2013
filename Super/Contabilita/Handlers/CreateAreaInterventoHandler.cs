@@ -17,7 +17,7 @@ namespace Super.Contabilita.Handlers
         }
 
 
-        public override CommandValidation Execute(CreateImpianto cmd, ICommandHandler<CreateImpianto> next)
+        public override CommandValidation Execute(CreateImpianto cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 

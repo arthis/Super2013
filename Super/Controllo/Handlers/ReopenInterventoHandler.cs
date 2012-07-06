@@ -15,7 +15,7 @@ namespace Super.Controllo.Handlers
         {
         }
 
-        public override CommandValidation Execute(ReopenIntervento cmd, ICommandHandler<ReopenIntervento> next)
+        public override CommandValidation Execute(ReopenIntervento cmd)
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 

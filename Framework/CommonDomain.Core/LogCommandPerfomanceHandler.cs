@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 
@@ -7,10 +8,19 @@ namespace CommonDomain.Core
 {
     public class LogCommandPerfomanceHandler<TCommand> : ICommandHandler<TCommand> where TCommand : ICommand
     {
-        public CommandValidation Execute(TCommand command, ICommandHandler<TCommand> next)
+        private readonly ICommandHandler<TCommand> _next;
+
+        public LogCommandPerfomanceHandler(ICommandHandler<TCommand> next)
+        {
+            Contract.Requires(next !=null);
+
+            _next = next;
+        }
+
+        public CommandValidation Execute(TCommand command)
         {
             //do something to log the performance of the command 
-            return next.Execute(command, null);
+            return _next.Execute(command);
         }
     }
 }
