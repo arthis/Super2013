@@ -17,20 +17,21 @@ namespace Super.Controllo.Domain
         {
             var periodBuilder = new WorkPeriodBuilder();
             workPeriod.BuildValue(periodBuilder);
-            RaiseEvent(
-                    Build.InterventoAmbControlledReso
-                        .ForPeriod(periodBuilder.Build())
-                        .By(idUtente)
-                        .When(controlDate)
-                        .WithNote(note)
-                        .ForQuantity(quantity)
-                        .ForDescription((description)));
+            var evt = Build.InterventoAmbControlledReso
+                .ForPeriod(periodBuilder.Build())
+                .By(idUtente)
+                .When(controlDate)
+                .WithNote(note)
+                .ForQuantity(quantity)
+                .ForDescription(description);
+            
+            RaiseEvent(evt);
             
         }
 
         public void Apply(InterventoAmbControlledReso e)
         {
-            throw new NotImplementedException();
+            //do nothing
         }
 
     }

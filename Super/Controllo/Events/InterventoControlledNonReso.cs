@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Controllo.Events
 {
-    public class InterventoControlledNonReso : Message
+    public class InterventoControlledNonReso : Message , IEvent
     {
         private readonly Guid _idUtente;
         private readonly DateTime _controlDate;
@@ -35,14 +35,15 @@ namespace Super.Controllo.Events
             
         }
 
-        public InterventoControlledNonReso(Guid id, Guid idUtente, DateTime controlDate, Guid idCausale, string note)
+        public InterventoControlledNonReso(Guid id, Guid commitId, long version, Guid idUtente, DateTime controlDate, Guid idCausale, string note)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>( id== Guid.Empty);
-            Contract.Requires<ArgumentNullException>( idUtente == Guid.Empty);
-            Contract.Requires<ArgumentOutOfRangeException>(controlDate== DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(idCausale == Guid.Empty);
+            
+            Contract.Requires<ArgumentNullException>( idUtente != Guid.Empty);
+            Contract.Requires<ArgumentOutOfRangeException>(controlDate > DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(idCausale != Guid.Empty);
 
-            Id = id;
+            
             _idUtente = idUtente;
             _controlDate = controlDate;
             _idCausale = idCausale;

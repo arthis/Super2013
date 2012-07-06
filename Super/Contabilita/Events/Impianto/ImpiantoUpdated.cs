@@ -1,27 +1,34 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Impianto
 {
-    public class ImpiantoUpdated : Message
+    public class ImpiantoUpdated : Message, IEvent
     {
         
-        public Intervall Period { get; private set; }
-        public string Description { get; private set; }
+        public Intervall Period { get; set; }
+        public string Description { get; set; }
+        public Guid IdLotto { get; set; }
+        public DateTime CreationDate { get; set; }
 
         public ImpiantoUpdated()
         {
             
         }
 
-        public ImpiantoUpdated(Guid id,  Intervall period, string description)
+        public ImpiantoUpdated(Guid id, Guid commitId, long version, Intervall period, string description)
+            : base(id, commitId, version)
         {
-            Id = id;
+            Contract.Requires(period != null);
+            Contract.Requires(!string.IsNullOrEmpty(description));
+
             Period = period;
             Description = description;
         }
+
         public override string ToDescription()
         {
             return string.Format("L'impianto é stata aggiornata '{0}'.", Description);

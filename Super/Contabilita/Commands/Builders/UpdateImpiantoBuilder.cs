@@ -10,12 +10,15 @@ namespace Super.Contabilita.Commands.Builders
         Intervall _intervall;
         private string _description;
 
-        public UpdateImpianto Build(Guid id)
+        public UpdateImpianto Build(Guid id, long version)
         {
-            var cmd = new UpdateImpianto(id, _intervall, _description);
+            return Build(id, Guid.NewGuid(), version);
+        }
 
-            cmd.CommitId = Guid.NewGuid();
-
+        public UpdateImpianto Build(Guid id, Guid commitId, long version)
+        {
+            var cmd = new UpdateImpianto(id, commitId, version, _intervall, _description);
+            
             return cmd;
         }
 

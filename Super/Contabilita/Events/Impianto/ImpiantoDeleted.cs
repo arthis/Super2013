@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Impianto
 {
-    public class ImpiantoDeleted : Message
+    public class ImpiantoDeleted : Message, IEvent
     {
         
 
@@ -13,9 +13,10 @@ namespace Super.Contabilita.Events.Impianto
             
         }
 
-        public ImpiantoDeleted(Guid id)
+        public ImpiantoDeleted(Guid id, Guid commitId, long version)
+            : base(id, commitId, version)
         {
-            Id = id;
+            
         }
 
         public override string ToDescription()
@@ -23,22 +24,21 @@ namespace Super.Contabilita.Events.Impianto
             return string.Format("L'impianto é stata cancellata (Id:'{0}')", Id);
         }
 
+        public bool Equals(ImpiantoDeleted other)
+        {
+            return base.Equals(other);
+        }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-
-            if (obj.GetType() != this.GetType()) return false;
-
-            var other = (ImpiantoDeleted)obj;
-
-            return base.Equals(obj)
-             && other.Id.Equals(Id);
+            return Equals(obj as ImpiantoDeleted);
         }
 
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return base.GetHashCode();
         }
     }
 }

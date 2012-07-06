@@ -13,10 +13,10 @@ namespace Super.Contabilita.Events.Builders
         private string _description;
         
 
-        public LottoCreated Build(Guid id)
+        public LottoCreated Build(Guid id, long version)
         {
-            var evt = new LottoCreated(id,  _intervall, _creationDate, _description);
-            evt.CommitId = Guid.NewGuid();
+            var evt = new LottoCreated(id, Guid.NewGuid() ,version,  _intervall, _creationDate, _description);
+            
             return evt;
         }
 

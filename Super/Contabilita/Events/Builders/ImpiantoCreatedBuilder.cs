@@ -13,10 +13,10 @@ namespace Super.Contabilita.Events.Builders
         private string _description;
         private Guid _idLotto;
 
-        public ImpiantoCreated Build(Guid id)
+        public ImpiantoCreated Build(Guid id, long version)
         {
-            var evt = new ImpiantoCreated(id,  _intervall,_idLotto, _creationDate, _description);
-            evt.CommitId = Guid.NewGuid();
+            var evt = new ImpiantoCreated(id, Guid.NewGuid() ,version,  _intervall,_idLotto, _creationDate, _description);
+            
             return evt;
         }
 
@@ -49,6 +49,8 @@ namespace Super.Contabilita.Events.Builders
             _idLotto = idLotto;
             return this;
         }
+
+
     }
 
     public static partial class BuildExtensions

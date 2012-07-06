@@ -7,6 +7,8 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Handlers;
+using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Builders.Build;
 
 namespace Super.Contabilita.Specs.Lotto
 {
@@ -26,7 +28,8 @@ namespace Super.Contabilita.Specs.Lotto
 
         public override DeleteLotto When()
         {
-            return new DeleteLotto(_id);
+            return BuildCmd.DeleteLotto
+                           .Build(_id, 0); 
         }
 
         public override IEnumerable<IMessage> Expect()

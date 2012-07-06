@@ -31,10 +31,8 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoControlAllowed()
-            {
-                Id = _Id
-            };
+            yield return BuildEvt.InterventoControlAllowed
+                .Build(_Id, 1);
         }
 
         public override ControlInterventoNonReso When()
@@ -45,7 +43,7 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
                 .Because(_idCausale)
                 .When(_controlDate)
                 .WithNote(_note)
-                .Build(_Id);
+                .Build(_Id,1);
         }
 
         public override IEnumerable<IMessage> Expect()
@@ -55,7 +53,7 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
                 .Because(_idCausale)
                 .When(_controlDate)
                 .WithNote(_note)
-                .Build(_Id);
+                .Build(_Id,2);
         }
 
         [Test]

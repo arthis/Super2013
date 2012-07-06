@@ -43,7 +43,7 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
                 .Because(_idCausale)
                 .When(_controlDate)
                 .WithNote(_note)
-                .Build(_Id);
+                .Build(_Id,0);
         }
 
         public override IEnumerable<IMessage> Expect()

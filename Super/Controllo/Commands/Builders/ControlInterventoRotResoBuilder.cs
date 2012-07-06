@@ -91,7 +91,7 @@ namespace Super.Controllo.Commands.Builders
                                       _rigaTurnoTreno,
                                       _convoglio);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

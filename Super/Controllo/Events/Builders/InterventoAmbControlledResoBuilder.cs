@@ -4,7 +4,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Controllo.Events.Builders
 {
-    public class InterventoAmbControlledResoBuilder : IEventBuilder<IMessage>
+    public class InterventoAmbControlledResoBuilder : IEventBuilder<InterventoAmbControlledReso>
     {
         private Guid _idUtente;
         private DateTime _controlDate;
@@ -51,11 +51,11 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public IMessage Build(Guid id)
+        public InterventoAmbControlledReso Build(Guid id, long version)
         {
-            var cmd = new InterventoAmbControlledReso(id, _idUtente, _controlDate, _period, _note, _quantity, _description);
+            var cmd = new InterventoAmbControlledReso(id, Guid.NewGuid(), version,  _idUtente, _controlDate, _period, _note, _quantity, _description);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

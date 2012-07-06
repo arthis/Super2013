@@ -1,24 +1,28 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Lotto
 {
-    public class LottoUpdated : Message
+    public class LottoUpdated : Message, IEvent
     {
         
-        public Intervall Period { get; private set; }
-        public string Description { get; private set; }
+        public Intervall Period { get; set; }
+        public string Description { get; set; }
 
         public LottoUpdated()
         {
             
         }
 
-        public LottoUpdated(Guid id,  Intervall period, string description)
+        public LottoUpdated(Guid id, Guid commitId, long version,  Intervall period, string description)
+            : base(id, commitId, version)
         {
-            Id = id;
+            Contract.Requires(period!=null);
+            Contract.Requires(!string.IsNullOrEmpty(description));
+
             Period = period;
             Description = description;
         }

@@ -11,10 +11,10 @@ namespace Super.Contabilita.Events.Builders
         Intervall _intervall;
         private string _description;
 
-        public LottoUpdated Build(Guid id)
+        public LottoUpdated Build(Guid id, long version)
         {
-            var evt = new LottoUpdated(id, _intervall, _description);
-            evt.CommitId = Guid.NewGuid();
+            var evt = new LottoUpdated(id, Guid.NewGuid() ,version, _intervall, _description);
+            
             return evt;
         }
 

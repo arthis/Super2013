@@ -29,7 +29,7 @@ namespace Super.Controllo.Commands.Builders
         {
             var cmd = new CloseIntervento(id, commitId, version, _idUtente, _closingDate);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

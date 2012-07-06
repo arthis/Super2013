@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Controllo.Events
 {
-    public class InterventoReopened : Message
+    public class InterventoReopened : Message , IEvent
     {
         
         private readonly Guid _idUtente;
@@ -26,9 +27,12 @@ namespace Super.Controllo.Events
             
         }
 
-        public InterventoReopened(Guid id, Guid idUtente, DateTime reopeningDate)
+        public InterventoReopened(Guid id, Guid commitId, long version, Guid idUtente, DateTime reopeningDate)
+            : base(id, commitId, version)
         {
-            Id = id;
+            Contract.Requires<ArgumentNullException>(idUtente != Guid.Empty);
+            Contract.Requires<ArgumentOutOfRangeException>(reopeningDate > DateTime.MinValue);
+
             _idUtente = idUtente;
             _reopeningDate = reopeningDate;
         }

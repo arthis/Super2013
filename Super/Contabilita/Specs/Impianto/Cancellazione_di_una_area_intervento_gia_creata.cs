@@ -8,8 +8,9 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Events.Impianto;
-using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers;
+using BuildCmd = Super.Contabilita.Commands.Builders.Build;
+using BuildEvt = Super.Contabilita.Events.Builders.Build;
 
 namespace Super.Contabilita.Specs.Impianto
 {
@@ -18,7 +19,8 @@ namespace Super.Contabilita.Specs.Impianto
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
-        private long _version;
+        private Guid _idLotto = Guid.NewGuid();
+        
         private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         protected override CommandHandler<DeleteImpianto> OnHandle(IEventRepository eventRepository)
@@ -28,27 +30,24 @@ namespace Super.Contabilita.Specs.Impianto
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.ImpiantoCreated
+            yield return BuildEvt.ImpiantoCreated
                 .ForIntervall(_intervall)
                 .ForCreationDate(_creationDate)
                 .ForDescription(_description)
-                .Build(_id);
+                .ForLotto(_idLotto)
+                .Build(_id,1);
         }
 
         public override DeleteImpianto When()
         {
-            return new DeleteImpianto()
-            {
-                Id = _id
-            }; 
+            return BuildCmd.DeleteImpianto
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new ImpiantoDeleted()
-            {
-                Id = _id
-            };
+            yield return BuildEvt.ImpiantoDeleted
+                .Build(_id, 2);
         }
 
         [Test]

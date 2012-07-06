@@ -35,11 +35,11 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public InterventoControlledNonReso Build(Guid id)
+        public InterventoControlledNonReso Build(Guid id, long version)
         {
-            var cmd = new InterventoControlledNonReso(id, _idUtente, _controlDate,_idCausale,_note);
+            var cmd = new InterventoControlledNonReso(id, Guid.NewGuid(), version,  _idUtente, _controlDate,_idCausale,_note);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

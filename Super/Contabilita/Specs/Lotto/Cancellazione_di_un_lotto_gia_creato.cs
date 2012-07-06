@@ -7,9 +7,9 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
-using Super.Contabilita.Events.Lotto;
-using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers;
+using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Builders.Build;
 
 namespace Super.Contabilita.Specs.Lotto
 {
@@ -28,27 +28,23 @@ namespace Super.Contabilita.Specs.Lotto
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.LottoCreated
+            yield return BuildEvt.LottoCreated
                 .ForIntervall(_intervall)
                 .ForCreationDate(_creationDate)
                 .ForDescription(_description)
-                .Build(_id);
+                .Build(_id,1);
         }
 
         public override DeleteLotto When()
         {
-            return new DeleteLotto()
-            {
-                Id = _id
-            }; 
+            return BuildCmd.DeleteLotto
+                           .Build(_id, 2); 
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new LottoDeleted()
-            {
-                Id = _id
-            };
+            yield return BuildEvt.LottoDeleted
+                .Build(_id, 2);
         }
 
         [Test]

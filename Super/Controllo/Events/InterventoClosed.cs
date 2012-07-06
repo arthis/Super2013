@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Controllo.Events
 {
-    public class InterventoClosed : Message
+    public class InterventoClosed : Message , IEvent
     {
         
         private readonly Guid _idUtente;
@@ -26,9 +27,12 @@ namespace Super.Controllo.Events
             
         }
 
-        public InterventoClosed(Guid id, Guid idUtente, DateTime closingDate)
+        public InterventoClosed(Guid id, Guid commitId, long version, Guid idUtente, DateTime closingDate)
+            : base(id, commitId, version)
         {
-            Id = id;
+            Contract.Requires<ArgumentNullException>(idUtente != Guid.Empty);
+            Contract.Requires<ArgumentOutOfRangeException>(closingDate > DateTime.MinValue);
+
             _idUtente = idUtente;
             _closingDate = closingDate;
         }

@@ -55,7 +55,7 @@ namespace Super.Controllo.Commands.Builders
         {
             var cmd = new ControlInterventoRotManReso(id, commitId, version, _idUtente, _controlDate, _period, _note, _oggetti);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

@@ -8,6 +8,8 @@ using Super.Controllo.Commands;
 using CommonSpecs;
 using Super.Controllo.Events;
 using Super.Controllo.Handlers;
+using BuildCmd = Super.Controllo.Commands.Builders.Build;
+using BuildEvt = Super.Controllo.Events.Builders.Build;
 
 namespace Super.Controllo.Specs.Permessi_Controllo
 {
@@ -28,23 +30,19 @@ namespace Super.Controllo.Specs.Permessi_Controllo
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoControlAllowed()
-            {
-                Id = _Id
-            };
+            yield return BuildEvt.InterventoControlAllowed
+                .Build(_Id, 1);
         }
 
         public override AllowControlIntervento When()
         {
-            return new AllowControlIntervento(_Id);
+            return BuildCmd.AllowControlIntervento
+                .Build(_Id,1);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return new InterventoControlAllowed()
-            {
-                Id = _Id
-            };
+            yield break;
         }
 
         [Test]

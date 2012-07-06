@@ -28,10 +28,8 @@ namespace Super.Controllo.Specs.Close
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoControlAllowed()
-            {
-                Id = _Id
-            };
+            yield return BuildEvt.InterventoControlAllowed
+                .Build(_Id, 1);
         }
 
         public override CloseIntervento When()
@@ -39,7 +37,7 @@ namespace Super.Controllo.Specs.Close
             return BuildCmd.CloseIntervento
                         .By(_idUtente)
                         .When(_closingDate)
-                        .Build(_Id);
+                        .Build(_Id,1);
         }
 
         public override IEnumerable<IMessage> Expect()
@@ -47,7 +45,7 @@ namespace Super.Controllo.Specs.Close
             yield return BuildEvt.InterventoClosed
                 .By(_idUtente)
                 .When(_closingDate)
-                .Build(_Id);
+                .Build(_Id,2);
         }
 
         [Test]

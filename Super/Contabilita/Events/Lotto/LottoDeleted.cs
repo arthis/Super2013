@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Lotto
 {
-    public class LottoDeleted : Message
+    public class LottoDeleted : Message, IEvent
     {
         
 
@@ -13,9 +13,10 @@ namespace Super.Contabilita.Events.Lotto
             
         }
 
-        public LottoDeleted(Guid id)
+        public LottoDeleted(Guid id, Guid commitId, long version)
+            :base(id, commitId, version)
         {
-            Id = id;
+            
         }
 
         public override string ToDescription()
@@ -23,22 +24,21 @@ namespace Super.Contabilita.Events.Lotto
             return string.Format("Il lotto é stato cancellato (Id:'{0}')", Id);
         }
 
+        public bool Equals(LottoDeleted other)
+        {
+            return base.Equals(other);
+        }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-
-            if (obj.GetType() != this.GetType()) return false;
-
-            var other = (LottoDeleted)obj;
-
-            return base.Equals(obj)
-             && other.Id.Equals(Id);
+            return Equals(obj as LottoDeleted);
         }
 
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return base.GetHashCode();
         }
     }
 }

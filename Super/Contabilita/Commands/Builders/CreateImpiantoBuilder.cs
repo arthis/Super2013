@@ -13,11 +13,14 @@ namespace Super.Contabilita.Commands.Builders
         private string _description;
         private Guid _idLotto;
 
-        public CreateImpianto Build(Guid id)
+        public CreateImpianto Build(Guid id, long version)
         {
-            var cmd =  new CreateImpianto(id, _intervall, _creationDate, _description, _idLotto);
+            return Build(id, Guid.NewGuid(), version);
+        }
 
-            cmd.CommitId = Guid.NewGuid();
+        public CreateImpianto Build(Guid id, Guid commitId, long version)
+        {
+            var cmd =  new CreateImpianto(id, commitId, version, _intervall, _creationDate, _description, _idLotto);
 
             return cmd;
         }

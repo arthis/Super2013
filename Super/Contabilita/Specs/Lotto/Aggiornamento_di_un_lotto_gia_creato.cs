@@ -19,7 +19,7 @@ namespace Super.Contabilita.Specs.Lotto
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
-        private long _version;
+        private long _version; 
         private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         private string _descriptionUpdated = "test 2";
@@ -38,23 +38,23 @@ namespace Super.Contabilita.Specs.Lotto
                                    .ForCreationDate(_creationDate)
                                    .ForDescription(_descriptionUpdated)
                                    .ForIntervall(_intervall)
-                                   .Build(_id);
+                                   .Build(_id,1);
         }
 
         public override UpdateLotto When()
         {
             return BuildCmd.UpdateLotto
                             .ForIntervall(_intervallUpdated)
-                            .ForDescription(_description)
-                            .Build(_id);
+                            .ForDescription(_descriptionUpdated)
+                            .Build(_id,1);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildEvt.LottoUpdated
-                .ForDescription(_description)
-                .ForIntervall(_intervall)
-                .Build(_id);
+                .ForDescription(_descriptionUpdated)
+                .ForIntervall(_intervallUpdated)
+                .Build(_id,2);
                             
         }
 

@@ -16,11 +16,9 @@ namespace Super.Contabilita.Commands.Lotto
         }
       
 
-         public DeleteLotto(Guid id)
+         public DeleteLotto(Guid id, Guid commitId, long version)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
-
-            Id = id;
         }
 
 

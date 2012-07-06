@@ -43,7 +43,7 @@ namespace Super.Controllo.Commands.Builders
         {
             var cmd = new ControlInterventoNonReso(id, commitId, version, _idUtente, _controlDate,_idCausale,_note);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

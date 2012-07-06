@@ -41,7 +41,7 @@ namespace Super.Contabilita.Specs.Impianto
             return  Build.UpdateImpianto
                          .ForDescription(_description)
                          .ForIntervall(_intervallUpdated)
-                         .Build(_id);
+                         .Build(_id,0);
         }
 
         public override IEnumerable<IMessage> Expect()

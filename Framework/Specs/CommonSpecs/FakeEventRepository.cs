@@ -6,6 +6,7 @@ using CommonDomain;
 using CommonDomain.Persistence;
 using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
+using EventStore;
 
 
 namespace CommonSpecs
@@ -35,6 +36,9 @@ namespace CommonSpecs
 
         public void Save(IAggregate aggregate, Guid commitId, Action<IDictionary<string, object>> updateHeaders)
         {
+            if (CommittedEvents.Any(x => x.CommitId == commitId))
+                throw new DuplicateCommitException();
+
             CommittedEvents = aggregate.GetUncommittedEvents();
         }
 

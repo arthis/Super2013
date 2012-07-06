@@ -14,7 +14,7 @@ namespace Super.Controllo.Commands.Builders
         {
             var cmd = new AllowControlIntervento(id, commitId, version);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

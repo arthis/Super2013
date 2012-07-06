@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Persistence;
+using EventStore;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
-using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Handlers;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using BuildCmd = Super.Contabilita.Commands.Builders.Build;
@@ -35,11 +35,17 @@ namespace Super.Contabilita.Specs.Lotto
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return  BuildEvt.LottoCreated
+            yield return BuildEvt.LottoCreated
                                    .ForCreationDate(_creationDate)
                                    .ForDescription(_descriptionUpdated)
                                    .ForIntervall(_intervall)
-                                   .Build(_id);
+                                   .Build(_id,1);
+            var evt = BuildEvt.LottoUpdated
+                .ForDescription(_description)
+                .ForIntervall(_intervall)
+                .Build(_id,2);
+            evt.CommitId = _updateCommitId;
+            yield return evt;
         }
 
         public override UpdateLotto When()
@@ -47,22 +53,20 @@ namespace Super.Contabilita.Specs.Lotto
             return BuildCmd.UpdateLotto
                             .ForIntervall(_intervallUpdated)
                             .ForDescription(_description)
-                            .Build(_id);
+                            .Build(_id, _updateCommitId,2);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.LottoUpdated
-                .ForDescription(_description)
-                .ForIntervall(_intervall)
-                .Build(_id);
+            yield break;
                             
         }
 
         [Test]
-        public void non_genera_un_eccezzione()
+        public void genera_un_eccezzione()
         {
-            Assert.IsNull(Caught);
+            Assert.IsNotNull(Caught);
+            Assert.AreEqual(typeof(DuplicateCommitException), Caught.GetType());
         }
 
 

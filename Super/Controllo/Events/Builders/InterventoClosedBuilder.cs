@@ -20,11 +20,11 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public InterventoClosed Build(Guid id)
+        public InterventoClosed Build(Guid id, long version)
         {
-            var cmd = new InterventoClosed(id, _idUtente, _closingDate);
+            var cmd = new InterventoClosed(id, Guid.NewGuid(), version,  _idUtente, _closingDate);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

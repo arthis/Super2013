@@ -26,7 +26,7 @@ namespace Super.Controllo.Handlers
             if (!existingIntervento.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
 
-            existingIntervento.AllowControl();
+            existingIntervento.AllowControl(cmd.Id);
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

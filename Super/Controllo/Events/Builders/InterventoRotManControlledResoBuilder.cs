@@ -42,11 +42,9 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public InterventoRotManControlledReso Build(Guid id)
+        public InterventoRotManControlledReso Build(Guid id, long version)
         {
-            var cmd = new InterventoRotManControlledReso(id, _idUtente, _controlDate, _period, _note, _oggetti);
-
-            cmd.CommitId = Guid.NewGuid();
+            var cmd = new InterventoRotManControlledReso(id, Guid.NewGuid(), version,  _idUtente, _controlDate, _period, _note, _oggetti);
 
             return cmd;
         }

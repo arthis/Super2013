@@ -1,17 +1,18 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Lotto
 {
-    public class LottoCreated :  Message 
+    public class LottoCreated : Message, IEvent
     {
 
         
-        public Intervall Period { get; private set; }
-        public DateTime CreationDate { get; private set; }
-        public string Description { get; private set; }
+        public Intervall Period { get; set; }
+        public DateTime CreationDate { get; set; }
+        public string Description { get; set; }
 
 
         //for serialization
@@ -20,9 +21,14 @@ namespace Super.Contabilita.Events.Lotto
             
         }
 
-        public LottoCreated(Guid id, Intervall period,  DateTime creationDate, string description)
+        public LottoCreated(Guid id, Guid commitId, long version, Intervall period,  DateTime creationDate, string description)
+            : base(id, commitId, version)
+        
         {
-            Id = id;
+            Contract.Requires(period != null);
+            Contract.Requires(!string.IsNullOrEmpty(description));
+            Contract.Requires(creationDate > DateTime.MinValue);
+
             Period = period;
             CreationDate = creationDate;
             Description = description;

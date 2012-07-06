@@ -16,13 +16,14 @@ namespace Super.Contabilita.Commands.Lotto
         public UpdateLotto()
         {}
 
-        public UpdateLotto(Guid id,  Intervall period,  string description)
+        public UpdateLotto(Guid id, Guid commitId, long version,  Intervall period,  string description)
+            :base (id,commitId,version)
         {
-            Contract.Requires<ArgumentNullException>(id!= Guid.Empty);
+            
             Contract.Requires<ArgumentNullException>(period != null);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
 
-            Id = id;
+            
             Period = period;
             Description = description;
         }

@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Controllo.Events
 {
-    public abstract class InterventoControlledReso : Message
+    public abstract class InterventoControlledReso : Message , IEvent
     {
         
         private readonly Guid _idUtente;
@@ -38,14 +38,15 @@ namespace Super.Controllo.Events
             
         }
 
-        public InterventoControlledReso(Guid id, Guid idUtente, DateTime controlDate, WorkPeriod period, string note)
+        public InterventoControlledReso(Guid id, Guid commitId, long version, Guid idUtente, DateTime controlDate, WorkPeriod period, string note)
+            :base(id,commitId,version)
         {
-            Contract.Requires<ArgumentNullException>(id == Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idUtente == Guid.Empty);
-            Contract.Requires<ArgumentOutOfRangeException>(controlDate == DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(period == null);
+            
+            Contract.Requires<ArgumentNullException>(idUtente != Guid.Empty);
+            Contract.Requires<ArgumentOutOfRangeException>(controlDate > DateTime.MinValue);
+            Contract.Requires<ArgumentNullException>(period != null);
 
-            Id = id;
+            
             _idUtente = idUtente;
             _controlDate = controlDate;
             _period = period;
@@ -123,7 +124,7 @@ namespace Super.Controllo.Events
             
         }
 
-        public InterventoRotControlledReso(Guid id,
+        public InterventoRotControlledReso(Guid id, Guid commitId, long version,
                                         Guid idUtente,
                                         DateTime controlDate,
                                         WorkPeriod period,
@@ -134,7 +135,7 @@ namespace Super.Controllo.Events
                                         string turnoTreno,
                                         string rigaTurnoTreno,
                                         string convoglio) 
-            : base(id, idUtente, controlDate, period, note)
+            : base(id,commitId,version, idUtente, controlDate, period, note)
         {
             Contract.Requires(oggetti != null);
 
@@ -197,13 +198,13 @@ namespace Super.Controllo.Events
             
         }
 
-        public InterventoRotManControlledReso(Guid id,
+        public InterventoRotManControlledReso(Guid id, Guid commitId, long version,
                                         Guid idUtente,
                                         DateTime controlDate,
                                         WorkPeriod period,
                                         string note,
                                         OggettoRotMan[] oggetti)
-            : base(id, idUtente, controlDate, period, note)
+            : base(id,commitId,version, idUtente, controlDate, period, note)
         {
             Contract.Requires(oggetti != null);
 
@@ -258,14 +259,14 @@ namespace Super.Controllo.Events
             
         }
 
-        public InterventoAmbControlledReso(Guid id,
+        public InterventoAmbControlledReso(Guid id, Guid commitId, long version,
                                         Guid idUtente,
                                         DateTime controlDate,
                                         WorkPeriod period,
                                         string note, 
                                         int quantity,
                                         string description)
-            : base(id, idUtente, controlDate, period, note)
+            : base(id,commitId,version, idUtente, controlDate, period, note)
         {
             _quantity = quantity;
             _description = description;

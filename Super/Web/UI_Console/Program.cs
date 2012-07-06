@@ -99,7 +99,7 @@ namespace UI_Console
                 .ForCreationDate(DateTime.Now)
                 .ForDescription("test")
                 .ForIntervall(new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
-                .Build(id);
+                .Build(id,0);
 
             var client = new Contabilita.CommandWebServiceClient();
 
@@ -108,7 +108,7 @@ namespace UI_Console
             var cmdUpdate = Build.UpdateLotto
                .ForDescription("test updated")
                .ForIntervall(new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
-               .Build(id);
+               .Build(id,1);
 
             client.Execute(cmdUpdate);
 

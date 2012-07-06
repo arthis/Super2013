@@ -59,7 +59,7 @@ namespace Super.Controllo.Commands.Builders
         {
             var cmd = new ControlInterventoAmbReso(id, commitId, version, _idUtente, _controlDate, _period, _note, _quantity, _description);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

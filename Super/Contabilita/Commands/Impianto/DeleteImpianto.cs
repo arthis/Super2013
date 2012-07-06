@@ -16,11 +16,9 @@ namespace Super.Contabilita.Commands.Impianto
         }
       
 
-         public DeleteImpianto(Guid id)
+         public DeleteImpianto(Guid id, Guid commitId, long version)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
-
-            this.Id = id;
         }
 
 

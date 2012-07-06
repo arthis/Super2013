@@ -14,5 +14,9 @@ namespace Super.Controllo.Events.Builders
 
         public static InterventoReopenedBuilder InterventoReopened { get { return new InterventoReopenedBuilder(); } }
 
+        public static InterventoControlAllowedBuilder InterventoControlAllowed { get { return new InterventoControlAllowedBuilder(); } }
+
+        
+
     }
 }

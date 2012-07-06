@@ -18,14 +18,13 @@ namespace Super.Contabilita.Commands.Lotto
             
         }
 
-        public CreateLotto(Guid id,  Intervall period, DateTime creationDate, string description)
+        public CreateLotto(Guid id, Guid commitId, long version,  Intervall period, DateTime creationDate, string description)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(period != null);
             Contract.Requires<ArgumentOutOfRangeException>(creationDate > DateTime.MinValue);
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
 
-            this.Id = id;
             this.Period = period;
             this.Description = description;
             this.CreationDate = creationDate;

@@ -1,32 +1,25 @@
 ﻿using System;
 using CommonDomain.Core;
 using Super.Controllo.Events;
+using Super.Controllo.Events.Builders;
 
 namespace Super.Controllo.Domain
 {
     public class Intervento : AggregateBase
     {
+        private bool _isClosed;
 
         public Intervento()
         {
-            //var evt = new InventoryItemCreatedAdded()
-            //{
-            //    Id = id,
-            //    Name = name
-            //};
-
-            //RaiseEvent(evt);
+          
         }
 
-        //public void Apply(InventoryItemCreatedAdded e)
-        //{
-        //    Id = e.Id;
-        //}
 
-
-        public void AllowControl()
+        public void AllowControl(Guid id)
         {
-            throw new NotImplementedException();
+            var evt = Build.InterventoControlAllowed;
+
+            RaiseEvent(id, evt);
         }
 
         public void Apply(InterventoControlAllowed e)
@@ -36,32 +29,46 @@ namespace Super.Controllo.Domain
 
         public void Close(Guid idUtente, DateTime closingDate)
         {
-            throw new NotImplementedException();
+            var evt = Build.InterventoClosed
+                .By(idUtente)
+                .When(closingDate);
+
+            RaiseEvent(evt);
         }
 
         public void Apply(InterventoClosed e)
         {
-            throw new NotImplementedException();
+            _isClosed = true;
         }
 
         public void ControlNonReso(Guid idUtente, DateTime controlDate, Guid idCausale, string note)
         {
-            throw new NotImplementedException();
+            var evt = Build.InterventoControlledNonReso
+                .By(idUtente)
+                .When(controlDate)
+                .Because(idCausale)
+                .WithNote(note);
+
+            RaiseEvent(evt);
         }
 
         public void Apply(InterventoControlledNonReso e)
         {
-            throw new NotImplementedException();
+            //do nothing
         }
 
         public void Reopen(Guid idUtente, DateTime reopeningDate)
         {
-            throw new NotImplementedException();
+            var evt = Build.InterventoReopened
+                .By(idUtente)
+                .When(reopeningDate);
+
+            RaiseEvent(evt);
         }
 
         public void Apply(InterventoReopened e)
         {
-            throw new NotImplementedException();
+            _isClosed = false;
         }
     }
 }

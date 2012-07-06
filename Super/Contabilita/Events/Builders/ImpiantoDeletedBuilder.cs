@@ -7,10 +7,10 @@ namespace Super.Contabilita.Events.Builders
     public class ImpiantoDeletedBuilder : IEventBuilder<ImpiantoDeleted>
     {
 
-        public ImpiantoDeleted Build(Guid id)
+        public ImpiantoDeleted Build(Guid id, long version)
         {
-            var evt = new ImpiantoDeleted(id);
-            evt.CommitId = Guid.NewGuid();
+            var evt = new ImpiantoDeleted(id, Guid.NewGuid() ,version);
+            
             return evt;
         }
 

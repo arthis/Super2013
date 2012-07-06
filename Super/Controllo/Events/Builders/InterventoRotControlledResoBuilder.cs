@@ -80,13 +80,13 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public InterventoRotControlledReso Build(Guid id)
+        public InterventoRotControlledReso Build(Guid id, long version)
         {
-            var cmd = new InterventoRotControlledReso(id, _idUtente, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
+            var cmd = new InterventoRotControlledReso(id, Guid.NewGuid(), version,  _idUtente, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
                                       _rigaTurnoTreno,
                                       _convoglio);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

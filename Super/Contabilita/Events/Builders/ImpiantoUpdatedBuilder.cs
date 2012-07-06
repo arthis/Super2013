@@ -11,10 +11,10 @@ namespace Super.Contabilita.Events.Builders
         Intervall _intervall;
         private string _description;
 
-        public ImpiantoUpdated Build(Guid id)
+        public ImpiantoUpdated Build(Guid id, long version)
         {
-            var evt = new ImpiantoUpdated(id, _intervall, _description);
-            evt.CommitId = Guid.NewGuid();
+            var evt = new ImpiantoUpdated(id, Guid.NewGuid() ,version, _intervall, _description);
+            
             return evt;
         }
 

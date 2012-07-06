@@ -41,7 +41,7 @@ namespace Super.Contabilita.Specs.Impianto
                 .ForDescription(_description)
                 .ForLotto(_idLotto)
                 .ForIntervall(_intervall)
-                .Build(_id);
+                .Build(_id,0);
         }
 
         public override IEnumerable<IMessage> Expect()
@@ -51,7 +51,7 @@ namespace Super.Contabilita.Specs.Impianto
                                  .ForDescription(_description)
                                  .ForLotto(_idLotto)
                                  .ForIntervall(_intervall)
-                                 .Build(_id);
+                                 .Build(_id,1);
         }
 
         [Test]

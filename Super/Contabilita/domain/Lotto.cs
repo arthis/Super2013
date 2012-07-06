@@ -20,9 +20,8 @@ namespace Super.Contabilita.Domain
             var evt = Build.LottoCreated
                           .ForIntervall(intervall)
                           .ForCreationDate(creationDate)
-                          .ForDescription(description)
-                          .Build(id);
-            RaiseEvent(evt);
+                          .ForDescription(description);
+            RaiseEvent(id, evt);
         }
 
         public void Apply(LottoCreated e)
@@ -36,8 +35,7 @@ namespace Super.Contabilita.Domain
         {
             var evt = Build.LottoUpdated
                           .ForIntervall(intervall)
-                          .ForDescription(description)
-                          .Build(Id);
+                          .ForDescription(description);
             RaiseEvent(evt);
         }
 
@@ -54,8 +52,8 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.LottoDeleted
-                               .Build(Id);
+                var evt = Build.LottoDeleted;
+
                 RaiseEvent(evt);
             }
         }

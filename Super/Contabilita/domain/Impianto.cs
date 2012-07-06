@@ -15,14 +15,14 @@ namespace Super.Contabilita.Domain
         {
         }
 
-        public Impianto(Guid id, Intervall intervall, DateTime creationDate, string description)
+        public Impianto(Guid id, Intervall intervall, Guid idLotto, DateTime creationDate, string description)
         {
             var evt = Build.ImpiantoCreated
                           .ForIntervall(intervall)
+                          .ForLotto(idLotto)
                           .ForCreationDate(creationDate)
-                          .ForDescription(description)
-                          .Build(id);
-            RaiseEvent(evt);
+                          .ForDescription(description);
+            RaiseEvent(id, evt);
         }
 
         public void Apply(ImpiantoCreated e)
@@ -36,8 +36,7 @@ namespace Super.Contabilita.Domain
         {
             var evt = Build.ImpiantoUpdated
                           .ForIntervall(intervall)
-                          .ForDescription(description)
-                          .Build(Id);
+                          .ForDescription(description);
             RaiseEvent(evt);
         }
 
@@ -54,8 +53,8 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.ImpiantoDeleted
-                               .Build(Id);
+                var evt = Build.ImpiantoDeleted;
+
                 RaiseEvent(evt);
             }
         }

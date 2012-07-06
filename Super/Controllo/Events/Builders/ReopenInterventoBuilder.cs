@@ -20,11 +20,11 @@ namespace Super.Controllo.Events.Builders
             return this;
         }
 
-        public InterventoReopened Build(Guid id)
+        public InterventoReopened Build(Guid id, long version)
         {
-            var cmd = new InterventoReopened(id, _idUtente, _reopeningDate);
+            var cmd = new InterventoReopened(id, Guid.NewGuid(), version,  _idUtente, _reopeningDate);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

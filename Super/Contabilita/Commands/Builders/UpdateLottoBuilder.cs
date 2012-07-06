@@ -10,11 +10,14 @@ namespace Super.Contabilita.Commands.Builders
         Intervall _intervall;
         private string _description;
 
-        public UpdateLotto Build(Guid id)
+        public UpdateLotto Build(Guid id, long version)
         {
-            var cmd = new UpdateLotto(id, _intervall, _description);
+            return Build(id, Guid.NewGuid(), version);
+        }
 
-            cmd.CommitId = Guid.NewGuid();
+        public UpdateLotto Build(Guid id, Guid commitId, long version)
+        {
+            var cmd = new UpdateLotto(id, commitId, version, _intervall, _description);
 
             return cmd;
         }

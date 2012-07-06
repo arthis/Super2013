@@ -11,11 +11,14 @@ namespace Super.Contabilita.Commands.Builders
         private DateTime _creationDate;
         private string _description;
 
-        public CreateLotto Build(Guid id)
+        public CreateLotto Build(Guid id, long version)
         {
-             var cmd = new CreateLotto(id, _intervall, _creationDate, _description);
+            return Build(id, Guid.NewGuid(), version);
+        }
 
-            cmd.CommitId = Guid.NewGuid();
+        public CreateLotto Build(Guid id, Guid commitId, long version)
+        {
+             var cmd = new CreateLotto(id, commitId, version, _intervall, _creationDate, _description);
 
             return cmd;
         }

@@ -74,6 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\DeleteLottoBuilder.cs" />
+    <Compile Include="Builders\DeleteImpiantoBuilder.cs" />
     <Compile Include="Builders\CreateImpiantoBuilder.cs" />
     <Compile Include="Builders\Build.cs" />
     <Compile Include="Builders\CreateLottoBuilder.cs" />

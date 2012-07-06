@@ -40,7 +40,7 @@ namespace Super.Contabilita.Specs.Lotto
                 .ForCreationDate(_creationDate)
                 .ForDescription(_description)
                 .ForIntervall(_intervall)
-                .Build(_id);
+                .Build(_id,0);
         }
 
         public override IEnumerable<IMessage> Expect()
@@ -49,7 +49,7 @@ namespace Super.Contabilita.Specs.Lotto
                                  .ForCreationDate(_creationDate)
                                  .ForDescription(_description)
                                  .ForIntervall(_intervall)
-                                 .Build(_id);
+                                 .Build(_id,1);
         }
 
         [Test]

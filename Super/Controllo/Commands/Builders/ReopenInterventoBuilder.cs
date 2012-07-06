@@ -29,7 +29,7 @@ namespace Super.Controllo.Commands.Builders
         {
             var cmd = new ReopenIntervento(id, commitId, version, _idUtente, _reopeningDate);
 
-            cmd.CommitId = Guid.NewGuid();
+            
 
             return cmd;
         }

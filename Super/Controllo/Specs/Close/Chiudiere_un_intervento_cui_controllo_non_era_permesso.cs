@@ -36,7 +36,7 @@ namespace Super.Controllo.Specs.Close
             return BuildCmd.CloseIntervento
                 .By(_idUtente)
                 .When(_closingDate)
-                .Build(_Id);
+                .Build(_Id,0);
         }
 
         public override IEnumerable<IMessage> Expect()

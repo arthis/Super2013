@@ -7,6 +7,8 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Handlers;
+using BuildCmd = Super.Contabilita.Commands.Builders.Build;
+using BuildEvt = Super.Contabilita.Events.Builders.Build;
 
 namespace Super.Contabilita.Specs.Impianto
 {
@@ -26,7 +28,8 @@ namespace Super.Contabilita.Specs.Impianto
 
         public override DeleteImpianto When()
         {
-            return new DeleteImpianto(_id);
+            return BuildCmd.DeleteImpianto
+                .Build(_id,0);
         }
 
         public override IEnumerable<IMessage> Expect()
