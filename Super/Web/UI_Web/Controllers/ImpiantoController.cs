@@ -15,15 +15,9 @@ using EasyNetQ;
 
 namespace UI_Web.Controllers
 {
-    public class ImpiantoController : ControllerBaseSuper
+    public class ImpiantoController : ControllerContabilita
     {
-        private readonly IBus _bus;
 
-        public ImpiantoController()
-        {
-            _bus = RabbitHutch.CreateBus("host=localhost");
-
-        }
 
         public ActionResult Index()
         {
@@ -33,7 +27,7 @@ namespace UI_Web.Controllers
         
         public JsonResult GetItems(VisualizzareImpianto command)
         {
-            using (var context = new ContabilitaContainer())
+            using (var context = GetContainer())
             {
                 var query = context.Impiantoes.Where(item => !item.Deleted);
 
@@ -65,8 +59,7 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var valid = _bus.Request<CreateImpianto, ICommandValidation>(command, 30);
-                //sync call here.... or at least waiting to do so...
+                var validation = CommandService.Execute(command);
             }
         }
 
@@ -84,7 +77,7 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-             
+                var validation = CommandService.Execute(command);
             }
         }
 
@@ -94,7 +87,7 @@ namespace UI_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-             
+                var validation = CommandService.Execute(command);
             }
         }
 

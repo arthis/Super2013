@@ -1,5 +1,6 @@
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Saga.Domain.Intervento;
@@ -9,7 +10,7 @@ namespace Super.Saga.Handlers
     public class InterventoConsuntivatoRotManNonResoHandler : SagaHandler<InterventoConsuntivatoRotManNonReso>
     {
         public InterventoConsuntivatoRotManNonResoHandler(ISagaRepository repository, IBus bus)
-            : base(repository, bus)
+            : base(repository, bus, null)
         {
         }
 

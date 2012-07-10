@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Controllo.Commands;
 
@@ -15,7 +16,7 @@ namespace Super.Controllo.Handlers
 
         public void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository)
         {
-            var handlerHelper = new HandlerHelper(commandRepository);
+            var handlerHelper = new CommandHandlerHelper(commandRepository);
 
             handlerHelper.Add<AllowControlIntervento>(_handlers, new AllowControlInterventoHandler(eventRepository));
             handlerHelper.Add<CloseIntervento>(_handlers, new CloseInterventoHandler(eventRepository));

@@ -1,5 +1,6 @@
 ﻿using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Saga.Domain.Intervento;
 using Super.Programmazione.Events;
@@ -10,7 +11,7 @@ namespace Super.Saga.Handlers
     public class InterventoAmbPianificatoHandler : SagaHandler<InterventoAmbPianificato>
     {
         public InterventoAmbPianificatoHandler(ISagaRepository repository, IBus bus)
-            : base(repository, bus)
+            : base(repository, bus, null)
         {
         }
 

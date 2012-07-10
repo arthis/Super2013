@@ -107,7 +107,7 @@ namespace UI_Console.Contabilita {
                 base(binding, remoteAddress) {
         }
         
-        public UI_Console.Contabilita.ExecuteResponse Execute(CommonDomain.Core.CommandBase command) {
+        public ExecuteResponse Execute(CommonDomain.Core.CommandBase command) {
             return base.Channel.Execute(command);
         }
     }

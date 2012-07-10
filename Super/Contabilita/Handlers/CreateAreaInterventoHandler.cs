@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Super.Domain.Builders;
 using CommonDomain.Persistence;
 using Super.Contabilita.Commands.Impianto;
@@ -28,7 +29,7 @@ namespace Super.Contabilita.Handlers
 
 
             var impianto=  new Impianto(cmd.Id,
-                                          Build.Intervall.FromPeriod(cmd.Period).Build(),
+                                          Build.Intervall.FromPeriod(cmd.Intervall).Build(),
                                           cmd.IdLotto,
                                           cmd.CreationDate,
                                           cmd.Description);

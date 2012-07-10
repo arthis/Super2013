@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Linq;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using Super.ReadModel;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -18,7 +19,7 @@ namespace Super.Appaltatore.Projection
 
 
 
-        public void Handle(InterventoRotProgrammato evt,IEventHandler<InterventoRotProgrammato> next)
+        public void Handle(InterventoRotProgrammato evt)
         {
             using (var container = GetContainer())
             {

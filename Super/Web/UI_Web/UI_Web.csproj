@@ -114,7 +114,7 @@
     <Compile Include="Attributes\SetCultureAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppaltatoreController.cs" />
-    <Compile Include="Controllers\AreaInterventoController.cs" />
+    <Compile Include="Controllers\ImpiantoController.cs" />
     <Compile Include="Controllers\ControllerBaseSuper.cs" />
     <Compile Include="Controllers\TipoInterventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -127,6 +127,11 @@
     <Compile Include="Models\TipoIntervento.cs" />
     <Compile Include="Models\Intervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Contabilita\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Layout\Earthlingtwo\images\img01.jpg" />
@@ -245,6 +250,12 @@
     <Content Include="Node\server.js" />
     <Content Include="Node\views\index.html" />
     <Content Include="Node\views\layout.html" />
+    <Content Include="Scripts\Contabilita\Commands\valueObjects.js" />
+    <Content Include="Scripts\Contabilita\Commands\cmd-impianto.js" />
+    <Content Include="Scripts\Contabilita\Model\m-impianto.js" />
+    <Content Include="Scripts\Contabilita\Repository\r-impianto.js" />
+    <Content Include="Scripts\Contabilita\ViewModel\vm-impianto.js" />
+    <Content Include="Scripts\Contabilita\View\v-impianto.js" />
     <Content Include="Scripts\dateFormat.js" />
     <Content Include="Scripts\EditorHookup.js" />
     <Content Include="Scripts\functions.js" />
@@ -269,6 +280,15 @@
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\underscore-1.3.1.js" />
+    <None Include="Properties\DataSources\CommandService.ExecuteResponse.datasource" />
+    <None Include="Service References\Contabilita\Contabilita.disco" />
+    <None Include="Service References\Contabilita\configuration91.svcinfo" />
+    <None Include="Service References\Contabilita\configuration.svcinfo" />
+    <None Include="Service References\Contabilita\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\uuid.js" />
     <Content Include="Views\ConsuntivoRotabileApplatatore\Add.cshtml" />
     <Content Include="Views\ConsuntivoRotabileApplatatore\ConsuntivazioneReso.cshtml" />
     <Content Include="Views\Impianto\Index.cshtml" />
@@ -287,6 +307,34 @@
     <None Include="Node\README.md" />
     <Content Include="Views\Appaltatore\ConsuntivareRotNonReso.cshtml" />
     <Content Include="Views\Appaltatore\IndexRotabile.cshtml" />
+    <None Include="Service References\Contabilita\CommandWebService.wsdl" />
+    <None Include="Service References\Contabilita\Contabilita.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Contabilita\Contabilita1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Contabilita\Contabilita2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Contabilita\Contabilita3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Contabilita\Contabilita4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Contabilita\Contabilita5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Contabilita\Contabilita6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Contabilita\Contabilita7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Contabilita\Contabilita8.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Views\ConsuntivoRotabileApplatatore\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -327,7 +375,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\AreaIntervento\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -364,6 +411,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Contabilita\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

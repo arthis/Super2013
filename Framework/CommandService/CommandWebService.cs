@@ -69,9 +69,11 @@ namespace CommandService
             var aggregateFactory = new AggregateFactory();
             var conflictDetector = new ConflictDetector();
             var eventRepository = new EventStoreRepository(storeEvents, aggregateFactory, conflictDetector);
+            var projectionRepositoryBuilder = new ProjectionRepositoryBuilder();
 
             _commandHandler.InitHandlers(GetCommandRepository(), eventRepository);
             _commandHandler.Subscribe(_bus);
+            _projectionHandler.InitHandlers(projectionRepositoryBuilder);
             _projectionHandler.Subscribe(_bus);
         }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using EasyNetQ;
 using NUnit.Framework;

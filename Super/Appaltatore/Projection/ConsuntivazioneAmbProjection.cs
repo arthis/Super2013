@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Linq;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using Super.ReadModel;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -16,7 +17,7 @@ namespace Super.Appaltatore.Projection
             return new AppaltatoreContainer(connectionString);
         }
 
-        public void Handle(InterventoAmbProgrammato evt,IEventHandler<InterventoAmbProgrammato> next)
+        public void Handle(InterventoAmbProgrammato evt)
         {
             throw new NotImplementedException();
 

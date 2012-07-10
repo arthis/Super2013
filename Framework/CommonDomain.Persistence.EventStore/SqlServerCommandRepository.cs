@@ -34,9 +34,9 @@ namespace CommonDomain.Persistence.EventStore
                 cmd.Parameters.AddWithValue("@CommitId", commitId);
 
                 connection.Open();
-                var NbLine = cmd.ExecuteNonQuery();
+                var @return = cmd.ExecuteScalar();
                 connection.Close();
-                return NbLine > 0;
+                return @return != null;
             }
         }
 

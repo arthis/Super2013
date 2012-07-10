@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Linq;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using Super.Contabilita.Events.Lotto;
 using Super.ReadModel;
 
@@ -11,7 +12,7 @@ namespace Super.Contabilita.Projection
                                    IEventHandler<LottoUpdated>,
                                    IEventHandler<LottoDeleted>
     {
-        public void Handle(LottoCreated @event, IEventHandler<LottoCreated> next)
+        public void Handle(LottoCreated @event)
         {
             using (var container = Container.GetContainer())
             {
@@ -34,7 +35,7 @@ namespace Super.Contabilita.Projection
             }
         }
 
-        public void Handle(LottoUpdated @event, IEventHandler<LottoUpdated> next)
+        public void Handle(LottoUpdated @event)
         {
             using (var container = Container.GetContainer())
             {
@@ -50,7 +51,7 @@ namespace Super.Contabilita.Projection
             }
         }
 
-        public void Handle(LottoDeleted @event, IEventHandler<LottoDeleted> next)
+        public void Handle(LottoDeleted @event)
         {
             using (var container = Container.GetContainer())
             {

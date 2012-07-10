@@ -68,6 +68,22 @@ namespace Super.ReadModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<LastEventsReadContabilita> LastEventsReadContabilitas
+        {
+            get
+            {
+                if ((_LastEventsReadContabilitas == null))
+                {
+                    _LastEventsReadContabilitas = base.CreateObjectSet<LastEventsReadContabilita>("LastEventsReadContabilitas");
+                }
+                return _LastEventsReadContabilitas;
+            }
+        }
+        private ObjectSet<LastEventsReadContabilita> _LastEventsReadContabilitas;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Impianto> Impiantoes
         {
             get
@@ -112,25 +128,17 @@ namespace Super.ReadModel
             }
         }
         private ObjectSet<TipoIntervento> _TipoInterventoes;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<LastEventsReadContabilita> LastEventsReadContabilitas
-        {
-            get
-            {
-                if ((_LastEventsReadContabilitas == null))
-                {
-                    _LastEventsReadContabilitas = base.CreateObjectSet<LastEventsReadContabilita>("LastEventsReadContabilitas");
-                }
-                return _LastEventsReadContabilitas;
-            }
-        }
-        private ObjectSet<LastEventsReadContabilita> _LastEventsReadContabilitas;
 
         #endregion
         #region AddTo Methods
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the LastEventsReadContabilitas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLastEventsReadContabilitas(LastEventsReadContabilita lastEventsReadContabilita)
+        {
+            base.AddObject("LastEventsReadContabilitas", lastEventsReadContabilita);
+        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the Impiantoes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -154,14 +162,6 @@ namespace Super.ReadModel
         public void AddToTipoInterventoes(TipoIntervento tipoIntervento)
         {
             base.AddObject("TipoInterventoes", tipoIntervento);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the LastEventsReadContabilitas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToLastEventsReadContabilitas(LastEventsReadContabilita lastEventsReadContabilita)
-        {
-            base.AddObject("LastEventsReadContabilitas", lastEventsReadContabilita);
         }
 
         #endregion
@@ -188,14 +188,16 @@ namespace Super.ReadModel
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="idLotto">Initial value of the IdLotto property.</param>
         /// <param name="start">Initial value of the Start property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static Impianto CreateImpianto(global::System.Guid id, global::System.Guid idLotto, global::System.DateTime start, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static Impianto CreateImpianto(global::System.Guid id, global::System.Guid idLotto, global::System.DateTime start, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             Impianto impianto = new Impianto();
             impianto.Id = id;
             impianto.IdLotto = idLotto;
             impianto.Start = start;
+            impianto.Version = version;
             impianto.CreationDate = creationDate;
             impianto.Deleted = deleted;
             return impianto;
@@ -326,6 +328,30 @@ namespace Super.ReadModel
         private Nullable<global::System.DateTime> _End;
         partial void OnEndChanging(Nullable<global::System.DateTime> value);
         partial void OnEndChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Version
+        {
+            get
+            {
+                return _Version;
+            }
+            set
+            {
+                OnVersionChanging(value);
+                ReportPropertyChanging("Version");
+                _Version = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Version");
+                OnVersionChanged();
+            }
+        }
+        private global::System.Int32 _Version;
+        partial void OnVersionChanging(global::System.Int32 value);
+        partial void OnVersionChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -476,13 +502,15 @@ namespace Super.ReadModel
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="start">Initial value of the Start property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static Lotto CreateLotto(global::System.Guid id, global::System.DateTime start, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static Lotto CreateLotto(global::System.Guid id, global::System.DateTime start, global::System.DateTime creationDate, global::System.Int32 version, global::System.Boolean deleted)
         {
             Lotto lotto = new Lotto();
             lotto.Id = id;
             lotto.Start = start;
             lotto.CreationDate = creationDate;
+            lotto.Version = version;
             lotto.Deleted = deleted;
             return lotto;
         }
@@ -618,6 +646,30 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.Int32 Version
+        {
+            get
+            {
+                return _Version;
+            }
+            set
+            {
+                OnVersionChanging(value);
+                ReportPropertyChanging("Version");
+                _Version = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Version");
+                OnVersionChanged();
+            }
+        }
+        private global::System.Int32 _Version;
+        partial void OnVersionChanging(global::System.Int32 value);
+        partial void OnVersionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.Boolean Deleted
         {
             get
@@ -656,13 +708,15 @@ namespace Super.ReadModel
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="start">Initial value of the Start property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static TipoIntervento CreateTipoIntervento(global::System.Guid id, global::System.DateTime start, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static TipoIntervento CreateTipoIntervento(global::System.Guid id, global::System.DateTime start, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             TipoIntervento tipoIntervento = new TipoIntervento();
             tipoIntervento.Id = id;
             tipoIntervento.Start = start;
+            tipoIntervento.Version = version;
             tipoIntervento.CreationDate = creationDate;
             tipoIntervento.Deleted = deleted;
             return tipoIntervento;
@@ -769,6 +823,30 @@ namespace Super.ReadModel
         private Nullable<global::System.DateTime> _End;
         partial void OnEndChanging(Nullable<global::System.DateTime> value);
         partial void OnEndChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Version
+        {
+            get
+            {
+                return _Version;
+            }
+            set
+            {
+                OnVersionChanging(value);
+                ReportPropertyChanging("Version");
+                _Version = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Version");
+                OnVersionChanged();
+            }
+        }
+        private global::System.Int32 _Version;
+        partial void OnVersionChanging(global::System.Int32 value);
+        partial void OnVersionChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

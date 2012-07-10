@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/CommonDomain.Core" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommonDomain.Core" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:1338/Contabilita?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CommonDomain" />
+  <xs:complexType name="CommandBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Message">
+        <xs:sequence>
+          <xs:element name="_x003C_IsExecuted_x003E_k__BackingField" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CommandBase" nillable="true" type="tns:CommandBase" />
+  <xs:complexType name="Message">
+    <xs:sequence>
+      <xs:element name="_x003C_CommitId_x003E_k__BackingField" type="ser:guid" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="ser:guid" />
+      <xs:element name="_x003C_Version_x003E_k__BackingField" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:complexType name="CommandValidation">
+    <xs:sequence>
+      <xs:element name="_x003C_Messages_x003E_k__BackingField" nillable="true" type="tns:ArrayOfValidationMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommandValidation" nillable="true" type="tns:CommandValidation" />
+  <xs:complexType name="ArrayOfValidationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValidationMessage" nillable="true" type="tns:ValidationMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfValidationMessage" nillable="true" type="tns:ArrayOfValidationMessage" />
+  <xs:complexType name="ValidationMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CommonDomain" base="q1:IValidationMessage">
+        <xs:sequence>
+          <xs:element name="_message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ValidationMessage" nillable="true" type="tns:ValidationMessage" />
+</xs:schema>

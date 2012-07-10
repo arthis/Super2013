@@ -1,7 +1,7 @@
 using System.Diagnostics.Contracts;
 using CommonDomain.Persistence;
 
-namespace CommonDomain.Core
+namespace CommonDomain.Core.Handlers
 {
     public class ExecuteCommandOnceOnlyHandler<T> : ICommandHandler<T> where T : ICommand
     {

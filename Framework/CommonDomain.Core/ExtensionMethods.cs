@@ -1,3 +1,5 @@
+using CommonDomain.Core.Handlers;
+
 namespace CommonDomain.Core
 {
 	using System.Globalization;

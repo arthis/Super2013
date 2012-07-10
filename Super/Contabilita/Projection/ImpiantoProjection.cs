@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Linq;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using Super.Contabilita.Events.Impianto;
 using Super.ReadModel;
 
@@ -12,7 +13,7 @@ namespace Super.Contabilita.Projection
                                             IEventHandler<ImpiantoDeleted>
     {
 
-        public void Handle(ImpiantoCreated @event, IEventHandler<ImpiantoCreated> next)
+        public void Handle(ImpiantoCreated @event)
         {
             using (var container = Container.GetContainer())
             {
@@ -36,7 +37,7 @@ namespace Super.Contabilita.Projection
             }
         }
 
-        public void Handle(ImpiantoUpdated @event, IEventHandler<ImpiantoUpdated> next)
+        public void Handle(ImpiantoUpdated @event)
         {
             using (var container = Container.GetContainer())
             {
@@ -52,7 +53,7 @@ namespace Super.Contabilita.Projection
             }
         }
 
-        public void Handle(ImpiantoDeleted @event, IEventHandler<ImpiantoDeleted> next)
+        public void Handle(ImpiantoDeleted @event)
         {
             using (var container = Container.GetContainer())
             {

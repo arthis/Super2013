@@ -54,6 +54,7 @@ CREATE TABLE [dbo].[Lotto](
 	[Start] [datetime] NOT NULL,
 	[End] [datetime] NULL,
 	[CreationDate] [datetime] NOT NULL,
+	[Version] int not null,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_Lotto] PRIMARY KEY CLUSTERED 
 (
@@ -80,6 +81,7 @@ CREATE TABLE [dbo].[Impianto](
 	[IdLotto] [uniqueidentifier] NOT NULL,
 	[Start] [datetime] NOT NULL,
 	[End] [datetime] NULL,
+	[Version] int not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_Impianto] PRIMARY KEY CLUSTERED 
@@ -106,6 +108,7 @@ CREATE TABLE [dbo].[TipoIntervento](
 	[Description] [nvarchar](255) NULL,
 	[Start] [datetime] NOT NULL,
 	[End] [datetime] NULL,
+	[Version] int not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_TipoIntervento] PRIMARY KEY CLUSTERED 

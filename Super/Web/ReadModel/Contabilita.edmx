@@ -20,6 +20,7 @@
           <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
+          <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -39,6 +40,7 @@
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoIntervento">
@@ -49,6 +51,7 @@
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
+          <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -57,45 +60,11 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ContabilitaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="ContabilitaContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LastEventsReadContabilitas" EntityType="ContabilitaModel.LastEventsReadContabilita" />
           <EntitySet Name="Impiantoes" EntityType="ContabilitaModel.Impianto" />
           <EntitySet Name="Lottoes" EntityType="ContabilitaModel.Lotto" />
           <EntitySet Name="TipoInterventoes" EntityType="ContabilitaModel.TipoIntervento" />
-          <EntitySet Name="LastEventsReadContabilitas" EntityType="ContabilitaModel.LastEventsReadContabilita" />
         </EntityContainer>
-        <EntityType Name="Impianto">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="IdLotto" Type="Guid" Nullable="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Lotto">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TipoIntervento">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="LastEventsReadContabilita">
           <Key>
             <PropertyRef Name="CommitId" />
@@ -103,42 +72,94 @@
           <Property Type="Guid" Name="CommitId" Nullable="false" />
           <Property Type="DateTime" Name="Date" Nullable="false" />
         </EntityType>
+        <EntityType Name="Impianto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="IdLotto" Nullable="false" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lotto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoIntervento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SuperContabilitaReadModelStoreContainer" CdmEntityContainer="ContabilitaContainer">
-          <EntitySetMapping Name="Impiantoes"><EntityTypeMapping TypeName="ContabilitaModel.Impianto"><MappingFragment StoreEntitySet="Impianto">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
-            <ScalarProperty Name="Start" ColumnName="Start" />
-            <ScalarProperty Name="End" ColumnName="End" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Lottoes"><EntityTypeMapping TypeName="ContabilitaModel.Lotto"><MappingFragment StoreEntitySet="Lotto">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Start" ColumnName="Start" />
-            <ScalarProperty Name="End" ColumnName="End" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TipoInterventoes"><EntityTypeMapping TypeName="ContabilitaModel.TipoIntervento"><MappingFragment StoreEntitySet="TipoIntervento">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Start" ColumnName="Start" />
-            <ScalarProperty Name="End" ColumnName="End" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="LastEventsReadContabilitas">
             <EntityTypeMapping TypeName="ContabilitaModel.LastEventsReadContabilita">
               <MappingFragment StoreEntitySet="LastEventsReadContabilita">
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="CommitId" ColumnName="CommitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Impiantoes">
+            <EntityTypeMapping TypeName="ContabilitaModel.Impianto">
+              <MappingFragment StoreEntitySet="Impianto">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lottoes">
+            <EntityTypeMapping TypeName="ContabilitaModel.Lotto">
+              <MappingFragment StoreEntitySet="Lotto">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoInterventoes">
+            <EntityTypeMapping TypeName="ContabilitaModel.TipoIntervento">
+              <MappingFragment StoreEntitySet="TipoIntervento">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -163,10 +184,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Contabilita">
-        <EntityTypeShape EntityType="ContabilitaModel.Impianto" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3648893229166665" IsExpanded="true" />
-        <EntityTypeShape EntityType="ContabilitaModel.Lotto" Width="1.5" PointX="2.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="ContabilitaModel.TipoIntervento" Width="1.5" PointX="4.875" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="ContabilitaModel.LastEventsReadContabilita" Width="1.5" PointX="0.5" PointY="3.75" Height="1.4033821614583335" />
+        <EntityTypeShape EntityType="ContabilitaModel.Impianto" Width="1.5" PointX="2.5" PointY="0.625" Height="2.5571907552083335" />
+        <EntityTypeShape EntityType="ContabilitaModel.Lotto" Width="1.5" PointX="0.5" PointY="0.625" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="ContabilitaModel.TipoIntervento" Width="1.5" PointX="4.375" PointY="0.625" Height="2.3648893229166674" />
       </Diagram>
     </Diagrams>
   </Designer>

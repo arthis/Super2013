@@ -2,7 +2,7 @@
 using System.Diagnostics.Contracts;
 using CommonDomain.Persistence;
 
-namespace CommonDomain.Core
+namespace CommonDomain.Core.Handlers
 {
     public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where TCommand : IMessage
     {

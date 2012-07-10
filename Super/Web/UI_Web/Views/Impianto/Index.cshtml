@@ -2,6 +2,16 @@
     ViewBag.Title = "impianto";
     Layout = "~/Content/Layout/Earthlingtwo/_Layout.cshtml";// "~/Views/Shared/_LayoutDetailTemplate.cshtml"
 }
+
+@section JavaScript {
+    <script src="@Url.Content("~/Scripts/Contabilita/Commands/valueObjects.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contabilita/Commands/cmd-impianto.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contabilita/Repository/r-impianto.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contabilita/Model/m-impianto.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contabilita/ViewModel/vm-impianto.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contabilita/View/v-impianto.js")" type="text/javascript"></script>
+}
+
 <h2>
     impianto</h2>
 <div id="FilterResults">
@@ -27,403 +37,70 @@
 
 <script type="text/html" id="impiantoListTemplate">
     <table width=100% class="table-standard"> 
-            <tr>
-                <th>
-                    Description
-                </th>
-                <th>
-                    Start
-                </th>
-                <th>
-                    End
-                </th>
-                <th>
-                    CreationDate
-                </th>
-                <th colspan="2">
-                    Azione
-                </th>
-            </tr>
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                Start
+            </th>
+            <th>
+                End
+            </th>
+            <th>
+                CreationDate
+            </th>
+            <th colspan="2">
+                Azione
+            </th>
+        </tr>
         
-         <% _.each(Items(), function(item) { %>
-         <tr>
+        <% _.each(Items(), function(item) { %>
+        <tr>
             
             <td>
                 <%= item.Description() %>
             </td>
             
             <td>
-                <%= item.Start() %>
+                <%= item.Intervall.Start() %>
             </td>
             <td>
-                <%= item.End() %>
+                <%= item.Intervall.End() %>
             </td>
             <td>
                 <%= item.CreationDate() %>
             </td>
-             <td>
+            <td>
                 <a data-bind="click: function() { viewModel.ShowEditItem(item) }" href="#"><img src="@Url.Content("~/Images/Edit.gif")" border=0></a>
             </td>
             <td>
                 <a data-bind="click: function() { viewModel.DeleteItem(item) }" href="#"><img src="@Url.Content("~/Images/Delete.gif")" border=0></a>
             </td>
         </tr>
-         <% }) %>
-        </table>
+        <% }) %>
+    </table>
 </script>
+
 <script language="javascript">
 
- 
-    //View
-    var View = function (spinner, detailsDiv, detailsForm, paginationDiv) {
-        var self = this;
 
-        this.Details = detailsDiv;
-        this.DetailsForm = detailsForm;
-        this.Pagination = paginationDiv;
-
-        this.Spin = function (waiting) {
-            spinner.Spin(waiting);
-        };
-        this.StopSpin = function () {
-            spinner.StopSpin();
-        };
-
-         //dialog
-        this.OpenDetails = function (urlView, title) {
-            self.UrlView = urlView;
-
-            $('#details').dialog({
-                autoOpen: false,
-                width: 350,
-                height: 400,
-                position: 'center',
-                resizable: true,
-                title: title,
-                modal: true,
-                open: function (event, ui) {
-                    $(this).load(self.UrlView, function () {
-                        ko.applyBindings(viewModel, document.getElementById("details"));
-                    });
-                },
-                buttons: {
-                    "Accept": function () {
-                        var form= document.getElementById("formDetails");
-                        if (viewModel.Accept(form))
-                            $(this).dialog("close");
-                    },
-                    "Cancel": function () {
-                        viewModel.Cancel();
-                        $(this).dialog("close");
-                    }
-                }
-            });
-            details.dialog("open");  //let's put this in a custom binding handler called "openDialog"
-        }
-
-        this.CloseDetails = function () {
-            details.dialog("close");
-        }
-
-        //pagination
-        this.Paginate = function (pageNum, PageSize, totalItems, action) {
-            $(paginationDiv).paging(totalItems, {
-                format: "- (qq.) < nnncnnn > (.pp)",
-                perpage: PageSize,
-                lapping: 0,
-                page: pageNum,
-                onSelect: function (page) {
-                    if (pageNum != page) {
-                        action(page);
-                    }
-                },
-                onFormat: function (type) {
-
-                    switch (type) {
-                        case 'left':
-                            if (this.page > 5)
-                                return '<em><a href="#' + this.value + '">' + this.value + '</a></em>';
-                            return "";
-                        case 'right':
-                            if (this.page < (this.pages - 5))
-                                return '<em><a href="#' + this.value + '">' + this.value + '</a></em>';
-                            return "";
-                        case 'block':
-
-                            if (!this.active)
-                                return '<span class="disabled"  title="Pagina ' + this.value + '">' + this.value + '</span>';
-                            else if (this.value != this.page)
-                                return '<em><a href="#' + this.value + '" title="Pagina ' + this.value + '">' + this.value + '</a></em>';
-                            return '<span class="this-page">' + this.value + '</span>';
-
-                        case 'next':
-
-                            if (this.active)
-                                return '<a href="#' + this.value + '" class="next">></a>';
-                            return '<span class="disabled">></span>';
-
-                        case 'prev':
-
-                            if (this.active)
-                                return '<a href="#' + this.value + '" class="prev"><</a>';
-                            return '<span class="disabled"><</span>';
-
-                        case 'first':
-
-                            if (this.active)
-                                return '<a href="#' + this.value + '" class="first">First</a>';
-                            return '<span class="disabled">First</span>';
-
-                        case 'last':
-
-                            if (this.active)
-                                return '<a href="#' + this.value + '" class="last">Last</a>';
-                            return '<span class="disabled">Last</span>';
-
-                        case "leap":
-                            if (this.active && (this.page > 5) && (this.page < (this.pages - 5)))
-                                return '<span class="break">...</span>';
-                            return "";
-                        case 'fill':
-                            if (this.active)
-                                return "Pages:&nbsp;";
-                            return "";
-                    }
-                }
-            });
-        }
-    }
-
-
-    //Commands
-    var ViewItems = function (description, pageNum, pageSize){
-        this.Description = description;
-        this.PageNum = pageNum;
-        this.PageSize = pageSize;
-    }
-    var CreateImpianto = function (id,  creationDate, start, end, description) {
-        this.Id = id;
-        this.CreationDate = dateFormat(creationDate,"isoDateTime");
-        this.Start = dateFormat(start,"isoDateTime");
-        this.End = dateFormat(end,"isoDateTime");
-        this.Description = description;
-    }
-    var UpdateImpianto = function (id,  start, end, description) {
-        this.Id = id;
-        this.Start = start.format("isoDateTime");
-        this.End = end.format("isoDateTime");
-        this.Description = description;
-    }
-    var DeleteImpianto = function (id) {
-        this.Id = id;
-    }
-
-    //Repository
-    var Repository = function () {
-        this.GetItems = function (description, pageNum, pageSize, success,error) {
-            jQuery.ajaxSettings.traditional = true;
-            var command = new ViewItems(description,pageNum,pageSize);
-            $.ajax({
-                type: 'Post',
-                url: '@Url.Action("GetItems")',
-                data: JSON.stringify(command),
-                contentType: 'application/json; charset=utf-8',
-                success: success,
-                error: error,
-                dataType: 'json'
-            });
-        };
-        this.Add = function (selected, success, error) {
-            var returnValue = false;
-            var command = new CreateImpianto(selected.Id(),  selected.CreationDate(), selected.Start(), selected.End(), selected.Description())
-            $.ajax({
-                type: 'Post',
-                url: '@Url.Action("Create")',
-                data: JSON.stringify(command),
-                contentType: 'application/json; charset=utf-8',
-                success: function() { returnValue=success(selected)},
-                error: function() { returnValue=error(selected)},
-                dataType: 'json',
-                async: false
-            });
-            return returnValue;
-        };
-        this.Update = function (selected, success, error) {
-            var returnValue = false;
-            var command = new UpdateImpianto(selected.Id(), selected.Start(), selected.End(), selected.Description())
-            $.ajax({
-                type: 'Post',
-                url: '@Url.Action("Update")',
-                data: JSON.stringify(command),
-                contentType: 'application/json; charset=utf-8',
-                success: function() { returnValue=success(selected)},
-                error: function() { returnValue=error(selected)},
-                dataType: 'json',
-                async: false
-            });
-            return returnValue;
-        };
-        this.Delete = function (selected, success, error) {
-            var returnValue = false;
-            var command = new DeleteImpianto(selected.Id())
-            $.ajax({
-                type: 'Post',
-                url: '@Url.Action("Delete")',
-                data: JSON.stringify(command),
-                contentType: 'application/json; charset=utf-8',
-                success: function() { returnValue=success(selected)},
-                error: function() { returnValue=error(selected)},
-                dataType: 'json',
-                async: false
-            });
-            return returnValue;
-        };
-    }
-
-  
-
-    //Model
-    var Impianto = function (id,  creationDate, start, end, description, isNew) {
-        var self = this;
-        this.Id = ko.observable(id);
-        this.CreationDate = ko.observable(creationDate.format("dd/mm/yyyy HH:MM"));
-        this.Start = ko.observable(start.format("dd/mm/yyyy"));
-        this.End = ko.observable(end.format("dd/mm/yyyy"));
-        this.Description = ko.observable(description);
-        this.IsNew = isNew;
-
-        this.EditStart = ko.observable(start.format("dd/mm/yyyy"));
-        this.EditEnd = ko.observable(end.format("dd/mm/yyyy"));
-        this.EditDescription = ko.observable(description);
-
-        //reset to originals on cancel 
-        this.Cancel = function () {
-            this.Start(this.EditStart()).End(this.EditEnd()).Description(this.EditDescription());
-        } .bind(this);
-
-        //persist edits to real values on accept
-        this.Accept = function () {
-            this.EditStart(this.Start()).EditEnd(this.End()).EditDescription(this.Description());
-        } .bind(this);
-    }
-
-
-    
-
-    //ViewModel
-    var ViewModel = function (repository, view, pageNum, pageSize) {
-        var self = this;
-          
-        //filtro
-        this.Description = ko.observable();
-        this.PageNum = ko.observable(pageNum);
-        this.PageSize = ko.observable(pageSize);
-            
-        this.Items = ko.mapping.fromJS([]);
-        this.SelectedItem = ko.observable();
-
-
-        this.ShowEditItem = function (item) {
-            view.Spin({title: "Please Wait", message: "Opening form..."});
-            viewModel.SelectedItem(item);
-            view.OpenDetails("@Url.Action("Update")", 'Update un impianto');
-            view.StopSpin();
-        };
-        this.ShowAddItem = function () {
-            view.Spin({title: "Please Wait", message: "Opening form..."});
-            var now = new Date();
-            var newItem = new Impianto(guidGenerator(), now, now, now, '', true)
-            viewModel.SelectedItem(newItem);
-            view.OpenDetails("@Url.Action("Create")",'Aggiungere un impianto');
-            view.StopSpin();
-        };
-        this.DeleteItem = function (item) {
-            
-            view.Spin({title: "Please Wait", message: "Deleting impianto..."});
-            repository.Delete(item,viewModel.DeleteItemSuccess,viewModel.DeleteItemError);
-        };
-
-        this.DeleteItemSuccess = function(selected)
-        {
-            viewModel.Items.remove(item);
-            view.StopSpin();
-            alert("item " + selected.Id() + " removed");
-        }
-
-        this.DeleteItemError= function(selected)
-        {
-            view.StopSpin();
-            alert("item " + selected.Id() + " not removed");
-        };
-
-         this.Accept = function (form) {
-            var returnValue = false;
-            view.Spin({title: "Please Wait", message: "Accepting modification..."});
-            var selected = viewModel.SelectedItem();
-
-            if ($(form).valid())
-                if (selected.IsNew) 
-                     repository.Add(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
-                else
-                     repository.Update(selected,viewModel.AcceptSuccess,viewModel.AcceptError);
-            else
-                alert("error");
-        };
-
-        this.AcceptSuccess = function(selected){
-            selected.Accept();
-            if (selected.IsNew)            
-                viewModel.Items.push(selected);
-            viewModel.SelectedItem("");
-            view.CloseDetails();
-            view.StopSpin();
-        }
-
-        this.AcceptError = function(selected){
-            view.StopSpin();
-            alert("error repository");
-        };
-
-       
-        this.Cancel = function () {
-            viewModel.SelectedItem().Cancel();
-            viewModel.SelectedItem("");
-            view.CloseDetails();
-        };
-
-         this.GetItems = function (pageNum) {
-            view.Spin({title: "Please Wait", message: "Loading data..."});
-            if (pageNum==null)
-                self.PageNum(1);
-            else
-                self.PageNum(pageNum);
-            repository.GetItems(self.Description(),self.PageNum(),self.PageSize(),self.GetItemsSuccess,self.GetItemsError);
-        };
-
-        this.GetItemsSuccess = function (items) {
-            self.Items.removeAll();
-            ko.utils.arrayForEach(items.results, function (item) {
-                self.Items.push(new Impianto(item.Id, ToDate(item.CreationDate), ToDate(item.Start), ToDate(item.End), item.Description));
-            });
-            view.Paginate(self.PageNum(),self.PageSize(),items.count,viewModel.GetItems);
-            view.StopSpin();
-        };
-
-        this.GetItemsError = function(){
-            view.StopSpin();
-            alert('error while fetching data');
-        }
-    };
 
     //get the element of the page
     var details = $("#details"); //div that holds the modal dialog
     var detailsForm = $("#formDetails");
-    var pagination =  $("#pagination");
-
-    //build  objects
-    var view = new View(new Spinner(),details,detailsForm,pagination);
+    var pagination = $("#pagination");
     
-    var viewModel = new ViewModel(new Repository(),view, 1, 10);
+    var urlCreate = "@Url.Action("Create")";
+    var urlUpdate = "@Url.Action("Update")";
+    var urlDelete = "@Url.Action("Delete")";
+    var urlGetItems ="@Url.Action("GetItems")";
+    
+    //build  objects
+    var view = new View(new Spinner(), pagination);
+    var repository = new Repository(urlCreate, urlUpdate, urlDelete, urlGetItems);
+
+    var viewModel = new ViewModel(repository, "details", "formDetails", view, 1, 10, urlUpdate,urlCreate);
     ko.applyBindings(viewModel);
 
     viewModel.GetItems(viewModel.PageNum());

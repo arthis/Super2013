@@ -1,5 +1,6 @@
 ﻿using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Saga.Domain;
 using Super.Saga.Domain.Intervento;
@@ -11,7 +12,7 @@ namespace Super.Saga.Handlers
     public class InterventoRotPianificatoHandler : SagaHandler<InterventoRotPianificato>
     {
         public InterventoRotPianificatoHandler(ISagaRepository repository, IBus bus)
-            : base(repository, bus)
+            : base(repository, bus, null)
         {
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Super.Domain.Builders;
 using CommonDomain.Persistence;
 using Super.Contabilita.Commands.Impianto;

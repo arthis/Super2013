@@ -12,7 +12,7 @@ namespace Super.Contabilita.Commands.Impianto
 
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }
-        public Intervall Period { get; set; }
+        public Intervall Intervall { get; set; }
         public Guid IdLotto { get; set; }
         
         public CreateImpianto()
@@ -28,7 +28,7 @@ namespace Super.Contabilita.Commands.Impianto
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description) );
             Contract.Requires<ArgumentNullException>(idLotto != Guid.Empty);
 
-            Period = period;
+            Intervall = period;
             CreationDate = creationDate;
             Description = description;
             IdLotto = idLotto;
@@ -45,7 +45,7 @@ namespace Super.Contabilita.Commands.Impianto
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Description, Description) && other.CreationDate.Equals(CreationDate) && Equals(other.Period, Period) && other.IdLotto.Equals(IdLotto);
+            return base.Equals(other) && Equals(other.Description, Description) && other.CreationDate.Equals(CreationDate) && Equals(other.Intervall, Intervall) && other.IdLotto.Equals(IdLotto);
         }
 
         public override bool Equals(object obj)
@@ -62,7 +62,7 @@ namespace Super.Contabilita.Commands.Impianto
                 int result = base.GetHashCode();
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
                 result = (result*397) ^ CreationDate.GetHashCode();
-                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
+                result = (result*397) ^ (Intervall != null ? Intervall.GetHashCode() : 0);
                 result = (result*397) ^ IdLotto.GetHashCode();
                 return result;
             }

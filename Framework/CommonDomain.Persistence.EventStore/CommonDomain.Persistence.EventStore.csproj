@@ -80,6 +80,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
     </Compile>
+    <Compile Include="InMemoryProjectionRepository.cs" />
+    <Compile Include="ProjectionRepositoryBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SagaEventStoreRepository.cs">
       <SubType>Code</SubType>

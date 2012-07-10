@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Commands;
 
@@ -15,7 +16,7 @@ namespace Super.Appaltatore.Handlers
 
         public void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent)
         {
-            var handlerHelper = new HandlerHelper(commandRepository);
+            var handlerHelper = new CommandHandlerHelper(commandRepository);
 
             handlerHelper.Add(_handlers, new ProgrammareInterventoAmbHandler(eventRepositoryEvent));
             handlerHelper.Add(_handlers, new ProgrammareInterventoRotHandler(eventRepositoryEvent));

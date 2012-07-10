@@ -1,6 +1,7 @@
 ﻿using System;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using Super.Controllo.Commands;
 using Super.Controllo.Domain;
 using CommonDomain.Persistence;

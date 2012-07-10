@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Commands.Lotto;
@@ -16,15 +17,15 @@ namespace Super.Contabilita.Handlers
 
         public void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository)
         {
-            var handlerHelper = new HandlerHelper(commandRepository);
+            var handlerHelper = new CommandHandlerHelper(commandRepository);
 
-            handlerHelper.Add<CreateImpianto>(_handlers, new CreateImpiantoHandler(eventRepository));
-            handlerHelper.Add<UpdateImpianto>(_handlers, new UpdateImpiantoHandler(eventRepository));
-            handlerHelper.Add<DeleteImpianto>(_handlers, new DeleteImpiantoHandler(eventRepository));
+            handlerHelper.Add(_handlers, new CreateImpiantoHandler(eventRepository));
+            handlerHelper.Add(_handlers, new UpdateImpiantoHandler(eventRepository));
+            handlerHelper.Add(_handlers, new DeleteImpiantoHandler(eventRepository));
 
-            handlerHelper.Add<CreateLotto>(_handlers, new CreateLottoHandler(eventRepository));
-            handlerHelper.Add<UpdateLotto>(_handlers, new UpdateLottoHandler(eventRepository));
-            handlerHelper.Add<DeleteLotto>(_handlers, new DeleteLottoHandler(eventRepository));
+            handlerHelper.Add(_handlers, new CreateLottoHandler(eventRepository));
+            handlerHelper.Add(_handlers, new UpdateLottoHandler(eventRepository));
+            handlerHelper.Add(_handlers, new DeleteLottoHandler(eventRepository));
 
         }
 

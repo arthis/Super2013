@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using CommonDomain.Persistence;
 
-namespace CommonDomain.Core
+namespace CommonDomain.Core.Handlers
 {
-    public  class HandlerHelper
+    public  class CommandHandlerHelper
     {
         private readonly ICommandRepository _commandRepository;
 
-        public HandlerHelper(ICommandRepository commandRepository)
+        public CommandHandlerHelper(ICommandRepository commandRepository)
         {
             _commandRepository = commandRepository;
         }

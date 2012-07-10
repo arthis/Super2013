@@ -152,3 +152,9 @@ var Utf8 = {
     }
 
 }
+
+
+
+var DateTimeMin = new Date().setFullYear(2000, 0, 1);
+var DateTimeMax = new Date().setFullYear(2050, 0, 1);
+

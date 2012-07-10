@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using EasyNetQ;
