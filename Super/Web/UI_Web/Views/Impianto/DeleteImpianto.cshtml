@@ -1,0 +1,68 @@
+﻿@model UI_Web.Models.DeleteImpianto
+@{
+    ViewBag.Title = "edit impianto";
+    Layout = string.Empty;
+}
+<form id="formDetails">
+Are you sure you want to delete this impianto
+<fieldset>
+    <legend>Impianto</legend>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Description)*
+    </div>
+    <div class="editor-field">
+        @Model.Description
+    </div>
+    <div class="editor-label">
+        Lotto*
+    </div>
+    <div class="editor-field">
+        @Model.LottoDescription
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Start)
+    </div>
+    <div class="editor-field">
+        @Model.Start
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.End)
+    </div>
+    <div class="editor-field">
+        @Model.End
+    </div>
+</fieldset>
+@Html.HiddenFor(model => model.Command.Id)
+@Html.HiddenFor(model=>model.Command.CommitId)
+@Html.HiddenFor(model=>model.Command.Version)
+</form>
+<script>
+    $(document).ready(function () {
+
+        viewModel.Accept = function (self) {
+
+            jQuery('#formDetails').validationEngine({ scroll: false });
+
+            var id = $('#Command_Id').val();
+            var commitId = $('#Command_CommitId').val();
+            var version = $('#Command_Version').val();
+                
+
+            var url = "@Url.Action("DeleteImpianto")";
+
+            try 
+            {
+                var command = new DeleteImpianto(id, commitId, version);
+
+                self.DeleteImpianto(url, command);
+            } catch(e) 
+            {
+                alert(e);
+            }
+            
+        };
+        
+       
+        
+    });
+</script>

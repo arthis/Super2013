@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using CommandService;
 using CommonDomain.Core;
@@ -13,6 +14,7 @@ namespace Super.Contabilita.Commands.Impianto
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }
         public Intervall Intervall { get; set; }
+        [DisplayName("Lotto")]
         public Guid IdLotto { get; set; }
         
         public CreateImpianto()

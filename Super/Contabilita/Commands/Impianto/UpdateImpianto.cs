@@ -10,7 +10,7 @@ namespace Super.Contabilita.Commands.Impianto
     public class UpdateImpianto : CommandBase
     {
 
-        public Intervall Period { get; set; }
+        public Intervall Intervall { get; set; }
         public string Description { get;  set; }
 
         public UpdateImpianto()
@@ -22,7 +22,7 @@ namespace Super.Contabilita.Commands.Impianto
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
             Contract.Requires<ArgumentNullException>(period != null);
 
-            Period = period;
+            Intervall = period;
             Description = description;
         }
 
@@ -35,7 +35,7 @@ namespace Super.Contabilita.Commands.Impianto
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Period, Period) && Equals(other.Description, Description);
+            return base.Equals(other) && Equals(other.Intervall, Intervall) && Equals(other.Description, Description);
         }
 
         public override bool Equals(object obj)
@@ -50,7 +50,7 @@ namespace Super.Contabilita.Commands.Impianto
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
+                result = (result*397) ^ (Intervall != null ? Intervall.GetHashCode() : 0);
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
                 return result;
             }

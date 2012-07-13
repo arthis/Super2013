@@ -114,6 +114,7 @@
     <Compile Include="Attributes\SetCultureAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppaltatoreController.cs" />
+    <Compile Include="Controllers\LottoController.cs" />
     <Compile Include="Controllers\ImpiantoController.cs" />
     <Compile Include="Controllers\ControllerBaseSuper.cs" />
     <Compile Include="Controllers\TipoInterventoController.cs" />
@@ -123,7 +124,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\AreaIntervento.cs" />
+    <Compile Include="Models\Lotto.cs" />
+    <Compile Include="Models\Impianto.cs" />
     <Compile Include="Models\TipoIntervento.cs" />
     <Compile Include="Models\Intervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +179,22 @@
     <Content Include="Content\Themes\base\jquery.ui.slider.css" />
     <Content Include="Content\Themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\Themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\Themes\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Themes\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\Themes\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\Themes\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\Themes\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Themes\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\Themes\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\Themes\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\Themes\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\Themes\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Themes\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\Themes\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\Themes\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Themes\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\Themes\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\Themes\redmond\jquery-ui-1.8.17.custom.css" />
     <Content Include="Content\Themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\Themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Content\Themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
@@ -250,26 +268,33 @@
     <Content Include="Node\server.js" />
     <Content Include="Node\views\index.html" />
     <Content Include="Node\views\layout.html" />
-    <Content Include="Scripts\Contabilita\Commands\valueObjects.js" />
-    <Content Include="Scripts\Contabilita\Commands\cmd-impianto.js" />
-    <Content Include="Scripts\Contabilita\Model\m-impianto.js" />
-    <Content Include="Scripts\Contabilita\Repository\r-impianto.js" />
-    <Content Include="Scripts\Contabilita\ViewModel\vm-impianto.js" />
-    <Content Include="Scripts\Contabilita\View\v-impianto.js" />
+    <Content Include="Scripts\Contabilita\Commands\cmd-Impianto.js" />
+    <Content Include="Scripts\Contabilita\Commands\cmd-Lotto.js" />
+    <Content Include="Scripts\Contabilita\Commands\vo-intervall.js" />
+    <Content Include="Scripts\Contabilita\ViewModel\vm-Lotto-index.js" />
+    <Content Include="Scripts\Contabilita\ViewModel\vm-Impianto-index.js" />
+    <None Include="Properties\DataSources\CommandService.ExecuteResponse.datasource" />
+    <None Include="Service References\Contabilita\Contabilita.disco" />
+    <None Include="Service References\Contabilita\configuration91.svcinfo" />
+    <None Include="Service References\Contabilita\configuration.svcinfo" />
+    <None Include="Service References\Contabilita\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Scripts\dateFormat.js" />
     <Content Include="Scripts\EditorHookup.js" />
     <Content Include="Scripts\functions.js" />
     <Content Include="Scripts\functionsDetails.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-ui-1.8.17.custom.min.js" />
     <Content Include="Scripts\jquery.paging.js" />
     <Content Include="Scripts\jquery.paging.min.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
-    <Content Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive-extension.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validationEngine-it.js" />
+    <Content Include="Scripts\jquery.validationEngine.js" />
     <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\knockout-2.0.0rc.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
@@ -280,19 +305,11 @@
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\underscore-1.3.1.js" />
-    <None Include="Properties\DataSources\CommandService.ExecuteResponse.datasource" />
-    <None Include="Service References\Contabilita\Contabilita.disco" />
-    <None Include="Service References\Contabilita\configuration91.svcinfo" />
-    <None Include="Service References\Contabilita\configuration.svcinfo" />
-    <None Include="Service References\Contabilita\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Scripts\uuid.js" />
     <Content Include="Views\ConsuntivoRotabileApplatatore\Add.cshtml" />
     <Content Include="Views\ConsuntivoRotabileApplatatore\ConsuntivazioneReso.cshtml" />
     <Content Include="Views\Impianto\Index.cshtml" />
-    <Content Include="Views\Impianto\Details.cshtml" />
+    <Content Include="Views\Impianto\CreateImpianto.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\koStringEditorFor.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\koDateEditorFor.cshtml" />
@@ -372,6 +389,12 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\TipoIntervento\Details.cshtml" />
     <Content Include="Views\TipoIntervento\Index.cshtml" />
+    <Content Include="Views\Impianto\EditImpianto.cshtml" />
+    <Content Include="Views\Impianto\DeleteImpianto.cshtml" />
+    <Content Include="Views\Lotto\CreateLotto.cshtml" />
+    <Content Include="Views\Lotto\Index.cshtml" />
+    <Content Include="Views\Lotto\DeleteLotto.cshtml" />
+    <Content Include="Views\Lotto\EditLotto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

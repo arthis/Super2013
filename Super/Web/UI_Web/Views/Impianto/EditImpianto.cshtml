@@ -1,0 +1,80 @@
+﻿@model UI_Web.Models.EditImpianto
+@{
+    ViewBag.Title = "edit impianto";
+    Layout = string.Empty;
+}
+<form id="formDetails">
+    <fieldset>
+        <legend>Impianto</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Command.Description)*
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Command.Description, new { @class = "validate[required]" })
+        </div>
+         <div class="editor-label">
+            Lotto*
+        </div>
+        <div class="editor-field">
+            @Model.LottoDescription
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Command.Intervall.Start)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Command.Intervall.Start, new { @class = "validate[required,funcCall[checkIntervall]] datepicker " })
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Command.Intervall.End)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Command.Intervall.End, new { @class = "validate[required,funcCall[checkIntervall]] datepicker " })
+        </div>
+    </fieldset>
+    @Html.HiddenFor(model => model.Command.Id)
+    @Html.HiddenFor(model=>model.Command.CommitId)
+    @Html.HiddenFor(model=>model.Command.Version)
+</form>
+<script>
+
+    
+    $(document).ready(function () {
+        $('.datepicker').datepicker({ dateFormat: "dd/mm/yy" });
+        jQuery("#formDetails").validationEngine();
+        
+
+        viewModel.Accept = function (self) {
+
+            jQuery('#formDetails').validationEngine({ scroll: false });
+            if(jQuery('#formDetails').validationEngine('validate')) {
+
+                var id = $('#Command_Id').val();
+                var commitId = $('#Command_CommitId').val();
+                var version = $('#Command_Version').val();
+                var description = $('#Command_Description').val();
+                var start = $(jq('Command_Intervall_Start')).val();
+                var end = $(jq('Command_Intervall_End')).val();
+                
+
+                var url = "@Url.Action("UpdateImpianto")";
+
+
+                var intervall = new Intervall(start, end).ToIsoDateTime();
+
+
+                try 
+                {
+                    var command = new UpdateImpianto(id, commitId, version,  intervall, description);
+
+                    self.UpdateImpianto(url, command);
+                } catch(e)
+                {
+                    alert(e);
+                }
+            }
+        };
+        
+       
+        
+    });
+</script>

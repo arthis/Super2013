@@ -14,16 +14,19 @@ namespace UI_Web.Controllers
     [SetCulture]
     public class ControllerBaseSuper : Controller
     {
-        
+        public DateTime Now
+        {
+            get { return DateTime.Now; }
+        }
     }
 
-    public class ControllerContabilita : Controller
+    public class ControllerContabilita : ControllerBaseSuper
     {
         private CommandWebServiceClient _commandService;
 
         public CommandWebServiceClient CommandService
         {
-            get { return _commandService; }
+            get { return  _commandService; }
         }
 
         public ControllerContabilita()

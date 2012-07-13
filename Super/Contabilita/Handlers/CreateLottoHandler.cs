@@ -29,7 +29,7 @@ namespace Super.Contabilita.Handlers
 
 
             var lotto=  new Lotto(cmd.Id,
-                                          Build.Intervall.FromPeriod(cmd.Period).Build(),
+                                          Build.Intervall.FromPeriod(cmd.Intervall).Build(),
                                           cmd.CreationDate,
                                           cmd.Description);
 

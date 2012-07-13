@@ -9,7 +9,7 @@ namespace Super.Contabilita.Commands.Lotto
     
     public class CreateLotto : CommandBase
     {
-        public Intervall Period { get;  set; }
+        public Intervall Intervall { get;  set; }
         public string Description { get;  set; }
         public DateTime CreationDate { get;  set; }
 
@@ -25,7 +25,7 @@ namespace Super.Contabilita.Commands.Lotto
             Contract.Requires<ArgumentOutOfRangeException>(creationDate > DateTime.MinValue);
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
 
-            this.Period = period;
+            this.Intervall = period;
             this.Description = description;
             this.CreationDate = creationDate;
         }
@@ -39,7 +39,7 @@ namespace Super.Contabilita.Commands.Lotto
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Period, Period) && Equals(other.Description, Description) && other.CreationDate.Equals(CreationDate);
+            return base.Equals(other) && Equals(other.Intervall, Intervall) && Equals(other.Description, Description) && other.CreationDate.Equals(CreationDate);
         }
 
         public override bool Equals(object obj)
@@ -54,7 +54,7 @@ namespace Super.Contabilita.Commands.Lotto
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
+                result = (result*397) ^ (Intervall != null ? Intervall.GetHashCode() : 0);
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
                 result = (result*397) ^ CreationDate.GetHashCode();
                 return result;

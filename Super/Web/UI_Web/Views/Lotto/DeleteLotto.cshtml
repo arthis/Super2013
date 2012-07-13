@@ -1,0 +1,62 @@
+﻿@model UI_Web.Models.DeleteLotto
+@{
+    ViewBag.Title = "edit lotto";
+    Layout = string.Empty;
+}
+<form id="formDetails">
+Are you sure you want to delete this lotto
+<fieldset>
+    <legend>Lotto</legend>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Description)*
+    </div>
+    <div class="editor-field">
+        @Model.Description
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Start)
+    </div>
+    <div class="editor-field">
+        @Model.Start
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.End)
+    </div>
+    <div class="editor-field">
+        @Model.End
+    </div>
+</fieldset>
+@Html.HiddenFor(model => model.Command.Id)
+@Html.HiddenFor(model=>model.Command.CommitId)
+@Html.HiddenFor(model=>model.Command.Version)
+</form>
+<script>
+    $(document).ready(function () {
+
+        viewModel.Accept = function (self) {
+
+            jQuery('#formDetails').validationEngine({ scroll: false });
+
+            var id = $('#Command_Id').val();
+            var commitId = $('#Command_CommitId').val();
+            var version = $('#Command_Version').val();
+                
+
+            var url = "@Url.Action("DeleteLotto")";
+
+            try 
+            {
+                var command = new DeleteLotto(id, commitId, version);
+
+                self.DeleteLotto(url, command);
+            } catch(e) 
+            {
+                alert(e);
+            }
+            
+        };
+        
+       
+        
+    });
+</script>

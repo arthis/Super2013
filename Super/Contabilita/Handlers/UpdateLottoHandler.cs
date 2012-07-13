@@ -26,7 +26,7 @@ namespace Super.Contabilita.Handlers
             if (lotto.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            lotto.Update(Build.Intervall.FromPeriod(cmd.Period).Build(), cmd.Description);
+            lotto.Update(Build.Intervall.FromPeriod(cmd.Intervall).Build(), cmd.Description);
 
             EventRepository.Save(lotto, cmd.CommitId);
 

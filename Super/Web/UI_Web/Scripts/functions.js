@@ -13,51 +13,7 @@ function ToDate(value) {
 
 
 
-$.validator.unobtrusive.addValidation = function (selector) {
-    //get the relevant form 
-    var form = $(selector);
-    // delete validator in case someone called form.validate()
-    $(form).removeData('validator');
-    $.validator.unobtrusive.parse(form);
-}
 
-
-
-var Spinner = function () {
-    this.Spin = function (waiting) {
-        if (waiting==null)
-            alert("please call the Spin function using Spin({});");
-
-        // create the loading window and set autoOpen to false
-        $("#loading").dialog({
-            autoOpen: false, // set this to false so we can manually open it
-            dialogClass: "loadingScreenWindow",
-            closeOnEscape: false,
-            draggable: false,
-            width: 460,
-            minHeight: 50,
-            modal: true,
-            buttons: {},
-            resizable: false,
-            open: function () {
-                // scrollbar fix for IE
-                $('body').css('overflow', 'hidden');
-                //remove the X
-                $("a.ui-dialog-titlebar-close").remove();
-            },
-            close: function () {
-                // reset overflow
-                $('body').css('overflow', 'auto');
-            }
-        }); // end of dialog
-        $("#loading").html(waiting.message && '' != waiting.message ? waiting.message : 'Please wait...');
-	    $("#loading").dialog('option', 'title', waiting.title && '' != waiting.title ? waiting.title : 'Loading');
-	    $("#loading").dialog('open');
-    };
-    this.StopSpin = function () {
-        $("#loading").dialog("close");
-    };
-}
 
 
 var Utf8 = {
@@ -158,3 +114,166 @@ var Utf8 = {
 var DateTimeMin = new Date().setFullYear(2000, 0, 1);
 var DateTimeMax = new Date().setFullYear(2050, 0, 1);
 
+
+function jq(myid) {
+    return '#' + myid.replace(/(:|\.)/g, '\\$1');
+}
+
+
+
+
+var Spinner = function () {
+    this.Spin = function (waiting) {
+        if (waiting == null)
+            alert("please call the Spin function using Spin({});");
+
+        // create the loading window and set autoOpen to false
+        $("#loading").dialog({
+            autoOpen: false, // set this to false so we can manually open it
+            dialogClass: "loadingScreenWindow",
+            closeOnEscape: false,
+            draggable: false,
+            width: 460,
+            minHeight: 50,
+            modal: true,
+            buttons: {},
+            resizable: false,
+            open: function () {
+                // scrollbar fix for IE
+                $('body').css('overflow', 'hidden');
+                //remove the X
+                $("a.ui-dialog-titlebar-close").remove();
+            },
+            close: function () {
+                // reset overflow
+                $('body').css('overflow', 'auto');
+            }
+        }); // end of dialog
+        $("#loading").html(waiting.message && '' != waiting.message ? waiting.message : 'Please wait...');
+        $("#loading").dialog('option', 'title', waiting.title && '' != waiting.title ? waiting.title : 'Loading');
+        $("#loading").dialog('open');
+    };
+    this.StopSpin = function () {
+        $("#loading").dialog("close");
+    };
+}
+
+//View
+var View = function () {
+    var self = this;
+
+    this.Pagination = $("#pagination");
+    this.Spinner = new Spinner();
+
+    this.Spin = function (waiting) {
+        self.Spinner.Spin(waiting);
+    };
+    this.StopSpin = function () {
+        self.Spinner.StopSpin();
+    };
+
+
+    //pagination
+    this.Paginate = function(pageNum, pageSize, totalItems, action) {
+        self.Pagination.paging(totalItems, {
+            format: "- (qq.) < nnncnnn > (.pp)",
+            perpage: pageSize,
+            lapping: 0,
+            page: pageNum,
+            onSelect: function(page) {
+                if (pageNum != page) {
+                    action(page);
+                }
+            },
+            onFormat: function(type) {
+
+                switch (type) {
+                case 'left':
+                    if (this.page > 5)
+                        return '<em><a href="#' + this.value + '">' + this.value + '</a></em>';
+                    return "";
+                case 'right':
+                    if (this.page < (this.pages - 5))
+                        return '<em><a href="#' + this.value + '">' + this.value + '</a></em>';
+                    return "";
+                case 'block':
+                    if (!this.active)
+                        return '<span class="disabled"  title="Pagina ' + this.value + '">' + this.value + '</span>';
+                    else if (this.value != this.page)
+                        return '<em><a href="#' + this.value + '" title="Pagina ' + this.value + '">' + this.value + '</a></em>';
+                    return '<span class="this-page">' + this.value + '</span>';
+                case 'next':
+                    if (this.active)
+                        return '<a href="#' + this.value + '" class="next">></a>';
+                    return '<span class="disabled">></span>';
+                case 'prev':
+                    if (this.active)
+                        return '<a href="#' + this.value + '" class="prev"><</a>';
+                    return '<span class="disabled"><</span>';
+                case 'first':
+                    if (this.active)
+                        return '<a href="#' + this.value + '" class="first">First</a>';
+                    return '<span class="disabled">First</span>';
+                case 'last':
+                    if (this.active)
+                        return '<a href="#' + this.value + '" class="last">Last</a>';
+                    return '<span class="disabled">Last</span>';
+                case "leap":
+                    if (this.active && (this.page > 5) && (this.page < (this.pages - 5)))
+                        return '<span class="break">...</span>';
+                    return "";
+                case 'fill':
+                    if (this.active)
+                        return "Pages:&nbsp;";
+                    return "";
+                }
+            }
+        });
+    };
+};
+
+//Repository
+var Repository = function () {
+    this.Post = function (url, command, success, error) {
+        jQuery.ajaxSettings.traditional = true;
+        $.ajax({
+            type: 'Post',
+            url: url,
+            data: JSON.stringify(command),
+            contentType: 'application/json; charset=utf-8',
+            success: success,
+            error: error,
+            dataType: 'json'
+        });
+    };
+};
+
+var UrlFetchBuilder = function (url) {
+    var self = this;
+    this.Url = url;
+
+    this.WithId = function (id) {
+        self.Id = id;
+        return self;
+    };
+
+    this.Build = function () {
+        if (this.Id == null)
+            throw "cannot fetch an entity with no Id";
+        return self.Url + '/' + self.Id;
+    };
+}
+
+var CommandBase = function (self, id, commitId, version) {
+    if (id == null)
+        return "Id cannot be null";
+    if (commitId == null)
+        return "commitId cannot be null";
+    if (version == null)
+        return "Version cannot be null";
+
+
+    self.Id = id;
+    self.CommitId = commitId;
+    self.Version = version;
+};
