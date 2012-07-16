@@ -3,6 +3,7 @@
     ViewBag.Title = "edit lotto";
     Layout = string.Empty;
 }
+<div id="error_mssg" class="hidden"></div>
 <form id="formDetails">
 Are you sure you want to delete this lotto
 <fieldset>
@@ -26,9 +27,9 @@ Are you sure you want to delete this lotto
         @Model.End
     </div>
 </fieldset>
-@Html.HiddenFor(model => model.Command.Id)
-@Html.HiddenFor(model=>model.Command.CommitId)
-@Html.HiddenFor(model=>model.Command.Version)
+@Html.HiddenFor(model => model.Id)
+@Html.HiddenFor(model=>model.CommitId)
+@Html.HiddenFor(model=>model.Version)
 </form>
 <script>
     $(document).ready(function () {
@@ -37,9 +38,9 @@ Are you sure you want to delete this lotto
 
             jQuery('#formDetails').validationEngine({ scroll: false });
 
-            var id = $('#Command_Id').val();
-            var commitId = $('#Command_CommitId').val();
-            var version = $('#Command_Version').val();
+            var id = $('#Id').val();
+            var commitId = $('#CommitId').val();
+            var version = $('#Version').val();
                 
 
             var url = "@Url.Action("DeleteLotto")";

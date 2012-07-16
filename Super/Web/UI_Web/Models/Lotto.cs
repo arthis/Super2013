@@ -17,19 +17,23 @@ namespace UI_Web.Models
     }
 
 
-    public class CreateLotto 
+    public class CreateLotto : CommandBase
     {
-        public Super.Contabilita.Commands.Lotto.CreateLotto Command { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime? End { get; set; }
+        public string Description { get; set; }
+        public DateTime CreationDate { get; set; }
     }
 
-    public class EditLotto 
+    public class EditLotto : CommandBase
     {
-        public Super.Contabilita.Commands.Lotto.UpdateLotto Command { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime? End { get; set; }
+        public string Description { get; set; }
     }
 
-    public class DeleteLotto
+    public class DeleteLotto : CommandBase
     {
-        public Super.Contabilita.Commands.Lotto.DeleteLotto Command { get; set; }
         public string Description { get; set; }
         public DateTime Start { get; set; }
         public DateTime? End { get; set; }

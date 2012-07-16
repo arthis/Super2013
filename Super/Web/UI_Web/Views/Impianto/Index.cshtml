@@ -21,11 +21,11 @@
     </fieldset>
     </form>
 </div>
-<div id="List" data-bind='template: "impiantoListTemplate"'>
-</div>
-<br />
-<div id="pagination" class="pagebar">
-</div>
+<div id="List" data-bind='template: "impiantoListTemplate"'></div><br />
+<div id="pagination" class="pagebar"></div>
+<p>
+    <a class="button" data-bind="click: ShowCreateLotto" href="#">Aggiungi lotto</a>
+</p>
 <div id="details" style="overflow: hidden;">
 </div>
 <script type="text/html" id="impiantoListTemplate">
@@ -82,7 +82,7 @@
 <script language="javascript">
 
     
-    var urlFetchBuilderCreateImpianto = new UrlFetchBuilder("@Url.Action("CreateImpianto")");
+    var urlCreateImpianto = "@Url.Action("CreateImpianto")";
     var urlFetchBuilderEditImpianto = new UrlFetchBuilder("@Url.Action("EditImpianto")");
     var urlFetchBuilderDeleteImpianto = new UrlFetchBuilder("@Url.Action("DeleteImpianto")");
     var urlGetItems ="@Url.Action("GetItems")";
@@ -91,7 +91,7 @@
 
     var viewModel = new vmStuff( 1, 10,
         urlGetItems,
-        urlFetchBuilderCreateImpianto,
+        urlCreateImpianto,
         urlFetchBuilderEditImpianto,
         urlFetchBuilderDeleteImpianto);
     ko.applyBindings(viewModel);

@@ -21,11 +21,13 @@
     </fieldset>
     </form>
 </div>
-<div id="List" data-bind='template: "lottoListTemplate"'>
-</div>
-<br />
-<div id="pagination" class="pagebar">
-</div>
+<div id="List" data-bind='template: "lottoListTemplate"'></div><br />
+<div id="pagination" class="pagebar"></div>
+<p>
+    <a class="button" data-bind="click: ShowCreateLotto" href="#">Aggiungi lotto</a>
+</p>
+
+
 <div id="details" style="overflow: hidden;">
 </div>
 <script type="text/html" id="lottoListTemplate">
@@ -64,19 +66,21 @@
                 <%= item.CreationDate() %>
             </td>
             <td>
-                <a data-bind="click: function() { viewModel.EditLotto(item) }" href="#"><img src="@Url.Content("~/Images/Edit.gif")" border=0></a>
+                <a data-bind="click: function() { viewModel.ShowEditLotto(item) }" href="#"><img src="@Url.Content("~/Images/Edit.gif")" border=0></a>
             </td>
             <td>
-                <a data-bind="click: function() { viewModel.DeleteLotto(item) }" href="#"><img src="@Url.Content("~/Images/Delete.gif")" border=0></a>
+                <a data-bind="click: function() { viewModel.ShowDeleteLotto(item) }" href="#"><img src="@Url.Content("~/Images/Delete.gif")" border=0></a>
             </td>
         </tr>
         <% }) %>
     </table>
 </script>
+
+
 <script language="javascript">
 
     
-    var urlFetchBuilderCreateLotto = new UrlFetchBuilder("@Url.Action("CreateLotto")");
+    var urlCreateLotto = "@Url.Action("CreateLotto")";
     var urlFetchBuilderEditLotto = new UrlFetchBuilder("@Url.Action("EditLotto")");
     var urlFetchBuilderDeleteLotto = new UrlFetchBuilder("@Url.Action("DeleteLotto")");
     var urlGetItems ="@Url.Action("GetItems")";
@@ -85,7 +89,7 @@
 
     var viewModel = new vmStuff( 1, 10,
         urlGetItems,
-        urlFetchBuilderCreateLotto,
+        urlCreateLotto,
         urlFetchBuilderEditLotto,
         urlFetchBuilderDeleteLotto);
     ko.applyBindings(viewModel);

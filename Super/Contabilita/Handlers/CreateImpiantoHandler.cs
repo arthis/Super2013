@@ -22,17 +22,22 @@ namespace Super.Contabilita.Handlers
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
+            var existingLotto = EventRepository.GetById<Lotto>(cmd.IdLotto);
             var existingImpianto = EventRepository.GetById<Impianto>(cmd.Id);
 
             if (!existingImpianto.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
+
+            if(existingLotto.IsNull())
+                throw new AggregateRootInstanceNotFoundException();
 
 
             var impianto=  new Impianto(cmd.Id,
                                           Build.Intervall.FromPeriod(cmd.Intervall).Build(),
                                           cmd.IdLotto,
                                           cmd.CreationDate,
-                                          cmd.Description);
+                                          cmd.Description,
+                                          existingLotto);
 
             EventRepository.Save(impianto, cmd.CommitId);
 

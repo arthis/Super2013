@@ -26,8 +26,8 @@ namespace Super.Contabilita.Projection
                              CreationDate = @event.CreationDate,
                              Deleted = false,
                              Description = @event.Description,
-                             End = @event.Period.End,
-                             Start = @event.Period.Start
+                             End = @event.Intervall.End,
+                             Start = @event.Intervall.Start
                          };
 
                 container.Lottoes.AddObject(ai);

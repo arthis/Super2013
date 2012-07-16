@@ -50,18 +50,17 @@ namespace UI_Web.Controllers
 
 
         [HttpGet]
-        public ActionResult CreateLotto(Guid id)
+        public ActionResult CreateLotto()
         {
             using (var context = GetContainer())
             {
-                var command = Build.CreateLotto
-                    .ForCreationDate(Now)
-                    .ForIntervall(new Intervall(Now, null))
-                    .Build(Guid.NewGuid(), Guid.NewGuid(), 0);
-
                 var model = new UI_Web.Models.CreateLotto()
                                 {
-                                    Command = command,
+                                    CreationDate = Now,
+                                    Start = Now,
+                                    Id = Guid.NewGuid(),
+                                    CommitId = Guid.NewGuid(),
+                                    Version = 0,
                                 };
 
                 return View("CreateLotto", model);
@@ -69,12 +68,9 @@ namespace UI_Web.Controllers
         }
 
         [HttpPost]
-        public void CreateLotto(CreateLotto command)
+        public JsonResult CreateLotto(CreateLotto command)
         {
-            if (ModelState.IsValid)
-            {
-                //send the command to the bounded context
-            }
+            return Execute(command);
         }
 
         [HttpGet]
@@ -89,16 +85,14 @@ namespace UI_Web.Controllers
                 if (projection == null)
                     throw new Exception(string.Format("Edit Lotto not found for id {0}", id));
 
-
-                var command = Build.UpdateLotto
-                    .ForIntervall(new Intervall(projection.Start, projection.End))
-                    .ForDescription(projection.Description)
-                    .Build(projection.Id, Guid.NewGuid(), projection.Version);
-
-
-                var model = new UI_Web.Models.EditLotto()
+                var model = new Models.EditLotto()
                                 {
-                                    Command = command
+                                    Start = projection.Start,
+                                    End = projection.End,
+                                    Id = projection.Id,
+                                    CommitId = Guid.NewGuid(),
+                                    Version = projection.Version,
+                                    Description = projection.Description
                                 };
 
                 return View("EditLotto", model);
@@ -106,12 +100,9 @@ namespace UI_Web.Controllers
         }
 
         [HttpPost]
-        public void UpdateLotto(UpdateLotto command)
+        public JsonResult UpdateLotto(UpdateLotto command)
         {
-            if (ModelState.IsValid)
-            {
-                var validation = CommandService.Execute(command);
-            }
+            return Execute(command);
         }
 
         [HttpGet]
@@ -127,13 +118,11 @@ namespace UI_Web.Controllers
                     throw new Exception(string.Format("Delete Lotto not found for id {0}", id));
 
 
-                var command = Build.DeleteLotto
-                    .Build(projection.Id, Guid.NewGuid(), projection.Version);
-
-
-                var model = new UI_Web.Models.DeleteLotto()
+                var model = new Models.DeleteLotto()
                  {
-                     Command = command,
+                     Id = projection.Id,
+                     CommitId = Guid.NewGuid(),
+                     Version = projection.Version,
                      Description = projection.Description,
                      Start = projection.Start,
                      End = projection.End
@@ -144,12 +133,9 @@ namespace UI_Web.Controllers
         }
 
         [HttpPost]
-        public void Delete(DeleteLotto command)
+        public JsonResult Delete(DeleteLotto command)
         {
-            if (ModelState.IsValid)
-            {
-                var validation = CommandService.Execute(command);
-            }
+            return Execute(command);
         }
 
 

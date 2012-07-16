@@ -22,7 +22,6 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="CommandWebService.wsdl" MetadataType="Wsdl" ID="9097e735-cde4-4826-8e85-5d660e001f21" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?wsdl" />
-    <MetadataFile FileName="Contabilita.xsd" MetadataType="Schema" ID="8316d8fe-c878-4eb6-8f8c-87a642a0ed1f" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd8" />
     <MetadataFile FileName="Contabilita.disco" MetadataType="Disco" ID="a1c9bfc3-c45c-48d4-b77b-2e619ae527f4" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?disco" />
     <MetadataFile FileName="Contabilita1.xsd" MetadataType="Schema" ID="fdfcda3b-692a-4cfd-8140-e18e2afa65ca" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd7" />
     <MetadataFile FileName="Contabilita2.xsd" MetadataType="Schema" ID="caecb9cf-93c8-4c6d-8e36-c0e68934f38a" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd6" />

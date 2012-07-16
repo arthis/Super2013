@@ -56,16 +56,10 @@ namespace UI_Web.Controllers
 
 
         [HttpGet]
-        public ActionResult CreateImpianto(Guid id)
+        public ActionResult CreateImpianto()
         {
             using (var context = GetContainer())
             {
-                var command = Build.CreateImpianto
-                    .ForCreationDate(Now)
-                    .ForIntervall(new Intervall(Now, null))
-                    .ForLotto(Guid.NewGuid()) //this guid will be replaced by the correct guid on the client side
-                    .Build(Guid.NewGuid(), Guid.NewGuid(), 0);
-
                 var lotti = context.Lottoes.OrderBy(x => x.Description)
                     .Select(x => new SelectListItem()
                                      {
@@ -74,10 +68,16 @@ namespace UI_Web.Controllers
                                      })
                                      .ToList();
                 lotti.Insert(0, new SelectListItem() { Text = "Choose a lotto", Value = Guid.Empty.ToString(), Selected = true });
-                var model = new UI_Web.Models.CreateImpianto()
+
+                var model = new Models.CreateImpianto()
                                 {
-                                    Command = command,
-                                    Lotti = lotti
+                                    CreationDate = Now,
+                                    Start = Now,
+                                    IdLotto = Guid.Empty,
+                                    Lotti = lotti,
+                                    Id = Guid.NewGuid(),
+                                    CommitId = Guid.NewGuid(),
+                                    Version = 0
                                 };
 
                 return View("CreateImpianto", model);
@@ -85,39 +85,35 @@ namespace UI_Web.Controllers
         }
 
         [HttpPost]
-        public void CreateImpianto(CreateImpianto command)
+        public JsonResult CreateImpianto(CreateImpianto command)
         {
-            if (ModelState.IsValid)
-            {
-                //send the command to the bounded context
-            }
+            return Execute(command);
         }
 
         [HttpGet]
         public ActionResult EditImpianto(Guid id)
         {
             using (var context = GetContainer())
-                    {
-                        var query = context.Impiantoes.Where(item => !item.Deleted);
+            {
+                var query = context.Impiantoes.Where(item => !item.Deleted);
 
-                        var projection = query.Where(x=> x.Id== id).SingleOrDefault();
+                var projection = query.Where(x => x.Id == id).SingleOrDefault();
 
-                        if (projection==null)
-                            throw new Exception(string.Format("Edit Impianto not found for id {0}", id));
-
-                 
-                var command = Build.UpdateImpianto
-                    .ForIntervall(new Intervall(projection.Start, projection.End))
-                    .ForDescription(projection.Description)
-                    .Build(projection.Id, Guid.NewGuid(), projection.Version);
+                if (projection == null)
+                    throw new Exception(string.Format("Edit Impianto not found for id {0}", id));
 
                 var lotto = context.Lottoes.Single(x => x.Id == projection.Id);
 
 
-                var model = new UI_Web.Models.EditImpianto()
+                var model = new Models.EditImpianto()
                                 {
-                                    Command = command,
-                                    LottoDescription = lotto.Description
+                                    Start = projection.Start,
+                                    End = projection.End,
+                                    Description = projection.Description,
+                                    LottoDescription = lotto.Description,
+                                    Id= projection.Id,
+                                    CommitId = Guid.NewGuid(),
+                                    Version = projection.Version
                                 };
 
                 return View("EditImpianto", model);
@@ -125,12 +121,9 @@ namespace UI_Web.Controllers
         }
 
         [HttpPost]
-        public void UpdateImpianto(UpdateImpianto command)
+        public JsonResult UpdateImpianto(UpdateImpianto command)
         {
-            if (ModelState.IsValid)
-            {
-                var validation = CommandService.Execute(command);
-            }
+            return Execute(command);
         }
 
         [HttpGet]
@@ -145,33 +138,27 @@ namespace UI_Web.Controllers
                 if (projection == null)
                     throw new Exception(string.Format("Delete Impianto not found for id {0}", id));
 
+                var lotto = context.Lottoes.Single(x => x.Id == projection.Id);
 
-                var command = Build.DeleteImpianto
-                    .Build(projection.Id, Guid.NewGuid(), projection.Version);
-
-               var lotto = context.Lottoes.Single(x => x.Id == projection.Id);
-
-               var model = new UI_Web.Models.DeleteImpianto()
-                {
-                    Command = command,
-                    Description = projection.Description,
-                    Start = projection.Start,
-                    End = projection.End,
-                    LottoDescription = lotto.Description
-                    
-                };
+                var model = new Models.DeleteImpianto()
+                                {
+                                    Id = projection.Id,
+                                    CommitId = Guid.NewGuid(),
+                                    Version = projection.Version,
+                                    Description = projection.Description,
+                                    Start = projection.Start,
+                                    End = projection.End,
+                                    LottoDescription = lotto.Description
+                                };
 
                 return View("DeleteImpianto", model);
             }
         }
 
         [HttpPost]
-        public void Delete(DeleteImpianto command)
+        public JsonResult Delete(DeleteImpianto command)
         {
-            if (ModelState.IsValid)
-            {
-                var validation = CommandService.Execute(command);
-            }
+            return Execute(command);
         }
 
 

@@ -60,6 +60,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Ressources\RabbitMq\RabbitMQ.Client.dll</HintPath>
     </Reference>
+    <Reference Include="Super.Contabilita.Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -113,17 +114,15 @@
     <Compile Include="App_start\ElmahMvc_Start.cs" />
     <Compile Include="Attributes\SetCultureAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AppaltatoreController.cs" />
     <Compile Include="Controllers\LottoController.cs" />
     <Compile Include="Controllers\ImpiantoController.cs" />
     <Compile Include="Controllers\ControllerBaseSuper.cs" />
-    <Compile Include="Controllers\TipoInterventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ConsuntivoRotabileApplatatoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CommandBase.cs" />
     <Compile Include="Models\Lotto.cs" />
     <Compile Include="Models\Impianto.cs" />
     <Compile Include="Models\TipoIntervento.cs" />
@@ -210,6 +209,7 @@
     <Content Include="Content\Themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Content\Themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\Themes\ui-lightness\jquery-ui-1.8.17.custom.css" />
+    <Content Include="Content\validationEngine.jquery.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\Delete.gif" />
@@ -306,8 +306,6 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\underscore-1.3.1.js" />
     <Content Include="Scripts\uuid.js" />
-    <Content Include="Views\ConsuntivoRotabileApplatatore\Add.cshtml" />
-    <Content Include="Views\ConsuntivoRotabileApplatatore\ConsuntivazioneReso.cshtml" />
     <Content Include="Views\Impianto\Index.cshtml" />
     <Content Include="Views\Impianto\CreateImpianto.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
@@ -322,12 +320,7 @@
     <None Include="Node\node_modules\amqp\README.md" />
     <None Include="Node\package.json" />
     <None Include="Node\README.md" />
-    <Content Include="Views\Appaltatore\ConsuntivareRotNonReso.cshtml" />
-    <Content Include="Views\Appaltatore\IndexRotabile.cshtml" />
     <None Include="Service References\Contabilita\CommandWebService.wsdl" />
-    <None Include="Service References\Contabilita\Contabilita.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\Contabilita\Contabilita1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -352,7 +345,6 @@
     <None Include="Service References\Contabilita\Contabilita8.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Views\ConsuntivoRotabileApplatatore\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -387,8 +379,6 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\TipoIntervento\Details.cshtml" />
-    <Content Include="Views\TipoIntervento\Index.cshtml" />
     <Content Include="Views\Impianto\EditImpianto.cshtml" />
     <Content Include="Views\Impianto\DeleteImpianto.cshtml" />
     <Content Include="Views\Lotto\CreateLotto.cshtml" />

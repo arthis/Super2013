@@ -8,7 +8,7 @@ namespace CommonDomain.Core
     public class CommandValidation 
     {
 
-        private List<ValidationMessage> Messages { get; set; }
+        public List<ValidationMessage> Messages { get; private set; }
 
         public CommandValidation()
         {

@@ -18,8 +18,8 @@ var Intervall = function (start, end) {
 };
 
 function checkIntervall() {
-    var start = $('#Intervall_Start').val();
-    var end = $('#Intervall_End').val();
+    var start = $('#Start').val();
+    var end = $('#End').val();
     return CheckIntervall(start, end);
 }
 

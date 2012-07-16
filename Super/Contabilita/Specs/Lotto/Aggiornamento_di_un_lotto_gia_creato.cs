@@ -4,12 +4,14 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
+using Moq;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Handlers;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
+using Super.Contabilita.Handlers.Repositories;
 using BuildCmd = Super.Contabilita.Commands.Builders.Build;
 using BuildEvt = Super.Contabilita.Events.Builders.Build;
 
@@ -30,7 +32,10 @@ namespace Super.Contabilita.Specs.Lotto
         
         protected override CommandHandler<UpdateLotto> OnHandle(IEventRepository eventRepository)
         {
-            return new UpdateLottoHandler(eventRepository);
+            var mock = new Mock<ILottoRepository>();
+            mock.Setup(x => x.AreImpiantoAssociatedWihtinIntervall(It.IsAny<Guid>(), It.IsAny<Intervall>()))
+                .Returns(true);
+            return new UpdateLottoHandler(eventRepository, mock.Object);
         }
 
         public override IEnumerable<IMessage> Given()

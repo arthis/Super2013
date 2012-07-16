@@ -101,7 +101,7 @@ namespace CommonSpecs.Documentation
             //-------------------------------------------------
             //create the documentation pages
             //-------------------------------------------------
-            Assembly specsContabilita = typeof(Creazione_di_una_nuova_impianto).Assembly;
+            Assembly specsContabilita = typeof(Creazione_di_uno_nuovo_impianto).Assembly;
             //Assembly specsProgrammazione = typeof(Super.Programmazione.Specs.Creation_of_a_new_inventory_item).Assembly;
             Assembly specsAppaltatore = typeof(Programmazione_di_intervento_rotabile_gia_esistente).Assembly;
             Assembly specsControllo = typeof(Super.Controllo.Specs.Close.Chiudiere_un_intervento).Assembly;

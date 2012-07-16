@@ -12,33 +12,50 @@ using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
 using Super.Contabilita.Handlers.Repositories;
+using BuildCmd = Super.Contabilita.Commands.Builders.Build;
+using BuildEvt = Super.Contabilita.Events.Builders.Build;
 
 namespace Super.Contabilita.Specs.Lotto
 {
-    public class Aggiornamento_di_un_lotto_non_esistente : CommandBaseClass<UpdateLotto>
+    public class Aggiornamento_di_un_lotto_con_Impianti : CommandBaseClass<UpdateLotto>
     {
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
         private long _version;
-        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
-
-        private string _descriptionUpdated = "test 2";
-        private Intervall _intervallUpdated = new Intervall(DateTime.Now.AddHours(14), DateTime.Now.AddHours(15));
+        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(10));
         
+
+        private Guid _IdImpianto = Guid.NewGuid();
+        private string _descriptionImpianto = "test";
+        private DateTime _creationDateImpianto = DateTime.Now;
+        private Intervall _intervallImpianto = new Intervall(DateTime.Now.AddHours(2), DateTime.Now.AddHours(3));
+
+
+        private Intervall _intervallUpdated = new Intervall(DateTime.Now.AddHours(3), DateTime.Now.AddHours(10));
 
 
         protected override CommandHandler<UpdateLotto> OnHandle(IEventRepository eventRepository)
         {
             var mock = new Mock<ILottoRepository>();
             mock.Setup(x => x.AreImpiantoAssociatedWihtinIntervall(It.IsAny<Guid>(), It.IsAny<Intervall>()))
-                .Returns(true);
+                .Returns(false);
             return new UpdateLottoHandler(eventRepository, mock.Object);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield break;
+            yield return BuildEvt.LottoCreated
+                                   .ForCreationDate(_creationDate)
+                                   .ForDescription(_description)
+                                   .ForIntervall(_intervall)
+                                   .Build(_id, 1);
+            yield return BuildEvt.ImpiantoCreated
+                                   .ForCreationDate(_creationDate)
+                                   .ForDescription(_description)
+                                   .ForIntervall(_intervall)
+                                   .ForLotto(_id)
+                                   .Build(_IdImpianto, 1);
         }
 
         public override UpdateLotto When()
@@ -56,10 +73,10 @@ namespace Super.Contabilita.Specs.Lotto
         }
 
         [Test]
-        public void genera_un_eccezzione()
+        public void Genera_un_eccezzione()
         {
             Assert.IsNotNull(Caught);
-            Assert.AreEqual(typeof(AggregateRootInstanceNotFoundException), Caught.GetType());
+            Assert.IsInstanceOf<CommandValidationException>(Caught);
         }
 
 

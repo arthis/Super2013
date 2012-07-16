@@ -3,31 +3,32 @@
     ViewBag.Title = "edit lotto";
     Layout = string.Empty;
 }
+<div id="error_mssg" class="hidden"></div>
 <form id="formDetails">
     <fieldset>
         <legend>Lotto</legend>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Command.Description)*
+            @Html.LabelFor(model => model.Description)*
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Command.Description, new { @class = "validate[required]" })
+            @Html.TextBoxFor(model => model.Description, new { @class = "validate[required]" })
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Command.Intervall.Start)
+            @Html.LabelFor(model => model.Start)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Command.Intervall.Start, new { @class = "validate[required,funcCall[checkIntervall]] datepicker " })
+            @Html.TextBoxFor(model => model.Start, new { @class = "validate[required,funcCall[checkIntervall]] datepicker ", @Value = Model.Start.ToString("dd/MM/yyyy") })
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Command.Intervall.End)
+            @Html.LabelFor(model => model.End)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Command.Intervall.End, new { @class = "validate[required,funcCall[checkIntervall]] datepicker " })
+            @Html.TextBoxFor(model => model.End, new { @class = "validate[required,funcCall[checkIntervall]] datepicker " , @Value =Model.End.HasValue? Model.End.Value.ToString("dd/MM/yyyy"):string.Empty  })
         </div>
     </fieldset>
-    @Html.HiddenFor(model => model.Command.Id)
-    @Html.HiddenFor(model=>model.Command.CommitId)
-    @Html.HiddenFor(model=>model.Command.Version)
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model=>model.CommitId)
+    @Html.HiddenFor(model=>model.Version)
 </form>
 <script>
 
@@ -42,18 +43,18 @@
             jQuery('#formDetails').validationEngine({ scroll: false });
             if(jQuery('#formDetails').validationEngine('validate')) {
 
-                var id = $('#Command_Id').val();
-                var commitId = $('#Command_CommitId').val();
-                var version = $('#Command_Version').val();
-                var description = $('#Command_Description').val();
-                var start = $(jq('Command_Intervall_Start')).val();
-                var end = $(jq('Command_Intervall_End')).val();
+                var id = $('#Id').val();
+                var commitId = $('#CommitId').val();
+                var version = $('#Version').val();
+                var description = $('#Description').val();
+                var start = $(jq('Start')).val();
+                var end = $(jq('End')).val();
                 
 
                 var url = "@Url.Action("UpdateLotto")";
 
 
-                var intervall = new Intervall(start, end).ToIsoDateTime();
+                var intervall = new Intervall(start, end);
 
 
                 try 

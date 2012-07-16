@@ -65,7 +65,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,10 +78,13 @@
     <Compile Include="CommandHandlerService.cs" />
     <Compile Include="CreateLottoHandler.cs" />
     <Compile Include="DeleteLottoHandler.cs" />
+    <Compile Include="Repositories\Container.cs" />
+    <Compile Include="Repositories\ILottoRepository.cs" />
+    <Compile Include="Repositories\SqlLottoRepository.cs" />
     <Compile Include="UpdateLottoHandler.cs" />
-    <Compile Include="UpdateAreaInterventoHandler.cs" />
-    <Compile Include="DeleteAreaInterventoHandler.cs" />
-    <Compile Include="CreateAreaInterventoHandler.cs" />
+    <Compile Include="UpdateImpiantoHandler.cs" />
+    <Compile Include="DeleteImpiantoHandler.cs" />
+    <Compile Include="CreateImpiantoHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +103,10 @@
     <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\ReadModel\ReadModel.csproj">
+      <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>
+      <Name>ReadModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{7C1A8FCA-5A29-4A72-9D3E-D477CF0B96BF}</Project>

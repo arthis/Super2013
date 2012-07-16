@@ -11,10 +11,10 @@ var Lotto = function (id, version, creationDate, start, end, description) {
 //ViewModel
 var vmStuff = function (pageNum, pageSize,
     urlGetItems,
-    urlFetchBuilderCreateLotto,
+    urlCreateLotto,
     urlFetchBuilderEditLotto,
     urlFetchBuilderDeleteLotto) {
-    
+
     var self = this;
     this.Repository = new Repository();
     this.View = new View();
@@ -27,7 +27,7 @@ var vmStuff = function (pageNum, pageSize,
     this.Items = ko.mapping.fromJS([]);
 
     this.ShowCreateLotto = function (item) {
-        self.OpenDetails(urlFetchBuilderCreateLotto.WithId(item.Id()).Build(), 'Create Lotto');
+        self.OpenDetails(urlCreateLotto, 'Create Lotto');
     };
 
     this.CreateLotto = function (url, command) {
@@ -111,9 +111,15 @@ var vmStuff = function (pageNum, pageSize,
         $('#details').dialog("close");
     };
 
-    this.AcceptSuccess = function (cmd) {
+    this.AcceptSuccess = function (items) {
+        if (items != null) {
+            ShowSummaryError("error_mssg", items.validations);
+        } else {
+            HideSummaryError("error_mssg");
+            setTimeout(function () { self.GetItems(viewModel.PageNum()) }, 1250);
+            self.CloseDetails();
+        }
         self.View.StopSpin();
-        self.CloseDetails();
     };
 
     this.AcceptError = function (cmd) {

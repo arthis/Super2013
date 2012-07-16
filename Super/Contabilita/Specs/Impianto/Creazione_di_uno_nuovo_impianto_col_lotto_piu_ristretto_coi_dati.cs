@@ -15,18 +15,20 @@ using BuildEvt = Super.Contabilita.Events.Builders.Build;
 
 namespace Super.Contabilita.Specs.Impianto
 {
-    public class Creazione_di_una_nuova_impianto_gia_creata : CommandBaseClass<CreateImpianto>
+
+    public class Creazione_di_uno_nuovo_impianto_col_lotto_piu_ristretto_coi_dati : CommandBaseClass<CreateImpianto>
     {
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
         private long _version;
-        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
+        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(2), DateTime.Now.AddHours(3));
         private Guid _idLotto = Guid.NewGuid();
+        private Intervall _intervallLotto = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         public override string ToDescription()
         {
-            return "Creare un'impianto gia creata con il stesso Guid non é possibile";
+            return "Creare un'impianto con un intervallo non dentro quello del suo lotto non é possibile.";
         }
        
 
@@ -37,12 +39,11 @@ namespace Super.Contabilita.Specs.Impianto
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvt.ImpiantoCreated
-                                .ForIntervall(_intervall)
-                                .ForDescription(_description)
-                                .ForCreationDate(_creationDate)
-                                .ForLotto(_idLotto)
-                                .Build(_id,1);
+            yield return BuildEvt.LottoCreated
+                .ForCreationDate(DateTime.Now)
+                .ForDescription("lotto")
+                .ForIntervall(_intervallLotto)
+                .Build(_idLotto, 1);
         }
 
         public override CreateImpianto When()
@@ -61,10 +62,9 @@ namespace Super.Contabilita.Specs.Impianto
         }
 
         [Test]
-        public void genera_un_eccezzione()
+        public void non_genera_un_eccezzione()
         {
-            Assert.IsNotNull(Caught);
-            Assert.AreEqual(typeof(AlreadyCreatedAggregateRootException), Caught.GetType());
+            Assert.IsNull(Caught);
         }
 
 

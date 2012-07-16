@@ -63,6 +63,8 @@ namespace CommandService
            return new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
        }
 
+       
+
         public void Init()
         {
             var storeEvents = WireupEventStore();
@@ -91,7 +93,7 @@ namespace CommandService
             }
             catch (Exception ex)
             {
-                return new ExecuteResponse( new CommandValidation(new ValidationMessage(ex.ToString())));
+                return new ExecuteResponse( new CommandValidation(new ValidationMessage("Error",ex.ToString())));
             }
 
         }

@@ -74,6 +74,7 @@
     <Compile Include="AggregateBase.cs" />
     <Compile Include="AggregateRootInstanceNotFoundException.cs" />
     <Compile Include="AlreadyCreatedAggregateRootException.cs" />
+    <Compile Include="CommandValidationException.cs" />
     <Compile Include="Envelope.cs" />
     <Compile Include="Handlers\EventAlreadyHandled.cs" />
     <Compile Include="Handlers\EventAlreadyProjectedException.cs" />
@@ -140,7 +141,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CommonDomain.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\json4.5r7\Net40\Newtonsoft.Json.dll</HintPath>

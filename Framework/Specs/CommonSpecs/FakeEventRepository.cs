@@ -21,7 +21,7 @@ namespace CommonSpecs
             var ar = this._factory.Build(typeof(TAggregate), id, null) as TAggregate;
             if (ar!=null && CommittedEvents.Any())
             {
-                foreach (var committedEvent in CommittedEvents)
+                foreach (var committedEvent in CommittedEvents.Where(x=> x.Id==id))
                 {
                     ar.ApplyEvent(committedEvent);   
                 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace UI_Web.Models
 {
@@ -17,21 +19,27 @@ namespace UI_Web.Models
     }
 
 
-    public class CreateImpianto 
+    public class CreateImpianto : CommandBase
     {
-        public Super.Contabilita.Commands.Impianto.CreateImpianto Command { get; set; }
+        public string Description { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime? End { get; set; }
+        [DisplayName("Lotto")]
+        public Guid IdLotto { get; set; }
         public List<SelectListItem> Lotti { get; set; }
     }
 
-    public class EditImpianto 
+    public class EditImpianto : CommandBase
     {
-        public Super.Contabilita.Commands.Impianto.UpdateImpianto Command { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime? End { get; set; }
+        public string Description { get; set; }
         public string LottoDescription { get; set; }
     }
 
-    public class DeleteImpianto
+    public class DeleteImpianto : CommandBase
     {
-        public Super.Contabilita.Commands.Impianto.DeleteImpianto Command { get; set; }
         public string Description { get; set; }
         public DateTime Start { get; set; }
         public DateTime? End { get; set; }

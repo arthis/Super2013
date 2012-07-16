@@ -23,7 +23,7 @@ namespace Super.Appaltatore.Domain
         {
             if (_dataConsuntivazione > DateTime.Now)
             {
-                i.CommandValidationMessages.Add(new ValidationMessage("Fatale : data consuntivazione maggiore di adesso"));
+                i.CommandValidationMessages.Add(new ValidationMessage("Data consuntivazione"," data consuntivazione maggiore di adesso"));
                 return false;
             }
 
@@ -49,7 +49,7 @@ namespace Super.Appaltatore.Domain
         {
             if (_start > _end)
             {
-                i.CommandValidationMessages.Add(new ValidationMessage("Fatale : data inizio maggiore di data fine"));
+                i.CommandValidationMessages.Add(new ValidationMessage("Data Inizio", " data inizio maggiore di data fine"));
                 return false;
             }
 

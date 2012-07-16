@@ -42,6 +42,18 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             builder.From(_start).To(_end);
         }
 
+        public bool Contains(Intervall other)
+        {
+            if (_start > other._start)
+                return false;
+            if(_end.HasValue && !other._end.HasValue)
+                return false;
+            if (_end.HasValue && other._end.HasValue && _end.Value < other._end.Value)
+                return false;
+
+            return true;
+        }
+
 
 
     }

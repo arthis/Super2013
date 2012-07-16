@@ -12,7 +12,7 @@ function ToDate(value) {
 }
 
 
-
+$.ajaxSetup({ cache: false });
 
 
 
@@ -277,3 +277,24 @@ var CommandBase = function (self, id, commitId, version) {
     self.CommitId = commitId;
     self.Version = version;
 };
+
+
+var ShowSummaryError = function (divName, messages) {
+    var errorMessage = document.getElementById(divName);
+    var messageList = "";
+
+    $.each(messages, function (key, item) {
+        if (errorMessage != null) {
+            messageList += " - <b>" + item.Title + "</b>, " + item.Message + "<br />";
+        }
+    });
+    errorMessage.innerHTML = "<br /><b>Oops!</b> There was a problem with your submission:<br /><br />";
+    errorMessage.innerHTML += messageList;
+    errorMessage.innerHTML += "<br />Please make the necessary corrections, and resubmit the form.<br />";
+    errorMessage.className = "visible errormessage";
+};
+
+var HideSummaryError = function (divName) {
+    var errorMessage = document.getElementById(divName);
+    errorMessage.className = "hidden errormessage";
+}

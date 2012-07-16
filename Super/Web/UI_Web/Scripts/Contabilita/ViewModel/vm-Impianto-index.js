@@ -12,7 +12,7 @@ var Impianto = function (id, version, creationDate, start, end, description, des
 //ViewModel
 var vmStuff = function (pageNum, pageSize,
     urlGetItems,
-    urlFetchBuilderCreateImpianto,
+    urlCreateImpianto,
     urlFetchBuilderEditImpianto,
     urlFetchBuilderDeleteImpianto) {
     
@@ -27,8 +27,8 @@ var vmStuff = function (pageNum, pageSize,
 
     this.Items = ko.mapping.fromJS([]);
 
-    this.ShowCreateImpianto = function (item) {
-        self.OpenDetails(urlFetchBuilderCreateImpianto.WithId(item.Id()).Build(), 'Create Impianto');
+    this.ShowCreateImpianto = function () {
+        self.OpenDetails(urlCreateImpianto, 'Create Impianto');
     };
 
     this.CreateImpianto = function (url, command) {
@@ -112,9 +112,15 @@ var vmStuff = function (pageNum, pageSize,
         $('#details').dialog("close");
     };
 
-    this.AcceptSuccess = function (cmd) {
+    this.AcceptSuccess = function (items) {
+        if (items != null) {
+            ShowSummaryError("error_mssg", items.validations);
+        } else {
+            HideSummaryError("error_mssg");
+            setTimeout(function () { self.GetItems(viewModel.PageNum()) }, 1250);
+            self.CloseDetails();
+        }
         self.View.StopSpin();
-        self.CloseDetails();
     };
 
     this.AcceptError = function (cmd) {

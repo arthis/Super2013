@@ -20,12 +20,7 @@ namespace UI_Web
         public static void RegisterRoutes(RouteCollection routes)
         {
 
-            routes.MapRoute(
-               "Appaltatore", // Route name
-               "Appaltatore/{action}/{id}", // URL with parameters
-               new { controller = "Appaltatore", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-               );
-
+            
             routes.MapRoute(
             "Impianto", // Route name
             "Impianto/{action}/{id}", // URL with parameters
@@ -33,20 +28,12 @@ namespace UI_Web
             );
 
             routes.MapRoute(
-            "TipoIntervento", // Route name
-            "TipoIntervento/{action}/{id}", // URL with parameters
-            new { controller = "TipoIntervento", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            "Lotto", // Route name
+            "Lotto/{action}/{id}", // URL with parameters
+            new { controller = "Lotto", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-            routes.MapRoute(
-            "InterventoRot", // Route name
-            "InterventoRot/{action}/{id}", // URL with parameters
-            new { controller = "InterventoRot", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-            );
-            routes.MapRoute(
-                "First", // Route name
-                "Note/{action}/{id}", // URL with parameters
-                new { controller = "Note", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-            );
+
+            
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters

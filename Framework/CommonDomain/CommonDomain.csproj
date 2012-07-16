@@ -79,7 +79,6 @@
     <Compile Include="IBus.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="ICommandBuilder.cs" />
-    <Compile Include="ICommandValidation.cs" />
     <Compile Include="IEnvelope.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="IEventBuilder.cs" />
