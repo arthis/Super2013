@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="88e18657-8e32-492c-a37b-878578501bd0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1338/Contabilita" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CommandWebService.wsdl" MetadataType="Wsdl" ID="d01a216b-84db-4913-abad-f4461e26204f" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?wsdl" />
+    <MetadataFile FileName="Contabilita.disco" MetadataType="Disco" ID="22ae05b9-9e1e-4e7b-b05c-da96c49c1f4b" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?disco" />
+    <MetadataFile FileName="Contabilita.xsd" MetadataType="Schema" ID="6f0c9886-d4f6-4bda-a285-7b1a8eb2085f" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd7" />
+    <MetadataFile FileName="Contabilita1.xsd" MetadataType="Schema" ID="c55233b1-c740-4895-ac84-d90cf6635992" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd6" />
+    <MetadataFile FileName="Contabilita2.xsd" MetadataType="Schema" ID="3be2a218-6291-4d00-909c-920ac926e9e9" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd5" />
+    <MetadataFile FileName="Contabilita3.xsd" MetadataType="Schema" ID="e16ccded-d6bd-423c-a3d4-6f0b7eddd8eb" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd4" />
+    <MetadataFile FileName="Contabilita4.xsd" MetadataType="Schema" ID="6d4651b4-5a0a-41b4-bad2-1fb5ead788ae" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd3" />
+    <MetadataFile FileName="Contabilita5.xsd" MetadataType="Schema" ID="66988bca-d1f2-41da-a74f-0dc65f84150a" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd2" />
+    <MetadataFile FileName="Contabilita6.xsd" MetadataType="Schema" ID="7fbd5958-5e78-48ef-898e-4b102a93f3e7" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd1" />
+    <MetadataFile FileName="Contabilita7.xsd" MetadataType="Schema" ID="d103f1a5-f126-4376-b231-349833c61b02" SourceId="1" SourceUrl="http://localhost:1338/Contabilita?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

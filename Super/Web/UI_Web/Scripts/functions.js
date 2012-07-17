@@ -266,11 +266,11 @@ var UrlFetchBuilder = function (url) {
 
 var CommandBase = function (self, id, commitId, version) {
     if (id == null)
-        return "Id cannot be null";
+        throw "Id cannot be null";
     if (commitId == null)
-        return "commitId cannot be null";
+        throw "commitId cannot be null";
     if (version == null)
-        return "Version cannot be null";
+        throw "Version cannot be null";
 
 
     self.Id = id;

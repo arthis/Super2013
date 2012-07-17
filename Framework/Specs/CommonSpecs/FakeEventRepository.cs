@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using CommonDomain;
 using CommonDomain.Persistence;
 using CommonDomain.Persistence.EventStore;
-using EasyNetQ;
 using EventStore;
 
 

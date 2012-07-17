@@ -51,14 +51,16 @@
     <Reference Include="ElmahR.Elmah">
       <HintPath>..\..\..\packages\ElmahR.Elmah.0.7.2.0\lib\net35\ElmahR.Elmah.dll</HintPath>
     </Reference>
+    <Reference Include="Glimpse.Core">
+      <HintPath>..\..\..\packages\Glimpse.0.87\lib\net40\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc3">
+      <HintPath>..\..\..\packages\Glimpse.Mvc3.0.87\lib\net40\Glimpse.Mvc3.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="RabbitMQ.Client, Version=2.8.1.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Ressources\RabbitMq\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="Super.Contabilita.Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -111,30 +113,56 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_start\ElmahMvc_Start.cs" />
-    <Compile Include="Attributes\SetCultureAttribute.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\LottoController.cs" />
-    <Compile Include="Controllers\ImpiantoController.cs" />
-    <Compile Include="Controllers\ControllerBaseSuper.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\CommandBase.cs" />
-    <Compile Include="Models\Lotto.cs" />
-    <Compile Include="Models\Impianto.cs" />
-    <Compile Include="Models\TipoIntervento.cs" />
-    <Compile Include="Models\Intervento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\Contabilita\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Readme\glimpse.mvc3.readme.txt" />
+    <Content Include="App_Readme\glimpse.readme.txt" />
+    <Content Include="Content\dock.css" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\bg-header.jpg" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\bg-header.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\bg.jpg" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\bg.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\box.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\bullet.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\bullet_hover.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\blank.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\calendar-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\calendar.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\email-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\email.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\history-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\history.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\home-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\home.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\link-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\link.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\main-bg.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\music-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\music.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\portfolio-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\portfolio.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\rss-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\rss.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\rss2-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\rss2.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\video-sm.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dock\video.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\dot.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\featured.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\feature_img.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\footer.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\item.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\menu.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\search.gif" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\stacks\adobeAcrobat.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\stacks\aperture.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\stacks\coda.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\stacks\finder.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\stacks\photoshop.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\stacks\safari.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\stacks\stack-down.png" />
+    <Content Include="Content\Layout\Earthlingtwo\images\menu\stacks\stack.png" />
     <Content Include="Content\Layout\Earthlingtwo\images\img01.jpg" />
     <Content Include="Content\Layout\Earthlingtwo\images\img02.jpg" />
     <Content Include="Content\Layout\Earthlingtwo\images\img03.jpg" />
@@ -148,6 +176,9 @@
     <Content Include="Content\Layout\Earthlingtwo\images\img11.gif" />
     <Content Include="Content\Layout\Earthlingtwo\images\img12.jpg" />
     <Content Include="Content\Layout\Earthlingtwo\images\img15.jpg" />
+    <None Include="Content\Layout\Earthlingtwo\images\menu\.DS_Store" />
+    <None Include="Content\Layout\Earthlingtwo\images\menu\dock\.DS_Store" />
+    <None Include="Content\Layout\Earthlingtwo\images\menu\dock\Thumbs.db" />
     <None Include="Content\Layout\Earthlingtwo\_Layout.cshtml" />
     <Content Include="Content\Layout\Earthlingtwo\license.txt" />
     <Content Include="Content\Layout\Earthlingtwo\style.css" />
@@ -273,14 +304,8 @@
     <Content Include="Scripts\Contabilita\Commands\vo-intervall.js" />
     <Content Include="Scripts\Contabilita\ViewModel\vm-Lotto-index.js" />
     <Content Include="Scripts\Contabilita\ViewModel\vm-Impianto-index.js" />
+    <Content Include="packages.config" />
     <None Include="Properties\DataSources\CommandService.ExecuteResponse.datasource" />
-    <None Include="Service References\Contabilita\Contabilita.disco" />
-    <None Include="Service References\Contabilita\configuration91.svcinfo" />
-    <None Include="Service References\Contabilita\configuration.svcinfo" />
-    <None Include="Service References\Contabilita\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Scripts\dateFormat.js" />
     <Content Include="Scripts\EditorHookup.js" />
     <Content Include="Scripts\functions.js" />
@@ -290,6 +315,8 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="Scripts\jquery.jqdock.js" />
+    <Content Include="Scripts\jquery.jqDock.min.js" />
     <Content Include="Scripts\jquery.paging.js" />
     <Content Include="Scripts\jquery.paging.min.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
@@ -306,8 +333,8 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\underscore-1.3.1.js" />
     <Content Include="Scripts\uuid.js" />
-    <Content Include="Views\Impianto\Index.cshtml" />
-    <Content Include="Views\Impianto\CreateImpianto.cshtml" />
+    <Content Include="Views\Contabilita\Impianto\Index.cshtml" />
+    <Content Include="Views\Contabilita\Impianto\CreateImpianto.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\koStringEditorFor.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\koDateEditorFor.cshtml" />
@@ -320,31 +347,6 @@
     <None Include="Node\node_modules\amqp\README.md" />
     <None Include="Node\package.json" />
     <None Include="Node\README.md" />
-    <None Include="Service References\Contabilita\CommandWebService.wsdl" />
-    <None Include="Service References\Contabilita\Contabilita1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Contabilita\Contabilita2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Contabilita\Contabilita3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Contabilita\Contabilita4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Contabilita\Contabilita5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Contabilita\Contabilita6.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Contabilita\Contabilita7.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Contabilita\Contabilita8.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -379,18 +381,16 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Impianto\EditImpianto.cshtml" />
-    <Content Include="Views\Impianto\DeleteImpianto.cshtml" />
-    <Content Include="Views\Lotto\CreateLotto.cshtml" />
-    <Content Include="Views\Lotto\Index.cshtml" />
-    <Content Include="Views\Lotto\DeleteLotto.cshtml" />
-    <Content Include="Views\Lotto\EditLotto.cshtml" />
+    <Content Include="Views\Contabilita\Impianto\EditImpianto.cshtml" />
+    <Content Include="Views\Contabilita\Impianto\DeleteImpianto.cshtml" />
+    <Content Include="Views\Contabilita\Lotto\CreateLotto.cshtml" />
+    <Content Include="Views\Contabilita\Lotto\Index.cshtml" />
+    <Content Include="Views\Contabilita\Lotto\DeleteLotto.cshtml" />
+    <Content Include="Views\Contabilita\Lotto\EditLotto.cshtml" />
+    <Content Include="Views\Contabilita\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
@@ -405,10 +405,6 @@
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
-      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
-      <Name>EasyNetQ</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Appaltatore\Commands\Commands.csproj">
       <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
       <Name>Commands %28Super\Appaltatore\Commands%29</Name>
@@ -417,16 +413,14 @@
       <Project>{7C1A8FCA-5A29-4A72-9D3E-D477CF0B96BF}</Project>
       <Name>Commands %28Super\Contabilita\Commands%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Core_Web\Core_Web.csproj">
+      <Project>{5E6BA64B-2911-457A-A01A-3A6AEB492F45}</Project>
+      <Name>Core_Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReadModel\ReadModel.csproj">
       <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>
       <Name>ReadModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\Contabilita\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

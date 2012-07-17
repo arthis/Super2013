@@ -209,6 +209,11 @@ h2 a
     float: left;
 }
 
+#menuProgrammazione 
+{
+    width: 150px !important;
+}
+
 #menu a
 {
     display: block;
@@ -225,6 +230,7 @@ h2 a
     color: #FFFFFF;
     border: none;
 }
+
 
 #menu a:hover, #menu .current_page_item a
 {

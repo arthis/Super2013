@@ -99,10 +99,6 @@
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
-      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
-      <Name>EasyNetQ</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Appaltatore\Commands\Commands.csproj">
       <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
       <Name>Commands %28Super\Appaltatore\Commands%29</Name>

@@ -7,6 +7,7 @@ namespace Super.Contabilita.Handlers.Repositories
 {
     public interface ILottoRepository
     {
-        bool AreImpiantoAssociatedWihtinIntervall(Guid idLotto, Intervall intervall);
+        bool AreImpiantoAssociatedOutOfIntervall(Guid idLotto, Intervall intervall);
     }
+    
 }

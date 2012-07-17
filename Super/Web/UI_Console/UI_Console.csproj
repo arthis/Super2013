@@ -167,10 +167,6 @@
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
-      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
-      <Name>EasyNetQ</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Contabilita\Commands\Commands.csproj">
       <Project>{7C1A8FCA-5A29-4A72-9D3E-D477CF0B96BF}</Project>
       <Name>Commands %28Super\Contabilita\Commands%29</Name>

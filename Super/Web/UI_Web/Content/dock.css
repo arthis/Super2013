@@ -1,0 +1,59 @@
+/*
+	project: internet encyclopedia
+	author: luka cvrk (www.solucija.com)
+*/
+
+:link, :visited
+{
+    text-decoration: none;
+}
+:focus, :active
+{
+    outline: 0;
+}
+ul, ol
+{
+    list-style: none;
+}
+
+li, html
+{
+    margin: 0;
+    padding: 0;
+}
+a img, :link img, :visited img, fieldset
+{
+    border: none;
+}
+
+
+a
+{
+    color: #AF1515;
+    cursor: pointer;
+}
+a:hover
+{
+    color: #7D1919;
+}
+
+
+#dockContainer
+{
+    position: fixed;
+    top: 60px;
+    left: 6px;
+}
+#jqDock
+{
+    position: relative;
+    bottom: 48px;
+}
+.jqDockLabel
+{
+    background: #333;
+    color: #fff;
+    padding: 3px 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}

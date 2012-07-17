@@ -687,10 +687,12 @@
             }
             return custom_message;
         },
-        _isValidGuid: function (value) {
+        _isValidGuid: function (field, rules, i, options) {
+            var value = field.val();
             var validGuid = /^({|()?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}(}|))?$/;
             var emptyGuid = /^({|()?0{8}-(0{4}-){3}0{12}(}|))?$/;
-            return validGuid.test(value) && !emptyGuid.test(value);
+            if (!validGuid.test(value) || emptyGuid.test(value))
+                return options.allrules[rules[i]].alertText;
         },
         /**
         * Required validation

@@ -5,7 +5,7 @@ var Impianto = function (id, version, creationDate, start, end, description, des
     this.Start = ko.observable(start.format("dd/mm/yyyy"));
     this.End = ko.observable(end.format("dd/mm/yyyy"));
     this.Description = ko.observable(description);
-    this.DescriptionLotto = ko.dependentObservable(descriptionLotto);
+    this.DescriptionLotto = ko.observable(descriptionLotto);
     this.Version = version;
 }
 

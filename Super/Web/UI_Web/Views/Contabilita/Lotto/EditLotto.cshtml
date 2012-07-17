@@ -1,0 +1,75 @@
+﻿@model Core_Web.Models.EditLotto
+@{
+    ViewBag.Title = "edit lotto";
+    Layout = string.Empty;
+}
+<div id="error_mssg" class="hidden"></div>
+<form id="formDetails">
+    <fieldset>
+        <legend>Lotto</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)*
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Description, new { @class = "validate[required]" })
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Start)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Start, new { @class = "validate[required,funcCall[checkIntervall]] datepicker ", @Value = Model.Start.ToString("dd/MM/yyyy") })
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.End)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.End, new { @class = "validate[required,funcCall[checkIntervall]] datepicker " , @Value =Model.End.HasValue? Model.End.Value.ToString("dd/MM/yyyy"):string.Empty  })
+        </div>
+    </fieldset>
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model=>model.CommitId)
+    @Html.HiddenFor(model=>model.Version)
+</form>
+<script>
+
+    
+    $(document).ready(function () {
+        $('.datepicker').datepicker({ dateFormat: "dd/mm/yy" });
+        jQuery("#formDetails").validationEngine();
+        
+
+        viewModel.Accept = function (self) {
+
+            jQuery('#formDetails').validationEngine({ scroll: false });
+            if(jQuery('#formDetails').validationEngine('validate')) {
+
+                var id = $('#Id').val();
+                var commitId = $('#CommitId').val();
+                var version = $('#Version').val();
+                var description = $('#Description').val();
+                var start = $(jq('Start')).val();
+                var end = $(jq('End')).val();
+                
+
+                var url = "@Url.Action("UpdateLotto")";
+
+
+                var intervall = new Intervall(start, end);
+
+
+                try 
+                {
+                    var command = new UpdateLotto(id, commitId, version,  intervall, description);
+
+                    self.UpdateLotto(url, command);
+                } catch(e)
+                {
+                    alert(e);
+                }
+            }
+        };
+        
+       
+        
+    });
+</script>

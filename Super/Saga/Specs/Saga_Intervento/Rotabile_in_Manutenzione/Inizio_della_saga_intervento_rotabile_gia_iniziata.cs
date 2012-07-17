@@ -6,7 +6,6 @@ using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
-using EasyNetQ;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Saga.Handlers;

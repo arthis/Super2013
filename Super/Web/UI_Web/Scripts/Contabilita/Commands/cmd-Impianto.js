@@ -8,11 +8,11 @@ var FilterImpianto = function (description, pageNum, pageSize) {
 }
 var CreateImpianto = function (id, commitId, version, creationDate, intervall, description, idLotto) {
     if (description == null || description == '')
-        return "description cannot be null or empty";
+        throw "description cannot be null or empty";
     if (creationDate == null)
-        return "creationDate cannot be null or empty";
+        throw "creationDate cannot be null or empty";
     if (idLotto == null)
-        return "Lotto must be selected";
+        throw "Lotto must be selected";
 
     CommandBase(this, id, commitId, version);
     this.CreationDate = dateFormat(creationDate, "isoDateTime");
@@ -23,7 +23,7 @@ var CreateImpianto = function (id, commitId, version, creationDate, intervall, d
 
 var UpdateImpianto = function (id, commitId, version,  intervall, description) {
     if (description == null || description == '')
-        return "description cannot be null or empty";
+        throw "description cannot be null or empty";
 
     CommandBase(this, id, commitId, version);
     this.Intervall = intervall;

@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Impianto";
+    Layout = "~/Content/Layout/Earthlingtwo/_Layout.cshtml";// "~/Views/Shared/_LayoutDetailTemplate.cshtml"
+}
+@section JavaScript {
+    <script src="@Url.Content("~/Scripts/Contabilita/Commands/vo-intervall.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contabilita/Commands/cmd-Impianto.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contabilita/ViewModel/vm-Impianto-index.js")" type="text/javascript"></script>
+}
+<h2>
+    impianto</h2>
+<div id="FilterResults">
+    <form id="formFilter" class="formFilter">
+    <fieldset>
+        <legend>Filtro</legend>
+        <label>
+            Description :</label><input type="text" id="filtroDescription" data-bind=" value:Description " />
+        <div style="clear: both;">
+            &nbsp;</div>
+        <a class="button" data-bind="click: GetItems.bind($data, 1)" href="#">Visualizza</a>
+    </fieldset>
+    </form>
+</div>
+<div id="List" data-bind='template: "impiantoListTemplate"'></div><br />
+<div id="pagination" class="pagebar"></div>
+<p>
+    <a class="button" data-bind="click: ShowCreateImpianto" href="#">Aggiungi impianto</a>
+</p>
+<div id="details" style="overflow: hidden;">
+</div>
+<script type="text/html" id="impiantoListTemplate">
+    <table width=100% class="table-standard"> 
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                Lotto
+            </th>
+            <th>
+                Start
+            </th>
+            <th>
+                End
+            </th>
+            <th>
+                CreationDate
+            </th>
+            <th colspan="2">
+                Azione
+            </th>
+        </tr>
+        
+        <% _.each(Items(), function(item) { %>
+        <tr>
+            
+            <td>
+                <%= item.Description() %>
+            </td>
+             <td>
+                <%= item.DescriptionLotto() %>
+            </td>
+            <td>
+                <%= item.Start() %>
+            </td>
+            <td>
+                <%= item.End() %>
+            </td>
+            <td>
+                <%= item.CreationDate() %>
+            </td>
+            <td>
+                <a data-bind="click: function() { viewModel.ShowEditImpianto(item) }" href="#"><img src="@Url.Content("~/Images/Edit.gif")" border=0></a>
+            </td>
+            <td>
+                <a data-bind="click: function() { viewModel.ShowDeleteImpianto(item) }" href="#"><img src="@Url.Content("~/Images/Delete.gif")" border=0></a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</script>
+<script language="javascript">
+
+    
+    var urlCreateImpianto = "@Url.Action("CreateImpianto")";
+    var urlFetchBuilderEditImpianto = new UrlFetchBuilder("@Url.Action("EditImpianto")");
+    var urlFetchBuilderDeleteImpianto = new UrlFetchBuilder("@Url.Action("DeleteImpianto")");
+    var urlGetItems ="@Url.Action("GetItems")";
+    
+    
+
+    var viewModel = new vmStuff( 1, 10,
+        urlGetItems,
+        urlCreateImpianto,
+        urlFetchBuilderEditImpianto,
+        urlFetchBuilderDeleteImpianto);
+    ko.applyBindings(viewModel);
+
+    viewModel.GetItems(viewModel.PageNum());
+       
+</script>
+@*
+<script src="http://localhost:8091/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://localhost:8091');
+    socket.on('Events_Impianto_ImpiantoCreata:Events', function (msg) {
+        var jsonString = Utf8.decodeArray(msg.data);
+        alert(jsonString);
+    });
+</script>*@ 

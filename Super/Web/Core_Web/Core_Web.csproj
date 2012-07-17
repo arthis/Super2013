@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E6BA64B-2911-457A-A01A-3A6AEB492F45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core_Web</RootNamespace>
+    <AssemblyName>Core_Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah">
+      <HintPath>..\..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\..\..\packages\Elmah.MVC.2.0.0\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ElmahR.Elmah">
+      <HintPath>..\..\..\packages\ElmahR.Elmah.0.8.8.0\lib\net35\ElmahR.Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="RouteDebug">
+      <HintPath>..\..\..\lib\RouteDebug.dll</HintPath>
+    </Reference>
+    <Reference Include="Super.Contabilita.Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivator">
+      <HintPath>..\..\..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_start\ElmahMvc_Start.cs" />
+    <Compile Include="Attributes\SetCultureAttribute.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ControllerContabilita.cs" />
+    <Compile Include="Controllers\ControllerBaseSuper.cs" />
+    <Compile Include="Controllers\ControllerContabilitaBase.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Contabilita\ImpiantoController.cs" />
+    <Compile Include="Controllers\Contabilita\LottoController.cs" />
+    <Compile Include="global.asax.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CommandBase.cs" />
+    <Compile Include="Models\Impianto.cs" />
+    <Compile Include="Models\Intervento.cs" />
+    <Compile Include="Models\Lotto.cs" />
+    <Compile Include="Models\TipoIntervento.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ContabilitaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\CommandService.ExecuteResponse.datasource" />
+    <None Include="Service References\ContabilitaService\CommandWebService.wsdl" />
+    <None Include="Service References\ContabilitaService\Contabilita.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContabilitaService\Contabilita1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContabilitaService\Contabilita2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContabilitaService\Contabilita3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContabilitaService\Contabilita4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContabilitaService\Contabilita5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContabilitaService\Contabilita6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContabilitaService\Contabilita7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
+      <Project>{22C1CCB4-63E1-47A8-8DD1-865E7E4F280A}</Project>
+      <Name>CommandService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
+      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
+      <Name>CommonDomain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
+      <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
+      <Name>CommonDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Contabilita\Commands\Commands.csproj">
+      <Project>{7C1A8FCA-5A29-4A72-9D3E-D477CF0B96BF}</Project>
+      <Name>Commands %28Super\Contabilita\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReadModel\ReadModel.csproj">
+      <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>
+      <Name>ReadModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ContabilitaService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContabilitaService\Contabilita.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContabilitaService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContabilitaService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContabilitaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

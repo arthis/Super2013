@@ -31,8 +31,6 @@ namespace Super.Contabilita.Specs.Lotto
         protected override CommandHandler<UpdateLotto> OnHandle(IEventRepository eventRepository)
         {
             var mock = new Mock<ILottoRepository>();
-            mock.Setup(x => x.AreImpiantoAssociatedWihtinIntervall(It.IsAny<Guid>(), It.IsAny<Intervall>()))
-                .Returns(true);
             return new UpdateLottoHandler(eventRepository, mock.Object);
         }
 
@@ -43,7 +41,6 @@ namespace Super.Contabilita.Specs.Lotto
 
         public override UpdateLotto When()
         {
-
             return  Build.UpdateLotto
                          .ForDescription(_description)
                          .ForIntervall(_intervallUpdated)

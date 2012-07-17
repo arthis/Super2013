@@ -7,7 +7,6 @@ using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using EasyNetQ;
 using Newtonsoft.Json;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Commands.Lotto;
