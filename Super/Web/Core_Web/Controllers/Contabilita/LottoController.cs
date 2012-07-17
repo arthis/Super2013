@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using Core_Web.ContabilitaService;
 using Core_Web.Models;
 using Super.Contabilita.Commands.Lotto;
 using CreateLotto = Super.Contabilita.Commands.Lotto.CreateLotto;
@@ -10,6 +11,10 @@ namespace Core_Web.Controllers
 {
     public class LottoController : ControllerContabilitaBase
     {
+        public LottoController(ICommandWebService commandWebService) : base(commandWebService)
+        {
+        }
+
         protected override string GetView(string url)
         {
             url = string.Format("Lotto/{0}", url);

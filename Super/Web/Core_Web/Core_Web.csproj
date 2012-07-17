@@ -47,7 +47,6 @@
     <Reference Include="RouteDebug">
       <HintPath>..\..\..\lib\RouteDebug.dll</HintPath>
     </Reference>
-    <Reference Include="Super.Contabilita.Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -77,6 +76,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Contabilita\ImpiantoController.cs" />
     <Compile Include="Controllers\Contabilita\LottoController.cs" />
+    <Compile Include="ControllerFactory.cs" />
     <Compile Include="global.asax.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CommandBase.cs" />

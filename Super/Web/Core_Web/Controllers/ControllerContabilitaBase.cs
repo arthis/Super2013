@@ -11,16 +11,13 @@ namespace Core_Web.Controllers
 {
     public class ControllerContabilitaBase : ControllerBaseSuper
     {
-        private CommandWebServiceClient _commandService;
+        private ICommandWebService _commandService;
 
-        public CommandWebServiceClient CommandService
+        
+        public ControllerContabilitaBase(ICommandWebService commandWebService)
         {
-            get { return _commandService; }
-        }
 
-        public ControllerContabilitaBase()
-        {
-            _commandService = new CommandWebServiceClient();
+            _commandService = commandWebService;
         }
 
         public ContabilitaContainer GetContainer()
@@ -33,7 +30,7 @@ namespace Core_Web.Controllers
         {
             try
             {
-                var response = CommandService.Execute(command);
+                var response = _commandService.Execute(command);
 
                 if (response.Validation.Messages.Any())
                 {

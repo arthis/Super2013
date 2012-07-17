@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using Core_Web.ContabilitaService;
 using Core_Web.Models;
 using Super.Contabilita.Commands.Impianto;
 using CreateImpianto = Core_Web.Models.CreateImpianto;
@@ -10,6 +11,9 @@ namespace Core_Web.Controllers
 {
     public class ImpiantoController : ControllerContabilitaBase
     {
+        public ImpiantoController(ICommandWebService commandWebService) : base(commandWebService)
+        {
+        }
 
         protected override string GetView(string url)
         {
