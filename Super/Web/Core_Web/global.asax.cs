@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Core_Web.BootStrap;
+using Core_Web.ContabilitaService;
+using Core_Web.Controllers;
 
 namespace Core_Web
 {
@@ -39,6 +42,11 @@ namespace Core_Web
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
+            ControllerBuilder.Current.SetControllerFactory(typeof(NinjectControllerFactory));
         }
+
+        
     }
+
+   
 }
