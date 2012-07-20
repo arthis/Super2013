@@ -9,12 +9,12 @@ using Super.ReadModel;
 
 namespace Core_Web.Controllers
 {
-    public abstract class ControllerContabilitaBase : ControllerBaseSuper
+    public abstract class BaseContabilitaController : BaseController
     {
         private ICommandWebService _commandService;
 
         
-        public ControllerContabilitaBase(ICommandWebService commandWebService)
+        public BaseContabilitaController(ICommandWebService commandWebService)
         {
 
             _commandService = commandWebService;

@@ -5,12 +5,12 @@ namespace Super.Controllo.Events.Builders
 {
     public class InterventoClosedBuilder : IEventBuilder<InterventoClosed>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _closingDate;
 
-        public InterventoClosedBuilder By(Guid idUtente)
+        public InterventoClosedBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -22,7 +22,7 @@ namespace Super.Controllo.Events.Builders
 
         public InterventoClosed Build(Guid id, long version)
         {
-            var cmd = new InterventoClosed(id, Guid.NewGuid(), version,  _idUtente, _closingDate);
+            var cmd = new InterventoClosed(id, Guid.NewGuid(), version,  _idUser, _closingDate);
 
             
 

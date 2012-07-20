@@ -8,7 +8,9 @@ namespace Core_Web.BootStrap
     {
         private IKernel kernel = new StandardKernel(
             new ServiceModule()
-            , new ControllerModule()
+            , new ControllerMiscModule()
+            , new ControllerContabilitaModule()
+            , new ControllerProgrammazioneModule()
             );
 
         protected override IController GetControllerInstance(System.Web.Routing.RequestContext requestContext, Type controllerType)

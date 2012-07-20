@@ -27,10 +27,10 @@ namespace Super.Controllo.Domain
             Id = e.Id;
         }
 
-        public void Close(Guid idUtente, DateTime closingDate)
+        public void Close(Guid idUser, DateTime closingDate)
         {
             var evt = Build.InterventoClosed
-                .By(idUtente)
+                .By(idUser)
                 .When(closingDate);
 
             RaiseEvent(evt);
@@ -41,10 +41,10 @@ namespace Super.Controllo.Domain
             _isClosed = true;
         }
 
-        public void ControlNonReso(Guid idUtente, DateTime controlDate, Guid idCausale, string note)
+        public void ControlNonReso(Guid idUser, DateTime controlDate, Guid idCausale, string note)
         {
             var evt = Build.InterventoControlledNonReso
-                .By(idUtente)
+                .By(idUser)
                 .When(controlDate)
                 .Because(idCausale)
                 .WithNote(note);
@@ -57,10 +57,10 @@ namespace Super.Controllo.Domain
             //do nothing
         }
 
-        public void Reopen(Guid idUtente, DateTime reopeningDate)
+        public void Reopen(Guid idUser, DateTime reopeningDate)
         {
             var evt = Build.InterventoReopened
-                .By(idUtente)
+                .By(idUser)
                 .When(reopeningDate);
 
             RaiseEvent(evt);

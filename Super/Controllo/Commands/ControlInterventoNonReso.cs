@@ -11,7 +11,7 @@ namespace Super.Controllo.Commands
     public class ControlInterventoNonReso : CommandBase
     {
         
-        private readonly Guid _idUtente;
+        private readonly Guid _idUser;
         private readonly DateTime _controlDate;
         private readonly Guid _idCausale;
         private readonly string _note;
@@ -28,9 +28,9 @@ namespace Super.Controllo.Commands
         {
             get { return _controlDate; }
         }
-        public Guid IdUtente
+        public Guid IdUser
         {
-            get { return _idUtente; }
+            get { return _idUser; }
         }
 
         //for serialization
@@ -39,14 +39,14 @@ namespace Super.Controllo.Commands
             
         }
         
-        public ControlInterventoNonReso(Guid id, Guid commitId, long version, Guid idUtente, DateTime controlDate, Guid idCausale, string note)
+        public ControlInterventoNonReso(Guid id, Guid commitId, long version, Guid idUser, DateTime controlDate, Guid idCausale, string note)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>( idUtente != Guid.Empty);
+            Contract.Requires<ArgumentNullException>( idUser != Guid.Empty);
             Contract.Requires<ArgumentOutOfRangeException>(controlDate > DateTime.MinValue);
             Contract.Requires<ArgumentNullException>(idCausale != Guid.Empty);
 
-            _idUtente = idUtente;
+            _idUser = idUser;
             _controlDate = controlDate;
             _idCausale = idCausale;
             _note = note;
@@ -63,7 +63,7 @@ namespace Super.Controllo.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._idUtente.Equals(_idUtente) && other._controlDate.Equals(_controlDate) && other._idCausale.Equals(_idCausale) && Equals(other._note, _note);
+            return base.Equals(other) && other._idUser.Equals(_idUser) && other._controlDate.Equals(_controlDate) && other._idCausale.Equals(_idCausale) && Equals(other._note, _note);
         }
 
         public override bool Equals(object obj)
@@ -78,7 +78,7 @@ namespace Super.Controllo.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _idUtente.GetHashCode();
+                result = (result*397) ^ _idUser.GetHashCode();
                 result = (result*397) ^ _controlDate.GetHashCode();
                 result = (result*397) ^ _idCausale.GetHashCode();
                 result = (result*397) ^ (_note != null ? _note.GetHashCode() : 0);

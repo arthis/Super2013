@@ -81,15 +81,25 @@
     <Compile Include="Builders\CreateLottoBuilder.cs" />
     <Compile Include="Builders\UpdateImpiantoBuilder.cs" />
     <Compile Include="Builders\UpdateLottoBuilder.cs" />
-    <Compile Include="TipoIntervento\CreateTipoInterventoAmb.cs" />
-    <Compile Include="TipoIntervento\DeleteTipoInterventoAmb.cs" />
-    <Compile Include="TipoIntervento\UpdateTipoInterventoAmb.cs" />
-    <Compile Include="TipoIntervento\CreateTipoInterventoRotMan.cs" />
-    <Compile Include="TipoIntervento\DeleteTipoInterventoRotMan.cs" />
-    <Compile Include="TipoIntervento\UpdateTipoInterventoRotMan.cs" />
-    <Compile Include="TipoIntervento\CreateTipoInterventoRot.cs" />
-    <Compile Include="TipoIntervento\DeleteTipoInterventoRot.cs" />
-    <Compile Include="TipoIntervento\UpdateTipoInterventoRot.cs" />
+    <Compile Include="Committente\CreateCommittente.cs" />
+    <Compile Include="Committente\DeleteCommittente.cs" />
+    <Compile Include="Committente\UpdateCommittente.cs" />
+    <Compile Include="MeasuringUnit\CreateMeasuringUnit.cs" />
+    <Compile Include="MeasuringUnit\DeleteMeasuringUnit.cs" />
+    <Compile Include="MeasuringUnit\UpdateMeasuringUnit.cs" />
+    <Compile Include="PeriodoProgrammazione\ClosePeriodoProgrammazioneRot.cs" />
+    <Compile Include="PeriodoProgrammazione\Rotabile\CreatePeriodoProgrammazioneRot.cs" />
+    <Compile Include="PeriodoProgrammazione\Rotabile\DeletePeriodoProgrammazioneRot.cs" />
+    <Compile Include="PeriodoProgrammazione\Rotabile\UpdatePeriodoProgrammazioneRot.cs" />
+    <Compile Include="TipoIntervento\Ambiente\CreateTipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\Ambiente\DeleteTipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\Ambiente\UpdateTipoInterventoAmb.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\CreateTipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\DeleteTipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\UpdateTipoInterventoRotMan.cs" />
+    <Compile Include="TipoIntervento\Rotabile\CreateTipoInterventoRot.cs" />
+    <Compile Include="TipoIntervento\Rotabile\DeleteTipoInterventoRot.cs" />
+    <Compile Include="TipoIntervento\Rotabile\UpdateTipoInterventoRot.cs" />
     <Compile Include="Impianto\CreateImpianto.cs" />
     <Compile Include="Impianto\DeleteImpianto.cs" />
     <Compile Include="Impianto\specs.cs" />
@@ -113,6 +123,7 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

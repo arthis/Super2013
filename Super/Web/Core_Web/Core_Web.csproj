@@ -72,16 +72,20 @@
   <ItemGroup>
     <Compile Include="App_start\ElmahMvc_Start.cs" />
     <Compile Include="Attributes\SetCultureAttribute.cs" />
-    <Compile Include="BootStrap\ControllerModule.cs" />
+    <Compile Include="BootStrap\ControllerContabilitaModule.cs" />
+    <Compile Include="BootStrap\ControllerProgrammazioneModule.cs" />
+    <Compile Include="BootStrap\ControllerMiscModule.cs" />
     <Compile Include="BootStrap\ServiceModule.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ControllerContabilita.cs" />
-    <Compile Include="Controllers\ControllerBaseSuper.cs" />
-    <Compile Include="Controllers\ControllerContabilitaBase.cs" />
+    <Compile Include="Controllers\Contabilita\ContabilitaController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BaseContabilitaController.cs" />
+    <Compile Include="Controllers\BaseProgrammazioneController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Contabilita\ImpiantoController.cs" />
     <Compile Include="Controllers\Contabilita\LottoController.cs" />
     <Compile Include="BootStrap\ControllerFactory.cs" />
+    <Compile Include="Controllers\Programmazione\PianoRotabileController.cs" />
     <Compile Include="global.asax.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CommandBase.cs" />

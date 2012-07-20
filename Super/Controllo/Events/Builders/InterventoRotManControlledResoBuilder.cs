@@ -6,15 +6,15 @@ namespace Super.Controllo.Events.Builders
 {
     public class InterventoRotManControlledResoBuilder : IEventBuilder<InterventoRotManControlledReso>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _controlDate;
         private string _note;
         private WorkPeriod _period;
         private OggettoRotMan[] _oggetti;
 
-        public InterventoRotManControlledResoBuilder By(Guid idUtente)
+        public InterventoRotManControlledResoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -44,7 +44,7 @@ namespace Super.Controllo.Events.Builders
 
         public InterventoRotManControlledReso Build(Guid id, long version)
         {
-            var cmd = new InterventoRotManControlledReso(id, Guid.NewGuid(), version,  _idUtente, _controlDate, _period, _note, _oggetti);
+            var cmd = new InterventoRotManControlledReso(id, Guid.NewGuid(), version,  _idUser, _controlDate, _period, _note, _oggetti);
 
             return cmd;
         }

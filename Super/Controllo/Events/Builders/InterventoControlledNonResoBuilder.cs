@@ -5,15 +5,15 @@ namespace Super.Controllo.Events.Builders
 {
     public class InterventoControlledNonResoBuilder : IEventBuilder<InterventoControlledNonReso>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _controlDate;
         private Guid _idCausale;
         private string _note;
       
 
-        public InterventoControlledNonResoBuilder By(Guid idUtente)
+        public InterventoControlledNonResoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -37,7 +37,7 @@ namespace Super.Controllo.Events.Builders
 
         public InterventoControlledNonReso Build(Guid id, long version)
         {
-            var cmd = new InterventoControlledNonReso(id, Guid.NewGuid(), version,  _idUtente, _controlDate,_idCausale,_note);
+            var cmd = new InterventoControlledNonReso(id, Guid.NewGuid(), version,  _idUser, _controlDate,_idCausale,_note);
 
             
 

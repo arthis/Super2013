@@ -5,7 +5,7 @@ using Core_Web.Attributes;
 namespace Core_Web.Controllers
 {
     [SetCulture]
-    public abstract class ControllerBaseSuper : Controller
+    public abstract class BaseController : Controller
     {
         public DateTime Now
         {

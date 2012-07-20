@@ -8,7 +8,7 @@ namespace Super.Contabilita.Commands.Lotto
     
     public class DeleteLotto : CommandBase
     {
-        public long Version { get; private set; }
+        
 
         public DeleteLotto()
         {
@@ -30,9 +30,7 @@ namespace Super.Contabilita.Commands.Lotto
 
         public bool Equals(DeleteLotto other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.Version == Version;
+            return base.Equals(other);
         }
 
         public override bool Equals(object obj)
@@ -44,10 +42,7 @@ namespace Super.Contabilita.Commands.Lotto
 
         public override int GetHashCode()
         {
-            unchecked
-            {
-                return (base.GetHashCode()*397) ^ Version.GetHashCode();
-            }
+            return base.GetHashCode();
         }
     }
 }

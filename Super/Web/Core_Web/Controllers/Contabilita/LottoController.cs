@@ -7,9 +7,9 @@ using Super.Contabilita.Commands.Lotto;
 using CreateLotto = Super.Contabilita.Commands.Lotto.CreateLotto;
 using DeleteLotto = Core_Web.Models.DeleteLotto;
 
-namespace Core_Web.Controllers
+namespace Core_Web.Controllers.Contabilita
 {
-    public class LottoController : ControllerContabilitaBase
+    public class LottoController : BaseContabilitaController
     {
         public LottoController(ICommandWebService commandWebService) : base(commandWebService)
         {

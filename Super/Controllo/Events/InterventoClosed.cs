@@ -8,7 +8,7 @@ namespace Super.Controllo.Events
     public class InterventoClosed : Message , IEvent
     {
         
-        private readonly Guid _idUtente;
+        private readonly Guid _idUser;
         private readonly DateTime _closingDate;
 
 
@@ -16,9 +16,9 @@ namespace Super.Controllo.Events
         {
             get { return _closingDate; }
         }
-        public Guid IdUtente
+        public Guid IdUser
         {
-            get { return _idUtente; }
+            get { return _idUser; }
         }
 
         //for serialization
@@ -27,13 +27,13 @@ namespace Super.Controllo.Events
             
         }
 
-        public InterventoClosed(Guid id, Guid commitId, long version, Guid idUtente, DateTime closingDate)
+        public InterventoClosed(Guid id, Guid commitId, long version, Guid idUser, DateTime closingDate)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(idUtente != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idUser != Guid.Empty);
             Contract.Requires<ArgumentOutOfRangeException>(closingDate > DateTime.MinValue);
 
-            _idUtente = idUtente;
+            _idUser = idUser;
             _closingDate = closingDate;
         }
 
@@ -46,7 +46,7 @@ namespace Super.Controllo.Events
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._idUtente.Equals(_idUtente) && other._closingDate.Equals(_closingDate);
+            return base.Equals(other) && other._idUser.Equals(_idUser) && other._closingDate.Equals(_closingDate);
         }
 
         public override bool Equals(object obj)
@@ -62,7 +62,7 @@ namespace Super.Controllo.Events
             {
                 int result = base.GetHashCode();
                 
-                result = (result*397) ^ _idUtente.GetHashCode();
+                result = (result*397) ^ _idUser.GetHashCode();
                 result = (result*397) ^ _closingDate.GetHashCode();
                 return result;
             }

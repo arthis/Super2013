@@ -6,7 +6,7 @@ namespace Super.Controllo.Events.Builders
 {
     public class InterventoAmbControlledResoBuilder : IEventBuilder<InterventoAmbControlledReso>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _controlDate;
         private string _note;
         private WorkPeriod _period;
@@ -15,9 +15,9 @@ namespace Super.Controllo.Events.Builders
 
         
 
-        public InterventoAmbControlledResoBuilder By(Guid idUtente)
+        public InterventoAmbControlledResoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -53,7 +53,7 @@ namespace Super.Controllo.Events.Builders
 
         public InterventoAmbControlledReso Build(Guid id, long version)
         {
-            var cmd = new InterventoAmbControlledReso(id, Guid.NewGuid(), version,  _idUtente, _controlDate, _period, _note, _quantity, _description);
+            var cmd = new InterventoAmbControlledReso(id, Guid.NewGuid(), version,  _idUser, _controlDate, _period, _note, _quantity, _description);
 
             
 

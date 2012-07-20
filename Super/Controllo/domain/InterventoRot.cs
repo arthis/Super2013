@@ -13,7 +13,7 @@ namespace Super.Controllo.Domain
     public class InterventoRot : Intervento
     {
 
-        public void ControlReso(Guid idUtente, DateTime  controlDate, WorkPeriod workPeriod, Treno trenoPartenza, Treno trenoArrivo, string convoglio, string note,IEnumerable<OggettoRot> oggetti, string rigaTurnoTreno, string turnoTreno)
+        public void ControlReso(Guid idUser, DateTime  controlDate, WorkPeriod workPeriod, Treno trenoPartenza, Treno trenoArrivo, string convoglio, string note,IEnumerable<OggettoRot> oggetti, string rigaTurnoTreno, string turnoTreno)
         {
             var periodBuilder = new WorkPeriodBuilder();
             var trenoPartenzaBuilder = new TrenoBuilder();
@@ -25,7 +25,7 @@ namespace Super.Controllo.Domain
 
             var evt = Build.InterventoRotControlledReso
                 .ForPeriod(periodBuilder.Build())
-                .By(idUtente)
+                .By(idUser)
                 .When(controlDate)
                 .WithNote(note)
                 .WithTrenoPartenza(trenoPartenzaBuilder.Build())

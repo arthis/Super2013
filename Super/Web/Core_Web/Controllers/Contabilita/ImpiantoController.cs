@@ -7,9 +7,9 @@ using Super.Contabilita.Commands.Impianto;
 using CreateImpianto = Core_Web.Models.CreateImpianto;
 using DeleteImpianto = Core_Web.Models.DeleteImpianto;
 
-namespace Core_Web.Controllers
+namespace Core_Web.Controllers.Contabilita
 {
-    public class ImpiantoController : ControllerContabilitaBase
+    public class ImpiantoController : BaseContabilitaController
     {
         public ImpiantoController(ICommandWebService commandWebService) : base(commandWebService)
         {

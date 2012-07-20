@@ -10,7 +10,7 @@ namespace Super.Controllo.Commands
 
     public class CloseIntervento : CommandBase
     {
-        private readonly Guid _idUtente;
+        private readonly Guid _idUser;
         private readonly DateTime _closingDate;
 
         //for serialization
@@ -19,13 +19,13 @@ namespace Super.Controllo.Commands
             
         }
 
-        public CloseIntervento(Guid id, Guid commitId, long version, Guid idUtente, DateTime closingDate)
+        public CloseIntervento(Guid id, Guid commitId, long version, Guid idUser, DateTime closingDate)
             : base(id, commitId, version)
         {
-            Contract.Requires(idUtente!=Guid.Empty);
+            Contract.Requires(idUser!=Guid.Empty);
             Contract.Requires(closingDate > DateTime.MinValue);
 
-            _idUtente = idUtente;
+            _idUser = idUser;
             _closingDate = closingDate;
         }
 
@@ -34,9 +34,9 @@ namespace Super.Controllo.Commands
             get { return _closingDate; }
         }
 
-        public Guid IdUtente
+        public Guid IdUser
         {
-            get { return _idUtente; }
+            get { return _idUser; }
         }
 
         public override string ToDescription()
@@ -48,7 +48,7 @@ namespace Super.Controllo.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other._idUtente.Equals(_idUtente) && other._closingDate.Equals(_closingDate);
+            return base.Equals(other) && other._idUser.Equals(_idUser) && other._closingDate.Equals(_closingDate);
         }
 
         public override bool Equals(object obj)
@@ -63,7 +63,7 @@ namespace Super.Controllo.Commands
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ _idUtente.GetHashCode();
+                result = (result*397) ^ _idUser.GetHashCode();
                 result = (result*397) ^ _closingDate.GetHashCode();
                 return result;
             }

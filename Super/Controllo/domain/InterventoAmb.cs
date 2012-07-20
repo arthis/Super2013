@@ -13,13 +13,13 @@ namespace Super.Controllo.Domain
     public class InterventoAmb : Intervento
     {
 
-        public void ControlReso(Guid idUtente, DateTime controlDate, WorkPeriod workPeriod, string note, int quantity, string description)
+        public void ControlReso(Guid idUser, DateTime controlDate, WorkPeriod workPeriod, string note, int quantity, string description)
         {
             var periodBuilder = new WorkPeriodBuilder();
             workPeriod.BuildValue(periodBuilder);
             var evt = Build.InterventoAmbControlledReso
                 .ForPeriod(periodBuilder.Build())
-                .By(idUtente)
+                .By(idUser)
                 .When(controlDate)
                 .WithNote(note)
                 .ForQuantity(quantity)

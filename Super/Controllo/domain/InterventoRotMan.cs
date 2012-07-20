@@ -12,7 +12,7 @@ namespace Super.Controllo.Domain
 {
     public class InterventoRotMan : Intervento
     {
-        public void ControlReso(Guid idUtente, DateTime controlDate, WorkPeriod workPeriod, string note, IEnumerable<OggettoRotMan> oggetti)
+        public void ControlReso(Guid idUser, DateTime controlDate, WorkPeriod workPeriod, string note, IEnumerable<OggettoRotMan> oggetti)
         {
             var periodBuilder = new WorkPeriodBuilder();
 
@@ -20,7 +20,7 @@ namespace Super.Controllo.Domain
 
             var evt = Build.InterventoRotManControlledReso
                 .ForPeriod(periodBuilder.Build())
-                .By(idUtente)
+                .By(idUser)
                 .When(controlDate)
                 .WithNote(note)
                 .WithOggetti(oggetti.ToMessage().ToArray());

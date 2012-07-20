@@ -20,7 +20,7 @@ namespace Super.Controllo.Specs.Close
     {
         private Guid _Id = Guid.NewGuid();
         private DateTime _closingDate = DateTime.Now;
-        private Guid _idUtente = Guid.NewGuid();
+        private Guid _idUser = Guid.NewGuid();
 
         protected override CommandHandler<CloseIntervento> OnHandle(IEventRepository eventRepository)
         {
@@ -36,7 +36,7 @@ namespace Super.Controllo.Specs.Close
         public override CloseIntervento When()
         {
             return BuildCmd.CloseIntervento
-                        .By(_idUtente)
+                        .By(_idUser)
                         .When(_closingDate)
                         .Build(_Id,1);
         }
@@ -44,7 +44,7 @@ namespace Super.Controllo.Specs.Close
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildEvt.InterventoClosed
-                .By(_idUtente)
+                .By(_idUser)
                 .When(_closingDate)
                 .Build(_Id,2);
         }

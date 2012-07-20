@@ -6,7 +6,7 @@ namespace Super.Controllo.Events.Builders
 {
     public class InterventoRotControlledResoBuilder : IEventBuilder<InterventoRotControlledReso>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _controlDate;
         private string _note;
         private WorkPeriod _period;
@@ -18,9 +18,9 @@ namespace Super.Controllo.Events.Builders
         private string _convoglio;
 
 
-        public InterventoRotControlledResoBuilder By(Guid idUtente)
+        public InterventoRotControlledResoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -82,7 +82,7 @@ namespace Super.Controllo.Events.Builders
 
         public InterventoRotControlledReso Build(Guid id, long version)
         {
-            var cmd = new InterventoRotControlledReso(id, Guid.NewGuid(), version,  _idUtente, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
+            var cmd = new InterventoRotControlledReso(id, Guid.NewGuid(), version,  _idUser, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
                                       _rigaTurnoTreno,
                                       _convoglio);
 

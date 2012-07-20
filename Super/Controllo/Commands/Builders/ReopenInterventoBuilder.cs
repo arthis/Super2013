@@ -5,12 +5,12 @@ namespace Super.Controllo.Commands.Builders
 {
     public class ReopenInterventoBuilder : ICommandBuilder<ReopenIntervento>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _reopeningDate;
 
-        public ReopenInterventoBuilder By(Guid idUtente)
+        public ReopenInterventoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -27,7 +27,7 @@ namespace Super.Controllo.Commands.Builders
 
         public ReopenIntervento Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new ReopenIntervento(id, commitId, version, _idUtente, _reopeningDate);
+            var cmd = new ReopenIntervento(id, commitId, version, _idUser, _reopeningDate);
 
             
 

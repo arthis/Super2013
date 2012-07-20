@@ -5,12 +5,12 @@ namespace Super.Controllo.Commands.Builders
 {
     public class CloseInterventoBuilder : ICommandBuilder<CloseIntervento>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _closingDate;
 
-        public CloseInterventoBuilder By(Guid idUtente)
+        public CloseInterventoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -27,7 +27,7 @@ namespace Super.Controllo.Commands.Builders
 
         public CloseIntervento Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new CloseIntervento(id, commitId, version, _idUtente, _closingDate);
+            var cmd = new CloseIntervento(id, commitId, version, _idUser, _closingDate);
 
             
 

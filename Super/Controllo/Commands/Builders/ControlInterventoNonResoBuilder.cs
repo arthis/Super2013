@@ -5,14 +5,14 @@ namespace Super.Controllo.Commands.Builders
 {
     public class ControlInterventoNonResoBuilder : ICommandBuilder<ControlInterventoNonReso>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _controlDate;
         private Guid _idCausale;
         private string _note;
 
-        public ControlInterventoNonResoBuilder By(Guid idUtente)
+        public ControlInterventoNonResoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -41,7 +41,7 @@ namespace Super.Controllo.Commands.Builders
 
         public ControlInterventoNonReso Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new ControlInterventoNonReso(id, commitId, version, _idUtente, _controlDate,_idCausale,_note);
+            var cmd = new ControlInterventoNonReso(id, commitId, version, _idUser, _controlDate,_idCausale,_note);
 
             
 

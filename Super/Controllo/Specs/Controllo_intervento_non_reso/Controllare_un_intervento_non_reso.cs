@@ -20,7 +20,7 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
     {
         private Guid _Id = Guid.NewGuid();
         private DateTime _controlDate = DateTime.Now;
-        private Guid _idUtente = Guid.NewGuid();
+        private Guid _idUser = Guid.NewGuid();
         private Guid _idCausale = Guid.NewGuid();
         private string _note = "note";
 
@@ -40,7 +40,7 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
         {
 
             return BuildCmd.ControlInterventoNonReso
-                .By(_idUtente)
+                .By(_idUser)
                 .Because(_idCausale)
                 .When(_controlDate)
                 .WithNote(_note)
@@ -50,7 +50,7 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildEvt.InterventoControlledNonReso
-                .By(_idUtente)
+                .By(_idUser)
                 .Because(_idCausale)
                 .When(_controlDate)
                 .WithNote(_note)

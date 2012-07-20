@@ -27,7 +27,7 @@ namespace Super.Controllo.Handlers
             if (existingIntervento.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            existingIntervento.Reopen(cmd.IdUtente, cmd.ReopeningDate);
+            existingIntervento.Reopen(cmd.IdUser, cmd.ReopeningDate);
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

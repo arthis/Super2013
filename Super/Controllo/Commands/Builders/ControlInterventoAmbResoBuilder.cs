@@ -6,7 +6,7 @@ namespace Super.Controllo.Commands.Builders
 {
     public class ControlInterventoAmbResoBuilder: ICommandBuilder<ControlInterventoAmbReso>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _controlDate;
         private string _note;
         private WorkPeriod _period;
@@ -14,9 +14,9 @@ namespace Super.Controllo.Commands.Builders
         private string _description;
 
 
-        public ControlInterventoAmbResoBuilder By(Guid idUtente)
+        public ControlInterventoAmbResoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -57,7 +57,7 @@ namespace Super.Controllo.Commands.Builders
 
         public ControlInterventoAmbReso Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new ControlInterventoAmbReso(id, commitId, version, _idUtente, _controlDate, _period, _note, _quantity, _description);
+            var cmd = new ControlInterventoAmbReso(id, commitId, version, _idUser, _controlDate, _period, _note, _quantity, _description);
 
             
 

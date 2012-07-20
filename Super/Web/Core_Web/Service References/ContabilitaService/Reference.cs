@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Super.Contabilita.Commands.TipoIntervento.Ambiente;
+using Super.Contabilita.Commands.TipoIntervento.Rotabile;
+using Super.Contabilita.Commands.TipoIntervento.RotabileInManutenzione;
+
 namespace Core_Web.ContabilitaService {
     
     
@@ -19,15 +23,15 @@ namespace Core_Web.ContabilitaService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.Lotto.UpdateLotto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.Lotto.CreateLotto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.Lotto.DeleteLotto))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.TipoIntervento.UpdateTipoInterventoAmb))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.TipoIntervento.DeleteTipoInterventoAmb))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.TipoIntervento.UpdateTipoInterventoRot))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.TipoIntervento.DeleteTipoInterventoRot))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.TipoIntervento.CreateTipoInterventoRotMan))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.TipoIntervento.UpdateTipoInterventoRotMan))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.TipoIntervento.DeleteTipoInterventoRotMan))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.TipoIntervento.CreateTipoInterventoAmb))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.TipoIntervento.CreateTipoInterventoRot))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UpdateTipoInterventoAmb))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DeleteTipoInterventoAmb))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UpdateTipoInterventoRot))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DeleteTipoInterventoRot))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(CreateTipoInterventoRotMan))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UpdateTipoInterventoRotMan))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DeleteTipoInterventoRotMan))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(CreateTipoInterventoAmb))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(CreateTipoInterventoRot))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.Impianto.DeleteImpianto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.Impianto.CreateImpianto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Super.Contabilita.Commands.Impianto.UpdateImpianto))]

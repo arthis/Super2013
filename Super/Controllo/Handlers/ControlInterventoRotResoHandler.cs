@@ -27,7 +27,7 @@ namespace Super.Controllo.Handlers
                 throw new AggregateRootInstanceNotFoundException();
 
 
-            existingIntervento.ControlReso(cmd.IdUtente,
+            existingIntervento.ControlReso(cmd.IdUser,
                                             cmd.ControlDate,
                                             WorkPeriod.FromMessage(cmd.Period),
                                             Treno.FromMessage(cmd.TrenoPartenza),

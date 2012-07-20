@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
-using CommandService;
 using CommonDomain.Core;
 
-namespace Super.Contabilita.Commands.TipoIntervento
+namespace Super.Contabilita.Commands.TipoIntervento.Rotabile
 {
     
     public class DeleteTipoInterventoRot : CommandBase
@@ -29,7 +28,21 @@ namespace Super.Contabilita.Commands.TipoIntervento
             return string.Format("Cancelliamo il tipo intervento rotabile (Id:'{0}')", Id);
         }
 
+        public bool Equals(DeleteTipoInterventoRot other)
+        {
+            return base.Equals(other);
+        }
 
-       
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return Equals(obj as DeleteTipoInterventoRot);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

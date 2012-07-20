@@ -6,16 +6,16 @@ namespace Super.Controllo.Commands.Builders
 {
     public class ControlInterventoRotManResoBuilder : ICommandBuilder<ControlInterventoRotManReso>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _controlDate;
         private string _note;
         private WorkPeriod _period;
         private OggettoRotMan[] _oggetti;
         
 
-        public ControlInterventoRotManResoBuilder By(Guid idUtente)
+        public ControlInterventoRotManResoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -53,7 +53,7 @@ namespace Super.Controllo.Commands.Builders
 
         public ControlInterventoRotManReso Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new ControlInterventoRotManReso(id, commitId, version, _idUtente, _controlDate, _period, _note, _oggetti);
+            var cmd = new ControlInterventoRotManReso(id, commitId, version, _idUser, _controlDate, _period, _note, _oggetti);
 
             
 

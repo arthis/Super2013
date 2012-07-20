@@ -6,7 +6,7 @@ namespace Super.Controllo.Commands.Builders
 {
     public class ControlInterventoRotResoBuilder: ICommandBuilder< ControlInterventoRotReso>
     {
-        private Guid _idUtente;
+        private Guid _idUser;
         private DateTime _controlDate;
         private string _note;
         private WorkPeriod _period;
@@ -18,9 +18,9 @@ namespace Super.Controllo.Commands.Builders
         private string _convoglio;
 
 
-        public ControlInterventoRotResoBuilder By(Guid idUtente)
+        public ControlInterventoRotResoBuilder By(Guid idUser)
         {
-            _idUtente = idUtente;
+            _idUser = idUser;
             return this;
         }
 
@@ -87,7 +87,7 @@ namespace Super.Controllo.Commands.Builders
 
         public ControlInterventoRotReso Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new ControlInterventoRotReso(id, commitId, version, _idUtente, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
+            var cmd = new ControlInterventoRotReso(id, commitId, version, _idUser, _controlDate, _period, _note, _oggetti, _trenoArrivo, _trenoPartenza, _turnoTreno,
                                       _rigaTurnoTreno,
                                       _convoglio);
 
