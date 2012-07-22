@@ -5,7 +5,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 namespace Super.Programmazione.Events.Builders
 {
 
-    public class InterventoRotManPianificatoBuilder : IEventBuilder<InterventoRotManPianificato>
+    public class InterventoRotManGeneratedBuilder : IEventBuilder<InterventoRotManGenerated>
     {
         private Guid _idImpianto;
         private Guid _idTipoIntervento;
@@ -17,70 +17,70 @@ namespace Super.Programmazione.Events.Builders
         private OggettoRotMan[] _oggetti;
 
 
-        public InterventoRotManPianificatoBuilder WithOggetti(OggettoRotMan[] oggetti)
+        public InterventoRotManGeneratedBuilder WithOggetti(OggettoRotMan[] oggetti)
         {
             _oggetti = oggetti;
             return this;
         }
 
-        public InterventoRotManPianificatoBuilder ForPeriod(WorkPeriod period)
+        public InterventoRotManGeneratedBuilder ForPeriod(WorkPeriod period)
         {
             _period = period;
             return this;
         }
 
-        public InterventoRotManPianificatoBuilder In(Guid idImpianto)
+        public InterventoRotManGeneratedBuilder In(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
         }
 
-        public InterventoRotManPianificatoBuilder OfType(Guid idTipoIntervento)
+        public InterventoRotManGeneratedBuilder OfType(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
-        public InterventoRotManPianificatoBuilder ForAppaltatore(Guid idAppaltatore)
+        public InterventoRotManGeneratedBuilder ForAppaltatore(Guid idAppaltatore)
         {
             _idAppaltatore = idAppaltatore;
             return this;
         }
 
-        public InterventoRotManPianificatoBuilder OfCategoriaCommerciale(Guid idCategoriaCommerciale)
+        public InterventoRotManGeneratedBuilder OfCategoriaCommerciale(Guid idCategoriaCommerciale)
         {
             _idCategoriaCommerciale = idCategoriaCommerciale;
             return this;
         }
 
-        public InterventoRotManPianificatoBuilder OfDirezioneRegionale(Guid idDirezioneRegionale)
+        public InterventoRotManGeneratedBuilder OfDirezioneRegionale(Guid idDirezioneRegionale)
         {
             _idDirezioneRegionale = idDirezioneRegionale;
             return this;
         }
 
-        public InterventoRotManPianificatoBuilder WithNote(string note)
+        public InterventoRotManGeneratedBuilder WithNote(string note)
         {
             _note = note;
             return this;
         }
 
-        public InterventoRotManPianificatoBuilder ForImpianto(Guid idImpianto)
+        public InterventoRotManGeneratedBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
         }
 
-        public InterventoRotManPianificatoBuilder ForTipo(Guid idTipoIntervento)
+        public InterventoRotManGeneratedBuilder ForTipo(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
 
-        public InterventoRotManPianificato Build(Guid id, long version)
+        public InterventoRotManGenerated Build(Guid id, long version)
         {
-            var evt = new  InterventoRotManPianificato(id, Guid.NewGuid(),version,
+            var evt = new  InterventoRotManGenerated(id, Guid.NewGuid(),version,
                                       _idImpianto,
                                       _idTipoIntervento,
                                       _idAppaltatore,

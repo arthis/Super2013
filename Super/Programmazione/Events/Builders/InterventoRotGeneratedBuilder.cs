@@ -5,7 +5,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 namespace Super.Programmazione.Events.Builders
 {
 
-    public class InterventoRotPianificatoBuilder : IEventBuilder<InterventoRotPianificato>
+    public class InterventoRotGeneratedBuilder : IEventBuilder<InterventoRotGenerated>
     {
         private Guid _idImpianto;
         private Guid _idTipoIntervento;
@@ -21,80 +21,80 @@ namespace Super.Programmazione.Events.Builders
         private string _rigaTurnoTreno;
         private string _convoglio;
 
-        public InterventoRotPianificatoBuilder WithOggetti(OggettoRot[] oggetti)
+        public InterventoRotGeneratedBuilder WithOggetti(OggettoRot[] oggetti)
         {
             _oggetti = oggetti;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder ForPeriod(WorkPeriod period)
+        public InterventoRotGeneratedBuilder ForPeriod(WorkPeriod period)
         {
             _period = period;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder OfType(Guid idTipoIntervento)
+        public InterventoRotGeneratedBuilder OfType(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder ForAppaltatore(Guid idAppaltatore)
+        public InterventoRotGeneratedBuilder ForAppaltatore(Guid idAppaltatore)
         {
             _idAppaltatore = idAppaltatore;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder OfCategoriaCommerciale(Guid idCategoriaCommerciale)
+        public InterventoRotGeneratedBuilder OfCategoriaCommerciale(Guid idCategoriaCommerciale)
         {
             _idCategoriaCommerciale = idCategoriaCommerciale;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder OfDirezioneRegionale(Guid idDirezioneRegionale)
+        public InterventoRotGeneratedBuilder OfDirezioneRegionale(Guid idDirezioneRegionale)
         {
             _idDirezioneRegionale = idDirezioneRegionale;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder WithNote(string note)
+        public InterventoRotGeneratedBuilder WithNote(string note)
         {
             _note = note;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder WithTrenoArrivo(Treno trenoArrivo)
+        public InterventoRotGeneratedBuilder WithTrenoArrivo(Treno trenoArrivo)
         {
             _trenoArrivo = trenoArrivo;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder WithTrenoPartenza(Treno trenoPartenza)
+        public InterventoRotGeneratedBuilder WithTrenoPartenza(Treno trenoPartenza)
         {
             _trenoPartenza = trenoPartenza;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder WithTurnoTreno(string turnoTreno)
+        public InterventoRotGeneratedBuilder WithTurnoTreno(string turnoTreno)
         {
             _turnoTreno = turnoTreno;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder WithRigaTurnoTreno(string rigaTurnoTreno)
+        public InterventoRotGeneratedBuilder WithRigaTurnoTreno(string rigaTurnoTreno)
         {
             _rigaTurnoTreno = rigaTurnoTreno;
             return this;
         }
 
-        public InterventoRotPianificatoBuilder ForConvoglio(string convoglio)
+        public InterventoRotGeneratedBuilder ForConvoglio(string convoglio)
         {
             _convoglio = convoglio;
             return this;
         }
 
 
-        public InterventoRotPianificatoBuilder ForImpianto(Guid idImpianto)
+        public InterventoRotGeneratedBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
@@ -102,9 +102,9 @@ namespace Super.Programmazione.Events.Builders
 
         
 
-        public InterventoRotPianificato Build(Guid id, long version)
+        public InterventoRotGenerated Build(Guid id, long version)
         {
-            var evt = new InterventoRotPianificato(id, Guid.NewGuid(),
+            var evt = new InterventoRotGenerated(id, Guid.NewGuid(),
                                        version,
                                       _idImpianto,
                                       _idTipoIntervento,

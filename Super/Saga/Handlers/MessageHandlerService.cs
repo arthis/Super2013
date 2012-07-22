@@ -26,9 +26,9 @@ namespace Super.Saga.Handlers
         {
             var sagaHandler = new SagaHandler(repository);
 
-            sagaHandler.Add(_handlers, new InterventoRotPianificatoHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoRotManPianificatoHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoAmbPianificatoHandler(repository, _bus));
+            sagaHandler.Add(_handlers, new InterventoRotGeneratedHandler(repository, _bus));
+            sagaHandler.Add(_handlers, new InterventoRotManGeneratedHandler(repository, _bus));
+            sagaHandler.Add(_handlers, new InterventoAmbGeneratedHandler(repository, _bus));
 
             sagaHandler.Add(_handlers, new InterventoConsuntivatoRotResoHandler(repository, _bus));
             sagaHandler.Add(_handlers, new InterventoConsuntivatoRotNonResoHandler(repository, _bus));
@@ -47,9 +47,9 @@ namespace Super.Saga.Handlers
         {
             string subscriptionId = "Super";
 
-            _bus.Subscribe<InterventoRotPianificato>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoRotManPianificato>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoAmbPianificato>(subscriptionId, Execute);
+            _bus.Subscribe<InterventoRotGenerated>(subscriptionId, Execute);
+            _bus.Subscribe<InterventoRotManGenerated>(subscriptionId, Execute);
+            _bus.Subscribe<InterventoAmbGenerated>(subscriptionId, Execute);
 
             _bus.Subscribe<InterventoConsuntivatoRotReso>(subscriptionId, Execute);
             _bus.Subscribe<InterventoConsuntivatoRotNonReso>(subscriptionId, Execute);

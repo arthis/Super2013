@@ -74,11 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\Build.cs" />
-    <Compile Include="Builders\InterventoAmbPianificatoBuilder.cs" />
-    <Compile Include="Builders\InterventoRotPianificatoBuilder.cs" />
-    <Compile Include="Builders\InterventoRotManPianificatoBuilder.cs" />
-    <Compile Include="IInterventoPianificato.cs" />
-    <Compile Include="InterventoPianificato.cs" />
+    <Compile Include="Builders\InterventoAmbGeneratedBuilder.cs" />
+    <Compile Include="Builders\InterventoRotGeneratedBuilder.cs" />
+    <Compile Include="Builders\InterventoRotManGeneratedBuilder.cs" />
+    <Compile Include="IInterventoGenerated.cs" />
+    <Compile Include="InterventoGenerated.cs" />
+    <Compile Include="InterventoGenerato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

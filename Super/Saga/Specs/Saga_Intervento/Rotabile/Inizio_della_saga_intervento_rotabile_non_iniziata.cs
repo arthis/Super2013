@@ -18,7 +18,7 @@ using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile
 {
-    public class Inizio_della_saga_intervento_rotabile_non_iniziata : SagaBaseClass<InterventoRotPianificato>
+    public class Inizio_della_saga_intervento_rotabile_non_iniziata : SagaBaseClass<InterventoRotGenerated>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -40,9 +40,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
             return "un inizo di saga normale";
         }
 
-        protected override SagaHandler<InterventoRotPianificato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoRotGenerated> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoRotPianificatoHandler(repository, bus);
+            return new InterventoRotGeneratedHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -50,9 +50,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
             yield break;
         }
 
-        public override InterventoRotPianificato When()
+        public override InterventoRotGenerated When()
         {
-            return BuildEvt.InterventoRotPianificato
+            return BuildEvt.InterventoRotGenerated
                 .ForPeriod(_period)
                 .ForImpianto(_idImpianto)
                 .OfType(_idTipoIntervento)

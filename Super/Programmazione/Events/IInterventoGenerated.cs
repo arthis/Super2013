@@ -3,7 +3,7 @@ using CommonDomain;
 
 namespace Super.Programmazione.Events
 {
-    public interface IInterventoPianificato :  IEvent
+    public interface IInterventoGenerated :  IEvent
     {
         
     }

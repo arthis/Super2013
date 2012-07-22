@@ -10,14 +10,14 @@ using ISaga = CommonDomain.ISaga;
 
 namespace Super.Saga.Handlers
 {
-    public class InterventoRotManPianificatoHandler : SagaHandler<InterventoRotManPianificato>
+    public class InterventoRotManGeneratedHandler : SagaHandler<InterventoRotManGenerated>
     {
-        public InterventoRotManPianificatoHandler(ISagaRepository repository, IBus bus)
+        public InterventoRotManGeneratedHandler(ISagaRepository repository, IBus bus)
             : base(repository, bus, null)
         {
         }
 
-        public sealed override ISaga OnHandle(InterventoRotManPianificato @event)
+        public sealed override ISaga OnHandle(InterventoRotManGenerated @event)
         {
             var sagaId = @event.Id;
 

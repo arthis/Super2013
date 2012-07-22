@@ -16,7 +16,7 @@ using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 {
-    public class Inizio_della_saga_intervento_rotabile_in_manutenzione_gia_iniziata : SagaBaseClass<InterventoRotManPianificato>
+    public class Inizio_della_saga_intervento_rotabile_in_manutenzione_gia_iniziata : SagaBaseClass<InterventoRotManGenerated>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -34,14 +34,14 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
             return "Une saga gia inziata non può essere iniziata di nuovo. vero?.";
         }
 
-        protected override SagaHandler<InterventoRotManPianificato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoRotManGenerated> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoRotManPianificatoHandler(repository, bus);
+            return new InterventoRotManGeneratedHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoRotManPianificato()
+            yield return new InterventoRotManGenerated()
             {
                 Period = _period,
                 Id = _id,
@@ -56,9 +56,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
             };
         }
 
-        public override InterventoRotManPianificato When()
+        public override InterventoRotManGenerated When()
         {
-            return new InterventoRotManPianificato()
+            return new InterventoRotManGenerated()
                        {
                            Period = _period,
                            Id = _id,

@@ -16,7 +16,7 @@ using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
 
 namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 {
-    public class Inizio_della_saga_intervento_ambiente_gia_iniziata : SagaBaseClass<InterventoAmbPianificato>
+    public class Inizio_della_saga_intervento_ambiente_gia_iniziata : SagaBaseClass<InterventoAmbGenerated>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -35,14 +35,14 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
             return "Une saga gia inziata non può essere iniziata di nuovo. vero?.";
         }
 
-        protected override SagaHandler<InterventoAmbPianificato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoAmbGenerated> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoAmbPianificatoHandler(repository, bus);
+            return new InterventoAmbGeneratedHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvt.InterventoAmbPianificato
+            yield return BuildEvt.InterventoAmbGenerated
                 .ForPeriod(_period)
                 .ForImpianto(_idImpianto)
                 .OfType(_idTipoIntervento)
@@ -55,9 +55,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
                 .Build(_id, 1);
         }
 
-        public override InterventoAmbPianificato When()
+        public override InterventoAmbGenerated When()
         {
-            return BuildEvt.InterventoAmbPianificato
+            return BuildEvt.InterventoAmbGenerated
                 .ForPeriod(_period)
                 .ForImpianto(_idImpianto)
                 .OfType(_idTipoIntervento)

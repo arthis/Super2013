@@ -18,7 +18,7 @@ namespace Super.Saga.Domain.Intervento
 
         public InterventoAmbSaga()
         {
-            Register<InterventoAmbPianificato>(OnInterventoAmbPianificato);
+            Register<InterventoAmbGenerated>(OnInterventoAmbGenerated);
             Register<InterventoConsuntivatoAmbReso>(OnInterventoConsuntivato);
             Register<InterventoConsuntivatoAmbNonReso>(OnInterventoConsuntivato);
             Register<InterventoConsuntivatoAmbNonResoTrenitalia>(OnInterventoConsuntivato);
@@ -36,7 +36,7 @@ namespace Super.Saga.Domain.Intervento
 
         }
 
-        public void ProgrammareIntervento(InterventoAmbPianificato evt)
+        public void ProgrammareIntervento(InterventoAmbGenerated evt)
         {
             if (!_stateMachine.IsInState(State.Start))
                 throw  new Exception("Saga already started");
@@ -58,7 +58,7 @@ namespace Super.Saga.Domain.Intervento
             Transition(evt);
         }
 
-        private void OnInterventoAmbPianificato(InterventoAmbPianificato evt)
+        private void OnInterventoAmbGenerated(InterventoAmbGenerated evt)
         {
             //assign the Id for the Saga
             Id = evt.Id;

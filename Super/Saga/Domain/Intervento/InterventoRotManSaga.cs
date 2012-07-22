@@ -18,7 +18,7 @@ namespace Super.Saga.Domain.Intervento
 
         public InterventoRotManSaga()
         {
-            Register<InterventoRotManPianificato>(OnInterventoRotManPianificato);
+            Register<InterventoRotManGenerated>(OnInterventoRotManGenerated);
             Register<InterventoConsuntivatoRotManReso>(OnInterventoConsuntivato);
             Register<InterventoConsuntivatoRotManNonReso>(OnInterventoConsuntivato);
             Register<InterventoConsuntivatoRotManNonResoTrenitalia>(OnInterventoConsuntivato);
@@ -36,7 +36,7 @@ namespace Super.Saga.Domain.Intervento
 
         }
 
-        public void ProgrammareIntervento(InterventoRotManPianificato evt)
+        public void ProgrammareIntervento(InterventoRotManGenerated evt)
         {
             if (!_stateMachine.IsInState(State.Start))
                 throw new Exception("Saga already started");
@@ -57,7 +57,7 @@ namespace Super.Saga.Domain.Intervento
             Transition(evt);
         }
 
-        private void OnInterventoRotManPianificato(InterventoRotManPianificato evt)
+        private void OnInterventoRotManGenerated(InterventoRotManGenerated evt)
         {
             //assign the Id for the Saga
             Id = evt.Id;

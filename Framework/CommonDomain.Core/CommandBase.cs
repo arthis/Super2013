@@ -9,6 +9,7 @@ namespace CommonDomain.Core
     public abstract class CommandBase : Message, ICommand
     {
         public bool IsExecuted { get; set; }
+        
 
         public CommandBase()
         {

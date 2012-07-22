@@ -53,7 +53,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvtProg.InterventoAmbPianificato
+            yield return BuildEvtProg.InterventoAmbGenerated
               .ForPeriod(_period)
               .ForImpianto(_idImpianto)
               .OfType(_idTipoIntervento)

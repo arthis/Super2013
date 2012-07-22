@@ -125,7 +125,7 @@ namespace UI_Console
 
 
 
-            //InterventoRotPianificato evt = new InterventoRotPianificato()
+            //InterventoRotGenerated evt = new InterventoRotGenerated()
             //                                  {
             //                                      CommitId = Guid.NewGuid(),
             //                                      Convoglio = convoglio,

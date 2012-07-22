@@ -17,7 +17,7 @@ using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
 
 namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 {
-    public class Inizio_della_saga_intervento_ambiente_non_iniziata : SagaBaseClass<InterventoAmbPianificato>
+    public class Inizio_della_saga_intervento_ambiente_non_iniziata : SagaBaseClass<InterventoAmbGenerated>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -36,9 +36,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
             return "un inizo di saga normale";
         }
 
-        protected override SagaHandler<InterventoAmbPianificato> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoAmbGenerated> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoAmbPianificatoHandler(repository,bus);
+            return new InterventoAmbGeneratedHandler(repository,bus);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -46,9 +46,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
             yield break;
         }
 
-        public override InterventoAmbPianificato When()
+        public override InterventoAmbGenerated When()
         {
-            return BuildEvt.InterventoAmbPianificato
+            return BuildEvt.InterventoAmbGenerated
                .ForPeriod(_period)
                .ForImpianto(_idImpianto)
                .OfType(_idTipoIntervento)
