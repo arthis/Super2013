@@ -21,9 +21,9 @@ namespace Super.Contabilita.Specs.Impianto
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
         private long _version;
-        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
+        private Interval _interval = new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
         private Guid _idLotto = Guid.NewGuid();
-        private Intervall _intervallLotto = new Intervall(DateTime.Now, DateTime.Now.AddHours(4));
+        private Interval _intervalLotto = new Interval(DateTime.Now, DateTime.Now.AddHours(4));
 
         public override string ToDescription()
         {
@@ -41,10 +41,10 @@ namespace Super.Contabilita.Specs.Impianto
             yield return BuildEvt.LottoCreated
                 .ForCreationDate(DateTime.Now)
                 .ForDescription("lotto")
-                .ForIntervall(_intervallLotto)
+                .ForInterval(_intervalLotto)
                 .Build(_idLotto, 0);
             yield return BuildEvt.ImpiantoCreated
-                .ForIntervall(_intervall)
+                .ForInterval(_interval)
                 .ForDescription(_description)
                 .ForCreationDate(_creationDate)
                 .ForLotto(_idLotto)
@@ -54,7 +54,7 @@ namespace Super.Contabilita.Specs.Impianto
         public override CreateImpianto When()
         {
             return BuildCmd.CreateImpianto
-                .ForIntervall(_intervall)
+                .ForInterval(_interval)
                 .ForLotto(_idLotto)
                 .ForDescription(_description)
                 .ForCreationDate(_creationDate)

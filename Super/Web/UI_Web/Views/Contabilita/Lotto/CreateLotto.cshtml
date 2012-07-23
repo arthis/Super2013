@@ -17,13 +17,13 @@
             @Html.LabelFor(model => model.Start)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Start, new { @class = "validate[required,funcCall[checkIntervall]] datepicker ", @Value = Model.Start.ToString("dd/MM/yyyy") })
+            @Html.TextBoxFor(model => model.Start, new { @class = "validate[required,funcCall[checkInterval]] datepicker ", @Value = Model.Start.ToString("dd/MM/yyyy") })
         </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.End)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.End, new { @class = "validate[required,funcCall[checkIntervall]] datepicker " , @Value =Model.End.HasValue? Model.End.Value.ToString("dd/MM/yyyy"):string.Empty  })
+            @Html.TextBoxFor(model => model.End, new { @class = "validate[required,funcCall[checkInterval]] datepicker " , @Value =Model.End.HasValue? Model.End.Value.ToString("dd/MM/yyyy"):string.Empty  })
         </div>
     </fieldset>
     @Html.HiddenFor(model => model.Id)
@@ -56,12 +56,12 @@
                 var url = "@Url.Action("CreateLotto")";
 
 
-                var intervall = new Intervall(start, end);
+                var interval = new Interval(start, end);
 
 
                 try 
                 {
-                    var command = new CreateLotto(id, commitId, version, creationDate, intervall, description,idLotto);
+                    var command = new CreateLotto(id, commitId, version, creationDate, interval, description,idLotto);
 
                     self.CreateLotto(url, command);
                 } catch(e) {

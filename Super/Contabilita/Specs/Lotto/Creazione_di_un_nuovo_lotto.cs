@@ -22,7 +22,7 @@ namespace Super.Contabilita.Specs.Lotto
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
         private long _version;
-        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
+        private Interval _interval = new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
         private Guid _idLotto = Guid.NewGuid();
 
         protected override CommandHandler<CreateLotto> OnHandle(IEventRepository eventRepository)
@@ -40,7 +40,7 @@ namespace Super.Contabilita.Specs.Lotto
             return BuildCmd.CreateLotto
                 .ForCreationDate(_creationDate)
                 .ForDescription(_description)
-                .ForIntervall(_intervall)
+                .ForInterval(_interval)
                 .Build(_id,0);
         }
 
@@ -49,7 +49,7 @@ namespace Super.Contabilita.Specs.Lotto
             yield return BuildEvt.LottoCreated
                                  .ForCreationDate(_creationDate)
                                  .ForDescription(_description)
-                                 .ForIntervall(_intervall)
+                                 .ForInterval(_interval)
                                  .Build(_id,1);
         }
 

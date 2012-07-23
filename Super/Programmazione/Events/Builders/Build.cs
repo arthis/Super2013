@@ -10,6 +10,20 @@ namespace Super.Programmazione.Events.Builders
 
         public static InterventoAmbGeneratedBuilder InterventoAmbGenerated { get { return new InterventoAmbGeneratedBuilder(); } }
 
+        public static InterventoRotAddedToPlanBuilder InterventoRotAddedToPlan { get { return new InterventoRotAddedToPlanBuilder(); } }
+
+        public static InterventoRotManAddedToPlanBuilder InterventoRotManAddedToPlan { get { return new InterventoRotManAddedToPlanBuilder(); } }
+
+        public static InterventoAmbAddedToPlanBuilder InterventoAmbAddedToPlan { get { return new InterventoAmbAddedToPlanBuilder(); } }
+
+        public static SchedulationRotAddedToPlanBuilder SchedulationRotAddedToPlan { get { return new SchedulationRotAddedToPlanBuilder(); } }
+
+        public static SchedulationRotManAddedToPlanBuilder SchedulationRotManAddedToPlan { get { return new SchedulationRotManAddedToPlanBuilder(); } }
+
+        public static SchedulationAmbAddedToPlanBuilder SchedulationAmbAddedToPlan { get { return new SchedulationAmbAddedToPlanBuilder(); } }
+
+
+
         
     }
 }

@@ -23,10 +23,10 @@ namespace Super.Contabilita.Specs.Lotto
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
         private long _version; 
-        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
+        private Interval _interval = new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         private string _descriptionUpdated = "test 2";
-        private Intervall _intervallUpdated = new Intervall(DateTime.Now.AddHours(14), DateTime.Now.AddHours(15));
+        private Interval _intervalUpdated = new Interval(DateTime.Now.AddHours(14), DateTime.Now.AddHours(15));
         
 
         
@@ -41,14 +41,14 @@ namespace Super.Contabilita.Specs.Lotto
             yield return  BuildEvt.LottoCreated
                                    .ForCreationDate(_creationDate)
                                    .ForDescription(_descriptionUpdated)
-                                   .ForIntervall(_intervall)
+                                   .ForInterval(_interval)
                                    .Build(_id,1);
         }
 
         public override UpdateLotto When()
         {
             return BuildCmd.UpdateLotto
-                            .ForIntervall(_intervallUpdated)
+                            .ForInterval(_intervalUpdated)
                             .ForDescription(_descriptionUpdated)
                             .Build(_id,1);
         }
@@ -57,7 +57,7 @@ namespace Super.Contabilita.Specs.Lotto
         {
             yield return BuildEvt.LottoUpdated
                 .ForDescription(_descriptionUpdated)
-                .ForIntervall(_intervallUpdated)
+                .ForInterval(_intervalUpdated)
                 .Build(_id,2);
                             
         }

@@ -20,7 +20,7 @@
           <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IdLotto" type="ser:guid" />
-          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CommonDomain.Core.Super.Messaging.ValueObjects" minOccurs="0" name="Intervall" nillable="true" type="q3:Intervall" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CommonDomain.Core.Super.Messaging.ValueObjects" minOccurs="0" name="Interval" nillable="true" type="q3:Interval" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -31,7 +31,7 @@
       <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/CommonDomain.Core" base="q4:CommandBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CommonDomain.Core.Super.Messaging.ValueObjects" minOccurs="0" name="Intervall" nillable="true" type="q5:Intervall" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CommonDomain.Core.Super.Messaging.ValueObjects" minOccurs="0" name="Interval" nillable="true" type="q5:Interval" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

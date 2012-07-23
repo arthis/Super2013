@@ -3,15 +3,15 @@ using CommonDomain.Core.Super.Messaging.Builders;
 
 namespace CommonDomain.Core.Super.Domain.ValueObjects
 {
-    public class Intervall
+    public class Interval
     {
         private readonly DateTime _start;
         private readonly DateTime? _end;
 
-        public Intervall(DateTime start, DateTime? end)
+        public Interval(DateTime start, DateTime? end)
         {
             if (!IsValid(start, end))
-                throw new Exception("Intervall not valid");
+                throw new Exception("Interval not valid");
             _start = start;
             _end = end;
         }
@@ -37,12 +37,12 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             return _end;
         }
 
-        public void BuildValue(IntervallBuilder builder)
+        public void BuildValue(IntervalBuilder builder)
         {
             builder.From(_start).To(_end);
         }
 
-        public bool Contains(Intervall other)
+        public bool Contains(Interval other)
         {
             if (_start > other._start)
                 return false;

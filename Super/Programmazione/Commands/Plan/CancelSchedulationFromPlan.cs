@@ -3,16 +3,16 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Commands.Plan
 {
-    public class CancelSchedulationOfPlan : CommandBase
+    public class CancelSchedulationFromPlan : CommandBase
     {
         public Guid IdUser { get; set; }
 
-        public CancelSchedulationOfPlan()
+        public CancelSchedulationFromPlan()
         {
 
         }
 
-        public CancelSchedulationOfPlan(Guid id, Guid commitId, long version)
+        public CancelSchedulationFromPlan(Guid id, Guid commitId, long version)
             : base(id, commitId, version)
         {
 
@@ -20,7 +20,7 @@ namespace Super.Programmazione.Commands.Plan
 
         public override string ToDescription()
         {
-            return string.Format("Cancellare schedulazione {0} dal scenario ", Id);
+            return string.Format("Cancellare schedulazione {0} dal piano ", Id);
         }
 
 

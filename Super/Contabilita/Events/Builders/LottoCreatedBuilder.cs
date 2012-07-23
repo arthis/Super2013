@@ -8,14 +8,14 @@ namespace Super.Contabilita.Events.Builders
 {
     public class LottoCreatedBuilder : IEventBuilder<LottoCreated>
     {
-        Intervall _intervall;
+        Interval _interval;
         private DateTime _creationDate;
         private string _description;
         
 
         public LottoCreated Build(Guid id, long version)
         {
-            var evt = new LottoCreated(id, Guid.NewGuid() ,version,  _intervall, _creationDate, _description);
+            var evt = new LottoCreated(id, Guid.NewGuid() ,version,  _interval, _creationDate, _description);
             
             return evt;
         }
@@ -32,15 +32,15 @@ namespace Super.Contabilita.Events.Builders
             return this;
         }
 
-        public LottoCreatedBuilder ForIntervall(IntervallBuilder builder)
+        public LottoCreatedBuilder ForInterval(IntervalBuilder builder)
         {
-            _intervall = builder.Build();
+            _interval = builder.Build();
             return this;
         }
 
-        public LottoCreatedBuilder ForIntervall(Intervall intervall)
+        public LottoCreatedBuilder ForInterval(Interval interval)
         {
-            _intervall = intervall;
+            _interval = interval;
             return this;
         }
 
@@ -49,11 +49,11 @@ namespace Super.Contabilita.Events.Builders
 
     public static partial class BuildExtensions
     {
-        public static LottoCreatedBuilder ForIntervall(this LottoCreatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Intervall period)
+        public static LottoCreatedBuilder ForInterval(this LottoCreatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Interval period)
         {
-            var valueBuilder = new IntervallBuilder();
+            var valueBuilder = new IntervalBuilder();
             period.BuildValue(valueBuilder);
-            builder.ForIntervall(valueBuilder);
+            builder.ForInterval(valueBuilder);
             return builder;
         }
 

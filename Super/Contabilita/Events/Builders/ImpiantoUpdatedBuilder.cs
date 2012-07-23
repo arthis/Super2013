@@ -8,12 +8,12 @@ namespace Super.Contabilita.Events.Builders
 {
     public class ImpiantoUpdatedBuilder : IEventBuilder<ImpiantoUpdated>
     {
-        Intervall _intervall;
+        Interval _interval;
         private string _description;
 
         public ImpiantoUpdated Build(Guid id, long version)
         {
-            var evt = new ImpiantoUpdated(id, Guid.NewGuid() ,version, _intervall, _description);
+            var evt = new ImpiantoUpdated(id, Guid.NewGuid() ,version, _interval, _description);
             
             return evt;
         }
@@ -25,26 +25,26 @@ namespace Super.Contabilita.Events.Builders
             return this;
         }
 
-        public ImpiantoUpdatedBuilder ForIntervall(IntervallBuilder builder)
+        public ImpiantoUpdatedBuilder ForInterval(IntervalBuilder builder)
         {
-            _intervall = builder.Build();
+            _interval = builder.Build();
             return this;
         }
 
-        public ImpiantoUpdatedBuilder ForIntervall(Intervall intervall)
+        public ImpiantoUpdatedBuilder ForInterval(Interval interval)
         {
-            _intervall = intervall;
+            _interval = interval;
             return this;
         }
     }
 
     public static partial class BuildExtensions
     {
-        public static ImpiantoUpdatedBuilder ForIntervall(this ImpiantoUpdatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Intervall period)
+        public static ImpiantoUpdatedBuilder ForInterval(this ImpiantoUpdatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Interval period)
         {
-            var valueBuilder = new IntervallBuilder();
+            var valueBuilder = new IntervalBuilder();
             period.BuildValue(valueBuilder);
-            builder.ForIntervall(valueBuilder);
+            builder.ForInterval(valueBuilder);
             return builder;
         }
     }

@@ -32,10 +32,10 @@ namespace Super.Contabilita.Handlers
 
             if (lotto.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
-            if (_lottoRepository.AreImpiantoAssociatedOutOfIntervall(cmd.Id, cmd.Intervall))
-                throw new CommandValidationException("The intervall of the impianti associated are not included in this intervall");
+            if (_lottoRepository.AreImpiantoAssociatedOutOfInterval(cmd.Id, cmd.Interval))
+                throw new CommandValidationException("The interval of the impianti associated are not included in this interval");
 
-            lotto.Update(Build.Intervall.FromPeriod(cmd.Intervall).Build(), cmd.Description);
+            lotto.Update(Build.Interval.FromPeriod(cmd.Interval).Build(), cmd.Description);
 
             EventRepository.Save(lotto, cmd.CommitId);
 

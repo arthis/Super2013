@@ -5,7 +5,7 @@ var FilterLotto = function (description, pageNum, pageSize) {
     this.PageNum = pageNum;
     this.PageSize = pageSize;
 }
-var CreateLotto = function (id, commitId, version, creationDate, intervall, description) {
+var CreateLotto = function (id, commitId, version, creationDate, interval, description) {
     if (description == null || description == '')
         throw "description cannot be null or empty";
     if (creationDate == null)
@@ -13,16 +13,16 @@ var CreateLotto = function (id, commitId, version, creationDate, intervall, desc
 
     CommandBase(this, id, commitId, version);
     this.CreationDate = dateFormat(creationDate, "isoDateTime");
-    this.Intervall = intervall;
+    this.Interval = interval;
     this.Description = description;
 };
 
-var UpdateLotto = function (id, commitId, version,  intervall, description) {
+var UpdateLotto = function (id, commitId, version,  interval, description) {
     if (description == null || description == '')
         throw "description cannot be null or empty";
 
     CommandBase(this, id, commitId, version);
-    this.Intervall = intervall;
+    this.Interval = interval;
     this.Description = description;
 };
 

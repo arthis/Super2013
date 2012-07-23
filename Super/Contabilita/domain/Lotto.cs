@@ -29,16 +29,16 @@ namespace Super.Contabilita.Domain
        
 
         public bool Deleted { get; set; }
-        private Intervall _intervall;
+        private Interval _interval;
 
         public Lotto()
         {
         }
 
-        public Lotto(Guid id, Intervall intervall, DateTime creationDate, string description)
+        public Lotto(Guid id, Interval interval, DateTime creationDate, string description)
         {
             var evt = Build.LottoCreated
-                          .ForIntervall(intervall)
+                          .ForInterval(interval)
                           .ForCreationDate(creationDate)
                           .ForDescription(description);
             RaiseEvent(id, evt);
@@ -47,13 +47,13 @@ namespace Super.Contabilita.Domain
         public void Apply(LottoCreated e)
         {
             Id = e.Id;
-            _intervall = BuildVO.Intervall.FromPeriod(e.Intervall).Build();
+            _interval = BuildVO.Interval.FromPeriod(e.Interval).Build();
         }
 
-        public void Update(Intervall intervall, string description)
+        public void Update(Interval interval, string description)
         {
             var evt = Build.LottoUpdated
-                .ForIntervall(intervall)
+                .ForInterval(interval)
                 .ForDescription(description);
 
             RaiseEvent(evt);
@@ -83,9 +83,9 @@ namespace Super.Contabilita.Domain
             this.Deleted = true;
         }
 
-        public bool ContainsIntervall(Intervall other)
+        public bool ContainsInterval(Interval other)
         {
-            return _intervall.Contains(other);
+            return _interval.Contains(other);
         }
 
     }

@@ -6,26 +6,26 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace CommonDomain.Core.Super.Messaging.Builders
 {
-    public class IntervallBuilder
+    public class IntervalBuilder
     {
         DateTime _from;
         DateTime? _to;
 
-        public IntervallBuilder From(DateTime value)
+        public IntervalBuilder From(DateTime value)
         {
             _from = value;
             return this;
         }
 
-        public IntervallBuilder To(DateTime? value)
+        public IntervalBuilder To(DateTime? value)
         {
             _to = value;
             return this;
         }
 
-        public Intervall Build()
+        public Interval Build()
         {
-            return new Intervall(_from, _to);
+            return new Interval(_from, _to);
         }
 
        

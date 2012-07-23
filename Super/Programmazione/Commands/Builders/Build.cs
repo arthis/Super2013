@@ -10,29 +10,60 @@ namespace Super.Programmazione.Commands.Builders
 
         public static DeleteScenarioBuilder DeleteScenario { get { return new DeleteScenarioBuilder(); } }
 
-        public static AddSchedulationToScenarioBuilder AddSchedulationToScenario { get { return new AddSchedulationToScenarioBuilder(); } }
+        public static AddSchedulationRotToScenarioBuilder AddSchedulationRotToScenario { get { return new AddSchedulationRotToScenarioBuilder(); } }
 
-        public static UpdateSchedulationOfScenarioBuilder UpdateSchedulationOfScenario { get { return new UpdateSchedulationOfScenarioBuilder(); } }
+        public static AddSchedulationRotManToScenarioBuilder AddSchedulationRotManToScenario { get { return new AddSchedulationRotManToScenarioBuilder(); } }
+
+        public static AddSchedulationAmbToScenarioBuilder AddSchedulationAmbToScenario { get { return new AddSchedulationAmbToScenarioBuilder(); } }
+
+        public static UpdateSchedulationRotOfScenarioBuilder UpdateSchedulationRotOfScenario { get { return new UpdateSchedulationRotOfScenarioBuilder(); } }
+
+        public static UpdateSchedulationRotManOfScenarioBuilder UpdateSchedulationRotManOfScenario { get { return new UpdateSchedulationRotManOfScenarioBuilder(); } }
+
+        public static UpdateSchedulationAmbOfScenarioBuilder UpdateSchedulationAmbOfScenario { get { return new UpdateSchedulationAmbOfScenarioBuilder(); } }
 
         public static CancelSchedulationOfScenarioBuilder CancelSchedulationOfScenario { get { return new CancelSchedulationOfScenarioBuilder(); } }
 
-        public static AddSchedulationToPlanBuilder AddSchedulationToPlan { get { return new AddSchedulationToPlanBuilder(); } }
+        public static AddSchedulationRotToPlanBuilder AddSchedulationRotToPlan { get { return new AddSchedulationRotToPlanBuilder(); } }
 
-        public static UpdateSchedulationOfPlanBuilder UpdateSchedulationOfPlan { get { return new UpdateSchedulationOfPlanBuilder(); } }
+        public static AddSchedulationRotManToPlanBuilder AddSchedulationRotManToPlan { get { return new AddSchedulationRotManToPlanBuilder(); } }
 
-        public static CancelSchedulationOfPlanBuilder CancelSchedulationOfPlan { get { return new CancelSchedulationOfPlanBuilder(); } }
+        public static AddSchedulationAmbToPlanBuilder AddSchedulationAmbToPlan { get { return new AddSchedulationAmbToPlanBuilder(); } }
 
-        public static AddRuleToSchedulazioneBuilder AddRuleToSchedulazione { get { return new AddRuleToSchedulazioneBuilder(); } }
+        public static UpdateSchedulationRotOfPlanBuilder UpdateSchedulationRotOfPlan { get { return new UpdateSchedulationRotOfPlanBuilder(); } }
+
+        public static UpdateSchedulationRotManOfPlanBuilder UpdateSchedulationRotManOfPlan { get { return new UpdateSchedulationRotManOfPlanBuilder(); } }
+
+        public static UpdateSchedulationAmbOfPlanBuilder UpdateSchedulationAmbOfPlan { get { return new UpdateSchedulationAmbOfPlanBuilder(); } }
+
+        public static CancelSchedulationFromPlanBuilder CancelSchedulationFromPlan { get { return new CancelSchedulationFromPlanBuilder(); } }
+
+
+        public static AddRuleToSchedulazioneRotBuilder AddRuleToSchedulazioneRot { get { return new AddRuleToSchedulazioneRotBuilder(); } }
+
+        public static AddRuleToSchedulazioneRotManBuilder AddRuleToSchedulazioneRotMan { get { return new AddRuleToSchedulazioneRotManBuilder(); } }
+
+        public static AddRuleToSchedulazioneAmbBuilder AddRuleToSchedulazioneAmb { get { return new AddRuleToSchedulazioneAmbBuilder(); } }
 
         public static RemoveRuleToSchedulazioneBuilder RemoveRuleToSchedulazione { get { return new RemoveRuleToSchedulazioneBuilder(); } }
 
         public static GenerateInterventiBuilder GenerateInterventi { get { return new GenerateInterventiBuilder(); } }
 
-        public static CreateInterventoBuilder CreateIntervento { get { return new CreateInterventoBuilder(); } }
+        public static CancelPlanBuilder CancelPlan { get { return new CancelPlanBuilder(); } }
 
-        public static UpdateInterventoBuilder UpdateIntervento { get { return new UpdateInterventoBuilder(); } }
+        public static AddInterventoRotToPlanBuilder AddInterventoRotToPlan { get { return new AddInterventoRotToPlanBuilder(); } }
 
-        public static DeleteInterventoBuilder DeleteIntervento { get { return new DeleteInterventoBuilder(); } }
+        public static AddInterventoRotManToPlanBuilder AddInterventoRotManToPlan { get { return new AddInterventoRotManToPlanBuilder(); } }
+        
+        public static AddInterventoAmbToPlanBuilder AddInterventoAmbToPlan { get { return new AddInterventoAmbToPlanBuilder(); } }
+
+        public static UpdateInterventoRotOfPlanBuilder UpdateInterventoRotOfPlan { get { return new UpdateInterventoRotOfPlanBuilder(); } }
+
+        public static UpdateInterventoRotManOfPlanBuilder UpdateInterventoRotManOfPlan { get { return new UpdateInterventoRotManOfPlanBuilder(); } }
+
+        public static UpdateInterventoAmbOfPlanBuilder UpdateInterventoAmbOfPlan { get { return new UpdateInterventoAmbOfPlanBuilder(); } }
+
+        public static CancelInterventoFromPlanBuilder CancelInterventoFromPlan { get { return new CancelInterventoFromPlanBuilder(); } }
                
     }
 }

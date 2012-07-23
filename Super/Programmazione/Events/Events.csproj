@@ -73,13 +73,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\SchedulationAddedToPlanBuilder.cs" />
     <Compile Include="Builders\Build.cs" />
-    <Compile Include="Builders\InterventoAmbGeneratedBuilder.cs" />
-    <Compile Include="Builders\InterventoRotGeneratedBuilder.cs" />
-    <Compile Include="Builders\InterventoRotManGeneratedBuilder.cs" />
+    <Compile Include="Builders\InterventoAddedToPlanBuilder.cs" />
+    <Compile Include="Builders\InterventoGeneratedBuilder.cs" />
     <Compile Include="IInterventoGenerated.cs" />
     <Compile Include="InterventoGenerated.cs" />
-    <Compile Include="InterventoGenerato.cs" />
+    <Compile Include="Plan\SchedulationAddedToPlan.cs" />
+    <Compile Include="Plan\InterventoCancelledFromPlan.cs" />
+    <Compile Include="Plan\PlanCancelled.cs" />
+    <Compile Include="Plan\SchedulationCancelledFromPlan.cs" />
+    <Compile Include="Plan\InterventoAddedToPlan.cs" />
+    <Compile Include="Plan\InterventoUpdatedOfPlan.cs" />
+    <Compile Include="Plan\UpdateSchedulationOfPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

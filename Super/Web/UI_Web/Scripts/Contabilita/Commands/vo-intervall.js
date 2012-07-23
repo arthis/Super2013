@@ -1,5 +1,5 @@
 ﻿//Value objects fort commands
-var Intervall = function (start, end) {
+var Interval = function (start, end) {
     var self = this;
 
     this.ToIsoDateTime = function () {
@@ -8,8 +8,8 @@ var Intervall = function (start, end) {
         return this;
     };
 
-    var validationError = CheckIntervall(start, end);
-    if (CheckIntervall(start,end) != null)
+    var validationError = CheckInterval(start, end);
+    if (CheckInterval(start,end) != null)
         throw new validationError;
 
     this.Start = start;
@@ -17,13 +17,13 @@ var Intervall = function (start, end) {
 
 };
 
-function checkIntervall() {
+function checkInterval() {
     var start = $('#Start').val();
     var end = $('#End').val();
-    return CheckIntervall(start, end);
+    return CheckInterval(start, end);
 }
 
-function CheckIntervall(start, end) {
+function CheckInterval(start, end) {
     if (start < DateTimeMin)
         return "startDate cannot be lesser than DateTimeMin";
     if (end < DateTimeMin)

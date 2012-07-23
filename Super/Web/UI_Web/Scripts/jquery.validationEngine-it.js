@@ -90,8 +90,8 @@
                     "nname": "validate2fields",
                     "alertText": "* Occorre inserire nome e cognome"
                 },
-                "checkIntervall": {
-                    "nname": "checkIntervall",
+                "checkInterval": {
+                    "nname": "checkInterval",
                     "alertText": "* La data inizio deve essere superiore alla data fine"
                 },
                 "noSpecialCharacters": {

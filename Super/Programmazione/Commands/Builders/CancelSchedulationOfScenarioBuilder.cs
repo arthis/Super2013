@@ -5,7 +5,7 @@ using Super.Programmazione.Commands.Scenario;
 
 namespace Super.Programmazione.Commands.Builders
 {
-    public partial class CancelSchedulationOfScenarioBuilder : ICommandBuilder<CancelSchedulationOfScenario>
+    public  class CancelSchedulationOfScenarioBuilder : ICommandBuilder<CancelSchedulationOfScenario>
     {
 
         public CancelSchedulationOfScenario Build(Guid id, long version)

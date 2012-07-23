@@ -79,7 +79,7 @@ namespace UI_Console
             //var cmdCreate = Build.CreateLotto
             //    .ForCreationDate(DateTime.Now)
             //    .ForDescription("test")
-            //    .ForIntervall(new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
+            //    .ForInterval(new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
             //    .Build(id);
 
 
@@ -98,7 +98,7 @@ namespace UI_Console
             var cmdCreate = Build.CreateLotto
                 .ForCreationDate(DateTime.Now)
                 .ForDescription("test")
-                .ForIntervall(new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
+                .ForInterval(new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
                 .Build(id, commitId,0);
 
             var client = new Contabilita.CommandWebServiceClient();
@@ -109,7 +109,7 @@ namespace UI_Console
 
             var cmdUpdate = Build.UpdateLotto
                .ForDescription("test updated")
-               .ForIntervall(new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
+               .ForInterval(new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
                .Build(id,1);
 
             client.Execute(cmdUpdate);
@@ -138,7 +138,7 @@ namespace UI_Console
             //                                      IdDirezioneRegionale = Guid.NewGuid(),
             //                                      Note = "note",
             //                                      IdTipoIntervento = Guid.NewGuid(),
-            //                                      Intervall = new WorkPeriod(DateTime.Now.AddHours(-5),DateTime.Now.AddHours(-4)),
+            //                                      Interval = new WorkPeriod(DateTime.Now.AddHours(-5),DateTime.Now.AddHours(-4)),
             //                                      RigaTurnoTreno = "riga",
             //                                      TurnoTreno = "turno",
             //                                      Oggetti = new List<OggettoRot>() { new OggettoRot("desc",12, Guid.NewGuid())}

@@ -6,7 +6,7 @@ var FilterImpianto = function (description, pageNum, pageSize) {
     this.PageNum = pageNum;
     this.PageSize = pageSize;
 }
-var CreateImpianto = function (id, commitId, version, creationDate, intervall, description, idLotto) {
+var CreateImpianto = function (id, commitId, version, creationDate, interval, description, idLotto) {
     if (description == null || description == '')
         throw "description cannot be null or empty";
     if (creationDate == null)
@@ -16,17 +16,17 @@ var CreateImpianto = function (id, commitId, version, creationDate, intervall, d
 
     CommandBase(this, id, commitId, version);
     this.CreationDate = dateFormat(creationDate, "isoDateTime");
-    this.Intervall = intervall;
+    this.Interval = interval;
     this.Description = description;
     this.IdLotto = idLotto;
 };
 
-var UpdateImpianto = function (id, commitId, version,  intervall, description) {
+var UpdateImpianto = function (id, commitId, version,  interval, description) {
     if (description == null || description == '')
         throw "description cannot be null or empty";
 
     CommandBase(this, id, commitId, version);
-    this.Intervall = intervall;
+    this.Interval = interval;
     this.Description = description;
 };
 

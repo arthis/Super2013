@@ -8,7 +8,7 @@ namespace Super.Contabilita.Commands.Builders
 {
     public class CreateImpiantoBuilder : ICommandBuilder<CreateImpianto>
     {
-        Intervall _intervall;
+        Interval _interval;
         private DateTime _creationDate;
         private string _description;
         private Guid _idLotto;
@@ -20,7 +20,7 @@ namespace Super.Contabilita.Commands.Builders
 
         public CreateImpianto Build(Guid id, Guid commitId, long version)
         {
-            var cmd =  new CreateImpianto(id, commitId, version, _intervall, _creationDate, _description, _idLotto);
+            var cmd =  new CreateImpianto(id, commitId, version, _interval, _creationDate, _description, _idLotto);
 
             return cmd;
         }
@@ -43,9 +43,9 @@ namespace Super.Contabilita.Commands.Builders
             return this;
         }
 
-        public CreateImpiantoBuilder ForIntervall(Intervall intervall)
+        public CreateImpiantoBuilder ForInterval(Interval interval)
         {
-            _intervall = intervall;
+            _interval = interval;
             return this;
         }
     }

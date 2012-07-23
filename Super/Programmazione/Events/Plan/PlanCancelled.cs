@@ -1,17 +1,17 @@
-using System;
+﻿using System;
 using CommonDomain.Core;
 
-namespace Super.Programmazione.Commands.Intervento
+namespace Super.Programmazione.Events.Plan
 {
-    public  class DeleteIntervento : CommandBase
+    public class PlanCancelled : CommandBase
     {
         
-        public DeleteIntervento()
+        public PlanCancelled()
         {
             
         }
 
-        public DeleteIntervento(Guid id, Guid commitId, long version)
+        public PlanCancelled(Guid id, Guid commitId, long version)
             : base(id, commitId, version)
         {
             
@@ -19,10 +19,10 @@ namespace Super.Programmazione.Commands.Intervento
 
         public override string ToDescription()
         {
-            return string.Format("Cancellare un scenario {0}", Id);
+            return string.Format("piano {0} é stato cancellato", Id);
         }
 
-        public bool Equals(DeleteIntervento other)
+        public bool Equals(PlanCancelled other)
         {
             return base.Equals(other);
         }
@@ -31,7 +31,7 @@ namespace Super.Programmazione.Commands.Intervento
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as DeleteIntervento);
+            return Equals(obj as PlanCancelled);
         }
 
         public override int GetHashCode()

@@ -8,18 +8,18 @@ using CommonDomain.Core.Super.Domain.Builders;
 namespace CommonDomain.Core.Super.Messaging.ValueObjects
 {
     [Serializable]
-    public class Intervall
+    public class Interval
     {
-        //i.e. CommonDomain.Core.Super.Domain.ValueObjects.Intervall,
+        //i.e. CommonDomain.Core.Super.Domain.ValueObjects.Interval,
         //the event representation of a value object
 
         public DateTime Start { get; set; }
         public DateTime? End { get; set; }
 
-        public Intervall()
+        public Interval()
         {}
 
-        public Intervall(DateTime startDate, DateTime? endDate)
+        public Interval(DateTime startDate, DateTime? endDate)
         {
             Contract.Requires<ArgumentNullException>(startDate > DateTime.MinValue);
 
@@ -27,7 +27,7 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
             End = endDate;
         }
 
-        public bool Equals(Intervall other)
+        public bool Equals(Interval other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -38,8 +38,8 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof (Intervall)) return false;
-            return Equals((Intervall) obj);
+            if (obj.GetType() != typeof (Interval)) return false;
+            return Equals((Interval) obj);
         }
 
         public override int GetHashCode()

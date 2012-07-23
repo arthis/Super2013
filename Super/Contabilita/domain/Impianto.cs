@@ -24,25 +24,25 @@ namespace Super.Contabilita.Domain
             return true;
         }
         }
-        private class Is_Impianto_Intervall_In_Lotto : ISpecification<Impianto>
+        private class Is_Impianto_Interval_In_Lotto : ISpecification<Impianto>
         {
             private readonly Lotto _lotto;
-            private readonly Intervall _intervall;
+            private readonly Interval _interval;
 
-            public Is_Impianto_Intervall_In_Lotto(Lotto lotto, Intervall intervall)
+            public Is_Impianto_Interval_In_Lotto(Lotto lotto, Interval interval)
             {
                 Contract.Requires(lotto != null);
-                Contract.Requires(intervall != null);
+                Contract.Requires(interval != null);
 
                 _lotto = lotto;
-                _intervall = intervall;
+                _interval = interval;
             }
 
             public bool IsSatisfiedBy(Impianto i)
             {
-                if (!_lotto.ContainsIntervall(_intervall))
+                if (!_lotto.ContainsInterval(_interval))
                 {
-                    i.CommandValidationMessages.Add(new ValidationMessage("Lotto", "Gli Dati del lotto sono troppe piccole per questo intervall."));
+                    i.CommandValidationMessages.Add(new ValidationMessage("Lotto", "Gli Dati del lotto sono troppe piccole per questo interval."));
                     return false;
                 }
 
@@ -51,22 +51,22 @@ namespace Super.Contabilita.Domain
         }
 
         private bool _deleted;
-        private Intervall _intervall;
+        private Interval _interval;
 
         public Impianto()
         {
         }
 
-        public Impianto(Guid id, Intervall intervall, Guid idLotto, DateTime creationDate, string description, Lotto lotto)
+        public Impianto(Guid id, Interval interval, Guid idLotto, DateTime creationDate, string description, Lotto lotto)
         {
-            var is_Impianto_Intervall_In_Lotto = new Is_Impianto_Intervall_In_Lotto(lotto, intervall);
+            var is_Impianto_Interval_In_Lotto = new Is_Impianto_Interval_In_Lotto(lotto, interval);
 
-            ISpecification<Impianto> specs = is_Impianto_Intervall_In_Lotto;
+            ISpecification<Impianto> specs = is_Impianto_Interval_In_Lotto;
 
             if (specs.IsSatisfiedBy(this))
             {
                 var evt = Build.ImpiantoCreated
-                    .ForIntervall(intervall)
+                    .ForInterval(interval)
                     .ForLotto(idLotto)
                     .ForCreationDate(creationDate)
                     .ForDescription(description);
@@ -77,17 +77,17 @@ namespace Super.Contabilita.Domain
         public void Apply(ImpiantoCreated e)
         {
             Id = e.Id;
-            _intervall = BuildVO.Intervall.FromPeriod(e.Intervall).Build();
+            _interval = BuildVO.Interval.FromPeriod(e.Interval).Build();
         }
 
 
 
 
 
-        public void Update(Intervall intervall, string description)
+        public void Update(Interval interval, string description)
         {
             var evt = Build.ImpiantoUpdated
-                          .ForIntervall(intervall)
+                          .ForInterval(interval)
                           .ForDescription(description);
             RaiseEvent(evt);
         }

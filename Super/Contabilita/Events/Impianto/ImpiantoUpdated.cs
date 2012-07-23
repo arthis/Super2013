@@ -9,7 +9,7 @@ namespace Super.Contabilita.Events.Impianto
     public class ImpiantoUpdated : Message, IEvent
     {
         
-        public Intervall Period { get; set; }
+        public Interval Period { get; set; }
         public string Description { get; set; }
         public Guid IdLotto { get; set; }
         public DateTime CreationDate { get; set; }
@@ -19,7 +19,7 @@ namespace Super.Contabilita.Events.Impianto
             
         }
 
-        public ImpiantoUpdated(Guid id, Guid commitId, long version, Intervall period, string description)
+        public ImpiantoUpdated(Guid id, Guid commitId, long version, Interval period, string description)
             : base(id, commitId, version)
         {
             Contract.Requires(period != null);

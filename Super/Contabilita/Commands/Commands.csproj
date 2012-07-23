@@ -84,6 +84,15 @@
     <Compile Include="Committente\CreateCommittente.cs" />
     <Compile Include="Committente\DeleteCommittente.cs" />
     <Compile Include="Committente\UpdateCommittente.cs" />
+    <Compile Include="Appaltatore\CreateAppaltatore.cs" />
+    <Compile Include="Appaltatore\DeleteAppaltatore.cs" />
+    <Compile Include="Appaltatore\UpdateAppaltatore.cs" />
+    <Compile Include="CategoriaCommerciale\CreateCategoriaCommerciale.cs" />
+    <Compile Include="CategoriaCommerciale\DeleteCategoriaCommerciale.cs" />
+    <Compile Include="CategoriaCommerciale\UpdateCategoriaCommerciale.cs" />
+    <Compile Include="DirezioneRegionale\CreateCategoriaCommerciale.cs" />
+    <Compile Include="DirezioneRegionale\DeleteCategoriaCommerciale.cs" />
+    <Compile Include="DirezioneRegionale\UpdateCategoriaCommerciale.cs" />
     <Compile Include="MeasuringUnit\CreateMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\DeleteMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\UpdateMeasuringUnit.cs" />

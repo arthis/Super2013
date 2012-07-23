@@ -8,14 +8,14 @@ namespace Super.Contabilita.Events.Builders
 {
     public class ImpiantoCreatedBuilder : IEventBuilder<ImpiantoCreated>
     {
-        Intervall _intervall;
+        Interval _interval;
         private DateTime _creationDate;
         private string _description;
         private Guid _idLotto;
 
         public ImpiantoCreated Build(Guid id, long version)
         {
-            var evt = new ImpiantoCreated(id, Guid.NewGuid() ,version,  _intervall,_idLotto, _creationDate, _description);
+            var evt = new ImpiantoCreated(id, Guid.NewGuid() ,version,  _interval,_idLotto, _creationDate, _description);
             
             return evt;
         }
@@ -32,15 +32,15 @@ namespace Super.Contabilita.Events.Builders
             return this;
         }
 
-        public ImpiantoCreatedBuilder ForIntervall(IntervallBuilder builder)
+        public ImpiantoCreatedBuilder ForInterval(IntervalBuilder builder)
         {
-            _intervall = builder.Build();
+            _interval = builder.Build();
             return this;
         }
 
-        public ImpiantoCreatedBuilder ForIntervall(Intervall intervall)
+        public ImpiantoCreatedBuilder ForInterval(Interval interval)
         {
-            _intervall = intervall;
+            _interval = interval;
             return this;
         }
 
@@ -55,11 +55,11 @@ namespace Super.Contabilita.Events.Builders
 
     public static partial class BuildExtensions
     {
-        public static ImpiantoCreatedBuilder ForIntervall(this ImpiantoCreatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Intervall period)
+        public static ImpiantoCreatedBuilder ForInterval(this ImpiantoCreatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Interval period)
         {
-            var valueBuilder = new IntervallBuilder();
+            var valueBuilder = new IntervalBuilder();
             period.BuildValue(valueBuilder);
-            builder.ForIntervall(valueBuilder);
+            builder.ForInterval(valueBuilder);
             return builder;
         }
 

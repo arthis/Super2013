@@ -22,10 +22,10 @@ namespace Super.Contabilita.Specs.Impianto
         private DateTime _creationDate = DateTime.Now;
         private long _version;
         private Guid _idLotto = Guid.NewGuid();
-        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
+        private Interval _interval = new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         private string _descriptionUpdated = "test 2";
-        private Intervall _intervallUpdated = new Intervall(DateTime.Now.AddHours(14), DateTime.Now.AddHours(15));
+        private Interval _intervalUpdated = new Interval(DateTime.Now.AddHours(14), DateTime.Now.AddHours(15));
         
 
         
@@ -39,7 +39,7 @@ namespace Super.Contabilita.Specs.Impianto
             yield return  BuildEvt.ImpiantoCreated
                                    .ForCreationDate(_creationDate)
                                    .ForDescription(_descriptionUpdated)
-                                   .ForIntervall(_intervall)
+                                   .ForInterval(_interval)
                                    .ForLotto(_idLotto)
                                    .Build(_id,1);
         }
@@ -47,7 +47,7 @@ namespace Super.Contabilita.Specs.Impianto
         public override UpdateImpianto When()
         {
             return BuildCmd.UpdateImpianto
-                            .ForIntervall(_intervallUpdated)
+                            .ForInterval(_intervalUpdated)
                             .ForDescription(_descriptionUpdated)
                             .Build(_id,1);
         }
@@ -56,7 +56,7 @@ namespace Super.Contabilita.Specs.Impianto
         {
             yield return BuildEvt.ImpiantoUpdated
                 .ForDescription(_descriptionUpdated)
-                .ForIntervall(_intervallUpdated)
+                .ForInterval(_intervalUpdated)
                 .Build(_id,2);
                             
         }

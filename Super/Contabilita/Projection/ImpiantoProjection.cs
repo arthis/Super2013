@@ -28,8 +28,8 @@ namespace Super.Contabilita.Projection
                              Deleted = false,
                              Description = @event.Description,
                              IdLotto = @event.IdLotto,
-                             End = @event.Intervall.End,
-                             Start = @event.Intervall.Start
+                             End = @event.Interval.End,
+                             Start = @event.Interval.Start
                          };
 
                 container.Impiantoes.AddObject(ai);

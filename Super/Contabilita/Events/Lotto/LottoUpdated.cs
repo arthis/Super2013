@@ -9,7 +9,7 @@ namespace Super.Contabilita.Events.Lotto
     public class LottoUpdated : Message, IEvent
     {
         
-        public Intervall Period { get; set; }
+        public Interval Period { get; set; }
         public string Description { get; set; }
 
         public LottoUpdated()
@@ -17,7 +17,7 @@ namespace Super.Contabilita.Events.Lotto
             
         }
 
-        public LottoUpdated(Guid id, Guid commitId, long version,  Intervall period, string description)
+        public LottoUpdated(Guid id, Guid commitId, long version,  Interval period, string description)
             : base(id, commitId, version)
         {
             Contract.Requires(period!=null);

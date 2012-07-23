@@ -7,7 +7,7 @@ namespace Super.Contabilita.Commands.Builders
 {
     public class UpdateImpiantoBuilder : ICommandBuilder<UpdateImpianto>
     {
-        Intervall _intervall;
+        Interval _interval;
         private string _description;
 
         public UpdateImpianto Build(Guid id, long version)
@@ -17,7 +17,7 @@ namespace Super.Contabilita.Commands.Builders
 
         public UpdateImpianto Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new UpdateImpianto(id, commitId, version, _intervall, _description);
+            var cmd = new UpdateImpianto(id, commitId, version, _interval, _description);
             
             return cmd;
         }
@@ -30,9 +30,9 @@ namespace Super.Contabilita.Commands.Builders
             return this;
         }
 
-        public UpdateImpiantoBuilder ForIntervall(Intervall intervall)
+        public UpdateImpiantoBuilder ForInterval(Interval interval)
         {
-            _intervall = intervall;
+            _interval = interval;
             return this;
         }
     }

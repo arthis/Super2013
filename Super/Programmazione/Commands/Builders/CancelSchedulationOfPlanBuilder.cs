@@ -5,17 +5,17 @@ using Super.Programmazione.Commands.Plan;
 
 namespace Super.Programmazione.Commands.Builders
 {
-    public partial class CancelSchedulationOfPlanBuilder : ICommandBuilder<CancelSchedulationOfPlan>
+    public  class CancelSchedulationFromPlanBuilder : ICommandBuilder<CancelSchedulationFromPlan>
     {
 
-        public CancelSchedulationOfPlan Build(Guid id, long version)
+        public CancelSchedulationFromPlan Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public CancelSchedulationOfPlan Build(Guid id, Guid idCommitId, long version)
+        public CancelSchedulationFromPlan Build(Guid id, Guid idCommitId, long version)
         {
-            var cmd = new CancelSchedulationOfPlan(id, idCommitId, version);
+            var cmd = new CancelSchedulationFromPlan(id, idCommitId, version);
 
             return cmd;
         }

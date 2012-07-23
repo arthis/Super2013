@@ -7,7 +7,7 @@ namespace Super.Contabilita.Commands.Builders
 {
     public class UpdateLottoBuilder : ICommandBuilder<UpdateLotto>
     {
-        Intervall _intervall;
+        Interval _interval;
         private string _description;
 
         public UpdateLotto Build(Guid id, long version)
@@ -17,7 +17,7 @@ namespace Super.Contabilita.Commands.Builders
 
         public UpdateLotto Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new UpdateLotto(id, commitId, version, _intervall, _description);
+            var cmd = new UpdateLotto(id, commitId, version, _interval, _description);
 
             return cmd;
         }
@@ -30,9 +30,9 @@ namespace Super.Contabilita.Commands.Builders
             return this;
         }
 
-        public UpdateLottoBuilder ForIntervall(Intervall intervall)
+        public UpdateLottoBuilder ForInterval(Interval interval)
         {
-            _intervall = intervall;
+            _interval = interval;
             return this;
         }
 

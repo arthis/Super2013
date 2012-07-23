@@ -22,7 +22,7 @@ namespace Super.Contabilita.Specs.Impianto
         private DateTime _creationDate = DateTime.Now;
         private Guid _idLotto = Guid.NewGuid();
         
-        private Intervall _intervall = new Intervall(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
+        private Interval _interval = new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         protected override CommandHandler<DeleteImpianto> OnHandle(IEventRepository eventRepository)
         {
@@ -32,7 +32,7 @@ namespace Super.Contabilita.Specs.Impianto
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.ImpiantoCreated
-                .ForIntervall(_intervall)
+                .ForInterval(_interval)
                 .ForCreationDate(_creationDate)
                 .ForDescription(_description)
                 .ForLotto(_idLotto)

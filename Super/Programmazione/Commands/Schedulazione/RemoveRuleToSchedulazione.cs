@@ -21,7 +21,7 @@ namespace Super.Programmazione.Commands.Schedulazione
 
         public override string ToDescription()
         {
-            return string.Format("Rimuovere una regola alla schedulazione {0} ", Id);
+            return string.Format("Rimuovere una regola della schedulazione {0} ", Id);
         }
     }
 }

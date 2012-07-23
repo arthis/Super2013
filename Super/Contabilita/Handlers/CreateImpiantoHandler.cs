@@ -33,7 +33,7 @@ namespace Super.Contabilita.Handlers
 
 
             var impianto=  new Impianto(cmd.Id,
-                                          Build.Intervall.FromPeriod(cmd.Intervall).Build(),
+                                          Build.Interval.FromPeriod(cmd.Interval).Build(),
                                           cmd.IdLotto,
                                           cmd.CreationDate,
                                           cmd.Description,

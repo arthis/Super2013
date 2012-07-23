@@ -9,14 +9,14 @@ namespace Super.Contabilita.Handlers.Repositories
 {
     public class SqlLottoRepository : ILottoRepository
     {
-        public bool AreImpiantoAssociatedOutOfIntervall(Guid idLotto, Intervall intervall)
+        public bool AreImpiantoAssociatedOutOfInterval(Guid idLotto, Interval interval)
         {
             using (var container = Container.GetContainer())
             {
                 return container.Impiantoes.Where(x => x.IdLotto == idLotto)
-                    .Any(x => x.Start < intervall.Start
-                              || (intervall.End.HasValue && x.End.HasValue && intervall.End.Value < x.End.Value)
-                              || (intervall.End.HasValue && !x.End.HasValue)
+                    .Any(x => x.Start < interval.Start
+                              || (interval.End.HasValue && x.End.HasValue && interval.End.Value < x.End.Value)
+                              || (interval.End.HasValue && !x.End.HasValue)
                     );
             }
         }
