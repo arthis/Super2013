@@ -77,8 +77,8 @@
     <Compile Include="Builders\Build.cs" />
     <Compile Include="Builders\InterventoAddedToPlanBuilder.cs" />
     <Compile Include="Builders\InterventoGeneratedBuilder.cs" />
-    <Compile Include="IInterventoGenerated.cs" />
-    <Compile Include="InterventoGenerated.cs" />
+    <Compile Include="Schedulazione\IInterventoGenerated.cs" />
+    <Compile Include="Schedulazione\InterventoGenerated.cs" />
     <Compile Include="Plan\SchedulationAddedToPlan.cs" />
     <Compile Include="Plan\InterventoCancelledFromPlan.cs" />
     <Compile Include="Plan\PlanCancelled.cs" />
@@ -87,6 +87,16 @@
     <Compile Include="Plan\InterventoUpdatedOfPlan.cs" />
     <Compile Include="Plan\UpdateSchedulationOfPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenario\SchedulationAddedToScenario.cs" />
+    <Compile Include="Scenario\SchedulationOfScenarioCancelled.cs" />
+    <Compile Include="Scenario\ScenarioCreated.cs" />
+    <Compile Include="Scenario\ScenarioDeleted.cs" />
+    <Compile Include="Scenario\ScenarioPromotedToPlan.cs" />
+    <Compile Include="Scenario\ScenarioUpdated.cs" />
+    <Compile Include="Scenario\SchedulationUpdatedToScenario.cs" />
+    <Compile Include="Schedulazione\InterventiGenerated.cs" />
+    <Compile Include="Schedulazione\RemoveRuleToSchedulazione.cs" />
+    <Compile Include="Schedulazione\RuleAddedToSchedulazione.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">

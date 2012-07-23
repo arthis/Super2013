@@ -4,7 +4,7 @@ using System.Linq;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
-namespace Super.Programmazione.Events
+namespace Super.Programmazione.Events.Schedulazione
 {
     public abstract class InterventoGenerated : Message, IInterventoGenerated
     {

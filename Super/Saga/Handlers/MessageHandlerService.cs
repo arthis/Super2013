@@ -9,6 +9,7 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Programmazione.Events;
+using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Saga.Handlers
 {

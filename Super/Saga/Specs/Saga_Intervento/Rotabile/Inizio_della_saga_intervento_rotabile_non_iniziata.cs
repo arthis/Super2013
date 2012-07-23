@@ -10,6 +10,7 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Appaltatore.Commands;
 using Super.Appaltatore.Commands.Builders;
+using Super.Programmazione.Events.Schedulazione;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
 using BuildEvt = Super.Programmazione.Events.Builders.Build;

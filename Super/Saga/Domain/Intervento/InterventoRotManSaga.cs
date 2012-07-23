@@ -5,6 +5,7 @@ using Super.Appaltatore.Commands;
 using Super.Appaltatore.Commands.Builders;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Programmazione.Events;
+using Super.Programmazione.Events.Schedulazione;
 using BuildApp = Super.Appaltatore.Commands.Builders.Build;
 using BuildCtrl = Super.Controllo.Commands.Builders.Build;
 

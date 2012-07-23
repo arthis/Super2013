@@ -1,7 +1,6 @@
-using System;
 using CommonDomain;
 
-namespace Super.Programmazione.Events
+namespace Super.Programmazione.Events.Schedulazione
 {
     public interface IInterventoGenerated :  IEvent
     {

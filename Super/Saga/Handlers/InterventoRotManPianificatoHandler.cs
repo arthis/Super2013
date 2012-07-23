@@ -2,6 +2,7 @@
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
+using Super.Programmazione.Events.Schedulazione;
 using Super.Saga.Domain;
 using Super.Saga.Domain.Intervento;
 using Super.Programmazione.Events;
