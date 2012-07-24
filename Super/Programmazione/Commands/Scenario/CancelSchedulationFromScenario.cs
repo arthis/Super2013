@@ -3,15 +3,15 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Commands.Scenario
 {
-    public class CancelSchedulationOfScenario : CommandBase
+    public class CancelSchedulationFromScenario : CommandBase
     {
         
-        public CancelSchedulationOfScenario()
+        public CancelSchedulationFromScenario()
         {
 
         }
 
-        public CancelSchedulationOfScenario(Guid id, Guid commitId, long version)
+        public CancelSchedulationFromScenario(Guid id, Guid commitId, long version)
             : base(id, commitId, version)
         {
 

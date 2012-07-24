@@ -22,7 +22,7 @@ namespace Super.Programmazione.Commands.Builders
 
         public static UpdateSchedulationAmbOfScenarioBuilder UpdateSchedulationAmbOfScenario { get { return new UpdateSchedulationAmbOfScenarioBuilder(); } }
 
-        public static CancelSchedulationOfScenarioBuilder CancelSchedulationOfScenario { get { return new CancelSchedulationOfScenarioBuilder(); } }
+        public static CancelSchedulationFromScenarioBuilder CancelSchedulationFromScenario { get { return new CancelSchedulationFromScenarioBuilder(); } }
 
         public static AddSchedulationRotToPlanBuilder AddSchedulationRotToPlan { get { return new AddSchedulationRotToPlanBuilder(); } }
 
@@ -45,7 +45,7 @@ namespace Super.Programmazione.Commands.Builders
 
         public static AddRuleToSchedulazioneAmbBuilder AddRuleToSchedulazioneAmb { get { return new AddRuleToSchedulazioneAmbBuilder(); } }
 
-        public static RemoveRuleToSchedulazioneBuilder RemoveRuleToSchedulazione { get { return new RemoveRuleToSchedulazioneBuilder(); } }
+        public static RemoveRuleFromSchedulazioneBuilder RemoveRuleFromSchedulazione { get { return new RemoveRuleFromSchedulazioneBuilder(); } }
 
         public static GenerateInterventiBuilder GenerateInterventi { get { return new GenerateInterventiBuilder(); } }
 

@@ -52,13 +52,14 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvtProg.InterventoRotManGenerated
+               .WithOggetti(_oggetti.ToArray())
               .ForPeriod(_period)
               .ForImpianto(_idImpianto)
               .OfType(_idTipoIntervento)
               .ForAppaltatore(_idAppaltatore)
               .OfCategoriaCommerciale(_idCategoriaCommerciale)
               .OfDirezioneRegionale(_idDirezioneRegionale)
-              .WithOggetti(_oggetti.ToArray())
+              
               .WithNote(_note)
               .Build(_id, 1);
         }

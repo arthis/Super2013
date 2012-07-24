@@ -5,7 +5,8 @@ using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders
 {
-    public abstract class InterventoGeneratedBuilder
+
+    public class InterventoRotGeneratedBuilder :  IEventBuilder<InterventoRotGenerated>
     {
         protected Guid _idPeriodoProgrammazione;
         protected Guid _idPlan;
@@ -18,83 +19,78 @@ namespace Super.Programmazione.Events.Builders
         protected Guid _idDirezioneRegionale;
         protected string _note;
         protected WorkPeriod _workPeriod;
-
-        public InterventoGeneratedBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
-        {
-            _idPeriodoProgrammazione = idPeriodoProgrammazione;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder ForPlan(Guid idPlan)
-        {
-            _idPlan = idPlan;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder ForCommittente(Guid idCommittente)
-        {
-            _idCommittente = idCommittente;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder ForLotto(Guid idLotto)
-        {
-            _idLotto = idLotto;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder ForImpianto(Guid idImpianto)
-        {
-            _idImpianto = idImpianto;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder OfTipoIntervento(Guid idTipoIntervento)
-        {
-            _idTipoIntervento = idTipoIntervento;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder ForAppaltatore(Guid idAppaltatore)
-        {
-            _idAppaltatore = idAppaltatore;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder ForCategoriaCommerciale(Guid idCategoriaCommerciale)
-        {
-            _idCategoriaCommerciale = idCategoriaCommerciale;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder ForDirezioneRegionale(Guid idDirezioneRegionale)
-        {
-            _idDirezioneRegionale = idDirezioneRegionale;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder WithNote(string note)
-        {
-            _note = note;
-            return this;
-        }
-
-        public InterventoGeneratedBuilder ForPeriod(WorkPeriod workPeriod)
-        {
-            _workPeriod = workPeriod;
-            return this;
-        }
-
-    }
-
-    public class InterventoRotGeneratedBuilder : InterventoGeneratedBuilder, IEventBuilder<InterventoRotGenerated>
-    {
         private OggettoRot[] _oggetti;
         private Treno _trenoPartenza;
         private Treno _trenoArrivo;
         private string _turnoTreno;
         private string _rigaTurnoTreno;
         private string _convoglio;
+
+        public InterventoRotGeneratedBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
+        {
+            _idPeriodoProgrammazione = idPeriodoProgrammazione;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder ForPlan(Guid idPlan)
+        {
+            _idPlan = idPlan;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder ForCommittente(Guid idCommittente)
+        {
+            _idCommittente = idCommittente;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder ForLotto(Guid idLotto)
+        {
+            _idLotto = idLotto;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder ForImpianto(Guid idImpianto)
+        {
+            _idImpianto = idImpianto;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder OfType(Guid idTipoIntervento)
+        {
+            _idTipoIntervento = idTipoIntervento;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder ForAppaltatore(Guid idAppaltatore)
+        {
+            _idAppaltatore = idAppaltatore;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder OfCategoriaCommerciale(Guid idCategoriaCommerciale)
+        {
+            _idCategoriaCommerciale = idCategoriaCommerciale;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder OfDirezioneRegionale(Guid idDirezioneRegionale)
+        {
+            _idDirezioneRegionale = idDirezioneRegionale;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder WithNote(string note)
+        {
+            _note = note;
+            return this;
+        }
+
+        public InterventoRotGeneratedBuilder ForPeriod(WorkPeriod workPeriod)
+        {
+            _workPeriod = workPeriod;
+            return this;
+        }
 
         public InterventoRotGeneratedBuilder WithOggetti(OggettoRot[] oggetti)
         {
@@ -166,9 +162,87 @@ namespace Super.Programmazione.Events.Builders
 
     }
 
-    public class InterventoRotManGeneratedBuilder : InterventoGeneratedBuilder, IEventBuilder<InterventoRotManGenerated>
+    public class InterventoRotManGeneratedBuilder : IEventBuilder<InterventoRotManGenerated>
     {
+        protected Guid _idPeriodoProgrammazione;
+        protected Guid _idPlan;
+        protected Guid _idCommittente;
+        protected Guid _idLotto;
+        protected Guid _idImpianto;
+        protected Guid _idTipoIntervento;
+        protected Guid _idAppaltatore;
+        protected Guid _idCategoriaCommerciale;
+        protected Guid _idDirezioneRegionale;
+        protected string _note;
+        protected WorkPeriod _workPeriod;
         private OggettoRotMan[] _oggetti;
+
+
+        public InterventoRotManGeneratedBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
+        {
+            _idPeriodoProgrammazione = idPeriodoProgrammazione;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder ForPlan(Guid idPlan)
+        {
+            _idPlan = idPlan;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder ForCommittente(Guid idCommittente)
+        {
+            _idCommittente = idCommittente;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder ForLotto(Guid idLotto)
+        {
+            _idLotto = idLotto;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder ForImpianto(Guid idImpianto)
+        {
+            _idImpianto = idImpianto;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder OfType(Guid idTipoIntervento)
+        {
+            _idTipoIntervento = idTipoIntervento;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder ForAppaltatore(Guid idAppaltatore)
+        {
+            _idAppaltatore = idAppaltatore;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder OfCategoriaCommerciale(Guid idCategoriaCommerciale)
+        {
+            _idCategoriaCommerciale = idCategoriaCommerciale;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder OfDirezioneRegionale(Guid idDirezioneRegionale)
+        {
+            _idDirezioneRegionale = idDirezioneRegionale;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder WithNote(string note)
+        {
+            _note = note;
+            return this;
+        }
+
+        public InterventoRotManGeneratedBuilder ForPeriod(WorkPeriod workPeriod)
+        {
+            _workPeriod = workPeriod;
+            return this;
+        }
 
         public InterventoRotManGeneratedBuilder WithOggetti(OggettoRotMan[] oggetti)
         {
@@ -199,10 +273,87 @@ namespace Super.Programmazione.Events.Builders
 
     }
 
-    public class InterventoAmbGeneratedBuilder : InterventoGeneratedBuilder, IEventBuilder<InterventoAmbGenerated>
+    public class InterventoAmbGeneratedBuilder :  IEventBuilder<InterventoAmbGenerated>
     {
+        protected Guid _idPeriodoProgrammazione;
+        protected Guid _idPlan;
+        protected Guid _idCommittente;
+        protected Guid _idLotto;
+        protected Guid _idImpianto;
+        protected Guid _idTipoIntervento;
+        protected Guid _idAppaltatore;
+        protected Guid _idCategoriaCommerciale;
+        protected Guid _idDirezioneRegionale;
+        protected string _note;
+        protected WorkPeriod _workPeriod;
         private int _quantity;
         private string _description;
+
+        public InterventoAmbGeneratedBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
+        {
+            _idPeriodoProgrammazione = idPeriodoProgrammazione;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder ForPlan(Guid idPlan)
+        {
+            _idPlan = idPlan;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder ForCommittente(Guid idCommittente)
+        {
+            _idCommittente = idCommittente;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder ForLotto(Guid idLotto)
+        {
+            _idLotto = idLotto;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder ForImpianto(Guid idImpianto)
+        {
+            _idImpianto = idImpianto;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder OfType(Guid idTipoIntervento)
+        {
+            _idTipoIntervento = idTipoIntervento;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder ForAppaltatore(Guid idAppaltatore)
+        {
+            _idAppaltatore = idAppaltatore;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder OfCategoriaCommerciale(Guid idCategoriaCommerciale)
+        {
+            _idCategoriaCommerciale = idCategoriaCommerciale;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder OfDirezioneRegionale(Guid idDirezioneRegionale)
+        {
+            _idDirezioneRegionale = idDirezioneRegionale;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder WithNote(string note)
+        {
+            _note = note;
+            return this;
+        }
+
+        public InterventoAmbGeneratedBuilder ForPeriod(WorkPeriod workPeriod)
+        {
+            _workPeriod = workPeriod;
+            return this;
+        }
 
         public InterventoAmbGeneratedBuilder ForQuantity(int quantity)
         {

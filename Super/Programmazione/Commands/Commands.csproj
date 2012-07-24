@@ -49,16 +49,16 @@
   <ItemGroup>
     <Compile Include="Builders\Build.cs" />
     <Compile Include="Builders\AddSchedulationToScenarioBuilder.cs" />
-    <Compile Include="Builders\CancelSchedulationOfScenarioBuilder.cs" />
+    <Compile Include="Builders\CancelSchedulationFromScenarioBuilder.cs" />
     <Compile Include="Builders\AddSchedulationToPlanBuilder.cs" />
-    <Compile Include="Builders\CancelSchedulationOfPlanBuilder.cs" />
+    <Compile Include="Builders\CancelSchedulationFromPlanBuilder.cs" />
     <Compile Include="Builders\AddRuleToSchedulazioneRotBuilder.cs" />
     <Compile Include="Builders\AddInterventoToPlanBuilder.cs" />
     <Compile Include="Builders\CancelInterventoOfPlanBuilder.cs" />
     <Compile Include="Builders\CancelPlanBuilder.cs" />
     <Compile Include="Builders\GenerateInterventiBuilder.cs" />
     <Compile Include="Builders\UpdateInterventoOfPlanBuilder.cs" />
-    <Compile Include="Builders\RemoveRuleToSchedulazioneBuilder.cs" />
+    <Compile Include="Builders\RemoveRuleFromSchedulazioneBuilder.cs" />
     <Compile Include="Builders\UpdateSchedulationOfPlanBuilder.cs" />
     <Compile Include="Builders\UpdateSchedulationOfScenarioBuilder.cs" />
     <Compile Include="Builders\UpdateScenarioBuilder.cs" />
@@ -75,14 +75,14 @@
     <Compile Include="Scenario\PromoteScenarioToPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenario\AddSchedulationToScenario.cs" />
-    <Compile Include="Scenario\CancelSchedulationOfScenario.cs" />
+    <Compile Include="Scenario\CancelSchedulationFromScenario.cs" />
     <Compile Include="Scenario\DeleteScenario.cs" />
     <Compile Include="Scenario\CreateScenario.cs" />
     <Compile Include="Scenario\UpdateScenario.cs" />
     <Compile Include="Scenario\UpdateSchedulationOfScenario.cs" />
     <Compile Include="Schedulazione\AddRuleToSchedulazione.cs" />
     <Compile Include="Schedulazione\GenerateInterventi.cs" />
-    <Compile Include="Schedulazione\RemoveRuleToSchedulazione.cs" />
+    <Compile Include="Schedulazione\RemoveRuleFromSchedulazione.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">

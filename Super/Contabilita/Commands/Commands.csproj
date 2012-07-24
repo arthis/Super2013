@@ -93,6 +93,7 @@
     <Compile Include="DirezioneRegionale\CreateCategoriaCommerciale.cs" />
     <Compile Include="DirezioneRegionale\DeleteCategoriaCommerciale.cs" />
     <Compile Include="DirezioneRegionale\UpdateCategoriaCommerciale.cs" />
+    <Compile Include="Intervento\CalculateInterventoPrice.cs" />
     <Compile Include="MeasuringUnit\CreateMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\DeleteMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\UpdateMeasuringUnit.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="PeriodoProgrammazione\Rotabile\CreatePeriodoProgrammazioneRot.cs" />
     <Compile Include="PeriodoProgrammazione\Rotabile\DeletePeriodoProgrammazioneRot.cs" />
     <Compile Include="PeriodoProgrammazione\Rotabile\UpdatePeriodoProgrammazioneRot.cs" />
+    <Compile Include="Schedulation\CalculateSchedulationPrice.cs" />
     <Compile Include="TipoIntervento\Ambiente\CreateTipoInterventoAmb.cs" />
     <Compile Include="TipoIntervento\Ambiente\DeleteTipoInterventoAmb.cs" />
     <Compile Include="TipoIntervento\Ambiente\UpdateTipoInterventoAmb.cs" />

@@ -6,14 +6,14 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Commands.Schedulazione
 {
-    public class RemoveRuleToSchedulazione : CommandBase
+    public class RemoveRuleFromSchedulazione : CommandBase
     {
-        public RemoveRuleToSchedulazione()
+        public RemoveRuleFromSchedulazione()
         {
             
         }
 
-        public RemoveRuleToSchedulazione(Guid id, Guid idCommitId, long version)
+        public RemoveRuleFromSchedulazione(Guid id, Guid idCommitId, long version)
             : base(id, idCommitId,version)
         {
             
