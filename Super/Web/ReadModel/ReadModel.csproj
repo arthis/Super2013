@@ -104,6 +104,7 @@
   <ItemGroup>
     <Content Include="Contabilita_ReadModel.edmx.sql" />
     <Content Include="Appaltatore_ReadModel.edmx.sql" />
+    <Content Include="ReadStore.sql" />
     <Content Include="EventStore.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

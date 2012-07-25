@@ -3,11 +3,10 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Contabilita.Commands.Lotto;
 
 namespace Super.Contabilita.Commands.Intervento
 {
-    public abstract class CalculateInterventoPrice:CommandBase
+    public abstract class CalculateInterventoPriceOfPlan:CommandBase
     {
           public Guid IdPeriodoProgrammazione { get; set; }
         public Guid IdPlan { get; set; }
@@ -21,12 +20,12 @@ namespace Super.Contabilita.Commands.Intervento
         public WorkPeriod Period { get; set; }
         public string Note { get; set; }
 
-        public CalculateInterventoPrice()
+        public CalculateInterventoPriceOfPlan()
         {
             
         }
 
-        public CalculateInterventoPrice(Guid id,
+        public CalculateInterventoPriceOfPlan(Guid id,
                                    Guid commitId,
                                    long version,
                                    Guid idPeriodoProgrammazione,
@@ -68,7 +67,7 @@ namespace Super.Contabilita.Commands.Intervento
 
 
 
-        public bool Equals(CalculateInterventoPrice other)
+        public bool Equals(CalculateInterventoPriceOfPlan other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -79,7 +78,7 @@ namespace Super.Contabilita.Commands.Intervento
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as CalculateInterventoPrice);
+            return Equals(obj as CalculateInterventoPriceOfPlan);
         }
 
         public override int GetHashCode()
@@ -100,14 +99,14 @@ namespace Super.Contabilita.Commands.Intervento
         }
     }
 
-    public class CalculateInterventoRotPrice : CalculateInterventoPrice
+    public class CalculateInterventoRotPriceOfPlan : CalculateInterventoPriceOfPlan
     {
-       public CalculateInterventoRotPrice()
+       public CalculateInterventoRotPriceOfPlan()
         {
 
         }
 
-       public CalculateInterventoRotPrice(Guid id, Guid commitId, long version, Guid idPeriodoProgrammazione,
+       public CalculateInterventoRotPriceOfPlan(Guid id, Guid commitId, long version, Guid idPeriodoProgrammazione,
                                    Guid idPlan,
                                    Guid idCommittente,
                                    Guid idLotto, Guid idImpianto, Guid idTipoIntervento, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idDirezioneRegionale, WorkPeriod period, string note, OggettoRot[] oggetti, Treno trenoArrivo, Treno trenoPartenza, string turnoTreno, string rigaTurnoTreno, string convoglio)
@@ -135,7 +134,7 @@ namespace Super.Contabilita.Commands.Intervento
             return string.Format("Calcolare il prezzo del intervento rotabile {0}", Id);
         }
 
-        public bool Equals(CalculateInterventoRotPrice other)
+        public bool Equals(CalculateInterventoRotPriceOfPlan other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -146,7 +145,7 @@ namespace Super.Contabilita.Commands.Intervento
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as CalculateInterventoRotPrice);
+            return Equals(obj as CalculateInterventoRotPriceOfPlan);
         }
 
         public override int GetHashCode()
@@ -165,14 +164,14 @@ namespace Super.Contabilita.Commands.Intervento
         }
     }
 
-    public class CalculateInterventoRotManPrice : CalculateInterventoPrice
+    public class CalculateInterventoRotManPriceOfPlan : CalculateInterventoPriceOfPlan
     {
-        public CalculateInterventoRotManPrice()
+        public CalculateInterventoRotManPriceOfPlan()
         {
 
         }
 
-        public CalculateInterventoRotManPrice(Guid id, Guid commitId, long version, Guid idPeriodoProgrammazione,
+        public CalculateInterventoRotManPriceOfPlan(Guid id, Guid commitId, long version, Guid idPeriodoProgrammazione,
                                    Guid idPlan,
                                    Guid idCommittente,
                                    Guid idLotto, Guid idImpianto, Guid idTipoIntervento, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idDirezioneRegionale, WorkPeriod period, string note, OggettoRotMan[] oggetti)
@@ -191,7 +190,7 @@ namespace Super.Contabilita.Commands.Intervento
         }
 
 
-        public bool Equals(CalculateInterventoRotManPrice other)
+        public bool Equals(CalculateInterventoRotManPriceOfPlan other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -202,7 +201,7 @@ namespace Super.Contabilita.Commands.Intervento
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as CalculateInterventoRotManPrice);
+            return Equals(obj as CalculateInterventoRotManPriceOfPlan);
         }
 
         public override int GetHashCode()
@@ -214,14 +213,14 @@ namespace Super.Contabilita.Commands.Intervento
         }
     }
 
-    public class CalculateInterventoAmbPrice : CalculateInterventoPrice
+    public class CalculateInterventoAmbPriceOfPlan : CalculateInterventoPriceOfPlan
     {
-        public CalculateInterventoAmbPrice()
+        public CalculateInterventoAmbPriceOfPlan()
         {
 
         }
 
-        public CalculateInterventoAmbPrice(Guid id, Guid commitId, long version, Guid idPeriodoProgrammazione,
+        public CalculateInterventoAmbPriceOfPlan(Guid id, Guid commitId, long version, Guid idPeriodoProgrammazione,
                                    Guid idPlan,
                                    Guid idCommittente,
                                    Guid idLotto, Guid idImpianto, Guid idTipoIntervento, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idDirezioneRegionale, WorkPeriod period, string note, int quantity, string description)
@@ -239,7 +238,7 @@ namespace Super.Contabilita.Commands.Intervento
             return string.Format("Calcolare il prezzo del intervento ambiente {0}", Id);
         }
 
-        public bool Equals(CalculateInterventoAmbPrice other)
+        public bool Equals(CalculateInterventoAmbPriceOfPlan other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -250,7 +249,7 @@ namespace Super.Contabilita.Commands.Intervento
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as CalculateInterventoAmbPrice);
+            return Equals(obj as CalculateInterventoAmbPriceOfPlan);
         }
 
         public override int GetHashCode()

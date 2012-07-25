@@ -83,11 +83,14 @@
     <Compile Include="Impianto\ImpiantoCreated.cs" />
     <Compile Include="Impianto\ImpiantoDeleted.cs" />
     <Compile Include="Impianto\ImpiantoUpdated.cs" />
+    <Compile Include="Intervento\InterventoPriceOfPlanCalculated.cs" />
+    <Compile Include="Intervento\CancelInterventoPriceOfPlan.cs" />
     <Compile Include="Lotto\LottoCreated.cs" />
     <Compile Include="Lotto\LottoDeleted.cs" />
     <Compile Include="Lotto\LottoUpdated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedulation\SchedulationPriceCalculated.cs" />
+    <Compile Include="Schedulation\SchedulationPriceOfScenarioCancelled.cs" />
+    <Compile Include="Schedulation\SchedulationPriceOfScenarioCalculated.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">

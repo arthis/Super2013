@@ -6,8 +6,14 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Schedulation
 {
-    public class SchedulationPriceCalculated:CommandBase
+    public class SchedulationPriceOfScenarioCalculated:CommandBase
     {
+        public Guid IdScenario { get; set; }
+        public Guid IdCommittente { get; set; }
+        public Guid IdLotto { get; set; }
+        public Guid IdImpianto { get; set; }
+        public string SettoreIntervento { get; set; }
+
         public decimal? PrezzoBase { get; set; }
         public decimal? SPS { get; set; }
         public decimal? SC { get; set; }
@@ -23,12 +29,12 @@ namespace Super.Contabilita.Events.Schedulation
         public decimal? SGFFSPSF { get; set; }
 
 
-        public SchedulationPriceCalculated()
+        public SchedulationPriceOfScenarioCalculated()
         {
             
         }
 
-        public SchedulationPriceCalculated(Guid id,
+        public SchedulationPriceOfScenarioCalculated(Guid id,
                                           Guid commitId,
                                           long version,
                                           decimal? prezzoBase,
@@ -70,7 +76,7 @@ namespace Super.Contabilita.Events.Schedulation
             return string.Format("Il prezzo della schedulazione {0} é stata calcolato.", Id);
         }
 
-        public bool Equals(SchedulationPriceCalculated other)
+        public bool Equals(SchedulationPriceOfScenarioCalculated other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -81,7 +87,7 @@ namespace Super.Contabilita.Events.Schedulation
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as SchedulationPriceCalculated);
+            return Equals(obj as SchedulationPriceOfScenarioCalculated);
         }
 
         public override int GetHashCode()

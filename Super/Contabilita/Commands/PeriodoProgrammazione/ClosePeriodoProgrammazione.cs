@@ -5,17 +5,17 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Commands.PeriodoProgrammazione
 {
     
-    public class ClosePeriodoProgrammazioneRot: CommandBase
+    public class ClosePeriodoProgrammazione: CommandBase
     {
         public DateTime ClosingDate { get;  set; }
         public Guid IdUser { get; set; }
 
-        public ClosePeriodoProgrammazioneRot()
+        public ClosePeriodoProgrammazione()
         {
             
         }
 
-        public ClosePeriodoProgrammazioneRot(Guid id, Guid commitId, long version, DateTime closingDate, Guid idUser)
+        public ClosePeriodoProgrammazione(Guid id, Guid commitId, long version, DateTime closingDate, Guid idUser)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentOutOfRangeException>(closingDate > DateTime.MinValue);
@@ -27,10 +27,10 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione
 
         public override string ToDescription()
         {
-            return string.Format("Chiudiamo il periodo programmazione rotabile '{0}'.", Id);
+            return string.Format("Chiudiamo il periodo programmazione  '{0}'.", Id);
         }
 
-        public bool Equals(ClosePeriodoProgrammazioneRot other)
+        public bool Equals(ClosePeriodoProgrammazione other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -41,7 +41,7 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as ClosePeriodoProgrammazioneRot);
+            return Equals(obj as ClosePeriodoProgrammazione);
         }
 
         public override int GetHashCode()
