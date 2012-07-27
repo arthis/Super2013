@@ -11,7 +11,7 @@ namespace Super.Contabilita.Handlers.Repositories
     {
         public bool AreImpiantoAssociatedOutOfInterval(Guid idLotto, Interval interval)
         {
-            using (var container = Container.GetContainer())
+            using (var container = Container.GetEntities())
             {
                 return container.Impiantoes.Where(x => x.IdLotto == idLotto)
                     .Any(x => x.Start < interval.Start

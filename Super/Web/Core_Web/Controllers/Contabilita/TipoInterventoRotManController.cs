@@ -3,21 +3,21 @@ using System.Linq;
 using System.Web.Mvc;
 using Core_Web.ContabilitaService;
 using Core_Web.Models;
-using Super.Contabilita.Commands.Lotto;
-using CreateLotto = Super.Contabilita.Commands.Lotto.CreateLotto;
-using DeleteLotto = Core_Web.Models.DeleteLotto;
+using Super.Contabilita.Commands.TipoIntervento.RotabileInManutenzione;
+using CreateTipoInterventoRotMan = Super.Contabilita.Commands.TipoIntervento.RotabileInManutenzione.CreateTipoInterventoRotMan;
+using DeleteTipoInterventoRotMan = Core_Web.Models.DeleteTipoInterventoRotMan;
 
 namespace Core_Web.Controllers.Contabilita
 {
-    public class LottoController : BaseContabilitaController
+    public class TipoInterventoRotManController : BaseContabilitaController
     {
-        public LottoController(ICommandWebService commandWebService) : base(commandWebService)
+        public TipoInterventoRotManController(ICommandWebService commandWebService) : base(commandWebService)
         {
         }
 
         protected override string GetView(string url)
         {
-            url = string.Format("Lotto/{0}", url);
+            url = string.Format("TipoInterventoRotMan/{0}", url);
             return base.GetView(url);
         }
 
@@ -27,11 +27,11 @@ namespace Core_Web.Controllers.Contabilita
         }
 
 
-        public JsonResult GetItems(VisualizzareLotto command)
+        public JsonResult GetItems(VisualizzareTipoInterventoRotMan command)
         {
             using (var ctx = GetEntities())
             {
-                var query = from i in ctx.Lottoes
+                var query = from i in ctx.TipoInterventoRotMen
                             select i;
 
                 if (!string.IsNullOrEmpty(command.Description))
@@ -53,11 +53,11 @@ namespace Core_Web.Controllers.Contabilita
 
 
         [HttpGet]
-        public ActionResult CreateLotto()
+        public ActionResult CreateTipoInterventoRotMan()
         {
             using (var context = GetEntities())
             {
-                var model = new Models.CreateLotto()
+                var model = new Models.CreateTipoInterventoRotMan()
                                 {
                                     CreationDate = Now,
                                     Start = Now,
@@ -66,29 +66,29 @@ namespace Core_Web.Controllers.Contabilita
                                     Version = 0,
                                 };
 
-                return View(GetView("CreateLotto"), model);
+                return View(GetView("CreateTipoInterventoRotMan"), model);
             }
         }
 
         [HttpPost]
-        public JsonResult CreateLotto(CreateLotto command)
+        public JsonResult CreateTipoInterventoRotMan(CreateTipoInterventoRotMan command)
         {
             return Execute(command);
         }
 
         [HttpGet]
-        public ActionResult EditLotto(Guid id)
+        public ActionResult EditTipoInterventoRotMan(Guid id)
         {
             using (var context = GetEntities())
             {
-                var query = context.Lottoes.Where(item => !item.Deleted);
+                var query = context.TipoInterventoRotMen.Where(item => !item.Deleted);
 
                 var projection = query.Where(x => x.Id == id).SingleOrDefault();
 
                 if (projection == null)
-                    throw new Exception(string.Format("Edit Lotto not found for id {0}", id));
+                    throw new Exception(string.Format("Edit TipoInterventoRotMan not found for id {0}", id));
 
-                var model = new EditLotto()
+                var model = new EditTipoInterventoRotMan()
                                 {
                                     Start = projection.Start,
                                     End = projection.End,
@@ -98,30 +98,30 @@ namespace Core_Web.Controllers.Contabilita
                                     Description = projection.Description
                                 };
 
-                return View(GetView("EditLotto"), model);
+                return View(GetView("EditTipoInterventoRotMan"), model);
             }
         }
 
         [HttpPost]
-        public JsonResult UpdateLotto(UpdateLotto command)
+        public JsonResult UpdateTipoInterventoRotMan(UpdateTipoInterventoRotMan command)
         {
             return Execute(command);
         }
 
         [HttpGet]
-        public ActionResult DeleteLotto(Guid id)
+        public ActionResult DeleteTipoInterventoRotMan(Guid id)
         {
             using (var context = GetEntities())
             {
-                var query = context.Lottoes.Where(item => !item.Deleted);
+                var query = context.TipoInterventoRotMen.Where(item => !item.Deleted);
 
                 var projection = query.Where(x => x.Id == id).SingleOrDefault();
 
                 if (projection == null)
-                    throw new Exception(string.Format("Delete Lotto not found for id {0}", id));
+                    throw new Exception(string.Format("Delete TipoInterventoRotMan not found for id {0}", id));
 
 
-                var model = new DeleteLotto()
+                var model = new DeleteTipoInterventoRotMan()
                  {
                      Id = projection.Id,
                      CommitId = Guid.NewGuid(),
@@ -131,12 +131,12 @@ namespace Core_Web.Controllers.Contabilita
                      End = projection.End
                  };
 
-                return View(GetView("DeleteLotto"), model);
+                return View(GetView("DeleteTipoInterventoRotMan"), model);
             }
         }
 
         [HttpPost]
-        public JsonResult Delete(Super.Contabilita.Commands.Lotto.DeleteLotto command)
+        public JsonResult Delete(Super.Contabilita.Commands.TipoIntervento.RotabileInManutenzione.DeleteTipoInterventoRotMan command)
         {
             return Execute(command);
         }

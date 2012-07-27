@@ -1,0 +1,821 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Super.Programmazione.ReadModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SuperProgrammazioneReadModelStoreContainer">
+          <EntitySet Name="InterventoAmb" EntityType="Super.Programmazione.ReadModel.Store.InterventoAmb" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InterventoOggettoRot" EntityType="Super.Programmazione.ReadModel.Store.InterventoOggettoRot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InterventoOggettoRotMan" EntityType="Super.Programmazione.ReadModel.Store.InterventoOggettoRotMan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InterventoRot" EntityType="Super.Programmazione.ReadModel.Store.InterventoRot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InterventoRotMan" EntityType="Super.Programmazione.ReadModel.Store.InterventoRotMan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LastEventsReadProgrammazione" EntityType="Super.Programmazione.ReadModel.Store.LastEventsReadProgrammazione" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Plan" EntityType="Super.Programmazione.ReadModel.Store.Plan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RuleAmb" EntityType="Super.Programmazione.ReadModel.Store.RuleAmb" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RuleRot" EntityType="Super.Programmazione.ReadModel.Store.RuleRot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RuleRotMan" EntityType="Super.Programmazione.ReadModel.Store.RuleRotMan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Scenario" EntityType="Super.Programmazione.ReadModel.Store.Scenario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulationAmb" EntityType="Super.Programmazione.ReadModel.Store.SchedulationAmb" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulationOggettoRot" EntityType="Super.Programmazione.ReadModel.Store.SchedulationOggettoRot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulationOggettoRotMan" EntityType="Super.Programmazione.ReadModel.Store.SchedulationOggettoRotMan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulationRot" EntityType="Super.Programmazione.ReadModel.Store.SchedulationRot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulationRotMan" EntityType="Super.Programmazione.ReadModel.Store.SchedulationRotMan" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="InterventoAmb">
+          <Key>
+            <PropertyRef Name="IdIntervento" />
+          </Key>
+          <Property Name="IdIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPlan" Type="uniqueidentifier" />
+          <Property Name="IdCommittente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdImpianto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="InterventoOggettoRot">
+          <Key>
+            <PropertyRef Name="IdOggettoRot" />
+          </Key>
+          <Property Name="IdOggettoRot" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idInterventoRot" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="idTipoOggettoInterventoRot" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterventoOggettoRotMan">
+          <Key>
+            <PropertyRef Name="IdOggettoRotMan" />
+          </Key>
+          <Property Name="IdOggettoRotMan" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idInterventoRotMan" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="idTipoOggettoInterventoRotMan" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterventoRot">
+          <Key>
+            <PropertyRef Name="IdIntervento" />
+          </Key>
+          <Property Name="IdIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPlan" Type="uniqueidentifier" />
+          <Property Name="IdCommittente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdImpianto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" Nullable="false" />
+          <Property Name="Convoglio" Type="nvarchar" MaxLength="255" />
+          <Property Name="RigaTurnoTreno" Type="nvarchar" MaxLength="255" />
+          <Property Name="TurnoTreno" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumeroTrenoPartenza" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateTrenoPartenza" Type="datetime" />
+          <Property Name="NumeroTrenoArrivo" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateTrenoArrivo" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InterventoRotMan">
+          <Key>
+            <PropertyRef Name="IdIntervento" />
+          </Key>
+          <Property Name="IdIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPlan" Type="uniqueidentifier" />
+          <Property Name="IdCommittente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdImpianto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LastEventsReadProgrammazione">
+          <Key>
+            <PropertyRef Name="CommitId" />
+          </Key>
+          <Property Name="CommitId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="IdPlan" />
+          </Key>
+          <Property Name="IdPlan" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPromotingUser" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RuleAmb">
+          <Key>
+            <PropertyRef Name="IdRule" />
+          </Key>
+          <Property Name="IdRule" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="Monday" Type="bit" Nullable="false" />
+          <Property Name="Tuesday" Type="bit" Nullable="false" />
+          <Property Name="Wednesday" Type="bit" Nullable="false" />
+          <Property Name="Thursday" Type="bit" Nullable="false" />
+          <Property Name="Friday" Type="bit" Nullable="false" />
+          <Property Name="Saturday" Type="bit" Nullable="false" />
+          <Property Name="Sunday" Type="bit" Nullable="false" />
+          <Property Name="WeekEnd" Type="bit" Nullable="false" />
+          <Property Name="HolyDay" Type="bit" Nullable="false" />
+          <Property Name="PreHolyDay" Type="bit" Nullable="false" />
+          <Property Name="PostHolyDay" Type="bit" Nullable="false" />
+          <Property Name="Repetition" Type="bit" Nullable="false" />
+          <Property Name="Frequence" Type="int" />
+        </EntityType>
+        <EntityType Name="RuleRot">
+          <Key>
+            <PropertyRef Name="IdRule" />
+          </Key>
+          <Property Name="IdRule" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="Monday" Type="bit" Nullable="false" />
+          <Property Name="Tuesday" Type="bit" Nullable="false" />
+          <Property Name="Wednesday" Type="bit" Nullable="false" />
+          <Property Name="Thursday" Type="bit" Nullable="false" />
+          <Property Name="Friday" Type="bit" Nullable="false" />
+          <Property Name="Saturday" Type="bit" Nullable="false" />
+          <Property Name="Sunday" Type="bit" Nullable="false" />
+          <Property Name="WeekEnd" Type="bit" Nullable="false" />
+          <Property Name="HolyDay" Type="bit" Nullable="false" />
+          <Property Name="PreHolyDay" Type="bit" Nullable="false" />
+          <Property Name="PostHolyDay" Type="bit" Nullable="false" />
+          <Property Name="Repetition" Type="bit" Nullable="false" />
+          <Property Name="Frequence" Type="int" />
+          <Property Name="NumeroTrenoArrivo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateTrenoArrivo" Type="datetime" />
+          <Property Name="StartIntervento" Type="datetime" />
+          <Property Name="EndIntervento" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RuleRotMan">
+          <Key>
+            <PropertyRef Name="IdRule" />
+          </Key>
+          <Property Name="IdRule" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="Monday" Type="bit" Nullable="false" />
+          <Property Name="Tuesday" Type="bit" Nullable="false" />
+          <Property Name="Wednesday" Type="bit" Nullable="false" />
+          <Property Name="Thursday" Type="bit" Nullable="false" />
+          <Property Name="Friday" Type="bit" Nullable="false" />
+          <Property Name="Saturday" Type="bit" Nullable="false" />
+          <Property Name="Sunday" Type="bit" Nullable="false" />
+          <Property Name="WeekEnd" Type="bit" Nullable="false" />
+          <Property Name="HolyDay" Type="bit" Nullable="false" />
+          <Property Name="PreHolyDay" Type="bit" Nullable="false" />
+          <Property Name="PostHolyDay" Type="bit" Nullable="false" />
+          <Property Name="Repetition" Type="bit" Nullable="false" />
+          <Property Name="Frequence" Type="int" />
+        </EntityType>
+        <EntityType Name="Scenario">
+          <Key>
+            <PropertyRef Name="IdScenario" />
+          </Key>
+          <Property Name="IdScenario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="IdUser" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchedulationAmb">
+          <Key>
+            <PropertyRef Name="IdSchedulation" />
+          </Key>
+          <Property Name="IdSchedulation" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdScenario" Type="uniqueidentifier" />
+          <Property Name="IdPlan" Type="uniqueidentifier" />
+          <Property Name="IdCommittente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdImpianto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="SchedulationOggettoRot">
+          <Key>
+            <PropertyRef Name="IdOggettoRot" />
+          </Key>
+          <Property Name="IdOggettoRot" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idSchedulationRot" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="idTipoOggettoInterventoRot" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchedulationOggettoRotMan">
+          <Key>
+            <PropertyRef Name="IdOggettoRotMan" />
+          </Key>
+          <Property Name="IdOggettoRotMan" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idSchedulationRotMan" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="idTipoOggettoInterventoRotMan" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchedulationRot">
+          <Key>
+            <PropertyRef Name="IdSchedulation" />
+          </Key>
+          <Property Name="IdSchedulation" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdScenario" Type="uniqueidentifier" />
+          <Property Name="IdPlan" Type="uniqueidentifier" />
+          <Property Name="IdCommittente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdImpianto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" Nullable="false" />
+          <Property Name="Convoglio" Type="nvarchar" MaxLength="255" />
+          <Property Name="RigaTurnoTreno" Type="nvarchar" MaxLength="255" />
+          <Property Name="TurnoTreno" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumeroTrenoPartenza" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateTrenoPartenza" Type="datetime" />
+          <Property Name="NumeroTrenoArrivo" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateTrenoArrivo" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SchedulationRotMan">
+          <Key>
+            <PropertyRef Name="IdSchedulation" />
+          </Key>
+          <Property Name="IdSchedulation" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdScenario" Type="uniqueidentifier" />
+          <Property Name="IdPlan" Type="uniqueidentifier" />
+          <Property Name="IdCommittente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdImpianto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Super.Programmazione.ReadModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ProgrammazioneEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="InterventoAmbs" EntityType="Super.Programmazione.ReadModel.InterventoAmb" />
+          <EntitySet Name="InterventoOggettoRots" EntityType="Super.Programmazione.ReadModel.InterventoOggettoRot" />
+          <EntitySet Name="InterventoOggettoRotMen" EntityType="Super.Programmazione.ReadModel.InterventoOggettoRotMan" />
+          <EntitySet Name="InterventoRots" EntityType="Super.Programmazione.ReadModel.InterventoRot" />
+          <EntitySet Name="InterventoRotMen" EntityType="Super.Programmazione.ReadModel.InterventoRotMan" />
+          <EntitySet Name="LastEventsReadProgrammaziones" EntityType="Super.Programmazione.ReadModel.LastEventsReadProgrammazione" />
+          <EntitySet Name="Plans" EntityType="Super.Programmazione.ReadModel.Plan" />
+          <EntitySet Name="RuleAmbs" EntityType="Super.Programmazione.ReadModel.RuleAmb" />
+          <EntitySet Name="RuleRots" EntityType="Super.Programmazione.ReadModel.RuleRot" />
+          <EntitySet Name="RuleRotMen" EntityType="Super.Programmazione.ReadModel.RuleRotMan" />
+          <EntitySet Name="Scenarios" EntityType="Super.Programmazione.ReadModel.Scenario" />
+          <EntitySet Name="SchedulationAmbs" EntityType="Super.Programmazione.ReadModel.SchedulationAmb" />
+          <EntitySet Name="SchedulationOggettoRots" EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRot" />
+          <EntitySet Name="SchedulationOggettoRotMen" EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRotMan" />
+          <EntitySet Name="SchedulationRots" EntityType="Super.Programmazione.ReadModel.SchedulationRot" />
+          <EntitySet Name="SchedulationRotMen" EntityType="Super.Programmazione.ReadModel.SchedulationRotMan" />
+        </EntityContainer>
+        <EntityType Name="InterventoAmb">
+          <Key>
+            <PropertyRef Name="IdIntervento" />
+          </Key>
+          <Property Name="IdIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdPlan" Type="Guid" />
+          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
+          <Property Name="IdLotto" Type="Guid" Nullable="false" />
+          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="InterventoOggettoRot">
+          <Key>
+            <PropertyRef Name="IdOggettoRot" />
+          </Key>
+          <Property Name="IdOggettoRot" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idInterventoRot" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="idTipoOggettoInterventoRot" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterventoOggettoRotMan">
+          <Key>
+            <PropertyRef Name="IdOggettoRotMan" />
+          </Key>
+          <Property Name="IdOggettoRotMan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idInterventoRotMan" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="idTipoOggettoInterventoRotMan" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterventoRot">
+          <Key>
+            <PropertyRef Name="IdIntervento" />
+          </Key>
+          <Property Name="IdIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdPlan" Type="Guid" />
+          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
+          <Property Name="IdLotto" Type="Guid" Nullable="false" />
+          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" Nullable="false" />
+          <Property Name="Convoglio" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="RigaTurnoTreno" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="TurnoTreno" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="NumeroTrenoPartenza" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DateTrenoPartenza" Type="DateTime" />
+          <Property Name="NumeroTrenoArrivo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DateTrenoArrivo" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="InterventoRotMan">
+          <Key>
+            <PropertyRef Name="IdIntervento" />
+          </Key>
+          <Property Name="IdIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdPlan" Type="Guid" />
+          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
+          <Property Name="IdLotto" Type="Guid" Nullable="false" />
+          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LastEventsReadProgrammazione">
+          <Key>
+            <PropertyRef Name="CommitId" />
+          </Key>
+          <Property Name="CommitId" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="IdPlan" />
+          </Key>
+          <Property Name="IdPlan" Type="Guid" Nullable="false" />
+          <Property Name="IdPromotingUser" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RuleAmb">
+          <Key>
+            <PropertyRef Name="IdRule" />
+          </Key>
+          <Property Name="IdRule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" />
+          <Property Name="Monday" Type="Boolean" Nullable="false" />
+          <Property Name="Tuesday" Type="Boolean" Nullable="false" />
+          <Property Name="Wednesday" Type="Boolean" Nullable="false" />
+          <Property Name="Thursday" Type="Boolean" Nullable="false" />
+          <Property Name="Friday" Type="Boolean" Nullable="false" />
+          <Property Name="Saturday" Type="Boolean" Nullable="false" />
+          <Property Name="Sunday" Type="Boolean" Nullable="false" />
+          <Property Name="WeekEnd" Type="Boolean" Nullable="false" />
+          <Property Name="HolyDay" Type="Boolean" Nullable="false" />
+          <Property Name="PreHolyDay" Type="Boolean" Nullable="false" />
+          <Property Name="PostHolyDay" Type="Boolean" Nullable="false" />
+          <Property Name="Repetition" Type="Boolean" Nullable="false" />
+          <Property Name="Frequence" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RuleRot">
+          <Key>
+            <PropertyRef Name="IdRule" />
+          </Key>
+          <Property Name="IdRule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" />
+          <Property Name="Monday" Type="Boolean" Nullable="false" />
+          <Property Name="Tuesday" Type="Boolean" Nullable="false" />
+          <Property Name="Wednesday" Type="Boolean" Nullable="false" />
+          <Property Name="Thursday" Type="Boolean" Nullable="false" />
+          <Property Name="Friday" Type="Boolean" Nullable="false" />
+          <Property Name="Saturday" Type="Boolean" Nullable="false" />
+          <Property Name="Sunday" Type="Boolean" Nullable="false" />
+          <Property Name="WeekEnd" Type="Boolean" Nullable="false" />
+          <Property Name="HolyDay" Type="Boolean" Nullable="false" />
+          <Property Name="PreHolyDay" Type="Boolean" Nullable="false" />
+          <Property Name="PostHolyDay" Type="Boolean" Nullable="false" />
+          <Property Name="Repetition" Type="Boolean" Nullable="false" />
+          <Property Name="Frequence" Type="Int32" />
+          <Property Name="NumeroTrenoArrivo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DateTrenoArrivo" Type="DateTime" />
+          <Property Name="StartIntervento" Type="DateTime" />
+          <Property Name="EndIntervento" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="RuleRotMan">
+          <Key>
+            <PropertyRef Name="IdRule" />
+          </Key>
+          <Property Name="IdRule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" />
+          <Property Name="Monday" Type="Boolean" Nullable="false" />
+          <Property Name="Tuesday" Type="Boolean" Nullable="false" />
+          <Property Name="Wednesday" Type="Boolean" Nullable="false" />
+          <Property Name="Thursday" Type="Boolean" Nullable="false" />
+          <Property Name="Friday" Type="Boolean" Nullable="false" />
+          <Property Name="Saturday" Type="Boolean" Nullable="false" />
+          <Property Name="Sunday" Type="Boolean" Nullable="false" />
+          <Property Name="WeekEnd" Type="Boolean" Nullable="false" />
+          <Property Name="HolyDay" Type="Boolean" Nullable="false" />
+          <Property Name="PreHolyDay" Type="Boolean" Nullable="false" />
+          <Property Name="PostHolyDay" Type="Boolean" Nullable="false" />
+          <Property Name="Repetition" Type="Boolean" Nullable="false" />
+          <Property Name="Frequence" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Scenario">
+          <Key>
+            <PropertyRef Name="IdScenario" />
+          </Key>
+          <Property Name="IdScenario" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="IdUser" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchedulationAmb">
+          <Key>
+            <PropertyRef Name="IdSchedulation" />
+          </Key>
+          <Property Name="IdSchedulation" Type="Guid" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdScenario" Type="Guid" />
+          <Property Name="IdPlan" Type="Guid" />
+          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
+          <Property Name="IdLotto" Type="Guid" Nullable="false" />
+          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SchedulationOggettoRot">
+          <Key>
+            <PropertyRef Name="IdOggettoRot" />
+          </Key>
+          <Property Name="IdOggettoRot" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSchedulationRot" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="idTipoOggettoInterventoRot" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchedulationOggettoRotMan">
+          <Key>
+            <PropertyRef Name="IdOggettoRotMan" />
+          </Key>
+          <Property Name="IdOggettoRotMan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSchedulationRotMan" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="idTipoOggettoInterventoRotMan" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchedulationRot">
+          <Key>
+            <PropertyRef Name="IdSchedulation" />
+          </Key>
+          <Property Name="IdSchedulation" Type="Guid" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdScenario" Type="Guid" />
+          <Property Name="IdPlan" Type="Guid" />
+          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
+          <Property Name="IdLotto" Type="Guid" Nullable="false" />
+          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" Nullable="false" />
+          <Property Name="Convoglio" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="RigaTurnoTreno" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="TurnoTreno" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="NumeroTrenoPartenza" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DateTrenoPartenza" Type="DateTime" />
+          <Property Name="NumeroTrenoArrivo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DateTrenoArrivo" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="SchedulationRotMan">
+          <Key>
+            <PropertyRef Name="IdSchedulation" />
+          </Key>
+          <Property Name="IdSchedulation" Type="Guid" Nullable="false" />
+          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdScenario" Type="Guid" />
+          <Property Name="IdPlan" Type="Guid" />
+          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
+          <Property Name="IdLotto" Type="Guid" Nullable="false" />
+          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
+          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
+          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SuperProgrammazioneReadModelStoreContainer" CdmEntityContainer="ProgrammazioneEntities">
+          <EntitySetMapping Name="InterventoAmbs"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.InterventoAmb"><MappingFragment StoreEntitySet="InterventoAmb">
+            <ScalarProperty Name="IdIntervento" ColumnName="IdIntervento" />
+            <ScalarProperty Name="IdPeriodoProgrammazione" ColumnName="IdPeriodoProgrammazione" />
+            <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
+            <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+            <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+            <ScalarProperty Name="IdImpianto" ColumnName="IdImpianto" />
+            <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+            <ScalarProperty Name="IdAppaltatore" ColumnName="IdAppaltatore" />
+            <ScalarProperty Name="IdCategoriaCommerciale" ColumnName="IdCategoriaCommerciale" />
+            <ScalarProperty Name="IdDirezioneRegionale" ColumnName="IdDirezioneRegionale" />
+            <ScalarProperty Name="Note" ColumnName="Note" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="InterventoOggettoRots"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.InterventoOggettoRot"><MappingFragment StoreEntitySet="InterventoOggettoRot">
+            <ScalarProperty Name="IdOggettoRot" ColumnName="IdOggettoRot" />
+            <ScalarProperty Name="idInterventoRot" ColumnName="idInterventoRot" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+            <ScalarProperty Name="idTipoOggettoInterventoRot" ColumnName="idTipoOggettoInterventoRot" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="InterventoOggettoRotMen"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.InterventoOggettoRotMan"><MappingFragment StoreEntitySet="InterventoOggettoRotMan">
+            <ScalarProperty Name="IdOggettoRotMan" ColumnName="IdOggettoRotMan" />
+            <ScalarProperty Name="idInterventoRotMan" ColumnName="idInterventoRotMan" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+            <ScalarProperty Name="idTipoOggettoInterventoRotMan" ColumnName="idTipoOggettoInterventoRotMan" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="InterventoRots"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.InterventoRot"><MappingFragment StoreEntitySet="InterventoRot">
+            <ScalarProperty Name="IdIntervento" ColumnName="IdIntervento" />
+            <ScalarProperty Name="IdPeriodoProgrammazione" ColumnName="IdPeriodoProgrammazione" />
+            <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
+            <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+            <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+            <ScalarProperty Name="IdImpianto" ColumnName="IdImpianto" />
+            <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+            <ScalarProperty Name="IdAppaltatore" ColumnName="IdAppaltatore" />
+            <ScalarProperty Name="IdCategoriaCommerciale" ColumnName="IdCategoriaCommerciale" />
+            <ScalarProperty Name="IdDirezioneRegionale" ColumnName="IdDirezioneRegionale" />
+            <ScalarProperty Name="Note" ColumnName="Note" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+            <ScalarProperty Name="Convoglio" ColumnName="Convoglio" />
+            <ScalarProperty Name="RigaTurnoTreno" ColumnName="RigaTurnoTreno" />
+            <ScalarProperty Name="TurnoTreno" ColumnName="TurnoTreno" />
+            <ScalarProperty Name="NumeroTrenoPartenza" ColumnName="NumeroTrenoPartenza" />
+            <ScalarProperty Name="DateTrenoPartenza" ColumnName="DateTrenoPartenza" />
+            <ScalarProperty Name="NumeroTrenoArrivo" ColumnName="NumeroTrenoArrivo" />
+            <ScalarProperty Name="DateTrenoArrivo" ColumnName="DateTrenoArrivo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="InterventoRotMen"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.InterventoRotMan"><MappingFragment StoreEntitySet="InterventoRotMan">
+            <ScalarProperty Name="IdIntervento" ColumnName="IdIntervento" />
+            <ScalarProperty Name="IdPeriodoProgrammazione" ColumnName="IdPeriodoProgrammazione" />
+            <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
+            <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+            <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+            <ScalarProperty Name="IdImpianto" ColumnName="IdImpianto" />
+            <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+            <ScalarProperty Name="IdAppaltatore" ColumnName="IdAppaltatore" />
+            <ScalarProperty Name="IdCategoriaCommerciale" ColumnName="IdCategoriaCommerciale" />
+            <ScalarProperty Name="IdDirezioneRegionale" ColumnName="IdDirezioneRegionale" />
+            <ScalarProperty Name="Note" ColumnName="Note" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LastEventsReadProgrammaziones"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.LastEventsReadProgrammazione"><MappingFragment StoreEntitySet="LastEventsReadProgrammazione">
+            <ScalarProperty Name="CommitId" ColumnName="CommitId" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Plans"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.Plan"><MappingFragment StoreEntitySet="Plan">
+            <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
+            <ScalarProperty Name="IdPromotingUser" ColumnName="IdPromotingUser" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RuleAmbs"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.RuleAmb"><MappingFragment StoreEntitySet="RuleAmb">
+            <ScalarProperty Name="IdRule" ColumnName="IdRule" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+            <ScalarProperty Name="Monday" ColumnName="Monday" />
+            <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+            <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+            <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+            <ScalarProperty Name="Friday" ColumnName="Friday" />
+            <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+            <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+            <ScalarProperty Name="WeekEnd" ColumnName="WeekEnd" />
+            <ScalarProperty Name="HolyDay" ColumnName="HolyDay" />
+            <ScalarProperty Name="PreHolyDay" ColumnName="PreHolyDay" />
+            <ScalarProperty Name="PostHolyDay" ColumnName="PostHolyDay" />
+            <ScalarProperty Name="Repetition" ColumnName="Repetition" />
+            <ScalarProperty Name="Frequence" ColumnName="Frequence" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RuleRots"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.RuleRot"><MappingFragment StoreEntitySet="RuleRot">
+            <ScalarProperty Name="IdRule" ColumnName="IdRule" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+            <ScalarProperty Name="Monday" ColumnName="Monday" />
+            <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+            <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+            <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+            <ScalarProperty Name="Friday" ColumnName="Friday" />
+            <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+            <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+            <ScalarProperty Name="WeekEnd" ColumnName="WeekEnd" />
+            <ScalarProperty Name="HolyDay" ColumnName="HolyDay" />
+            <ScalarProperty Name="PreHolyDay" ColumnName="PreHolyDay" />
+            <ScalarProperty Name="PostHolyDay" ColumnName="PostHolyDay" />
+            <ScalarProperty Name="Repetition" ColumnName="Repetition" />
+            <ScalarProperty Name="Frequence" ColumnName="Frequence" />
+            <ScalarProperty Name="NumeroTrenoArrivo" ColumnName="NumeroTrenoArrivo" />
+            <ScalarProperty Name="DateTrenoArrivo" ColumnName="DateTrenoArrivo" />
+            <ScalarProperty Name="StartIntervento" ColumnName="StartIntervento" />
+            <ScalarProperty Name="EndIntervento" ColumnName="EndIntervento" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RuleRotMen"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.RuleRotMan"><MappingFragment StoreEntitySet="RuleRotMan">
+            <ScalarProperty Name="IdRule" ColumnName="IdRule" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+            <ScalarProperty Name="Monday" ColumnName="Monday" />
+            <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+            <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+            <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+            <ScalarProperty Name="Friday" ColumnName="Friday" />
+            <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+            <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+            <ScalarProperty Name="WeekEnd" ColumnName="WeekEnd" />
+            <ScalarProperty Name="HolyDay" ColumnName="HolyDay" />
+            <ScalarProperty Name="PreHolyDay" ColumnName="PreHolyDay" />
+            <ScalarProperty Name="PostHolyDay" ColumnName="PostHolyDay" />
+            <ScalarProperty Name="Repetition" ColumnName="Repetition" />
+            <ScalarProperty Name="Frequence" ColumnName="Frequence" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Scenarios"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.Scenario"><MappingFragment StoreEntitySet="Scenario">
+            <ScalarProperty Name="IdScenario" ColumnName="IdScenario" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SchedulationAmbs"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationAmb"><MappingFragment StoreEntitySet="SchedulationAmb">
+            <ScalarProperty Name="IdSchedulation" ColumnName="IdSchedulation" />
+            <ScalarProperty Name="IdPeriodoProgrammazione" ColumnName="IdPeriodoProgrammazione" />
+            <ScalarProperty Name="IdScenario" ColumnName="IdScenario" />
+            <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
+            <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+            <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+            <ScalarProperty Name="IdImpianto" ColumnName="IdImpianto" />
+            <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+            <ScalarProperty Name="IdAppaltatore" ColumnName="IdAppaltatore" />
+            <ScalarProperty Name="IdCategoriaCommerciale" ColumnName="IdCategoriaCommerciale" />
+            <ScalarProperty Name="IdDirezioneRegionale" ColumnName="IdDirezioneRegionale" />
+            <ScalarProperty Name="Note" ColumnName="Note" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SchedulationOggettoRots"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationOggettoRot"><MappingFragment StoreEntitySet="SchedulationOggettoRot">
+            <ScalarProperty Name="IdOggettoRot" ColumnName="IdOggettoRot" />
+            <ScalarProperty Name="idSchedulationRot" ColumnName="idSchedulationRot" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+            <ScalarProperty Name="idTipoOggettoInterventoRot" ColumnName="idTipoOggettoInterventoRot" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SchedulationOggettoRotMen"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationOggettoRotMan"><MappingFragment StoreEntitySet="SchedulationOggettoRotMan">
+            <ScalarProperty Name="IdOggettoRotMan" ColumnName="IdOggettoRotMan" />
+            <ScalarProperty Name="idSchedulationRotMan" ColumnName="idSchedulationRotMan" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+            <ScalarProperty Name="idTipoOggettoInterventoRotMan" ColumnName="idTipoOggettoInterventoRotMan" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SchedulationRots"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationRot"><MappingFragment StoreEntitySet="SchedulationRot">
+            <ScalarProperty Name="IdSchedulation" ColumnName="IdSchedulation" />
+            <ScalarProperty Name="IdPeriodoProgrammazione" ColumnName="IdPeriodoProgrammazione" />
+            <ScalarProperty Name="IdScenario" ColumnName="IdScenario" />
+            <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
+            <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+            <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+            <ScalarProperty Name="IdImpianto" ColumnName="IdImpianto" />
+            <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+            <ScalarProperty Name="IdAppaltatore" ColumnName="IdAppaltatore" />
+            <ScalarProperty Name="IdCategoriaCommerciale" ColumnName="IdCategoriaCommerciale" />
+            <ScalarProperty Name="IdDirezioneRegionale" ColumnName="IdDirezioneRegionale" />
+            <ScalarProperty Name="Note" ColumnName="Note" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+            <ScalarProperty Name="Convoglio" ColumnName="Convoglio" />
+            <ScalarProperty Name="RigaTurnoTreno" ColumnName="RigaTurnoTreno" />
+            <ScalarProperty Name="TurnoTreno" ColumnName="TurnoTreno" />
+            <ScalarProperty Name="NumeroTrenoPartenza" ColumnName="NumeroTrenoPartenza" />
+            <ScalarProperty Name="DateTrenoPartenza" ColumnName="DateTrenoPartenza" />
+            <ScalarProperty Name="NumeroTrenoArrivo" ColumnName="NumeroTrenoArrivo" />
+            <ScalarProperty Name="DateTrenoArrivo" ColumnName="DateTrenoArrivo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SchedulationRotMen"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationRotMan"><MappingFragment StoreEntitySet="SchedulationRotMan">
+            <ScalarProperty Name="IdSchedulation" ColumnName="IdSchedulation" />
+            <ScalarProperty Name="IdPeriodoProgrammazione" ColumnName="IdPeriodoProgrammazione" />
+            <ScalarProperty Name="IdScenario" ColumnName="IdScenario" />
+            <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
+            <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+            <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+            <ScalarProperty Name="IdImpianto" ColumnName="IdImpianto" />
+            <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+            <ScalarProperty Name="IdAppaltatore" ColumnName="IdAppaltatore" />
+            <ScalarProperty Name="IdCategoriaCommerciale" ColumnName="IdCategoriaCommerciale" />
+            <ScalarProperty Name="IdDirezioneRegionale" ColumnName="IdDirezioneRegionale" />
+            <ScalarProperty Name="Note" ColumnName="Note" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Programmazione">
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoAmb" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoOggettoRot" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoOggettoRotMan" Width="1.5" PointX="2.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoRot" Width="1.5" PointX="4.75" PointY="0.75" Height="4.8648079427083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoRotMan" Width="1.5" PointX="6.75" PointY="0.75" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.LastEventsReadProgrammazione" Width="1.5" PointX="0.75" PointY="6.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.Plan" Width="1.5" PointX="2.75" PointY="6.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.RuleAmb" Width="1.5" PointX="4.75" PointY="6.75" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.RuleRot" Width="1.5" PointX="6.75" PointY="5.75" Height="4.8648079427083353" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.RuleRotMan" Width="1.5" PointX="8.75" PointY="0.75" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.Scenario" Width="1.5" PointX="8.75" PointY="5.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationAmb" Width="1.5" PointX="8.75" PointY="8.75" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRot" Width="1.5" PointX="0.75" PointY="9.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRotMan" Width="1.5" PointX="10.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationRot" Width="1.5" PointX="10.75" PointY="3.75" Height="5.0571093750000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationRotMan" Width="1.5" PointX="10.75" PointY="9.75" Height="3.7109993489583388" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -15,7 +15,7 @@ namespace Super.Contabilita.Projection
 
         public void Handle(ImpiantoCreated @event)
         {
-            using (var container = Container.GetContainer())
+            using (var container = Container.GetEntities())
             {
                 var ai = container.Impiantoes.SingleOrDefault(x => x.Id == @event.Id);
                 if (ai != null)
@@ -39,7 +39,7 @@ namespace Super.Contabilita.Projection
 
         public void Handle(ImpiantoUpdated @event)
         {
-            using (var container = Container.GetContainer())
+            using (var container = Container.GetEntities())
             {
                 var ai = container.Impiantoes.SingleOrDefault(x => x.Id == @event.Id);
                 if (ai == null)
@@ -55,7 +55,7 @@ namespace Super.Contabilita.Projection
 
         public void Handle(ImpiantoDeleted @event)
         {
-            using (var container = Container.GetContainer())
+            using (var container = Container.GetEntities())
             {
                 var ai = container.Impiantoes.SingleOrDefault(x => x.Id == @event.Id);
                 if (ai == null)

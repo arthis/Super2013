@@ -148,6 +148,8 @@ CREATE TABLE [dbo].Appaltatore(
 	[Id] [uniqueidentifier] NOT NULL,
 	[Description] [nvarchar](255) NULL,
 	[Sign] [nvarchar](10) NULL,
+	[Start] [datetime] NOT NULL,
+	[End] [datetime] NULL,
 	[Version] int not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,

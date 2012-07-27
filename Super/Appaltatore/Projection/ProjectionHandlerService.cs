@@ -18,9 +18,9 @@ namespace Super.Appaltatore.Projection
         {
             var handlerHelper = new EventHandlerHelper(projectionRepositoryBuilder);
 
-            handlerHelper.Add<InterventoRotProgrammato>(_handlers, new ConsuntivazioneRotProjection());
-            handlerHelper.Add<InterventoRotManProgrammato>(_handlers, new ConsuntivazioneRotManProjection());
-            handlerHelper.Add<InterventoAmbProgrammato>(_handlers, new ConsuntivazioneAmbProjection());
+            handlerHelper.Add(_handlers, new ConsuntivazioneRotProjection());
+            handlerHelper.Add(_handlers, new ConsuntivazioneRotManProjection());
+            handlerHelper.Add(_handlers, new ConsuntivazioneAmbProjection());
 
         }
 

@@ -9,10 +9,10 @@ namespace Super.Contabilita.Projection
 {
     public static class Container
     {
-        public  static ContabilitaContainer GetContainer()
+        public  static ContabilitaEntities GetEntities()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Super2013"].ConnectionString;
-            return new ContabilitaContainer(connectionString);
+            var connectionString = ConfigurationManager.ConnectionStrings["Super2013.Contabilita.ReadStore"].ConnectionString;
+            return new ContabilitaEntities(connectionString);
         }
     }
 }

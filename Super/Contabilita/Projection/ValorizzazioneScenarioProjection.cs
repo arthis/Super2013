@@ -11,7 +11,7 @@ namespace Super.Contabilita.Projection
     {
         public void Handle(SchedulationPriceOfScenarioCalculated @event)
         {
-             using (var container = Container.GetContainer())
+             using (var container = Container.GetEntities())
             {
                  //call to stored procedure
 

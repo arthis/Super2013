@@ -20,7 +20,7 @@ namespace Core_Web.Controllers
         //    _commandService = commandWebService;
         //}
 
-        //public ContabilitaContainer GetContainer()
+        //public ContabilitaContainer GetEntities()
         //{
         //    var connectionString = ConfigurationManager.ConnectionStrings["Super2013.Contabilita.ReadModel"].ConnectionString;
         //    return new ContabilitaContainer(connectionString);

@@ -29,7 +29,7 @@ namespace Core_Web.Controllers.Contabilita
 
         public JsonResult GetItems(VisualizzareImpianto command)
         {
-            using (var ctx = GetContainer())
+            using (var ctx = GetEntities())
             {
                 var query = from i in ctx.Impiantoes
                             join l in ctx.Lottoes
@@ -61,7 +61,7 @@ namespace Core_Web.Controllers.Contabilita
         [HttpGet]
         public ActionResult CreateImpianto()
         {
-            using (var context = GetContainer())
+            using (var context = GetEntities())
             {
                 var lottiRaw = context.Lottoes.OrderBy(x => x.Description)
                     .Select(x => new { Description = x.Description, Value = x.Id})
@@ -100,7 +100,7 @@ namespace Core_Web.Controllers.Contabilita
         [HttpGet]
         public ActionResult EditImpianto(Guid id)
         {
-            using (var context = GetContainer())
+            using (var context = GetEntities())
             {
                 var query = context.Impiantoes.Where(item => !item.Deleted);
 
@@ -136,7 +136,7 @@ namespace Core_Web.Controllers.Contabilita
         [HttpGet]
         public ActionResult DeleteImpianto(Guid id)
         {
-            using (var context = GetContainer())
+            using (var context = GetEntities())
             {
                 var query = context.Impiantoes.Where(item => !item.Deleted);
 

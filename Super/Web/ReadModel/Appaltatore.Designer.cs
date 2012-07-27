@@ -24,32 +24,32 @@ namespace Super.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class AppaltatoreContainer : ObjectContext
+    public partial class AppaltatoreEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new AppaltatoreContainer object using the connection string found in the 'AppaltatoreContainer' section of the application configuration file.
+        /// Initializes a new AppaltatoreEntities object using the connection string found in the 'AppaltatoreEntities' section of the application configuration file.
         /// </summary>
-        public AppaltatoreContainer() : base("name=AppaltatoreContainer", "AppaltatoreContainer")
+        public AppaltatoreEntities() : base("name=AppaltatoreEntities", "AppaltatoreEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new AppaltatoreContainer object.
+        /// Initialize a new AppaltatoreEntities object.
         /// </summary>
-        public AppaltatoreContainer(string connectionString) : base(connectionString, "AppaltatoreContainer")
+        public AppaltatoreEntities(string connectionString) : base(connectionString, "AppaltatoreEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new AppaltatoreContainer object.
+        /// Initialize a new AppaltatoreEntities object.
         /// </summary>
-        public AppaltatoreContainer(EntityConnection connection) : base(connection, "AppaltatoreContainer")
+        public AppaltatoreEntities(EntityConnection connection) : base(connection, "AppaltatoreEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -68,22 +68,6 @@ namespace Super.ReadModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<LastEventsReadAppaltatore> LastEventsReadAppaltatores
-        {
-            get
-            {
-                if ((_LastEventsReadAppaltatores == null))
-                {
-                    _LastEventsReadAppaltatores = base.CreateObjectSet<LastEventsReadAppaltatore>("LastEventsReadAppaltatores");
-                }
-                return _LastEventsReadAppaltatores;
-            }
-        }
-        private ObjectSet<LastEventsReadAppaltatore> _LastEventsReadAppaltatores;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<ConsuntivazioneRot> ConsuntivazioneRots
         {
             get
@@ -96,17 +80,25 @@ namespace Super.ReadModel
             }
         }
         private ObjectSet<ConsuntivazioneRot> _ConsuntivazioneRots;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<LastEventsReadAppaltatore> LastEventsReadAppaltatores
+        {
+            get
+            {
+                if ((_LastEventsReadAppaltatores == null))
+                {
+                    _LastEventsReadAppaltatores = base.CreateObjectSet<LastEventsReadAppaltatore>("LastEventsReadAppaltatores");
+                }
+                return _LastEventsReadAppaltatores;
+            }
+        }
+        private ObjectSet<LastEventsReadAppaltatore> _LastEventsReadAppaltatores;
 
         #endregion
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the LastEventsReadAppaltatores EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToLastEventsReadAppaltatores(LastEventsReadAppaltatore lastEventsReadAppaltatore)
-        {
-            base.AddObject("LastEventsReadAppaltatores", lastEventsReadAppaltatore);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the ConsuntivazioneRots EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -114,6 +106,14 @@ namespace Super.ReadModel
         public void AddToConsuntivazioneRots(ConsuntivazioneRot consuntivazioneRot)
         {
             base.AddObject("ConsuntivazioneRots", consuntivazioneRot);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the LastEventsReadAppaltatores EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLastEventsReadAppaltatores(LastEventsReadAppaltatore lastEventsReadAppaltatore)
+        {
+            base.AddObject("LastEventsReadAppaltatores", lastEventsReadAppaltatore);
         }
 
         #endregion
@@ -127,7 +127,7 @@ namespace Super.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="AppaltatoreModel", Name="ConsuntivazioneRot")]
+    [EdmEntityTypeAttribute(NamespaceName="Super.Appaltatore.ReadModel", Name="ConsuntivazioneRot")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ConsuntivazioneRot : EntityObject
@@ -1162,7 +1162,7 @@ namespace Super.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="AppaltatoreModel", Name="LastEventsReadAppaltatore")]
+    [EdmEntityTypeAttribute(NamespaceName="Super.Appaltatore.ReadModel", Name="LastEventsReadAppaltatore")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class LastEventsReadAppaltatore : EntityObject

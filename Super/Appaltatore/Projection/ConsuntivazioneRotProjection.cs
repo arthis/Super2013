@@ -11,17 +11,17 @@ namespace Super.Appaltatore.Projection
     public class ConsuntivazioneRotProjection : IEventHandler<InterventoRotProgrammato>
     {
 
-        private AppaltatoreContainer GetContainer()
+        private AppaltatoreEntities GetEntities()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Super2013.Appaltatore"].ConnectionString;
-            return new AppaltatoreContainer(connectionString);
+            var connectionString = ConfigurationManager.ConnectionStrings["Super2013.Appaltatore.ReadStore"].ConnectionString;
+            return new AppaltatoreEntities(connectionString);
         }
 
 
 
         public void Handle(InterventoRotProgrammato evt)
         {
-            using (var container = GetContainer())
+            using (var container = GetEntities())
             {
                 ConsuntivazioneRot cons = container.ConsuntivazioneRots.SingleOrDefault(x => x.IdIntervento == evt.Id);
                 if (cons != null)

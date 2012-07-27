@@ -5,10 +5,10 @@ namespace Super.Appaltatore.Projection
 {
     public static class Container
     {
-        public  static AppaltatoreContainer GetContainer()
+        public  static   AppaltatoreEntities GetEntities()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Super2013"].ConnectionString;
-            return new AppaltatoreContainer(connectionString);
+            var connectionString = ConfigurationManager.ConnectionStrings["Super2013.Appaltatore.ReadStore"].ConnectionString;
+            return new AppaltatoreEntities(connectionString);
         }
     }
 }

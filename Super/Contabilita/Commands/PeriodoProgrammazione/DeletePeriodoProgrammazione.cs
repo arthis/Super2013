@@ -1,20 +1,20 @@
 ﻿using System;
 using CommonDomain.Core;
 
-namespace Super.Contabilita.Commands.PeriodoProgrammazione.Rotabile
+namespace Super.Contabilita.Commands.PeriodoProgrammazione
 {
 
-    public class DeletePeriodoProgrammazioneRot : CommandBase
+    public class DeletePeriodoProgrammazione : CommandBase
     {
         public long Version { get; private set; }
 
-        public DeletePeriodoProgrammazioneRot()
+        public DeletePeriodoProgrammazione()
         {
 
         }
 
 
-        public DeletePeriodoProgrammazioneRot(Guid id, Guid commitId, long version)
+        public DeletePeriodoProgrammazione(Guid id, Guid commitId, long version)
             : base(id, commitId, version)
         {
         }
@@ -22,11 +22,11 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione.Rotabile
 
         public override string ToDescription()
         {
-            return string.Format("Cancelliamo il Periodo Programmazione Rotabile (Id:'{0}')", Id);
+            return string.Format("Cancelliamo il Periodo Programmazione  (Id:'{0}')", Id);
         }
 
 
-        public bool Equals(DeletePeriodoProgrammazioneRot other)
+        public bool Equals(DeletePeriodoProgrammazione other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -37,7 +37,7 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione.Rotabile
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as DeletePeriodoProgrammazioneRot);
+            return Equals(obj as DeletePeriodoProgrammazione);
         }
 
         public override int GetHashCode()
@@ -48,4 +48,6 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione.Rotabile
             }
         }
     }
+
+    
 }

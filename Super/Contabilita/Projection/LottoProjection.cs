@@ -14,7 +14,7 @@ namespace Super.Contabilita.Projection
     {
         public void Handle(LottoCreated @event)
         {
-            using (var container = Container.GetContainer())
+            using (var container = Container.GetEntities())
             {
                 var ai = container.Lottoes.SingleOrDefault(x => x.Id == @event.Id);
                 if (ai != null)
@@ -37,7 +37,7 @@ namespace Super.Contabilita.Projection
 
         public void Handle(LottoUpdated @event)
         {
-            using (var container = Container.GetContainer())
+            using (var container = Container.GetEntities())
             {
                 var ai = container.Lottoes.SingleOrDefault(x => x.Id == @event.Id);
                 if (ai == null)
@@ -53,7 +53,7 @@ namespace Super.Contabilita.Projection
 
         public void Handle(LottoDeleted @event)
         {
-            using (var container = Container.GetContainer())
+            using (var container = Container.GetEntities())
             {
                 var ai = container.Lottoes.SingleOrDefault(x => x.Id == @event.Id);
                 if (ai == null)

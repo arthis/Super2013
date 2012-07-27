@@ -99,9 +99,9 @@
     <Compile Include="MeasuringUnit\DeleteMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\UpdateMeasuringUnit.cs" />
     <Compile Include="PeriodoProgrammazione\ClosePeriodoProgrammazione.cs" />
-    <Compile Include="PeriodoProgrammazione\Rotabile\CreatePeriodoProgrammazioneRot.cs" />
-    <Compile Include="PeriodoProgrammazione\Rotabile\DeletePeriodoProgrammazioneRot.cs" />
-    <Compile Include="PeriodoProgrammazione\Rotabile\UpdatePeriodoProgrammazioneRot.cs" />
+    <Compile Include="PeriodoProgrammazione\CreatePeriodoProgrammazione.cs" />
+    <Compile Include="PeriodoProgrammazione\DeletePeriodoProgrammazione.cs" />
+    <Compile Include="PeriodoProgrammazione\UpdatePeriodoProgrammazione.cs" />
     <Compile Include="Schedulation\CancelSchedulationPriceOfScenario.cs" />
     <Compile Include="Schedulation\CalculateSchedulationPriceOfScenario.cs" />
     <Compile Include="TipoIntervento\Ambiente\CreateTipoInterventoAmb.cs" />

@@ -11,10 +11,10 @@ namespace Super.Appaltatore.Projection
     public class ConsuntivazioneAmbProjection : IEventHandler<InterventoAmbProgrammato>
     {
 
-        private AppaltatoreContainer GetContainer()
+        private AppaltatoreEntities GetEntities()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Super2013"].ConnectionString;
-            return new AppaltatoreContainer(connectionString);
+            var connectionString = ConfigurationManager.ConnectionStrings["Super2013.Appaltatore.ReadModel"].ConnectionString;
+            return new AppaltatoreEntities(connectionString);
         }
 
         public void Handle(InterventoAmbProgrammato evt)
@@ -23,7 +23,7 @@ namespace Super.Appaltatore.Projection
 
             //Do something useful here ...
 
-            //using (var container = GetContainer())
+            //using (var container = GetEntities())
             //{
             //    ConsuntivazioneRot cons = container.ConsuntivazioneRots.SingleOrDefault(x => x.IdIntervento == @event.Id);
             //    if (cons != null)

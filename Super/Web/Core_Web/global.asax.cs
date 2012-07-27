@@ -20,6 +20,7 @@ namespace Core_Web
 
         public static void RegisterRoutes(RouteCollection routes)
         {
+            #region Contabilita
             routes.MapRoute(
                 "Contabilita",
                 "Contabilita",
@@ -33,6 +34,7 @@ namespace Core_Web
                 new { action = "Index", id = UrlParameter.Optional },
                 new string[] { "Core_Web.Controllers" }
                 );
+            #endregion
         }
 
         protected void Application_Start()

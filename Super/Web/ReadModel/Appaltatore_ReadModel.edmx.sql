@@ -1,4 +1,4 @@
-USE [Super2013]
+USE [Super2013.Appaltatore.ReadStore]
 GO
 
 
@@ -8,7 +8,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LastE
 DROP TABLE [dbo].[LastEventsReadAppaltatore]
 GO
 
-USE [Super2013]
+USE [Super2013.Appaltatore.ReadStore]
 GO
 
 /****** Object:  Table [dbo].[LastEventsReadAppaltatore]    Script Date: 06/26/2012 10:45:39 ******/
@@ -193,7 +193,7 @@ END
 
 GO
 
-USE [Super2013]
+USE [Super2013.Appaltatore.ReadStore]
 GO
 
 /****** Object:  Table [dbo].[ConsuntivazioneRot]    Script Date: 05/28/2012 15:14:43 ******/
@@ -201,7 +201,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Consu
 DROP TABLE [dbo].[ConsuntivazioneRot]
 GO
 
-USE [Super2013]
+USE [Super2013.Appaltatore.ReadStore]
 GO
 
 /****** Object:  Table [dbo].[ConsuntivazioneRot]    Script Date: 05/28/2012 15:14:43 ******/

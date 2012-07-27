@@ -3,20 +3,20 @@ using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
-namespace Super.Contabilita.Commands.PeriodoProgrammazione.Rotabile
+namespace Super.Contabilita.Commands.PeriodoProgrammazione
 {
-    public class UpdatePeriodoProgrammazioneRot : CommandBase
+    public class UpdatePeriodoProgrammazione : CommandBase
     {
         public Interval Interval { get; set; }
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }
 
-        public UpdatePeriodoProgrammazioneRot()
+        public UpdatePeriodoProgrammazione()
         {
 
         }
 
-        public UpdatePeriodoProgrammazioneRot(Guid id, Guid commitId, long version, Interval period, DateTime creationDate, string description)
+        public UpdatePeriodoProgrammazione(Guid id, Guid commitId, long version, Interval period, DateTime creationDate, string description)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(period != null);
@@ -30,10 +30,10 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione.Rotabile
 
         public override string ToDescription()
         {
-            return string.Format("Aggiornamo il periodo programmazione rotabile '{0}'.", Description);
+            return string.Format("Aggiornamo il periodo programmazione  '{0}'.", Description);
         }
 
-        public bool Equals(UpdatePeriodoProgrammazioneRot other)
+        public bool Equals(UpdatePeriodoProgrammazione other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -44,7 +44,7 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione.Rotabile
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as UpdatePeriodoProgrammazioneRot);
+            return Equals(obj as UpdatePeriodoProgrammazione);
         }
 
         public override int GetHashCode()

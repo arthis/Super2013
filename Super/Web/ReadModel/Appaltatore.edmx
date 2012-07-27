@@ -4,10 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Super2013Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="Super2013ModelStoreContainer">
-          <EntitySet Name="ConsuntivazioneRot" EntityType="Super2013Model.Store.ConsuntivazioneRot" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="LastEventsReadAppaltatore" EntityType="Super2013Model.Store.LastEventsReadAppaltatore" store:Type="Tables" Schema="dbo" />
+      <Schema Namespace="Super.Appaltatore.ReadModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SuperAppaltatoreReadModelStoreContainer">
+          <EntitySet Name="ConsuntivazioneRot" EntityType="Super.Appaltatore.ReadModel.Store.ConsuntivazioneRot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LastEventsReadAppaltatore" EntityType="Super.Appaltatore.ReadModel.Store.LastEventsReadAppaltatore" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="ConsuntivazioneRot">
           <Key>
@@ -60,124 +60,117 @@
           <Property Name="CommitId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AppaltatoreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="AppaltatoreContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="LastEventsReadAppaltatores" EntityType="AppaltatoreModel.LastEventsReadAppaltatore" />
-          <EntitySet Name="ConsuntivazioneRots" EntityType="AppaltatoreModel.ConsuntivazioneRot" />
+      <Schema Namespace="Super.Appaltatore.ReadModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AppaltatoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConsuntivazioneRots" EntityType="Super.Appaltatore.ReadModel.ConsuntivazioneRot" />
+          <EntitySet Name="LastEventsReadAppaltatores" EntityType="Super.Appaltatore.ReadModel.LastEventsReadAppaltatore" />
         </EntityContainer>
-        <EntityType Name="LastEventsReadAppaltatore">
-          <Key>
-            <PropertyRef Name="CommitId" />
-          </Key>
-          <Property Type="Guid" Name="CommitId" Nullable="false" />
-          <Property Type="DateTime" Name="Date" Nullable="false" />
-        </EntityType>
         <EntityType Name="ConsuntivazioneRot">
           <Key>
             <PropertyRef Name="IdIntervento" />
           </Key>
-          <Property Type="Guid" Name="IdIntervento" Nullable="false" />
-          <Property Type="Guid" Name="IdCommittente" Nullable="false" />
-          <Property Type="Guid" Name="IdLotto" Nullable="false" />
-          <Property Type="Guid" Name="IdImpianto" Nullable="false" />
-          <Property Type="Guid" Name="IdTipoIntervento" Nullable="false" />
-          <Property Type="String" Name="CodiceOrdine" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="IsAvvisoIspezione" Nullable="false" />
-          <Property Type="Boolean" Name="IsSpunta" Nullable="false" />
-          <Property Type="Boolean" Name="IsReso" Nullable="false" />
-          <Property Type="Boolean" Name="IsNonResoAppaltatore" Nullable="false" />
-          <Property Type="Boolean" Name="IsNonReso20mn" Nullable="false" />
-          <Property Type="Boolean" Name="IsNonResoTrenitalia" Nullable="false" />
-          <Property Type="Boolean" Name="IsRilevatoNonReso" Nullable="false" />
-          <Property Type="Boolean" Name="IsRettifica" Nullable="false" />
-          <Property Type="Boolean" Name="IsSostituito" Nullable="false" />
-          <Property Type="Boolean" Name="HasSchedaV" Nullable="false" />
-          <Property Type="Boolean" Name="HasSchedaQ" Nullable="false" />
-          <Property Type="DateTime" Name="Start" Nullable="false" />
-          <Property Type="DateTime" Name="End" Nullable="false" />
-          <Property Type="String" Name="NumeroTrenoPartenza" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="DataTrenoPartenza" />
-          <Property Type="DateTime" Name="StartDateProgrammata" Nullable="false" />
-          <Property Type="DateTime" Name="EndDateProgrammata" Nullable="false" />
-          <Property Type="String" Name="ComposizioneProgrammata" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="StartDateConsuntivataAppaltatore" Nullable="false" />
-          <Property Type="DateTime" Name="EndDateConsuntivataAppaltatore" Nullable="false" />
-          <Property Type="Boolean" Name="IsProgrammato" Nullable="false" />
-          <Property Type="Boolean" Name="IsPLX" Nullable="false" />
-          <Property Type="Boolean" Name="IsEstemporaneo" Nullable="false" />
-          <Property Type="Boolean" Name="IsSostitutivo" Nullable="false" />
-          <Property Type="Boolean" Name="HasTreni" Nullable="false" />
-          <Property Type="Boolean" Name="HasRotabiliSingoli" Nullable="false" />
-          <Property Type="Boolean" Name="HasCarozze" Nullable="false" />
-          <Property Type="Boolean" Name="HasLocomotive" Nullable="false" />
-          <Property Type="Boolean" Name="IsModificatoTrenitaliaRispettoAlProgramma" Nullable="false" />
-          <Property Type="Boolean" Name="IsModificatoAppaltatoreRispettoAlProgramma" Nullable="false" />
-          <Property Type="Boolean" Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Nullable="false" />
-          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
-          <Property Type="Boolean" Name="Deleted" Nullable="false" />
+          <Property Name="IdIntervento" Type="Guid" Nullable="false" />
+          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
+          <Property Name="IdLotto" Type="Guid" Nullable="false" />
+          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
+          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
+          <Property Name="CodiceOrdine" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="IsAvvisoIspezione" Type="Boolean" Nullable="false" />
+          <Property Name="IsSpunta" Type="Boolean" Nullable="false" />
+          <Property Name="IsReso" Type="Boolean" Nullable="false" />
+          <Property Name="IsNonResoAppaltatore" Type="Boolean" Nullable="false" />
+          <Property Name="IsNonReso20mn" Type="Boolean" Nullable="false" />
+          <Property Name="IsNonResoTrenitalia" Type="Boolean" Nullable="false" />
+          <Property Name="IsRilevatoNonReso" Type="Boolean" Nullable="false" />
+          <Property Name="IsRettifica" Type="Boolean" Nullable="false" />
+          <Property Name="IsSostituito" Type="Boolean" Nullable="false" />
+          <Property Name="HasSchedaV" Type="Boolean" Nullable="false" />
+          <Property Name="HasSchedaQ" Type="Boolean" Nullable="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" Nullable="false" />
+          <Property Name="NumeroTrenoPartenza" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DataTrenoPartenza" Type="DateTime" />
+          <Property Name="StartDateProgrammata" Type="DateTime" Nullable="false" />
+          <Property Name="EndDateProgrammata" Type="DateTime" Nullable="false" />
+          <Property Name="ComposizioneProgrammata" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="StartDateConsuntivataAppaltatore" Type="DateTime" Nullable="false" />
+          <Property Name="EndDateConsuntivataAppaltatore" Type="DateTime" Nullable="false" />
+          <Property Name="IsProgrammato" Type="Boolean" Nullable="false" />
+          <Property Name="IsPLX" Type="Boolean" Nullable="false" />
+          <Property Name="IsEstemporaneo" Type="Boolean" Nullable="false" />
+          <Property Name="IsSostitutivo" Type="Boolean" Nullable="false" />
+          <Property Name="HasTreni" Type="Boolean" Nullable="false" />
+          <Property Name="HasRotabiliSingoli" Type="Boolean" Nullable="false" />
+          <Property Name="HasCarozze" Type="Boolean" Nullable="false" />
+          <Property Name="HasLocomotive" Type="Boolean" Nullable="false" />
+          <Property Name="IsModificatoTrenitaliaRispettoAlProgramma" Type="Boolean" Nullable="false" />
+          <Property Name="IsModificatoAppaltatoreRispettoAlProgramma" Type="Boolean" Nullable="false" />
+          <Property Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Type="Boolean" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LastEventsReadAppaltatore">
+          <Key>
+            <PropertyRef Name="CommitId" />
+          </Key>
+          <Property Name="CommitId" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Super2013ModelStoreContainer" CdmEntityContainer="AppaltatoreContainer">
-          <EntitySetMapping Name="LastEventsReadAppaltatores">
-            <EntityTypeMapping TypeName="AppaltatoreModel.LastEventsReadAppaltatore">
-              <MappingFragment StoreEntitySet="LastEventsReadAppaltatore">
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="CommitId" ColumnName="CommitId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ConsuntivazioneRots">
-            <EntityTypeMapping TypeName="AppaltatoreModel.ConsuntivazioneRot">
-              <MappingFragment StoreEntitySet="ConsuntivazioneRot">
-                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="IsModificatoTrenitaliaRispettoAllAppaltatore" ColumnName="IsModificatoTrenitaliaRispettoAllAppaltatore" />
-                <ScalarProperty Name="IsModificatoAppaltatoreRispettoAlProgramma" ColumnName="IsModificatoAppaltatoreRispettoAlProgramma" />
-                <ScalarProperty Name="IsModificatoTrenitaliaRispettoAlProgramma" ColumnName="IsModificatoTrenitaliaRispettoAlProgramma" />
-                <ScalarProperty Name="HasLocomotive" ColumnName="HasLocomotive" />
-                <ScalarProperty Name="HasCarozze" ColumnName="HasCarozze" />
-                <ScalarProperty Name="HasRotabiliSingoli" ColumnName="HasRotabiliSingoli" />
-                <ScalarProperty Name="HasTreni" ColumnName="HasTreni" />
-                <ScalarProperty Name="IsSostitutivo" ColumnName="IsSostitutivo" />
-                <ScalarProperty Name="IsEstemporaneo" ColumnName="IsEstemporaneo" />
-                <ScalarProperty Name="IsPLX" ColumnName="IsPLX" />
-                <ScalarProperty Name="IsProgrammato" ColumnName="IsProgrammato" />
-                <ScalarProperty Name="EndDateConsuntivataAppaltatore" ColumnName="EndDateConsuntivataAppaltatore" />
-                <ScalarProperty Name="StartDateConsuntivataAppaltatore" ColumnName="StartDateConsuntivataAppaltatore" />
-                <ScalarProperty Name="ComposizioneProgrammata" ColumnName="ComposizioneProgrammata" />
-                <ScalarProperty Name="EndDateProgrammata" ColumnName="EndDateProgrammata" />
-                <ScalarProperty Name="StartDateProgrammata" ColumnName="StartDateProgrammata" />
-                <ScalarProperty Name="DataTrenoPartenza" ColumnName="DataTrenoPartenza" />
-                <ScalarProperty Name="NumeroTrenoPartenza" ColumnName="NumeroTrenoPartenza" />
-                <ScalarProperty Name="End" ColumnName="End" />
-                <ScalarProperty Name="Start" ColumnName="Start" />
-                <ScalarProperty Name="HasSchedaQ" ColumnName="HasSchedaQ" />
-                <ScalarProperty Name="HasSchedaV" ColumnName="HasSchedaV" />
-                <ScalarProperty Name="IsSostituito" ColumnName="IsSostituito" />
-                <ScalarProperty Name="IsRettifica" ColumnName="IsRettifica" />
-                <ScalarProperty Name="IsRilevatoNonReso" ColumnName="IsRilevatoNonReso" />
-                <ScalarProperty Name="IsNonResoTrenitalia" ColumnName="IsNonResoTrenitalia" />
-                <ScalarProperty Name="IsNonReso20mn" ColumnName="IsNonReso20mn" />
-                <ScalarProperty Name="IsNonResoAppaltatore" ColumnName="IsNonResoAppaltatore" />
-                <ScalarProperty Name="IsReso" ColumnName="IsReso" />
-                <ScalarProperty Name="IsSpunta" ColumnName="IsSpunta" />
-                <ScalarProperty Name="IsAvvisoIspezione" ColumnName="IsAvvisoIspezione" />
-                <ScalarProperty Name="CodiceOrdine" ColumnName="CodiceOrdine" />
-                <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
-                <ScalarProperty Name="IdImpianto" ColumnName="IdImpianto" />
-                <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
-                <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
-                <ScalarProperty Name="IdIntervento" ColumnName="IdIntervento" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="SuperAppaltatoreReadModelStoreContainer" CdmEntityContainer="AppaltatoreEntities">
+          <EntitySetMapping Name="ConsuntivazioneRots"><EntityTypeMapping TypeName="Super.Appaltatore.ReadModel.ConsuntivazioneRot"><MappingFragment StoreEntitySet="ConsuntivazioneRot">
+            <ScalarProperty Name="IdIntervento" ColumnName="IdIntervento" />
+            <ScalarProperty Name="IdCommittente" ColumnName="IdCommittente" />
+            <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+            <ScalarProperty Name="IdImpianto" ColumnName="IdImpianto" />
+            <ScalarProperty Name="IdTipoIntervento" ColumnName="IdTipoIntervento" />
+            <ScalarProperty Name="CodiceOrdine" ColumnName="CodiceOrdine" />
+            <ScalarProperty Name="IsAvvisoIspezione" ColumnName="IsAvvisoIspezione" />
+            <ScalarProperty Name="IsSpunta" ColumnName="IsSpunta" />
+            <ScalarProperty Name="IsReso" ColumnName="IsReso" />
+            <ScalarProperty Name="IsNonResoAppaltatore" ColumnName="IsNonResoAppaltatore" />
+            <ScalarProperty Name="IsNonReso20mn" ColumnName="IsNonReso20mn" />
+            <ScalarProperty Name="IsNonResoTrenitalia" ColumnName="IsNonResoTrenitalia" />
+            <ScalarProperty Name="IsRilevatoNonReso" ColumnName="IsRilevatoNonReso" />
+            <ScalarProperty Name="IsRettifica" ColumnName="IsRettifica" />
+            <ScalarProperty Name="IsSostituito" ColumnName="IsSostituito" />
+            <ScalarProperty Name="HasSchedaV" ColumnName="HasSchedaV" />
+            <ScalarProperty Name="HasSchedaQ" ColumnName="HasSchedaQ" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+            <ScalarProperty Name="NumeroTrenoPartenza" ColumnName="NumeroTrenoPartenza" />
+            <ScalarProperty Name="DataTrenoPartenza" ColumnName="DataTrenoPartenza" />
+            <ScalarProperty Name="StartDateProgrammata" ColumnName="StartDateProgrammata" />
+            <ScalarProperty Name="EndDateProgrammata" ColumnName="EndDateProgrammata" />
+            <ScalarProperty Name="ComposizioneProgrammata" ColumnName="ComposizioneProgrammata" />
+            <ScalarProperty Name="StartDateConsuntivataAppaltatore" ColumnName="StartDateConsuntivataAppaltatore" />
+            <ScalarProperty Name="EndDateConsuntivataAppaltatore" ColumnName="EndDateConsuntivataAppaltatore" />
+            <ScalarProperty Name="IsProgrammato" ColumnName="IsProgrammato" />
+            <ScalarProperty Name="IsPLX" ColumnName="IsPLX" />
+            <ScalarProperty Name="IsEstemporaneo" ColumnName="IsEstemporaneo" />
+            <ScalarProperty Name="IsSostitutivo" ColumnName="IsSostitutivo" />
+            <ScalarProperty Name="HasTreni" ColumnName="HasTreni" />
+            <ScalarProperty Name="HasRotabiliSingoli" ColumnName="HasRotabiliSingoli" />
+            <ScalarProperty Name="HasCarozze" ColumnName="HasCarozze" />
+            <ScalarProperty Name="HasLocomotive" ColumnName="HasLocomotive" />
+            <ScalarProperty Name="IsModificatoTrenitaliaRispettoAlProgramma" ColumnName="IsModificatoTrenitaliaRispettoAlProgramma" />
+            <ScalarProperty Name="IsModificatoAppaltatoreRispettoAlProgramma" ColumnName="IsModificatoAppaltatoreRispettoAlProgramma" />
+            <ScalarProperty Name="IsModificatoTrenitaliaRispettoAllAppaltatore" ColumnName="IsModificatoTrenitaliaRispettoAllAppaltatore" />
+            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LastEventsReadAppaltatores"><EntityTypeMapping TypeName="Super.Appaltatore.ReadModel.LastEventsReadAppaltatore"><MappingFragment StoreEntitySet="LastEventsReadAppaltatore">
+            <ScalarProperty Name="CommitId" ColumnName="CommitId" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -198,9 +191,9 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Appaltatore" ZoomLevel="59">
-        <EntityTypeShape EntityType="AppaltatoreModel.LastEventsReadAppaltatore" Width="1.5" PointX="3.375" PointY="1.375" Height="1.4033821614583335" />
-        <EntityTypeShape EntityType="AppaltatoreModel.ConsuntivazioneRot" Width="1.5" PointX="0.875" PointY="1.125" Height="8.51853515625" />
+      <Diagram Name="Appaltatore" ZoomLevel="82">
+        <EntityTypeShape EntityType="Super.Appaltatore.ReadModel.ConsuntivazioneRot" Width="1.5" PointX="0.75" PointY="0.75" Height="8.51853515625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Appaltatore.ReadModel.LastEventsReadAppaltatore" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583335" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

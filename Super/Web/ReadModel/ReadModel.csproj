@@ -88,22 +88,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Contabilita.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Programmazione.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Programmazione.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="Contabilita.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Contabilita.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <EntityDeploy Include="Appaltatore.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Appaltatore.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="Contabilita.edmx">
+    <EntityDeploy Include="Programmazione.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Contabilita.Designer.cs</LastGenOutput>
+      <LastGenOutput>Programmazione.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Contabilita_ReadModel.edmx.sql" />
     <Content Include="Appaltatore_ReadModel.edmx.sql" />
+    <Content Include="Programmazione_ReadModel.edmx.sql" />
     <Content Include="ReadStore.sql" />
     <Content Include="EventStore.sql" />
   </ItemGroup>
