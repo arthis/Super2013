@@ -6,16 +6,16 @@ var FilterImpianto = function (description, pageNum, pageSize) {
     this.PageNum = pageNum;
     this.PageSize = pageSize;
 }
-var CreateImpianto = function (id, commitId, version, creationDate, interval, description, idLotto) {
+var CreateImpianto = function (id, commitId, version,  interval, description, idLotto) {
     if (description == null || description == '')
         throw "description cannot be null or empty";
-    if (creationDate == null)
-        throw "creationDate cannot be null or empty";
+    
+    
     if (idLotto == null)
         throw "Lotto must be selected";
 
     CommandBase(this, id, commitId, version);
-    this.CreationDate = dateFormat(creationDate, "isoDateTime");
+    this.CreationDate = new Date().toJSON();
     this.Interval = interval;
     this.Description = description;
     this.IdLotto = idLotto;

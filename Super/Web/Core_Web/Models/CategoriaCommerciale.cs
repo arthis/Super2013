@@ -15,7 +15,7 @@ namespace Core_Web.Models
     public class CreateCategoriaCommerciale : CommandBase
     {
         public string Description { get; set; }
-        public DateTime CreationDate { get; set; }
+        
     }
 
     public class EditCategoriaCommerciale : CommandBase

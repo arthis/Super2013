@@ -77,7 +77,7 @@ namespace Core_Web.Controllers.Contabilita
 
                 var model = new CreateImpianto()
                                 {
-                                    CreationDate = Now,
+                                    
                                     Start = Now,
                                     IdLotto = Guid.Empty,
                                     Lotti = lotti,

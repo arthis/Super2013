@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Commands.Lotto
 {
-    
+    [Serializable]
     public class CreateLotto : CommandBase
     {
         public Interval Interval { get;  set; }

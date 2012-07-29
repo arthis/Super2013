@@ -59,7 +59,7 @@ namespace Core_Web.Controllers.Contabilita
             {
                 var model = new Models.CreateMeasuringUnit()
                                 {
-                                    CreationDate = Now,
+                                    
                                     Id = Guid.NewGuid(),
                                     CommitId = Guid.NewGuid(),
                                     Version = 0,

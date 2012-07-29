@@ -35,7 +35,6 @@
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model=>model.CommitId)
     @Html.HiddenFor(model=>model.Version)
-    @Html.HiddenFor(model=>model.CreationDate)
 </form>
 <script>
 
@@ -57,9 +56,8 @@
                 var idLotto = $('#IdLotto').val();
                 var start = $(jq('Start')).val();
                 var end = $(jq('End')).val();
-                var creationDate = $('#CreationDate').val();
 
-                var url = "@Url.Action("CreateImpianto")";
+                var url = "@Url.Action("CreateImpianto", "Impianto");
 
 
                 var interval = new Interval(start, end);
@@ -67,7 +65,7 @@
 
                 try 
                 {
-                    var command = new CreateImpianto(id, commitId, version, creationDate, interval, description,idLotto);
+                    var command = new CreateImpianto(id, commitId, version,  interval, description,idLotto);
 
                     self.CreateImpianto(url, command);
                 } catch(e) {

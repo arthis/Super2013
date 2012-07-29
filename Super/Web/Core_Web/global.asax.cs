@@ -7,6 +7,9 @@ using System.Web.Routing;
 using Core_Web.BootStrap;
 using Core_Web.ContabilitaService;
 using Core_Web.Controllers;
+using Core_Web.Controllers.Contabilita;
+using Super.Contabilita.Commands.Lotto;
+
 
 namespace Core_Web
 {
@@ -44,7 +47,11 @@ namespace Core_Web
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
+            //ModelBinders.Binders[typeof(CreateLotto)] = new UserModelBinder();
+
             ControllerBuilder.Current.SetControllerFactory(typeof(NinjectControllerFactory));
+
+
         }
 
         

@@ -15,7 +15,7 @@ namespace Core_Web.Models
     public class CreateDirezioneRegionale : CommandBase
     {
         public string Description { get; set; }
-        public DateTime CreationDate { get; set; }
+        
     }
 
     public class EditDirezioneRegionale : CommandBase

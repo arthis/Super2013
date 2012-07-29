@@ -32,7 +32,7 @@ namespace Super.Programmazione.Commands.Schedulazione
         }
 
         public AddRuleToSchedulazione(Guid id, Guid idCommitId, long version,
-            Interval intervall,
+            Interval interval,
             bool monday,
             bool tuesday,
             bool wednesday,
@@ -48,9 +48,9 @@ namespace Super.Programmazione.Commands.Schedulazione
             int? frequence)
             : base(id, idCommitId,version)
         {
-            Contract.Requires<ArgumentNullException>(intervall!=null);
+            Contract.Requires<ArgumentNullException>(interval!=null);
 
-            Interval = intervall;
+            Interval = interval;
             Monday = monday;
             Tuesday = tuesday;
             Wednesday = wednesday;
@@ -83,7 +83,7 @@ namespace Super.Programmazione.Commands.Schedulazione
         }
 
         public AddRuleToSchedulazioneRot(Guid id, Guid idCommitId, long version,
-            Interval intervall,
+            Interval interval,
             bool monday,
             bool tuesday,
             bool wednesday,
@@ -99,7 +99,7 @@ namespace Super.Programmazione.Commands.Schedulazione
             int? frequence,
             Treno trenoArrivo,
             WorkPeriod workPeriod)
-            : base(id, idCommitId, version, intervall, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay, repetition, frequence)
+            : base(id, idCommitId, version, interval, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay, repetition, frequence)
         {
             TrenoArrivo = trenoArrivo;
             WorkPeriod = workPeriod;
@@ -121,7 +121,7 @@ namespace Super.Programmazione.Commands.Schedulazione
         }
 
         public AddRuleToSchedulazioneRotMan(Guid id, Guid idCommitId, long version,
-            Interval intervall,
+            Interval interval,
              bool monday,
             bool tuesday,
             bool wednesday,
@@ -135,7 +135,7 @@ namespace Super.Programmazione.Commands.Schedulazione
             bool postHolyDay,
             bool repetition,
             int? frequence)
-            : base(id, idCommitId, version, intervall,  monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay, repetition, frequence)
+            : base(id, idCommitId, version, interval,  monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay, repetition, frequence)
         {
 
         }
@@ -156,7 +156,7 @@ namespace Super.Programmazione.Commands.Schedulazione
         }
 
         public AddRuleToSchedulazioneAmb(Guid id, Guid idCommitId, long version,
-            Interval intervall,
+            Interval interval,
             bool monday,
             bool tuesday,
             bool wednesday,
@@ -170,7 +170,7 @@ namespace Super.Programmazione.Commands.Schedulazione
             bool postHolyDay,
             bool repetition,
             int? frequence)
-            : base(id, idCommitId, version, intervall, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay, repetition, frequence)
+            : base(id, idCommitId, version, interval, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay, repetition, frequence)
         {
 
         }

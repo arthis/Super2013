@@ -59,7 +59,7 @@ namespace Core_Web.Controllers.Contabilita
             {
                 var model = new Models.CreateTipoInterventoRotMan()
                                 {
-                                    CreationDate = Now,
+                                    
                                     Start = Now,
                                     Id = Guid.NewGuid(),
                                     CommitId = Guid.NewGuid(),

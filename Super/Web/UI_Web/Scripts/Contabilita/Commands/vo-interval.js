@@ -2,19 +2,18 @@
 var Interval = function (start, end) {
     var self = this;
 
-    this.ToIsoDateTime = function () {
-        this.Start = dateFormat(self.Start, "isoDateTime");
-        this.End = dateFormat(self.End, "isoDateTime");
-        return this;
-    };
-
     var validationError = CheckInterval(start, end);
     if (CheckInterval(start,end) != null)
         throw new validationError;
 
-    this.Start = start;
-    this.End = end;
+    this.Start = start.toJSON();
+    this.End = end.toJSON();
 
+};
+
+var JsonDateFromddmmyyyy = function(date) {
+    
+    return dateFormat(date.toString(), "isoDateTime");
 };
 
 function checkInterval() {

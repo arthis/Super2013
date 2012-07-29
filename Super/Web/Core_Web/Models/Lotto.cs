@@ -17,7 +17,7 @@ namespace Core_Web.Models
         public DateTime Start { get; set; }
         public DateTime? End { get; set; }
         public string Description { get; set; }
-        public DateTime CreationDate { get; set; }
+        
     }
 
     public class EditLotto : CommandBase

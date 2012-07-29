@@ -301,7 +301,7 @@
     <Content Include="Node\views\layout.html" />
     <Content Include="Scripts\Contabilita\Commands\cmd-Impianto.js" />
     <Content Include="Scripts\Contabilita\Commands\cmd-Lotto.js" />
-    <Content Include="Scripts\Contabilita\Commands\vo-intervall.js" />
+    <Content Include="Scripts\Contabilita\Commands\vo-interval.js" />
     <Content Include="Scripts\Contabilita\ViewModel\vm-Lotto-index.js" />
     <Content Include="Scripts\Contabilita\ViewModel\vm-Impianto-index.js" />
     <Content Include="packages.config" />

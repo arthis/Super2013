@@ -1,14 +1,47 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Core_Web.ContabilitaService;
 using Core_Web.Models;
+using Newtonsoft.Json;
 using Super.Contabilita.Commands.Lotto;
 using CreateLotto = Super.Contabilita.Commands.Lotto.CreateLotto;
 using DeleteLotto = Core_Web.Models.DeleteLotto;
 
 namespace Core_Web.Controllers.Contabilita
 {
+
+    //public class UserModelBinder : IModelBinder
+    //{
+    //    public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+    //    {
+    //        CreateLotto model;
+
+    //        if (controllerContext.RequestContext.HttpContext.Request.AcceptTypes.Contains("application/json"))
+    //        {
+    //            var serializer = new JavaScriptSerializer();
+    //            string inputContent;
+    //            controllerContext.RequestContext.HttpContext.Request.InputStream.Position = 0;
+    //            using (var sr = new StreamReader(controllerContext.RequestContext.HttpContext.Request.InputStream))
+    //            {
+    //                inputContent = sr.ReadToEnd();
+    //            }
+
+    //            model = serializer.Deserialize<CreateLotto>(HttpUtility.UrlDecode(inputContent));
+    //        }
+    //        else
+    //        {
+    //            model = (CreateLotto)ModelBinders.Binders.DefaultBinder.BindModel(controllerContext, bindingContext);
+    //        }
+
+    //        return model;
+    //    }
+    //}
+
     public class LottoController : BaseContabilitaController
     {
         public LottoController(ICommandWebService commandWebService) : base(commandWebService)
@@ -59,7 +92,7 @@ namespace Core_Web.Controllers.Contabilita
             {
                 var model = new Models.CreateLotto()
                                 {
-                                    CreationDate = Now,
+                                    
                                     Start = Now,
                                     Id = Guid.NewGuid(),
                                     CommitId = Guid.NewGuid(),
@@ -73,6 +106,7 @@ namespace Core_Web.Controllers.Contabilita
         [HttpPost]
         public JsonResult CreateLotto(CreateLotto command)
         {
+            
             return Execute(command);
         }
 
