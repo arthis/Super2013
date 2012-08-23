@@ -97,6 +97,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlerServiceBase.cs" />
     <Compile Include="CommandWebService.cs" />
     <Compile Include="DelegateMessageDispatcher.cs" />
     <Compile Include="ICommandHandlerService.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="ExecuteResponse.cs" />
     <Compile Include="ICommandWebServiceClient.cs" />
     <Compile Include="IProjectionHandler.cs" />
+    <Compile Include="ProjectionHandlerServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

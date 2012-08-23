@@ -10,11 +10,10 @@ using Super.Controllo.Commands;
 
 namespace Super.Controllo.Handlers
 {
-    public class CommandHandlerService : ICommandHandlerService
+    public class CommandHandlerService : CommandHandlerServiceBase
     {
-        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
 
-        public void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository)
+        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository)
         {
             var handlerHelper = new CommandHandlerHelper(commandRepository);
 
@@ -27,26 +26,13 @@ namespace Super.Controllo.Handlers
             handlerHelper.Add<ReopenIntervento>(_handlers, new ReopenInterventoHandler(eventRepository));
         }
 
-        public void Subscribe(IBus bus)
+        public override void Subscribe(IBus bus)
         {
             string subscriptionId = "Super";
 
             bus.Subscribe<AllowControlIntervento>(subscriptionId, cmd => Execute(cmd));
         }
 
-
-        public CommandValidation Execute(ICommand commandBase)
-        {
-            Contract.Requires<ArgumentNullException>(commandBase != null);
-
-
-            var type = commandBase.GetType();
-            if (_handlers.ContainsKey(type))
-                return _handlers[type](commandBase);
-
-            throw new HandlerForDomainEventNotFoundException(string.Format("No handler found for the command '{0}'", commandBase.GetType()));
-          
-        }
     }
 
 }

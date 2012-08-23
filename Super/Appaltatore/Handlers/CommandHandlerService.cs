@@ -10,11 +10,11 @@ using Super.Appaltatore.Commands;
 
 namespace Super.Appaltatore.Handlers
 {
-    public class CommandHandlerService : ICommandHandlerService
+    public class CommandHandlerService : CommandHandlerServiceBase
     {
-        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
+        
 
-        public void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent)
+        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent)
         {
             var handlerHelper = new CommandHandlerHelper(commandRepository);
 
@@ -35,7 +35,7 @@ namespace Super.Appaltatore.Handlers
             handlerHelper.Add(_handlers, new ConsuntivareRotManNonResoTrenitaliaHandler(eventRepositoryEvent));
         }
 
-        public void Subscribe(IBus bus)
+        public override void Subscribe(IBus bus)
         {
             string subscriptionId = "Super";
 
@@ -45,17 +45,5 @@ namespace Super.Appaltatore.Handlers
         }
 
 
-        public CommandValidation Execute(ICommand commandBase)
-        {
-            Contract.Requires<ArgumentNullException>(commandBase != null);
-
-
-            var type = commandBase.GetType();
-            if (_handlers.ContainsKey(type))
-                return _handlers[type](commandBase);
-
-            throw new HandlerForDomainEventNotFoundException(string.Format("No handler found for the command '{0}'", commandBase.GetType()));
-          
-        }
     }
 }

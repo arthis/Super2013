@@ -9,12 +9,10 @@ using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Projection
 {
-    public class ProjectionHandlerService : IProjectionHandlerService
+    public class ProjectionHandlerService : ProjectionHandlerServiceBase
     {
 
-        private readonly Dictionary<Type, Action<IEvent>> _handlers = new Dictionary<Type, Action<IEvent>>();
-
-        public void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder)
+        public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder)
         {
             var handlerHelper = new EventHandlerHelper(projectionRepositoryBuilder);
 
@@ -24,7 +22,7 @@ namespace Super.Appaltatore.Projection
 
         }
 
-        public void Subscribe(IBus bus)
+        public override void Subscribe(IBus bus)
         {
             string subscriptionId = "Super";
 
@@ -36,17 +34,6 @@ namespace Super.Appaltatore.Projection
 
         }
 
-        public void Execute(IEvent evt)
-        {
-            Contract.Requires<ArgumentNullException>(evt != null);
-
-            var type = evt.GetType();
-            if (_handlers.ContainsKey(type))
-                _handlers[type](evt);
-            else
-                throw new HandlerForDomainEventNotFoundException(string.Format("No handler found for the event '{0}'", evt.GetType()));
-
-        }
-
+        
     }
 }
