@@ -224,7 +224,7 @@
     <Content Include="Content\Themes\redmond\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\Themes\redmond\images\ui-icons_d8e7f3_256x240.png" />
     <Content Include="Content\Themes\redmond\images\ui-icons_f9bd01_256x240.png" />
-    <Content Include="Content\Themes\redmond\jquery-ui-1.8.17.custom.css" />
+    <Content Include="Content\Themes\redmond\jquery-ui-1.8.23.custom.css" />
     <Content Include="Content\Themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\Themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Content\Themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
@@ -301,7 +301,9 @@
     <Content Include="Node\views\layout.html" />
     <Content Include="Scripts\Contabilita\Commands\cmd-Impianto.js" />
     <Content Include="Scripts\Contabilita\Commands\cmd-Lotto.js" />
+    <Content Include="Scripts\Contabilita\Commands\cmd-Appaltatore.js" />
     <Content Include="Scripts\Contabilita\Commands\vo-interval.js" />
+    <Content Include="Scripts\Contabilita\ViewModel\vm-Appaltatore-index.js" />
     <Content Include="Scripts\Contabilita\ViewModel\vm-Lotto-index.js" />
     <Content Include="Scripts\Contabilita\ViewModel\vm-Impianto-index.js" />
     <Content Include="packages.config" />
@@ -311,10 +313,8 @@
     <Content Include="Scripts\functions.js" />
     <Content Include="Scripts\functionsDetails.js" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.23.custom.min.js" />
     <Content Include="Scripts\jquery.jqdock.js" />
     <Content Include="Scripts\jquery.jqDock.min.js" />
     <Content Include="Scripts\jquery.paging.js" />
@@ -388,6 +388,10 @@
     <Content Include="Views\Contabilita\Lotto\DeleteLotto.cshtml" />
     <Content Include="Views\Contabilita\Lotto\EditLotto.cshtml" />
     <Content Include="Views\Contabilita\Index.cshtml" />
+    <Content Include="Views\Contabilita\Appaltatore\CreateAppaltatore.cshtml" />
+    <Content Include="Views\Contabilita\Appaltatore\DeleteAppaltatore.cshtml" />
+    <Content Include="Views\Contabilita\Appaltatore\EditAppaltatore.cshtml" />
+    <Content Include="Views\Contabilita\Appaltatore\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

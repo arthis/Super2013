@@ -18,24 +18,19 @@ namespace Core_Web.Models
     public class CreateAppaltatore : CommandBase
     {
         public string Description { get; set; }
-        
-        public DateTime Start { get; set; }
-        public DateTime? End { get; set; }
+
     }
 
     public class EditAppaltatore : CommandBase
     {
-        public DateTime Start { get; set; }
-        public DateTime? End { get; set; }
+
         public string Description { get; set; }
     }
 
     public class DeleteAppaltatore : CommandBase
     {
         public string Description { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime? End { get; set; }
-        public string LottoDescription { get; set; }
+
     }
     
     

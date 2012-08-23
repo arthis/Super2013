@@ -27,6 +27,10 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
+        readonly Guid _idPeriodoProgrammazione = Guid.NewGuid();
+        readonly Guid _idPlan = Guid.NewGuid();
+        readonly Guid _idLotto = Guid.NewGuid();
+        readonly Guid _idCommittente = Guid.NewGuid();
         List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15, Guid.NewGuid()) };
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         Treno _trenoArrivo = new Treno("numeroA", DateTime.Now.AddHours(9));
@@ -67,6 +71,10 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
                 .WithTurnoTreno(_turnoTreno)
                 .WithRigaTurnoTreno(_rigaTurnoTreno)
                 .ForConvoglio(_convoglio)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForPlan(_idPlan)
+                .ForLotto(_idLotto)
                 .Build(_id, 0);
         }
 

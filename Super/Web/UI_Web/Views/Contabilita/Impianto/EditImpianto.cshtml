@@ -53,8 +53,8 @@
                 var commitId = $('#CommitId').val();
                 var version = $('#Version').val();
                 var description = $('#Description').val();
-                var start = $(jq('Start')).val();
-                var end = $(jq('End')).val();
+                var start = $(jq('Start')).datepicker( "getDate" );
+                var end = $(jq('End')).datepicker( "getDate" );
                 
 
                 var url = "@Url.Action("UpdateImpianto")";

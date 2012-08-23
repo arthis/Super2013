@@ -25,11 +25,15 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
+        readonly Guid _idPeriodoProgrammazione = Guid.NewGuid();
+        readonly Guid _idPlan = Guid.NewGuid();
+        readonly Guid _idLotto = Guid.NewGuid();
+        readonly Guid _idCommittente = Guid.NewGuid();
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-19), DateTime.Now.AddMinutes(-17));
         string _note = "note";
         private int _quantity = 12;
         private string _description = "desc";
-        
+
 
         public override string ToDescription()
         {
@@ -53,6 +57,10 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
                 .ForQuantity(_quantity)
                 .ForDescription(_description)
                 .WithNote(_note)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+              .ForCommittente(_idCommittente)
+              .ForPlan(_idPlan)
+              .ForLotto(_idLotto)
                 .Build(_id, 1);
         }
 
@@ -68,6 +76,10 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
                 .ForQuantity(_quantity)
                 .ForDescription(_description)
                 .WithNote(_note)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+              .ForCommittente(_idCommittente)
+              .ForPlan(_idPlan)
+              .ForLotto(_idLotto)
                 .Build(_id, 1);
         }
 

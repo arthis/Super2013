@@ -5,7 +5,7 @@ namespace UI_Web.App_Start
     {
         public static void Start()
         {
-            Elmah.Mvc.Bootstrap.Initialize();
+            //Elmah.Mvc.Bootstrap.Initialize();
         }
     }
 }

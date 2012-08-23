@@ -20,7 +20,7 @@
             @Html.DropDownListFor(x => x.IdLotto, Model.Lotti, new { @class = "validate[required, guidValid]" })
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Start)
+            @Html.LabelFor(model => model.Start)    
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Start, new { @class = "validate[required,funcCall[checkInterval]] datepicker ", @Value = Model.Start.ToString("dd/MM/yyyy") })
@@ -41,12 +41,14 @@
     
     $(document).ready(function () {
         $('.datepicker').datepicker({ dateFormat: "dd/mm/yy" });
-        jQuery("#formDetails").validationEngine();
         
+       
+
+        jQuery("#formDetails").validationEngine();
 
         viewModel.Accept = function (self) {
 
-            jQuery('#formDetails').validationEngine({ scroll: false });
+             jQuery('#formDetails').validationEngine({ scroll: false });
             if(jQuery('#formDetails').validationEngine('validate')) {
 
                 var id = $('#Id').val();
@@ -54,11 +56,10 @@
                 var version = $('#Version').val();
                 var description = $('#Description').val();
                 var idLotto = $('#IdLotto').val();
-                var start = $(jq('Start')).val();
-                var end = $(jq('End')).val();
-
-                var url = "@Url.Action("CreateImpianto", "Impianto");
-
+                var start = $(jq('Start')).datepicker( "getDate" );
+                var end = $(jq('End')).datepicker( "getDate" );
+                
+                var url = "@Url.Action("CreateImpianto", "Impianto")";
 
                 var interval = new Interval(start, end);
 

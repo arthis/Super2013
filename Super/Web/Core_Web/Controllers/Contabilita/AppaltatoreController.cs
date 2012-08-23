@@ -40,7 +40,7 @@ namespace Core_Web.Controllers.Contabilita
                 var results = query.OrderBy(item => item.CreationDate)
                                    .Skip((command.PageNum - 1) * command.PageSize)
                                    .Take(command.PageSize)
-                                   .Select(item => new { item.Id, item.Start, item.End, item.CreationDate, item.Description })
+                                   .Select(item => new { item.Id,  item.CreationDate, item.Description })
                                    .ToArray();
 
                 var count = query.Count();
@@ -59,8 +59,6 @@ namespace Core_Web.Controllers.Contabilita
             {
                 var model = new Models.CreateAppaltatore()
                                 {
-                                    
-                                    Start = Now,
                                     Id = Guid.NewGuid(),
                                     CommitId = Guid.NewGuid(),
                                     Version = 0,
@@ -90,8 +88,6 @@ namespace Core_Web.Controllers.Contabilita
 
                 var model = new EditAppaltatore()
                                 {
-                                    Start = projection.Start,
-                                    End = projection.End,
                                     Id = projection.Id,
                                     CommitId = Guid.NewGuid(),
                                     Version = projection.Version,
@@ -127,8 +123,6 @@ namespace Core_Web.Controllers.Contabilita
                      CommitId = Guid.NewGuid(),
                      Version = projection.Version,
                      Description = projection.Description,
-                     Start = projection.Start,
-                     End = projection.End
                  };
 
                 return View(GetView("DeleteAppaltatore"), model);

@@ -1,4 +1,5 @@
 using System.Diagnostics.Contracts;
+using System.Linq;
 using CommonDomain.Persistence;
 
 namespace CommonDomain.Core.Handlers
@@ -32,7 +33,8 @@ namespace CommonDomain.Core.Handlers
 
             var validation = _next.Execute(command);
 
-            _commandRepository.SaveAsExecuted(command);
+            if (!validation.Messages.Any())
+                _commandRepository.SaveAsExecuted(command);
 
             return validation;
         }

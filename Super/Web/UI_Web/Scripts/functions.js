@@ -283,9 +283,9 @@ var ShowSummaryError = function (divName, messages) {
     var errorMessage = document.getElementById(divName);
     var messageList = "";
 
-    //    for (i = 0; i < messages.length; i++) {
-        messageList += " - <b>" + messages.Title + "</b>, " + messages.Message + "<br />";
-    //    }
+        for (i = 0; i < messages.length; i++) {
+        messageList += " - <b>" + messages[i].Title + "</b>, " + messages[i].Message + "<br />";
+        }
     
     if (errorMessage != null) {
         errorMessage.innerHTML = "<br /><b>Oops!</b> There was a problem with your submission:<br /><br />";

@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Appaltatore";
+    Layout = "~/Content/Layout/Earthlingtwo/_Layout.cshtml";// "~/Views/Shared/_LayoutDetailTemplate.cshtml"
+}
+@section JavaScript {
+    <script src="@Url.Content("~/Scripts/Contabilita/Commands/vo-interval.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contabilita/Commands/cmd-Appaltatore.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contabilita/ViewModel/vm-Appaltatore-index.js")" type="text/javascript"></script>
+}
+<h2>
+    appaltatore</h2>
+<div id="FilterResults">
+    <form id="formFilter" class="formFilter">
+    <fieldset>
+        <legend>Filtro</legend>
+        <label>
+            Description :</label><input type="text" id="filtroDescription" data-bind=" value:Description " />
+        <div style="clear: both;">
+            &nbsp;</div>
+        <a class="button" data-bind="click: GetItems.bind($data, 1)" href="#">Visualizza</a>
+    </fieldset>
+    </form>
+</div>
+<div id="List" data-bind='template: "appaltatoreListTemplate"'></div><br />
+<div id="pagination" class="pagebar"></div>
+<p>
+    <a class="button" data-bind="click: ShowCreateAppaltatore" href="#">Aggiungi appaltatore</a>
+</p>
+
+
+<div id="details" style="overflow: hidden;">
+</div>
+<script type="text/html" id="appaltatoreListTemplate">
+    <table width=100% class="table-standard"> 
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                CreationDate
+            </th>
+            <th colspan="2">
+                Azione
+            </th>
+        </tr>
+        
+        <% _.each(Items(), function(item) { %>
+        <tr>
+            
+            <td>
+                <%= item.Description() %>
+            </td>
+            <td>
+                <%= item.CreationDate() %>
+            </td>
+            <td>
+                <a data-bind="click: function() { viewModel.ShowEditAppaltatore(item) }" href="#"><img src="@Url.Content("~/Images/Edit.gif")" border=0></a>
+            </td>
+            <td>
+                <a data-bind="click: function() { viewModel.ShowDeleteAppaltatore(item) }" href="#"><img src="@Url.Content("~/Images/Delete.gif")" border=0></a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</script>
+
+
+<script language="javascript">
+
+    
+    var urlCreateAppaltatore = "@Url.Action("CreateAppaltatore", "Appaltatore")";
+    var urlFetchBuilderEditAppaltatore = new UrlFetchBuilder("@Url.Action("EditAppaltatore", "Appaltatore")");
+    var urlFetchBuilderDeleteAppaltatore = new UrlFetchBuilder("@Url.Action("DeleteAppaltatore", "Appaltatore")");
+    var urlGetItems ="@Url.Action("GetItems", "Appaltatore")";
+    
+    
+
+    var viewModel = new vmStuff( 1, 10,
+        urlGetItems,
+        urlCreateAppaltatore,
+        urlFetchBuilderEditAppaltatore,
+        urlFetchBuilderDeleteAppaltatore);
+    ko.applyBindings(viewModel);
+
+    viewModel.GetItems(viewModel.PageNum());
+       
+</script>

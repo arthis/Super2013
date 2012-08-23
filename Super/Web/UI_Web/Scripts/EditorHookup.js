@@ -20,8 +20,7 @@ ko.underscoreTemplateEngine.prototype = ko.utils.extend(new ko.templateEngine(),
 ko.setTemplateEngine(new ko.underscoreTemplateEngine());
 /* ---- End integration of Underscore template engine with Knockout ---- */
 
-/// <reference path="jquery-1.4.4.js" />
-/// <reference path="jquery-ui.js" />
-$(document).ready(function () {
-    $('.date').datepicker({ dateFormat: "dd/mm/yy" });
-});
+
+//$(document).ready(function () {
+//    $('.date').datepicker({ dateFormat: "dd/mm/yy" });
+//});

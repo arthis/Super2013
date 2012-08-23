@@ -1,30 +1,19 @@
-﻿@model Core_Web.Models.CreateLotto
+﻿@model Core_Web.Models.CreateAppaltatore
 @{
-    ViewBag.Title = "add lotto";
+    ViewBag.Title = "add appaltatore";
     Layout = string.Empty;
 }
 <div id="error_mssg" class="hidden"></div>
 <form id="formDetails">
     <fieldset>
-        <legend>Lotto</legend>
+        <legend>Appaltatore</legend>
         <div class="editor-label">
             @Html.LabelFor(model => model.Description)*
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Description, new { @class = "validate[required]" })
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Start)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.Start, new { @class = "validate[required,funcCall[checkInterval]] datepicker ", @Value = Model.Start.ToString("dd/MM/yyyy") })
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.End)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.End, new { @class = "validate[required,funcCall[checkInterval]] datepicker " , @Value =Model.End.HasValue? Model.End.Value.ToString("dd/MM/yyyy"):string.Empty  })
-        </div>
+       
     </fieldset>
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model=>model.CommitId)
@@ -47,20 +36,16 @@
                 var commitId = $('#CommitId').val();
                 var version = $('#Version').val();
                 var description = $('#Description').val();
-                var idLotto = $('#IdLotto').val();
-                var start = $(jq('Start')).datepicker( "getDate" );
-                var end = $(jq('End')).datepicker( "getDate" );
+                var idAppaltatore = $('#IdAppaltatore').val();
+              
+                var url = "@Url.Action("CreateAppaltatore", "Appaltatore")";
 
-                var url = "@Url.Action("CreateLotto", "Lotto")";
-
-                var interval = new Interval(start, end);
-
-
+             
                 try 
                 {
-                    var command = new CreateLotto(id, commitId, version,  interval, description,idLotto);
+                    var command = new CreateAppaltatore(id, commitId, version,   description,idAppaltatore);
 
-                    self.CreateLotto(url, command);
+                    self.CreateAppaltatore(url, command);
                 } catch(e) {
                     alert(e);
                 }

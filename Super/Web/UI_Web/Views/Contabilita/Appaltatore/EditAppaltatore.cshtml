@@ -1,30 +1,19 @@
-﻿@model Core_Web.Models.EditLotto
+﻿@model Core_Web.Models.EditAppaltatore
 @{
-    ViewBag.Title = "edit lotto";
+    ViewBag.Title = "edit appaltatore";
     Layout = string.Empty;
 }
 <div id="error_mssg" class="hidden"></div>
 <form id="formDetails">
     <fieldset>
-        <legend>Lotto</legend>
+        <legend>Appaltatore</legend>
         <div class="editor-label">
             @Html.LabelFor(model => model.Description)*
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Description, new { @class = "validate[required]" })
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Start)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.Start, new { @class = "validate[required,funcCall[checkInterval]] datepicker ", @Value = Model.Start.ToString("dd/MM/yyyy") })
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.End)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.End, new { @class = "validate[required,funcCall[checkInterval]] datepicker " , @Value =Model.End.HasValue? Model.End.Value.ToString("dd/MM/yyyy"):string.Empty  })
-        </div>
+       
     </fieldset>
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model=>model.CommitId)
@@ -47,21 +36,16 @@
                 var commitId = $('#CommitId').val();
                 var version = $('#Version').val();
                 var description = $('#Description').val();
-                var start = $(jq('Start')).datepicker( "getDate" );
-                var end = $(jq('End')).datepicker( "getDate" );
                 
 
-                var url = "@Url.Action("UpdateLotto","Lotto")";
-
-
-                var interval = new Interval(start, end);
+                var url = "@Url.Action("UpdateAppaltatore","Appaltatore")";
 
 
                 try 
                 {
-                    var command = new UpdateLotto(id, commitId, version,  interval, description);
+                    var command = new UpdateAppaltatore(id, commitId, version,   description);
 
-                    self.UpdateLotto(url, command);
+                    self.UpdateAppaltatore(url, command);
                 } catch(e)
                 {
                     alert(e);

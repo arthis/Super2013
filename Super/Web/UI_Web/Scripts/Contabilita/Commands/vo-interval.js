@@ -11,14 +11,10 @@ var Interval = function (start, end) {
 
 };
 
-var JsonDateFromddmmyyyy = function(date) {
-    
-    return dateFormat(date.toString(), "isoDateTime");
-};
 
 function checkInterval() {
-    var start = $('#Start').val();
-    var end = $('#End').val();
+    var start = $('#Start').datepicker("getDate");
+    var end = $('#End').datepicker("getDate");
     return CheckInterval(start, end);
 }
 
