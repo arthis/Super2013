@@ -11,7 +11,7 @@ namespace EasyNetQ
         public EasyNetQException(string format, params string[] args) : base(string.Format(format, args)) {}
         public EasyNetQException(string message, Exception inner) : base(message, inner) {}
 
-        protected EasyNetQException(
+        protected EasyNetQException( 
             SerializationInfo info,
             StreamingContext context) : base(info, context) {}
     }
