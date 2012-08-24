@@ -74,6 +74,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\CreateCommittenteBuilder.cs" />
+    <Compile Include="Builders\DeleteCommittenteBuilder.cs" />
+    <Compile Include="Builders\UpdateCommittenteBuilder.cs" />
+    <Compile Include="Builders\CreateCategoriaCommercialeBuilder.cs" />
+    <Compile Include="Builders\DeleteCategoriaCommercialeBuilder.cs" />
+    <Compile Include="Builders\UpdateCategoriaCommercialeBuilder.cs" />
+    <Compile Include="Builders\CreateAppaltatoreBuilder.cs" />
+    <Compile Include="Builders\DeleteAppaltatoreBuilder.cs" />
+    <Compile Include="Builders\UpdateAppaltatoreBuilder.cs" />
     <Compile Include="Builders\DeleteLottoBuilder.cs" />
     <Compile Include="Builders\DeleteImpiantoBuilder.cs" />
     <Compile Include="Builders\CreateImpiantoBuilder.cs" />

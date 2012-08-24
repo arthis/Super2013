@@ -75,6 +75,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppaltatoreProjection.cs" />
+    <Compile Include="CategoriaCommercialeProjection.cs" />
     <Compile Include="LottoProjection.cs" />
     <Compile Include="ImpiantoProjection.cs" />
     <Compile Include="Container.cs" />

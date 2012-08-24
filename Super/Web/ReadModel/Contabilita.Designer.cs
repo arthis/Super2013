@@ -381,15 +381,13 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        /// <param name="start">Initial value of the Start property.</param>
-        public static Appaltatore CreateAppaltatore(global::System.Guid id, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted, global::System.DateTime start)
+        public static Appaltatore CreateAppaltatore(global::System.Guid id, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             Appaltatore appaltatore = new Appaltatore();
             appaltatore.Id = id;
             appaltatore.Version = version;
             appaltatore.CreationDate = creationDate;
             appaltatore.Deleted = deleted;
-            appaltatore.Start = start;
             return appaltatore;
         }
 
@@ -450,33 +448,9 @@ namespace Super.ReadModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Sign
-        {
-            get
-            {
-                return _Sign;
-            }
-            set
-            {
-                OnSignChanging(value);
-                ReportPropertyChanging("Sign");
-                _Sign = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Sign");
-                OnSignChanged();
-            }
-        }
-        private global::System.String _Sign;
-        partial void OnSignChanging(global::System.String value);
-        partial void OnSignChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -491,8 +465,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -542,54 +516,6 @@ namespace Super.ReadModel
         private global::System.Boolean _Deleted;
         partial void OnDeletedChanging(global::System.Boolean value);
         partial void OnDeletedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime Start
-        {
-            get
-            {
-                return _Start;
-            }
-            set
-            {
-                OnStartChanging(value);
-                ReportPropertyChanging("Start");
-                _Start = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Start");
-                OnStartChanged();
-            }
-        }
-        private global::System.DateTime _Start;
-        partial void OnStartChanging(global::System.DateTime value);
-        partial void OnStartChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> End
-        {
-            get
-            {
-                return _End;
-            }
-            set
-            {
-                OnEndChanging(value);
-                ReportPropertyChanging("End");
-                _End = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("End");
-                OnEndChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _End;
-        partial void OnEndChanging(Nullable<global::System.DateTime> value);
-        partial void OnEndChanged();
 
         #endregion
     
@@ -612,7 +538,7 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static CategoriaCommerciale CreateCategoriaCommerciale(global::System.Guid id, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static CategoriaCommerciale CreateCategoriaCommerciale(global::System.Guid id, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             CategoriaCommerciale categoriaCommerciale = new CategoriaCommerciale();
             categoriaCommerciale.Id = id;
@@ -681,7 +607,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -696,8 +622,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -769,7 +695,7 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static Committente CreateCommittente(global::System.Guid id, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static Committente CreateCommittente(global::System.Guid id, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             Committente committente = new Committente();
             committente.Id = id;
@@ -838,7 +764,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -853,8 +779,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -926,7 +852,7 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static DirezioneRegionale CreateDirezioneRegionale(global::System.Guid id, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static DirezioneRegionale CreateDirezioneRegionale(global::System.Guid id, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             DirezioneRegionale direzioneRegionale = new DirezioneRegionale();
             direzioneRegionale.Id = id;
@@ -995,7 +921,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -1010,8 +936,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -1085,7 +1011,7 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static Impianto CreateImpianto(global::System.Guid id, global::System.Guid idLotto, global::System.DateTime start, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static Impianto CreateImpianto(global::System.Guid id, global::System.Guid idLotto, global::System.DateTime start, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             Impianto impianto = new Impianto();
             impianto.Id = id;
@@ -1228,7 +1154,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -1243,8 +1169,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -1398,7 +1324,7 @@ namespace Super.ReadModel
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static Lotto CreateLotto(global::System.Guid id, global::System.DateTime start, global::System.DateTime creationDate, global::System.Int32 version, global::System.Boolean deleted)
+        public static Lotto CreateLotto(global::System.Guid id, global::System.DateTime start, global::System.DateTime creationDate, global::System.Int64 version, global::System.Boolean deleted)
         {
             Lotto lotto = new Lotto();
             lotto.Id = id;
@@ -1540,7 +1466,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -1555,8 +1481,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -1604,7 +1530,7 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static MeasuringUnit CreateMeasuringUnit(global::System.Guid id, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static MeasuringUnit CreateMeasuringUnit(global::System.Guid id, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             MeasuringUnit measuringUnit = new MeasuringUnit();
             measuringUnit.Id = id;
@@ -1673,7 +1599,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -1688,8 +1614,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -1762,7 +1688,7 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static PeriodoProgrammazione CreatePeriodoProgrammazione(global::System.Guid id, global::System.DateTime start, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static PeriodoProgrammazione CreatePeriodoProgrammazione(global::System.Guid id, global::System.DateTime start, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             PeriodoProgrammazione periodoProgrammazione = new PeriodoProgrammazione();
             periodoProgrammazione.Id = id;
@@ -1904,7 +1830,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -1919,8 +1845,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -1994,7 +1920,7 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static TipoInterventoAmb CreateTipoInterventoAmb(global::System.Guid id, global::System.DateTime start, global::System.Guid idMeasuringUnit, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static TipoInterventoAmb CreateTipoInterventoAmb(global::System.Guid id, global::System.DateTime start, global::System.Guid idMeasuringUnit, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             TipoInterventoAmb tipoInterventoAmb = new TipoInterventoAmb();
             tipoInterventoAmb.Id = id;
@@ -2161,7 +2087,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -2176,8 +2102,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -2254,7 +2180,7 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static TipoInterventoRot CreateTipoInterventoRot(global::System.Guid id, global::System.DateTime start, global::System.Boolean aiTreni, global::System.Boolean calcoloDetrazioni, global::System.String classe, global::System.Guid idMeasuringUnit, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static TipoInterventoRot CreateTipoInterventoRot(global::System.Guid id, global::System.DateTime start, global::System.Boolean aiTreni, global::System.Boolean calcoloDetrazioni, global::System.String classe, global::System.Guid idMeasuringUnit, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             TipoInterventoRot tipoInterventoRot = new TipoInterventoRot();
             tipoInterventoRot.Id = id;
@@ -2496,7 +2422,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -2511,8 +2437,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>
@@ -2586,7 +2512,7 @@ namespace Super.ReadModel
         /// <param name="version">Initial value of the Version property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static TipoInterventoRotMan CreateTipoInterventoRotMan(global::System.Guid id, global::System.DateTime start, global::System.Guid idMeasuringUnit, global::System.Int32 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        public static TipoInterventoRotMan CreateTipoInterventoRotMan(global::System.Guid id, global::System.DateTime start, global::System.Guid idMeasuringUnit, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
         {
             TipoInterventoRotMan tipoInterventoRotMan = new TipoInterventoRotMan();
             tipoInterventoRotMan.Id = id;
@@ -2753,7 +2679,7 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Version
+        public global::System.Int64 Version
         {
             get
             {
@@ -2768,8 +2694,8 @@ namespace Super.ReadModel
                 OnVersionChanged();
             }
         }
-        private global::System.Int32 _Version;
-        partial void OnVersionChanging(global::System.Int32 value);
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
         partial void OnVersionChanged();
     
         /// <summary>

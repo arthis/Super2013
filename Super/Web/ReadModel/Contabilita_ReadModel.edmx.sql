@@ -54,7 +54,7 @@ CREATE TABLE [dbo].[Lotto](
 	[Start] [datetime] NOT NULL,
 	[End] [datetime] NULL,
 	[CreationDate] [datetime] NOT NULL,
-	[Version] int not null,
+	[Version] bigint not null,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_Lotto] PRIMARY KEY CLUSTERED 
 (
@@ -81,7 +81,7 @@ CREATE TABLE [dbo].[Impianto](
 	[IdLotto] [uniqueidentifier] NOT NULL,
 	[Start] [datetime] NOT NULL,
 	[End] [datetime] NULL,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_Impianto] PRIMARY KEY CLUSTERED 
@@ -103,7 +103,7 @@ GO
 CREATE TABLE [dbo].CategoriaCommerciale(
 	[Id] [uniqueidentifier] NOT NULL,
 	[Description] [nvarchar](255) NULL,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_CategoriaCommerciale] PRIMARY KEY CLUSTERED 
@@ -125,7 +125,7 @@ GO
 CREATE TABLE [dbo].Committente(
 	[Id] [uniqueidentifier] NOT NULL,
 	[Description] [nvarchar](255) NULL,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_Committente] PRIMARY KEY CLUSTERED 
@@ -147,10 +147,7 @@ GO
 CREATE TABLE [dbo].Appaltatore(
 	[Id] [uniqueidentifier] NOT NULL,
 	[Description] [nvarchar](255) NULL,
-	[Sign] [nvarchar](10) NULL,
-	[Start] [datetime] NOT NULL,
-	[End] [datetime] NULL,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_Appaltatore] PRIMARY KEY CLUSTERED 
@@ -172,7 +169,7 @@ GO
 CREATE TABLE [dbo].DirezioneRegionale(
 	[Id] [uniqueidentifier] NOT NULL,
 	[Description] [nvarchar](255) NULL,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_DirezioneRegionale] PRIMARY KEY CLUSTERED 
@@ -194,7 +191,7 @@ GO
 CREATE TABLE [dbo].MeasuringUnit(
 	[Id] [uniqueidentifier] NOT NULL,
 	[Description] [nvarchar](255) NULL,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_MeasuringUnit] PRIMARY KEY CLUSTERED 
@@ -220,7 +217,7 @@ CREATE TABLE [dbo].[PeriodoProgrammazione](
 	[Start] [datetime] NOT NULL,
 	[End] [datetime] NULL,
 	[Settore] [nvarchar](50) NULL,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_PeriodoProgrammazione] PRIMARY KEY CLUSTERED 
@@ -250,7 +247,7 @@ CREATE TABLE [dbo].[TipoInterventoRot](
 	[CalcoloDetrazioni] bit not null,
 	[Classe] char not null,
 	[IdMeasuringUnit] [uniqueidentifier] not null,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_TipoInterventoRot] PRIMARY KEY CLUSTERED 
@@ -277,7 +274,7 @@ CREATE TABLE [dbo].[TipoInterventoRotMan](
 	[Start] [datetime] NOT NULL,
 	[End] [datetime] NULL,
 	[IdMeasuringUnit] [uniqueidentifier] not null,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_TipoInterventoRotMan] PRIMARY KEY CLUSTERED 
@@ -303,7 +300,7 @@ CREATE TABLE [dbo].[TipoInterventoAmb](
 	[Start] [datetime] NOT NULL,
 	[End] [datetime] NULL,
 	[IdMeasuringUnit] [uniqueidentifier] not null,
-	[Version] int not null,
+	[Version] bigint not null,
 	[CreationDate] [datetime] NOT NULL,
 	[Deleted] [bit] not null DEFAULT 0,
  CONSTRAINT [PK_TipoInterventoAmb] PRIMARY KEY CLUSTERED 

@@ -81,6 +81,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appaltatore.cs" />
+    <Compile Include="CategoriaCommerciale.cs" />
     <Compile Include="Lotto.cs" />
     <Compile Include="Impianto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

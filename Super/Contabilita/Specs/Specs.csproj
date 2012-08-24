@@ -78,6 +78,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appaltatore\Aggiornamento_di_una_appaltatore_gia_creata.cs" />
+    <Compile Include="Appaltatore\Aggiornamento_di_una_appaltatore_non_esistente.cs" />
+    <Compile Include="Appaltatore\Cancellazione_di_una_appaltatore_gia_cancellata.cs" />
+    <Compile Include="Appaltatore\Cancellazione_di_una_appaltatore_gia_creata.cs" />
+    <Compile Include="Appaltatore\Cancellazione_di_una_appaltatore_non_esistente.cs" />
+    <Compile Include="Appaltatore\Creazione_di_uno_nuovo_appaltatore.cs" />
+    <Compile Include="Appaltatore\Creazione_di_uno_nuovo_impianto_gia_creato.cs" />
+    <Compile Include="CategoriaCommerciale\Aggiornamento_di_una_categoria_commerciale_gia_creata.cs" />
+    <Compile Include="CategoriaCommerciale\Aggiornamento_di_una_categoria_commerciale_non_esistente.cs" />
+    <Compile Include="CategoriaCommerciale\Cancellazione_di_una_categoria_commerciale_gia_cancellata.cs" />
+    <Compile Include="CategoriaCommerciale\Cancellazione_di_una_categoria_commerciale_gia_creata.cs" />
+    <Compile Include="CategoriaCommerciale\Cancellazione_di_una_categoria_commerciale_non_esistente.cs" />
+    <Compile Include="CategoriaCommerciale\Creazione_di_una_nuova_categoria_commerciale.cs" />
+    <Compile Include="CategoriaCommerciale\Creazione_di_una_nuova_categoria_commerciale_gia_creata.cs" />
     <Compile Include="Impianto\Creazione_di_uno_nuovo_impianto_col_lotto_piu_ristretto_coi_dati.cs" />
     <Compile Include="Lotto\Aggiornamento_di_un_lotto_con_Impianti.cs" />
     <Compile Include="Impianto\Aggiornamento_di_una_area_intervento_gia_creata.cs" />

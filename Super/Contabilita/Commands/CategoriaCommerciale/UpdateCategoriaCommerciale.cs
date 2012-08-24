@@ -16,7 +16,7 @@ namespace Super.Contabilita.Commands.CategoriaCommerciale
         public UpdateCategoriaCommerciale()
         {}
 
-        public UpdateCategoriaCommerciale(Guid id, Guid commitId, long version, string description, string sign)
+        public UpdateCategoriaCommerciale(Guid id, Guid commitId, long version, string description)
             :base (id,commitId,version)
         {
             

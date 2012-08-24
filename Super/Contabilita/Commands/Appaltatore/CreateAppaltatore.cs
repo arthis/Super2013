@@ -15,14 +15,14 @@ namespace Super.Contabilita.Commands.Appaltatore
             
         }
 
-        public CreateAppaltatore(Guid id, Guid commitId, long version,  string description,string sign)
+        public CreateAppaltatore(Guid id, Guid commitId, long version,  string description)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
-            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(sign));
 
             
             this.Description = description;
+;
         }
 
         public override string ToDescription()
@@ -34,7 +34,7 @@ namespace Super.Contabilita.Commands.Appaltatore
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Description, Description) ;
+            return base.Equals(other) && Equals(other.Description, Description);
         }
 
         public override bool Equals(object obj)

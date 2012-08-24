@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\AppaltatoreCreatedBuilder.cs" />
+    <Compile Include="Builders\AppaltatoreDeletedBuilder.cs" />
+    <Compile Include="Builders\AppaltatoreUpdatedBuilder.cs" />
+    <Compile Include="Builders\CategoriaCommercialeCreatedBuilder.cs" />
+    <Compile Include="Builders\CategoriaCommercialeDeletedBuilder.cs" />
+    <Compile Include="Builders\CategoriaCommercialeUpdatedBuilder.cs" />
     <Compile Include="Builders\LottoDeletedBuilder.cs" />
     <Compile Include="Builders\LottoUpdatedBuilder.cs" />
     <Compile Include="Builders\ImpiantoDeletedBuilder.cs" />
@@ -80,6 +86,15 @@
     <Compile Include="Builders\ImpiantoCreatedBuilder.cs" />
     <Compile Include="Builders\ImpiantoUpdatedBuilder.cs" />
     <Compile Include="Builders\LottoCreatedBuilder.cs" />
+    <Compile Include="Appaltatore\AppaltatoreCreated.cs" />
+    <Compile Include="Appaltatore\AppaltatoreDeleted.cs" />
+    <Compile Include="Appaltatore\AppaltatoreUpdated.cs" />
+    <Compile Include="CategoriaCommerciale\CategoriaCommercialeCreated.cs" />
+    <Compile Include="CategoriaCommerciale\CategoriaCommercialeDeleted.cs" />
+    <Compile Include="CategoriaCommerciale\CategoriaCommercialeUpdated.cs" />
+    <Compile Include="Committente\CommittenteCreated.cs" />
+    <Compile Include="Committente\CommittenteDeleted.cs" />
+    <Compile Include="Committente\CommittenteUpdated.cs" />
     <Compile Include="Impianto\ImpiantoCreated.cs" />
     <Compile Include="Impianto\ImpiantoDeleted.cs" />
     <Compile Include="Impianto\ImpiantoUpdated.cs" />

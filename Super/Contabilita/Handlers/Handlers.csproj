@@ -75,7 +75,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appaltatore\CreateAppaltatoreHandler.cs" />
+    <Compile Include="Appaltatore\DeleteAppaltatoreHandler.cs" />
+    <Compile Include="Appaltatore\UpdateImpiantoHandler.cs" />
     <Compile Include="CommandHandlerService.cs" />
+    <Compile Include="CategoriaCommerciale\CreateCategoriaCommercialeHandler.cs" />
+    <Compile Include="CategoriaCommerciale\DeleteCategoriaCommercialeHandler.cs" />
+    <Compile Include="CategoriaCommerciale\UpdateCategoriaCommercialeHandler.cs" />
     <Compile Include="CreateLottoHandler.cs" />
     <Compile Include="DeleteLottoHandler.cs" />
     <Compile Include="Repositories\Container.cs" />

@@ -30,7 +30,6 @@ namespace Super.Contabilita.Events.Impianto
             Contract.Requires(creationDate > DateTime.MinValue);
 
             IdLotto = idLotto;
-            Id = id;
             Interval = period;
             CreationDate = creationDate;
             Description = description;

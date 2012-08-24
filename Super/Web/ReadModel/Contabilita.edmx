@@ -25,10 +25,7 @@
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Sign" Type="nvarchar" MaxLength="10" />
-          <Property Name="Start" Type="datetime" Nullable="false" />
-          <Property Name="End" Type="datetime" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -38,7 +35,7 @@
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -48,7 +45,7 @@
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -58,7 +55,7 @@
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -71,7 +68,7 @@
           <Property Name="IdLotto" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -91,7 +88,7 @@
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="MeasuringUnit">
@@ -100,7 +97,7 @@
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -113,7 +110,7 @@
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
           <Property Name="Settore" Type="nvarchar" MaxLength="50" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -127,7 +124,7 @@
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
           <Property Name="IdMeasuringUnit" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -144,7 +141,7 @@
           <Property Name="CalcoloDetrazioni" Type="bit" Nullable="false" />
           <Property Name="Classe" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="IdMeasuringUnit" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -158,7 +155,7 @@
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
           <Property Name="IdMeasuringUnit" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -184,144 +181,141 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Sign" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
-          <Property Type="DateTime" Name="Start" Nullable="false" />
-          <Property Type="DateTime" Name="End" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="CategoriaCommerciale">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="Committente">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="DirezioneRegionale">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="Impianto">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="IdLotto" Type="Guid" Nullable="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="IdLotto" Nullable="false" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="LastEventsReadContabilita">
           <Key>
             <PropertyRef Name="CommitId" />
           </Key>
-          <Property Name="CommitId" Type="Guid" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Type="Guid" Name="CommitId" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
         </EntityType>
         <EntityType Name="Lotto">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="MeasuringUnit">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="PeriodoProgrammazione">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="Settore" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="String" Name="Settore" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoInterventoAmb">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Mnemo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="IdMeasuringUnit" Type="Guid" Nullable="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mnemo" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="Guid" Name="IdMeasuringUnit" Nullable="false" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoInterventoRot">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Mnemo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="AiTreni" Type="Boolean" Nullable="false" />
-          <Property Name="CalcoloDetrazioni" Type="Boolean" Nullable="false" />
-          <Property Name="Classe" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="IdMeasuringUnit" Type="Guid" Nullable="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mnemo" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="Boolean" Name="AiTreni" Nullable="false" />
+          <Property Type="Boolean" Name="CalcoloDetrazioni" Nullable="false" />
+          <Property Type="String" Name="Classe" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Guid" Name="IdMeasuringUnit" Nullable="false" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoInterventoRotMan">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Mnemo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="IdMeasuringUnit" Type="Guid" Nullable="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mnemo" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="Guid" Name="IdMeasuringUnit" Nullable="false" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -329,113 +323,158 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SuperContabilitaReadModelStoreContainer" CdmEntityContainer="ContabilitaEntities">
-          <EntitySetMapping Name="Appaltatores"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.Appaltatore"><MappingFragment StoreEntitySet="Appaltatore">
-            <ScalarProperty Name="End" ColumnName="End" />
-                <ScalarProperty Name="Start" ColumnName="Start" />
+          <EntitySetMapping Name="Appaltatores">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.Appaltatore">
+              <MappingFragment StoreEntitySet="Appaltatore">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Sign" ColumnName="Sign" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="CategoriaCommerciales"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.CategoriaCommerciale"><MappingFragment StoreEntitySet="CategoriaCommerciale">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Committentes"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.Committente"><MappingFragment StoreEntitySet="Committente">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="DirezioneRegionales"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.DirezioneRegionale"><MappingFragment StoreEntitySet="DirezioneRegionale">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Impiantoes"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.Impianto"><MappingFragment StoreEntitySet="Impianto">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
-            <ScalarProperty Name="Start" ColumnName="Start" />
-            <ScalarProperty Name="End" ColumnName="End" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="LastEventsReadContabilitas"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.LastEventsReadContabilita"><MappingFragment StoreEntitySet="LastEventsReadContabilita">
-            <ScalarProperty Name="CommitId" ColumnName="CommitId" />
-            <ScalarProperty Name="Date" ColumnName="Date" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Lottoes"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.Lotto"><MappingFragment StoreEntitySet="Lotto">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Start" ColumnName="Start" />
-            <ScalarProperty Name="End" ColumnName="End" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="MeasuringUnits"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.MeasuringUnit"><MappingFragment StoreEntitySet="MeasuringUnit">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="PeriodoProgrammaziones"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.PeriodoProgrammazione"><MappingFragment StoreEntitySet="PeriodoProgrammazione">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Start" ColumnName="Start" />
-            <ScalarProperty Name="End" ColumnName="End" />
-            <ScalarProperty Name="Settore" ColumnName="Settore" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TipoInterventoAmbs"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.TipoInterventoAmb"><MappingFragment StoreEntitySet="TipoInterventoAmb">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Mnemo" ColumnName="Mnemo" />
-            <ScalarProperty Name="Start" ColumnName="Start" />
-            <ScalarProperty Name="End" ColumnName="End" />
-            <ScalarProperty Name="IdMeasuringUnit" ColumnName="IdMeasuringUnit" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TipoInterventoRots"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.TipoInterventoRot"><MappingFragment StoreEntitySet="TipoInterventoRot">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Mnemo" ColumnName="Mnemo" />
-            <ScalarProperty Name="Start" ColumnName="Start" />
-            <ScalarProperty Name="End" ColumnName="End" />
-            <ScalarProperty Name="AiTreni" ColumnName="AiTreni" />
-            <ScalarProperty Name="CalcoloDetrazioni" ColumnName="CalcoloDetrazioni" />
-            <ScalarProperty Name="Classe" ColumnName="Classe" />
-            <ScalarProperty Name="IdMeasuringUnit" ColumnName="IdMeasuringUnit" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TipoInterventoRotMen"><EntityTypeMapping TypeName="Super.Contabilita.ReadModel.TipoInterventoRotMan"><MappingFragment StoreEntitySet="TipoInterventoRotMan">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Mnemo" ColumnName="Mnemo" />
-            <ScalarProperty Name="Start" ColumnName="Start" />
-            <ScalarProperty Name="End" ColumnName="End" />
-            <ScalarProperty Name="IdMeasuringUnit" ColumnName="IdMeasuringUnit" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriaCommerciales">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.CategoriaCommerciale">
+              <MappingFragment StoreEntitySet="CategoriaCommerciale">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Committentes">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.Committente">
+              <MappingFragment StoreEntitySet="Committente">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DirezioneRegionales">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.DirezioneRegionale">
+              <MappingFragment StoreEntitySet="DirezioneRegionale">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Impiantoes">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.Impianto">
+              <MappingFragment StoreEntitySet="Impianto">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="IdLotto" ColumnName="IdLotto" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LastEventsReadContabilitas">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.LastEventsReadContabilita">
+              <MappingFragment StoreEntitySet="LastEventsReadContabilita">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CommitId" ColumnName="CommitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lottoes">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.Lotto">
+              <MappingFragment StoreEntitySet="Lotto">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeasuringUnits">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.MeasuringUnit">
+              <MappingFragment StoreEntitySet="MeasuringUnit">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PeriodoProgrammaziones">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.PeriodoProgrammazione">
+              <MappingFragment StoreEntitySet="PeriodoProgrammazione">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Settore" ColumnName="Settore" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoInterventoAmbs">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.TipoInterventoAmb">
+              <MappingFragment StoreEntitySet="TipoInterventoAmb">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="IdMeasuringUnit" ColumnName="IdMeasuringUnit" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Mnemo" ColumnName="Mnemo" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoInterventoRots">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.TipoInterventoRot">
+              <MappingFragment StoreEntitySet="TipoInterventoRot">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="IdMeasuringUnit" ColumnName="IdMeasuringUnit" />
+                <ScalarProperty Name="Classe" ColumnName="Classe" />
+                <ScalarProperty Name="CalcoloDetrazioni" ColumnName="CalcoloDetrazioni" />
+                <ScalarProperty Name="AiTreni" ColumnName="AiTreni" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Mnemo" ColumnName="Mnemo" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoInterventoRotMen">
+            <EntityTypeMapping TypeName="Super.Contabilita.ReadModel.TipoInterventoRotMan">
+              <MappingFragment StoreEntitySet="TipoInterventoRotMan">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="IdMeasuringUnit" ColumnName="IdMeasuringUnit" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Mnemo" ColumnName="Mnemo" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -456,19 +495,19 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Contabilita">
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.Appaltatore" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.CategoriaCommerciale" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.Committente" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.DirezioneRegionale" Width="1.5" PointX="2.75" PointY="3.75" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.Impianto" Width="1.5" PointX="4.75" PointY="0.75" Height="2.5571907552083335" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.LastEventsReadContabilita" Width="1.5" PointX="4.75" PointY="4.75" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.Lotto" Width="1.5" PointX="6.75" PointY="0.75" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.MeasuringUnit" Width="1.5" PointX="0.75" PointY="6.75" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.PeriodoProgrammazione" Width="1.5" PointX="6.75" PointY="4.75" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.TipoInterventoAmb" Width="1.5" PointX="2.75" PointY="7.75" Height="2.7494921875000031" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.TipoInterventoRot" Width="1.5" PointX="8.75" PointY="0.75" Height="3.3263964843750031" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.TipoInterventoRotMan" Width="1.5" PointX="4.75" PointY="8.75" Height="2.7494921875000031" IsExpanded="true" />
+      <Diagram Name="Contabilita" ZoomLevel="47">
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.Appaltatore" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.CategoriaCommerciale" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.Committente" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.DirezioneRegionale" Width="1.5" PointX="2.75" PointY="3.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.Impianto" Width="1.5" PointX="4.75" PointY="0.75" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.LastEventsReadContabilita" Width="1.5" PointX="4.75" PointY="4.75" Height="1.4033821614583388" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.Lotto" Width="1.5" PointX="6.75" PointY="0.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.MeasuringUnit" Width="1.5" PointX="0.75" PointY="6.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.PeriodoProgrammazione" Width="1.5" PointX="6.75" PointY="4.75" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.TipoInterventoAmb" Width="1.5" PointX="2.75" PointY="7.75" Height="2.7494921875000067" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.TipoInterventoRot" Width="1.5" PointX="8.75" PointY="0.75" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="Super.Contabilita.ReadModel.TipoInterventoRotMan" Width="1.5" PointX="4.75" PointY="8.75" Height="2.7494921875000102" />
       </Diagram>
     </Diagrams>
   </Designer>

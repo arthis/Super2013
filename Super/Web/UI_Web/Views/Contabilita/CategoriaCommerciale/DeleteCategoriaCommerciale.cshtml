@@ -1,0 +1,52 @@
+﻿@model Core_Web.Models.DeleteCategoriaCommerciale
+@{
+    ViewBag.Title = "edit categoria commerciale";
+    Layout = string.Empty;
+}
+<div id="error_mssg" class="hidden"></div>
+<form id="formDetails">
+Are you sure you want to delete this categoriaCommerciale
+<fieldset>
+    <legend>CategoriaCommerciale</legend>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Description)*
+    </div>
+    <div class="editor-field">
+        @Model.Description
+    </div>
+
+</fieldset>
+@Html.HiddenFor(model => model.Id)
+@Html.HiddenFor(model=>model.CommitId)
+@Html.HiddenFor(model=>model.Version)
+</form>
+<script>
+    $(document).ready(function () {
+
+        viewModel.Accept = function (self) {
+
+            jQuery('#formDetails').validationEngine({ scroll: false });
+
+            var id = $('#Id').val();
+            var commitId = $('#CommitId').val();
+            var version = $('#Version').val();
+                
+
+            var url = "@Url.Action("DeleteCategoriaCommerciale","CategoriaCommerciale")";
+
+            try 
+            {
+                var command = new DeleteCategoriaCommerciale(id, commitId, version);
+
+                self.DeleteCategoriaCommerciale(url, command);
+            } catch(e) 
+            {
+                alert(e);
+            }
+            
+        };
+        
+       
+        
+    });
+</script>

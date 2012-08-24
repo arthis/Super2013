@@ -302,7 +302,9 @@
     <Content Include="Scripts\Contabilita\Commands\cmd-Impianto.js" />
     <Content Include="Scripts\Contabilita\Commands\cmd-Lotto.js" />
     <Content Include="Scripts\Contabilita\Commands\cmd-Appaltatore.js" />
+    <Content Include="Scripts\Contabilita\Commands\cmd-CategoriaCommerciale.js" />
     <Content Include="Scripts\Contabilita\Commands\vo-interval.js" />
+    <Content Include="Scripts\Contabilita\ViewModel\vm-CategoriaCommerciale-index.js" />
     <Content Include="Scripts\Contabilita\ViewModel\vm-Appaltatore-index.js" />
     <Content Include="Scripts\Contabilita\ViewModel\vm-Lotto-index.js" />
     <Content Include="Scripts\Contabilita\ViewModel\vm-Impianto-index.js" />
@@ -392,6 +394,10 @@
     <Content Include="Views\Contabilita\Appaltatore\DeleteAppaltatore.cshtml" />
     <Content Include="Views\Contabilita\Appaltatore\EditAppaltatore.cshtml" />
     <Content Include="Views\Contabilita\Appaltatore\Index.cshtml" />
+    <Content Include="Views\Contabilita\CategoriaCommerciale\CreateCategoriaCommerciale.cshtml" />
+    <Content Include="Views\Contabilita\CategoriaCommerciale\DeleteCategoriaCommerciale.cshtml" />
+    <Content Include="Views\Contabilita\CategoriaCommerciale\EditCategoriaCommerciale.cshtml" />
+    <Content Include="Views\Contabilita\CategoriaCommerciale\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,6 +14,18 @@ namespace Super.Contabilita.Events.Builders
 
         public static LottoDeletedBuilder LottoDeleted { get { return new LottoDeletedBuilder(); } }
 
+        public static AppaltatoreCreatedBuilder AppaltatoreCreated { get { return new AppaltatoreCreatedBuilder(); } }
+
+        public static AppaltatoreUpdatedBuilder AppaltatoreUpdated { get { return new AppaltatoreUpdatedBuilder(); } }
+
+        public static AppaltatoreDeletedBuilder AppaltatoreDeleted { get { return new AppaltatoreDeletedBuilder(); } }
+
+        public static CategoriaCommercialeCreatedBuilder CategoriaCommercialeCreated { get { return new CategoriaCommercialeCreatedBuilder(); } }
+
+        public static CategoriaCommercialeUpdatedBuilder CategoriaCommercialeUpdated { get { return new CategoriaCommercialeUpdatedBuilder(); } }
+
+        public static CategoriaCommercialeDeletedBuilder CategoriaCommercialeDeleted { get { return new CategoriaCommercialeDeletedBuilder(); } }
+
        
     }
 }

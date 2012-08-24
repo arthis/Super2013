@@ -29,7 +29,8 @@ namespace Super.Contabilita.Projection
                              Description = @event.Description,
                              IdLotto = @event.IdLotto,
                              End = @event.Interval.End,
-                             Start = @event.Interval.Start
+                             Start = @event.Interval.Start,
+                             Version = @event.Version
                          };
 
                 container.Impiantoes.AddObject(ai);
@@ -48,6 +49,7 @@ namespace Super.Contabilita.Projection
                 ai.Description = @event.Description;
                 ai.End = @event.Period.End;
                 ai.Start = @event.Period.Start;
+                ai.Version = @event.Version;
 
                 container.SaveChanges();
             }
@@ -62,6 +64,7 @@ namespace Super.Contabilita.Projection
                     throw new Exception("Entity not found");
 
                 ai.Deleted = true;
+                ai.Version = @event.Version;
 
                 container.SaveChanges();
             }
