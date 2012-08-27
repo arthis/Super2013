@@ -54,6 +54,10 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             return true;
         }
 
+        public static Interval FromMessage(Messaging.ValueObjects.Interval interval)
+        {
+            return new Interval(interval.Start, interval.End);
+        }
 
 
     }

@@ -14,7 +14,6 @@ namespace Super.Contabilita.Commands.TipoIntervento.Rotabile
         public Guid IdMeasuringUnit { get; set; }
         public string Description { get; set; }
         public string Mnemo { get; set; }
-        public DateTime CreationDate { get; set; }
         
 
         public CreateTipoInterventoRot()
@@ -22,24 +21,21 @@ namespace Super.Contabilita.Commands.TipoIntervento.Rotabile
             
         }
 
-        public CreateTipoInterventoRot(Guid id, string mnemo, Guid idMeasuringUnit, char classe, bool calcoloDetrazioni, bool aiTreni, DateTime creationDate, string description)
+        public CreateTipoInterventoRot(Guid id, Guid commitId, long version, string mnemo, Guid idMeasuringUnit, char classe, bool calcoloDetrazioni, bool aiTreni, string description)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(mnemo));
             Contract.Requires<ArgumentNullException>(idMeasuringUnit != Guid.Empty);
-            
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
-            Contract.Requires<ArgumentNullException>(creationDate> DateTime.MinValue);
+
 
             Mnemo = mnemo;
             IdMeasuringUnit = idMeasuringUnit;
-            
             CalcoloDetrazioni = calcoloDetrazioni;
             AiTreni = aiTreni;
             Classe = classe;
-            Id = id;
             Description = description;
-            CreationDate = creationDate;
+
         }
 
         public override string ToDescription()
@@ -51,7 +47,7 @@ namespace Super.Contabilita.Commands.TipoIntervento.Rotabile
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.AiTreni.Equals(AiTreni) && other.CalcoloDetrazioni.Equals(CalcoloDetrazioni) && other.Classe == Classe && other.IdMeasuringUnit.Equals(IdMeasuringUnit) && Equals(other.Description, Description) && Equals(other.Mnemo, Mnemo) && other.CreationDate.Equals(CreationDate);
+            return base.Equals(other) && other.AiTreni.Equals(AiTreni) && other.CalcoloDetrazioni.Equals(CalcoloDetrazioni) && other.Classe == Classe && other.IdMeasuringUnit.Equals(IdMeasuringUnit) && Equals(other.Description, Description) && Equals(other.Mnemo, Mnemo);
         }
 
         public override bool Equals(object obj)
@@ -72,7 +68,6 @@ namespace Super.Contabilita.Commands.TipoIntervento.Rotabile
                 result = (result*397) ^ IdMeasuringUnit.GetHashCode();
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
                 result = (result*397) ^ (Mnemo != null ? Mnemo.GetHashCode() : 0);
-                result = (result*397) ^ CreationDate.GetHashCode();
                 return result;
             }
         }

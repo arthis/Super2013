@@ -19,21 +19,18 @@ namespace Super.Contabilita.Commands.TipoIntervento.Rotabile
         public UpdateTipoInterventoRot()
         {}
 
-        public UpdateTipoInterventoRot(Guid id, string mnemo, Guid idMeasuringUnit, bool calcoloDetrazioni, bool aiTreni, char classe, string description)
+        public UpdateTipoInterventoRot(Guid id, Guid commitId, long version, string mnemo, Guid idMeasuringUnit, bool calcoloDetrazioni, bool aiTreni, char classe, string description)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(mnemo));
             Contract.Requires<ArgumentNullException>(idMeasuringUnit != Guid.Empty);
-            
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
 
             Mnemo = mnemo;
             IdMeasuringUnit = idMeasuringUnit;
-            
             CalcoloDetrazioni = calcoloDetrazioni;
             AiTreni = aiTreni;
             Classe = classe;
-            Id = id;
             Description = description;
         }
 

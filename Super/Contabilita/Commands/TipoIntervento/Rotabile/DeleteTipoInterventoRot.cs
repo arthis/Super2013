@@ -15,11 +15,9 @@ namespace Super.Contabilita.Commands.TipoIntervento.Rotabile
         }
       
 
-         public DeleteTipoInterventoRot(Guid id)
+         public DeleteTipoInterventoRot(Guid id, Guid commitId, long version)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
-
-            Id = id;
         }
 
 

@@ -5,6 +5,7 @@ using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
+using Super.Contabilita.Events.Builders.Lotto;
 using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Events.Builders;
 using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;

@@ -83,6 +83,10 @@
   <ItemGroup>
     <Compile Include="Appaltatore.cs" />
     <Compile Include="CategoriaCommerciale.cs" />
+    <Compile Include="Committente.cs" />
+    <Compile Include="PeriodoProgrammazione.cs" />
+    <Compile Include="MeasuringUnit.cs" />
+    <Compile Include="DirezioneRegionale.cs" />
     <Compile Include="Lotto.cs" />
     <Compile Include="Impianto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

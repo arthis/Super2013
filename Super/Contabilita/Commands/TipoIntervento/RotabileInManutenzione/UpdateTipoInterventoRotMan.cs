@@ -18,16 +18,15 @@ namespace Super.Contabilita.Commands.TipoIntervento.RotabileInManutenzione
             
         }
 
-        public UpdateTipoInterventoRotMan(Guid id, string mnemo, Guid idMeasuringUnit,  string description)
+        public UpdateTipoInterventoRotMan(Guid id, Guid commitId, long version, string mnemo, Guid idMeasuringUnit, string description)
+            : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(mnemo));
             Contract.Requires<ArgumentNullException>(idMeasuringUnit != Guid.Empty);
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
 
             Mnemo = mnemo;
             IdMeasuringUnit = idMeasuringUnit;
-            Id = id;
             Description = description;
         }
 

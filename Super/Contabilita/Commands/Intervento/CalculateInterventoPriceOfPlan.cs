@@ -8,7 +8,7 @@ namespace Super.Contabilita.Commands.Intervento
 {
     public abstract class CalculateInterventoPriceOfPlan:CommandBase
     {
-          public Guid IdPeriodoProgrammazione { get; set; }
+        public Guid IdPeriodoProgrammazione { get; set; }
         public Guid IdPlan { get; set; }
         public Guid IdCommittente { get; set; }
         public Guid IdLotto { get; set; }
@@ -71,7 +71,7 @@ namespace Super.Contabilita.Commands.Intervento
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.Id.Equals(Id) && other.IdImpianto.Equals(IdImpianto) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && Equals(other.Period, Period) && Equals(other.Note, Note);
+            return base.Equals(other) && other.IdPeriodoProgrammazione.Equals(IdPeriodoProgrammazione) && other.IdPlan.Equals(IdPlan) && other.IdCommittente.Equals(IdCommittente) && other.IdLotto.Equals(IdLotto) && other.IdImpianto.Equals(IdImpianto) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && Equals(other.Period, Period) && Equals(other.Note, Note);
         }
 
         public override bool Equals(object obj)
@@ -86,7 +86,10 @@ namespace Super.Contabilita.Commands.Intervento
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ Id.GetHashCode();
+                result = (result*397) ^ IdPeriodoProgrammazione.GetHashCode();
+                result = (result*397) ^ IdPlan.GetHashCode();
+                result = (result*397) ^ IdCommittente.GetHashCode();
+                result = (result*397) ^ IdLotto.GetHashCode();
                 result = (result*397) ^ IdImpianto.GetHashCode();
                 result = (result*397) ^ IdTipoIntervento.GetHashCode();
                 result = (result*397) ^ IdAppaltatore.GetHashCode();
@@ -110,7 +113,7 @@ namespace Super.Contabilita.Commands.Intervento
                                    Guid idPlan,
                                    Guid idCommittente,
                                    Guid idLotto, Guid idImpianto, Guid idTipoIntervento, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idDirezioneRegionale, WorkPeriod period, string note, OggettoRot[] oggetti, Treno trenoArrivo, Treno trenoPartenza, string turnoTreno, string rigaTurnoTreno, string convoglio)
-            : base(id, commitId, version, idPeriodoProgrammazione, idPlan, idCommittente, idLotto, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, version, idPeriodoProgrammazione,  idPlan, idCommittente, idLotto, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Contract.Requires(oggetti != null);
 
@@ -172,10 +175,11 @@ namespace Super.Contabilita.Commands.Intervento
         }
 
         public CalculateInterventoRotManPriceOfPlan(Guid id, Guid commitId, long version, Guid idPeriodoProgrammazione,
-                                   Guid idPlan,
+                    
+            Guid idPlan,
                                    Guid idCommittente,
                                    Guid idLotto, Guid idImpianto, Guid idTipoIntervento, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idDirezioneRegionale, WorkPeriod period, string note, OggettoRotMan[] oggetti)
-            : base(id, commitId, version, idPeriodoProgrammazione, idPlan, idCommittente, idLotto, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, version, idPeriodoProgrammazione,  idPlan, idCommittente, idLotto, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Contract.Requires(oggetti != null);
 
@@ -221,10 +225,10 @@ namespace Super.Contabilita.Commands.Intervento
         }
 
         public CalculateInterventoAmbPriceOfPlan(Guid id, Guid commitId, long version, Guid idPeriodoProgrammazione,
-                                   Guid idPlan,
+            Guid idPlan,
                                    Guid idCommittente,
                                    Guid idLotto, Guid idImpianto, Guid idTipoIntervento, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idDirezioneRegionale, WorkPeriod period, string note, int quantity, string description)
-            : base(id, commitId, version, idPeriodoProgrammazione, idPlan, idCommittente, idLotto, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(id, commitId, version, idPeriodoProgrammazione,  idPlan, idCommittente, idLotto, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Quantity = quantity;
             Description = description;

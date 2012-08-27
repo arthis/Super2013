@@ -14,11 +14,10 @@ namespace Super.Contabilita.Commands.TipoIntervento.Ambiente
         }
       
 
-         public DeleteTipoInterventoAmb(Guid id)
+         public DeleteTipoInterventoAmb(Guid id, Guid commitId, long version)
+             :base(id,commitId,version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
-
-            Id = id;
+            
         }
 
 
