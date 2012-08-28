@@ -4,7 +4,7 @@ using Super.Contabilita.Events.TipoIntervento.Rotabile;
 
 namespace Super.Contabilita.Events.Builders.TipoIntervento
 {
-    public class TipoInterventoRotCreatedBuilder : ICommandBuilder<TipoInterventoRotCreated>
+    public class TipoInterventoRotCreatedBuilder : IEventBuilder<TipoInterventoRotCreated>
     {
         private string _description;
         private string _mnemo;
@@ -51,7 +51,7 @@ namespace Super.Contabilita.Events.Builders.TipoIntervento
             return this;
         }
 
-        public TipoInterventoRotCreatedBuilder ForAiClasse(char classe)
+        public TipoInterventoRotCreatedBuilder ForClasse(char classe)
         {
             _classe = classe;
             return this;

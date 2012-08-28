@@ -85,6 +85,7 @@
     <Compile Include="Committente\CreateCommittenteHandler.cs" />
     <Compile Include="Committente\DeleteCommittenteHandler.cs" />
     <Compile Include="Committente\UpdateCommittenteHandler.cs" />
+    <Compile Include="Intervento\CreateLottoHandler.cs" />
     <Compile Include="PeriodoProgrammazione\ClosePeriodoProgrammazioneHandler.cs" />
     <Compile Include="PeriodoProgrammazione\CreatePeriodoProgrammazioneHandler.cs" />
     <Compile Include="PeriodoProgrammazione\DeletePeriodoProgrammazioneHandler.cs" />
@@ -95,16 +96,38 @@
     <Compile Include="DirezioneRegionale\CreateDirezioneRegionaleHandler.cs" />
     <Compile Include="DirezioneRegionale\DeleteDirezioneRegionaleHandler.cs" />
     <Compile Include="DirezioneRegionale\UpdateDirezioneRegionaleHandler.cs" />
-    <Compile Include="CreateLottoHandler.cs" />
-    <Compile Include="DeleteLottoHandler.cs" />
+    <Compile Include="Lotto\CreateLottoHandler.cs" />
+    <Compile Include="Lotto\DeleteLottoHandler.cs" />
     <Compile Include="Repositories\Container.cs" />
     <Compile Include="Repositories\ILottoRepository.cs" />
     <Compile Include="Repositories\SqlLottoRepository.cs" />
-    <Compile Include="UpdateLottoHandler.cs" />
-    <Compile Include="UpdateImpiantoHandler.cs" />
-    <Compile Include="DeleteImpiantoHandler.cs" />
-    <Compile Include="CreateImpiantoHandler.cs" />
+    <Compile Include="TipoIntervento\CreateTipoInterventoRotManHandler.cs" />
+    <Compile Include="TipoIntervento\DeleteTipoInterventoRotManHandler.cs" />
+    <Compile Include="TipoIntervento\UpdateTipoInterventoRotManHandler.cs" />
+    <Compile Include="TipoIntervento\CreateTipoInterventoRotHandler.cs" />
+    <Compile Include="TipoIntervento\DeleteTipoInterventoRotHandler.cs" />
+    <Compile Include="TipoIntervento\UpdateTipoInterventoRotHandler.cs" />
+    <Compile Include="TipoIntervento\CreateTipoInterventoAmbHandler.cs" />
+    <Compile Include="TipoIntervento\DeleteTipoInterventoAmbHandler.cs" />
+    <Compile Include="TipoIntervento\UpdateTipoInterventoAmbHandler.cs" />
+    <Compile Include="Lotto\UpdateLottoHandler.cs" />
+    <Compile Include="Impianto\UpdateImpiantoHandler.cs" />
+    <Compile Include="Impianto\DeleteImpiantoHandler.cs" />
+    <Compile Include="Impianto\CreateImpiantoHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\CreateTipoOggettoInterventoAmbHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\DeleteTipoOggettoInterventoAmbHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\UpdateTipoOggettoInterventoAmbHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\CreateCarriageRotManHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\CreateLocomotiveRotManHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\DeleteTipoOggettoInterventoRotManHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\UpdateCarriageRotManHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\UpdateLocomotiveRotManHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\CreateCarriageRotHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\CreateLocomotiveRotHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\DeleteTipoOggettoInterventoRotHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\UpdateCarriageRotHandler.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\UpdateLocomotiveRotHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
@@ -136,6 +159,7 @@
       <Name>Domain %28Super\Contabilita\Domain%29</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

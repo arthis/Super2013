@@ -10,6 +10,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
+using Super.Contabilita.Handlers.Impianto;
 
 namespace Super.Contabilita.Specs.Impianto
 {

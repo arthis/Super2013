@@ -11,6 +11,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
+using Super.Contabilita.Handlers.Lotto;
 using Super.Contabilita.Handlers.Repositories;
 
 namespace Super.Contabilita.Specs.Lotto

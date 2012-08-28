@@ -111,6 +111,19 @@
     <Compile Include="Builders\Lotto\CreateLottoBuilder.cs" />
     <Compile Include="Builders\Impianto\UpdateImpiantoBuilder.cs" />
     <Compile Include="Builders\Lotto\UpdateLottoBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\Ambiente\DeleteTipoInterventoAmbBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\Ambiente\UpdateTipoOggettoInterventoAmbBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\Ambiente\CreateTipoOggettoInterventoAmbBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\RotabileInManutenzione\CreateCarriageRotManBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\RotabileInManutenzione\CreateLocomotiveRotManBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\RotabileInManutenzione\DeleteTipoOggettoInterventoRotManBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\RotabileInManutenzione\UpdateCarriageRotManBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\RotabileInManutenzione\UpdateLocomotiveRotManBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\Rotabile\CreateCarriageRotBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\Rotabile\CreateLocomotiveRotBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\Rotabile\DeleteTipoOggettoInterventoRotBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\Rotabile\UpdateCarriageRotBuilder.cs" />
+    <Compile Include="Builders\TipoOggettoIntervento\Rotabile\UpdateLocomotiveRotBuilder.cs" />
     <Compile Include="Committente\CreateCommittente.cs" />
     <Compile Include="Committente\DeleteCommittente.cs" />
     <Compile Include="Committente\UpdateCommittente.cs" />
@@ -151,6 +164,19 @@
     <Compile Include="Lotto\DeleteLotto.cs" />
     <Compile Include="Lotto\UpdateLotto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\CreateTipoOggettoInterventoAmb.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\DeleteTipoOggettoInterventoAmb.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\UpdateTipoOggettoInterventoAmb.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\CreateCarriageRotMan.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\CreateLocomotiveRotMan.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\DeleteTipoOggettoInterventoRotMan.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\UpdateCarriageRotMan.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManutenzione\UpdateLocomotiveRotMan.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\CreateCarriageRot.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\UpdateCarriageRot.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\CreateLocomotiveRot.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\DeleteTipoInterventoRot.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\UpdateLocomotiveRot.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">

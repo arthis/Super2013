@@ -4,7 +4,7 @@ using Super.Contabilita.Events.TipoIntervento.Rotabile;
 
 namespace Super.Contabilita.Events.Builders.TipoIntervento
 {
-    public class TipoInterventoRotUpdatedBuilder : ICommandBuilder<TipoInterventoRotUpdated>
+    public class TipoInterventoRotUpdatedBuilder : IEventBuilder<TipoInterventoRotUpdated>
     {
         private string _description;
         private string _mnemo;
@@ -24,8 +24,6 @@ namespace Super.Contabilita.Events.Builders.TipoIntervento
 
             return cmd;
         }
-
-
 
         public TipoInterventoRotUpdatedBuilder ForMnemo(string mnemo)
         {
@@ -51,7 +49,7 @@ namespace Super.Contabilita.Events.Builders.TipoIntervento
             return this;
         }
 
-        public TipoInterventoRotUpdatedBuilder ForAiClasse(char classe)
+        public TipoInterventoRotUpdatedBuilder ForClasse(char classe)
         {
             _classe = classe;
             return this;

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.TipoIntervento.Ambiente
 {
     
-    public class TipoInterventoAmbCreated : CommandBase
+    public class TipoInterventoAmbCreated : Message, IEvent
     {
         
         public Guid IdMeasuringUnit { get; set; }

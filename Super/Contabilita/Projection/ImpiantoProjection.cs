@@ -24,7 +24,7 @@ namespace Super.Contabilita.Projection
                 ai = new Impianto()
                          {
                              Id = @event.Id,
-                             CreationDate = @event.CreationDate,
+                             CreationDate = DateTime.Now,
                              Deleted = false,
                              Description = @event.Description,
                              IdLotto = @event.IdLotto,

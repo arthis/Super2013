@@ -36,11 +36,10 @@ namespace Super.Contabilita.Domain
         {
         }
 
-        public Lotto(Guid id, Interval interval, DateTime creationDate, string description)
+        public Lotto(Guid id, Interval interval,  string description)
         {
             var evt = Build.LottoCreated
                           .ForInterval(interval)
-                          .ForCreationDate(creationDate)
                           .ForDescription(description);
             RaiseEvent(id, evt);
         }

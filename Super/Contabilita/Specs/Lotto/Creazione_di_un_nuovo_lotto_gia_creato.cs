@@ -10,6 +10,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Handlers;
+using Super.Contabilita.Handlers.Lotto;
 using BuildCmd = Super.Contabilita.Commands.Builders.Build;
 using BuildEvt = Super.Contabilita.Events.Builders.Build;
 
@@ -40,7 +41,6 @@ namespace Super.Contabilita.Specs.Lotto
             yield return BuildEvt.LottoCreated
                                 .ForInterval(_interval)
                                 .ForDescription(_description)
-                                .ForCreationDate(_creationDate)
                                 .Build(_id,1);
         }
 
@@ -49,7 +49,6 @@ namespace Super.Contabilita.Specs.Lotto
             return BuildCmd.CreateLotto
                 .ForInterval(_interval)
                 .ForDescription(_description)
-                .ForCreationDate(_creationDate)
                 .Build(_id,0);
         }
 

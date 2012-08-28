@@ -9,22 +9,17 @@ namespace Super.Contabilita.Events.Builders.Impianto
     public class ImpiantoCreatedBuilder : IEventBuilder<ImpiantoCreated>
     {
         Interval _interval;
-        private DateTime _creationDate;
         private string _description;
         private Guid _idLotto;
 
         public ImpiantoCreated Build(Guid id, long version)
         {
-            var evt = new ImpiantoCreated(id, Guid.NewGuid() ,version,  _interval,_idLotto, _creationDate, _description);
+            var evt = new ImpiantoCreated(id, Guid.NewGuid() ,version,  _interval,_idLotto,  _description);
             
             return evt;
         }
 
-        public ImpiantoCreatedBuilder ForCreationDate(DateTime creationDate)
-        {
-            _creationDate = creationDate;
-            return this;
-        }
+        
 
         public ImpiantoCreatedBuilder ForDescription(string description)
         {

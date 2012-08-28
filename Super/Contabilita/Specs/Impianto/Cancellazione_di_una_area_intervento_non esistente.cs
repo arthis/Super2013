@@ -8,6 +8,7 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Handlers;
+using Super.Contabilita.Handlers.Impianto;
 using BuildCmd = Super.Contabilita.Commands.Builders.Build;
 using BuildEvt = Super.Contabilita.Events.Builders.Build;
 

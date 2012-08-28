@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.TipoIntervento.RotabileInManutenzione
 {
     
-    public class TipoInterventoRotManCreated : CommandBase
+    public class TipoInterventoRotManCreated : Message, IEvent
     {
         
         public Guid IdMeasuringUnit { get; set; }

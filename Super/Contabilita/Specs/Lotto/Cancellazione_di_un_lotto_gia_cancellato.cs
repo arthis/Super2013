@@ -9,6 +9,7 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Handlers;
+using Super.Contabilita.Handlers.Lotto;
 using BuildEvt = Super.Contabilita.Events.Builders.Build;
 using BuildCmd = Super.Contabilita.Commands.Builders.Build;
 
@@ -32,7 +33,6 @@ namespace Super.Contabilita.Specs.Lotto
             yield return BuildEvt.LottoCreated
                 .ForInterval(_interval)
                 .ForDescription(_description)
-                .ForCreationDate(_creationDate)
                 .Build(_id,1);
             yield return BuildEvt.LottoDeleted
                 .Build(_id, 2);

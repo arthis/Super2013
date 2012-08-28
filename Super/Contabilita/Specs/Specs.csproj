@@ -131,6 +131,56 @@
     <Compile Include="Lotto\Creazione_di_un_nuovo_lotto.cs" />
     <Compile Include="Lotto\Creazione_di_un_nuovo_lotto_gia_creato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_gia_creato.cs" />
+    <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_non_esistente.cs" />
+    <Compile Include="TipoIntervento\Ambiente\Cancellazione_di_un_tipo_intervento_ambiente_gia_cancellato.cs" />
+    <Compile Include="TipoIntervento\Ambiente\Cancellazione_di_un_tipo_intervento_ambiente_gia_creato.cs" />
+    <Compile Include="TipoIntervento\Ambiente\Cancellazione_di_un_tipo_intervento_ambiente_non_esistente.cs" />
+    <Compile Include="TipoIntervento\Ambiente\Creazione_di_uno_nuovo_tipo_intervento_ambiente.cs" />
+    <Compile Include="TipoIntervento\Ambiente\Creazione_di_uno_nuovo_tipo_intervento_ambiente_gia_creato.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\Aggiornamento_di_un_tipo_intervento_rotabile_in_manutenzione_gia_creato.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\Aggiornamento_di_un_tipo_intervento_rotabile_in_manutenzione_non_esistente.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\Cancellazione_di_un_tipo_intervento_rotabile_in_manutenzione_gia_cancellato.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\Cancellazione_di_un_tipo_intervento_rotabile_in_manutenzione_gia_creato.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\Cancellazione_di_un_tipo_intervento_rotabile_in_manutenzione_non_esistente.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\Creazione_di_uno_nuovo_tipo_intervento_rotabile_in_manutenzione.cs" />
+    <Compile Include="TipoIntervento\RotabileInManutenzione\Creazione_di_uno_nuovo_tipo_intervento_rotabile_in_manutenzione_gia_creato.cs" />
+    <Compile Include="TipoIntervento\Rotabile\Aggiornamento_di_un_tipo_intervento_rotabile_gia_creato.cs" />
+    <Compile Include="TipoIntervento\Rotabile\Aggiornamento_di_un_tipo_intervento_rotabile_non_esistente.cs" />
+    <Compile Include="TipoIntervento\Rotabile\Cancellazione_di_un_tipo_intervento_rotabile_gia_cancellato.cs" />
+    <Compile Include="TipoIntervento\Rotabile\Cancellazione_di_un_tipo_intervento_rotabile_gia_creato.cs" />
+    <Compile Include="TipoIntervento\Rotabile\Cancellazione_di_un_tipo_intervento_rotabile_non_esistente.cs" />
+    <Compile Include="TipoIntervento\Rotabile\Creazione_di_uno_nuovo_tipo_intervento_rotabile.cs" />
+    <Compile Include="TipoIntervento\Rotabile\Creazione_di_uno_nuovo_tipo_intervento_rotabile_gia_creato.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\Aggiornamento_di_un_tipo_oggetto_intervento_ambiente_gia_creato.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\Aggiornamento_di_un_tipo_oggetto_intervento_ambiente_non_esistente.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\Cancellazione_di_un_tipo_oggetto_intervento_ambiente_gia_cancellato.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\Cancellazione_di_un_tipo_oggetto_intervento_ambiente_gia_creato.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\Cancellazione_di_un_tipo_oggetto_intervento_ambiente_non_esistente.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\Creazione_di_uno_nuovo_tipo_oggetto_intervento_ambiente.cs" />
+    <Compile Include="TipoOggettoIntervento\Ambiente\Creazione_di_uno_nuovo_tipo_oggetto_intervento_ambiente_gia_creato.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Aggiornamento_di_una_carrozza_rotabile_in_mantenzione_gia_creata.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Aggiornamento_di_una_carrozza_rotabile_in_mantenzione_non_esistente.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Aggiornamento_di_una_locomotiva_rotabile_in_mantenzione_gia_creata.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Aggiornamento_di_una_locomotiva_rotabile_in_mantenzione_non_esistente.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Cancellazione_di_un_tipo_oggetto_intervento_rotabile_in_mantenzione_gia_cancellato.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Cancellazione_di_un_tipo_oggetto_intervento_rotabile_gia_creato.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Cancellazione_di_un_tipo_oggetto_intervento_rotabile_in_mantenzione_non_esistente.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Creazione_di_una_nuova_carrozza_rotabile_in_mantenzione.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Creazione_di_una_nuova_carrozza_rotabile_in_mantenzione_gia_creata.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Creazione_di_una_nuova_locomotiva_rotabile_in_mantenzione.cs" />
+    <Compile Include="TipoOggettoIntervento\RotabileInManuenzione\Creazione_di_una_nuova_locomotiva_rotabile_in_mantenzione_gia_creata.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Aggiornamento_di_una_locomotiva_rotabile_gia_creata.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Aggiornamento_di_una_locomotiva_rotabile_non_esistente.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Cancellazione_di_un_tipo_oggetto_intervento_rotabile_gia_cancellato.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Cancellazione_di_un_tipo_oggetto_intervento_rotabile_gia_creato.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Cancellazione_di_un_tipo_oggetto_intervento_rotabile_non_esistente.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Aggiornamento_di_una_carrozza_rotabile_gia_creata.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Aggiornamento_di_una_carrozza_rotabile_non_esistente.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Creazione_di_una_nuova_carrozza_rotabile.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Creazione_di_una_nuova_carrozza_rotabile_gia_creata.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Creazione_di_una_nuova_locomotiva_rotabile.cs" />
+    <Compile Include="TipoOggettoIntervento\Rotabile\Creazione_di_una_nuova_locomotiva_rotabile_gia_creata.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
@@ -166,6 +216,7 @@
       <Name>Handlers %28Super\Contabilita\Handlers%29</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

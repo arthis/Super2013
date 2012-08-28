@@ -8,6 +8,9 @@ using Super.Contabilita.Commands.Builders.Lotto;
 using Super.Contabilita.Commands.Builders.MeasuringUnit;
 using Super.Contabilita.Commands.Builders.PeriodoProgrammazione;
 using Super.Contabilita.Commands.Builders.TipoIntervento;
+using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Ambiente;
+using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Rotabile;
+using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.RotabileInManutenzione;
 
 namespace Super.Contabilita.Commands.Builders
 {
@@ -84,5 +87,38 @@ namespace Super.Contabilita.Commands.Builders
         public static UpdateTipoInterventoRotManBuilder UpdateTipoInterventoRotMan { get { return new UpdateTipoInterventoRotManBuilder(); } }
 
         public static DeleteTipoInterventoRotManBuilder DeleteTipoInterventoRotMan { get { return new DeleteTipoInterventoRotManBuilder(); } }
+
+        public static CreateTipoOggettoInterventoAmbBuilder CreateTipoOggettoInterventoAmb { get { return new CreateTipoOggettoInterventoAmbBuilder(); } }
+
+        public static UpdateTipoOggettoInterventoAmbBuilder UpdateTipoOggettoInterventoAmb { get { return new UpdateTipoOggettoInterventoAmbBuilder(); } }
+
+        public static DeleteTipoOggettoInterventoAmbBuilder DeleteTipoOggettoInterventoAmb { get { return new DeleteTipoOggettoInterventoAmbBuilder(); } }
+
+        public static CreateCarriageRotBuilder CreateCarriageRot { get { return new CreateCarriageRotBuilder(); } }
+
+        public static CreateLocomotiveRotBuilder CreateLocomotiveRot { get { return new CreateLocomotiveRotBuilder(); } }
+
+        public static DeleteTipoOggettoInterventoRotBuilder DeleteTipoOggettoInterventoRot { get { return new DeleteTipoOggettoInterventoRotBuilder(); } }
+
+        public static UpdateCarriageRotBuilder UpdateCarriageRot { get { return new UpdateCarriageRotBuilder(); } }
+
+        public static UpdateLocomotiveRotBuilder UpdateLocomotiveRot { get { return new UpdateLocomotiveRotBuilder(); } }
+
+        public static CreateCarriageRotManBuilder CreateCarriageRotMan { get { return new CreateCarriageRotManBuilder(); } }
+
+        public static CreateLocomotiveRotManBuilder CreateLocomotiveRotMan { get { return new CreateLocomotiveRotManBuilder(); } }
+
+        public static DeleteTipoOggettoInterventoRotManBuilder DeleteTipoOggettoInterventoRotMan { get { return new DeleteTipoOggettoInterventoRotManBuilder(); } }
+
+        public static UpdateCarriageRotManBuilder UpdateCarriageRotMan { get { return new UpdateCarriageRotManBuilder(); } }
+
+        public static UpdateLocomotiveRotManBuilder UpdateLocomotiveRotMan { get { return new UpdateLocomotiveRotManBuilder(); } }
+
+        
+            
+            
+            
+
+
     }
 }

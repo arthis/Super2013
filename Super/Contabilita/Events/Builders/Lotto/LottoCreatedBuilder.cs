@@ -9,22 +9,17 @@ namespace Super.Contabilita.Events.Builders.Lotto
     public class LottoCreatedBuilder : IEventBuilder<LottoCreated>
     {
         Interval _interval;
-        private DateTime _creationDate;
         private string _description;
         
 
         public LottoCreated Build(Guid id, long version)
         {
-            var evt = new LottoCreated(id, Guid.NewGuid() ,version,  _interval, _creationDate, _description);
+            var evt = new LottoCreated(id, Guid.NewGuid() ,version,  _interval,  _description);
             
             return evt;
         }
 
-        public LottoCreatedBuilder ForCreationDate(DateTime creationDate)
-        {
-            _creationDate = creationDate;
-            return this;
-        }
+        
 
         public LottoCreatedBuilder ForDescription(string description)
         {

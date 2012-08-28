@@ -84,13 +84,23 @@
     <Compile Include="Appaltatore.cs" />
     <Compile Include="CategoriaCommerciale.cs" />
     <Compile Include="Committente.cs" />
+    <Compile Include="Intervento.cs" />
+    <Compile Include="TipoInterventoRotMan.cs" />
+    <Compile Include="TipoInterventoRot.cs" />
+    <Compile Include="TipoInterventoAmb.cs" />
     <Compile Include="PeriodoProgrammazione.cs" />
     <Compile Include="MeasuringUnit.cs" />
     <Compile Include="DirezioneRegionale.cs" />
     <Compile Include="Lotto.cs" />
     <Compile Include="Impianto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoIntervento.cs" />
+    <Compile Include="TipoOggettoIntervento\CarriageRot.cs" />
+    <Compile Include="TipoOggettoIntervento\CarriageRotMan.cs" />
+    <Compile Include="TipoOggettoIntervento\LocomotiveRot.cs" />
+    <Compile Include="TipoOggettoIntervento\LocomotiveRotMan.cs" />
+    <Compile Include="TipoOggettoIntervento\TipoOgettoInterventoRot.cs" />
+    <Compile Include="TipoOggettoIntervento\TipoOgettoInterventoRotMan.cs" />
+    <Compile Include="TipoOggettoIntervento\TipoOggettoInterventoAmb.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">

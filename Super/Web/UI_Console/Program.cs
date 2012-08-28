@@ -96,7 +96,6 @@ namespace UI_Console
             var id = Guid.NewGuid();
             var commitId = Guid.NewGuid();
             var cmdCreate = Build.CreateLotto
-                .ForCreationDate(DateTime.Now)
                 .ForDescription("test")
                 .ForInterval(new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
                 .Build(id, commitId,0);

@@ -8,7 +8,6 @@ namespace Super.Contabilita.Commands.Builders.Lotto
     public class CreateLottoBuilder : ICommandBuilder<CreateLotto>
     {
         Interval _interval;
-        private DateTime _creationDate;
         private string _description;
 
         public CreateLotto Build(Guid id, long version)
@@ -18,18 +17,12 @@ namespace Super.Contabilita.Commands.Builders.Lotto
 
         public CreateLotto Build(Guid id, Guid commitId, long version)
         {
-             var cmd = new CreateLotto(id, commitId, version, _interval, _creationDate, _description);
+             var cmd = new CreateLotto(id, commitId, version, _interval,  _description);
 
             return cmd;
         }
 
-        public CreateLottoBuilder ForCreationDate(DateTime creationDate)
-        {
-            _creationDate = creationDate;
-            return this;
-        }
-
-
+      
         public CreateLottoBuilder ForDescription(string description)
         {
             _description = description;

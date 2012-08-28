@@ -11,6 +11,7 @@ using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Handlers;
+using Super.Contabilita.Handlers.Lotto;
 using BuildCmd = Super.Contabilita.Commands.Builders.Build;
 using BuildEvt = Super.Contabilita.Events.Builders.Build;
 
@@ -38,7 +39,6 @@ namespace Super.Contabilita.Specs.Lotto
         public override CreateLotto When()
         {
             return BuildCmd.CreateLotto
-                .ForCreationDate(_creationDate)
                 .ForDescription(_description)
                 .ForInterval(_interval)
                 .Build(_id,0);
@@ -47,7 +47,6 @@ namespace Super.Contabilita.Specs.Lotto
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildEvt.LottoCreated
-                                 .ForCreationDate(_creationDate)
                                  .ForDescription(_description)
                                  .ForInterval(_interval)
                                  .Build(_id,1);

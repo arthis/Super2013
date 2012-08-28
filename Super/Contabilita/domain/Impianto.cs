@@ -58,7 +58,7 @@ namespace Super.Contabilita.Domain
         {
         }
 
-        public Impianto(Guid id, Interval interval, Guid idLotto, DateTime creationDate, string description, Lotto lotto)
+        public Impianto(Guid id, Interval interval, Guid idLotto,  string description, Lotto lotto)
         {
             var is_Impianto_Interval_In_Lotto = new Is_Impianto_Interval_In_Lotto(lotto, interval);
 
@@ -69,7 +69,6 @@ namespace Super.Contabilita.Domain
                 var evt = Build.ImpiantoCreated
                     .ForInterval(interval)
                     .ForLotto(idLotto)
-                    .ForCreationDate(creationDate)
                     .ForDescription(description);
                 RaiseEvent(id, evt);
             }

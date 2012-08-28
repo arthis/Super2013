@@ -10,6 +10,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Events.Impianto;
 using Super.Contabilita.Handlers;
+using Super.Contabilita.Handlers.Impianto;
 using BuildCmd = Super.Contabilita.Commands.Builders.Build;
 using BuildEvt = Super.Contabilita.Events.Builders.Build;
 
@@ -33,7 +34,6 @@ namespace Super.Contabilita.Specs.Impianto
         {
             yield return BuildEvt.ImpiantoCreated
                 .ForInterval(_interval)
-                .ForCreationDate(_creationDate)
                 .ForDescription(_description)
                 .ForLotto(_idLotto)
                 .Build(_id,1);

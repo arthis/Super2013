@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.TipoIntervento.Rotabile
 {
     
-    public class TipoInterventoRotCreated : CommandBase
+    public class TipoInterventoRotCreated : Message, IEvent
     {
         public bool AiTreni { get; set; }
         public bool CalcoloDetrazioni { get; set; }

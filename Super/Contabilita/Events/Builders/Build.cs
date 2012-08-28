@@ -8,6 +8,9 @@ using Super.Contabilita.Events.Builders.Lotto;
 using Super.Contabilita.Events.Builders.MeasuringUnit;
 using Super.Contabilita.Events.Builders.PeriodoProgrammazione;
 using Super.Contabilita.Events.Builders.TipoIntervento;
+using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Ambiente;
+using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Rotabile;
+using Super.Contabilita.Events.Builders.TipoOggettoIntervento.RotabileInManutenzione;
 
 namespace Super.Contabilita.Events.Builders
 {
@@ -84,5 +87,33 @@ namespace Super.Contabilita.Events.Builders
         public static TipoInterventoRotManUpdatedBuilder TipoInterventoRotManUpdated { get { return new TipoInterventoRotManUpdatedBuilder(); } }
 
         public static TipoInterventoRotManDeletedBuilder TipoInterventoRotManDeleted { get { return new TipoInterventoRotManDeletedBuilder(); } }
+
+        public static TipoOggettoInterventoAmbCreatedBuilder TipoOggettoInterventoAmbCreated { get { return new TipoOggettoInterventoAmbCreatedBuilder(); } }
+
+        public static TipoOggettoInterventoAmbUpdatedBuilder TipoOggettoInterventoAmbUpdated { get { return new TipoOggettoInterventoAmbUpdatedBuilder(); } }
+
+        public static TipoOggettoInterventoAmbDeletedBuilder TipoOggettoInterventoAmbDeleted { get { return new TipoOggettoInterventoAmbDeletedBuilder(); } }
+
+        public static CarriageRotCreatedBuilder CarriageRotCreated { get { return new CarriageRotCreatedBuilder(); } }
+
+        public static CarriageRotUpdatedBuilder CarriageRotUpdated { get { return new CarriageRotUpdatedBuilder(); } }
+
+        public static LocomotiveRotCreatedBuilder LocomotiveRotCreated { get { return new LocomotiveRotCreatedBuilder(); } }
+
+        public static LocomotiveRotUpdatedBuilder LocomotiveRotUpdated { get { return new LocomotiveRotUpdatedBuilder(); } }
+
+        public static TipoOggettoInterventoRotDeletedBuilder TipoOggettoInterventoRotDeleted { get { return new TipoOggettoInterventoRotDeletedBuilder(); } }
+
+        public static CarriageRotManCreatedBuilder CarriageRotManCreated { get { return new CarriageRotManCreatedBuilder(); } }
+
+        public static CarriageRotManUpdatedBuilder CarriageRotManUpdated { get { return new CarriageRotManUpdatedBuilder(); } }
+
+        public static LocomotiveRotManCreatedBuilder LocomotiveRotManCreated { get { return new LocomotiveRotManCreatedBuilder(); } }
+
+        public static LocomotiveRotManUpdatedBuilder LocomotiveRotManUpdated { get { return new LocomotiveRotManUpdatedBuilder(); } }
+
+        public static TipoOggettoInterventoRotManDeletedBuilder TipoOggettoInterventoRotManDeleted { get { return new TipoOggettoInterventoRotManDeletedBuilder(); } }
+
+
     }
 }

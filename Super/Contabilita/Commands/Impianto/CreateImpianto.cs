@@ -12,7 +12,6 @@ namespace Super.Contabilita.Commands.Impianto
     {
 
         public string Description { get; set; }
-        public DateTime CreationDate { get; set; }
         public Interval Interval { get; set; }
         [DisplayName("Lotto")]
         public Guid IdLotto { get; set; }
@@ -22,16 +21,14 @@ namespace Super.Contabilita.Commands.Impianto
             
         }
         
-        public CreateImpianto(Guid id, Guid commitId, long version,  Interval period, DateTime creationDate, string description, Guid idLotto)
+        public CreateImpianto(Guid id, Guid commitId, long version,  Interval period, string description, Guid idLotto)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(period != null);
-            Contract.Requires<ArgumentOutOfRangeException>(creationDate >DateTime.MinValue );
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description) );
             Contract.Requires<ArgumentNullException>(idLotto != Guid.Empty);
 
             Interval = period;
-            CreationDate = creationDate;
             Description = description;
             IdLotto = idLotto;
         }
@@ -47,7 +44,7 @@ namespace Super.Contabilita.Commands.Impianto
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Description, Description) && other.CreationDate.Equals(CreationDate) && Equals(other.Interval, Interval) && other.IdLotto.Equals(IdLotto);
+            return base.Equals(other) && Equals(other.Description, Description)  && Equals(other.Interval, Interval) && other.IdLotto.Equals(IdLotto);
         }
 
         public override bool Equals(object obj)
@@ -63,7 +60,6 @@ namespace Super.Contabilita.Commands.Impianto
             {
                 int result = base.GetHashCode();
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
-                result = (result*397) ^ CreationDate.GetHashCode();
                 result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
                 result = (result*397) ^ IdLotto.GetHashCode();
                 return result;

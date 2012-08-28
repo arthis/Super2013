@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.TipoIntervento.Rotabile
 {
     
-    public class TipoInterventoRotDeleted : CommandBase
+    public class TipoInterventoRotDeleted : Message, IEvent
     {
         
 

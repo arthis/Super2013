@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.TipoIntervento.Ambiente
 {
     
-    public class TipoInterventoAmbDeleted : CommandBase
+    public class TipoInterventoAmbDeleted : Message, IEvent
     {
 
         public TipoInterventoAmbDeleted()

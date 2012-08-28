@@ -23,7 +23,7 @@ namespace Super.Contabilita.Projection
                 ai = new Lotto()
                          {
                              Id = @event.Id,
-                             CreationDate = @event.CreationDate,
+                             CreationDate = DateTime.Now,
                              Deleted = false,
                              Description = @event.Description,
                              End = @event.Interval.End,

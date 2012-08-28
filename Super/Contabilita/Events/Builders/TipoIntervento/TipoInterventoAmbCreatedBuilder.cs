@@ -4,7 +4,7 @@ using Super.Contabilita.Events.TipoIntervento.Ambiente;
 
 namespace Super.Contabilita.Events.Builders.TipoIntervento
 {
-    public class TipoInterventoAmbCreatedBuilder : ICommandBuilder<TipoInterventoAmbCreated>
+    public class TipoInterventoAmbCreatedBuilder : IEventBuilder<TipoInterventoAmbCreated>
     {
         private string _description;
         private string _mnemo;
