@@ -26,7 +26,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.Rotabile
             if (!existinglocomotive.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
 
-            var locomotive = new Domain.TipoOggettoIntervento.LocomotiveRot();
+            var locomotive = new Domain.TipoOggettoIntervento.LocomotiveRot(cmd.Id,cmd.Description, cmd.Sign);
 
             EventRepository.Save(locomotive, cmd.CommitId);
 

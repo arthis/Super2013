@@ -26,7 +26,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.Rotabile
                 throw new AggregateRootInstanceNotFoundException();
 
 
-            carriage.Update();
+            carriage.Update(cmd.Description,cmd.Sign,cmd.IsInternational);
 
             EventRepository.Save(carriage, cmd.CommitId);
 

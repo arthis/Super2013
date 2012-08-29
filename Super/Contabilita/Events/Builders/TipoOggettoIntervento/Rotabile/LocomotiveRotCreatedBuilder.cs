@@ -4,7 +4,7 @@ using Super.Contabilita.Events.TipoOggettoIntervento.Rotabile;
 
 namespace Super.Contabilita.Events.Builders.TipoOggettoIntervento.Rotabile
 {
-    public class LocomotiveRotCreatedBuilder : ICommandBuilder<LocomotiveRotCreated>
+    public class LocomotiveRotCreatedBuilder : IEventBuilder<LocomotiveRotCreated>
     {
         private string _description;
         private string _sign;

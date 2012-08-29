@@ -1,12 +1,46 @@
+using CommonDomain;
 using CommonDomain.Core;
+using Super.Contabilita.Events.Builders;
+using Super.Contabilita.Events.TipoOggettoIntervento.Rotabile;
 
 namespace Super.Contabilita.Domain.TipoOggettoIntervento
 {
-    public abstract class TipoOgettoInterventoRot :AggregateBase
+    public class TipoOgettoInterventoRot :AggregateBase
     {
+        public bool Deleted { get; set; }
+
+        private class Is_Tipo_Oggetto_Intervento_Rotabile_Already_Deleted : ISpecification<TipoOgettoInterventoRot>
+        {
+            public bool IsSatisfiedBy(TipoOgettoInterventoRot l)
+            {
+                if (l.Deleted)
+                {
+                    l.CommandValidationMessages.Add(new ValidationMessage("Tipo Oggetto Intervento Rotabile", "Tipo Oggetto Intervento gia cancellato"));
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
         public void Delete()
         {
-            throw new System.NotImplementedException();
+            var isAlreadyDeleted = new Is_Tipo_Oggetto_Intervento_Rotabile_Already_Deleted();
+
+            ISpecification<TipoOgettoInterventoRot> specs = isAlreadyDeleted;
+
+            if (specs.IsSatisfiedBy(this))
+            {
+                var evt = Build.TipoOggettoInterventoRotDeleted;
+
+                RaiseEvent(evt);
+            }
+            
         }
+
+        public void Apply(TipoOggettoInterventoRotDeleted evt)
+        {
+            Deleted = true;
+        }    
     }
 }

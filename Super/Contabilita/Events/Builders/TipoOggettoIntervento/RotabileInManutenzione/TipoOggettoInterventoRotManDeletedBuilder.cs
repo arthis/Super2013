@@ -4,7 +4,7 @@ using Super.Contabilita.Events.TipoOggettoIntervento.RotabileInManutenzione;
 
 namespace Super.Contabilita.Events.Builders.TipoOggettoIntervento.RotabileInManutenzione
 {
-    public class TipoOggettoInterventoRotManDeletedBuilder : ICommandBuilder<TipoOggettoInterventoRotManDeleted>
+    public class TipoOggettoInterventoRotManDeletedBuilder : IEventBuilder<TipoOggettoInterventoRotManDeleted>
     {
 
         public TipoOggettoInterventoRotManDeleted Build(Guid id, long version)
