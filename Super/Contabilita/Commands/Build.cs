@@ -1,4 +1,5 @@
 using Super.Contabilita.Commands.Builders.Appaltatore;
+using Super.Contabilita.Commands.Builders.BachiBouzouk;
 using Super.Contabilita.Commands.Builders.CategoriaCommerciale;
 using Super.Contabilita.Commands.Builders.Committente;
 using Super.Contabilita.Commands.Builders.DirezioneRegionale;
@@ -8,7 +9,6 @@ using Super.Contabilita.Commands.Builders.Intervento;
 using Super.Contabilita.Commands.Builders.Lotto;
 using Super.Contabilita.Commands.Builders.MeasuringUnit;
 using Super.Contabilita.Commands.Builders.PeriodoProgrammazione;
-using Super.Contabilita.Commands.Builders.Price;
 using Super.Contabilita.Commands.Builders.TipoIntervento;
 using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Rotabile;
@@ -123,6 +123,8 @@ namespace Super.Contabilita.Commands
         public static DeleteGruppoOggettoInterventoBuilder DeleteGruppoOggettoIntervento { get { return new DeleteGruppoOggettoInterventoBuilder(); } }
 
         public static UpdateBasePriceBuilder UpdateBasePrice { get { return new UpdateBasePriceBuilder(); } }       
+
+        public static CreateBachiBouzoukBuilder CreateBachiBouzouk { get { return  new CreateBachiBouzoukBuilder();}}
             
             
             

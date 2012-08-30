@@ -10,7 +10,7 @@ namespace EasyNetQ
 	public interface IConventions
 	{
 
-		ExchangeNameConvention ExchangeNamingConvention { get; set; }
+		ExchangeNameConvention ExchangeNamingConvention { get; set; } 
 		TopicNameConvention TopicNamingConvention { get; set; }
 		QueueNameConvention QueueNamingConvention { get; set; }
 	}

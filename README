@@ -72,15 +72,15 @@ Projection have a HandleEventOnlyOnceHandler which save the id already projected
 
 ** current worries **
  - Serialization of the command and Command Repository to be enhanced... for now, quick n' dirty! 
- - having one readModel per bounded context, I am afraid it is the only way. Should then I have different copies of Area Intervento. I mean to be using one server only, does it make sense then to duplicate this information? use a trick to have every bounded context look at the same part of the read model...
-to be think better later
+ - having one readModel per bounded context, I am afraid it is the only way. 
  - experimenting with sagas ( among other things, I have to add a alarm clock to trigger a time out..)
  - experimenting with code contracts
- - rethinking command and event handlers
+
  
  
 ** next threads of fun **
 
+ - inspect Zeromq to substitute it to RabbitMQ
  - Swap xml soap for json serialization of the messages
  - swap wcf webservice for something different REST Call?, ServiceStack? do not know what yet but it smells like something not so good there... to be continued
  - having fun again with node.js and/or looking around signalR

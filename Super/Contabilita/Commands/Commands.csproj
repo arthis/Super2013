@@ -74,13 +74,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\BachiBouzouk\CreateBachiBouzoukBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\CreateGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\DeleteGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\UpdateGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\Intervento\CancelInterventoPriceOfPlanBuilder.cs" />
     <Compile Include="Builders\PeriodoProgrammazione\ClosePeriodoProgrammazioneBuilder.cs" />
     <Compile Include="Builders\Intervento\CalculateInterventoRotPriceOfPlanBuilder.cs" />
-    <Compile Include="Builders\Price\UpdateAppaltatoreBuilder.cs" />
+    <Compile Include="Builders\BachiBouzouk\UpdateAppaltatoreBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\CreateTipoInterventoRotManBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\DeleteTipoInterventoRotManBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\UpdateTipoInterventoRotManBuilder.cs" />
@@ -148,7 +149,8 @@
     <Compile Include="MeasuringUnit\CreateMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\DeleteMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\UpdateMeasuringUnit.cs" />
-    <Compile Include="Price\UpdateBasePrice.cs" />
+    <Compile Include="bachibouzouk\Createbachibouzouk.cs" />
+    <Compile Include="bachibouzouk\UpdateBasePrice.cs" />
     <Compile Include="PeriodoProgrammazione\CreatePeriodoProgrammazione.cs" />
     <Compile Include="PeriodoProgrammazione\DeletePeriodoProgrammazione.cs" />
     <Compile Include="PeriodoProgrammazione\UpdatePeriodoProgrammazione.cs" />

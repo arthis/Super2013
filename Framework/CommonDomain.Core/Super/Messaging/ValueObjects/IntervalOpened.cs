@@ -17,8 +17,7 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
 
         public IntervalOpened(DateTime? startDate, DateTime? endDate)
         {
-            if(startDate.HasValue&& endDate.HasValue)
-                Contract.Requires( startDate<= endDate);
+            Contract.Requires(!startDate.HasValue || !endDate.HasValue || startDate.HasValue && endDate.HasValue && startDate <= endDate);
 
             Start = startDate;
             End = endDate;
@@ -35,15 +34,15 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof (IntervalOpened)) return false;
-            return Equals((IntervalOpened) obj);
+            if (obj.GetType() != typeof(IntervalOpened)) return false;
+            return Equals((IntervalOpened)obj);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                return ((Start.HasValue ? Start.Value.GetHashCode() : 0)*397) ^ (End.HasValue ? End.Value.GetHashCode() : 0);
+                return ((Start.HasValue ? Start.Value.GetHashCode() : 0) * 397) ^ (End.HasValue ? End.Value.GetHashCode() : 0);
             }
         }
     }
