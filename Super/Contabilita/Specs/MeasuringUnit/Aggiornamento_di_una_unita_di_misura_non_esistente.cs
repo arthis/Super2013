@@ -7,6 +7,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.MeasuringUnit;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
@@ -34,7 +35,7 @@ namespace Super.Contabilita.Specs.MeasuringUnit
 
             return  Build.UpdateMeasuringUnit
                          .ForDescription(_description)
-                         .Build(_id,0);
+                         .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

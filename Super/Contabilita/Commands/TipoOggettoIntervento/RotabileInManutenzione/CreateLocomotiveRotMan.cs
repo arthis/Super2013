@@ -9,6 +9,7 @@ namespace Super.Contabilita.Commands.TipoOggettoIntervento.RotabileInManutenzion
     {
         
         public string Description { get; set; }
+        public Guid IdGruppoOggettoIntervento { get; set; }
         public string Sign { get; set; }
         
 
@@ -17,16 +18,16 @@ namespace Super.Contabilita.Commands.TipoOggettoIntervento.RotabileInManutenzion
             
         }
 
-        public CreateLocomotiveRotMan(Guid id, Guid commitId, long version, string sign, string description)
+        public CreateLocomotiveRotMan(Guid id, Guid commitId, long version, string sign, string description, Guid idGruppoOggettoIntervento)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(sign));
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
-
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
             Sign = sign;
             Description = description;
-
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
         }
 
         public override string ToDescription()

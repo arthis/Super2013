@@ -9,8 +9,8 @@ using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Handlers;
 using Super.Contabilita.Handlers.Lotto;
-using BuildEvt = Super.Contabilita.Events.Builders.Build;
-using BuildCmd = Super.Contabilita.Commands.Builders.Build;
+using BuildEvt = Super.Contabilita.Events.Build;
+using BuildCmd = Super.Contabilita.Commands.Build;
 
 namespace Super.Contabilita.Specs.Lotto
 {
@@ -31,7 +31,7 @@ namespace Super.Contabilita.Specs.Lotto
         public override DeleteLotto When()
         {
             return BuildCmd.DeleteLotto
-                           .Build(_id, 0); 
+                           .Build(_id, 1); 
         }
 
         public override IEnumerable<IMessage> Expect()

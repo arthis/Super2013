@@ -7,8 +7,8 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.MeasuringUnit;
-using BuildCmd = Super.Contabilita.Commands.Builders.Build;
-using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Build;
+using BuildEvt = Super.Contabilita.Events.Build;
 using Super.Contabilita.Handlers.MeasuringUnit;
 
 namespace Super.Contabilita.Specs.MeasuringUnit
@@ -30,7 +30,7 @@ namespace Super.Contabilita.Specs.MeasuringUnit
         public override DeleteMeasuringUnit When()
         {
             return BuildCmd.DeleteMeasuringUnit
-                .Build(_id,0);
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

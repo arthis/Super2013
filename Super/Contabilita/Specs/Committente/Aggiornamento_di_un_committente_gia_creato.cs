@@ -7,8 +7,8 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Committente;
 using Super.Contabilita.Handlers.Committente;
-using BuildCmd = Super.Contabilita.Commands.Builders.Build;
-using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Build;
+using BuildEvt = Super.Contabilita.Events.Build;
 
 namespace Super.Contabilita.Specs.Committente
 {

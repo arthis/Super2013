@@ -7,8 +7,8 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.MeasuringUnit;
 using Super.Contabilita.Handlers.MeasuringUnit;
-using BuildCmd = Super.Contabilita.Commands.Builders.Build;
-using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Build;
+using BuildEvt = Super.Contabilita.Events.Build;
 
 namespace Super.Contabilita.Specs.MeasuringUnit
 {

@@ -6,6 +6,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoOggettoIntervento.Rotabile;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoOggettoIntervento.Rotabile;
 
@@ -17,10 +18,12 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
         private string _description = "test";
         private const string _sign = "sign";
         private const bool _isInternational = true;
+        private readonly Guid _idGruppoOggettoIntervento = Guid.NewGuid();
 
         private string _descriptionUpdated = "test 2";
         private const string _signUpdated = "sign 2";
         private const bool _isInternationalUpdated = false;
+        private readonly Guid _idGruppoOggettoInterventoUpdated = Guid.NewGuid();
 
         protected override CommandHandler<UpdateCarriageRot> OnHandle(IEventRepository eventRepository)
         {
@@ -33,15 +36,17 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .IsInternational(_isInternational)
+                .ForGruppoOggetto(_idGruppoOggettoIntervento)
                 .Build(_id, 1);
         }
 
         public override UpdateCarriageRot When()
         {
-            return Commands.Builders.Build.UpdateCarriageRot
+            return Commands.Build.UpdateCarriageRot
                 .ForDescription(_descriptionUpdated)
                 .ForSign(_signUpdated)
                 .IsInternational(_isInternationalUpdated)
+                .ForGruppoOggetto(_idGruppoOggettoInterventoUpdated)
                 .Build(_id, 1);
         }
 
@@ -51,6 +56,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
                 .ForDescription(_descriptionUpdated)
                 .ForSign(_signUpdated)
                 .IsInternational(_isInternationalUpdated)
+                .ForGruppoOggetto(_idGruppoOggettoInterventoUpdated)
                 .Build(_id,2);
                             
         }

@@ -6,6 +6,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoOggettoIntervento;
 using Super.Contabilita.Handlers.TipoOggettoIntervento.Ambiente;
@@ -17,6 +18,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private const string _sign = "sign";
+        private readonly Guid _idGruppoOggettoIntervento = Guid.NewGuid();
         
 
         protected override CommandHandler<DeleteTipoOggettoInterventoAmb> OnHandle(IEventRepository eventRepository)
@@ -29,6 +31,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
             yield return Build.TipoOggettoInterventoAmbCreated
                 .ForDescription(_description)
                 .ForSign(_sign)
+                .ForGruppoOggetto(_idGruppoOggettoIntervento)
                 .Build(_id,1);
             yield return Build.TipoOggettoInterventoAmbDeleted
                 .Build(_id, 2);
@@ -36,7 +39,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
 
         public override DeleteTipoOggettoInterventoAmb When()
         {
-            return Commands.Builders.Build.DeleteTipoOggettoInterventoAmb
+            return Commands.Build.DeleteTipoOggettoInterventoAmb
                 .Build(_id, 2);
         }
 

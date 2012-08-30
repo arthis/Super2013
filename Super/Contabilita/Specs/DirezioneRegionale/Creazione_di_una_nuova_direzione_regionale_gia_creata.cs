@@ -7,8 +7,8 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.DirezioneRegionale;
-using BuildCmd = Super.Contabilita.Commands.Builders.Build;
-using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Build;
+using BuildEvt = Super.Contabilita.Events.Build;
 using Super.Contabilita.Handlers.DirezioneRegionale;
 
 namespace Super.Contabilita.Specs.DirezioneRegionale
@@ -40,7 +40,7 @@ namespace Super.Contabilita.Specs.DirezioneRegionale
         {
             return BuildCmd.CreateDirezioneRegionale
                 .ForDescription(_description)
-                .Build(_id,0);
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

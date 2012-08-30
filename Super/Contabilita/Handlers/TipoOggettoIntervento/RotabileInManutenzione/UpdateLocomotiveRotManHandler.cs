@@ -26,7 +26,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.RotabileInManutenzion
                 throw new AggregateRootInstanceNotFoundException();
 
 
-            locomotive.Update(cmd.Description,cmd.Sign);
+            locomotive.Update(cmd.Description,cmd.Sign, cmd.IdGruppoOggettoIntervento);
 
             EventRepository.Save(locomotive, cmd.CommitId);
 

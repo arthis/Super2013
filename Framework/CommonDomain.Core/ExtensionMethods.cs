@@ -13,10 +13,12 @@ namespace CommonDomain.Core
 
 		public static void ThrowHandlerNotFound(this IAggregate aggregate, object eventMessage)
 		{
-			var exceptionMessage = "Aggregate of type '{0}' raised an event of type '{1}' but not handler could be found to handle the message."
-				.FormatWith(aggregate.GetType().Name, eventMessage.GetType().Name);
+            //var exceptionMessage = "Aggregate of type '{0}' raised an event of type '{1}' but not handler could be found to handle the message."
+            //    .FormatWith(aggregate.GetType().Name, eventMessage.GetType().Name);
 
-			throw new HandlerForDomainEventNotFoundException(exceptionMessage);
+            //throw new HandlerForDomainEventNotFoundException(exceptionMessage);
+
+            //when the handler is not found we just continue
 		}
 	}
 }

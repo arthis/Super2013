@@ -8,6 +8,7 @@ using System.ServiceModel.Dispatcher;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Newtonsoft.Json;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Commands.Lotto;
 using UI_Console.Contabilita;

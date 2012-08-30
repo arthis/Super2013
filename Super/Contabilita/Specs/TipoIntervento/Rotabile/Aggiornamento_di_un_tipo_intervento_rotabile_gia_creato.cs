@@ -6,6 +6,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoIntervento.Rotabile;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoIntervento;
 
@@ -48,7 +49,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Rotabile
 
         public override UpdateTipoInterventoRot When()
         {
-            return Commands.Builders.Build.UpdateTipoInterventoRot
+            return Commands.Build.UpdateTipoInterventoRot
                 .ForDescription(_descriptionUpdated)
                 .ForMnemo(_mnemoUpdated)
                 .OfMeasuringUNit(_idMeasuringUnitUpdated)

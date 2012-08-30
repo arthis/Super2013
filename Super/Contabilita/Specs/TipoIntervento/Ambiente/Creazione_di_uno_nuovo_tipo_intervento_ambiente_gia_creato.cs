@@ -7,6 +7,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoIntervento.Ambiente;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoIntervento;
 
@@ -41,11 +42,11 @@ namespace Super.Contabilita.Specs.TipoIntervento.Ambiente
 
         public override CreateTipoInterventoAmb When()
         {
-            return Commands.Builders.Build.CreateTipoInterventoAmb
+            return Commands.Build.CreateTipoInterventoAmb
                 .ForDescription(_description)
                 .ForMnemo(_mnemo)
                 .OfMeasuringUNit(_idMeasuringUnit)
-                .Build(_id,0);
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

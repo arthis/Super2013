@@ -6,6 +6,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoOggettoIntervento.Rotabile;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoOggettoIntervento.Rotabile;
 
@@ -16,9 +17,11 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private const string _sign = "sign";
+        private readonly Guid _idGruppoOggettoIntervento = Guid.NewGuid();
         
         private string _descriptionUpdated = "test 2";
         private const string _signUpdated = "sign 2";
+        private readonly Guid _idGruppoOggettoInterventoUpdated = Guid.NewGuid();
 
         protected override CommandHandler<UpdateLocomotiveRot> OnHandle(IEventRepository eventRepository)
         {
@@ -30,14 +33,16 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
             yield return Build.LocomotiveRotCreated
                 .ForDescription(_description)
                 .ForSign(_sign)
+                .ForGruppoOggetto(_idGruppoOggettoIntervento)
                 .Build(_id, 1);
         }
 
         public override UpdateLocomotiveRot When()
         {
-            return Commands.Builders.Build.UpdateLocomotiveRot
+            return Commands.Build.UpdateLocomotiveRot
                 .ForDescription(_descriptionUpdated)
                 .ForSign(_signUpdated)
+                .ForGruppoOggetto(_idGruppoOggettoInterventoUpdated)
                 .Build(_id, 1);
         }
 
@@ -46,6 +51,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
             yield return Build.LocomotiveRotUpdated
                 .ForDescription(_descriptionUpdated)
                 .ForSign(_signUpdated)
+                .ForGruppoOggetto(_idGruppoOggettoInterventoUpdated)
                 .Build(_id,2);
                             
         }

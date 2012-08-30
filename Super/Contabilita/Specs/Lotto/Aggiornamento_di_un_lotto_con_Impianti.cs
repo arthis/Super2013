@@ -13,8 +13,8 @@ using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
 using Super.Contabilita.Handlers.Lotto;
 using Super.Contabilita.Handlers.Repositories;
-using BuildCmd = Super.Contabilita.Commands.Builders.Build;
-using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Build;
+using BuildEvt = Super.Contabilita.Events.Build;
 
 namespace Super.Contabilita.Specs.Lotto
 {
@@ -60,10 +60,10 @@ namespace Super.Contabilita.Specs.Lotto
         public override UpdateLotto When()
         {
 
-            return  Build.UpdateLotto
+            return  BuildCmd.UpdateLotto
                          .ForDescription(_description)
                          .ForInterval(_intervalUpdated)
-                         .Build(_id,0);
+                         .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

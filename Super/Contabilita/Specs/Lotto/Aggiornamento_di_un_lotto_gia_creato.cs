@@ -13,8 +13,8 @@ using Super.Contabilita.Handlers;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Contabilita.Handlers.Lotto;
 using Super.Contabilita.Handlers.Repositories;
-using BuildCmd = Super.Contabilita.Commands.Builders.Build;
-using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Build;
+using BuildEvt = Super.Contabilita.Events.Build;
 
 namespace Super.Contabilita.Specs.Lotto
 {

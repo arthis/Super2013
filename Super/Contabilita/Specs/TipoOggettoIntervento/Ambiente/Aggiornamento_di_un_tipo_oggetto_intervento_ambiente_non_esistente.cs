@@ -6,6 +6,7 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers.TipoOggettoIntervento;
@@ -18,6 +19,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private const string _sign = "sign";
+        private readonly Guid _idGruppoOggettoIntervento = Guid.NewGuid();
 
         protected override CommandHandler<UpdateTipoOggettoInterventoAmb> OnHandle(IEventRepository eventRepository)
         {
@@ -35,7 +37,8 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
             return  Build.UpdateTipoOggettoInterventoAmb
                          .ForDescription(_description)
                          .ForSign(_sign)
-                         .Build(_id,0);
+                         .ForGruppoOggetto(_idGruppoOggettoIntervento)
+                         .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

@@ -20,12 +20,15 @@ namespace CommonDomain.Core
 
         protected AggregateBase(IRouteEvents handler)
         {
+            Version = 1;
             CommandValidationMessages = new CommandValidation();
 
             if (handler == null) return;
 
             this.RegisteredRoutes = handler;
             this.RegisteredRoutes.Register(this);
+
+            
         }
 
         public Guid Id { get; protected set; }
@@ -54,7 +57,6 @@ namespace CommonDomain.Core
 
         protected void RaiseEvent(IEventBuilder<IEvent> builder)
         {
-            Version++;
             var @event = builder.Build(Id, Version);
             ((IAggregate)this).ApplyEvent(@event);
             this.uncommittedEvents.Add(@event);
@@ -62,7 +64,6 @@ namespace CommonDomain.Core
 
         protected void RaiseEvent(Guid id, IEventBuilder<IEvent> builder)
         {
-            Version++;
             var @event = builder.Build(id, Version);
             ((IAggregate)this).ApplyEvent(@event);
             this.uncommittedEvents.Add(@event);
@@ -71,7 +72,7 @@ namespace CommonDomain.Core
         void IAggregate.ApplyEvent(object @event)
         {
             this.RegisteredRoutes.Dispatch(@event);
-            this.Version++;
+            Version++;
         }
         ICollection<IEvent> IAggregate.GetUncommittedEvents()
         {

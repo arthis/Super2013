@@ -4,6 +4,7 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.PeriodoProgrammazione;
 using Super.Contabilita.Events.Builders;
 using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;

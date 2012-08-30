@@ -26,7 +26,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.RotabileInManutenzion
             if (!existinglocomotive.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
 
-            var locomotive = new Domain.TipoOggettoIntervento.LocomotiveRotMan(cmd.Id, cmd.Description, cmd.Sign);
+            var locomotive = new Domain.TipoOggettoIntervento.LocomotiveRotMan(cmd.Id, cmd.Description, cmd.Sign, cmd.IdGruppoOggettoIntervento);
 
             EventRepository.Save(locomotive, cmd.CommitId);
 

@@ -25,7 +25,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.Rotabile
             if (!existingCarriage.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
 
-            var carriage = new Domain.TipoOggettoIntervento.CarriageRot(cmd.Id, cmd.Description, cmd.Sign, cmd.IsInternational);
+            var carriage = new Domain.TipoOggettoIntervento.CarriageRot(cmd.Id, cmd.Description, cmd.Sign, cmd.IsInternational, cmd.IdGruppoOggettoIntervento);
 
             EventRepository.Save(carriage, cmd.CommitId);
 

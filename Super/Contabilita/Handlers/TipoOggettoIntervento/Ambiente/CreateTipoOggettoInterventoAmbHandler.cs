@@ -27,7 +27,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.Ambiente
                 throw new AlreadyCreatedAggregateRootException();
 
 
-            var tipoOggettoIntervento = new Domain.TipoOggettoIntervento.TipoOggettoInterventoAmb(cmd.Id, cmd.Description,cmd.Sign);
+            var tipoOggettoIntervento = new Domain.TipoOggettoIntervento.TipoOggettoInterventoAmb(cmd.Id, cmd.Description,cmd.Sign, cmd.IdGruppoOggettoIntervento);
 
             EventRepository.Save(tipoOggettoIntervento, cmd.CommitId);
 

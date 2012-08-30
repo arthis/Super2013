@@ -1,4 +1,5 @@
 using System;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Events.TipoOggettoIntervento.Rotabile;
 
@@ -12,11 +13,13 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
             
         }
 
-        public LocomotiveRot(Guid id,string description, string sign)
+        public LocomotiveRot(Guid id, string description, string sign, Guid idGruppoOggettoIntervento)
+            : base(id)
         {
             var evt = Build.LocomotiveRotCreated
                 .ForDescription(description)
-                .ForSign(sign);
+                .ForSign(sign)
+                .ForGruppoOggetto(idGruppoOggettoIntervento);
             
             RaiseEvent(id,evt);
         }
@@ -27,11 +30,12 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
         }
 
 
-        public void Update(string description, string sign)
+        public void Update(string description, string sign, Guid idGruppoOggettoIntervento)
         {
             var evt = Build.LocomotiveRotUpdated
              .ForDescription(description)
-             .ForSign(sign);
+             .ForSign(sign)
+             .ForGruppoOggetto(idGruppoOggettoIntervento);
 
             RaiseEvent(evt);
         }

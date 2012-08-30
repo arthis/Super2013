@@ -6,6 +6,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoIntervento.Ambiente;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoIntervento;
 
@@ -37,7 +38,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Ambiente
 
         public override DeleteTipoInterventoAmb When()
         {
-            return Commands.Builders.Build.DeleteTipoInterventoAmb
+            return Commands.Build.DeleteTipoInterventoAmb
                 .Build(_id, 2);
         }
 

@@ -1,4 +1,5 @@
 using System;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Events.TipoOggettoIntervento.RotabileInManutenzione;
 
@@ -11,12 +12,14 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
             
         }
 
-          public CarriageRotMan(Guid id,string description, string sign, bool isInternational)
+          public CarriageRotMan(Guid id, string description, string sign, bool isInternational, Guid idGruppoOggettoIntervento)
+              :base(id)
         {
             var evt = Build.CarriageRotManCreated
                 .ForDescription(description)
                 .ForSign(sign)
-                .IsInternational(isInternational);
+                .IsInternational(isInternational)
+                .ForGruppoOggetto(idGruppoOggettoIntervento);
             
             RaiseEvent(id,evt);
         }
@@ -26,12 +29,13 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
             this.Id = evt.Id;
         }
 
-        public void Update(string description, string sign, bool isInternational)
+        public void Update(string description, string sign, bool isInternational, Guid idGruppoOggettoIntervento)
         {
             var evt = Build.CarriageRotManUpdated
              .ForDescription(description)
              .ForSign(sign)
-             .IsInternational(isInternational);
+             .IsInternational(isInternational)
+             .ForGruppoOggetto(idGruppoOggettoIntervento);
 
             RaiseEvent(evt);
         }

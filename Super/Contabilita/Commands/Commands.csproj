@@ -74,9 +74,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\GruppoOggettoIntervento\CreateGruppoOggettoInterventoBuilder.cs" />
+    <Compile Include="Builders\GruppoOggettoIntervento\DeleteGruppoOggettoInterventoBuilder.cs" />
+    <Compile Include="Builders\GruppoOggettoIntervento\UpdateGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\Intervento\CancelInterventoPriceOfPlanBuilder.cs" />
     <Compile Include="Builders\PeriodoProgrammazione\ClosePeriodoProgrammazioneBuilder.cs" />
     <Compile Include="Builders\Intervento\CalculateInterventoRotPriceOfPlanBuilder.cs" />
+    <Compile Include="Builders\Price\UpdateAppaltatoreBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\CreateTipoInterventoRotManBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\DeleteTipoInterventoRotManBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\UpdateTipoInterventoRotManBuilder.cs" />
@@ -107,7 +111,7 @@
     <Compile Include="Builders\Lotto\DeleteLottoBuilder.cs" />
     <Compile Include="Builders\Impianto\DeleteImpiantoBuilder.cs" />
     <Compile Include="Builders\Impianto\CreateImpiantoBuilder.cs" />
-    <Compile Include="Builders\Build.cs" />
+    <Compile Include="Build.cs" />
     <Compile Include="Builders\Lotto\CreateLottoBuilder.cs" />
     <Compile Include="Builders\Impianto\UpdateImpiantoBuilder.cs" />
     <Compile Include="Builders\Lotto\UpdateLottoBuilder.cs" />
@@ -133,6 +137,9 @@
     <Compile Include="CategoriaCommerciale\CreateCategoriaCommerciale.cs" />
     <Compile Include="CategoriaCommerciale\DeleteCategoriaCommerciale.cs" />
     <Compile Include="CategoriaCommerciale\UpdateCategoriaCommerciale.cs" />
+    <Compile Include="GruppoOggettoIntervento\CreateGruppoOggettoIntervento.cs" />
+    <Compile Include="GruppoOggettoIntervento\DeleteGruppoOggettoIntervento.cs" />
+    <Compile Include="GruppoOggettoIntervento\UpdateGruppoOggettoIntervento.cs" />
     <Compile Include="DirezioneRegionale\CreateDirezioneRegionale.cs" />
     <Compile Include="DirezioneRegionale\DeleteDirezioneRegionale.cs" />
     <Compile Include="DirezioneRegionale\UpdateDirezioneRegionale.cs" />
@@ -141,10 +148,11 @@
     <Compile Include="MeasuringUnit\CreateMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\DeleteMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\UpdateMeasuringUnit.cs" />
-    <Compile Include="PeriodoProgrammazione\ClosePeriodoProgrammazione.cs" />
+    <Compile Include="Price\UpdateBasePrice.cs" />
     <Compile Include="PeriodoProgrammazione\CreatePeriodoProgrammazione.cs" />
     <Compile Include="PeriodoProgrammazione\DeletePeriodoProgrammazione.cs" />
     <Compile Include="PeriodoProgrammazione\UpdatePeriodoProgrammazione.cs" />
+    <Compile Include="PeriodoProgrammazione\ClosePeriodoProgrammazione.cs" />
     <Compile Include="Schedulation\CancelSchedulationPriceOfScenario.cs" />
     <Compile Include="Schedulation\CalculateSchedulationPriceOfScenario.cs" />
     <Compile Include="TipoIntervento\Ambiente\CreateTipoInterventoAmb.cs" />

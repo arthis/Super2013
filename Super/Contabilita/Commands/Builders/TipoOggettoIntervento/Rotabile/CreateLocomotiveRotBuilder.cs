@@ -10,6 +10,7 @@ namespace Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Rotabile
     {
         private string _description;
         private string _sign;
+        private Guid _idGruppoOggettoIntervento;
 
 
         public CreateLocomotiveRot Build(Guid id, long version)
@@ -19,7 +20,7 @@ namespace Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Rotabile
 
         public CreateLocomotiveRot Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new CreateLocomotiveRot(id, commitId, version, _sign, _description);
+            var cmd = new CreateLocomotiveRot(id, commitId, version, _sign, _description, _idGruppoOggettoIntervento);
 
             return cmd;
         }
@@ -34,6 +35,12 @@ namespace Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Rotabile
         public CreateLocomotiveRotBuilder ForDescription(string description)
         {
             _description = description;
+            return this;
+        }
+
+        public CreateLocomotiveRotBuilder ForGruppoOggetto(Guid idGruppoOggettoIntervento)
+        {
+            _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
             return this;
         }
 

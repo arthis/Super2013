@@ -24,7 +24,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.Ambiente
             if (tipoOggettoIntervento.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            tipoOggettoIntervento.Update(cmd.Description, cmd.Sign);
+            tipoOggettoIntervento.Update(cmd.Description, cmd.Sign, cmd.IdGruppoOggettoIntervento);
 
             EventRepository.Save(tipoOggettoIntervento, cmd.CommitId);
 

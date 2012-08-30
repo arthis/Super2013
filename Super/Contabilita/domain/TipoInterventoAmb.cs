@@ -4,6 +4,7 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Commands.TipoIntervento.Ambiente;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.TipoIntervento.Ambiente;
 using Super.Contabilita.Events.Builders;
 using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;

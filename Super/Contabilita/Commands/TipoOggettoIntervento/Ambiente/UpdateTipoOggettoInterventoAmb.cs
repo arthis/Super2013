@@ -8,18 +8,21 @@ namespace Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente
     public class UpdateTipoOggettoInterventoAmb : CommandBase
     {
         public string Description { get; set; }
+        public Guid IdGruppoOggettoIntervento { get; set; }
         public string  Sign { get; set; }
  
         public UpdateTipoOggettoInterventoAmb()
         {}
 
-        public UpdateTipoOggettoInterventoAmb(Guid id, Guid commitId, long version, string sign, string description)
+        public UpdateTipoOggettoInterventoAmb(Guid id, Guid commitId, long version, string sign, string description, Guid idGruppoOggettoIntervento)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(sign));
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
             Description = description;
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
             Sign = sign;
         }
 

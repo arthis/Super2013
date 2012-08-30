@@ -2,17 +2,19 @@ using Super.Contabilita.Events.Builders.Appaltatore;
 using Super.Contabilita.Events.Builders.CategoriaCommerciale;
 using Super.Contabilita.Events.Builders.Committente;
 using Super.Contabilita.Events.Builders.DirezioneRegionale;
+using Super.Contabilita.Events.Builders.GruppoOggettoIntervento;
 using Super.Contabilita.Events.Builders.Impianto;
 using Super.Contabilita.Events.Builders.Intervento;
 using Super.Contabilita.Events.Builders.Lotto;
 using Super.Contabilita.Events.Builders.MeasuringUnit;
 using Super.Contabilita.Events.Builders.PeriodoProgrammazione;
+using Super.Contabilita.Events.Builders.Price;
 using Super.Contabilita.Events.Builders.TipoIntervento;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Rotabile;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.RotabileInManutenzione;
 
-namespace Super.Contabilita.Events.Builders
+namespace Super.Contabilita.Events
 {
     public static class Build
     {
@@ -104,6 +106,8 @@ namespace Super.Contabilita.Events.Builders
 
         public static TipoOggettoInterventoRotDeletedBuilder TipoOggettoInterventoRotDeleted { get { return new TipoOggettoInterventoRotDeletedBuilder(); } }
 
+        public static TipoOggettoInterventoRotCreatedBuilder TipoOggettoInterventoRotCreated { get { return new TipoOggettoInterventoRotCreatedBuilder(); } }
+
         public static CarriageRotManCreatedBuilder CarriageRotManCreated { get { return new CarriageRotManCreatedBuilder(); } }
 
         public static CarriageRotManUpdatedBuilder CarriageRotManUpdated { get { return new CarriageRotManUpdatedBuilder(); } }
@@ -114,6 +118,15 @@ namespace Super.Contabilita.Events.Builders
 
         public static TipoOggettoInterventoRotManDeletedBuilder TipoOggettoInterventoRotManDeleted { get { return new TipoOggettoInterventoRotManDeletedBuilder(); } }
 
+        public static TipoOggettoInterventoRotManCreatedBuilder TipoOggettoInterventoRotManCreated { get { return new TipoOggettoInterventoRotManCreatedBuilder(); } }
 
+        public static GruppoOggettoInterventoCreatedBuilder GruppoOggettoInterventoCreated { get { return new GruppoOggettoInterventoCreatedBuilder(); } }
+
+        public static GruppoOggettoInterventoUpdatedBuilder GruppoOggettoInterventoUpdated { get { return new GruppoOggettoInterventoUpdatedBuilder(); } }
+
+        public static GruppoOggettoInterventoDeletedBuilder GruppoOggettoInterventoDeleted { get { return new GruppoOggettoInterventoDeletedBuilder(); } }
+
+        public static BasePriceUpdatedBuilder BasePriceUpdated { get { return new BasePriceUpdatedBuilder(); } }
+        
     }
 }

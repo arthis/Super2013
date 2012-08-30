@@ -6,6 +6,7 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Commands.TipoOggettoIntervento.RotabileInManutenzione;
 using Super.Contabilita.Handlers.TipoOggettoIntervento.RotabileInManutenzione;
@@ -29,7 +30,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
         public override DeleteTipoOggettoInterventoRotMan When()
         {
             return Build.DeleteTipoOggettoInterventoRotMan
-                .Build(_id,0);
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

@@ -1,6 +1,7 @@
 ﻿using System;
 using CommonDomain;
 using CommonDomain.Core;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Events.TipoOggettoIntervento.Ambiente;
 
@@ -28,11 +29,12 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
         {
             
         }
-        public TipoOggettoInterventoAmb(Guid id,string description, string sign)
+        public TipoOggettoInterventoAmb(Guid id, string description, string sign, Guid idGruppoOggettoIntervento)
         {
             var evt = Build.TipoOggettoInterventoAmbCreated
                 .ForDescription(description)
-                .ForSign(sign);
+                .ForSign(sign)
+                .ForGruppoOggetto(idGruppoOggettoIntervento);
             
             RaiseEvent(id, evt);
         }
@@ -62,11 +64,12 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
             Deleted = true;
         }       
 
-        public void Update(string description, string sign)
+        public void Update(string description, string sign, Guid idGruppoOggettoIntervento)
         {
             var evt = Build.TipoOggettoInterventoAmbUpdated
                .ForDescription(description)
-               .ForSign(sign);
+               .ForSign(sign)
+               .ForGruppoOggetto(idGruppoOggettoIntervento);
 
             RaiseEvent(evt);
         }

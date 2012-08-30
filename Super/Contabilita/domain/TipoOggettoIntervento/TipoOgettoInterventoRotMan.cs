@@ -1,5 +1,7 @@
+using System;
 using CommonDomain;
 using CommonDomain.Core;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Events.TipoOggettoIntervento.RotabileInManutenzione;
 
@@ -8,6 +10,24 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
     public class TipoOgettoInterventoRotMan : AggregateBase
     {
         public bool Deleted { get; set; }
+
+         public TipoOgettoInterventoRotMan()
+        {
+            
+        }
+
+        public TipoOgettoInterventoRotMan(Guid id)
+        {
+            var evt = Build.TipoOggettoInterventoRotManCreated;
+
+            RaiseEvent(id, evt);
+        }
+
+        public void Apply(TipoOgettoInterventoRotManCreated evt)
+        {
+            this.Id = evt.Id;
+        }
+
 
         private class Is_Tipo_Oggetto_Intervento_RotManabile_Already_Deleted : ISpecification<TipoOgettoInterventoRotMan>
         {

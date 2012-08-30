@@ -99,6 +99,13 @@
     <Compile Include="Committente\Cancellazione_di_un_committente_non_esistente.cs" />
     <Compile Include="Committente\Creazione_di_uno_nuovo_committente.cs" />
     <Compile Include="Committente\Creazione_di_un_nuovo_committente_gia_creato.cs" />
+    <Compile Include="GruppoOggettoIntervento\Aggiornamento_di_un_gruppo_oggetto_intervento_gia_creato.cs" />
+    <Compile Include="GruppoOggettoIntervento\Aggiornamento_di_un_gruppo_oggetto_intervento_non_esistente.cs" />
+    <Compile Include="GruppoOggettoIntervento\Cancellazione_di_un_gruppo_oggetto_intervento_gia_cancellato.cs" />
+    <Compile Include="GruppoOggettoIntervento\Cancellazione_di_un_gruppo_oggetto_intervento_gia_creato.cs" />
+    <Compile Include="GruppoOggettoIntervento\Cancellazione_di_un_gruppo_oggetto_intervento_non_esistente.cs" />
+    <Compile Include="GruppoOggettoIntervento\Creazione_di_un_nuovo_gruppo_oggetto_intervento.cs" />
+    <Compile Include="GruppoOggettoIntervento\Creazione_di_un_nuovo_gruppo_oggetto_intervento_gia_creato.cs" />
     <Compile Include="Intervento\Aggiornamento_di_una_area_intervento_gia_creata.cs" />
     <Compile Include="MeasuringUnit\Aggiornamento_di_una_unita_di_misura_gia_creata.cs" />
     <Compile Include="MeasuringUnit\Aggiornamento_di_una_unita_di_misura_non_esistente.cs" />
@@ -216,7 +223,9 @@
       <Name>Handlers %28Super\Contabilita\Handlers%29</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Prezzi\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

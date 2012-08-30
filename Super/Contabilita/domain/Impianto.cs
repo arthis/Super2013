@@ -3,6 +3,7 @@ using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders.Impianto;
 using Super.Contabilita.Events.Impianto;
 using Super.Contabilita.Events.Builders;

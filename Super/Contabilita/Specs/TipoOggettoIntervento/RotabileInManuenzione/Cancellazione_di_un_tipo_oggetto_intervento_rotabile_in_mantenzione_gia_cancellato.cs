@@ -6,6 +6,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoOggettoIntervento.RotabileInManutenzione;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoOggettoIntervento.RotabileInManutenzione;
 
@@ -16,6 +17,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private const string _sign = "sign";
+        private readonly Guid _idGruppoOggettoIntervento = Guid.NewGuid();
         
 
         protected override CommandHandler<DeleteTipoOggettoInterventoRotMan> OnHandle(IEventRepository eventRepository)
@@ -25,18 +27,21 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override IEnumerable<IMessage> Given()
         {
+            yield return Build.TipoOggettoInterventoRotManCreated
+                .Build(_id, 1);
             yield return Build.LocomotiveRotManCreated
                 .ForDescription(_description)
                 .ForSign(_sign)
-                .Build(_id,1);
+                .ForGruppoOggetto(_idGruppoOggettoIntervento)
+                .Build(_id,2);
             yield return Build.TipoOggettoInterventoRotManDeleted
-                .Build(_id, 2);
+                .Build(_id, 3);
         }
 
         public override DeleteTipoOggettoInterventoRotMan When()
         {
-            return Commands.Builders.Build.DeleteTipoOggettoInterventoRotMan
-                .Build(_id, 2);
+            return Commands.Build.DeleteTipoOggettoInterventoRotMan
+                .Build(_id, 3);
         }
 
         public override IEnumerable<IMessage> Expect()

@@ -84,6 +84,7 @@
     <Compile Include="Appaltatore.cs" />
     <Compile Include="CategoriaCommerciale.cs" />
     <Compile Include="Committente.cs" />
+    <Compile Include="GruppoOggettoIntervento.cs" />
     <Compile Include="Intervento.cs" />
     <Compile Include="TipoInterventoRotMan.cs" />
     <Compile Include="TipoInterventoRot.cs" />

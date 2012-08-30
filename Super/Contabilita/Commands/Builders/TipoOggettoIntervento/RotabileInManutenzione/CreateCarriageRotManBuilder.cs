@@ -10,6 +10,7 @@ namespace Super.Contabilita.Commands.Builders.TipoOggettoIntervento.RotabileInMa
         private string _description;
         private string _sign;
         private bool _isInternational;
+        private Guid _idGruppoOggettoIntervento;
 
 
         public CreateCarriageRotMan Build(Guid id, long version)
@@ -19,7 +20,7 @@ namespace Super.Contabilita.Commands.Builders.TipoOggettoIntervento.RotabileInMa
 
         public CreateCarriageRotMan Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new CreateCarriageRotMan(id, commitId, version, _sign, _description, _isInternational);
+            var cmd = new CreateCarriageRotMan(id, commitId, version, _sign, _description, _isInternational, _idGruppoOggettoIntervento);
             return cmd;
         }
 
@@ -39,6 +40,12 @@ namespace Super.Contabilita.Commands.Builders.TipoOggettoIntervento.RotabileInMa
         public CreateCarriageRotManBuilder IsInternational(bool isInternational)
         {
             _isInternational = isInternational;
+            return this;
+        }
+
+        public CreateCarriageRotManBuilder ForGruppoOggetto(Guid idGruppoOggettoIntervento)
+        {
+            _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
             return this;
         }
 

@@ -8,6 +8,7 @@ namespace Super.Contabilita.Events.Builders.TipoOggettoIntervento.Ambiente
     {
         private string _description;
         private string _sign;
+        private Guid _idGruppoOggettoIntervento;
 
 
         public TipoOggettoInterventoAmbCreated Build(Guid id, long version)
@@ -17,7 +18,7 @@ namespace Super.Contabilita.Events.Builders.TipoOggettoIntervento.Ambiente
 
         public TipoOggettoInterventoAmbCreated Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new TipoOggettoInterventoAmbCreated(id, commitId, version, _sign, _description);
+            var cmd = new TipoOggettoInterventoAmbCreated(id, commitId, version, _sign, _description, _idGruppoOggettoIntervento);
 
             return cmd;
         }
@@ -35,6 +36,11 @@ namespace Super.Contabilita.Events.Builders.TipoOggettoIntervento.Ambiente
             return this;
         }
 
+        public TipoOggettoInterventoAmbCreatedBuilder ForGruppoOggetto(Guid idGruppoOggettoIntervento)
+        {
+            _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
+            return this;
+        }
 
     }
 }

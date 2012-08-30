@@ -2,17 +2,19 @@ using Super.Contabilita.Commands.Builders.Appaltatore;
 using Super.Contabilita.Commands.Builders.CategoriaCommerciale;
 using Super.Contabilita.Commands.Builders.Committente;
 using Super.Contabilita.Commands.Builders.DirezioneRegionale;
+using Super.Contabilita.Commands.Builders.GruppoOggettoIntervento;
 using Super.Contabilita.Commands.Builders.Impianto;
 using Super.Contabilita.Commands.Builders.Intervento;
 using Super.Contabilita.Commands.Builders.Lotto;
 using Super.Contabilita.Commands.Builders.MeasuringUnit;
 using Super.Contabilita.Commands.Builders.PeriodoProgrammazione;
+using Super.Contabilita.Commands.Builders.Price;
 using Super.Contabilita.Commands.Builders.TipoIntervento;
 using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Rotabile;
 using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.RotabileInManutenzione;
 
-namespace Super.Contabilita.Commands.Builders
+namespace Super.Contabilita.Commands
 {
     public static class Build
     {
@@ -114,7 +116,13 @@ namespace Super.Contabilita.Commands.Builders
 
         public static UpdateLocomotiveRotManBuilder UpdateLocomotiveRotMan { get { return new UpdateLocomotiveRotManBuilder(); } }
 
-        
+        public static CreateGruppoOggettoInterventoBuilder CreateGruppoOggettoIntervento { get { return new CreateGruppoOggettoInterventoBuilder(); } }
+
+        public static UpdateGruppoOggettoInterventoBuilder UpdateGruppoOggettoIntervento { get { return new UpdateGruppoOggettoInterventoBuilder(); } }
+
+        public static DeleteGruppoOggettoInterventoBuilder DeleteGruppoOggettoIntervento { get { return new DeleteGruppoOggettoInterventoBuilder(); } }
+
+        public static UpdateBasePriceBuilder UpdateBasePrice { get { return new UpdateBasePriceBuilder(); } }       
             
             
             

@@ -27,7 +27,5 @@ namespace CommonDomain.Core.Super.Messaging.Builders
         {
             return new Interval(_from, _to);
         }
-
-       
     }
 }

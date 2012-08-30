@@ -7,6 +7,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
@@ -43,7 +44,7 @@ namespace Super.Contabilita.Specs.Impianto
             return  Build.UpdateImpianto
                          .ForDescription(_description)
                          .ForInterval(_intervalUpdated)
-                         .Build(_id,0);
+                         .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

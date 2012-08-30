@@ -7,8 +7,8 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Committente;
-using BuildCmd = Super.Contabilita.Commands.Builders.Build;
-using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Build;
+using BuildEvt = Super.Contabilita.Events.Build;
 using Super.Contabilita.Handlers.Committente;
 
 namespace Super.Contabilita.Specs.Committente
@@ -43,7 +43,7 @@ namespace Super.Contabilita.Specs.Committente
             return BuildCmd.CreateCommittente
                 .ForDescription(_description)
                 .ForSign(_sign)
-                .Build(_id,0);
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

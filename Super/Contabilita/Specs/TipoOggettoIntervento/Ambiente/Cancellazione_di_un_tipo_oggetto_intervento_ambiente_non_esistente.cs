@@ -6,6 +6,7 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Handlers.TipoOggettoIntervento;
@@ -30,7 +31,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
         public override DeleteTipoOggettoInterventoAmb When()
         {
             return Build.DeleteTipoOggettoInterventoAmb
-                .Build(_id,0);
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

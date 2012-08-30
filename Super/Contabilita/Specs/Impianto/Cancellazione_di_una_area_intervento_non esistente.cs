@@ -9,8 +9,8 @@ using CommonSpecs;
 using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Handlers;
 using Super.Contabilita.Handlers.Impianto;
-using BuildCmd = Super.Contabilita.Commands.Builders.Build;
-using BuildEvt = Super.Contabilita.Events.Builders.Build;
+using BuildCmd = Super.Contabilita.Commands.Build;
+using BuildEvt = Super.Contabilita.Events.Build;
 
 namespace Super.Contabilita.Specs.Impianto
 {
@@ -31,7 +31,7 @@ namespace Super.Contabilita.Specs.Impianto
         public override DeleteImpianto When()
         {
             return BuildCmd.DeleteImpianto
-                .Build(_id,0);
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

@@ -6,6 +6,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoIntervento.Rotabile;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoIntervento;
 
@@ -43,7 +44,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Rotabile
 
         public override DeleteTipoInterventoRot When()
         {
-            return Commands.Builders.Build.DeleteTipoInterventoRot
+            return Commands.Build.DeleteTipoInterventoRot
                 .Build(_id, 2);
         }
 

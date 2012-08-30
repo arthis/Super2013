@@ -7,6 +7,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoIntervento.RotabileInManutenzione;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoIntervento;
 
@@ -41,11 +42,11 @@ namespace Super.Contabilita.Specs.TipoIntervento.RotabileInManutenzione
 
         public override CreateTipoInterventoRotMan When()
         {
-            return Commands.Builders.Build.CreateTipoInterventoRotMan
+            return Commands.Build.CreateTipoInterventoRotMan
                 .ForDescription(_description)
                 .ForMnemo(_mnemo)
                 .OfMeasuringUNit(_idMeasuringUnit)
-                .Build(_id,0);
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

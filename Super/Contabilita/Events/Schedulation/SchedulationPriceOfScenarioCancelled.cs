@@ -1,9 +1,10 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Schedulation
 {
-    public class SchedulationPriceOfScenarioCancelled : CommandBase
+    public class SchedulationPriceOfScenarioCancelled : Message, IEvent
     {
 
         public SchedulationPriceOfScenarioCancelled()

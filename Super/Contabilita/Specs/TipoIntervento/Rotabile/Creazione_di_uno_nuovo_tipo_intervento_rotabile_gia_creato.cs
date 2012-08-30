@@ -7,6 +7,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.TipoIntervento.Rotabile;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Handlers.TipoIntervento;
 
@@ -47,14 +48,14 @@ namespace Super.Contabilita.Specs.TipoIntervento.Rotabile
 
         public override CreateTipoInterventoRot When()
         {
-            return Commands.Builders.Build.CreateTipoInterventoRot
+            return Commands.Build.CreateTipoInterventoRot
                 .ForDescription(_description)
                 .ForMnemo(_mnemo)
                 .OfMeasuringUNit(_idMeasuringUnit)
                  .ForAiClasse(_classe)
                 .ForAiTreni(_aiTreni)
                 .ForCalcoloDetrazioni(_calcoloDetrazioni)
-                .Build(_id,0);
+                .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

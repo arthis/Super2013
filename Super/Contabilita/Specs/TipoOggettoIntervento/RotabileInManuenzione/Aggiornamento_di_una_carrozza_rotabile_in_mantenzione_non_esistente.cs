@@ -6,6 +6,7 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Commands.TipoOggettoIntervento.RotabileInManutenzione;
 using Super.Contabilita.Handlers.TipoOggettoIntervento.RotabileInManutenzione;
@@ -18,6 +19,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
         private string _description = "test";
         private const bool _isInternational = true;
         private const string _sign = "sign";
+        private readonly Guid _idGruppoOggettoIntervento = Guid.NewGuid();
 
         protected override CommandHandler<UpdateCarriageRotMan> OnHandle(IEventRepository eventRepository)
         {
@@ -36,7 +38,8 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
                          .ForDescription(_description)
                          .ForSign(_sign)
                          .IsInternational(_isInternational)
-                         .Build(_id,0);
+                         .ForGruppoOggetto(_idGruppoOggettoIntervento)
+                         .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()

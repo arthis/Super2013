@@ -85,6 +85,9 @@
     <Compile Include="Committente\CreateCommittenteHandler.cs" />
     <Compile Include="Committente\DeleteCommittenteHandler.cs" />
     <Compile Include="Committente\UpdateCommittenteHandler.cs" />
+    <Compile Include="GruppoOggettoIntervento\CreateGruppoOggettoInterventoHandler.cs" />
+    <Compile Include="GruppoOggettoIntervento\DeleteGruppoOggettoInterventoHandler.cs" />
+    <Compile Include="GruppoOggettoIntervento\UpdateGruppoOggettoInterventoHandler.cs" />
     <Compile Include="Intervento\CreateLottoHandler.cs" />
     <Compile Include="PeriodoProgrammazione\ClosePeriodoProgrammazioneHandler.cs" />
     <Compile Include="PeriodoProgrammazione\CreatePeriodoProgrammazioneHandler.cs" />

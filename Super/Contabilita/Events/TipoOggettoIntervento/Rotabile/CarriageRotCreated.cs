@@ -12,23 +12,26 @@ namespace Super.Contabilita.Events.TipoOggettoIntervento.Rotabile
         public string Description { get; set; }
         public string Sign { get; set; }
         public bool IsInternational { get; set; }
-        
+        public Guid IdGruppoOggettoIntervento { get; set; }
+
 
         public CarriageRotCreated()
         {
             
         }
 
-        public CarriageRotCreated(Guid id, Guid commitId, long version, string sign, string description, bool isInternational)
+        public CarriageRotCreated(Guid id, Guid commitId, long version, string sign, string description, bool isInternational, Guid idGruppoOggettoIntervento)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(sign));
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
 
             Sign = sign;
             Description = description;
             IsInternational = isInternational;
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
         }
 
         public override string ToDescription()

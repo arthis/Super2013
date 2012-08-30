@@ -1,12 +1,13 @@
 using System;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Schedulation
 {
-    public class SchedulationPriceOfScenarioCalculated:CommandBase
+    public class SchedulationPriceOfScenarioCalculated:Message, IEvent
     {
         public Guid IdScenario { get; set; }
         public Guid IdCommittente { get; set; }

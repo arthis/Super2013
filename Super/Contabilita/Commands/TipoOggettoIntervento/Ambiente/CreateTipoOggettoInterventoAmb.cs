@@ -8,6 +8,7 @@ namespace Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente
     public class CreateTipoOggettoInterventoAmb : CommandBase
     {
         public string Description { get; set; }
+        public Guid IdGruppoOggettoIntervento { get; set; }
         public string Sign { get; set; }
         
         
@@ -16,14 +17,15 @@ namespace Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente
             
         }
 
-        public CreateTipoOggettoInterventoAmb(Guid id, Guid commitId, long version, string sign, string description)
+        public CreateTipoOggettoInterventoAmb(Guid id, Guid commitId, long version, string sign, string description, Guid idGruppoOggettoIntervento)
              :base(id,commitId,version)
         {
-            
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
             Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(sign));
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
             
             Description = description;
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
             Sign = sign;
         }
 
@@ -36,7 +38,7 @@ namespace Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Description, Description) && Equals(other.Sign, Sign);
+            return base.Equals(other) && Equals(other.Description, Description) && other.IdGruppoOggettoIntervento.Equals(IdGruppoOggettoIntervento) && Equals(other.Sign, Sign);
         }
 
         public override bool Equals(object obj)
@@ -52,6 +54,7 @@ namespace Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente
             {
                 int result = base.GetHashCode();
                 result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
+                result = (result*397) ^ IdGruppoOggettoIntervento.GetHashCode();
                 result = (result*397) ^ (Sign != null ? Sign.GetHashCode() : 0);
                 return result;
             }
