@@ -137,6 +137,7 @@
     <Compile Include="Lotto\Cancellazione_di_un_lotto_non_esistente.cs" />
     <Compile Include="Lotto\Creazione_di_un_nuovo_lotto.cs" />
     <Compile Include="Lotto\Creazione_di_un_nuovo_lotto_gia_creato.cs" />
+    <Compile Include="Prezzi\Aggiornamento_di_una_appaltatore_gia_creata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_gia_creato.cs" />
     <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_non_esistente.cs" />
@@ -223,9 +224,7 @@
       <Name>Handlers %28Super\Contabilita\Handlers%29</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Prezzi\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,7 +5,6 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Commands.Price
 {
-    
     public class UpdateBasePrice: CommandBase
     {
         public decimal Value { get; set; }
