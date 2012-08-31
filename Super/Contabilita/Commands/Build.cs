@@ -122,7 +122,11 @@ namespace Super.Contabilita.Commands
 
         public static DeleteGruppoOggettoInterventoBuilder DeleteGruppoOggettoIntervento { get { return new DeleteGruppoOggettoInterventoBuilder(); } }
 
-        public static UpdateBasePriceBuilder UpdateBasePrice { get { return new UpdateBasePriceBuilder(); } }       
+        public static CreateBasePriceBuilder CreateBasePrice { get { return new CreateBasePriceBuilder(); } }       
+
+        public static UpdateBasePriceBuilder UpdateBasePrice { get { return new UpdateBasePriceBuilder(); } }
+
+        public static DeleteBasePriceBuilder DeleteBasePrice { get { return new DeleteBasePriceBuilder(); } }       
 
         public static CreateBachiBouzoukBuilder CreateBachiBouzouk { get { return  new CreateBachiBouzoukBuilder();}}
             

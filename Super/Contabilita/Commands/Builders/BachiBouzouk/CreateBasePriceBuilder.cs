@@ -5,7 +5,7 @@ using Super.Contabilita.Commands.bachibouzouk;
 
 namespace Super.Contabilita.Commands.Builders.BachiBouzouk
 {
-    public class UpdateBasePriceBuilder : ICommandBuilder<UpdateBasePrice>
+    public class CreateBasePriceBuilder : ICommandBuilder<CreateBasePrice>
     {
         private decimal _value;
         private IntervalOpened _interval;
@@ -13,43 +13,43 @@ namespace Super.Contabilita.Commands.Builders.BachiBouzouk
         private Guid _idGruppoOggettoIntervento;
         private Guid _idBasePrice;
 
-        public UpdateBasePrice Build(Guid id, long version)
+        public CreateBasePrice Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public UpdateBasePrice Build(Guid id, Guid commitId, long version)
+        public CreateBasePrice Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new UpdateBasePrice(id, commitId, version,_idBasePrice, _value, _interval, _idTipoIntervento,
+            var cmd = new CreateBasePrice(id, commitId, version,_idBasePrice, _value, _interval, _idTipoIntervento,
                                           _idGruppoOggettoIntervento);
             return cmd;
         }
 
-        public UpdateBasePriceBuilder ForBasePrice(Guid idBasePrice)
+        public CreateBasePriceBuilder ForBasePrice(Guid idBasePrice)
         {
             _idBasePrice = idBasePrice;
             return this;
         }
 
-        public UpdateBasePriceBuilder ForValue(decimal value)
+        public CreateBasePriceBuilder ForValue(decimal value)
         {
             _value = value;
             return this;
         }
 
-        public UpdateBasePriceBuilder ForInterval(IntervalOpened interval)
+        public CreateBasePriceBuilder ForInterval(IntervalOpened interval)
         {
             _interval = interval;
             return this;
         }
 
-        public UpdateBasePriceBuilder ForType(Guid idTipoIntervento)
+        public CreateBasePriceBuilder ForType(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
-        public UpdateBasePriceBuilder ForGruppoOggetto(Guid idGruppoOggettoIntervento)
+        public CreateBasePriceBuilder ForGruppoOggetto(Guid idGruppoOggettoIntervento)
         {
             _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
             return this;

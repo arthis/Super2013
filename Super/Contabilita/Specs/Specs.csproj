@@ -84,7 +84,11 @@
     <Compile Include="Appaltatore\Cancellazione_di_una_appaltatore_gia_creata.cs" />
     <Compile Include="Appaltatore\Cancellazione_di_una_appaltatore_non_esistente.cs" />
     <Compile Include="Appaltatore\Creazione_di_uno_nuovo_appaltatore.cs" />
-    <Compile Include="Appaltatore\Creazione_di_uno_nuovo_impianto_gia_creato.cs" />
+    <Compile Include="Appaltatore\Creazione_di_uno_nuovo_appaltatore_gia_creato.cs" />
+    <Compile Include="BachiBouzouk\aggiorna_il_prezzo_base_per_aggiungere_due_prezzi_divesri.cs" />
+    <Compile Include="BachiBouzouk\Crea_un_prezzo_base.cs" />
+    <Compile Include="BachiBouzouk\Creazione_di_uno_nuovo_bachibouzouk.cs" />
+    <Compile Include="BachiBouzouk\Creazione_di_uno_nuovo_bachibouzouk_gia_creato.cs" />
     <Compile Include="CategoriaCommerciale\Aggiornamento_di_una_categoria_commerciale_gia_creata.cs" />
     <Compile Include="CategoriaCommerciale\Aggiornamento_di_una_categoria_commerciale_non_esistente.cs" />
     <Compile Include="CategoriaCommerciale\Cancellazione_di_una_categoria_commerciale_gia_cancellata.cs" />
@@ -106,7 +110,7 @@
     <Compile Include="GruppoOggettoIntervento\Cancellazione_di_un_gruppo_oggetto_intervento_non_esistente.cs" />
     <Compile Include="GruppoOggettoIntervento\Creazione_di_un_nuovo_gruppo_oggetto_intervento.cs" />
     <Compile Include="GruppoOggettoIntervento\Creazione_di_un_nuovo_gruppo_oggetto_intervento_gia_creato.cs" />
-    <Compile Include="Intervento\Aggiornamento_di_una_area_intervento_gia_creata.cs" />
+    <Compile Include="Intervento\Calcolo_di_intervento_rotabile.cs" />
     <Compile Include="MeasuringUnit\Aggiornamento_di_una_unita_di_misura_gia_creata.cs" />
     <Compile Include="MeasuringUnit\Aggiornamento_di_una_unita_di_misura_non_esistente.cs" />
     <Compile Include="MeasuringUnit\Cancellazione_di_una_unita_di_misura_gia_cancellata.cs" />
@@ -137,7 +141,7 @@
     <Compile Include="Lotto\Cancellazione_di_un_lotto_non_esistente.cs" />
     <Compile Include="Lotto\Creazione_di_un_nuovo_lotto.cs" />
     <Compile Include="Lotto\Creazione_di_un_nuovo_lotto_gia_creato.cs" />
-    <Compile Include="Prezzi\Aggiornamento_di_una_appaltatore_gia_creata.cs" />
+    <Compile Include="BachiBouzouk\aggiorna_il_prezzo_base.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_gia_creato.cs" />
     <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_non_esistente.cs" />

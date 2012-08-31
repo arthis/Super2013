@@ -8,11 +8,11 @@ using Super.Contabilita.Events.Builders.Intervento;
 using Super.Contabilita.Events.Builders.Lotto;
 using Super.Contabilita.Events.Builders.MeasuringUnit;
 using Super.Contabilita.Events.Builders.PeriodoProgrammazione;
-using Super.Contabilita.Events.Builders.Price;
 using Super.Contabilita.Events.Builders.TipoIntervento;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Rotabile;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.RotabileInManutenzione;
+using Super.Contabilita.Events.Builders.bachibouzouk;
 
 namespace Super.Contabilita.Events
 {
@@ -126,7 +126,13 @@ namespace Super.Contabilita.Events
 
         public static GruppoOggettoInterventoDeletedBuilder GruppoOggettoInterventoDeleted { get { return new GruppoOggettoInterventoDeletedBuilder(); } }
 
+        public static BasePriceCreatedBuilder BasePriceCreated { get { return new BasePriceCreatedBuilder(); } }
+
         public static BasePriceUpdatedBuilder BasePriceUpdated { get { return new BasePriceUpdatedBuilder(); } }
+
+        public static BasePriceDeletedBuilder BasePriceDeleted { get { return new BasePriceDeletedBuilder(); } }
+
+        public static bachibouzoukCreatedBuilder bachibouzoukCreated { get { return new bachibouzoukCreatedBuilder(); } }
         
     }
 }

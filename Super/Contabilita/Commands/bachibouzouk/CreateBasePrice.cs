@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Commands.bachibouzouk
 {
-    public class UpdateBasePrice: CommandBase
+    public class CreateBasePrice : CommandBase
     {
         public Guid IdBasePrice { get; set; }
         public decimal Value { get; set; }
@@ -13,17 +13,17 @@ namespace Super.Contabilita.Commands.bachibouzouk
         public Guid IdTipoIntervento { get; set; }
         public Guid IdGruppoOggettoIntervento { get; set; }
 
-        public UpdateBasePrice()
+        public CreateBasePrice()
         {
-            
+
         }
 
-        public UpdateBasePrice(Guid id, Guid commitId, long version, Guid idBasePrice, decimal value, IntervalOpened intervall, Guid idTipoIntervento, Guid idGruppoOggettoInervento)
+        public CreateBasePrice(Guid id, Guid commitId, long version, Guid idBasePrice, decimal value, IntervalOpened intervall, Guid idTipoIntervento, Guid idGruppoOggettoInervento)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentException>(idBasePrice != Guid.Empty);
             Contract.Requires<ArgumentException>(intervall != null);
-            Contract.Requires<ArgumentException>(idTipoIntervento!= Guid.Empty);
+            Contract.Requires<ArgumentException>(idTipoIntervento != Guid.Empty);
             Contract.Requires<ArgumentException>(idGruppoOggettoInervento != Guid.Empty);
 
             IdBasePrice = idBasePrice;
@@ -31,15 +31,15 @@ namespace Super.Contabilita.Commands.bachibouzouk
             Intervall = intervall;
             IdTipoIntervento = idTipoIntervento;
             IdGruppoOggettoIntervento = idGruppoOggettoInervento;
-            
+
         }
 
         public override string ToDescription()
         {
-            return string.Format("Aggiornamo il prezzo di base " );
+            return string.Format("Creiamo un prezzo di base ");
         }
 
-        public bool Equals(UpdateBasePrice other)
+        public bool Equals(CreateBasePrice other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -50,7 +50,7 @@ namespace Super.Contabilita.Commands.bachibouzouk
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as UpdateBasePrice);
+            return Equals(obj as CreateBasePrice);
         }
 
         public override int GetHashCode()

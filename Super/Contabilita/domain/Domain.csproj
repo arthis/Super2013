@@ -82,8 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appaltatore.cs" />
+    <Compile Include="bachibouzouk\BasePrice.cs" />
+    <Compile Include="Build.cs" />
+    <Compile Include="Builders\BasePriceBuilder.cs" />
     <Compile Include="CategoriaCommerciale.cs" />
     <Compile Include="Committente.cs" />
+    <Compile Include="bachibouzouk\bachibouzouk.cs" />
     <Compile Include="GruppoOggettoIntervento.cs" />
     <Compile Include="Intervento.cs" />
     <Compile Include="TipoInterventoRotMan.cs" />

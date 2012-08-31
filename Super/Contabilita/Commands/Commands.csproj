@@ -74,6 +74,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bachibouzouk\DeleteBasePrice.cs" />
+    <Compile Include="bachibouzouk\CreateBasePrice.cs" />
+    <Compile Include="Builders\BachiBouzouk\DeleteBasePriceBuilder.cs" />
+    <Compile Include="Builders\BachiBouzouk\CreateBasePriceBuilder.cs" />
     <Compile Include="Builders\BachiBouzouk\CreateBachiBouzoukBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\CreateGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\DeleteGruppoOggettoInterventoBuilder.cs" />

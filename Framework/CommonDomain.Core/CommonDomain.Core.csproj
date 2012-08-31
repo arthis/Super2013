@@ -102,6 +102,7 @@
     <Compile Include="SagaBase.cs" />
     <Compile Include="Specifications.cs" />
     <Compile Include="Super\Domain\Builders\Build.cs" />
+    <Compile Include="Super\Domain\Builders\IntervalOpenedBuilder.cs" />
     <Compile Include="Super\Domain\Builders\OggettoRotBuilder.cs" />
     <Compile Include="Super\Domain\Builders\OggettoRotManBuilder.cs" />
     <Compile Include="Super\Domain\Builders\IntervallBuilder.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Super\Messaging\ValueObjects\IntervalOpened.cs" />
     <Compile Include="Super\Messaging\ValueObjects\OggettoIntervento.cs" />
     <Compile Include="Super\Messaging\ValueObjects\Intervall.cs" />
+    <Compile Include="Super\Messaging\ValueObjects\Period.cs" />
     <Compile Include="Super\Messaging\ValueObjects\WorkPeriod.cs" />
     <Compile Include="Super\Messaging\ValueObjects\Treno.cs" />
     <Compile Include="ValidationMessage.cs" />

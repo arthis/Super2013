@@ -1,9 +1,9 @@
 using System;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Contabilita.Events.Price;
+using Super.Contabilita.Events.bachibouzouk;
 
-namespace Super.Contabilita.Events.Builders.Price
+namespace Super.Contabilita.Events.Builders.bachibouzouk
 {
     public class BasePriceUpdatedBuilder : IEventBuilder<BasePriceUpdated>
     {
@@ -11,6 +11,7 @@ namespace Super.Contabilita.Events.Builders.Price
         private IntervalOpened _interval;
         private Guid _idTipoIntervento;
         private Guid _idGruppoOggettoIntervento;
+        private Guid _idBasePrice;
 
         public BasePriceUpdated Build(Guid id, long version)
         {
@@ -19,9 +20,15 @@ namespace Super.Contabilita.Events.Builders.Price
 
         public BasePriceUpdated Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new BasePriceUpdated(id, commitId, version, _value, _interval, _idTipoIntervento,
+            var cmd = new BasePriceUpdated(id, commitId, version,_idBasePrice, _value, _interval, _idTipoIntervento,
                                           _idGruppoOggettoIntervento);
             return cmd;
+        }
+
+        public BasePriceUpdatedBuilder ForBasePrice(Guid idBasePrice)
+        {
+            _idBasePrice = idBasePrice;
+            return this;
         }
 
         public BasePriceUpdatedBuilder ForValue(decimal value)
