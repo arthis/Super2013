@@ -7,7 +7,6 @@ using Super.Contabilita.Commands.TipoIntervento.Ambiente;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.TipoIntervento.Ambiente;
 using Super.Contabilita.Events.Builders;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -36,7 +35,7 @@ namespace Super.Contabilita.Domain
 
         public TipoInterventoAmb(Guid id,  string description, string mnemo, Guid idMeasuringUnit)
         {
-            var evt = Build.TipoInterventoAmbCreated
+            var evt = BuildEvt.TipoInterventoAmbCreated
                 .ForDescription(description)
                 .ForMnemo(mnemo)
                 .OfMeasuringUNit(idMeasuringUnit);
@@ -51,7 +50,7 @@ namespace Super.Contabilita.Domain
 
         public void Update( string description, string mnemo, Guid idMeasuringUnit)
         {
-            var evt = Build.TipoInterventoAmbUpdated
+            var evt = BuildEvt.TipoInterventoAmbUpdated
                 .ForDescription(description)
                 .ForMnemo(mnemo)
                 .OfMeasuringUNit(idMeasuringUnit);
@@ -71,7 +70,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.TipoInterventoAmbDeleted;
+                var evt = BuildEvt.TipoInterventoAmbDeleted;
 
                 RaiseEvent(evt);
             }

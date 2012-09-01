@@ -34,7 +34,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.TipoOggettoInterventoAmbCreated
+            yield return BuildEvt.TipoOggettoInterventoAmbCreated
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .ForGruppoOggetto(_idGruppoOggettoIntervento)

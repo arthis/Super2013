@@ -13,7 +13,7 @@ using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
 using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
-using BuildEvt = Super.Appaltatore.Events.Builders.Build;
+using Super.Appaltatore.Events;
 
 namespace Super.Appaltatore.Specs.Programmazione.Rotabile
 {

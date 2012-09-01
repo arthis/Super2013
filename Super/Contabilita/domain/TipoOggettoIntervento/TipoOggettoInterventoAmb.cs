@@ -31,7 +31,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
         }
         public TipoOggettoInterventoAmb(Guid id, string description, string sign, Guid idGruppoOggettoIntervento)
         {
-            var evt = Build.TipoOggettoInterventoAmbCreated
+            var evt = BuildEvt.TipoOggettoInterventoAmbCreated
                 .ForDescription(description)
                 .ForSign(sign)
                 .ForGruppoOggetto(idGruppoOggettoIntervento);
@@ -52,7 +52,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.TipoOggettoInterventoAmbDeleted;
+                var evt = BuildEvt.TipoOggettoInterventoAmbDeleted;
 
                 RaiseEvent(evt);
             }
@@ -66,7 +66,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
 
         public void Update(string description, string sign, Guid idGruppoOggettoIntervento)
         {
-            var evt = Build.TipoOggettoInterventoAmbUpdated
+            var evt = BuildEvt.TipoOggettoInterventoAmbUpdated
                .ForDescription(description)
                .ForSign(sign)
                .ForGruppoOggetto(idGruppoOggettoIntervento);

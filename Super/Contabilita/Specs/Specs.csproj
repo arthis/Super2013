@@ -85,7 +85,6 @@
     <Compile Include="Appaltatore\Cancellazione_di_una_appaltatore_non_esistente.cs" />
     <Compile Include="Appaltatore\Creazione_di_uno_nuovo_appaltatore.cs" />
     <Compile Include="Appaltatore\Creazione_di_uno_nuovo_appaltatore_gia_creato.cs" />
-    <Compile Include="BachiBouzouk\aggiorna_il_prezzo_base_per_aggiungere_due_prezzi_divesri.cs" />
     <Compile Include="BachiBouzouk\Crea_un_prezzo_base.cs" />
     <Compile Include="BachiBouzouk\Creazione_di_uno_nuovo_bachibouzouk.cs" />
     <Compile Include="BachiBouzouk\Creazione_di_uno_nuovo_bachibouzouk_gia_creato.cs" />

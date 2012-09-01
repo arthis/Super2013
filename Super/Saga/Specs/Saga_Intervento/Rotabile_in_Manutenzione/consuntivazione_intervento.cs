@@ -14,7 +14,7 @@ using Super.Controllo.Commands;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
 using BuildEvtProg = Super.Programmazione.Events.Builders.Build;
-using BuildEvtApp = Super.Appaltatore.Events.Builders.Build;
+using BuildEvtApp = Super.Appaltatore.Events.BuildEvt;
 using BuildCmdCtrl = Super.Controllo.Commands.Builders.Build;
 
 

@@ -8,9 +8,9 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
+using Super.Contabilita.Events;
 using Super.Contabilita.Handlers;
 using Super.Contabilita.Handlers.Lotto;
-using BuildEvt = Super.Contabilita.Events.Build;
 using BuildCmd = Super.Contabilita.Commands.Build;
 
 namespace Super.Contabilita.Specs.Lotto

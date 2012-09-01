@@ -18,7 +18,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
 
         public TipoOgettoInterventoRotMan(Guid id)
         {
-            var evt = Build.TipoOggettoInterventoRotManCreated;
+            var evt = BuildEvt.TipoOggettoInterventoRotManCreated;
 
             RaiseEvent(id, evt);
         }
@@ -51,7 +51,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.TipoOggettoInterventoRotManDeleted;
+                var evt = BuildEvt.TipoOggettoInterventoRotManDeleted;
 
                 RaiseEvent(evt);
             }

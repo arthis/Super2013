@@ -5,7 +5,6 @@ using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.GruppoOggettoIntervento;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -34,7 +33,7 @@ namespace Super.Contabilita.Domain
 
         public GruppoOggettoIntervento(Guid id,  string description)
         {
-            var evt = Build.GruppoOggettoInterventoCreated
+            var evt = BuildEvt.GruppoOggettoInterventoCreated
                 .ForDescription(description);
             RaiseEvent(id, evt);
 
@@ -47,7 +46,7 @@ namespace Super.Contabilita.Domain
 
         public void Update( string description)
         {
-            var evt = Build.GruppoOggettoInterventoUpdated
+            var evt = BuildEvt.GruppoOggettoInterventoUpdated
                           .ForDescription(description);
             RaiseEvent(evt);
         }
@@ -65,7 +64,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.GruppoOggettoInterventoDeleted;
+                var evt = BuildEvt.GruppoOggettoInterventoDeleted;
 
                 RaiseEvent(evt);
             }

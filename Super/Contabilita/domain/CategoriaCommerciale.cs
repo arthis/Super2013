@@ -6,7 +6,6 @@ using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.CategoriaCommerciale;
 using Super.Contabilita.Events.Builders;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -35,7 +34,7 @@ namespace Super.Contabilita.Domain
 
         public CategoriaCommerciale(Guid id,  string description)
         {
-            var evt = Build.CategoriaCommercialeCreated
+            var evt = BuildEvt.CategoriaCommercialeCreated
                 .ForDescription(description);
             RaiseEvent(id, evt);
 
@@ -48,7 +47,7 @@ namespace Super.Contabilita.Domain
 
         public void Update( string description)
         {
-            var evt = Build.CategoriaCommercialeUpdated
+            var evt = BuildEvt.CategoriaCommercialeUpdated
                           .ForDescription(description);
             RaiseEvent(evt);
         }
@@ -66,7 +65,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.CategoriaCommercialeDeleted;
+                var evt = BuildEvt.CategoriaCommercialeDeleted;
 
                 RaiseEvent(evt);
             }

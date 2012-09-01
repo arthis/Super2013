@@ -11,7 +11,7 @@ namespace Super.Contabilita.Domain.bachibouzouk
 {
     public class bachibouzouk : AggregateBase
     {
-        private Dictionary<string, BasePrice> _basePrices;
+        private Dictionary<Guid, BasePrice> _basePrices;
 
         private class Is_bachibouzouk_Already_Deleted : ISpecification<bachibouzouk>
         {
@@ -36,7 +36,7 @@ namespace Super.Contabilita.Domain.bachibouzouk
 
         public bachibouzouk(Guid id)
         {
-            var evt = Build.bachibouzoukCreated;
+            var evt = BuildEvt.bachibouzoukCreated;
             RaiseEvent(id, evt);
 
         }
@@ -44,7 +44,7 @@ namespace Super.Contabilita.Domain.bachibouzouk
         public void Apply(bachibouzoukCreated e)
         {
             Id = e.Id;
-            _basePrices = new Dictionary<string, BasePrice>();
+            _basePrices = new Dictionary<Guid, BasePrice>();
         }
 
 
@@ -53,7 +53,7 @@ namespace Super.Contabilita.Domain.bachibouzouk
             var builder = new IntervalOpenedBuilder();
             interval.BuildValue(builder);
 
-            var evt = Build.BasePriceUpdated
+            var evt = BuildEvt.BasePriceUpdated
                 .ForBasePrice(idBasePrice)
                 .ForGruppoOggetto(idGruppoOggettoIntervento)
                 .ForInterval(builder.Build())
@@ -65,7 +65,14 @@ namespace Super.Contabilita.Domain.bachibouzouk
 
         public void Apply(BasePriceUpdated e)
         {
-            
+            var priceBase = Build.BasePrice
+               .ForGruppoOggettoIntervento(e.IdGruppoOggettoInervento)
+               .ForInterval(IntervalOpened.FromMessage(e.Intervall))
+               .ForType(e.IdTipoIntervento)
+               .ForValue(e.Value)
+               .Build();
+
+            _basePrices[e.IdBasePrice] = priceBase;
         }
 
         public void CreateBasePrice(Guid idBasePrice, decimal value, Guid idGruppoOggettoIntervento, Guid idTipoIntervento, IntervalOpened interval)
@@ -74,7 +81,7 @@ namespace Super.Contabilita.Domain.bachibouzouk
             var builder = new IntervalOpenedBuilder();
             interval.BuildValue(builder);
 
-            var evt = Build.BasePriceCreated
+            var evt = BuildEvt.BasePriceCreated
                 .ForBasePrice(idBasePrice)
                 .ForGruppoOggetto(idGruppoOggettoIntervento)
                 .ForInterval(builder.Build())
@@ -87,8 +94,13 @@ namespace Super.Contabilita.Domain.bachibouzouk
         public void Apply(BasePriceCreated e)
         {
             var priceBase = Build.BasePrice
-                
-            _basePrices.Add(e.IdBasePrice, new BasePrice());
+                .ForGruppoOggettoIntervento(e.IdGruppoOggettoInervento)
+                .ForInterval(IntervalOpened.FromMessage(e.Intervall))
+                .ForType(e.IdTipoIntervento)
+                .ForValue(e.Value)
+                .Build();
+
+            _basePrices.Add(e.IdBasePrice, priceBase);
         }
     }
 }

@@ -5,7 +5,7 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
-using Super.Appaltatore.Events.Builders;
+using Super.Appaltatore.Events;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -31,7 +31,7 @@ namespace Super.Appaltatore.Domain
 
             workPeriod.BuildValue(periodBuilder);
 
-            var evt = Build.InterventoRotManProgrammato
+            var evt = BuildEvt.InterventoRotManProgrammato
                             .WithOggetti(oggetti.ToMessage().ToArray())
                             .ForPeriod(periodBuilder.Build())
                             .ForImpianto(idImpianto)
@@ -59,7 +59,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.InterventoConsuntivatoRotManNonReso
+                var evt = BuildEvt.InterventoConsuntivatoRotManNonReso
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .Because(idCausaleAppaltatore)
                     .When(dataConsuntivazione)
@@ -83,7 +83,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.InterventoConsuntivatoRotManNonResoTrenitalia
+                var evt = BuildEvt.InterventoConsuntivatoRotManNonResoTrenitalia
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .Because(idCausaleTrenitalia)
                     .When(dataConsuntivazione)
@@ -110,7 +110,7 @@ namespace Super.Appaltatore.Domain
 
                 workPeriod.BuildValue(periodBuilder);
 
-                var evt = Build.InterventoConsuntivatoRotManReso
+                var evt = BuildEvt.InterventoConsuntivatoRotManReso
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .When(dataConsuntivazione)
                     .WithNote(note)

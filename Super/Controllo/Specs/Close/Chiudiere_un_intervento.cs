@@ -12,7 +12,6 @@ using Super.Controllo.Events;
 using Super.Controllo.Events.Builders;
 using Super.Controllo.Handlers;
 using BuildCmd = Super.Controllo.Commands.Builders.Build;
-using BuildEvt = Super.Controllo.Events.Builders.Build;
 
 namespace Super.Controllo.Specs.Close
 {

@@ -6,7 +6,6 @@ using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.MeasuringUnit;
 using Super.Contabilita.Events.Builders;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -35,7 +34,7 @@ namespace Super.Contabilita.Domain
 
         public MeasuringUnit(Guid id,  string description)
         {
-            var evt = Build.MeasuringUnitCreated
+            var evt = BuildEvt.MeasuringUnitCreated
                 .ForDescription(description);
             RaiseEvent(id, evt);
 
@@ -48,7 +47,7 @@ namespace Super.Contabilita.Domain
 
         public void Update( string description)
         {
-            var evt = Build.MeasuringUnitUpdated
+            var evt = BuildEvt.MeasuringUnitUpdated
                           .ForDescription(description);
             RaiseEvent(evt);
         }
@@ -66,7 +65,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.MeasuringUnitDeleted;
+                var evt = BuildEvt.MeasuringUnitDeleted;
 
                 RaiseEvent(evt);
             }

@@ -34,7 +34,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.CarriageRotManCreated
+            yield return BuildEvt.CarriageRotManCreated
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .IsInternational(_isInternational )

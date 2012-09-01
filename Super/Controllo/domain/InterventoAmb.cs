@@ -17,7 +17,7 @@ namespace Super.Controllo.Domain
         {
             var periodBuilder = new WorkPeriodBuilder();
             workPeriod.BuildValue(periodBuilder);
-            var evt = Build.InterventoAmbControlledReso
+            var evt = BuildEvt.InterventoAmbControlledReso
                 .ForPeriod(periodBuilder.Build())
                 .By(idUser)
                 .When(controlDate)

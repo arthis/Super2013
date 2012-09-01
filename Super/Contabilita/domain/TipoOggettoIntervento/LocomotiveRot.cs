@@ -16,7 +16,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
         public LocomotiveRot(Guid id, string description, string sign, Guid idGruppoOggettoIntervento)
             : base(id)
         {
-            var evt = Build.LocomotiveRotCreated
+            var evt = BuildEvt.LocomotiveRotCreated
                 .ForDescription(description)
                 .ForSign(sign)
                 .ForGruppoOggetto(idGruppoOggettoIntervento);
@@ -32,7 +32,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
 
         public void Update(string description, string sign, Guid idGruppoOggettoIntervento)
         {
-            var evt = Build.LocomotiveRotUpdated
+            var evt = BuildEvt.LocomotiveRotUpdated
              .ForDescription(description)
              .ForSign(sign)
              .ForGruppoOggetto(idGruppoOggettoIntervento);

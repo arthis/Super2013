@@ -6,7 +6,6 @@ using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.Appaltatore;
 using Super.Contabilita.Events.Builders;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -35,7 +34,7 @@ namespace Super.Contabilita.Domain
 
         public Appaltatore(Guid id,  string description)
         {
-            var evt = Build.AppaltatoreCreated
+            var evt = BuildEvt.AppaltatoreCreated
                 .ForDescription(description);
             RaiseEvent(id, evt);
 
@@ -48,7 +47,7 @@ namespace Super.Contabilita.Domain
 
         public void Update( string description)
         {
-            var evt = Build.AppaltatoreUpdated
+            var evt = BuildEvt.AppaltatoreUpdated
                           .ForDescription(description);
             RaiseEvent(evt);
         }
@@ -66,7 +65,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.AppaltatoreDeleted;
+                var evt = BuildEvt.AppaltatoreDeleted;
 
                 RaiseEvent(evt);
             }

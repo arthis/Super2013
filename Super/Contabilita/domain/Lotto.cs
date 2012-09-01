@@ -4,12 +4,12 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Domain.Builders;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders.Lotto;
 using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Events.Builders;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -39,7 +39,7 @@ namespace Super.Contabilita.Domain
 
         public Lotto(Guid id, Interval interval,  string description)
         {
-            var evt = Build.LottoCreated
+            var evt = BuildEvt.LottoCreated
                           .ForInterval(interval)
                           .ForDescription(description);
             RaiseEvent(id, evt);
@@ -48,12 +48,12 @@ namespace Super.Contabilita.Domain
         public void Apply(LottoCreated e)
         {
             Id = e.Id;
-            _interval = BuildVO.Interval.FromPeriod(e.Interval).Build();
+            _interval = BuildDomainVO.Interval.FromPeriod(e.Interval).Build();
         }
 
         public void Update(Interval interval, string description)
         {
-            var evt = Build.LottoUpdated
+            var evt = BuildEvt.LottoUpdated
                 .ForInterval(interval)
                 .ForDescription(description);
 
@@ -73,7 +73,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.LottoDeleted;
+                var evt = BuildEvt.LottoDeleted;
 
                 RaiseEvent(evt);
             }

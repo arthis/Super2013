@@ -7,8 +7,6 @@ using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Events.TipoIntervento.Rotabile;
 
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
-
 namespace Super.Contabilita.Domain
 {
     public class TipoInterventoRot : AggregateBase
@@ -36,7 +34,7 @@ namespace Super.Contabilita.Domain
 
         public TipoInterventoRot(Guid id, string description, string mnemo, Guid idMeasuringUnit, char classe, bool aitreni, bool calcoloDetrazioni)
         {
-            var evt = Build.TipoInterventoRotCreated
+            var evt = BuildEvt.TipoInterventoRotCreated
                 .ForDescription(description)
                 .ForMnemo(mnemo)
                 .OfMeasuringUNit(idMeasuringUnit)
@@ -55,7 +53,7 @@ namespace Super.Contabilita.Domain
 
         public void Update(string description, string mnemo, Guid idMeasuringUnit, char classe, bool aitreni, bool calcoloDetrazioni)
         {
-            var evt = Build.TipoInterventoRotUpdated
+            var evt = BuildEvt.TipoInterventoRotUpdated
                 .ForDescription(description)
                 .ForMnemo(mnemo)
                 .OfMeasuringUNit(idMeasuringUnit)
@@ -78,7 +76,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.TipoInterventoRotDeleted;
+                var evt = BuildEvt.TipoInterventoRotDeleted;
 
                 RaiseEvent(evt);
             }

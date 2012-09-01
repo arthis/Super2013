@@ -34,7 +34,7 @@ namespace Super.Contabilita.Specs.BachiBouzouk
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Events.Build.bachibouzoukCreated
+            yield return Events.BuildEvt.bachibouzoukCreated
                                  .Build(_id,1);
         }
 

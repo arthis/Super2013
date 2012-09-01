@@ -6,7 +6,6 @@ using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.Committente;
 using Super.Contabilita.Events.Builders;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -35,7 +34,7 @@ namespace Super.Contabilita.Domain
 
         public Committente(Guid id,  string description,string sign)
         {
-            var evt = Build.CommittenteCreated
+            var evt = BuildEvt.CommittenteCreated
                 .ForDescription(description)
                 .ForSign(sign);
                 
@@ -50,7 +49,7 @@ namespace Super.Contabilita.Domain
 
         public void Update( string description, string sign)
         {
-            var evt = Build.CommittenteUpdated
+            var evt = BuildEvt.CommittenteUpdated
                           .ForDescription(description)
                           .ForSign(sign);
             RaiseEvent(evt);
@@ -69,7 +68,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.CommittenteDeleted;
+                var evt = BuildEvt.CommittenteDeleted;
 
                 RaiseEvent(evt);
             }

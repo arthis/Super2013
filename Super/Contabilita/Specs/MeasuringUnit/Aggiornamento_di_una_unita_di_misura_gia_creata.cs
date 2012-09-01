@@ -6,9 +6,9 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.MeasuringUnit;
+using Super.Contabilita.Events;
 using Super.Contabilita.Handlers.MeasuringUnit;
 using BuildCmd = Super.Contabilita.Commands.Build;
-using BuildEvt = Super.Contabilita.Events.Build;
 
 namespace Super.Contabilita.Specs.MeasuringUnit
 {

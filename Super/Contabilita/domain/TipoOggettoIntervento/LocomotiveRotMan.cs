@@ -15,7 +15,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
         public LocomotiveRotMan(Guid id, string description, string sign, Guid idGruppoOggettoIntervento)
              : base(id)
         {
-            var evt = Build.LocomotiveRotManCreated
+            var evt = BuildEvt.LocomotiveRotManCreated
                 .ForDescription(description)
                 .ForSign(sign)
                 .ForGruppoOggetto(idGruppoOggettoIntervento);
@@ -31,7 +31,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
 
         public void Update(string description, string sign, Guid idGruppoOggettoIntervento)
         {
-            var evt = Build.LocomotiveRotManUpdated
+            var evt = BuildEvt.LocomotiveRotManUpdated
              .ForDescription(description)
              .ForSign(sign)
              .ForGruppoOggetto(idGruppoOggettoIntervento);

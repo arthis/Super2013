@@ -32,7 +32,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.CarriageRotManCreated
+            yield return BuildEvt.CarriageRotManCreated
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .IsInternational(_isInternational)
@@ -52,7 +52,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Build.CarriageRotManUpdated
+            yield return BuildEvt.CarriageRotManUpdated
                 .ForDescription(_descriptionUpdated)
                 .ForSign(_signUpdated)
                 .IsInternational(_isInternationalUpdated)

@@ -9,6 +9,7 @@ namespace Super.Contabilita.Commands.Intervento
     public abstract class CalculateInterventoPriceOfPlan:CommandBase
     {
         public Guid IdPlan { get; set; }
+        public Guid IdBachBouzouk { get; set; }
         public Guid IdTipoIntervento { get; set; }
         public Period Period { get; set; }
 
@@ -21,15 +22,19 @@ namespace Super.Contabilita.Commands.Intervento
                                    Guid commitId,
                                    long version,
                                    Guid idPlan,
+                                   Guid idBachBouzouk,
                                    Guid idTipoIntervento,
                                    Period period)
             : base(id,commitId,  version)
         {
+        
             Contract.Requires<ArgumentNullException>(idPlan != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idBachBouzouk != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
             Contract.Requires<ArgumentNullException>(period != null);
 
             IdPlan = idPlan;
+            IdBachBouzouk = idBachBouzouk;
             IdTipoIntervento = idTipoIntervento;
             Period = period;
         }
@@ -72,10 +77,11 @@ namespace Super.Contabilita.Commands.Intervento
            Guid commitId,
            long version,
            Guid idPlan,
+           Guid idBachBouzouk,
            Guid idTipoIntervento,
            Period period,
            OggettoRot[] oggetti)
-            : base(id, commitId, version,   idPlan,  idTipoIntervento,  period)
+            : base(id, commitId, version,   idPlan, idBachBouzouk,  idTipoIntervento,  period)
         {
             Contract.Requires(oggetti != null);
 
@@ -123,10 +129,11 @@ namespace Super.Contabilita.Commands.Intervento
             Guid commitId,
             long version,
             Guid idPlan,
+            Guid idBachBouzouk,
             Guid idTipoIntervento,
             Period period, 
             OggettoRotMan[] oggetti)
-            : base(id, commitId, version,   idPlan,   idTipoIntervento,  period)
+            : base(id, commitId, version,   idPlan,idBachBouzouk,   idTipoIntervento,  period)
         {
             Contract.Requires(oggetti != null);
 
@@ -175,10 +182,11 @@ namespace Super.Contabilita.Commands.Intervento
             Guid commitId,
             long version,
             Guid idPlan,
+            Guid idBachBouzouk,
             Guid idTipoIntervento, 
             Period period,
             int quantity)
-            : base(id, commitId, version,   idPlan,    idTipoIntervento,    period)
+            : base(id, commitId, version,   idPlan, idBachBouzouk,   idTipoIntervento,    period)
         {
             Quantity = quantity;
         }

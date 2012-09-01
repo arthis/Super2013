@@ -15,7 +15,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
           public CarriageRotMan(Guid id, string description, string sign, bool isInternational, Guid idGruppoOggettoIntervento)
               :base(id)
         {
-            var evt = Build.CarriageRotManCreated
+            var evt = BuildEvt.CarriageRotManCreated
                 .ForDescription(description)
                 .ForSign(sign)
                 .IsInternational(isInternational)
@@ -31,7 +31,7 @@ namespace Super.Contabilita.Domain.TipoOggettoIntervento
 
         public void Update(string description, string sign, bool isInternational, Guid idGruppoOggettoIntervento)
         {
-            var evt = Build.CarriageRotManUpdated
+            var evt = BuildEvt.CarriageRotManUpdated
              .ForDescription(description)
              .ForSign(sign)
              .IsInternational(isInternational)

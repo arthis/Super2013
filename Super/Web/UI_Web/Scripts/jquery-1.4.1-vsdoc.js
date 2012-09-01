@@ -281,7 +281,7 @@ jQuery.fn = jQuery.prototype = {
 		///		An array of elements
 		///	</param>
 
-		// Build a new jQuery matched element set
+		// BuildDomainVO a new jQuery matched element set
 		var ret = jQuery( elems || null );
 
 		// Add the old object onto the stack (as a reference)
@@ -6452,7 +6452,7 @@ jQuery.extend({
 			s.dataType = "json";
 		}
 
-		// Build temporary JSONP function
+		// BuildDomainVO temporary JSONP function
 		if ( s.dataType === "json" && (s.data && jsre.test(s.data) || jsre.test(s.url)) ) {
 			jsonp = s.jsonpCallback || ("jsonp" + jsc++);
 

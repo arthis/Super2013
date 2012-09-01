@@ -36,7 +36,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Rotabile
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.TipoInterventoRotCreated
+            yield return BuildEvt.TipoInterventoRotCreated
                 .ForDescription(_description)
                 .ForMnemo(_mnemo)
                 .OfMeasuringUNit(_idMeasuringUnit)

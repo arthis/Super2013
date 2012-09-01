@@ -6,7 +6,6 @@ using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
 using Super.Contabilita.Events.TipoIntervento.RotabileInManutenzione;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -35,7 +34,7 @@ namespace Super.Contabilita.Domain
 
         public TipoInterventoRotMan(Guid id,  string description, string mnemo, Guid idMeasuringUnit)
         {
-            var evt = Build.TipoInterventoRotManCreated
+            var evt = BuildEvt.TipoInterventoRotManCreated
                 .ForDescription(description)
                 .ForMnemo(mnemo)
                 .OfMeasuringUNit(idMeasuringUnit);
@@ -50,7 +49,7 @@ namespace Super.Contabilita.Domain
 
         public void Update( string description, string mnemo, Guid idMeasuringUnit)
         {
-            var evt = Build.TipoInterventoRotManUpdated
+            var evt = BuildEvt.TipoInterventoRotManUpdated
                 .ForDescription(description)
                 .ForMnemo(mnemo)
                 .OfMeasuringUNit(idMeasuringUnit);
@@ -70,7 +69,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.TipoInterventoRotManDeleted;
+                var evt = BuildEvt.TipoInterventoRotManDeleted;
 
                 RaiseEvent(evt);
             }

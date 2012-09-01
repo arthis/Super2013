@@ -7,7 +7,6 @@ using CommonDomain.Core.Super.Messaging.Builders;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.PeriodoProgrammazione;
 using Super.Contabilita.Events.Builders;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -53,7 +52,7 @@ namespace Super.Contabilita.Domain
             
             interval.BuildValue(intervalBuilder);
 
-            var evt = Build.PeriodoProgrammazioneCreated
+            var evt = BuildEvt.PeriodoProgrammazioneCreated
                 .ForDescription(description)
                 .ForInterval(intervalBuilder.Build());
 
@@ -72,7 +71,7 @@ namespace Super.Contabilita.Domain
 
             interval.BuildValue(intervalBuilder);
 
-            var evt = Build.PeriodoProgrammazioneUpdated
+            var evt = BuildEvt.PeriodoProgrammazioneUpdated
                           .ForDescription(description)
                           .ForInterval(intervalBuilder.Build());
             RaiseEvent(evt);
@@ -91,7 +90,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.PeriodoProgrammazioneDeleted;
+                var evt = BuildEvt.PeriodoProgrammazioneDeleted;
 
                 RaiseEvent(evt);
             }
@@ -111,7 +110,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.PeriodoProgrammazioneClosed
+                var evt = BuildEvt.PeriodoProgrammazioneClosed
                     .By(idUser)
                     .When(closingDate);
 

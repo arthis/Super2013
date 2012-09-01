@@ -101,7 +101,7 @@
     <Compile Include="Builders\Lotto\LottoDeletedBuilder.cs" />
     <Compile Include="Builders\Lotto\LottoUpdatedBuilder.cs" />
     <Compile Include="Builders\Impianto\ImpiantoDeletedBuilder.cs" />
-    <Compile Include="Build.cs" />
+    <Compile Include="BuildEvt.cs" />
     <Compile Include="Builders\Impianto\ImpiantoCreatedBuilder.cs" />
     <Compile Include="Builders\Impianto\ImpiantoUpdatedBuilder.cs" />
     <Compile Include="Builders\Lotto\LottoCreatedBuilder.cs" />

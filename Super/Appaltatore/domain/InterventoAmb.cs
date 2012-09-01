@@ -4,7 +4,8 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
-using Super.Appaltatore.Events.Builders;
+using Super.Appaltatore.Events;
+
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -32,7 +33,7 @@ namespace Super.Appaltatore.Domain
 
             workPeriod.BuildValue(periodBuilder);
 
-            var evt = Build.InterventoAmbProgrammato
+            var evt = BuildEvt.InterventoAmbProgrammato
                             .ForPeriod(periodBuilder.Build())
                             .ForImpianto(idImpianto)
                             .OfType(idTipoIntervento)
@@ -60,7 +61,7 @@ namespace Super.Appaltatore.Domain
 
             if(specs.IsSatisfiedBy(this))
             {
-                var evt = Build.InterventoConsuntivatoAmbNonReso
+                var evt = BuildEvt.InterventoConsuntivatoAmbNonReso
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .Because(idCausaleAppaltatore)
                                 .When(dataConsuntivazione)
@@ -83,7 +84,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.InterventoConsuntivatoAmbNonResoTrenitalia
+                var evt = BuildEvt.InterventoConsuntivatoAmbNonResoTrenitalia
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .Because(idCausaleTrenitalia)
                                 .When(dataConsuntivazione)
@@ -110,7 +111,7 @@ namespace Super.Appaltatore.Domain
 
                 workPeriod.BuildValue(periodBuilder);
 
-                var evt = Build.InterventoConsuntivatoAmbReso
+                var evt = BuildEvt.InterventoConsuntivatoAmbReso
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .When(dataConsuntivazione)
                     .WithNote(note)

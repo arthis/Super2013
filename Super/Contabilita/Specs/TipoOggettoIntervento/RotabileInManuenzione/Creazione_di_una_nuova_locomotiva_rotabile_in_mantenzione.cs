@@ -41,9 +41,9 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Build.TipoOggettoInterventoRotManCreated
+            yield return BuildEvt.TipoOggettoInterventoRotManCreated
                 .Build(_id, 1);
-            yield return Build.LocomotiveRotManCreated
+            yield return BuildEvt.LocomotiveRotManCreated
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .ForGruppoOggetto(_idGruppoOggettoIntervento)

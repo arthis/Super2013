@@ -25,7 +25,7 @@ namespace Super.Contabilita.Handlers.Impianto
             if (impianto.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            impianto.Update(Build.Interval.FromPeriod(cmd.Interval).Build(), cmd.Description);
+            impianto.Update(BuildDomainVO.Interval.FromPeriod(cmd.Interval).Build(), cmd.Description);
 
             EventRepository.Save(impianto, cmd.CommitId);
 

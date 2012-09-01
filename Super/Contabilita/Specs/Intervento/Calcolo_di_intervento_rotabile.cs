@@ -40,17 +40,17 @@ namespace Super.Contabilita.Specs.Intervento
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.CarriageRotCreated
+            yield return BuildEvt.CarriageRotCreated
                 .ForDescription(_descriptionCarriage)
                 .ForGruppoOggetto(_idGruppoOggettoIntervento)
                 .ForSign(_sign)
                 .IsInternational(_isInternationalCarriage)
                 .Build(_idCarriage, 1);
 
-            yield return Build.bachibouzoukCreated
+            yield return BuildEvt.bachibouzoukCreated
                 .Build(_idBachiBouzouk, 1);
 
-            yield return Build.BasePriceUpdated
+            yield return BuildEvt.BasePriceUpdated
                 .ForGruppoOggetto(_idGruppoOggettoIntervento)
                 .ForInterval(_intervalPrezzoBase)
                 .ForType(_idTipoIntervento)
@@ -73,7 +73,7 @@ namespace Super.Contabilita.Specs.Intervento
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Build.InterventoPriceOfPlanCalculated
+            yield return BuildEvt.InterventoPriceOfPlanCalculated
                 .ForPlan(_idPlan)
                 .ToPrice(_priceCalculated)
                 .Build(_id, 2);

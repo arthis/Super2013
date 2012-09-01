@@ -9,11 +9,11 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Commands.Builders;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Handlers;
 using Super.Contabilita.Handlers.Lotto;
 using BuildCmd = Super.Contabilita.Commands.Build;
-using BuildEvt = Super.Contabilita.Events.Build;
 
 namespace Super.Contabilita.Specs.Lotto
 {

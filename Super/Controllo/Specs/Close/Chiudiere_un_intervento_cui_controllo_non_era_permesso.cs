@@ -10,7 +10,6 @@ using CommonSpecs;
 using Super.Controllo.Commands.Builders;
 using Super.Controllo.Handlers;
 using BuildCmd = Super.Controllo.Commands.Builders.Build;
-using BuildEvt = Super.Controllo.Events.Builders.Build;
 
 namespace Super.Controllo.Specs.Close
 {

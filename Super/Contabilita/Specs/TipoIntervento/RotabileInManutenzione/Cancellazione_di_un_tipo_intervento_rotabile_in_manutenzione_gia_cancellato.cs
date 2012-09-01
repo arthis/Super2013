@@ -27,12 +27,12 @@ namespace Super.Contabilita.Specs.TipoIntervento.RotabileInManutenzione
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.TipoInterventoRotManCreated
+            yield return BuildEvt.TipoInterventoRotManCreated
                 .ForDescription(_description)
                 .ForMnemo(_mnemo)
                 .OfMeasuringUNit(_idMeasuringUnit)
                 .Build(_id,1);
-            yield return Build.TipoInterventoRotManDeleted
+            yield return BuildEvt.TipoInterventoRotManDeleted
                 .Build(_id, 2);
         }
 

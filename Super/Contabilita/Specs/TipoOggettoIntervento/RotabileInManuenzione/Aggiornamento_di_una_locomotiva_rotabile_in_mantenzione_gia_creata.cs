@@ -30,7 +30,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.LocomotiveRotManCreated
+            yield return BuildEvt.LocomotiveRotManCreated
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .ForGruppoOggetto(_idGruppoOggettoIntervento)
@@ -48,7 +48,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Build.LocomotiveRotManUpdated
+            yield return BuildEvt.LocomotiveRotManUpdated
                 .ForDescription(_descriptionUpdated)
                 .ForSign(_signUpdated)
                 .ForGruppoOggetto(_idGruppoOggettoInterventoUpdated)

@@ -5,7 +5,7 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
-using Super.Appaltatore.Events.Builders;
+using Super.Appaltatore.Events;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -41,7 +41,7 @@ namespace Super.Appaltatore.Domain
             trenoPartenza.BuildValue(trenoPartenzaBuilder);
             trenoArrivo.BuildValue(trenoArrivoBuilder);
 
-            var evt = Build.InterventoRotProgrammato
+            var evt = BuildEvt.InterventoRotProgrammato
                             .WithOggetti(oggetti.ToMessage().ToArray())
                             .ForPeriod(periodBuilder.Build())
                             .ForImpianto(idImpianto)
@@ -73,7 +73,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.InterventoConsuntivatoRotNonReso
+                var evt = BuildEvt.InterventoConsuntivatoRotNonReso
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .Because(idCausaleAppaltatore)
                                 .When(dataConsuntivazione)
@@ -96,7 +96,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.InterventoConsuntivatoRotNonResoTrenitalia
+                var evt = BuildEvt.InterventoConsuntivatoRotNonResoTrenitalia
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .Because(idCausaleTrenitalia)
                                 .When(dataConsuntivazione)
@@ -131,7 +131,7 @@ namespace Super.Appaltatore.Domain
                 trenoPartenza.BuildValue(trenoPartenzaBuilder);
                 trenoArrivo.BuildValue(trenoArrivoBuilder);
 
-                var evt = Build.InterventoConsuntivatoRotReso       
+                var evt = BuildEvt.InterventoConsuntivatoRotReso       
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .When(dataConsuntivazione)
                                 .WithNote(note)

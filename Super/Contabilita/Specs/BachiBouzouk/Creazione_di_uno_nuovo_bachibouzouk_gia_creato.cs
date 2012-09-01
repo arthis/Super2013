@@ -32,7 +32,7 @@ namespace Super.Contabilita.Specs.BachiBouzouk
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.bachibouzoukCreated
+            yield return BuildEvt.bachibouzoukCreated
                 .Build(_id, 1);
         }
 

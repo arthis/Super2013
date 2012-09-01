@@ -17,7 +17,7 @@ namespace Super.Controllo.Domain
 
         public void AllowControl(Guid id)
         {
-            var evt = Build.InterventoControlAllowed;
+            var evt = BuildEvt.InterventoControlAllowed;
 
             RaiseEvent(id, evt);
         }
@@ -29,7 +29,7 @@ namespace Super.Controllo.Domain
 
         public void Close(Guid idUser, DateTime closingDate)
         {
-            var evt = Build.InterventoClosed
+            var evt = BuildEvt.InterventoClosed
                 .By(idUser)
                 .When(closingDate);
 
@@ -43,7 +43,7 @@ namespace Super.Controllo.Domain
 
         public void ControlNonReso(Guid idUser, DateTime controlDate, Guid idCausale, string note)
         {
-            var evt = Build.InterventoControlledNonReso
+            var evt = BuildEvt.InterventoControlledNonReso
                 .By(idUser)
                 .When(controlDate)
                 .Because(idCausale)
@@ -59,7 +59,7 @@ namespace Super.Controllo.Domain
 
         public void Reopen(Guid idUser, DateTime reopeningDate)
         {
-            var evt = Build.InterventoReopened
+            var evt = BuildEvt.InterventoReopened
                 .By(idUser)
                 .When(reopeningDate);
 

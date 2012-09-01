@@ -16,7 +16,7 @@ using Super.Contabilita.Events.Builders.bachibouzouk;
 
 namespace Super.Contabilita.Events
 {
-    public static class Build
+    public static class BuildEvt
     {
         public static ImpiantoCreatedBuilder ImpiantoCreated { get { return new ImpiantoCreatedBuilder(); } }
 

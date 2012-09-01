@@ -23,7 +23,7 @@ namespace Super.Controllo.Domain
             trenoPartenza.BuildValue(trenoPartenzaBuilder);
             trenoArrivo.BuildValue(trenoArrivoBuilder);
 
-            var evt = Build.InterventoRotControlledReso
+            var evt = BuildEvt.InterventoRotControlledReso
                 .ForPeriod(periodBuilder.Build())
                 .By(idUser)
                 .When(controlDate)

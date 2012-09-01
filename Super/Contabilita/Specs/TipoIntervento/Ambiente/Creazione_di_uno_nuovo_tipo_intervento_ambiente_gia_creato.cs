@@ -33,7 +33,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Ambiente
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.TipoInterventoAmbCreated
+            yield return BuildEvt.TipoInterventoAmbCreated
                 .ForDescription(_description)
                 .ForMnemo(_mnemo)
                 .OfMeasuringUNit(_idMeasuringUnit)

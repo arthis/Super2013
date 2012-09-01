@@ -8,7 +8,6 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.DirezioneRegionale;
 using BuildCmd = Super.Contabilita.Commands.Build;
-using BuildEvt = Super.Contabilita.Events.Build;
 using Super.Contabilita.Handlers.DirezioneRegionale;
 
 namespace Super.Contabilita.Specs.DirezioneRegionale

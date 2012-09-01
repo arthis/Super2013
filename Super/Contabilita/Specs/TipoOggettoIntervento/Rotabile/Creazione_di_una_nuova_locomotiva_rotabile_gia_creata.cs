@@ -33,9 +33,9 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return Build.TipoOggettoInterventoRotCreated
+            yield return BuildEvt.TipoOggettoInterventoRotCreated
                .Build(_id, 1);
-            yield return Build.TipoOggettoInterventoAmbCreated
+            yield return BuildEvt.TipoOggettoInterventoAmbCreated
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .ForGruppoOggetto(_idGruppoOggettoIntervento)

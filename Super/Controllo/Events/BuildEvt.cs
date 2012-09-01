@@ -1,6 +1,8 @@
-namespace Super.Controllo.Events.Builders
+using Super.Controllo.Events.Builders;
+
+namespace Super.Controllo.Events
 {
-    public static class Build
+    public static class BuildEvt
     {
         public static InterventoAmbControlledResoBuilder InterventoAmbControlledReso { get { return new InterventoAmbControlledResoBuilder(); } }
 

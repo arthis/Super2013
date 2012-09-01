@@ -7,8 +7,8 @@
 //using CommonSpecs;
 //using Super.Contabilita.Commands.Appaltatore;
 //using Super.Contabilita.Handlers.Appaltatore;
-//using BuildCmd = Super.Contabilita.Commands.Build;
-//using BuildEvt = Super.Contabilita.Events.Build;
+//using BuildCmd = Super.Contabilita.Commands.BuildEvt;
+//using BuildEvt = Super.Contabilita.Events.BuildEvt;
 
 //namespace Super.Contabilita.Specs.Appaltatore
 //{
@@ -29,21 +29,21 @@
 //        {
 //            yield return  BuildEvt.AppaltatoreCreated
 //                                   .ForDescription(_description)
-//                                   .Build(_id,1);
+//                                   .BuildEvt(_id,1);
 //        }
 
 //        public override UpdateAppaltatore When()
 //        {
 //            return BuildCmd.UpdateAppaltatore
 //                            .ForDescription(_descriptionUpdated)
-//                            .Build(_id,1);
+//                            .BuildEvt(_id,1);
 //        }
 
 //        public override IEnumerable<IMessage> Expect()
 //        {
 //            yield return BuildEvt.AppaltatoreUpdated
 //                .ForDescription(_descriptionUpdated)
-//                .Build(_id,2);
+//                .BuildEvt(_id,2);
                             
 //        }
 

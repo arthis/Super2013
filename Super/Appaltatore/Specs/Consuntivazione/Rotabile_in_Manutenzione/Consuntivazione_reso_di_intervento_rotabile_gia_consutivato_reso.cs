@@ -12,7 +12,7 @@ using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
 using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
-using BuildEvt = Super.Appaltatore.Events.Builders.Build;
+using Super.Appaltatore.Events;
 
 namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
 {

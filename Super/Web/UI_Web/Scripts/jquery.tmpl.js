@@ -31,7 +31,7 @@
             jQuery.extend(newItem, options, { nodes: [], parent: parentItem });
         }
         if (fn) {
-            // Build the hierarchical content to be used during insertion into DOM
+            // BuildDomainVO the hierarchical content to be used during insertion into DOM
             newItem.tmpl = fn;
             newItem._ctnt = newItem._ctnt || newItem.tmpl(jQuery, newItem);
             newItem.key = ++itemKey;
@@ -277,7 +277,7 @@
             return (typeof item === "string") ?
             // Insert template item annotations, to be converted to jQuery.data( "tmplItem" ) when elems are inserted into DOM.
 				(tmplItem.key ? item.replace(/(<\w+)(?=[\s>])(?![^>]*_tmplitem)([^>]*)/g, "$1 " + tmplItmAtt + "=\"" + tmplItem.key + "\" $2") : item) :
-            // This is a child template item. Build nested template.
+            // This is a child template item. BuildDomainVO nested template.
 				build(item, tmplItem, item._ctnt);
         }) :
         // If content is not defined, insert tmplItem directly. Not a template item. May be a string, or a string array, e.g. from {{html $item.html()}}.
@@ -360,7 +360,7 @@
 		);
     }
     function updateWrapped(options, wrapped) {
-        // Build the wrapped content.
+        // BuildDomainVO the wrapped content.
         options._wrap = build(options, true,
         // Suport imperative scenario in which options.wrapped can be set to a selector or an HTML string.
 			jQuery.isArray(wrapped) ? wrapped : [htmlExpr.test(wrapped) ? wrapped : jQuery(wrapped).html()]

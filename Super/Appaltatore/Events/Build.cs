@@ -1,8 +1,10 @@
 
 
-namespace Super.Appaltatore.Events.Builders
+using Super.Appaltatore.Events.Builders;
+
+namespace Super.Appaltatore.Events
 {
-    public static class Build
+    public static class BuildEvt
     {
         public static InterventoAmbProgrammatoBuilder InterventoAmbProgrammato { get { return new InterventoAmbProgrammatoBuilder(); } }
 

@@ -73,7 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builders\Build.cs" />
+    <Compile Include="Build.cs" />
     <Compile Include="Builders\InterventoConsuntivatoAmbNonResoBuilder.cs" />
     <Compile Include="Builders\InterventoConsuntivatoRotNonResoBuilder.cs" />
     <Compile Include="Builders\InterventoConsuntivatoRotManNonResoBuilder.cs" />

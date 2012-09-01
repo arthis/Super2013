@@ -7,12 +7,12 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Impianto;
+using Super.Contabilita.Events;
 using Super.Contabilita.Events.Impianto;
 using Super.Contabilita.Handlers;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Contabilita.Handlers.Impianto;
 using BuildCmd = Super.Contabilita.Commands.Build;
-using BuildEvt = Super.Contabilita.Events.Build;
 
 namespace Super.Contabilita.Specs.Impianto
 {

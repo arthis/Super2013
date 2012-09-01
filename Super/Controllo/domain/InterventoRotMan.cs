@@ -18,7 +18,7 @@ namespace Super.Controllo.Domain
 
             workPeriod.BuildValue(periodBuilder);
 
-            var evt = Build.InterventoRotManControlledReso
+            var evt = BuildEvt.InterventoRotManControlledReso
                 .ForPeriod(periodBuilder.Build())
                 .By(idUser)
                 .When(controlDate)

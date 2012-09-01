@@ -2,7 +2,7 @@
 // <copyright file="VersionAssemblyInfo.cs" company="none">
 //     Copyright (c) Jonathan Oliver. All rights reserved.
 // </copyright>
-// <author>Rake Build Script</author>
+// <author>Rake BuildDomainVO Script</author>
 //----------------------------------
 
 using System.Reflection;

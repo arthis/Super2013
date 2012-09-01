@@ -8,7 +8,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.GruppoOggettoIntervento;
-using BuildEvt = Super.Contabilita.Events.Build;
+using Super.Contabilita.Events;
 using BuildCmd = Super.Contabilita.Commands.Build;
 using Super.Contabilita.Handlers.GruppoOggettoIntervento;
 

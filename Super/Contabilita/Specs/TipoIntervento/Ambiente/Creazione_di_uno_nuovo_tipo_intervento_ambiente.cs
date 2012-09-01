@@ -41,7 +41,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Events.Build.TipoInterventoAmbCreated
+            yield return Events.BuildEvt.TipoInterventoAmbCreated
                 .ForDescription(_description)
                 .ForMnemo(_mnemo)
                 .OfMeasuringUNit(_idMeasuringUnit)

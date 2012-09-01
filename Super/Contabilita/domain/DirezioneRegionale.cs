@@ -6,7 +6,6 @@ using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.DirezioneRegionale;
 using Super.Contabilita.Events.Builders;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -35,7 +34,7 @@ namespace Super.Contabilita.Domain
 
         public DirezioneRegionale(Guid id,  string description)
         {
-            var evt = Build.DirezioneRegionaleCreated
+            var evt = BuildEvt.DirezioneRegionaleCreated
                 .ForDescription(description);
             RaiseEvent(id, evt);
 
@@ -48,7 +47,7 @@ namespace Super.Contabilita.Domain
 
         public void Update( string description)
         {
-            var evt = Build.DirezioneRegionaleUpdated
+            var evt = BuildEvt.DirezioneRegionaleUpdated
                           .ForDescription(description);
             RaiseEvent(evt);
         }
@@ -66,7 +65,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.DirezioneRegionaleDeleted;
+                var evt = BuildEvt.DirezioneRegionaleDeleted;
 
                 RaiseEvent(evt);
             }

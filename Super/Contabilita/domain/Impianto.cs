@@ -2,12 +2,12 @@
 using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Domain.Builders;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders.Impianto;
 using Super.Contabilita.Events.Impianto;
 using Super.Contabilita.Events.Builders;
-using BuildVO = CommonDomain.Core.Super.Domain.Builders.Build;
 
 namespace Super.Contabilita.Domain
 {
@@ -67,7 +67,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.ImpiantoCreated
+                var evt = BuildEvt.ImpiantoCreated
                     .ForInterval(interval)
                     .ForLotto(idLotto)
                     .ForDescription(description);
@@ -78,7 +78,7 @@ namespace Super.Contabilita.Domain
         public void Apply(ImpiantoCreated e)
         {
             Id = e.Id;
-            _interval = BuildVO.Interval.FromPeriod(e.Interval).Build();
+            _interval = BuildDomainVO.Interval.FromPeriod(e.Interval).Build();
         }
 
 
@@ -87,7 +87,7 @@ namespace Super.Contabilita.Domain
 
         public void Update(Interval interval, string description)
         {
-            var evt = Build.ImpiantoUpdated
+            var evt = BuildEvt.ImpiantoUpdated
                           .ForInterval(interval)
                           .ForDescription(description);
             RaiseEvent(evt);
@@ -106,7 +106,7 @@ namespace Super.Contabilita.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = Build.ImpiantoDeleted;
+                var evt = BuildEvt.ImpiantoDeleted;
 
                 RaiseEvent(evt);
             }

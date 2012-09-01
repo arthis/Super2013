@@ -31,7 +31,7 @@ namespace Super.Contabilita.Specs.BachiBouzouk
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return  Build.bachibouzoukCreated
+            yield return  BuildEvt.bachibouzoukCreated
                                    .Build(_id,1);
            
         }
@@ -49,7 +49,7 @@ namespace Super.Contabilita.Specs.BachiBouzouk
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Build.BasePriceCreated
+            yield return BuildEvt.BasePriceCreated
                  .ForBasePrice(_idBasePrice)
                  .ForGruppoOggetto(_idGruppoOggettoIntervento)
                  .ForInterval(_interval)
