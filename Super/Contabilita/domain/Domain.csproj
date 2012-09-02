@@ -89,7 +89,9 @@
     <Compile Include="Committente.cs" />
     <Compile Include="bachibouzouk\bachibouzouk.cs" />
     <Compile Include="GruppoOggettoIntervento.cs" />
-    <Compile Include="Intervento.cs" />
+    <Compile Include="Intervento\Intervento.cs" />
+    <Compile Include="Intervento\InterventoBasePriceCalculation.cs" />
+    <Compile Include="Intervento\OggettoIntervento.cs" />
     <Compile Include="TipoInterventoRotMan.cs" />
     <Compile Include="TipoInterventoRot.cs" />
     <Compile Include="TipoInterventoAmb.cs" />

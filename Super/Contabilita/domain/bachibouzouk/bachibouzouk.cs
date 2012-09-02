@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.Builders;
@@ -9,6 +10,11 @@ using Super.Contabilita.Events.bachibouzouk;
 
 namespace Super.Contabilita.Domain.bachibouzouk
 {
+    public interface IBasePriceCalculation
+    {
+        void Calculate(List<BasePrice> prices);
+    } 
+
     public class bachibouzouk : AggregateBase
     {
         private Dictionary<Guid, BasePrice> _basePrices;
@@ -28,7 +34,6 @@ namespace Super.Contabilita.Domain.bachibouzouk
         }
 
         private bool _deleted;
-        private Interval _interval;
 
         public bachibouzouk()
         {
@@ -101,6 +106,13 @@ namespace Super.Contabilita.Domain.bachibouzouk
                 .Build();
 
             _basePrices.Add(e.IdBasePrice, priceBase);
+        }
+
+
+        public void CalculateBasePrice(IBasePriceCalculation priceCalculation)
+        {
+            priceCalculation.Calculate(_basePrices.Values.ToList());
+
         }
     }
 }

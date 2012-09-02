@@ -84,6 +84,7 @@
     <Compile Include="Builders\GruppoOggettoIntervento\GruppoOggettoInterventoCreatedBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\GruppoOggettoInterventoDeletedBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\GruppoOggettoInterventoUpdatedBuilder.cs" />
+    <Compile Include="Builders\Intervento\OggettoInterventoRotCreatedBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoPriceOfPlanCalculatedBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoPriceOfPlanCancelledBuilder.cs" />
     <Compile Include="Builders\MeasuringUnit\MeasuringUnitCreatedBuilder.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="GruppoOggettoIntervento\GruppoOggettoInterventoCreated.cs" />
     <Compile Include="GruppoOggettoIntervento\GruppoOggettoInterventoDeleted.cs" />
     <Compile Include="GruppoOggettoIntervento\GruppoOggettoInterventoUpdated.cs" />
+    <Compile Include="Intervento\OggettoInterventoRotCreated.cs" />
     <Compile Include="PeriodoProgrammazione\PeriodoProgrammazioneClosed.cs" />
     <Compile Include="PeriodoProgrammazione\PeriodoProgrammazioneCreated.cs" />
     <Compile Include="PeriodoProgrammazione\PeriodoProgrammazioneDeleted.cs" />

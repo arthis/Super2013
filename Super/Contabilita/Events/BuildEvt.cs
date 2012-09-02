@@ -133,6 +133,8 @@ namespace Super.Contabilita.Events
         public static BasePriceDeletedBuilder BasePriceDeleted { get { return new BasePriceDeletedBuilder(); } }
 
         public static bachibouzoukCreatedBuilder bachibouzoukCreated { get { return new bachibouzoukCreatedBuilder(); } }
+
+        public static OggettoInterventoRotCreatedBuilder OggettoInterventoRotCreated { get { return new OggettoInterventoRotCreatedBuilder();}}
         
     }
 }

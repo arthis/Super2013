@@ -21,7 +21,7 @@ namespace Super.Contabilita.Handlers.Intervento
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var intervento = EventRepository.GetById<Domain.Intervento>(cmd.Id);
+            var intervento = EventRepository.GetById<Domain.Intervento.Intervento>(cmd.Id);
 
             var bachibousouk = EventRepository.GetById<Domain.bachibouzouk.bachibouzouk>(cmd.IdBachBouzouk);
 

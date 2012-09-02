@@ -17,5 +17,26 @@ namespace Super.Contabilita.Domain.bachibouzouk
             _idTipoIntervento = idTipoIntervento;
             _interval = interval;
         }
+
+
+        public IntervalOpened Interval1
+        {
+            get { return _interval; }
+        }
+
+        public Guid IdTipoIntervento
+        {
+            get { return _idTipoIntervento; }
+        }
+
+        public Guid IdGruppoOggettoIntervento
+        {
+            get { return _idGruppoOggettoIntervento; }
+        }
+
+        public decimal Value
+        {
+            get { return _value; }
+        }
     }
 }
