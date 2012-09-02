@@ -3,41 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CommonDomain.Core.Super.Domain.ValueObjects;
+using Super.Contabilita.Domain.Intervento;
 using Super.Contabilita.Domain.bachibouzouk;
 
 namespace Super.Contabilita.Domain.Builders
 {
-    public class BasePriceBuilder
+    public class OggettoInterventoRotBuilder
     {
-        private decimal _value;
         private Guid _idGruppoOggettoIntervento;
-        private Guid _idTipoIntervento;
-        private IntervalOpened _interval;
+        private string _description;
+        private Guid _idIntervento;
+        private Guid _idTipoOggettoIntervento;
 
-        public BasePrice Build()
+        public OggettoInterventoRot Build()
         {
-            return new BasePrice(_value,_idGruppoOggettoIntervento,_idTipoIntervento, _interval);
+            return new OggettoInterventoRot(_idIntervento,_idTipoOggettoIntervento, _idGruppoOggettoIntervento,_description);
         }
 
-        public BasePriceBuilder ForValue(decimal value)
+        public OggettoInterventoRotBuilder ForInterventoRotBuilder(decimal value)
         {
             _value = value;
             return this;
         }
 
-        public BasePriceBuilder ForGruppoOggettoIntervento(Guid idGruppoOggettoIntervento)
+        public OggettoInterventoRotBuilder ForGruppoOggettoIntervento(Guid idGruppoOggettoIntervento)
         {
             _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
             return this;
         }
 
-        public BasePriceBuilder ForType(Guid idTipoIntervento)
+        public OggettoInterventoRotBuilder ForType(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
-        public BasePriceBuilder ForInterval(IntervalOpened interval)
+        public OggettoInterventoRotBuilder ForInterval(IntervalOpened interval)
         {
             _interval = interval;
             return this;

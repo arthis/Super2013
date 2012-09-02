@@ -85,6 +85,7 @@
     <Compile Include="bachibouzouk\BasePrice.cs" />
     <Compile Include="Build.cs" />
     <Compile Include="Builders\BasePriceBuilder.cs" />
+    <Compile Include="Builders\Copy of BasePriceBuilder.cs" />
     <Compile Include="CategoriaCommerciale.cs" />
     <Compile Include="Committente.cs" />
     <Compile Include="bachibouzouk\bachibouzouk.cs" />

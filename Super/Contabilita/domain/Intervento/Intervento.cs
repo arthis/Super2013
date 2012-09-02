@@ -17,8 +17,6 @@ namespace Super.Contabilita.Domain.Intervento
 
         public void CalculatePrice(bachibouzouk.bachibouzouk bachibousouk, Guid idPlan, Guid idTipoIntervento, IEnumerable<OggettoRot> oggetti, Period period)
         {
-
-
             IBasePriceCalculation priceCalculation = new InterventoBasePriceCalculation(idTipoIntervento,oggetti,period);
 
             bachibousouk.CalculateBasePrice(priceCalculation);
