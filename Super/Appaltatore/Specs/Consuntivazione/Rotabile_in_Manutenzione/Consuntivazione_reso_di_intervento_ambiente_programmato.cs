@@ -25,7 +25,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desc", 15, Guid.NewGuid()) };
+        List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desc", 15, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         string _note = "note";
 
@@ -33,7 +33,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         private readonly Guid _commitId = Guid.NewGuid();
         readonly string _idInterventoAppaltatore = "id intervento appaltatore";
         readonly DateTime _dataConsuntivazione = DateTime.Now;
-        List<OggettoRotMan> _oggettiCons = new List<OggettoRotMan>() { new OggettoRotMan("desc cons", 22, Guid.NewGuid()) };
+        List<OggettoRotMan> _oggettiCons = new List<OggettoRotMan>() { new OggettoRotMan("desc cons", 22, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _periodCons = new WorkPeriod(DateTime.Now.AddHours(-15), DateTime.Now.AddMinutes(-12));
         string _noteCons = "note";
         

@@ -25,7 +25,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desc", 15, Guid.NewGuid()) };
+        List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desc", 15, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         string _note = "note";
 
@@ -33,7 +33,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         readonly string _idInterventoAppaltatore = "id intervento appaltatore";
         readonly DateTime _dataConsuntivazione = DateTime.Now;
         string _noteCons = "note";
-        List<OggettoRotMan> _oggettiCons = new List<OggettoRotMan>() { new OggettoRotMan("desc cons", 15, Guid.NewGuid()) };
+        List<OggettoRotMan> _oggettiCons = new List<OggettoRotMan>() { new OggettoRotMan("desc cons", 15, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _periodCons = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         
 
@@ -42,7 +42,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         readonly string _idInterventoAppaltatoreCons2 = "id intervento appaltatore Cons2";
         readonly DateTime _dataConsuntivazioneCons2 = DateTime.Now.AddSeconds(-20);
         string _noteCons2 = "note  Cons2";
-        List<OggettoRotMan> _oggettiCons2 = new List<OggettoRotMan>() { new OggettoRotMan("desc cons 2", 15, Guid.NewGuid()) };
+        List<OggettoRotMan> _oggettiCons2 = new List<OggettoRotMan>() { new OggettoRotMan("desc cons 2", 15, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _periodCons2 = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
 
         

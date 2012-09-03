@@ -3,7 +3,7 @@ using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
 
-namespace Super.Contabilita.Events.bachibouzouk
+namespace Super.Contabilita.Events.Pricing
 {
     public class BasePriceDeleted : Message, IEvent
     {

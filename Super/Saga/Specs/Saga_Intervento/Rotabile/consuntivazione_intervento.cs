@@ -31,7 +31,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
         readonly Guid _idPlan = Guid.NewGuid();
         readonly Guid _idLotto = Guid.NewGuid();
         readonly Guid _idCommittente = Guid.NewGuid();
-        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15, Guid.NewGuid()) };
+        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         Treno _trenoArrivo = new Treno("numeroA", DateTime.Now.AddHours(9));
         Treno _trenoPartenza = new Treno("numeroP", DateTime.Now.AddHours(14));
@@ -44,7 +44,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
         readonly WorkPeriod _periodCons = new WorkPeriod(DateTime.Now.AddHours(-18), DateTime.Now.AddMinutes(-16));
         private DateTime DataCons = DateTime.Now;
         string _noteCons = "note cons";
-        List<OggettoRot> _oggettiCons = new List<OggettoRot>() { new OggettoRot("desc cons", 15, Guid.NewGuid()) };
+        List<OggettoRot> _oggettiCons = new List<OggettoRot>() { new OggettoRot("desc cons 2", 15, Guid.NewGuid(), Guid.NewGuid()) };
         Treno _trenoArrivoCons = new Treno("numeroA", DateTime.Now.AddHours(10));
         Treno _trenoPartenzaCons = new Treno("numeroP", DateTime.Now.AddHours(15));
         string _turnoTrenoCons = "turno cons";

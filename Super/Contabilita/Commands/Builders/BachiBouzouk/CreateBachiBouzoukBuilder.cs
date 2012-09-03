@@ -1,20 +1,20 @@
 using System;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Contabilita.Commands.bachibouzouk;
+using Super.Contabilita.Commands.Pricing;
 
-namespace Super.Contabilita.Commands.Builders.BachiBouzouk
+namespace Super.Contabilita.Commands.Builders.Pricing
 {
-    public class CreateBachiBouzoukBuilder : ICommandBuilder<Createbachibouzouk>
+    public class CreatePricingBuilder : ICommandBuilder<CreatePricing>
     {
-        public Createbachibouzouk Build(Guid id, long version)
+        public CreatePricing Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public Createbachibouzouk Build(Guid id, Guid commitId, long version)
+        public CreatePricing Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new Createbachibouzouk(id, commitId, version);
+            var cmd = new CreatePricing(id, commitId, version);
             return cmd;
         }
 

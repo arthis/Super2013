@@ -82,17 +82,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appaltatore.cs" />
-    <Compile Include="bachibouzouk\BasePrice.cs" />
+    <Compile Include="Pricing\BasePrice.cs" />
     <Compile Include="Build.cs" />
     <Compile Include="Builders\BasePriceBuilder.cs" />
     <Compile Include="Builders\Copy of BasePriceBuilder.cs" />
     <Compile Include="CategoriaCommerciale.cs" />
     <Compile Include="Committente.cs" />
-    <Compile Include="bachibouzouk\bachibouzouk.cs" />
+    <Compile Include="Intervento\InterventoRotBasePriceCalculation.cs" />
+    <Compile Include="Pricing\IBasePriceCalculation.cs" />
     <Compile Include="GruppoOggettoIntervento.cs" />
-    <Compile Include="Intervento\Intervento.cs" />
-    <Compile Include="Intervento\InterventoBasePriceCalculation.cs" />
-    <Compile Include="Intervento\OggettoIntervento.cs" />
+    <Compile Include="Intervento\InterventoRot.cs" />
+    <Compile Include="Pricing\Pricing.cs" />
     <Compile Include="TipoInterventoRotMan.cs" />
     <Compile Include="TipoInterventoRot.cs" />
     <Compile Include="TipoInterventoAmb.cs" />

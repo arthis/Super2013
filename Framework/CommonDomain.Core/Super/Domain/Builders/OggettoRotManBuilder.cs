@@ -8,6 +8,7 @@ namespace CommonDomain.Core.Super.Domain.Builders
         Guid _idTipoOggettoInterventoRotMan;
         int _quantity;
         string _description;
+        private Guid _idGruppoOggettoIntervento;
 
         public OggettoRotManBuilder OfQuantity(int value)
         {
@@ -27,10 +28,16 @@ namespace CommonDomain.Core.Super.Domain.Builders
             return this;
         }
 
+        public OggettoRotManBuilder ForGruppo(Guid idGruppoOggettoIntervento)
+        {
+            _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
+            return this;
+        }
+
 
         public OggettoRotMan Build()
         {
-            return new OggettoRotMan(_description, _quantity, _idTipoOggettoInterventoRotMan);
+            return new OggettoRotMan(_description, _quantity, _idTipoOggettoInterventoRotMan, _idGruppoOggettoIntervento);
         }
 
     }

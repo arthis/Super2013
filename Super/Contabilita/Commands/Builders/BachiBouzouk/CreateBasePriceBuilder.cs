@@ -1,9 +1,9 @@
 using System;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Contabilita.Commands.bachibouzouk;
+using Super.Contabilita.Commands.Pricing;
 
-namespace Super.Contabilita.Commands.Builders.BachiBouzouk
+namespace Super.Contabilita.Commands.Builders.Pricing
 {
     public class CreateBasePriceBuilder : ICommandBuilder<CreateBasePrice>
     {

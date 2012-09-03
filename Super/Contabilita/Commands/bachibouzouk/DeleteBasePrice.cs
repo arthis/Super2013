@@ -3,7 +3,7 @@ using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
-namespace Super.Contabilita.Commands.bachibouzouk
+namespace Super.Contabilita.Commands.Pricing
 {
     public class DeleteBasePrice: CommandBase
     {

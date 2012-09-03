@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
@@ -17,9 +18,10 @@ namespace Super.Contabilita.Specs.Intervento
         private Guid _id = Guid.NewGuid();
         private Guid _idPlan = Guid.NewGuid();
         private OggettoRot[] _oggetti;
-        private Period _period = new Period(DateTime.Parse("28/08/2012"), DateTime.Parse("29/08/2012"));
+        private Period _period = new Period(DateTime.Parse("28/08/2012 10:00"), DateTime.Parse("28/08/2012 11:00"));
         
-        private Guid _idBachiBouzouk = Guid.NewGuid();
+        private Guid _idPricing = Guid.NewGuid();
+        private Guid _idBasePrice = Guid.NewGuid();
         private Guid _idGruppoOggettoIntervento = Guid.NewGuid();
         private IntervalOpened _intervalPrezzoBase = new IntervalOpened(DateTime.Parse("01/01/2012"), DateTime.Parse("01/01/2015"));
         private decimal _valuePrezzoBase = 25;
@@ -27,10 +29,8 @@ namespace Super.Contabilita.Specs.Intervento
         
         private decimal _priceCalculated=50;
 
-        private Guid _idCarriage = Guid.NewGuid();
-        private string _descriptionCarriage = "descriptionCarriage";
-        private string _sign ="signCarriage";
-        private bool _isInternationalCarriage = true;
+        private Guid _idTipoOggettoIntervento = Guid.NewGuid();
+        
 
 
         protected override CommandHandler<CalculateInterventoRotPriceOfPlan> OnHandle(IEventRepository eventRepository)
@@ -40,39 +40,46 @@ namespace Super.Contabilita.Specs.Intervento
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvt.CarriageRotCreated
-                .ForDescription(_descriptionCarriage)
-                .ForGruppoOggetto(_idGruppoOggettoIntervento)
-                .ForSign(_sign)
-                .IsInternational(_isInternationalCarriage)
-                .Build(_idCarriage, 1);
+            yield return BuildEvt.PricingCreated
+                .Build(_idPricing, 1);
 
-            yield return BuildEvt.bachibouzoukCreated
-                .Build(_idBachiBouzouk, 1);
-
-            yield return BuildEvt.BasePriceUpdated
+            yield return BuildEvt.BasePriceCreated
                 .ForGruppoOggetto(_idGruppoOggettoIntervento)
                 .ForInterval(_intervalPrezzoBase)
                 .ForType(_idTipoIntervento)
                 .ForValue(_valuePrezzoBase)
-                .Build(_idBachiBouzouk,2);
+                .ForBasePrice(_idBasePrice)
+                .Build(_idPricing,2);
 
         }
 
         public override CalculateInterventoRotPriceOfPlan When()
         {
-            _oggetti = new [] {new OggettoRot("description", 2, _idCarriage)};
+            _oggetti = new[] { BuildMessagingVO.OggettoRot
+                                            .ForDescription("description")
+                                            .OfType(_idTipoOggettoIntervento)
+                                            .ForGruppo(_idGruppoOggettoIntervento)
+                                            .OfQuantity(2)
+                                            .Build()
+                                 };
 
             return Commands.Build.CalculateInterventoRotPriceOfPlan
                 .ForPeriod(_period)
                 .ForPlan(_idPlan)
                 .ForTipoIntervento(_idTipoIntervento)
                 .WithOggetti(_oggetti)
+                .ForPricing(_idPricing)
                 .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
+            yield return BuildEvt.InterventoRotCreated
+             .ForPeriod(_period)
+             .ForPlan(_idPlan)
+             .OfType(_idTipoIntervento)
+             .WithOggetti(_oggetti)
+             .Build(_id, 1);
             yield return BuildEvt.InterventoPriceOfPlanCalculated
                 .ForPlan(_idPlan)
                 .ToPrice(_priceCalculated)

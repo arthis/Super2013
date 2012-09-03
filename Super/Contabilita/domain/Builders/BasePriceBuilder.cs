@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CommonDomain.Core.Super.Domain.ValueObjects;
-using Super.Contabilita.Domain.bachibouzouk;
+using Super.Contabilita.Domain.Pricing;
 
 namespace Super.Contabilita.Domain.Builders
 {

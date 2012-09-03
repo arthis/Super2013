@@ -5,49 +5,48 @@ using System.Linq;
 using System.Text;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Intervento
 {
-    public class OggettoInterventoRotCreated : Message,IEvent
+    public class InterventoRotCreated : Message,IEvent
     {
-        public Guid IdIntervento { get; set; }
-        public Guid IdTipoOggettoIntervento { get; set; }
-        public Guid IdGruppoOggettoIntervento { get; set; }
-        public string Description { get; set; }
+        public Guid IdTipoIntervento { get; set; }
+        public Guid IdPlan { get; set; }
+        public OggettoRot[] Oggetti { get; set; }
+        public Period Period { get; set; }
+
+        public InterventoRotCreated(Guid id, Guid commitId, long version, Guid idTipoIntervento, Guid idPlan, OggettoRot[] oggetti, Period period)
+            :base(id,commitId,version)
+        {
+            Contract.Requires(idTipoIntervento!=Guid.Empty);
+            Contract.Requires(idPlan != Guid.Empty);
+            Contract.Requires(oggetti!=null);
+            Contract.Requires(period != null);
+
+            IdTipoIntervento = idTipoIntervento;
+            IdPlan = idPlan;
+            Oggetti = oggetti;
+            Period = period;
+        }
 
         public override string ToDescription()
         {
-            return string.Format("l'oggetto intervento rotabile é stato creato");
+            return string.Format("l'intervento rotabile {0} é stato creato", Id);
         }
 
-        public OggettoInterventoRotCreated(Guid id,
-                                          Guid commitId,
-                                          long version,
-            Guid idIntervento, Guid idTipoOggettoIntervento, Guid idGruppoOggettoIntervento, string description)
-            : base(id,commitId,  version)
-        {
-            Contract.Requires(idIntervento!= Guid.Empty);
-            Contract.Requires(idTipoOggettoIntervento != Guid.Empty);
-            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
-
-            IdIntervento = idIntervento;
-            IdTipoOggettoIntervento = idTipoOggettoIntervento;
-            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
-            Description = description;
-        }
-
-        public bool Equals(OggettoInterventoRotCreated other)
+        public bool Equals(InterventoRotCreated other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdIntervento.Equals(IdIntervento) && other.IdTipoOggettoIntervento.Equals(IdTipoOggettoIntervento) && other.IdGruppoOggettoIntervento.Equals(IdGruppoOggettoIntervento) && Equals(other.Description, Description);
+            return base.Equals(other) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdPlan.Equals(IdPlan) && other.Oggetti.SequenceEqual(Oggetti) && Equals(other.Period, Period);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as OggettoInterventoRotCreated);
+            return Equals(obj as InterventoRotCreated);
         }
 
         public override int GetHashCode()
@@ -55,12 +54,14 @@ namespace Super.Contabilita.Events.Intervento
             unchecked
             {
                 int result = base.GetHashCode();
-                result = (result*397) ^ IdIntervento.GetHashCode();
-                result = (result*397) ^ IdTipoOggettoIntervento.GetHashCode();
-                result = (result*397) ^ IdGruppoOggettoIntervento.GetHashCode();
-                result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
+                result = (result*397) ^ IdTipoIntervento.GetHashCode();
+                result = (result*397) ^ IdPlan.GetHashCode();
+                result = (result*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
+                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
                 return result;
             }
         }
     }
+
+    
 }

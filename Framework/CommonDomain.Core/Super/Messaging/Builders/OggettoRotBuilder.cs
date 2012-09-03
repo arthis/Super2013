@@ -12,6 +12,7 @@ namespace CommonDomain.Core.Super.Messaging.Builders
         Guid _idTipoOggettoInterventoRot;
         int _quantity;
         string _description;
+        private Guid _idGruppoOggettoIntervento;
 
         public OggettoRotBuilder OfQuantity(int value)
         {
@@ -31,10 +32,15 @@ namespace CommonDomain.Core.Super.Messaging.Builders
             return this;
         }
 
+        public OggettoRotBuilder ForGruppo(Guid idGruppoOggettoInterventoRot)
+        {
+            _idGruppoOggettoIntervento = idGruppoOggettoInterventoRot;
+            return this;
+        }
 
         public OggettoRot Build()
         {
-            return new OggettoRot(_description, _quantity, _idTipoOggettoInterventoRot);
+            return new OggettoRot(_description, _quantity, _idTipoOggettoInterventoRot,_idGruppoOggettoIntervento);
         }
        
     }

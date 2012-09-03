@@ -2,16 +2,16 @@
 using CommonDomain;
 using CommonDomain.Core;
 
-namespace Super.Contabilita.Events.bachibouzouk
+namespace Super.Contabilita.Events.Pricing
 {
-    public class bachibouzoukCreated : Message, IEvent
+    public class PricingCreated : Message, IEvent
     {
-        public bachibouzoukCreated()
+        public PricingCreated()
         {
             
         }
 
-        public bachibouzoukCreated(Guid id, Guid commitId, long version)
+        public PricingCreated(Guid id, Guid commitId, long version)
             : base(id, commitId, version)
         {
             
@@ -22,7 +22,7 @@ namespace Super.Contabilita.Events.bachibouzouk
             return string.Format("bachi bouzouk created " );
         }
 
-        public bool Equals(bachibouzoukCreated other)
+        public bool Equals(PricingCreated other)
         {
             return base.Equals(other);
         }
@@ -31,7 +31,7 @@ namespace Super.Contabilita.Events.bachibouzouk
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as bachibouzoukCreated);
+            return Equals(obj as PricingCreated);
         }
 
         public override int GetHashCode()

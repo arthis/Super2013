@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using CommonDomain.Core.Super.Domain.Builders;
 using CommonDomain.Core.Super.Messaging.Builders;
+using PeriodBuilder = CommonDomain.Core.Super.Messaging.Builders.PeriodBuilder;
 
 namespace CommonDomain.Core.Super.Domain.ValueObjects
 {
@@ -47,6 +50,12 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             return new Period(workPeriod.StartDate, workPeriod.EndDate);
         }
 
-
+        public IEnumerable<DateTime> GetDays()
+        {
+            for (DateTime mydate = _start; mydate <= _end; mydate = mydate.AddDays(1))
+            {
+                yield return mydate;
+            }
+        }
     }
 }

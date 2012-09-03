@@ -1,31 +1,26 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.Messaging.Builders;
 using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.Builders;
 using Super.Contabilita.Events;
-using Super.Contabilita.Events.bachibouzouk;
+using Super.Contabilita.Events.Pricing;
 
-namespace Super.Contabilita.Domain.bachibouzouk
+namespace Super.Contabilita.Domain.Pricing
 {
-    public interface IBasePriceCalculation
-    {
-        void Calculate(List<BasePrice> prices);
-    } 
-
-    public class bachibouzouk : AggregateBase
+    public class Pricing : AggregateBase
     {
         private Dictionary<Guid, BasePrice> _basePrices;
 
-        private class Is_bachibouzouk_Already_Deleted : ISpecification<bachibouzouk>
+        private class Is_pricing_Already_Deleted : ISpecification<Pricing>
         {
-            public bool IsSatisfiedBy(bachibouzouk i)
+            public bool IsSatisfiedBy(Pricing i)
             {
                 if (i._deleted)
                 {
-                    i.CommandValidationMessages.Add(new ValidationMessage("bachibouzouk", "appaltatore gia cancellata"));
+                    i.CommandValidationMessages.Add(new ValidationMessage("Pricing", "appaltatore gia cancellata"));
                     return false;
                 }
 
@@ -35,18 +30,18 @@ namespace Super.Contabilita.Domain.bachibouzouk
 
         private bool _deleted;
 
-        public bachibouzouk()
+        public Pricing()
         {
         }
 
-        public bachibouzouk(Guid id)
+        public Pricing(Guid id)
         {
-            var evt = BuildEvt.bachibouzoukCreated;
+            var evt = BuildEvt.PricingCreated;
             RaiseEvent(id, evt);
 
         }
 
-        public void Apply(bachibouzoukCreated e)
+        public void Apply(PricingCreated e)
         {
             Id = e.Id;
             _basePrices = new Dictionary<Guid, BasePrice>();
@@ -71,11 +66,11 @@ namespace Super.Contabilita.Domain.bachibouzouk
         public void Apply(BasePriceUpdated e)
         {
             var priceBase = Build.BasePrice
-               .ForGruppoOggettoIntervento(e.IdGruppoOggettoInervento)
-               .ForInterval(IntervalOpened.FromMessage(e.Intervall))
-               .ForType(e.IdTipoIntervento)
-               .ForValue(e.Value)
-               .Build();
+                .ForGruppoOggettoIntervento(e.IdGruppoOggettoInervento)
+                .ForInterval(IntervalOpened.FromMessage(e.Intervall))
+                .ForType(e.IdTipoIntervento)
+                .ForValue(e.Value)
+                .Build();
 
             _basePrices[e.IdBasePrice] = priceBase;
         }
@@ -109,10 +104,10 @@ namespace Super.Contabilita.Domain.bachibouzouk
         }
 
 
-        public void CalculateBasePrice(IBasePriceCalculation priceCalculation)
-        {
-            priceCalculation.Calculate(_basePrices.Values.ToList());
 
+        public decimal CalculateBasePrice(IBasePriceCalculation priceCalculation)
+        {
+            return priceCalculation.Calculate(_basePrices.Values.ToList());
         }
     }
 }

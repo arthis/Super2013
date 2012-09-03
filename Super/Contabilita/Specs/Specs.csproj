@@ -66,16 +66,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EventStore, Version=3.1.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL" />
-    <Reference Include="ExpectedObjects">
-      <HintPath>..\..\..\packages\ExpectedObjects.1.0.0.2\lib\ExpectedObjects.dll</HintPath>
-    </Reference>
-    <Reference Include="Machine.Specifications">
-      <HintPath>..\..\..\packages\Machine.Specifications.0.5.8\lib\net40\Machine.Specifications.dll</HintPath>
-    </Reference>
-    <Reference Include="Machine.Specifications.Clr4">
-      <HintPath>..\..\..\packages\Machine.Specifications.0.5.8\lib\net40\Machine.Specifications.Clr4.dll</HintPath>
-    </Reference>
     <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
@@ -94,10 +86,10 @@
     <Compile Include="Appaltatore\Cancellazione_di_una_appaltatore_non_esistente.cs" />
     <Compile Include="Appaltatore\Creazione_di_uno_nuovo_appaltatore.cs" />
     <Compile Include="Appaltatore\Creazione_di_uno_nuovo_appaltatore_gia_creato.cs" />
-    <Compile Include="BachiBouzouk\TrovaIlPrezzoDiBase.cs" />
-    <Compile Include="BachiBouzouk\Crea_un_prezzo_base.cs" />
-    <Compile Include="BachiBouzouk\Creazione_di_uno_nuovo_bachibouzouk.cs" />
-    <Compile Include="BachiBouzouk\Creazione_di_uno_nuovo_bachibouzouk_gia_creato.cs" />
+    <Compile Include="Pricing\TrovaIlPrezzoDiBase.cs" />
+    <Compile Include="Pricing\Crea_un_prezzo_base.cs" />
+    <Compile Include="Pricing\Creazione_di_uno_nuovo_pricing.cs" />
+    <Compile Include="Pricing\Creazione_di_uno_nuovo_pricing_gia_creato.cs" />
     <Compile Include="CategoriaCommerciale\Aggiornamento_di_una_categoria_commerciale_gia_creata.cs" />
     <Compile Include="CategoriaCommerciale\Aggiornamento_di_una_categoria_commerciale_non_esistente.cs" />
     <Compile Include="CategoriaCommerciale\Cancellazione_di_una_categoria_commerciale_gia_cancellata.cs" />
@@ -151,7 +143,7 @@
     <Compile Include="Lotto\Cancellazione_di_un_lotto_non_esistente.cs" />
     <Compile Include="Lotto\Creazione_di_un_nuovo_lotto.cs" />
     <Compile Include="Lotto\Creazione_di_un_nuovo_lotto_gia_creato.cs" />
-    <Compile Include="BachiBouzouk\aggiorna_il_prezzo_base.cs" />
+    <Compile Include="Pricing\aggiorna_il_prezzo_base.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_gia_creato.cs" />
     <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_non_esistente.cs" />

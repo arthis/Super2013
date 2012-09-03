@@ -1,48 +1,51 @@
 using System;
 using CommonDomain;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Contabilita.Events.Intervento;
 
 namespace Super.Contabilita.Events.Builders.Intervento
 {
-    public class OggettoInterventoRotCreatedBuilder : IEventBuilder<OggettoInterventoRotCreated>
+    public class InterventoRotCreatedBuilder : IEventBuilder<InterventoRotCreated>
     {
-        private string _description;
-        private Guid _idIntervento;
-        private Guid _idTipoOggettoIntervento;
-        private Guid _idGruppoOggettoIntervento;
+        private Guid _idTipoIntervento;
+        private Guid _idPlan;
+        private OggettoRot[] _oggetti;
+        private Period _period
+            ;
 
 
-        public OggettoInterventoRotCreated Build(Guid id, long version)
+        public InterventoRotCreated Build(Guid id, long version)
         {
-            var evt = new OggettoInterventoRotCreated(id, Guid.NewGuid(), version,_idIntervento,_idTipoOggettoIntervento, _idGruppoOggettoIntervento, _description);
+            var evt = new InterventoRotCreated(id, Guid.NewGuid(), version,_idTipoIntervento,_idPlan, _oggetti, _period);
             
             return evt;
         }
 
 
-        public OggettoInterventoRotCreatedBuilder ForIntervento(Guid idIntervento)
+        public InterventoRotCreatedBuilder OfType(Guid idTipoIntervento)
         {
-            _idIntervento = idIntervento;
+            _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
-        public OggettoInterventoRotCreatedBuilder ForType(Guid idTipoIntervento)
+        public InterventoRotCreatedBuilder ForPlan(Guid idPlan)
         {
-            _idTipoOggettoIntervento = idTipoIntervento;
+            _idPlan = idPlan;
             return this;
         }
 
-        public OggettoInterventoRotCreatedBuilder ForGruppoOggettoIntervento(Guid idGruppoOggettoIntervento)
+        public InterventoRotCreatedBuilder WithOggetti(OggettoRot[] oggetti)
         {
-            _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
+            _oggetti = oggetti;
             return this;
         }
 
-        public OggettoInterventoRotCreatedBuilder ForDescription(string description)
+        public InterventoRotCreatedBuilder ForPeriod(Period period)
         {
-            _description = description;
+            _period = period;
             return this;
         }
+
 
 
     }

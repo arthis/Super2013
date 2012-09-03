@@ -30,7 +30,7 @@ namespace Super.Appaltatore.Handlers
                                 , WorkPeriod.FromMessage(cmd.Period)
                                 , cmd.IdInterventoAppaltatore
                                 , cmd.Note
-                                ,cmd.Oggetti.ToValueObject()
+                                ,cmd.Oggetti.ToDomainObjects()
                                 ,cmd.Convoglio
                                 ,Treno.FromMessage(cmd.TrenoPartenza)
                                 , Treno.FromMessage(cmd.TrenoArrivo)

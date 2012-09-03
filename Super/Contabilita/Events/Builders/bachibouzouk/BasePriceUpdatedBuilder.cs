@@ -1,9 +1,9 @@
 using System;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Contabilita.Events.bachibouzouk;
+using Super.Contabilita.Events.Pricing;
 
-namespace Super.Contabilita.Events.Builders.bachibouzouk
+namespace Super.Contabilita.Events.Builders.Pricing
 {
     public class BasePriceUpdatedBuilder : IEventBuilder<BasePriceUpdated>
     {

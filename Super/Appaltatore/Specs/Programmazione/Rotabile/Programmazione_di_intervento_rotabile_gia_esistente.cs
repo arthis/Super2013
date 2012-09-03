@@ -28,7 +28,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-10));
-        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desccons", 22, Guid.NewGuid()) };
+        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desccons", 22, Guid.NewGuid(), Guid.NewGuid()) };
         Treno _trenoArrivo = new Treno("numeroA cons", DateTime.Now.AddHours(10));
         Treno _trenoPartenza = new Treno("numeroP cons", DateTime.Now.AddHours(15));
 

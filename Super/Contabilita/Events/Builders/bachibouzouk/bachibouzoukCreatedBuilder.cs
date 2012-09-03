@@ -1,19 +1,19 @@
 using System;
 using CommonDomain;
-using Super.Contabilita.Events.bachibouzouk;
+using Super.Contabilita.Events.Pricing;
 
-namespace Super.Contabilita.Events.Builders.bachibouzouk
+namespace Super.Contabilita.Events.Builders.Pricing
 {
-    public class bachibouzoukCreatedBuilder : IEventBuilder<bachibouzoukCreated>
+    public class PricingCreatedBuilder : IEventBuilder<PricingCreated>
     {
-        public bachibouzoukCreated Build(Guid id, long version)
+        public PricingCreated Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public bachibouzoukCreated Build(Guid id, Guid commitId, long version)
+        public PricingCreated Build(Guid id, Guid commitId, long version)
         {
-            var cmd = new bachibouzoukCreated(id, commitId, version);
+            var cmd = new PricingCreated(id, commitId, version);
             return cmd;
         }
 

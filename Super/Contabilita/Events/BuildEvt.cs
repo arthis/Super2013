@@ -12,7 +12,7 @@ using Super.Contabilita.Events.Builders.TipoIntervento;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Rotabile;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.RotabileInManutenzione;
-using Super.Contabilita.Events.Builders.bachibouzouk;
+using Super.Contabilita.Events.Builders.Pricing;
 
 namespace Super.Contabilita.Events
 {
@@ -132,9 +132,9 @@ namespace Super.Contabilita.Events
 
         public static BasePriceDeletedBuilder BasePriceDeleted { get { return new BasePriceDeletedBuilder(); } }
 
-        public static bachibouzoukCreatedBuilder bachibouzoukCreated { get { return new bachibouzoukCreatedBuilder(); } }
+        public static PricingCreatedBuilder PricingCreated { get { return new PricingCreatedBuilder(); } }
 
-        public static OggettoInterventoRotCreatedBuilder OggettoInterventoRotCreated { get { return new OggettoInterventoRotCreatedBuilder();}}
+        public static InterventoRotCreatedBuilder InterventoRotCreated { get { return new InterventoRotCreatedBuilder(); } }
         
     }
 }

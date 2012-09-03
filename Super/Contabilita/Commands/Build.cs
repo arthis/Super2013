@@ -1,5 +1,5 @@
 using Super.Contabilita.Commands.Builders.Appaltatore;
-using Super.Contabilita.Commands.Builders.BachiBouzouk;
+using Super.Contabilita.Commands.Builders.Pricing;
 using Super.Contabilita.Commands.Builders.CategoriaCommerciale;
 using Super.Contabilita.Commands.Builders.Committente;
 using Super.Contabilita.Commands.Builders.DirezioneRegionale;
@@ -128,7 +128,7 @@ namespace Super.Contabilita.Commands
 
         public static DeleteBasePriceBuilder DeleteBasePrice { get { return new DeleteBasePriceBuilder(); } }       
 
-        public static CreateBachiBouzoukBuilder CreateBachiBouzouk { get { return  new CreateBachiBouzoukBuilder();}}
+        public static CreatePricingBuilder CreatePricing { get { return  new CreatePricingBuilder();}}
             
             
             

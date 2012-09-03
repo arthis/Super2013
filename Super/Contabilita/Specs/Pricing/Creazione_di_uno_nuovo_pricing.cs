@@ -6,19 +6,19 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands;
-using Super.Contabilita.Commands.bachibouzouk;
-using Super.Contabilita.Handlers.bachiBouzouk;
+using Super.Contabilita.Commands.Pricing;
+using Super.Contabilita.Handlers.Pricing;
 
-namespace Super.Contabilita.Specs.BachiBouzouk
+namespace Super.Contabilita.Specs.Pricing
 {
-    public class Creazione_di_uno_nuovo_bachibouzouk : CommandBaseClass<Createbachibouzouk>
+    public class Creazione_di_uno_nuovo_pricing : CommandBaseClass<CreatePricing>
     {
         private Guid _id = Guid.NewGuid();
 
 
-        protected override CommandHandler<Createbachibouzouk> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<CreatePricing> OnHandle(IEventRepository eventRepository)
         {
-            return new CreatebachibouzoukHandler(eventRepository);
+            return new CreatePricingHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -26,15 +26,15 @@ namespace Super.Contabilita.Specs.BachiBouzouk
             yield break;
         }
 
-        public override Createbachibouzouk When()
+        public override CreatePricing When()
         {
-            return Build.CreateBachiBouzouk
+            return Build.CreatePricing
                 .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Events.BuildEvt.bachibouzoukCreated
+            yield return Events.BuildEvt.PricingCreated
                                  .Build(_id,1);
         }
 

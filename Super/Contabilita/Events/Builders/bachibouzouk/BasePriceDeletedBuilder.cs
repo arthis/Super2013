@@ -1,8 +1,8 @@
 using System;
 using CommonDomain;
-using Super.Contabilita.Events.bachibouzouk;
+using Super.Contabilita.Events.Pricing;
 
-namespace Super.Contabilita.Events.Builders.bachibouzouk
+namespace Super.Contabilita.Events.Builders.Pricing
 {
     public class BasePriceDeletedBuilder : IEventBuilder<BasePriceDeleted>
     {

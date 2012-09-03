@@ -36,7 +36,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdDirezioneRegionale
                                 , WorkPeriod.FromMessage(cmd.Period)
                                 , cmd.Note
-                                , cmd.Oggetti.ToValueObject()
+                                , cmd.Oggetti.ToDomainObjects()
                                 , Treno.FromMessage(cmd.TrenoArrivo)
                                 , Treno.FromMessage(cmd.TrenoPartenza)
                                 , cmd.TurnoTreno

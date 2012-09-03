@@ -55,20 +55,24 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
 
 
         public Guid IdTipoOggettoInterventoRot { get; set; }
+        public Guid IdGruppoOggettoIntervento { get; set; }
+    
 
-        public OggettoRot(string description, int quantity, Guid idTipoOggettoInterventoRot)
+        public OggettoRot(string description, int quantity, Guid idTipoOggettoInterventoRot, Guid idGruppoOggettoIntervento)
             : base(description,quantity)
         {
             Contract.Requires<ArgumentNullException>(idTipoOggettoInterventoRot!= Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idGruppoOggettoIntervento != Guid.Empty);
 
             IdTipoOggettoInterventoRot = idTipoOggettoInterventoRot;
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
         }
 
         public bool Equals(OggettoRot other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdTipoOggettoInterventoRot.Equals(IdTipoOggettoInterventoRot);
+            return base.Equals(other) && other.IdTipoOggettoInterventoRot.Equals(IdTipoOggettoInterventoRot) && other.IdGruppoOggettoIntervento.Equals(IdGruppoOggettoIntervento);
         }
 
         public override bool Equals(object obj)
@@ -82,7 +86,10 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         {
             unchecked
             {
-                return (base.GetHashCode()*397) ^ IdTipoOggettoInterventoRot.GetHashCode();
+                int result = base.GetHashCode();
+                result = (result*397) ^ IdTipoOggettoInterventoRot.GetHashCode();
+                result = (result*397) ^ IdGruppoOggettoIntervento.GetHashCode();
+                return result;
             }
         }
     }
@@ -95,20 +102,23 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
 
 
         public Guid IdTipoOggettoInterventoRotMan { get; set; }
+        public Guid IdGruppoOggettoIntervento { get; set; }
 
-        public OggettoRotMan(string description, int quantity, Guid idTipoOggettoInterventoRotMan)
+        public OggettoRotMan(string description, int quantity, Guid idTipoOggettoInterventoRotMan, Guid idGruppoOggettoIntervento)
             : base(description,quantity)
         {
             Contract.Requires<ArgumentNullException>(idTipoOggettoInterventoRotMan != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(idGruppoOggettoIntervento != Guid.Empty);
 
             IdTipoOggettoInterventoRotMan = idTipoOggettoInterventoRotMan;
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
         }
 
         public bool Equals(OggettoRotMan other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdTipoOggettoInterventoRotMan.Equals(IdTipoOggettoInterventoRotMan);
+            return base.Equals(other) && other.IdTipoOggettoInterventoRotMan.Equals(IdTipoOggettoInterventoRotMan) && other.IdGruppoOggettoIntervento.Equals(IdGruppoOggettoIntervento);
         }
 
         public override bool Equals(object obj)
@@ -122,7 +132,10 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         {
             unchecked
             {
-                return (base.GetHashCode()*397) ^ IdTipoOggettoInterventoRotMan.GetHashCode();
+                int result = base.GetHashCode();
+                result = (result*397) ^ IdTipoOggettoInterventoRotMan.GetHashCode();
+                result = (result*397) ^ IdGruppoOggettoIntervento.GetHashCode();
+                return result;
             }
         }
     }

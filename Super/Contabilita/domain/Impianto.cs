@@ -2,6 +2,7 @@
 using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Domain;
 using CommonDomain.Core.Super.Domain.Builders;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Contabilita.Events;

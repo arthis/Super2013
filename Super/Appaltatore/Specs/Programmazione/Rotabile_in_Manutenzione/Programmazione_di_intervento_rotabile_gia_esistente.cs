@@ -27,7 +27,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-10));
-        List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desccons", 22, Guid.NewGuid()) };
+        List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desccons", 22, Guid.NewGuid(), Guid.NewGuid()) };
         string _note = "note";
 
         protected override CommandHandler<ProgrammareInterventoRotMan> OnHandle(IEventRepository eventRepository)

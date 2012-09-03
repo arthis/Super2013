@@ -25,7 +25,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15, Guid.NewGuid()) };
+        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         Treno _trenoArrivo = new Treno("numeroA", DateTime.Now.AddHours(9));
         Treno _trenoPartenza = new Treno("numeroP", DateTime.Now.AddHours(14));
@@ -38,7 +38,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
         readonly string _idInterventoAppaltatore = "id intervento appaltatore";
         readonly DateTime _dataConsuntivazione = DateTime.Now;
         string _noteCons = "note";
-        List<OggettoRot> _oggettiCons = new List<OggettoRot>() { new OggettoRot("desc cons", 15, Guid.NewGuid()) };
+        List<OggettoRot> _oggettiCons = new List<OggettoRot>() { new OggettoRot("desc cons ", 12, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _periodCons = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         Treno _trenoArrivoCons = new Treno("numeroA cons", DateTime.Now.AddHours(9));
         Treno _trenoPartenzaCons = new Treno("numeroP cons", DateTime.Now.AddHours(14)); string _turnoTrenoCons = "turno Cons";
@@ -51,7 +51,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
         readonly DateTime _dataConsuntivazioneCons2 = DateTime.Now.AddSeconds(-20);
         
         string _noteCons2 = "note  Cons2";
-        List<OggettoRot> _oggettiCons2 = new List<OggettoRot>() { new OggettoRot("desc cons 2", 15, Guid.NewGuid()) };
+        List<OggettoRot> _oggettiCons2 = new List<OggettoRot>() { new OggettoRot("desc cons 2", 15, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _periodCons2 = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         Treno _trenoArrivoCons2 = new Treno("numeroA cons", DateTime.Now.AddHours(9));
         Treno _trenoPartenzaCons2 = new Treno("numeroP cons", DateTime.Now.AddHours(14)); 

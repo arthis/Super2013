@@ -101,7 +101,7 @@
     <Compile Include="RegistrationEventRouter.cs" />
     <Compile Include="SagaBase.cs" />
     <Compile Include="Specifications.cs" />
-    <Compile Include="Super\Domain\Builders\BuildDomainVO.cs" />
+    <Compile Include="Super\Domain\BuildDomainVO.cs" />
     <Compile Include="Super\Domain\Builders\PeriodBuilder.cs" />
     <Compile Include="Super\Domain\Builders\IntervalOpenedBuilder.cs" />
     <Compile Include="Super\Domain\Builders\OggettoRotBuilder.cs" />
@@ -114,6 +114,8 @@
     <Compile Include="Super\Domain\ValueObjects\Intervall.cs" />
     <Compile Include="Super\Domain\ValueObjects\WorkPeriod.cs" />
     <Compile Include="Super\Domain\ValueObjects\Treno.cs" />
+    <Compile Include="Super\Messaging\BuildMessagingVO.cs" />
+    <Compile Include="Super\Messaging\Builders\PeriodBuilder.cs" />
     <Compile Include="Super\Messaging\Builders\IntervalOpenedBuilder.cs" />
     <Compile Include="Super\Messaging\Builders\TrenoBuilder.cs" />
     <Compile Include="Super\Messaging\Builders\OggettoRotManBuilder.cs" />

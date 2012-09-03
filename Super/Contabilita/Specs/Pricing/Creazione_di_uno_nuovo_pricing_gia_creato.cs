@@ -7,38 +7,38 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Appaltatore;
-using Super.Contabilita.Commands.bachibouzouk;
+using Super.Contabilita.Commands.Pricing;
 using Super.Contabilita.Events;
 using Super.Contabilita.Handlers.Appaltatore;
-using Super.Contabilita.Handlers.bachiBouzouk;
+using Super.Contabilita.Handlers.Pricing;
 
-namespace Super.Contabilita.Specs.BachiBouzouk
+namespace Super.Contabilita.Specs.Pricing
 {
-    public class Creazione_di_uno_nuovo_bachibouzouk_gia_creato : CommandBaseClass<Createbachibouzouk>
+    public class Creazione_di_uno_nuovo_pricing_gia_creato : CommandBaseClass<CreatePricing>
     {
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
 
         public override string ToDescription()
         {
-            return "Creare un'bachibouzouk gia creata con il stesso Guid non é possibile";
+            return "Creare un'Pricing gia creata con il stesso Guid non é possibile";
         }
        
 
-        protected override CommandHandler<Createbachibouzouk> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<CreatePricing> OnHandle(IEventRepository eventRepository)
         {
-            return new CreatebachibouzoukHandler(eventRepository);
+            return new CreatePricingHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvt.bachibouzoukCreated
+            yield return BuildEvt.PricingCreated
                 .Build(_id, 1);
         }
 
-        public override Createbachibouzouk When()
+        public override CreatePricing When()
         {
-            return Commands.Build.CreateBachiBouzouk
+            return Commands.Build.CreatePricing
                                  .Build(_id, 1);
         }
 

@@ -34,7 +34,7 @@ namespace Super.Controllo.Handlers
                                             Treno.FromMessage(cmd.TrenoArrivo),
                                             cmd.Convoglio,
                                             cmd.Note,
-                                            cmd.Oggetti.ToValueObject(),
+                                            cmd.Oggetti.ToDomainObjects(),
                                             cmd.RigaTurnoTreno, 
                                             cmd.TurnoTreno);
 

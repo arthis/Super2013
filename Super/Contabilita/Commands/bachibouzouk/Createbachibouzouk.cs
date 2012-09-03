@@ -3,16 +3,16 @@ using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
-namespace Super.Contabilita.Commands.bachibouzouk
+namespace Super.Contabilita.Commands.Pricing
 {
-    public class Createbachibouzouk : CommandBase
+    public class CreatePricing : CommandBase
     {
-        public Createbachibouzouk()
+        public CreatePricing()
         {
             
         }
 
-        public Createbachibouzouk(Guid id, Guid commitId, long version)
+        public CreatePricing(Guid id, Guid commitId, long version)
             : base(id, commitId, version)
         {
             
@@ -23,7 +23,7 @@ namespace Super.Contabilita.Commands.bachibouzouk
             return string.Format("create bachi bouzouk  " );
         }
 
-        public bool Equals(Createbachibouzouk other)
+        public bool Equals(CreatePricing other)
         {
             return base.Equals(other);
         }
@@ -32,7 +32,7 @@ namespace Super.Contabilita.Commands.bachibouzouk
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as Createbachibouzouk);
+            return Equals(obj as CreatePricing);
         }
 
         public override int GetHashCode()

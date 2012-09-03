@@ -25,23 +25,16 @@ namespace Super.Contabilita.Handlers.Intervento
         {
             Contract.Requires<ArgumentNullException>(cmd != null);
 
-            var intervento = EventRepository.GetById<Domain.Intervento.Intervento>(cmd.Id);
+            var intervento = EventRepository.GetById<Domain.Intervento.InterventoRot>(cmd.Id);
 
-              if (intervento.IsNull())
-              {
-                  intervento = new Domain.Intervento.Intervento(cmd.Id,cmd.Oggetti.ToValueObject());
-              }
-                
-
-            var bachibousouk = EventRepository.GetById<Domain.bachibouzouk.bachibouzouk>(cmd.IdBachBouzouk);
-            var oggetti = new List<OggettoInterventoRot>();
-            foreach (var oggetto in cmd.Oggetti)
+            if (intervento.IsNull())
             {
-                var TipoOggetto = EventRepository.GetById<TipoOgettoInterventoRot>(oggetto.IdTipoOggettoInterventoRot);
-                var o = Build.Ogget
+                intervento = new Domain.Intervento.InterventoRot(cmd.Id, cmd.IdTipoIntervento, cmd.IdPlan, cmd.Oggetti.ToDomainObjects(), Period.FromMessage(cmd.Period));
             }
 
-            intervento.CalculatePrice(bachibousouk, cmd.IdPlan, cmd.IdTipoIntervento, cmd.Oggetti.ToValueObject(), Period.FromMessage(cmd.Period));
+            var bachibousouk = EventRepository.GetById<Domain.Pricing.Pricing>(cmd.IdBachBouzouk);
+            
+            intervento.CalculatePrice(bachibousouk);
 
             EventRepository.Save(intervento, cmd.CommitId);
 

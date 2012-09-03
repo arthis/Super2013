@@ -9,7 +9,7 @@ namespace Super.Contabilita.Commands.Builders.Intervento
     {
         
         private Guid _idPlan;
-        private Guid _idBachiBouzouk;
+        private Guid _idPricing;
         private Guid _idTipoIntervento;
         private Period _period;
         private OggettoRot[] _oggetti;
@@ -23,7 +23,7 @@ namespace Super.Contabilita.Commands.Builders.Intervento
         {
             var cmd =  new CalculateInterventoRotPriceOfPlan(id, commitId, version,
                 _idPlan,
-                _idBachiBouzouk,
+                _idPricing,
                 _idTipoIntervento,
                 _period,
                 _oggetti);
@@ -31,9 +31,9 @@ namespace Super.Contabilita.Commands.Builders.Intervento
         }
 
 
-        public CalculateInterventoRotPriceOfPlanBuilder ForBachiBouzouk(Guid idBachiBouzouk)
+        public CalculateInterventoRotPriceOfPlanBuilder ForPricing(Guid idPricing)
         {
-            _idBachiBouzouk = idBachiBouzouk;
+            _idPricing = idPricing;
             return this;
         }
 

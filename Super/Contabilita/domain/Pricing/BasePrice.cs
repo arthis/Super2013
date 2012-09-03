@@ -1,7 +1,7 @@
 using System;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 
-namespace Super.Contabilita.Domain.bachibouzouk
+namespace Super.Contabilita.Domain.Pricing
 {
     public class BasePrice
     {
@@ -19,24 +19,14 @@ namespace Super.Contabilita.Domain.bachibouzouk
         }
 
 
-        public IntervalOpened Interval1
-        {
-            get { return _interval; }
-        }
-
-        public Guid IdTipoIntervento
-        {
-            get { return _idTipoIntervento; }
-        }
-
-        public Guid IdGruppoOggettoIntervento
-        {
-            get { return _idGruppoOggettoIntervento; }
-        }
-
         public decimal Value
         {
             get { return _value; }
+        }
+
+        public bool Fits(DateTime date,Guid idGruppoOggettoIntervento,Guid idTipoIntervento)
+        {
+            return _interval.Contains(date) && _idGruppoOggettoIntervento == idGruppoOggettoIntervento && _idTipoIntervento == idTipoIntervento;
         }
     }
 }

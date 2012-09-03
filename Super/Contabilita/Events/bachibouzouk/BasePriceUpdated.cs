@@ -4,7 +4,7 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
-namespace Super.Contabilita.Events.bachibouzouk
+namespace Super.Contabilita.Events.Pricing
 {
     public class BasePriceUpdated: Message,IEvent
     {

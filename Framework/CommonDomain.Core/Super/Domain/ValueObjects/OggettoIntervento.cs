@@ -55,21 +55,30 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
     public class OggettoRot : OggettoIntervento
     {
         private Guid _idTipoOggettoInterventoRot;
+        private readonly Guid _idGruppoOggettoIntervento;
 
+        public Guid IdGruppoOggettoIntervento
+        {
+            get { return _idGruppoOggettoIntervento; }
+        }
         public Guid IdTipoOggettoInterventoRot { get { return _idTipoOggettoInterventoRot; } }
 
-        public OggettoRot(string description, int quantity, Guid idTipoOggettoInterventoRot)
+        public OggettoRot(string description, int quantity, Guid idTipoOggettoInterventoRot, Guid idGruppoOggettoIntervento)
             : base( description, quantity)
         {
-            if (!IsValid(description, quantity, idTipoOggettoInterventoRot))
+            if (!IsValid(description, quantity, idTipoOggettoInterventoRot, idGruppoOggettoIntervento))
                 throw new Exception("Oggetto Intervento rotabile not valid");
 
             _idTipoOggettoInterventoRot = idTipoOggettoInterventoRot;
+            _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
         }
 
-        public static bool IsValid(string description, int quantity, Guid idTipoOggettoInterventoRot)
+        public static bool IsValid(string description, int quantity, Guid idTipoOggettoInterventoRot, Guid idGruppoOggettoIntervento)
         {
             if (idTipoOggettoInterventoRot == Guid.Empty)
+                return false;
+
+            if (idGruppoOggettoIntervento == Guid.Empty)
                 return false;
 
             return IsValid(description, quantity);
@@ -77,38 +86,57 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public override bool Equals(object obj)
         {
-            return Equals((OggettoRot)obj);
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return Equals(obj as OggettoRot);
         }
 
         public bool Equals(OggettoRot other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdTipoOggettoInterventoRot.Equals(IdTipoOggettoInterventoRot);
+            return base.Equals(other) && other._idTipoOggettoInterventoRot.Equals(_idTipoOggettoInterventoRot) && other._idGruppoOggettoIntervento.Equals(_idGruppoOggettoIntervento);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                return (base.GetHashCode() * 397) ^ IdTipoOggettoInterventoRot.GetHashCode();
+                int result = base.GetHashCode();
+                result = (result*397) ^ _idTipoOggettoInterventoRot.GetHashCode();
+                result = (result*397) ^ _idGruppoOggettoIntervento.GetHashCode();
+                return result;
             }
         }
 
+
+
         public void BuildValue(OggettoRotBuilder builder)
         {
-            builder.OfQuantity(_quantity).OfType(_idTipoOggettoInterventoRot).ForDescription(_description);
+            builder.OfQuantity(_quantity).OfType(_idTipoOggettoInterventoRot).ForDescription(_description).ForGruppo(_idGruppoOggettoIntervento);
         }
     }
 
     public class OggettoRotMan : OggettoIntervento
     {
         private readonly Guid _idTipoOggettoInterventoRotMan;
+        private Guid _idGruppoOggettoIntervento;
 
-        public OggettoRotMan(string description, int quantity, Guid idTipoOggettoInterventoRotMan)
+        public OggettoRotMan(string description, int quantity, Guid idTipoOggettoInterventoRotMan, Guid idGruppoOggettoIntervento)
             : base(description, quantity)
         {
+            if (!IsValid(description, quantity, idTipoOggettoInterventoRotMan, idGruppoOggettoIntervento))
+                throw new Exception("Oggetto Intervento rotabile not valid");
+
             _idTipoOggettoInterventoRotMan = idTipoOggettoInterventoRotMan;
+            _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
+
+            
+        }
+
+        public Guid IdGruppoOggettoIntervento
+        {
+            get { return _idGruppoOggettoIntervento; }
         }
 
         public Guid IdTipoOggettoInterventoRotMan
@@ -116,9 +144,12 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             get { return _idTipoOggettoInterventoRotMan; }
         }
 
-        public static bool IsValid(string description, int quantity, Guid IdTipoOggettoInterventoRotMan)
+        public static bool IsValid(string description, int quantity, Guid idTipoOggettoInterventoRotMan, Guid idGruppoOggettoIntervento)
         {
-            if (IdTipoOggettoInterventoRotMan == Guid.Empty)
+            if (idTipoOggettoInterventoRotMan == Guid.Empty)
+                return false;
+
+            if (idGruppoOggettoIntervento == Guid.Empty)
                 return false;
 
             return IsValid(description, quantity);
@@ -126,27 +157,35 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public override bool Equals(object obj)
         {
-            return Equals((OggettoRotMan)obj);
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return Equals(obj as OggettoRotMan);
         }
 
         public bool Equals(OggettoRotMan other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdTipoOggettoInterventoRotMan.Equals(IdTipoOggettoInterventoRotMan);
+            return base.Equals(other) && other._idTipoOggettoInterventoRotMan.Equals(_idTipoOggettoInterventoRotMan) && other._idGruppoOggettoIntervento.Equals(_idGruppoOggettoIntervento);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                return (base.GetHashCode() * 397) ^ IdTipoOggettoInterventoRotMan.GetHashCode();
+                int result = base.GetHashCode();
+                result = (result*397) ^ _idTipoOggettoInterventoRotMan.GetHashCode();
+                result = (result*397) ^ _idGruppoOggettoIntervento.GetHashCode();
+                return result;
             }
         }
 
         public void BuildValue(OggettoRotManBuilder builder)
         {
-            builder.OfQuantity(_quantity).OfType(_idTipoOggettoInterventoRotMan).ForDescription(_description);
+            builder.OfQuantity(_quantity)
+                .OfType(_idTipoOggettoInterventoRotMan)
+                .ForDescription(_description)
+                .ForGruppo(_idGruppoOggettoIntervento);
         }
     }
 
@@ -162,11 +201,16 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             }
         }
 
-        public static IEnumerable<OggettoRot> ToValueObject(this IEnumerable<Messaging.ValueObjects.OggettoRot> value)
+        public static IEnumerable<OggettoRot> ToDomainObjects(this IEnumerable<Messaging.ValueObjects.OggettoRot> value)
         {
+            var builder = new CommonDomain.Core.Super.Domain.Builders.OggettoRotBuilder();
             foreach (var oggettoRot in value)
             {
-                yield return new OggettoRot(oggettoRot.Description, oggettoRot.Quantity, oggettoRot.IdTipoOggettoInterventoRot);
+                yield return builder.ForDescription(oggettoRot.Description)
+                .OfQuantity(oggettoRot.Quantity)
+                .OfType(oggettoRot.IdTipoOggettoInterventoRot)
+                .ForGruppo(oggettoRot.IdGruppoOggettoIntervento)
+                .Build();
             }
         }
 
@@ -180,11 +224,16 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             }
         }
 
-        public static IEnumerable<OggettoRotMan> ToValueObject(this IEnumerable<Messaging.ValueObjects.OggettoRotMan> value)
+        public static IEnumerable<OggettoRotMan> ToDomainObjects(this IEnumerable<Messaging.ValueObjects.OggettoRotMan> value)
         {
+            var builder = new CommonDomain.Core.Super.Domain.Builders.OggettoRotManBuilder();
             foreach (var oggettoRotMan in value)
             {
-                yield return new OggettoRotMan(oggettoRotMan.Description, oggettoRotMan.Quantity, oggettoRotMan.IdTipoOggettoInterventoRotMan);
+                yield return builder.ForDescription(oggettoRotMan.Description)
+                .OfQuantity(oggettoRotMan.Quantity)
+                .OfType(oggettoRotMan.IdTipoOggettoInterventoRotMan)
+                .ForGruppo(oggettoRotMan.IdGruppoOggettoIntervento)
+                .Build();
             }
         }
 

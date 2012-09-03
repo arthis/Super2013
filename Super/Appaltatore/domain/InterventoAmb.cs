@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.Builders;
 using Super.Appaltatore.Events;
 
@@ -30,6 +31,8 @@ namespace Super.Appaltatore.Domain
 
             //builders
             var periodBuilder = new WorkPeriodBuilder();
+            
+
 
             workPeriod.BuildValue(periodBuilder);
 

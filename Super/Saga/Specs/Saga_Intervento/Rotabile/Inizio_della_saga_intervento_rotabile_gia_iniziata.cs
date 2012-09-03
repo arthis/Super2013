@@ -29,7 +29,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
         readonly Guid _idPlan = Guid.NewGuid();
         readonly Guid _idLotto = Guid.NewGuid();
         readonly Guid _idCommittente = Guid.NewGuid();
-        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15, Guid.NewGuid()) };
+        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         Treno _trenoArrivo = new Treno("numeroA", DateTime.Now.AddHours(9));
         Treno _trenoPartenza = new Treno("numeroP", DateTime.Now.AddHours(14));

@@ -6,11 +6,11 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
-using Super.Contabilita.Commands.bachibouzouk;
+using Super.Contabilita.Commands.Pricing;
 using Super.Contabilita.Events;
-using Super.Contabilita.Handlers.bachiBouzouk;
+using Super.Contabilita.Handlers.Pricing;
 
-namespace Super.Contabilita.Specs.BachiBouzouk
+namespace Super.Contabilita.Specs.Pricing
 {
     public class aggiorna_il_prezzo_base : CommandBaseClass<UpdateBasePrice>
     {
@@ -35,7 +35,7 @@ namespace Super.Contabilita.Specs.BachiBouzouk
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return  BuildEvt.bachibouzoukCreated
+            yield return  BuildEvt.PricingCreated
                                    .Build(_id,1);
             yield return BuildEvt.BasePriceCreated
                 .ForBasePrice(_idBasePrice)

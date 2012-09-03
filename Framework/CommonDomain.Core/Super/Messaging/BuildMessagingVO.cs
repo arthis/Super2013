@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using CommonDomain.Core.Super.Messaging.Builders;
 
-namespace CommonDomain.Core.Super.Domain.Builders
+namespace CommonDomain.Core.Super.Messaging
 {
-    public static class BuildDomainVO
+    public static class BuildMessagingVO
     {
         public static IntervalBuilder Interval { get { return new IntervalBuilder(); } }
         public static IntervalOpenedBuilder IntervalOpened { get { return new IntervalOpenedBuilder(); } }
         public static OggettoRotManBuilder OggettoRotMan { get { return new OggettoRotManBuilder(); } }
         public static OggettoRotBuilder OggettoRot { get { return new OggettoRotBuilder(); } }
-        public static PeriodBuilder Period { get { return new PeriodBuilder(); } }
         public static WorkPeriodBuilder WorkPeriod { get { return new WorkPeriodBuilder(); } }
+        public static PeriodBuilder Period { get { return new PeriodBuilder(); } }
 
         
     }

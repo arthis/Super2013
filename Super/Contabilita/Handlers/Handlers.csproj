@@ -78,8 +78,8 @@
     <Compile Include="Appaltatore\CreateAppaltatoreHandler.cs" />
     <Compile Include="Appaltatore\DeleteAppaltatoreHandler.cs" />
     <Compile Include="Appaltatore\UpdateImpiantoHandler.cs" />
-    <Compile Include="bachiBouzouk\CreateBasePriceHandler.cs" />
-    <Compile Include="bachiBouzouk\UpdateBasePriceHandler.cs" />
+    <Compile Include="Pricing\CreateBasePriceHandler.cs" />
+    <Compile Include="Pricing\UpdateBasePriceHandler.cs" />
     <Compile Include="CommandHandlerService.cs" />
     <Compile Include="CategoriaCommerciale\CreateCategoriaCommercialeHandler.cs" />
     <Compile Include="CategoriaCommerciale\DeleteCategoriaCommercialeHandler.cs" />
@@ -87,7 +87,7 @@
     <Compile Include="Committente\CreateCommittenteHandler.cs" />
     <Compile Include="Committente\DeleteCommittenteHandler.cs" />
     <Compile Include="Committente\UpdateCommittenteHandler.cs" />
-    <Compile Include="bachiBouzouk\CreatebachibouzoukHandler.cs" />
+    <Compile Include="Pricing\CreatePricingHandler.cs" />
     <Compile Include="GruppoOggettoIntervento\CreateGruppoOggettoInterventoHandler.cs" />
     <Compile Include="GruppoOggettoIntervento\DeleteGruppoOggettoInterventoHandler.cs" />
     <Compile Include="GruppoOggettoIntervento\UpdateGruppoOggettoInterventoHandler.cs" />
