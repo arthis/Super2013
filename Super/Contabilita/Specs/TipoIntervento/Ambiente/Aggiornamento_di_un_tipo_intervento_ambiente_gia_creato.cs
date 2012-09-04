@@ -40,7 +40,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Ambiente
 
         public override UpdateTipoInterventoAmb When()
         {
-            return Commands.Build.UpdateTipoInterventoAmb
+            return Commands.BuildCmd.UpdateTipoInterventoAmb
                 .ForDescription(_descriptionUpdated)
                 .ForMnemo(_mnemoUpdated)
                 .OfMeasuringUNit(_idMeasuringUnitUpdated)

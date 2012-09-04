@@ -34,7 +34,7 @@ namespace Super.Contabilita.Specs.Committente
         public override UpdateCommittente When()
         {
 
-            return  Build.UpdateCommittente
+            return  BuildCmd.UpdateCommittente
                          .ForDescription(_description)
                          .ForSign(_sign)
                          .Build(_id, 1);

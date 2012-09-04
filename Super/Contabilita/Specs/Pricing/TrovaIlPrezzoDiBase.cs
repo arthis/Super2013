@@ -48,7 +48,7 @@ namespace Super.Contabilita.Specs.Pricing
 
         public override UpdateBasePrice When()
         {
-            return Commands.Build.UpdateBasePrice
+            return Commands.BuildCmd.UpdateBasePrice
                             .ForBasePrice(_idBasePrice)
                             .ForGruppoOggetto(_idGruppoOggettoInterventoUpdated)
                             .ForInterval(_intervalUpdated)

@@ -40,7 +40,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.RotabileInManutenzione
 
         public override UpdateTipoInterventoRotMan When()
         {
-            return Commands.Build.UpdateTipoInterventoRotMan
+            return Commands.BuildCmd.UpdateTipoInterventoRotMan
                 .ForDescription(_descriptionUpdated)
                 .ForMnemo(_mnemoUpdated)
                 .OfMeasuringUNit(_idMeasuringUnitUpdated)

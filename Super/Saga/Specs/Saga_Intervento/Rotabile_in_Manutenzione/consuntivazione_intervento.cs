@@ -13,7 +13,6 @@ using Super.Appaltatore.Events.Consuntivazione;
 using Super.Controllo.Commands;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
-using BuildEvtProg = Super.Programmazione.Events.Builders.Build;
 using BuildEvtApp = Super.Appaltatore.Events.BuildEvt;
 using BuildCmdCtrl = Super.Controllo.Commands.Builders.Build;
 
@@ -55,7 +54,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvtProg.InterventoRotManGenerated
+            yield return BuildEvt.InterventoRotManGenerated
                .WithOggetti(_oggetti.ToArray())
               .ForPeriod(_period)
               .ForImpianto(_idImpianto)

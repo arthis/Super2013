@@ -28,7 +28,7 @@ namespace Super.Contabilita.Specs.Pricing
 
         public override CreatePricing When()
         {
-            return Build.CreatePricing
+            return BuildCmd.CreatePricing
                 .Build(_id, 1);
         }
 

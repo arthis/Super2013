@@ -7,9 +7,9 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Appaltatore;
 using Super.Contabilita.Events;
-using BuildCmd = Super.Contabilita.Commands.Build;
 using Super.Contabilita.Handlers.Appaltatore;
 
 namespace Super.Contabilita.Specs.Appaltatore

@@ -42,7 +42,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override UpdateCarriageRotMan When()
         {
-            return Commands.Build.UpdateCarriageRotMan
+            return Commands.BuildCmd.UpdateCarriageRotMan
                 .ForDescription(_descriptionUpdated)
                 .ForSign(_signUpdated)
                 .IsInternational(_isInternationalUpdated)

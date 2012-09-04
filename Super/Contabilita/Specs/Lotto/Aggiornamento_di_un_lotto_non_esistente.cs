@@ -43,7 +43,7 @@ namespace Super.Contabilita.Specs.Lotto
 
         public override UpdateLotto When()
         {
-            return  Build.UpdateLotto
+            return  BuildCmd.UpdateLotto
                          .ForDescription(_description)
                          .ForInterval(_intervalUpdated)
                          .Build(_id, 1);

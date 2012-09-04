@@ -33,7 +33,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
         public override UpdateLocomotiveRot When()
         {
 
-            return Build.UpdateLocomotiveRot
+            return BuildCmd.UpdateLocomotiveRot
                          .ForDescription(_description)
                          .ForSign(_sign)
                          .ForGruppoOggetto(_idGruppoOggettoIntervento)

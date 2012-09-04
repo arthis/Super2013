@@ -35,7 +35,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
 
         public override CreateCarriageRot When()
         {
-            return Commands.Build.CreateCarriageRot
+            return Commands.BuildCmd.CreateCarriageRot
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .IsInternational(_isInternational)

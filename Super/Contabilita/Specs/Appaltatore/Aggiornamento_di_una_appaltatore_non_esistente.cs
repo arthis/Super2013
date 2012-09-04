@@ -33,7 +33,7 @@ namespace Super.Contabilita.Specs.Appaltatore
         public override UpdateAppaltatore When()
         {
 
-            return  Build.UpdateAppaltatore
+            return  BuildCmd.UpdateAppaltatore
                          .ForDescription(_description)
                          .Build(_id, 1);
         }

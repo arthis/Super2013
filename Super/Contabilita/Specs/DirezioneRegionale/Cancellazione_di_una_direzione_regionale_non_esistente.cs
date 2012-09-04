@@ -6,8 +6,8 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.DirezioneRegionale;
-using BuildCmd = Super.Contabilita.Commands.Build;
 using Super.Contabilita.Handlers.DirezioneRegionale;
 
 namespace Super.Contabilita.Specs.DirezioneRegionale

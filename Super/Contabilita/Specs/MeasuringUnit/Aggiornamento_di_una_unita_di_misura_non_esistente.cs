@@ -33,7 +33,7 @@ namespace Super.Contabilita.Specs.MeasuringUnit
         public override UpdateMeasuringUnit When()
         {
 
-            return  Build.UpdateMeasuringUnit
+            return  BuildCmd.UpdateMeasuringUnit
                          .ForDescription(_description)
                          .Build(_id, 1);
         }

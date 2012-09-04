@@ -96,7 +96,7 @@ namespace UI_Console
 
             var id = Guid.NewGuid();
             var commitId = Guid.NewGuid();
-            var cmdCreate = Build.CreateLotto
+            var cmdCreate = BuildCmd.CreateLotto
                 .ForDescription("test")
                 .ForInterval(new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
                 .Build(id, commitId,0);
@@ -107,7 +107,7 @@ namespace UI_Console
 
             client.Execute(cmdCreate);
 
-            var cmdUpdate = Build.UpdateLotto
+            var cmdUpdate = BuildCmd.UpdateLotto
                .ForDescription("test updated")
                .ForInterval(new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2)))
                .Build(id,1);

@@ -30,7 +30,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
 
         public override DeleteTipoOggettoInterventoAmb When()
         {
-            return Build.DeleteTipoOggettoInterventoAmb
+            return BuildCmd.DeleteTipoOggettoInterventoAmb
                 .Build(_id, 1);
         }
 

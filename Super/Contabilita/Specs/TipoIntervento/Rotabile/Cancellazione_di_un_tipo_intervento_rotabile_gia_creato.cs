@@ -41,7 +41,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Rotabile
 
         public override DeleteTipoInterventoRot When()
         {
-            return Commands.Build.DeleteTipoInterventoRot
+            return Commands.BuildCmd.DeleteTipoInterventoRot
                 .Build(_id, 1);
         }
 

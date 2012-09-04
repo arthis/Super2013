@@ -33,7 +33,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override CreateCarriageRotMan When()
         {
-            return Commands.Build.CreateCarriageRotMan
+            return Commands.BuildCmd.CreateCarriageRotMan
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .IsInternational(_isInternational)

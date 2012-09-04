@@ -217,6 +217,10 @@
       <Project>{F954F13E-C818-485F-98BF-91579AA21127}</Project>
       <Name>CommonSpecs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Programmazione\Commands\Commands.csproj">
+      <Project>{8A1120F1-6778-4AD1-8F09-45A2ABE5C1FC}</Project>
+      <Name>Commands %28Super\Programmazione\Commands%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{7C1A8FCA-5A29-4A72-9D3E-D477CF0B96BF}</Project>
       <Name>Commands %28Super\Contabilita\Commands%29</Name>

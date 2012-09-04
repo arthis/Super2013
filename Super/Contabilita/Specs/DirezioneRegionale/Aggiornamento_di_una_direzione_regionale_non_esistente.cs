@@ -33,7 +33,7 @@ namespace Super.Contabilita.Specs.DirezioneRegionale
         public override UpdateDirezioneRegionale When()
         {
 
-            return  Build.UpdateDirezioneRegionale
+            return  BuildCmd.UpdateDirezioneRegionale
                          .ForDescription(_description)
                          .Build(_id, 1);
         }

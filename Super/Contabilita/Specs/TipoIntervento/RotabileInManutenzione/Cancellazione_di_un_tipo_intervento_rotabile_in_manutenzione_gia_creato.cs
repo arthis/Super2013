@@ -35,7 +35,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.RotabileInManutenzione
 
         public override DeleteTipoInterventoRotMan When()
         {
-            return Commands.Build.DeleteTipoInterventoRotMan
+            return Commands.BuildCmd.DeleteTipoInterventoRotMan
                 .Build(_id, 1);
         }
 

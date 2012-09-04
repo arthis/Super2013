@@ -41,7 +41,7 @@ namespace Super.Contabilita.Specs.Impianto
         public override UpdateImpianto When()
         {
 
-            return  Build.UpdateImpianto
+            return  BuildCmd.UpdateImpianto
                          .ForDescription(_description)
                          .ForInterval(_intervalUpdated)
                          .Build(_id, 1);

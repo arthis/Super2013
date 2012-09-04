@@ -44,7 +44,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
 
         public override CreateLocomotiveRot When()
         {
-            return Commands.Build.CreateLocomotiveRot
+            return Commands.BuildCmd.CreateLocomotiveRot
                 .ForDescription(_description)
                 .ForSign(_sign)
                 .ForGruppoOggetto(_idGruppoOggettoIntervento)

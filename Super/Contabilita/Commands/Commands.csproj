@@ -116,7 +116,7 @@
     <Compile Include="Builders\Lotto\DeleteLottoBuilder.cs" />
     <Compile Include="Builders\Impianto\DeleteImpiantoBuilder.cs" />
     <Compile Include="Builders\Impianto\CreateImpiantoBuilder.cs" />
-    <Compile Include="Build.cs" />
+    <Compile Include="BuildCmd.cs" />
     <Compile Include="Builders\Lotto\CreateLottoBuilder.cs" />
     <Compile Include="Builders\Impianto\UpdateImpiantoBuilder.cs" />
     <Compile Include="Builders\Lotto\UpdateLottoBuilder.cs" />

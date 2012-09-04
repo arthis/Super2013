@@ -8,11 +8,12 @@
     <ProjectGuid>{F3F4B32D-9E1F-4ADA-A94E-E5762C33743F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Super.Schedulazione.Specs</RootNamespace>
-    <AssemblyName>Super.Schedulazione.Specs</AssemblyName>
+    <RootNamespace>Super.Programmazione.Specs</RootNamespace>
+    <AssemblyName>Super.Programmazione.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +23,31 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>False</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>False</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>%28none%29</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +61,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Super.Schedulazione.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
@@ -47,6 +74,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Scenario\Aggiornamento_di_un_scenario_gia_creato.cs" />
+    <Compile Include="Scenario\Aggiornamento_di_un_scenario_non_esistente.cs" />
+    <Compile Include="Scenario\Cancellazione_di_una_scenario_gia_cancellato.cs" />
+    <Compile Include="Scenario\Cancellazione_di_una_scenario_gia_creato.cs" />
+    <Compile Include="Scenario\Cancellazione_di_un_scenario_non_esistente.cs" />
+    <Compile Include="Schedulazione\aggiungere_una_schedulazione_rotabile_a_un_scenario.cs" />
+    <Compile Include="Scenario\promuovere_un_scenario_in_un_piano_.cs" />
+    <Compile Include="Scenario\Creare_un_scenario_gia_creato.cs" />
+    <Compile Include="Scenario\Creare_un_scenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,9 +106,18 @@
       <Project>{F954F13E-C818-485F-98BF-91579AA21127}</Project>
       <Name>CommonSpecs</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Super.Schedulazione.snk" />
+    <ProjectReference Include="..\Commands\Commands.csproj">
+      <Project>{8A1120F1-6778-4AD1-8F09-45A2ABE5C1FC}</Project>
+      <Name>Commands %28Super\Programmazione\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Events.csproj">
+      <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
+      <Name>Events %28Super\Programmazione\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Handlers\Handlers.csproj">
+      <Project>{91DDB100-A9BB-431B-9270-F5AAE3A99845}</Project>
+      <Name>Handlers %28Super\Programmazione\Handlers%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

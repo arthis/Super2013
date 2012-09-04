@@ -40,7 +40,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
 
         public override UpdateTipoOggettoInterventoAmb When()
         {
-            return Commands.Build.UpdateTipoOggettoInterventoAmb
+            return Commands.BuildCmd.UpdateTipoOggettoInterventoAmb
                 .ForDescription(_descriptionUpdated)
                 .ForSign(_signUpdated)
                 .ForGruppoOggetto(_idGruppoOggettoInterventoUpdated)

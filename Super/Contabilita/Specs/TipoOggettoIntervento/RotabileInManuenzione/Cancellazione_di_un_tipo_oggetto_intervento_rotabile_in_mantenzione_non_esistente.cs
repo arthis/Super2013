@@ -29,7 +29,7 @@ namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 
         public override DeleteTipoOggettoInterventoRotMan When()
         {
-            return Build.DeleteTipoOggettoInterventoRotMan
+            return BuildCmd.DeleteTipoOggettoInterventoRotMan
                 .Build(_id, 1);
         }
 

@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 //
 //      Major Version
 //      Minor Version 
-//      Build Number
+//      BuildEvt Number
 //      Revision
 //
 // You can specify all the values or you can default the BuildDomainVO and Revision Numbers 

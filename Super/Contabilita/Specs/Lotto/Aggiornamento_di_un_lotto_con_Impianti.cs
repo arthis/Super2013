@@ -8,13 +8,13 @@ using CommonDomain.Persistence;
 using Moq;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Events;
 using Super.Contabilita.Handlers;
 using Super.Contabilita.Handlers.Lotto;
 using Super.Contabilita.Handlers.Repositories;
-using BuildCmd = Super.Contabilita.Commands.Build;
 
 namespace Super.Contabilita.Specs.Lotto
 {

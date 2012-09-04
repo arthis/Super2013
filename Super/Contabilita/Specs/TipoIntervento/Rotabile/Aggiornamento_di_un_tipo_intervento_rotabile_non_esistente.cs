@@ -36,7 +36,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Rotabile
         public override UpdateTipoInterventoRot When()
         {
 
-            return Build.UpdateTipoInterventoRot
+            return BuildCmd.UpdateTipoInterventoRot
                 .ForDescription(_description)
                 .ForMnemo(_mnemo)
                 .OfMeasuringUNit(_idMeasuringUnit)

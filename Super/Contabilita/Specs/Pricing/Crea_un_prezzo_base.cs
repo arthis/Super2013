@@ -38,7 +38,7 @@ namespace Super.Contabilita.Specs.Pricing
 
         public override CreateBasePrice When()
         {
-            return Commands.Build.CreateBasePrice
+            return Commands.BuildCmd.CreateBasePrice
                             .ForBasePrice(_idBasePrice)
                             .ForGruppoOggetto(_idGruppoOggettoIntervento)
                             .ForInterval(_interval)

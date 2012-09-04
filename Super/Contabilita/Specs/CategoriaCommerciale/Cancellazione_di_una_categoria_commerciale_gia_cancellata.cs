@@ -7,9 +7,9 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.CategoriaCommerciale;
 using Super.Contabilita.Events;
-using BuildCmd = Super.Contabilita.Commands.Build;
 using Super.Contabilita.Handlers.CategoriaCommerciale;
 
 namespace Super.Contabilita.Specs.CategoriaCommerciale

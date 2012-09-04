@@ -10,6 +10,7 @@ namespace CommonDomain.Core.Super.Messaging
         public static OggettoRotBuilder OggettoRot { get { return new OggettoRotBuilder(); } }
         public static WorkPeriodBuilder WorkPeriod { get { return new WorkPeriodBuilder(); } }
         public static PeriodBuilder Period { get { return new PeriodBuilder(); } }
+        public static TrenoBuilder Treno { get { return new TrenoBuilder(); } }
 
         
     }

@@ -35,7 +35,7 @@ namespace Super.Contabilita.Specs.TipoIntervento.Ambiente
 
         public override DeleteTipoInterventoAmb When()
         {
-            return Commands.Build.DeleteTipoInterventoAmb
+            return Commands.BuildCmd.DeleteTipoInterventoAmb
                 .Build(_id, 1);
         }
 

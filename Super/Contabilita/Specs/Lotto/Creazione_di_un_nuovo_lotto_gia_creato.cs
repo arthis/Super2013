@@ -7,12 +7,12 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Handlers;
 using Super.Contabilita.Handlers.Lotto;
-using BuildCmd = Super.Contabilita.Commands.Build;
 
 namespace Super.Contabilita.Specs.Lotto
 {

@@ -5,10 +5,10 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.GruppoOggettoIntervento;
 using Super.Contabilita.Events;
 using Super.Contabilita.Handlers.GruppoOggettoIntervento;
-using BuildCmd = Super.Contabilita.Commands.Build;
 
 namespace Super.Contabilita.Specs.GruppoOggettoIntervento
 {

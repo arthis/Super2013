@@ -33,7 +33,7 @@ namespace Super.Contabilita.Specs.CategoriaCommerciale
         public override UpdateCategoriaCommerciale When()
         {
 
-            return  Build.UpdateCategoriaCommerciale
+            return  BuildCmd.UpdateCategoriaCommerciale
                          .ForDescription(_description)
                          .Build(_id, 1);
         }

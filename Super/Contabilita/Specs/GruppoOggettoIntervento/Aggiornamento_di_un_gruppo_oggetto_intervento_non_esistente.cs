@@ -33,7 +33,7 @@ namespace Super.Contabilita.Specs.GruppoOggettoIntervento
         public override UpdateGruppoOggettoIntervento When()
         {
 
-            return  Build.UpdateGruppoOggettoIntervento
+            return  BuildCmd.UpdateGruppoOggettoIntervento
                          .ForDescription(_description)
                          .Build(_id, 1);
         }

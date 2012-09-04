@@ -63,7 +63,7 @@ namespace Super.Contabilita.Specs.Intervento
                                             .Build()
                                  };
 
-            return Commands.Build.CalculateInterventoRotPriceOfPlan
+            return Commands.BuildCmd.CalculateInterventoRotPriceOfPlan
                 .ForPeriod(_period)
                 .ForPlan(_idPlan)
                 .ForTipoIntervento(_idTipoIntervento)
