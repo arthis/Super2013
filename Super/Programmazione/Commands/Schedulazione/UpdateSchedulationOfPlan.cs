@@ -112,8 +112,6 @@ namespace Super.Programmazione.Commands.Schedulazione
         public Treno TrenoPartenza { get; set; }
         public OggettoRot[] Oggetti { get; set; }
 
-
-
         public UpdateSchedulazioneRotOfPlan()
         {
 

@@ -27,7 +27,7 @@
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
     <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
-    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
     <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
     <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
     <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
@@ -75,13 +75,20 @@
   <ItemGroup>
     <Compile Include="CommandHandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedulazione\AddSchedulazioneRotToScenarioHandler.cs" />
-    <Compile Include="Schedulazione\AddSchedulazioneRotManToScenarioHandler.cs" />
-    <Compile Include="Schedulazione\AddSchedulazioneAmbToScenarioHandler.cs" />
+    <Compile Include="Schedulazione\CancelSchedulazioneFromPlanHandler.cs" />
+    <Compile Include="Schedulazione\Ambiente\AddRuleToSchedulazioneRotHandler.cs" />
+    <Compile Include="Schedulazione\RotabileInManutenzione\AddRuleToSchedulazioneRotHandler.cs" />
+    <Compile Include="Schedulazione\Rotabile\AddSchedulazioneRotToScenarioHandler.cs" />
+    <Compile Include="Schedulazione\RotabileInManutenzione\AddSchedulazioneRotManToScenarioHandler.cs" />
+    <Compile Include="Schedulazione\Ambiente\AddSchedulazioneAmbToScenarioHandler.cs" />
     <Compile Include="Scenario\PromoteScenarioToPlanHandler.cs" />
     <Compile Include="Scenario\UpdateScenarioHandler.cs" />
     <Compile Include="Scenario\DeleteScenarioHandler.cs" />
     <Compile Include="Scenario\CreateScenarioHandler.cs" />
+    <Compile Include="Schedulazione\Ambiente\AddSchedulazioneAmbToPlanHandler.cs" />
+    <Compile Include="Schedulazione\RotabileInManutenzione\AddSchedulazioneRotManToPlanHandler.cs" />
+    <Compile Include="Schedulazione\Rotabile\AddSchedulazioneRotToPlanHandler.cs" />
+    <Compile Include="Schedulazione\Rotabile\AddRuleToSchedulazioneRotHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">

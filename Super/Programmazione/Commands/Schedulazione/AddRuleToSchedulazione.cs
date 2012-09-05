@@ -23,8 +23,7 @@ namespace Super.Programmazione.Commands.Schedulazione
         public bool HolyDay { get; set; }
         public bool PreHolyDay { get; set; }
         public bool PostHolyDay { get; set; }
-        public bool Repetition { get; set; }
-        public int? Frequence { get; set; }    
+         
 
         public AddRuleToSchedulazione()
         {
@@ -43,9 +42,7 @@ namespace Super.Programmazione.Commands.Schedulazione
             bool weekEnd,
             bool holyDay,
             bool preHolyDay,
-            bool postHolyDay,
-            bool repetition,
-            int? frequence)
+            bool postHolyDay)
             : base(id, idCommitId,version)
         {
             Contract.Requires<ArgumentNullException>(interval!=null);
@@ -62,13 +59,46 @@ namespace Super.Programmazione.Commands.Schedulazione
             HolyDay = holyDay;
             PreHolyDay = preHolyDay;
             PostHolyDay = postHolyDay;
-            Repetition = repetition;
-            Frequence = frequence;
         }
 
         public override string ToDescription()
         {
             return string.Format("Aggiungere una regola alla schedulazione {0} ", Id);
+        }
+
+        public bool Equals(AddRuleToSchedulazione other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return base.Equals(other) && Equals(other.Interval, Interval) && other.Monday.Equals(Monday) && other.Tuesday.Equals(Tuesday) && other.Wednesday.Equals(Wednesday) && other.Thursday.Equals(Thursday) && other.Friday.Equals(Friday) && other.Saturday.Equals(Saturday) && other.Sunday.Equals(Sunday) && other.WeekEnd.Equals(WeekEnd) && other.HolyDay.Equals(HolyDay) && other.PreHolyDay.Equals(PreHolyDay) && other.PostHolyDay.Equals(PostHolyDay);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return Equals(obj as AddRuleToSchedulazione);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int result = base.GetHashCode();
+                result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
+                result = (result*397) ^ Monday.GetHashCode();
+                result = (result*397) ^ Tuesday.GetHashCode();
+                result = (result*397) ^ Wednesday.GetHashCode();
+                result = (result*397) ^ Thursday.GetHashCode();
+                result = (result*397) ^ Friday.GetHashCode();
+                result = (result*397) ^ Saturday.GetHashCode();
+                result = (result*397) ^ Sunday.GetHashCode();
+                result = (result*397) ^ WeekEnd.GetHashCode();
+                result = (result*397) ^ HolyDay.GetHashCode();
+                result = (result*397) ^ PreHolyDay.GetHashCode();
+                result = (result*397) ^ PostHolyDay.GetHashCode();
+                return result;
+            }
         }
     }
 
@@ -95,11 +125,9 @@ namespace Super.Programmazione.Commands.Schedulazione
             bool holyDay,
             bool preHolyDay,
             bool postHolyDay,
-            bool repetition,
-            int? frequence,
             Treno trenoArrivo,
             WorkPeriod workPeriod)
-            : base(id, idCommitId, version, interval, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay, repetition, frequence)
+            : base(id, idCommitId, version, interval, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay)
         {
             TrenoArrivo = trenoArrivo;
             WorkPeriod = workPeriod;
@@ -108,6 +136,31 @@ namespace Super.Programmazione.Commands.Schedulazione
         public override string ToDescription()
         {
             return string.Format("Aggiungere una regola alla schedulazione rotabile {0} ", Id);
+        }
+
+        public bool Equals(AddRuleToSchedulazioneRot other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return base.Equals(other) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.WorkPeriod, WorkPeriod);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return Equals(obj as AddRuleToSchedulazioneRot);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int result = base.GetHashCode();
+                result = (result*397) ^ (TrenoArrivo != null ? TrenoArrivo.GetHashCode() : 0);
+                result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
+                return result;
+            }
         }
     }
 
@@ -132,10 +185,8 @@ namespace Super.Programmazione.Commands.Schedulazione
             bool weekEnd,
             bool holyDay,
             bool preHolyDay,
-            bool postHolyDay,
-            bool repetition,
-            int? frequence)
-            : base(id, idCommitId, version, interval,  monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay, repetition, frequence)
+            bool postHolyDay)
+            : base(id, idCommitId, version, interval,  monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay)
         {
 
         }
@@ -143,6 +194,23 @@ namespace Super.Programmazione.Commands.Schedulazione
         public override string ToDescription()
         {
             return string.Format("Aggiungere una regola alla schedulazione rotabile in manutenzione {0} ", Id);
+        }
+
+        public bool Equals(AddRuleToSchedulazioneRotMan other)
+        {
+            return base.Equals(other);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return Equals(obj as AddRuleToSchedulazioneRotMan);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 
@@ -167,10 +235,8 @@ namespace Super.Programmazione.Commands.Schedulazione
             bool weekEnd,
             bool holyDay,
             bool preHolyDay,
-            bool postHolyDay,
-            bool repetition,
-            int? frequence)
-            : base(id, idCommitId, version, interval, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay, repetition, frequence)
+            bool postHolyDay)
+            : base(id, idCommitId, version, interval, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay)
         {
 
         }
@@ -178,6 +244,23 @@ namespace Super.Programmazione.Commands.Schedulazione
         public override string ToDescription()
         {
             return string.Format("Aggiungere una regola alla schedulazione ambiente {0} ", Id);
+        }
+
+        public bool Equals(AddRuleToSchedulazioneAmb other)
+        {
+            return base.Equals(other);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return Equals(obj as AddRuleToSchedulazioneAmb);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

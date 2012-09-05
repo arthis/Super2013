@@ -6,14 +6,14 @@ using Super.Programmazione.Commands.Schedulazione;
 
 namespace Super.Programmazione.Handlers.Schedulazione
 {
-    public class AddSchedulazioneAmbToScenarioHandler: CommandHandler<AddSchedulazioneAmbToScenario>
+    public class CancelSchedulazioneFromPlanHandler : CommandHandler<CancelSchedulazioneFromPlan>
     {
-        public AddSchedulazioneAmbToScenarioHandler(IEventRepository eventRepository)
+        public CancelSchedulazioneFromPlanHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(AddSchedulazioneAmbToScenario cmd)
+        public override CommandValidation Execute(CancelSchedulazioneFromPlan cmd)
         {
             throw new NotImplementedException();
 
@@ -22,7 +22,7 @@ namespace Super.Programmazione.Handlers.Schedulazione
         
 
 
-            //var existingIntervento = EventRepository.GetById<Scenario>(cmd.Id);
+            //var existingIntervento = EventRepository.GetById<Plan>(cmd.Id);
 
             //if (!existingIntervento.IsNull())
             //    throw new AlreadyCreatedAggregateRootException();

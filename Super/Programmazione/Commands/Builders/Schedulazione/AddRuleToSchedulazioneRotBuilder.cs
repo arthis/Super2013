@@ -5,14 +5,9 @@ using Super.Programmazione.Commands.Schedulazione;
 
 namespace Super.Programmazione.Commands.Builders.Schedulazione
 {
-    public abstract class AddRuleToSchedulazioneBuilder 
-    {
-        
+   
 
-
-    }
-
-    public class AddRuleToSchedulazioneRotBuilder : AddRuleToSchedulazioneBuilder, ICommandBuilder<AddRuleToSchedulazioneRot>
+    public class AddRuleToSchedulazioneRotBuilder :  ICommandBuilder<AddRuleToSchedulazioneRot>
     {
         Interval _interval;
         bool _monday;
@@ -26,11 +21,6 @@ namespace Super.Programmazione.Commands.Builders.Schedulazione
         bool _holyDay;
         bool _preHolyDay;
         bool _postHolyDay;
-        bool _repetition;
-        int? _frequence;
-
-
-       
         private Treno _trenoArrivo;
         private WorkPeriod _workPeriod;
 
@@ -53,83 +43,79 @@ namespace Super.Programmazione.Commands.Builders.Schedulazione
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithInterval(Interval interval)
+        public AddRuleToSchedulazioneRotBuilder WithInterval(Interval interval)
         {
             _interval = interval;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithMonday(bool monday)
+        public AddRuleToSchedulazioneRotBuilder WithMonday(bool monday)
         {
             _monday = monday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithTuesday(bool tuesday)
+        public AddRuleToSchedulazioneRotBuilder WithTuesday(bool tuesday)
         {
             _tuesday = tuesday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithWedneday(bool wednesday)
+        public AddRuleToSchedulazioneRotBuilder WithWedneday(bool wednesday)
         {
             _wednesday = wednesday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithThursday(bool thursday)
+        public AddRuleToSchedulazioneRotBuilder WithThursday(bool thursday)
         {
             _thursday = thursday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithFriday(bool friday)
+        public AddRuleToSchedulazioneRotBuilder WithFriday(bool friday)
         {
             _friday = friday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithSaturday(bool saturday)
+        public AddRuleToSchedulazioneRotBuilder WithSaturday(bool saturday)
         {
             _saturday = saturday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithSunday(bool sunday)
+        public AddRuleToSchedulazioneRotBuilder WithSunday(bool sunday)
         {
             _sunday = sunday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithHolyDay(bool holyday)
+        public AddRuleToSchedulazioneRotBuilder WithWeekEnd(bool weekend)
+        {
+            _weekEnd = weekend;
+            return this;
+        }
+
+        public AddRuleToSchedulazioneRotBuilder WithHolyDay(bool holyday)
         {
             _holyDay = holyday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithPreHolyDay(bool preHolyday)
+        public AddRuleToSchedulazioneRotBuilder WithPreHolyDay(bool preHolyday)
         {
             _preHolyDay = preHolyday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithPostHolyDay(bool postHolyday)
+        public AddRuleToSchedulazioneRotBuilder WithPostHolyDay(bool postHolyday)
         {
             _postHolyDay = postHolyday;
             return this;
         }
 
-        public AddRuleToSchedulazioneBuilder WithRepetition(bool postHolyday)
-        {
-            _repetition = postHolyday;
-            return this;
-        }
 
-        public AddRuleToSchedulazioneBuilder WithFrequence(int? frequence)
-        {
-            _frequence = frequence;
-            return this;
-        }
 
         public AddRuleToSchedulazioneRot Build(Guid id, long version)
         {
@@ -153,254 +139,8 @@ namespace Super.Programmazione.Commands.Builders.Schedulazione
                                                 _holyDay,
                                                 _preHolyDay,
                                                 _postHolyDay,
-                                                _repetition,
-                                                _frequence,
                                                 _trenoArrivo,
                                                 _workPeriod);
-        }
-    }
-
-    public class AddRuleToSchedulazioneRotManBuilder : AddRuleToSchedulazioneBuilder, ICommandBuilder<AddRuleToSchedulazioneRotMan>
-    {
-        Interval _interval;
-        bool _monday;
-        bool _tuesday;
-        bool _wednesday;
-        bool _thursday;
-        bool _friday;
-        bool _saturday;
-        bool _sunday;
-        bool _weekEnd;
-        bool _holyDay;
-        bool _preHolyDay;
-        bool _postHolyDay;
-        bool _repetition;
-        int? _frequence;
-
-        public AddRuleToSchedulazioneBuilder WithInterval(Interval interval)
-        {
-            _interval = interval;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithMonday(bool monday)
-        {
-            _monday = monday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithTuesday(bool tuesday)
-        {
-            _tuesday = tuesday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithWedneday(bool wednesday)
-        {
-            _wednesday = wednesday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithThursday(bool thursday)
-        {
-            _thursday = thursday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithFriday(bool friday)
-        {
-            _friday = friday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithSaturday(bool saturday)
-        {
-            _saturday = saturday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithSunday(bool sunday)
-        {
-            _sunday = sunday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithHolyDay(bool holyday)
-        {
-            _holyDay = holyday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithPreHolyDay(bool preHolyday)
-        {
-            _preHolyDay = preHolyday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithPostHolyDay(bool postHolyday)
-        {
-            _postHolyDay = postHolyday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithRepetition(bool postHolyday)
-        {
-            _repetition = postHolyday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithFrequence(int? frequence)
-        {
-            _frequence = frequence;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneRotMan Build(Guid id, long version)
-        {
-            return Build(id, Guid.NewGuid(), version);
-        }
-
-        public AddRuleToSchedulazioneRotMan Build(Guid id, Guid commitId, long version)
-        {
-            return new AddRuleToSchedulazioneRotMan(id,
-                                                commitId,
-                                                version,
-                                                _interval,
-                                                _monday,
-                                                _tuesday,
-                                                _wednesday,
-                                                _thursday,
-                                                _friday,
-                                                _saturday,
-                                                _sunday,
-                                                _weekEnd,
-                                                _holyDay,
-                                                _preHolyDay,
-                                                _postHolyDay,
-                                                _repetition,
-                                                _frequence);
-        }
-    }
-
-    public class AddRuleToSchedulazioneAmbBuilder : AddRuleToSchedulazioneBuilder, ICommandBuilder<AddRuleToSchedulazioneAmb>
-    {
-        Interval _interval;
-        bool _monday;
-        bool _tuesday;
-        bool _wednesday;
-        bool _thursday;
-        bool _friday;
-        bool _saturday;
-        bool _sunday;
-        bool _weekEnd;
-        bool _holyDay;
-        bool _preHolyDay;
-        bool _postHolyDay;
-        bool _repetition;
-        int? _frequence;
-
-        public AddRuleToSchedulazioneBuilder WithInterval(Interval interval)
-        {
-            _interval = interval;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithMonday(bool monday)
-        {
-            _monday = monday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithTuesday(bool tuesday)
-        {
-            _tuesday = tuesday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithWedneday(bool wednesday)
-        {
-            _wednesday = wednesday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithThursday(bool thursday)
-        {
-            _thursday = thursday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithFriday(bool friday)
-        {
-            _friday = friday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithSaturday(bool saturday)
-        {
-            _saturday = saturday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithSunday(bool sunday)
-        {
-            _sunday = sunday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithHolyDay(bool holyday)
-        {
-            _holyDay = holyday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithPreHolyDay(bool preHolyday)
-        {
-            _preHolyDay = preHolyday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithPostHolyDay(bool postHolyday)
-        {
-            _postHolyDay = postHolyday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithRepetition(bool postHolyday)
-        {
-            _repetition = postHolyday;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneBuilder WithFrequence(int? frequence)
-        {
-            _frequence = frequence;
-            return this;
-        }
-
-        public AddRuleToSchedulazioneAmb Build(Guid id, long version)
-        {
-            return Build(id, Guid.NewGuid(), version);
-        }
-
-        public AddRuleToSchedulazioneAmb Build(Guid id, Guid commitId, long version)
-        {
-            return new AddRuleToSchedulazioneAmb(id,
-                                                commitId,
-                                                version,
-                                                _interval,
-                                                _monday,
-                                                _tuesday,
-                                                _wednesday,
-                                                _thursday,
-                                                _friday,
-                                                _saturday,
-                                                _sunday,
-                                                _weekEnd,
-                                                _holyDay,
-                                                _preHolyDay,
-                                                _postHolyDay,
-                                                _repetition,
-                                                _frequence);
         }
     }
 }

@@ -4,16 +4,16 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Programmazione.Commands.Schedulazione;
 
-namespace Super.Programmazione.Handlers.Schedulazione
+namespace Super.Programmazione.Handlers.Schedulazione.Rotabile
 {
-    public class AddSchedulazioneRotManToScenarioHandler: CommandHandler<AddSchedulazioneRotManToScenario>
+    public class AddRuleToSchedulazioneRotHandler: CommandHandler<AddRuleToSchedulazioneRot>
     {
-        public AddSchedulazioneRotManToScenarioHandler(IEventRepository eventRepository)
+        public AddRuleToSchedulazioneRotHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(AddSchedulazioneRotManToScenario cmd)
+        public override CommandValidation Execute(AddRuleToSchedulazioneRot cmd)
         {
             throw new NotImplementedException();
 
@@ -22,7 +22,7 @@ namespace Super.Programmazione.Handlers.Schedulazione
         
 
 
-            //var existingIntervento = EventRepository.GetById<Scenario>(cmd.Id);
+            //var existingIntervento = EventRepository.GetById<Plan>(cmd.Id);
 
             //if (!existingIntervento.IsNull())
             //    throw new AlreadyCreatedAggregateRootException();
