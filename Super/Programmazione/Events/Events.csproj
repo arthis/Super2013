@@ -96,6 +96,7 @@
     <Compile Include="Builders\Schedulazione\InterventoGeneratedBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoUpdatedOfPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\SchedulationUpdatedOfScenarioBuilder.cs" />
+    <Compile Include="Schedulazione\InterventiAskedTobeGeneratedFromSchedulazione.cs" />
     <Compile Include="Schedulazione\SchedulazioneCancelledFromScenario.cs" />
     <Compile Include="Schedulazione\IInterventoGenerated.cs" />
     <Compile Include="Schedulazione\InterventoGenerated.cs" />

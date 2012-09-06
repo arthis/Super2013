@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
@@ -10,7 +11,7 @@ using CommonSpecs;
 using Super.Programmazione.Commands;
 using Super.Programmazione.Commands.Schedulazione;
 using Super.Programmazione.Events;
-using Super.Programmazione.Handlers.Schedulazione.RotabileInManutenzione;
+using Super.Programmazione.Handlers.Commands.Schedulazione.RotabileInManutenzione;
 
 namespace Super.Programmazione.Specs.Schedulazione.RotabileInManutenzione
 {

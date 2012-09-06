@@ -12,7 +12,7 @@ namespace Super.Programmazione.ProgrammazioneService
         static void Main(string[] args)
         {
             var bus = RabbitHutch.CreateBus("host=localhost"); ;
-            var commandHandlerService = new CommandHandlerService();
+            var commandHandlerService = new HandlerService();
             var projectionHandler = new ProjectionHandlerService();
             var commandWebService = new CommandWebService(bus, commandHandlerService, projectionHandler);
 

@@ -2,6 +2,7 @@
 using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Contabilita.Commands.Pricing;

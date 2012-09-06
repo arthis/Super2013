@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using CommandService;
 using CommonDomain;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Handlers.Events;
 using CommonDomain.Persistence;
 
 namespace Super.Programmazione.Projection

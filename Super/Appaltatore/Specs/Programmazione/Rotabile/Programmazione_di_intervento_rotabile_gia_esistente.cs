@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
 using CommonDomain.Persistence;

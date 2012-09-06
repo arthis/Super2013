@@ -3,6 +3,7 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Commands;

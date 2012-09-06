@@ -5,6 +5,7 @@ using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Handlers.Events;
 using CommonDomain.Persistence;
 using Super.Contabilita.Events.Appaltatore;
 using Super.Contabilita.Events.CategoriaCommerciale;

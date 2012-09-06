@@ -97,10 +97,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandHandlerServiceBase.cs" />
     <Compile Include="CommandWebService.cs" />
     <Compile Include="DelegateMessageDispatcher.cs" />
-    <Compile Include="ICommandHandlerService.cs" />
     <Compile Include="ICommandWebService.cs" />
     <Compile Include="ExecuteResponse.cs" />
     <Compile Include="ICommandWebServiceClient.cs" />

@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Handlers.Events;
 using CommonDomain.Persistence;
 
 namespace Super.Saga.Handlers

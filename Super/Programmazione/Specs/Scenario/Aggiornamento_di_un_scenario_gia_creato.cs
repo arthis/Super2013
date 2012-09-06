@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Programmazione.Commands.Scenario;
-using Super.Programmazione.Handlers.Scenario;
 using Super.Programmazione.Commands;
 using Super.Programmazione.Events;
+using Super.Programmazione.Handlers.Commands.Scenario;
 
 namespace Super.Programmazione.Specs.Scenario
 {

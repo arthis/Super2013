@@ -5,6 +5,7 @@ using CommandService;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Commands;
 

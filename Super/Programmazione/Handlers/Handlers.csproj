@@ -73,22 +73,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandHandlerService.cs" />
+    <Compile Include="Commands\InterventoGenerator\GenerateInterventiHandler.cs" />
+    <Compile Include="HandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedulazione\CancelSchedulazioneFromPlanHandler.cs" />
-    <Compile Include="Schedulazione\Ambiente\AddRuleToSchedulazioneRotHandler.cs" />
-    <Compile Include="Schedulazione\RotabileInManutenzione\AddRuleToSchedulazioneRotHandler.cs" />
-    <Compile Include="Schedulazione\Rotabile\AddSchedulazioneRotToScenarioHandler.cs" />
-    <Compile Include="Schedulazione\RotabileInManutenzione\AddSchedulazioneRotManToScenarioHandler.cs" />
-    <Compile Include="Schedulazione\Ambiente\AddSchedulazioneAmbToScenarioHandler.cs" />
-    <Compile Include="Scenario\PromoteScenarioToPlanHandler.cs" />
-    <Compile Include="Scenario\UpdateScenarioHandler.cs" />
-    <Compile Include="Scenario\DeleteScenarioHandler.cs" />
-    <Compile Include="Scenario\CreateScenarioHandler.cs" />
-    <Compile Include="Schedulazione\Ambiente\AddSchedulazioneAmbToPlanHandler.cs" />
-    <Compile Include="Schedulazione\RotabileInManutenzione\AddSchedulazioneRotManToPlanHandler.cs" />
-    <Compile Include="Schedulazione\Rotabile\AddSchedulazioneRotToPlanHandler.cs" />
-    <Compile Include="Schedulazione\Rotabile\AddRuleToSchedulazioneRotHandler.cs" />
+    <Compile Include="Commands\Schedulazione\CancelSchedulazioneFromPlanHandler.cs" />
+    <Compile Include="Commands\Schedulazione\Ambiente\AddRuleToSchedulazioneRotHandler.cs" />
+    <Compile Include="Commands\Schedulazione\RotabileInManutenzione\AddRuleToSchedulazioneRotHandler.cs" />
+    <Compile Include="Commands\Schedulazione\Rotabile\AddSchedulazioneRotToScenarioHandler.cs" />
+    <Compile Include="Commands\Schedulazione\RotabileInManutenzione\AddSchedulazioneRotManToScenarioHandler.cs" />
+    <Compile Include="Commands\Schedulazione\Ambiente\AddSchedulazioneAmbToScenarioHandler.cs" />
+    <Compile Include="Commands\Scenario\PromoteScenarioToPlanHandler.cs" />
+    <Compile Include="Commands\Scenario\UpdateScenarioHandler.cs" />
+    <Compile Include="Commands\Scenario\DeleteScenarioHandler.cs" />
+    <Compile Include="Commands\Scenario\CreateScenarioHandler.cs" />
+    <Compile Include="Commands\Schedulazione\Ambiente\AddSchedulazioneAmbToPlanHandler.cs" />
+    <Compile Include="Commands\Schedulazione\RotabileInManutenzione\AddSchedulazioneRotManToPlanHandler.cs" />
+    <Compile Include="Commands\Schedulazione\Rotabile\AddSchedulazioneRotToPlanHandler.cs" />
+    <Compile Include="Commands\Schedulazione\Rotabile\AddRuleToSchedulazioneRotHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
@@ -112,7 +113,9 @@
       <Name>Commands %28Super\Programmazione\Commands%29</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Ports\InterventoGenerator\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

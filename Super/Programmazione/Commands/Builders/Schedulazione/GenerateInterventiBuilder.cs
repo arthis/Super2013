@@ -4,18 +4,18 @@ using Super.Programmazione.Commands.Schedulazione;
 
 namespace Super.Programmazione.Commands.Builders.Schedulazione
 {
-    public class GenerateInterventiBuilder : ICommandBuilder<GenerateInterventi>
+    public class GenerateInterventiBuilder : ICommandBuilder<AskToGenerateInterventi>
     {
 
 
-        public GenerateInterventi Build(Guid id, long version)
+        public AskToGenerateInterventi Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public GenerateInterventi Build(Guid id, Guid idCommitId, long version)
+        public AskToGenerateInterventi Build(Guid id, Guid idCommitId, long version)
         {
-            var cmd = new GenerateInterventi(id, idCommitId, version);
+            var cmd = new AskToGenerateInterventi(id, idCommitId, version);
 
             return cmd;
         }

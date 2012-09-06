@@ -1,4 +1,5 @@
 using System.Diagnostics.Contracts;
+using CommonDomain.Core.Handlers.Events;
 using CommonDomain.Persistence;
 
 namespace CommonDomain.Core.Handlers
