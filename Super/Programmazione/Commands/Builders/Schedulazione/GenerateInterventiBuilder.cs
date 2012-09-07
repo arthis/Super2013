@@ -4,7 +4,7 @@ using Super.Programmazione.Commands.Schedulazione;
 
 namespace Super.Programmazione.Commands.Builders.Schedulazione
 {
-    public class GenerateInterventiBuilder : ICommandBuilder<AskToGenerateInterventi>
+    public class AskToGenerateInterventiBuilder : ICommandBuilder<AskToGenerateInterventi>
     {
 
 

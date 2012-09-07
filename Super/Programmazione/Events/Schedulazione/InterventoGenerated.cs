@@ -1,12 +1,13 @@
 using System;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Programmazione.Events.Schedulazione
 {
-    public abstract class InterventoGenerated : Message, IInterventoGenerated
+    public abstract class InterventoGenerated : Message, IEvent, IInterventoGenerated
     {
         public Guid IdPeriodoProgrammazione { get; set; }
         public Guid IdPlan { get; set; }

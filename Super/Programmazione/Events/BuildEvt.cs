@@ -10,6 +10,8 @@ namespace Super.Programmazione.Events
 {
     public static class BuildEvt
     {
+        public static InterventiAskedTobeGeneratedBuilder InterventiAskedTobeGenerated {get {return new InterventiAskedTobeGeneratedBuilder();}}
+
         public static InterventoRotGeneratedBuilder InterventoRotGenerated { get { return new InterventoRotGeneratedBuilder(); } }
 
         public static InterventoRotManGeneratedBuilder InterventoRotManGenerated { get { return new InterventoRotManGeneratedBuilder(); } }

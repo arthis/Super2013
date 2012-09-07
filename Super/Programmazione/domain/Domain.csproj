@@ -81,6 +81,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\Copy of SchedulazioneInCorsoDiGenerazioneException.cs" />
+    <Compile Include="Exceptions\SchedulazioneInCorsoDiGenerazioneException.cs" />
     <Compile Include="Scenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -74,6 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\Scenario\ScenarioUpdatedBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\InterventiAskedTobeGenerated.cs" />
+    <Compile Include="Builders\Schedulazione\InterventoRotGeneratedBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\InterventoRotManGeneratedBuilder.cs" />
     <Compile Include="Builders\Schedulazione\RuleAddedToSchedulazioneRotBuilder.cs" />
     <Compile Include="Builders\Schedulazione\RuleAddedToSchedulazioneRotManBuilder.cs" />
     <Compile Include="Builders\Schedulazione\RuleRemovedFromSchedulazioneBuilder.cs" />
@@ -93,12 +96,12 @@
     <Compile Include="Builders\Schedulazione\SchedulazioneRotManAddedToScenarioBuilder.cs" />
     <Compile Include="BuildEvt.cs" />
     <Compile Include="Builders\Intervento\InterventoAddedToPlanBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\InterventoGeneratedBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\InterventoAmbGeneratedBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoUpdatedOfPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\SchedulationUpdatedOfScenarioBuilder.cs" />
-    <Compile Include="Schedulazione\InterventiAskedTobeGeneratedFromSchedulazione.cs" />
-    <Compile Include="Schedulazione\SchedulazioneCancelledFromScenario.cs" />
     <Compile Include="Schedulazione\IInterventoGenerated.cs" />
+    <Compile Include="Schedulazione\InterventiAskedTobeGenerated.cs" />
+    <Compile Include="Schedulazione\SchedulazioneCancelledFromScenario.cs" />
     <Compile Include="Schedulazione\InterventoGenerated.cs" />
     <Compile Include="Schedulazione\SchedulazioneAddedToPlan.cs" />
     <Compile Include="Intervento\InterventoCancelledFromPlan.cs" />

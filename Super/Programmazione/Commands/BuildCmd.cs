@@ -52,7 +52,7 @@ namespace Super.Programmazione.Commands
 
         public static RemoveRuleFromSchedulazioneBuilder RemoveRuleFromSchedulazione { get { return new RemoveRuleFromSchedulazioneBuilder(); } }
 
-        public static GenerateInterventiBuilder GenerateInterventi { get { return new GenerateInterventiBuilder(); } }
+        public static AskToGenerateInterventiBuilder AskToGenerateInterventi { get { return new AskToGenerateInterventiBuilder(); } }
 
         public static CancelPlanBuilder CancelPlan { get { return new CancelPlanBuilder(); } }
 

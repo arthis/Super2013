@@ -85,6 +85,9 @@
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_scenario.cs" />
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_a_un_piano.cs" />
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_piano.cs" />
+    <Compile Include="Schedulazione\generare_interventi_di_una_schedulazione_gia_generata.cs" />
+    <Compile Include="Schedulazione\generare_interventi_di_una_schedulazione_in_corso_di_generazione.cs" />
+    <Compile Include="Schedulazione\generare_interventi_di_una_schedulazione.cs" />
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_regola_a_una_schedulazione_rotabile.cs" />
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_scenario.cs" />
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_gia_esistente_a_un_scenario.cs" />
@@ -124,6 +127,10 @@
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{8A1120F1-6778-4AD1-8F09-45A2ABE5C1FC}</Project>
       <Name>Commands %28Super\Programmazione\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\domain\Domain.csproj">
+      <Project>{BD5E4C18-2AEC-4C06-94AC-D6BF683092DF}</Project>
+      <Name>Domain %28Super\Programmazione\Domain%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
