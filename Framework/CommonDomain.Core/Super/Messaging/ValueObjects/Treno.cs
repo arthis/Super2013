@@ -10,8 +10,8 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
 
         public Treno(string numeroTreno, DateTime data)
         {
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(numeroTreno));
-            Contract.Requires<ArgumentOutOfRangeException>(data> DateTime.MinValue);
+            Contract.Requires(!string.IsNullOrEmpty(numeroTreno));
+            Contract.Requires(data> DateTime.MinValue);
 
             NumeroTreno = numeroTreno;
             Data = data;

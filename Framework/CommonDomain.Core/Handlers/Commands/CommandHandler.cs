@@ -12,7 +12,7 @@ namespace CommonDomain.Core.Handlers.Commands
 
         public CommandHandler(IEventRepository eventRepository)
         {
-            Contract.Requires<ArgumentNullException>(eventRepository != null);
+            Contract.Requires(eventRepository != null);
 
             EventRepository = eventRepository;
         }

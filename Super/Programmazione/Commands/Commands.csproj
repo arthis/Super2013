@@ -89,8 +89,10 @@
     <Compile Include="Builders\Plan\CancelInterventoOfPlanBuilder.cs" />
     <Compile Include="Builders\Plan\CancelPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\AddRuleToSchedulazioneRotManBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\GenerateInterventiBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\AskToGenerateInterventiBuilder.cs" />
     <Compile Include="Builders\Plan\UpdateInterventoOfPlanBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\ConfirmGenerationSucceedBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\ConfirmGenerationFailedBuilder.cs" />
     <Compile Include="Builders\Schedulazione\RemoveRuleFromSchedulazioneBuilder.cs" />
     <Compile Include="Builders\Plan\UpdateSchedulationOfPlanBuilder.cs" />
     <Compile Include="Builders\Scenario\UpdateSchedulationOfScenarioBuilder.cs" />
@@ -104,6 +106,8 @@
     <Compile Include="Intervento\AddInterventoToPlan.cs" />
     <Compile Include="Intervento\CancelInterventoOfPlan.cs" />
     <Compile Include="Intervento\UpdateInterventoOfPlan.cs" />
+    <Compile Include="Schedulazione\ConfirmGenerationSucceed.cs" />
+    <Compile Include="Schedulazione\ConfirmGenerationFailed.cs" />
     <Compile Include="Schedulazione\UpdateSchedulationOfPlan.cs" />
     <Compile Include="Scenario\PromoteScenarioToPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,6 +12,10 @@ namespace Super.Programmazione.Events
     {
         public static InterventiAskedTobeGeneratedBuilder InterventiAskedTobeGenerated {get {return new InterventiAskedTobeGeneratedBuilder();}}
 
+        public static GenerationOfInterventiSucceededBuilder GenerationFailedConfirmed { get { return new GenerationFailedConfirmedBuilder(); } }
+        
+        public static GenerationFailedConfirmedBuilder GenerationOfInterventiSucceeded { get { return new GenerationOfInterventiSucceededBuilder(); } }
+
         public static InterventoRotGeneratedBuilder InterventoRotGenerated { get { return new InterventoRotGeneratedBuilder(); } }
 
         public static InterventoRotManGeneratedBuilder InterventoRotManGenerated { get { return new InterventoRotManGeneratedBuilder(); } }

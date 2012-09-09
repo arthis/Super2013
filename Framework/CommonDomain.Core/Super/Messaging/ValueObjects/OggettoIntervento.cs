@@ -15,8 +15,8 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
 
         public OggettoIntervento(string description, int quantity)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(quantity>0);
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(quantity>0);
+            Contract.Requires(!string.IsNullOrEmpty(description));
 
             Description = description;
             Quantity = quantity;
@@ -61,8 +61,8 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         public OggettoRot(string description, int quantity, Guid idTipoOggettoInterventoRot, Guid idGruppoOggettoIntervento)
             : base(description,quantity)
         {
-            Contract.Requires<ArgumentNullException>(idTipoOggettoInterventoRot!= Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idGruppoOggettoIntervento != Guid.Empty);
+            Contract.Requires(idTipoOggettoInterventoRot != Guid.Empty);
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
             IdTipoOggettoInterventoRot = idTipoOggettoInterventoRot;
             IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
@@ -107,8 +107,8 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         public OggettoRotMan(string description, int quantity, Guid idTipoOggettoInterventoRotMan, Guid idGruppoOggettoIntervento)
             : base(description,quantity)
         {
-            Contract.Requires<ArgumentNullException>(idTipoOggettoInterventoRotMan != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idGruppoOggettoIntervento != Guid.Empty);
+            Contract.Requires(idTipoOggettoInterventoRotMan != Guid.Empty);
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
             IdTipoOggettoInterventoRotMan = idTipoOggettoInterventoRotMan;
             IdGruppoOggettoIntervento = idGruppoOggettoIntervento;

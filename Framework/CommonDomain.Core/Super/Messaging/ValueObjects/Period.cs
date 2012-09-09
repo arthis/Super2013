@@ -14,8 +14,8 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
 
         public Period(DateTime startDate, DateTime endDate)
         {
-            Contract.Requires<ArgumentNullException>(startDate > DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(endDate > DateTime.MinValue);
+            Contract.Requires(startDate > DateTime.MinValue);
+            Contract.Requires(endDate > DateTime.MinValue);
 
             StartDate = startDate;
             EndDate = endDate;

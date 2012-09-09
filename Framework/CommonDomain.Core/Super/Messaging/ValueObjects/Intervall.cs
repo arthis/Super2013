@@ -21,7 +21,7 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
 
         public Interval(DateTime startDate, DateTime? endDate)
         {
-            Contract.Requires<ArgumentNullException>(startDate > DateTime.MinValue);
+            Contract.Requires(startDate > DateTime.MinValue);
 
             Start = startDate;
             End = endDate;

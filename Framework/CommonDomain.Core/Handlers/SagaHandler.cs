@@ -13,8 +13,8 @@ namespace CommonDomain.Core.Handlers
 
         public SagaHandler(ISagaRepository repository, IBus bus, IEventHandler<TMessage> next)
         {
-            Contract.Requires<ArgumentNullException>(repository != null);
-            Contract.Requires<ArgumentNullException>(bus != null);
+            Contract.Requires(repository != null);
+            Contract.Requires(bus != null);
 
             Repository = repository;
             Bus = bus;

@@ -14,7 +14,7 @@ namespace CommonDomain.Core.Handlers.Commands
         
         public  CommandValidation Execute(ICommand commandBase)
         {
-            Contract.Requires<ArgumentNullException>(commandBase != null);
+            Contract.Requires(commandBase != null);
 
 
             var type = commandBase.GetType();

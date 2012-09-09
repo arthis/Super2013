@@ -85,7 +85,7 @@ namespace CommonDomain
         /// <typeparam name="T">The message type</typeparam>
         /// <param name="timeToRespond">The time at which the message should be sent</param>
         /// <param name="message">The message to response with</param>
-        //void FuturePublish<T>(DateTime timeToRespond, T message);
+        //void FuturePublish<T>(DateTime timeToRespond, Ta message);
 
         /// <summary>
         /// Fires once the bus has connected to a RabbitMQ server.

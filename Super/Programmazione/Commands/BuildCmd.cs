@@ -53,6 +53,10 @@ namespace Super.Programmazione.Commands
         public static RemoveRuleFromSchedulazioneBuilder RemoveRuleFromSchedulazione { get { return new RemoveRuleFromSchedulazioneBuilder(); } }
 
         public static AskToGenerateInterventiBuilder AskToGenerateInterventi { get { return new AskToGenerateInterventiBuilder(); } }
+        
+        public static ConfirmGenerationSucceedBuilder ConfirmGenerationSucceed { get { return new ConfirmGenerationSucceedBuilder(); } }
+
+        public static ConfirmGenerationFailedBuilder ConfirmGenerationFailed { get { return new ConfirmGenerationFailedBuilder(); } }
 
         public static CancelPlanBuilder CancelPlan { get { return new CancelPlanBuilder(); } }
 
