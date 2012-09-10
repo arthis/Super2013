@@ -44,7 +44,7 @@ namespace Super.Saga.Domain.Intervento
                 throw new Exception("Saga already started");
 
             var cmd = BuildApp.ProgrammareInterventoRotMan
-                                .ForPeriod(evt.Period)
+                                .ForPeriod(evt.WorkPeriod)
                                 .ForImpianto(evt.IdImpianto)
                                 .ForTipo(evt.IdTipoIntervento)
                                 .ForAppaltatore(evt.IdAppaltatore)

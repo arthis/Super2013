@@ -61,7 +61,7 @@ namespace Super.Programmazione.Specs.InterventoGeneration
              .ForDirezioneRegionale(_idDirezioneRegionale)
              .ForImpianto(_idImpianto)
              .ForLotto(_idLotto)
-             .ForPeriod(_period)
+             .ForWorkPeriod(_period)
              .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
              .ForPlan(_idPlan)
              .OfTipoIntervento(_tipoIntervento)

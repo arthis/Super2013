@@ -82,7 +82,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
             return this;
         }
 
-        public AddSchedulazioneAmbToScenarioBuilder ForPeriod(WorkPeriod workPeriod)
+        public AddSchedulazioneAmbToScenarioBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;

@@ -53,7 +53,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
         {
             yield return new InterventoRotScheduled()
             {
-                Period = _period,
+                WorkPeriod = _period,
                 Id = _id,
                 IdImpianto = _idImpianto,
                 IdTipoIntervento = _idTipoIntervento,
@@ -74,7 +74,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
         {
             return  new InterventoRotScheduled()
             {
-                Period = _period,
+                WorkPeriod = _period,
                 Id = _id,
                 IdImpianto = _idImpianto,
                 IdTipoIntervento = _idTipoIntervento,

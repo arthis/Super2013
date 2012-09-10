@@ -82,7 +82,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
             return this;
         }
 
-        public SchedulazioneAmbAddedToPlanBuilder ForPeriod(WorkPeriod workPeriod)
+        public SchedulazioneAmbAddedToPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;

@@ -81,7 +81,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
             return this;
         }
 
-        public SchedulazioneRotManAddedToScenarioBuilder ForPeriod(WorkPeriod workPeriod)
+        public SchedulazioneRotManAddedToScenarioBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;

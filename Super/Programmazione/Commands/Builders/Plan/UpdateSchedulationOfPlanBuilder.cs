@@ -80,7 +80,7 @@ namespace Super.Programmazione.Commands.Builders.Plan
             return this;
         }
 
-        public UpdateSchedulazioneOfPlanBuilder ForPeriod(WorkPeriod workPeriod)
+        public UpdateSchedulazioneOfPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;

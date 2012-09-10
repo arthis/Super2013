@@ -1,119 +1,117 @@
 using System;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Programmazione.Events.Schedulazione;
+using Super.Programmazione.Events.Intervento;
 
-namespace Super.Programmazione.Events.Builders.Schedulazione
+namespace Super.Programmazione.Events.Builders.Intervento
 {
-    public class SchedulazioneAmbAddedToScenarioBuilder : ICommandBuilder<SchedulazioneAmbAddedToScenario>
+    public class InterventoAmbUpdatedOfPlanBuilder : ICommandBuilder<InterventoAmbUpdatedOfPlan>
     {
-        protected Guid _idPeriodoProgrammazione;
-        protected Guid _idScenario;
-        protected Guid _idCommittente;
-        protected Guid _idLotto;
-        protected Guid _idImpianto;
-        protected Guid _idTipoIntervento;
-        protected Guid _idAppaltatore;
-        protected Guid _idCategoriaCommerciale;
-        protected Guid _idDirezioneRegionale;
-        protected string _note;
-        protected WorkPeriod _workPeriod;
+        private Guid _idPeriodoProgrammazione;
+        private Guid _idPlan;
+        private Guid _idCommittente;
+        private Guid _idLotto;
+        private Guid _idImpianto;
+        private Guid _idTipoIntervento;
+        private Guid _idAppaltatore;
+        private Guid _idCategoriaCommerciale;
+        private Guid _idDirezioneRegionale;
+        private string _note;
+        private WorkPeriod _workPeriod;
         private int _quantity;
         private string _description;
 
-
-
-
-        public SchedulazioneAmbAddedToScenarioBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
+        public InterventoAmbUpdatedOfPlanBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
         {
             _idPeriodoProgrammazione = idPeriodoProgrammazione;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForScenario(Guid idScenario)
+        public InterventoAmbUpdatedOfPlanBuilder ForPlan(Guid idPlan)
         {
-            _idScenario = idScenario;
+            _idPlan = idPlan;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForCommittente(Guid idCommittente)
+        public InterventoAmbUpdatedOfPlanBuilder ForCommittente(Guid idCommittente)
         {
             _idCommittente = idCommittente;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForLotto(Guid idLotto)
+        public InterventoAmbUpdatedOfPlanBuilder ForLotto(Guid idLotto)
         {
             _idLotto = idLotto;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForImpianto(Guid idImpianto)
+        public InterventoAmbUpdatedOfPlanBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder OfTipoIntervento(Guid idTipoIntervento)
+        public InterventoAmbUpdatedOfPlanBuilder OfTipoIntervento(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForAppaltatore(Guid idAppaltatore)
+        public InterventoAmbUpdatedOfPlanBuilder ForAppaltatore(Guid idAppaltatore)
         {
             _idAppaltatore = idAppaltatore;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForCategoriaCommerciale(Guid idCategoriaCommerciale)
+        public InterventoAmbUpdatedOfPlanBuilder ForCategoriaCommerciale(Guid idCategoriaCommerciale)
         {
             _idCategoriaCommerciale = idCategoriaCommerciale;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForDirezioneRegionale(Guid idDirezioneRegionale)
+        public InterventoAmbUpdatedOfPlanBuilder ForDirezioneRegionale(Guid idDirezioneRegionale)
         {
             _idDirezioneRegionale = idDirezioneRegionale;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder WithNote(string note)
+        public InterventoAmbUpdatedOfPlanBuilder WithNote(string note)
         {
             _note = note;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForWorkPeriod(WorkPeriod workPeriod)
+        public InterventoAmbUpdatedOfPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForQuantity(int quantity)
+
+        public InterventoAmbUpdatedOfPlanBuilder ForQuantity(int quantity)
         {
             _quantity = quantity;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForDescription(string description)
+        public InterventoAmbUpdatedOfPlanBuilder ForDescription(string description)
         {
             _description = description;
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenario Build(Guid id, long version)
+        public InterventoAmbUpdatedOfPlan Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public SchedulazioneAmbAddedToScenario Build(Guid id, Guid commitId, long version)
+        public InterventoAmbUpdatedOfPlan Build(Guid id, Guid commitId, long version)
         {
-            return new SchedulazioneAmbAddedToScenario(id,
+            return new InterventoAmbUpdatedOfPlan(id,
                                                 commitId,
                                                 version,
                                                 _idPeriodoProgrammazione,
-                                                _idScenario,
+                                                _idPlan,
                                                 _idCommittente,
                                                 _idLotto,
                                                 _idImpianto,

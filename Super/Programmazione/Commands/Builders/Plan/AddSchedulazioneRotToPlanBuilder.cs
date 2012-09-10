@@ -86,7 +86,7 @@ namespace Super.Programmazione.Commands.Builders.Plan
             return this;
         }
 
-        public AddSchedulazioneRotToPlanBuilder ForPeriod(WorkPeriod workPeriod)
+        public AddSchedulazioneRotToPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;

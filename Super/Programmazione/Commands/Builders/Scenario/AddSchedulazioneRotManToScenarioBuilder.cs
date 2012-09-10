@@ -80,7 +80,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
             return this;
         }
 
-        public AddSchedulazioneRotManToScenarioBuilder ForPeriod(WorkPeriod workPeriod)
+        public AddSchedulazioneRotManToScenarioBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;

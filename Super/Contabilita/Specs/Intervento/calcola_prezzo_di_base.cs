@@ -14,7 +14,7 @@ namespace Super.Contabilita.Specs.Intervento
     //    private static Guid _IdTipoOggettoIntervento = Guid.NewGuid();
     //    private static Guid _IdGruppoOggettoIntervento = Guid.NewGuid();
     //    private static  IEnumerable<OggettoRot> _oggetti = new List<OggettoRot>(){ new OggettoRot("description",2,_IdTipoOggettoIntervento,)};
-    //    public static Period period = new Period(DateTime.Today,DateTime.Today.AddDays(1));
+    //    public static WorkPeriod period = new WorkPeriod(DateTime.Today,DateTime.Today.AddDays(1));
     //    public static List<BasePrice> basePrices = new List<BasePrice>(){ new BasePrice(10,_IdGruppoOggettoIntervento,_idTipoIntervento,new IntervalOpened(null,null))};
 
 

@@ -80,6 +80,8 @@
     <Compile Include="Builders\Intervento\GenerateInterventoAmbForSchedulazioneBuilder.cs" />
     <Compile Include="Builders\Intervento\GenerateInterventoRotManForSchedulazioneBuilder.cs" />
     <Compile Include="Builders\Intervento\GenerateInterventoRotForSchedulazioneBuilder.cs" />
+    <Compile Include="Builders\Plan\AddInterventoRotManToPlanBuilder.cs" />
+    <Compile Include="Builders\Plan\AddInterventoRotToPlanBuilder.cs" />
     <Compile Include="Builders\Plan\AddSchedulazioneRotManToPlanBuilder.cs" />
     <Compile Include="Builders\Plan\AddSchedulazioneRotToPlanBuilder.cs" />
     <Compile Include="Builders\Scenario\AddSchedulazioneRotManToScenarioBuilder.cs" />
@@ -88,10 +90,12 @@
     <Compile Include="Builders\Scenario\AddSchedulazioneAmbToScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\CancelSchedulationFromScenarioBuilder.cs" />
     <Compile Include="Builders\Plan\AddSchedulazioneAmbToPlanBuilder.cs" />
+    <Compile Include="Builders\Scenario\UpdateSchedulazioneRotManOfScenarioBuilder.cs" />
+    <Compile Include="Builders\Scenario\UpdateSchedulazioneRotOfScenarioBuilder.cs" />
     <Compile Include="Builders\Schedulazione\CancelSchedulationFromPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\AddRuleToSchedulazioneAmbBuilder.cs" />
     <Compile Include="Builders\Schedulazione\AddRuleToSchedulazioneRotBuilder.cs" />
-    <Compile Include="Builders\Plan\AddInterventoToPlanBuilder.cs" />
+    <Compile Include="Builders\Plan\AddInterventoAmbToPlanBuilder.cs" />
     <Compile Include="Builders\Plan\CancelInterventoOfPlanBuilder.cs" />
     <Compile Include="Builders\Plan\CancelPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\AddRuleToSchedulazioneRotManBuilder.cs" />
@@ -101,7 +105,7 @@
     <Compile Include="Builders\Schedulazione\ConfirmGenerationFailedBuilder.cs" />
     <Compile Include="Builders\Schedulazione\RemoveRuleFromSchedulazioneBuilder.cs" />
     <Compile Include="Builders\Plan\UpdateSchedulationOfPlanBuilder.cs" />
-    <Compile Include="Builders\Scenario\UpdateSchedulationOfScenarioBuilder.cs" />
+    <Compile Include="Builders\Scenario\UpdateSchedulazioneAmbOfScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\UpdateScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\CreateScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\DeleteScenarioBuilder.cs" />

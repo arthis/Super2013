@@ -83,7 +83,7 @@ namespace Super.Programmazione.Commands.Builders.Plan
             return this;
         }
 
-        public AddSchedulazioneAmbToPlanBuilder ForPeriod(WorkPeriod workPeriod)
+        public AddSchedulazioneAmbToPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;
