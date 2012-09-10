@@ -62,8 +62,8 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvt.InterventoRotGenerated
-              .ForPeriod(_period)
+            yield return BuildEvt.InterventoRotScheduled
+              .ForWorkPeriod(_period)
               .ForImpianto(_idImpianto)
               .OfType(_idTipoIntervento)
               .ForAppaltatore(_idAppaltatore)

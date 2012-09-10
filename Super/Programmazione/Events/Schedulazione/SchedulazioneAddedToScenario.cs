@@ -19,7 +19,7 @@ namespace Super.Programmazione.Events.Schedulazione
         public Guid IdCategoriaCommerciale { get; set; }
         public Guid IdDirezioneRegionale { get; set; }
         public string Note { get; set; }
-        public WorkPeriod Period { get; set; }
+        public WorkPeriod WorkPeriod { get; set; }
 
         public SchedulazioneAddedToScenario()
         {
@@ -38,7 +38,7 @@ namespace Super.Programmazione.Events.Schedulazione
                                    Guid idAppaltatore,
                                    Guid idCategoriaCommerciale,
                                    Guid idDirezioneRegionale,
-                                   WorkPeriod period,
+                                   WorkPeriod workPeriod,
                                    string note)
             : base(id, commitId, version)
         {
@@ -51,7 +51,7 @@ namespace Super.Programmazione.Events.Schedulazione
             Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idCategoriaCommerciale != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires<ArgumentNullException>(workPeriod != null);
 
 
             IdPeriodoProgrammazione = idPeriodoProgrammazione;
@@ -63,7 +63,7 @@ namespace Super.Programmazione.Events.Schedulazione
             IdAppaltatore = idAppaltatore;
             IdCategoriaCommerciale = idCategoriaCommerciale;
             IdDirezioneRegionale = idDirezioneRegionale;
-            Period = period;
+            WorkPeriod = workPeriod;
             Note = note;
 
         }
@@ -72,7 +72,7 @@ namespace Super.Programmazione.Events.Schedulazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdPeriodoProgrammazione.Equals(IdPeriodoProgrammazione) && other.IdScenario.Equals(IdScenario) && other.IdCommittente.Equals(IdCommittente) && other.IdLotto.Equals(IdLotto) && other.IdImpianto.Equals(IdImpianto) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && Equals(other.Note, Note) && Equals(other.Period, Period);
+            return base.Equals(other) && other.IdPeriodoProgrammazione.Equals(IdPeriodoProgrammazione) && other.IdScenario.Equals(IdScenario) && other.IdCommittente.Equals(IdCommittente) && other.IdLotto.Equals(IdLotto) && other.IdImpianto.Equals(IdImpianto) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && Equals(other.Note, Note) && Equals(other.WorkPeriod, WorkPeriod);
         }
 
         public override bool Equals(object obj)
@@ -97,7 +97,7 @@ namespace Super.Programmazione.Events.Schedulazione
                 result = (result*397) ^ IdCategoriaCommerciale.GetHashCode();
                 result = (result*397) ^ IdDirezioneRegionale.GetHashCode();
                 result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
+                result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
                 return result;
             }
         }
@@ -131,7 +131,7 @@ namespace Super.Programmazione.Events.Schedulazione
                                    Guid idAppaltatore,
                                    Guid idCategoriaCommerciale,
                                    Guid idDirezioneRegionale,
-                                   WorkPeriod period,
+                                   WorkPeriod workPeriod,
                                    string note,
                                    OggettoRot[] oggetti,
                                    Treno trenoPartenza,
@@ -140,7 +140,7 @@ namespace Super.Programmazione.Events.Schedulazione
                                    string rigaTurnoTreno,
                                    string convoglio)
             : base(id, commitId, version, idPeriodoProgrammazione, idScenario, idCommittente, idLotto, idImpianto,
-            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period,note)
+            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod,note)
         {
             Contract.Requires<ArgumentNullException>(oggetti != null);
 
@@ -210,11 +210,11 @@ namespace Super.Programmazione.Events.Schedulazione
                                    Guid idAppaltatore,
                                    Guid idCategoriaCommerciale,
                                    Guid idDirezioneRegionale,
-                                   WorkPeriod period,
+                                   WorkPeriod workPeriod,
                                    string note,
                                    OggettoRotMan[] oggetti)
             : base(id, commitId, version, idPeriodoProgrammazione, idScenario, idCommittente, idLotto, idImpianto,
-            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, note)
         {
             Contract.Requires<ArgumentNullException>(oggetti != null);
 
@@ -273,12 +273,12 @@ namespace Super.Programmazione.Events.Schedulazione
                                                Guid idAppaltatore,
                                                Guid idCategoriaCommerciale,
                                                Guid idDirezioneRegionale,
-                                               WorkPeriod period,
+                                               WorkPeriod workPeriod,
                                                string note,
                                                int quantity,
                                                string description)
             : base(id, commitId, version, idPeriodoProgrammazione, idScenario, idCommittente, idLotto, idImpianto,
-                   idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+                   idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, note)
         {
             Contract.Requires<ArgumentOutOfRangeException>(quantity > 0);
 

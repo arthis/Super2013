@@ -17,7 +17,7 @@ using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
 
 namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 {
-    public class Inizio_della_saga_intervento_ambiente_gia_iniziata : SagaBaseClass<InterventoAmbGenerated>
+    public class Inizio_della_saga_intervento_ambiente_gia_iniziata : SagaBaseClass<InterventoAmbScheduled>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -40,15 +40,15 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
             return "Une saga gia inziata non può essere iniziata di nuovo. vero?.";
         }
 
-        protected override SagaHandler<InterventoAmbGenerated> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoAmbScheduled> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoAmbGeneratedHandler(repository, bus);
+            return new InterventoAmbScheduledHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvt.InterventoAmbGenerated
-                .ForPeriod(_period)
+            yield return BuildEvt.InterventoAmbScheduled
+                .ForWorkPeriod(_period)
                 .ForImpianto(_idImpianto)
                 .OfType(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
@@ -64,10 +64,10 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
                 .Build(_id, 1);
         }
 
-        public override InterventoAmbGenerated When()
+        public override InterventoAmbScheduled When()
         {
-            return BuildEvt.InterventoAmbGenerated
-                .ForPeriod(_period)
+            return BuildEvt.InterventoAmbScheduled
+                .ForWorkPeriod(_period)
                 .ForImpianto(_idImpianto)
                 .OfType(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)

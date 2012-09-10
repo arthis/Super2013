@@ -1,20 +1,19 @@
 ﻿using System;
 using CommonDomain.Core;
-using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
-using Super.Programmazione.Commands.InterventoGenerator;
+using Super.Programmazione.Commands.InterventoGeneration;
 
-namespace Super.Programmazione.Handlers.Commands.InterventoGenerator
+namespace Super.Programmazione.Handlers.Commands.InterventoGeneration
 {
-    public class GenerateInterventiHandler : CommandHandler<GenerateInterventi>
+    public class StartGenerationOfInterventiHandler: CommandHandler<StartGenerationOfInterventi>
     {
-        public GenerateInterventiHandler(IEventRepository eventRepository)
+        public StartGenerationOfInterventiHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(GenerateInterventi cmd)
+        public override CommandValidation Execute(StartGenerationOfInterventi cmd)
         {
             throw new NotImplementedException();
 

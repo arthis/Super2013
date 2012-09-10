@@ -91,9 +91,9 @@
     <Compile Include="InterventoRotManConsuntivatoHandler.cs" />
     <Compile Include="InterventoConsuntivatoRotResoHandler.cs" />
     <Compile Include="InterventoConsuntivatoAmbResoHandler.cs" />
-    <Compile Include="InterventoAmbPianificatoHandler.cs" />
-    <Compile Include="InterventoRotManPianificatoHandler.cs" />
-    <Compile Include="InterventoRotPianificatoHandler.cs" />
+    <Compile Include="InterventoAmbScheduledHandler.cs" />
+    <Compile Include="InterventoRotManScheduledHandler.cs" />
+    <Compile Include="InterventoRotScheduledHandler.cs" />
     <Compile Include="MessageHandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SagaHandler.cs" />

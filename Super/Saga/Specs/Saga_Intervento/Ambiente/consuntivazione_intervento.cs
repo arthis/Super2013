@@ -56,8 +56,8 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvt.InterventoAmbGenerated
-              .ForPeriod(_period)
+            yield return BuildEvt.InterventoAmbScheduled
+              .ForWorkPeriod(_period)
               .ForImpianto(_idImpianto)
               .OfType(_idTipoIntervento)
               .ForAppaltatore(_idAppaltatore)

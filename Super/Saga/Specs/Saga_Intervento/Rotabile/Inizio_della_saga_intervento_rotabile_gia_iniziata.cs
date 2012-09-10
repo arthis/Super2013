@@ -17,7 +17,7 @@ using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
 
 namespace Super.Saga.Specs.Saga_Intervento.Rotabile
 {
-    public class Inizio_della_saga_intervento_rotabile_gia_iniziata : SagaBaseClass<InterventoRotGenerated>
+    public class Inizio_della_saga_intervento_rotabile_gia_iniziata : SagaBaseClass<InterventoRotScheduled>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -44,14 +44,14 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
             return "Une saga gia inziata non può essere iniziata di nuovo. vero?.";
         }
 
-        protected override SagaHandler<InterventoRotGenerated> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoRotScheduled> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoRotGeneratedHandler(repository, bus);
+            return new InterventoRotScheduledHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return new InterventoRotGenerated()
+            yield return new InterventoRotScheduled()
             {
                 Period = _period,
                 Id = _id,
@@ -70,9 +70,9 @@ namespace Super.Saga.Specs.Saga_Intervento.Rotabile
             };
         }
 
-        public override InterventoRotGenerated When()
+        public override InterventoRotScheduled When()
         {
-            return  new InterventoRotGenerated()
+            return  new InterventoRotScheduled()
             {
                 Period = _period,
                 Id = _id,

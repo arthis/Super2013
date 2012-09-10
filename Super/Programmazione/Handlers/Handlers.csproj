@@ -73,7 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\InterventoGenerator\GenerateInterventiHandler.cs" />
+    <Compile Include="Commands\InterventoGeneration\StartGenerationOfInterventiHandler.cs" />
+    <Compile Include="Commands\Intervento\GenerateInterventoAmbForSchedulazioneHandler.cs" />
+    <Compile Include="Commands\Intervento\GenerateInterventoRotManForSchedulazioneHandler.cs" />
+    <Compile Include="Commands\Intervento\GenerateInterventoRotForSchedulazioneHandler.cs" />
     <Compile Include="Commands\Schedulazione\AskToGenerateInterventiHandler.cs" />
     <Compile Include="Commands\Schedulazione\ConfirmGenerationSucceedHandler.cs" />
     <Compile Include="Commands\Schedulazione\ConfirmGenerationFailedHandler.cs" />

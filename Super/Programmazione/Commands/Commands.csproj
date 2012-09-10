@@ -74,6 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuildCmd.cs" />
+    <Compile Include="Builders\InterventoGeneration\ConfirmInterventoGeneratedBuilderBuilder.cs" />
+    <Compile Include="Builders\InterventoGeneration\StartGenerationOfInterventiBuilder.cs" />
+    <Compile Include="Builders\InterventoGeneration\TimeOutTheGenerationOfInterventiBuilder.cs" />
+    <Compile Include="Builders\Intervento\GenerateInterventoAmbForSchedulazioneBuilder.cs" />
+    <Compile Include="Builders\Intervento\GenerateInterventoRotManForSchedulazioneBuilder.cs" />
+    <Compile Include="Builders\Intervento\GenerateInterventoRotForSchedulazioneBuilder.cs" />
     <Compile Include="Builders\Plan\AddSchedulazioneRotManToPlanBuilder.cs" />
     <Compile Include="Builders\Plan\AddSchedulazioneRotToPlanBuilder.cs" />
     <Compile Include="Builders\Scenario\AddSchedulazioneRotManToScenarioBuilder.cs" />
@@ -99,7 +105,10 @@
     <Compile Include="Builders\Scenario\UpdateScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\CreateScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\DeleteScenarioBuilder.cs" />
-    <Compile Include="InterventoGenerator\AskToGenerateInterventi.cs" />
+    <Compile Include="InterventoGeneration\ConfirmInterventoGenerated.cs" />
+    <Compile Include="InterventoGeneration\TimeOutTheGenerationOfInterventi.cs" />
+    <Compile Include="InterventoGeneration\StartGenerationOfInterventi.cs" />
+    <Compile Include="Intervento\GenerateInterventoForSchedulazione.cs" />
     <Compile Include="Schedulazione\AddSchedulationToPlan.cs" />
     <Compile Include="Schedulazione\CancelSchedulationFromPlan.cs" />
     <Compile Include="Plan\CancelPlan.cs" />
@@ -135,6 +144,7 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

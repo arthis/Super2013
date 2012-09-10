@@ -1,7 +1,5 @@
-
-
-using Super.Programmazione.Events.Builders;
 using Super.Programmazione.Events.Builders.Intervento;
+using Super.Programmazione.Events.Builders.InterventoGeneration;
 using Super.Programmazione.Events.Builders.Plan;
 using Super.Programmazione.Events.Builders.Scenario;
 using Super.Programmazione.Events.Builders.Schedulazione;
@@ -10,17 +8,31 @@ namespace Super.Programmazione.Events
 {
     public static class BuildEvt
     {
+        #region InterventoGeneration
+
+        public static GenerationOfInterventiSucceededBuilder GenerationOfInterventiSucceeded { get { return new GenerationOfInterventiSucceededBuilder(); } }
+
+        public static GenerationOfInterventiStartedBuilder GenerationOfInterventiStarted { get { return new GenerationOfInterventiStartedBuilder(); } }
+
+        public static GenerationOfInterventiFailedConfirmedBuilder GenerationOfInterventiFailedConfirmed { get { return new GenerationOfInterventiFailedConfirmedBuilder(); } }
+
+        public static InterventoGeneratedConfirmedBuilder InterventoGeneratedConfirmed { get { return new InterventoGeneratedConfirmedBuilder(); } }
+
+        #endregion
+
         public static InterventiAskedTobeGeneratedBuilder InterventiAskedTobeGenerated {get {return new InterventiAskedTobeGeneratedBuilder();}}
 
-        public static GenerationOfInterventiSucceededBuilder GenerationFailedConfirmed { get { return new GenerationFailedConfirmedBuilder(); } }
-        
-        public static GenerationFailedConfirmedBuilder GenerationOfInterventiSucceeded { get { return new GenerationOfInterventiSucceededBuilder(); } }
+        public static InterventoRotGeneratedFromSchedulazioneBuilder InterventoRotGeneratedFromSchedulazione { get { return new InterventoRotGeneratedFromSchedulazioneBuilder(); } }
 
-        public static InterventoRotGeneratedBuilder InterventoRotGenerated { get { return new InterventoRotGeneratedBuilder(); } }
+        public static InterventoRotManGeneratedFromSchedulazioneBuilder InterventoRotManGeneratedFromSchedulazione { get { return new InterventoRotManGeneratedFromSchedulazioneBuilder(); } }
 
-        public static InterventoRotManGeneratedBuilder InterventoRotManGenerated { get { return new InterventoRotManGeneratedBuilder(); } }
+        public static InterventoAmbGeneratedFromSchedulazioneBuilder InterventoAmbGeneratedFromSchedulazione { get { return new InterventoAmbGeneratedFromSchedulazioneBuilder(); } }
 
-        public static InterventoAmbGeneratedBuilder InterventoAmbGenerated { get { return new InterventoAmbGeneratedBuilder(); } }
+        public static InterventoRotScheduledBuilder InterventoRotScheduled { get { return new InterventoRotScheduledBuilder(); } }
+
+        public static InterventoRotManScheduledBuilder InterventoRotManScheduled { get { return new InterventoRotManScheduledBuilder(); } }
+
+        public static InterventoAmbScheduledBuilder InterventoAmbScheduled { get { return new InterventoAmbScheduledBuilder(); } }
 
         public static InterventoRotAddedToPlanBuilder InterventoRotAddedToPlan { get { return new InterventoRotAddedToPlanBuilder(); } }
 
@@ -75,14 +87,6 @@ namespace Super.Programmazione.Events
         public static SchedulazioneRotManUpdatedOfScenarioBuilder SchedulazioneRotManUpdatedOfScenario { get { return new SchedulazioneRotManUpdatedOfScenarioBuilder(); } }
 
         public static SchedulazioneAmbUpdatedOfScenarioBuilder SchedulazioneAmbUpdatedOfScenario { get { return new SchedulazioneAmbUpdatedOfScenarioBuilder(); } }
-        
-        
-
-
-
-        
-
-
         
     }
 }

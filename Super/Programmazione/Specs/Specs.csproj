@@ -74,6 +74,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterventoGeneration\comminciare_la_generazione_di_una_schedulazione_ambiente.cs" />
+    <Compile Include="InterventoGeneration\Copy of comminciare_la_generazione_di_una_schedulazione.cs" />
+    <Compile Include="Intervento\Generare_un_intervento_ambiente_da_una_schedulazione.cs" />
+    <Compile Include="Intervento\Generare_un_intervento_rotabile_in_manutenzione_da_una_schedulazione.cs" />
+    <Compile Include="Intervento\Generare_un_intervento_rotabile_da_una_schedulazione.cs" />
     <Compile Include="Scenario\Aggiornamento_di_un_scenario_gia_creato.cs" />
     <Compile Include="Scenario\Aggiornamento_di_un_scenario_non_esistente.cs" />
     <Compile Include="Scenario\Cancellazione_di_una_scenario_gia_cancellato.cs" />

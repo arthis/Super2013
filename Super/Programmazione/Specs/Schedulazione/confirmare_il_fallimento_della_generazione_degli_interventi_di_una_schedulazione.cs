@@ -89,8 +89,8 @@ namespace Super.Programmazione.Specs.Schedulazione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.GenerationFailedConfirmed
-                .Build(_id, 2);
+            yield return BuildEvt.GenerationOfInterventiFailedConfirmed
+                .Build(_id, 3);
         }
 
         [Test]
@@ -101,4 +101,6 @@ namespace Super.Programmazione.Specs.Schedulazione
 
 
     }
+
+    
 }

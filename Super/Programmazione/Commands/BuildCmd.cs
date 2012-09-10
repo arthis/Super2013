@@ -1,4 +1,6 @@
 using Super.Programmazione.Commands.Builders;
+using Super.Programmazione.Commands.Builders.Intervento;
+using Super.Programmazione.Commands.Builders.InterventoGeneration;
 using Super.Programmazione.Commands.Builders.Plan;
 using Super.Programmazione.Commands.Builders.Scenario;
 using Super.Programmazione.Commands.Builders.Schedulazione;
@@ -73,6 +75,24 @@ namespace Super.Programmazione.Commands
         public static UpdateInterventoAmbOfPlanBuilder UpdateInterventoAmbOfPlan { get { return new UpdateInterventoAmbOfPlanBuilder(); } }
 
         public static CancelInterventoFromPlanBuilder CancelInterventoFromPlan { get { return new CancelInterventoFromPlanBuilder(); } }
+
+        public static GenerateInterventoRotForSchedulazioneBuilder GenerateInterventoRotForSchedulazione { get { return new GenerateInterventoRotForSchedulazioneBuilder();}}
+
+        public static GenerateInterventoRotManForSchedulazioneBuilder GenerateInterventoRotManForSchedulazione { get { return new GenerateInterventoRotManForSchedulazioneBuilder(); } }
+
+        public static GenerateInterventoAmbForSchedulazioneBuilder GenerateInterventoAmbForSchedulazione { get { return new GenerateInterventoAmbForSchedulazioneBuilder(); } }
+
+        #region InterventoGeneration
+
+        public static ConfirmInterventoGeneratedBuilder ConfirmInterventoGenerated { get { return new ConfirmInterventoGeneratedBuilder(); } }
+
+        public static StartGenerationOfInterventiBuilder StartGenerationOfInterventi { get { return new StartGenerationOfInterventiBuilder(); } }
+
+        public static TimeOutTheGenerationOfInterventiBuilder TimeOutTheGenerationOfInterventi { get { return new TimeOutTheGenerationOfInterventiBuilder(); } }
+
+        #endregion
                
     }
+
+   
 }

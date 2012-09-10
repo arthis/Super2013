@@ -34,10 +34,6 @@ namespace Super.Programmazione.Specs.Schedulazione
         int _quantity=12;
         private string _description = "description";
 
-        private Guid _idUserCancelling = Guid.Empty;
-        private bool _deleteGeneratedInterventi = true;
-        
-
         public override string ToDescription()
         {
             return "generare interventi di una schedulazione";

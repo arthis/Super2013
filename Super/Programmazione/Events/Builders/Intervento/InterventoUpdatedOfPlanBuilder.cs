@@ -5,19 +5,27 @@ using Super.Programmazione.Events.Intervento;
 
 namespace Super.Programmazione.Events.Builders.Intervento
 {
-    public class InterventoUpdatedOfPlanBuilder
+
+    public class InterventoRotUpdatedOfPlanBuilder : InterventoUpdatedOfPlanBuilder,
+                                                   ICommandBuilder<InterventoRotUpdatedOfPlan>
     {
-        protected Guid _idPeriodoProgrammazione;
-        protected Guid _idPlan;
-        protected Guid _idCommittente;
-        protected Guid _idLotto;
-        protected Guid _idImpianto;
-        protected Guid _idTipoIntervento;
-        protected Guid _idAppaltatore;
-        protected Guid _idCategoriaCommerciale;
-        protected Guid _idDirezioneRegionale;
-        protected string _note;
-        protected WorkPeriod _workPeriod;
+        private Guid _idPeriodoProgrammazione;
+        private Guid _idPlan;
+        private Guid _idCommittente;
+        private Guid _idLotto;
+        private Guid _idImpianto;
+        private Guid _idTipoIntervento;
+        private Guid _idAppaltatore;
+        private Guid _idCategoriaCommerciale;
+        private Guid _idDirezioneRegionale;
+        private string _note;
+        private WorkPeriod _workPeriod;
+        private OggettoRot[] _oggetti;
+        private Treno _trenoPartenza;
+        private Treno _trenoArrivo;
+        private string _turnoTreno;
+        private string _rigaTurnoTreno;
+        private string _convoglio;
 
         public InterventoUpdatedOfPlanBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
         {
@@ -79,23 +87,11 @@ namespace Super.Programmazione.Events.Builders.Intervento
             return this;
         }
 
-        public InterventoUpdatedOfPlanBuilder ForPeriod(WorkPeriod workPeriod)
+        public InterventoUpdatedOfPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;
         }
-
-    }
-
-    public class InterventoRotUpdatedOfPlanBuilder : InterventoUpdatedOfPlanBuilder,
-                                                   ICommandBuilder<InterventoRotUpdatedOfPlan>
-    {
-        private OggettoRot[] _oggetti;
-        private Treno _trenoPartenza;
-        private Treno _trenoArrivo;
-        private string _turnoTreno;
-        private string _rigaTurnoTreno;
-        private string _convoglio;
 
         public InterventoRotUpdatedOfPlanBuilder WithOggetti(OggettoRot[] oggetti)
         {
@@ -166,7 +162,84 @@ namespace Super.Programmazione.Events.Builders.Intervento
     public class InterventoRotManUpdatedOfPlanBuilder : InterventoUpdatedOfPlanBuilder,
                                                    ICommandBuilder<InterventoRotManUpdatedOfPlan>
     {
+        private Guid _idPeriodoProgrammazione;
+        private Guid _idPlan;
+        private Guid _idCommittente;
+        private Guid _idLotto;
+        private Guid _idImpianto;
+        private Guid _idTipoIntervento;
+        private Guid _idAppaltatore;
+        private Guid _idCategoriaCommerciale;
+        private Guid _idDirezioneRegionale;
+        private string _note;
+        private WorkPeriod _workPeriod;
         private OggettoRotMan[] _oggetti;
+
+        public InterventoUpdatedOfPlanBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
+        {
+            _idPeriodoProgrammazione = idPeriodoProgrammazione;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForPlan(Guid idPlan)
+        {
+            _idPlan = idPlan;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForCommittente(Guid idCommittente)
+        {
+            _idCommittente = idCommittente;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForLotto(Guid idLotto)
+        {
+            _idLotto = idLotto;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForImpianto(Guid idImpianto)
+        {
+            _idImpianto = idImpianto;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder OfTipoIntervento(Guid idTipoIntervento)
+        {
+            _idTipoIntervento = idTipoIntervento;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForAppaltatore(Guid idAppaltatore)
+        {
+            _idAppaltatore = idAppaltatore;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForCategoriaCommerciale(Guid idCategoriaCommerciale)
+        {
+            _idCategoriaCommerciale = idCategoriaCommerciale;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForDirezioneRegionale(Guid idDirezioneRegionale)
+        {
+            _idDirezioneRegionale = idDirezioneRegionale;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder WithNote(string note)
+        {
+            _note = note;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
+        {
+            _workPeriod = workPeriod;
+            return this;
+        }
 
         public InterventoRotManUpdatedOfPlanBuilder WithOggetti(OggettoRotMan[] oggetti)
         {
@@ -202,8 +275,85 @@ namespace Super.Programmazione.Events.Builders.Intervento
     public class InterventoAmbUpdatedOfPlanBuilder : InterventoUpdatedOfPlanBuilder,
                                                    ICommandBuilder<InterventoAmbUpdatedOfPlan>
     {
+        private Guid _idPeriodoProgrammazione;
+        private Guid _idPlan;
+        private Guid _idCommittente;
+        private Guid _idLotto;
+        private Guid _idImpianto;
+        private Guid _idTipoIntervento;
+        private Guid _idAppaltatore;
+        private Guid _idCategoriaCommerciale;
+        private Guid _idDirezioneRegionale;
+        private string _note;
+        private WorkPeriod _workPeriod;
         private int _quantity;
         private string _description;
+
+        public InterventoUpdatedOfPlanBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
+        {
+            _idPeriodoProgrammazione = idPeriodoProgrammazione;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForPlan(Guid idPlan)
+        {
+            _idPlan = idPlan;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForCommittente(Guid idCommittente)
+        {
+            _idCommittente = idCommittente;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForLotto(Guid idLotto)
+        {
+            _idLotto = idLotto;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForImpianto(Guid idImpianto)
+        {
+            _idImpianto = idImpianto;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder OfTipoIntervento(Guid idTipoIntervento)
+        {
+            _idTipoIntervento = idTipoIntervento;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForAppaltatore(Guid idAppaltatore)
+        {
+            _idAppaltatore = idAppaltatore;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForCategoriaCommerciale(Guid idCategoriaCommerciale)
+        {
+            _idCategoriaCommerciale = idCategoriaCommerciale;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForDirezioneRegionale(Guid idDirezioneRegionale)
+        {
+            _idDirezioneRegionale = idDirezioneRegionale;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder WithNote(string note)
+        {
+            _note = note;
+            return this;
+        }
+
+        public InterventoUpdatedOfPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
+        {
+            _workPeriod = workPeriod;
+            return this;
+        }
 
 
         public InterventoAmbUpdatedOfPlanBuilder ForQuantity(int quantity)
