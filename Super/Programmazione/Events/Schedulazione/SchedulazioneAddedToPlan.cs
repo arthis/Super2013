@@ -32,19 +32,20 @@ namespace Super.Programmazione.Events.Schedulazione
         }
 
         public SchedulazioneAddedToPlan(Guid id,
-                                        Guid commitId,
-                                        long version,
-                                        Guid idPeriodoProgrammazione,
-                                        Guid idPlan,
-                                        Guid idCommittente,
-                                        Guid idLotto,
-                                        Guid idImpianto,
-                                        Guid idTipoIntervento,
-                                        Guid idAppaltatore,
-                                        Guid idCategoriaCommerciale,
-                                        Guid idDirezioneRegionale,
-                                        WorkPeriod workPeriod,
-                                        string note)
+            Guid commitId,
+            long version,
+            Guid idPeriodoProgrammazione,
+            Guid idPlan,
+            Guid idCommittente,
+            Guid idLotto,
+            Guid idImpianto,
+            Guid idTipoIntervento,
+            Guid idAppaltatore,
+            Guid idCategoriaCommerciale,
+            Guid idDirezioneRegionale,
+            WorkPeriod workPeriod,
+            Period period,
+            string note)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(idPeriodoProgrammazione != Guid.Empty);
@@ -57,6 +58,7 @@ namespace Super.Programmazione.Events.Schedulazione
             Contract.Requires<ArgumentNullException>(idCategoriaCommerciale != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
             Contract.Requires<ArgumentNullException>(workPeriod != null);
+            Contract.Requires<ArgumentNullException>(period != null);
 
 
             IdPeriodoProgrammazione = idPeriodoProgrammazione;
@@ -69,41 +71,42 @@ namespace Super.Programmazione.Events.Schedulazione
             IdCategoriaCommerciale = idCategoriaCommerciale;
             IdDirezioneRegionale = idDirezioneRegionale;
             WorkPeriod = workPeriod;
+            Period = period;
             Note = note;
 
         }
 
-        public bool Equals(SchedulazioneAddedToPlan other)
+        protected bool Equals(SchedulazioneAddedToPlan other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdPeriodoProgrammazione.Equals(IdPeriodoProgrammazione) && other.IdPlan.Equals(IdPlan) && other.IdCommittente.Equals(IdCommittente) && other.IdLotto.Equals(IdLotto) && other.IdImpianto.Equals(IdImpianto) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && Equals(other.Note, Note) && Equals(other.WorkPeriod, WorkPeriod);
+            return base.Equals(other) && IdPeriodoProgrammazione.Equals(other.IdPeriodoProgrammazione) && IdPlan.Equals(other.IdPlan) && IdCommittente.Equals(other.IdCommittente) && IdLotto.Equals(other.IdLotto) && IdImpianto.Equals(other.IdImpianto) && IdTipoIntervento.Equals(other.IdTipoIntervento) && IdAppaltatore.Equals(other.IdAppaltatore) && IdCategoriaCommerciale.Equals(other.IdCategoriaCommerciale) && IdDirezioneRegionale.Equals(other.IdDirezioneRegionale) && string.Equals(Note, other.Note) && Equals(WorkPeriod, other.WorkPeriod) && Equals(Period, other.Period);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as SchedulazioneAddedToPlan);
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((SchedulazioneAddedToPlan) obj);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ IdPeriodoProgrammazione.GetHashCode();
-                result = (result * 397) ^ IdPlan.GetHashCode();
-                result = (result * 397) ^ IdCommittente.GetHashCode();
-                result = (result * 397) ^ IdLotto.GetHashCode();
-                result = (result * 397) ^ IdImpianto.GetHashCode();
-                result = (result * 397) ^ IdTipoIntervento.GetHashCode();
-                result = (result * 397) ^ IdAppaltatore.GetHashCode();
-                result = (result * 397) ^ IdCategoriaCommerciale.GetHashCode();
-                result = (result * 397) ^ IdDirezioneRegionale.GetHashCode();
-                result = (result * 397) ^ (Note != null ? Note.GetHashCode() : 0);
-                result = (result * 397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-                return result;
+                int hashCode = base.GetHashCode();
+                hashCode = (hashCode*397) ^ IdPeriodoProgrammazione.GetHashCode();
+                hashCode = (hashCode*397) ^ IdPlan.GetHashCode();
+                hashCode = (hashCode*397) ^ IdCommittente.GetHashCode();
+                hashCode = (hashCode*397) ^ IdLotto.GetHashCode();
+                hashCode = (hashCode*397) ^ IdImpianto.GetHashCode();
+                hashCode = (hashCode*397) ^ IdTipoIntervento.GetHashCode();
+                hashCode = (hashCode*397) ^ IdAppaltatore.GetHashCode();
+                hashCode = (hashCode*397) ^ IdCategoriaCommerciale.GetHashCode();
+                hashCode = (hashCode*397) ^ IdDirezioneRegionale.GetHashCode();
+                hashCode = (hashCode*397) ^ (Note != null ? Note.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ (Period != null ? Period.GetHashCode() : 0);
+                return hashCode;
             }
         }
     }
@@ -125,27 +128,28 @@ namespace Super.Programmazione.Events.Schedulazione
         }
 
         public SchedulazioneRotAddedToPlan(Guid id,
-                                   Guid commitId,
-                                   long version,
-                                   Guid idPeriodoProgrammazione,
-                                   Guid idPlan,
-                                   Guid idCommittente,
-                                   Guid idLotto,
-                                   Guid idImpianto,
-                                   Guid idTipoIntervento,
-                                   Guid idAppaltatore,
-                                   Guid idCategoriaCommerciale,
-                                   Guid idDirezioneRegionale,
-                                   WorkPeriod workPeriod,
-                                   string note,
-                                   OggettoRot[] oggetti,
-                                   Treno trenoPartenza,
-                                   Treno trenoArrivo,
-                                   string turnoTreno,
-                                   string rigaTurnoTreno,
-                                   string convoglio)
+            Guid commitId,
+            long version,
+            Guid idPeriodoProgrammazione,
+            Guid idPlan,
+            Guid idCommittente,
+            Guid idLotto,
+            Guid idImpianto,
+            Guid idTipoIntervento,
+            Guid idAppaltatore,
+            Guid idCategoriaCommerciale,
+            Guid idDirezioneRegionale,
+            WorkPeriod workPeriod,
+            Period period,
+            string note,
+            OggettoRot[] oggetti,
+            Treno trenoPartenza,
+            Treno trenoArrivo,
+            string turnoTreno,
+            string rigaTurnoTreno,
+            string convoglio)
             : base(id, commitId, version, idPeriodoProgrammazione, idPlan, idCommittente, idLotto, idImpianto,
-            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, note)
+            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period, note)
         {
             Contract.Requires<ArgumentNullException>(oggetti != null);
 
@@ -204,22 +208,23 @@ namespace Super.Programmazione.Events.Schedulazione
         }
 
         public SchedulazioneRotManAddedToPlan(Guid id,
-                                   Guid commitId,
-                                   long version,
-                                   Guid idPeriodoProgrammazione,
-                                   Guid idPlan,
-                                   Guid idCommittente,
-                                   Guid idLotto,
-                                   Guid idImpianto,
-                                   Guid idTipoIntervento,
-                                   Guid idAppaltatore,
-                                   Guid idCategoriaCommerciale,
-                                   Guid idDirezioneRegionale,
-                                   WorkPeriod workPeriod,
-                                   string note,
-                                   OggettoRotMan[] oggetti)
+            Guid commitId,
+            long version,
+            Guid idPeriodoProgrammazione,
+            Guid idPlan,
+            Guid idCommittente,
+            Guid idLotto,
+            Guid idImpianto,
+            Guid idTipoIntervento,
+            Guid idAppaltatore,
+            Guid idCategoriaCommerciale,
+            Guid idDirezioneRegionale,
+            WorkPeriod workPeriod,
+            Period period,
+            string note,
+            OggettoRotMan[] oggetti)
             : base(id, commitId, version, idPeriodoProgrammazione, idPlan, idCommittente, idLotto, idImpianto,
-            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, note)
+            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period, note)
         {
             Contract.Requires<ArgumentNullException>(oggetti != null);
 
@@ -267,23 +272,24 @@ namespace Super.Programmazione.Events.Schedulazione
         }
 
         public SchedulazioneAmbAddedToPlan(Guid id,
-                                               Guid commitId,
-                                               long version,
-                                               Guid idPeriodoProgrammazione,
-                                               Guid idPlan,
-                                               Guid idCommittente,
-                                               Guid idLotto,
-                                               Guid idImpianto,
-                                               Guid idTipoIntervento,
-                                               Guid idAppaltatore,
-                                               Guid idCategoriaCommerciale,
-                                               Guid idDirezioneRegionale,
-                                               WorkPeriod workPeriod,
-                                               string note,
-                                               int quantity,
-                                               string description)
+            Guid commitId,
+            long version,
+            Guid idPeriodoProgrammazione,
+            Guid idPlan,
+            Guid idCommittente,
+            Guid idLotto,
+            Guid idImpianto,
+            Guid idTipoIntervento,
+            Guid idAppaltatore,
+            Guid idCategoriaCommerciale,
+            Guid idDirezioneRegionale,
+            WorkPeriod workPeriod,
+            Period period,
+            string note,
+            int quantity,
+            string description)
             : base(id, commitId, version, idPeriodoProgrammazione, idPlan, idCommittente, idLotto, idImpianto,
-                   idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, note)
+                   idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period, note)
         {
             Contract.Requires<ArgumentOutOfRangeException>(quantity > 0);
 

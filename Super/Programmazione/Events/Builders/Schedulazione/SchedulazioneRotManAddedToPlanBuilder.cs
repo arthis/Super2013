@@ -19,6 +19,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
         protected string _note;
         protected WorkPeriod _workPeriod;
         private OggettoRotMan[] _oggetti;
+        private Period _period;
 
 
         public SchedulazioneRotManAddedToPlanBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
@@ -87,6 +88,12 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
             return this;
         }
 
+        public SchedulazioneRotManAddedToPlanBuilder ForPeriod(Period period)
+        {
+            _period = period;
+            return this;
+        }
+
         public SchedulazioneRotManAddedToPlanBuilder WithOggetti(OggettoRotMan[] oggetti)
         {
             _oggetti = oggetti;
@@ -113,6 +120,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
                                                       _idCategoriaCommerciale,
                                                       _idDirezioneRegionale,
                                                       _workPeriod,
+                                                      _period,
                                                       _note,
                                                       _oggetti);
         }

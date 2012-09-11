@@ -18,6 +18,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
         protected Guid _idDirezioneRegionale;
         protected string _note;
         protected WorkPeriod _workPeriod;
+        protected Period _period;
         private OggettoRotMan[] _oggetti;
 
         public AddSchedulazioneRotManToScenarioBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
@@ -86,6 +87,12 @@ namespace Super.Programmazione.Commands.Builders.Scenario
             return this;
         }
 
+        public AddSchedulazioneRotManToScenarioBuilder ForPeriod(Period period)
+        {
+            _period = period;
+            return this;
+        }
+
         public AddSchedulazioneRotManToScenarioBuilder WithOggetti(OggettoRotMan[] oggetti)
         {
             _oggetti = oggetti;
@@ -112,6 +119,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
                                                         _idCategoriaCommerciale,
                                                         _idDirezioneRegionale,
                                                         _workPeriod,
+                                                        _period,
                                                         _note,
                                                         _oggetti);
         }

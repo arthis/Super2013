@@ -21,6 +21,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
         protected WorkPeriod _workPeriod;
         private int _quantity;
         private string _description;
+        private Period _period;
 
         public AddSchedulazioneAmbToScenarioBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
         {
@@ -88,6 +89,12 @@ namespace Super.Programmazione.Commands.Builders.Scenario
             return this;
         }
 
+        public AddSchedulazioneAmbToScenarioBuilder ForPeriod(Period period)
+        {
+            _period = period;
+            return this;
+        }
+
 
         public AddSchedulazioneAmbToScenarioBuilder ForQuantity(int quantity)
         {
@@ -121,6 +128,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
                                                 _idCategoriaCommerciale,
                                                 _idDirezioneRegionale,
                                                 _workPeriod,
+                                                _period,
                                                 _note,
                                                 _quantity,
                                                 _description);

@@ -18,6 +18,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
         protected Guid _idDirezioneRegionale;
         protected string _note;
         protected WorkPeriod _workPeriod;
+        private Period _period;
         private OggettoRot[] _oggetti;
         private Treno _trenoPartenza;
         private Treno _trenoArrivo;
@@ -92,6 +93,12 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
             return this;
         }
 
+        public SchedulazioneRotAddedToScenarioBuilder ForPeriod(Period period)
+        {
+            _period = period;
+            return this;
+        }
+
         public SchedulazioneRotAddedToScenarioBuilder WithOggetti(OggettoRot[] oggetti)
         {
             _oggetti = oggetti;
@@ -148,6 +155,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
                                                        _idCategoriaCommerciale,
                                                        _idDirezioneRegionale,
                                                        _workPeriod,
+                                                       _period,
                                                        _note,
                                                        _oggetti,
                                                        _trenoPartenza,

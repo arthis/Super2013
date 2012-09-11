@@ -21,6 +21,7 @@ namespace Super.Programmazione.Commands.Builders.Plan
         protected WorkPeriod _workPeriod;
         private int _quantity;
         private string _description;
+        private Period _period;
 
 
         public AddSchedulazioneAmbToPlanBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
@@ -89,6 +90,13 @@ namespace Super.Programmazione.Commands.Builders.Plan
             return this;
         }
 
+        public AddSchedulazioneAmbToPlanBuilder ForPeriod(Period period)
+        {
+            _period = period;
+            return this;
+        }
+
+
 
         public AddSchedulazioneAmbToPlanBuilder ForQuantity(int quantity)
         {
@@ -110,21 +118,22 @@ namespace Super.Programmazione.Commands.Builders.Plan
         public AddSchedulazioneAmbToPlan Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneAmbToPlan(id,
-                                                commitId,
-                                                version,
-                                                _idPeriodoProgrammazione,
-                                                _idPlan,
-                                                _idCommittente,
-                                                _idLotto,
-                                                _idImpianto,
-                                                _idTipoIntervento,
-                                                _idAppaltatore,
-                                                _idCategoriaCommerciale,
-                                                _idDirezioneRegionale,
-                                                _workPeriod,
-                                                _note,
-                                                _quantity,
-                                                _description);
+                                                 commitId,
+                                                 version,
+                                                 _idPeriodoProgrammazione,
+                                                 _idPlan,
+                                                 _idCommittente,
+                                                 _idLotto,
+                                                 _idImpianto,
+                                                 _idTipoIntervento,
+                                                 _idAppaltatore,
+                                                 _idCategoriaCommerciale,
+                                                 _idDirezioneRegionale,
+                                                 _workPeriod,
+                                                 _period,
+                                                 _note,
+                                                 _quantity,
+                                                 _description);
         }
     }
 

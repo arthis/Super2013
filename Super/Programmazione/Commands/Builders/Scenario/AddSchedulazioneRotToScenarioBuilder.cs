@@ -24,6 +24,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
         private string _turnoTreno;
         private string _rigaTurnoTreno;
         private string _convoglio;
+        private Period _period;
 
         public AddSchedulazioneRotToScenarioBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
         {
@@ -91,6 +92,11 @@ namespace Super.Programmazione.Commands.Builders.Scenario
             return this;
         }
 
+        public AddSchedulazioneRotToScenarioBuilder ForPeriod(Period period)
+        {
+            _period = period;
+            return this;
+        }
         public AddSchedulazioneRotToScenarioBuilder WithOggetti(OggettoRot[] oggetti)
         {
             _oggetti = oggetti;
@@ -147,6 +153,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
                                                      _idCategoriaCommerciale,
                                                      _idDirezioneRegionale,
                                                      _workPeriod,
+                                                     _period,
                                                      _note,
                                                      _oggetti,
                                                      _trenoPartenza,

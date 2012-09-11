@@ -19,6 +19,7 @@ namespace Super.Programmazione.Commands.Builders.Plan
         protected string _note;
         protected WorkPeriod _workPeriod;
         private OggettoRotMan[] _oggetti;
+        private Period _period;
 
 
         public AddSchedulazioneRotManToPlanBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
@@ -87,6 +88,12 @@ namespace Super.Programmazione.Commands.Builders.Plan
             return this;
         }
 
+        public AddSchedulazioneRotManToPlanBuilder ForPeriod(Period period)
+        {
+            _period = period;
+            return this;
+        }
+
         public AddSchedulazioneRotManToPlanBuilder WithOggetti(OggettoRotMan[] oggetti)
         {
             _oggetti = oggetti;
@@ -113,6 +120,7 @@ namespace Super.Programmazione.Commands.Builders.Plan
                                                     _idCategoriaCommerciale,
                                                     _idDirezioneRegionale,
                                                     _workPeriod,
+                                                    _period,
                                                     _note,
                                                     _oggetti);
         }

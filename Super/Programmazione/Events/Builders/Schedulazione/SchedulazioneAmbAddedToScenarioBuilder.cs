@@ -7,21 +7,20 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
 {
     public class SchedulazioneAmbAddedToScenarioBuilder : ICommandBuilder<SchedulazioneAmbAddedToScenario>
     {
-        protected Guid _idPeriodoProgrammazione;
-        protected Guid _idScenario;
-        protected Guid _idCommittente;
-        protected Guid _idLotto;
-        protected Guid _idImpianto;
-        protected Guid _idTipoIntervento;
-        protected Guid _idAppaltatore;
-        protected Guid _idCategoriaCommerciale;
-        protected Guid _idDirezioneRegionale;
-        protected string _note;
-        protected WorkPeriod _workPeriod;
+        private Guid _idPeriodoProgrammazione;
+        private Guid _idScenario;
+        private Guid _idCommittente;
+        private Guid _idLotto;
+        private Guid _idImpianto;
+        private Guid _idTipoIntervento;
+        private Guid _idAppaltatore;
+        private Guid _idCategoriaCommerciale;
+        private Guid _idDirezioneRegionale;
+        private string _note;
+        private WorkPeriod _workPeriod;
         private int _quantity;
         private string _description;
-
-
+        private Period _period;
 
 
         public SchedulazioneAmbAddedToScenarioBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
@@ -90,6 +89,12 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
             return this;
         }
 
+        public SchedulazioneAmbAddedToScenarioBuilder ForPeriod(Period period)
+        {
+            _period = period;
+            return this;
+        }
+
         public SchedulazioneAmbAddedToScenarioBuilder ForQuantity(int quantity)
         {
             _quantity = quantity;
@@ -122,6 +127,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
                                                 _idCategoriaCommerciale,
                                                 _idDirezioneRegionale,
                                                 _workPeriod,
+                                                _period,
                                                 _note,
                                                 _quantity,
                                                 _description);

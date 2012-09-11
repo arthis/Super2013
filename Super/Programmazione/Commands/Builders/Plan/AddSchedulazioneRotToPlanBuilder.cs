@@ -24,6 +24,7 @@ namespace Super.Programmazione.Commands.Builders.Plan
         private string _turnoTreno;
         private string _rigaTurnoTreno;
         private string _convoglio;
+        private Period _period;
 
 
         public AddSchedulazioneRotToPlanBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
@@ -92,6 +93,12 @@ namespace Super.Programmazione.Commands.Builders.Plan
             return this;
         }
 
+        public AddSchedulazioneRotToPlanBuilder ForPeriod(Period period)
+        {
+            _period = period;
+            return this;
+        }
+
         public AddSchedulazioneRotToPlanBuilder WithOggetti(OggettoRot[] oggetti)
         {
             _oggetti = oggetti;
@@ -148,6 +155,7 @@ namespace Super.Programmazione.Commands.Builders.Plan
                                                  _idCategoriaCommerciale,
                                                  _idDirezioneRegionale,
                                                  _workPeriod,
+                                                 _period,
                                                  _note,
                                                  _oggetti,
                                                  _trenoPartenza,
