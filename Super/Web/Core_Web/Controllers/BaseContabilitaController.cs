@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Linq;
+using System.ServiceModel.Security;
 using System.Web.Mvc;
 using CommonDomain.Core;
 using Core_Web.ContabilitaService;
@@ -13,6 +14,15 @@ namespace Core_Web.Controllers
     {
         private ICommandWebService _commandService;
 
+        private Guid SecurityToken
+        {
+            get
+            {
+                if (Session["SecurityToken"] == null)
+                    throw new SecurityAccessDeniedException("no security token found"); 
+                return (Guid)Session["SecurityToken"];
+            }
+        }
         
         public BaseContabilitaController(ICommandWebService commandWebService)
         {
@@ -30,6 +40,8 @@ namespace Core_Web.Controllers
         {
             try
             {
+                command.SecurityToken = SecurityToken;
+
                 var response = _commandService.Execute(command);
 
                 if (response.Validation.Messages.Any())

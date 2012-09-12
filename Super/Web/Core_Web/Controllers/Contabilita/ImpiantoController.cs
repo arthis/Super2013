@@ -93,7 +93,7 @@ namespace Core_Web.Controllers.Contabilita
         [HttpPost]
         public JsonResult CreateImpianto(Super.Contabilita.Commands.Impianto.CreateImpianto command)
         {
-            
+         
             return Execute(command);
         }
 
