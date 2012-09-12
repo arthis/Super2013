@@ -14,9 +14,9 @@ namespace Super.Controllo.Handlers
     public class CommandHandlerService : CommandHandlerServiceBase
     {
 
-        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository)
+        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository);
+            var handlerHelper = new CommandHandlerHelper(commandRepository, sessionFactory);
 
             handlerHelper.Add<AllowControlIntervento>(_handlers, new AllowControlInterventoHandler(eventRepository));
             handlerHelper.Add<CloseIntervento>(_handlers, new CloseInterventoHandler(eventRepository));

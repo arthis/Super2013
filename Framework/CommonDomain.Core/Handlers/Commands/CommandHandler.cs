@@ -8,6 +8,8 @@ namespace CommonDomain.Core.Handlers.Commands
     {
         protected IEventRepository EventRepository;
 
+        public ISession Session { get; set; }
+
         public abstract CommandValidation Execute(TCommand command);
 
         public CommandHandler(IEventRepository eventRepository)
@@ -16,5 +18,7 @@ namespace CommonDomain.Core.Handlers.Commands
 
             EventRepository = eventRepository;
         }
+
+        
     }
 }

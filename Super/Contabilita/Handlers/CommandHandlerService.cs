@@ -27,9 +27,9 @@ namespace Super.Contabilita.Handlers
     {
         
 
-        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository)
+        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository);
+            var handlerHelper = new CommandHandlerHelper(commandRepository,sessionFactory);
 
             handlerHelper.Add(_handlers, new CreateImpiantoHandler(eventRepository));
             handlerHelper.Add(_handlers, new UpdateImpiantoHandler(eventRepository));

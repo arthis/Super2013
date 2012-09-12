@@ -8,5 +8,6 @@ namespace CommonDomain
     public interface ISession
     {
         Guid UserId { get; }
+        bool IsAuthenticated { get; }
     }
 }

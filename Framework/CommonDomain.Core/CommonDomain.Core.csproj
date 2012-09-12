@@ -77,7 +77,7 @@
     <Compile Include="Handlers\Commands\CommandHandlerServiceBase.cs" />
     <Compile Include="CommandValidationException.cs" />
     <Compile Include="Envelope.cs" />
-    <Compile Include="Handlers\Commands\SessionCommandHandler.cs" />
+    <Compile Include="Handlers\Commands\SecurityCommandHandler.cs" />
     <Compile Include="Handlers\Events\EventAlreadyHandled.cs" />
     <Compile Include="Handlers\Events\EventAlreadyProjectedException.cs" />
     <Compile Include="Handlers\Commands\CommandHandlerHelper.cs" />
@@ -104,6 +104,7 @@
     <Compile Include="RegistrationEventRouter.cs" />
     <Compile Include="SagaBase.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="SessionFactory.cs" />
     <Compile Include="Specifications.cs" />
     <Compile Include="Super\Domain\BuildDomainVO.cs" />
     <Compile Include="Super\Domain\Builders\PeriodBuilder.cs" />

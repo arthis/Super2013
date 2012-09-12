@@ -15,9 +15,9 @@ namespace Super.Appaltatore.Handlers
     {
         
 
-        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent)
+        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent,ISessionFactory sessionFactory)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository);
+            var handlerHelper = new CommandHandlerHelper(commandRepository, sessionFactory);
 
             handlerHelper.Add(_handlers, new ProgrammareInterventoAmbHandler(eventRepositoryEvent));
             handlerHelper.Add(_handlers, new ProgrammareInterventoRotHandler(eventRepositoryEvent));

@@ -9,7 +9,7 @@ namespace CommonDomain.Core.Handlers.Commands
     {
         protected readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
         
-        public abstract void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository);
+        public abstract void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory);
         public abstract void Subscribe(IBus bus);
         
         public  CommandValidation Execute(ICommand commandBase)

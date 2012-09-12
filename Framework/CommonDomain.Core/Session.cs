@@ -8,21 +8,18 @@ namespace CommonDomain.Core
 {
     public class Session :ISession
     {
-        private Guid _userId;
+        
 
-        public Guid UserId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
-
-        public Session(Guid userId)
+        public Session(Guid userId, bool isAuthenticated)
         {
             Contract.Requires(userId!=Guid.Empty);
-
+            
             UserId = userId;
+            IsAuthenticated = isAuthenticated;
         }
 
-        
+
+        public Guid UserId { get; private set; }
+        public bool IsAuthenticated { get; private set; }
     }
 }

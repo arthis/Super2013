@@ -89,6 +89,7 @@
     <Compile Include="ISaga.cs" />
     <Compile Include="ISerialize.cs" />
     <Compile Include="ISession.cs" />
+    <Compile Include="ISessionFactory.cs" />
     <Compile Include="ISpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -68,8 +68,10 @@ namespace CommandService
             var conflictDetector = new ConflictDetector();
             var eventRepository = new EventStoreRepository(storeEvents, aggregateFactory, conflictDetector);
             var projectionRepositoryBuilder = new ProjectionRepositoryBuilder();
+            var sessionRepository = new SessionRepository();
+            var sessionFactory = new SessionFactory(sessionRepository);
 
-            _commandHandler.InitHandlers(GetCommandRepository(), eventRepository);
+            _commandHandler.InitHandlers(GetCommandRepository(), eventRepository,sessionFactory);
             _commandHandler.Subscribe(_bus);
             _projectionHandler.InitHandlers(projectionRepositoryBuilder);
             _projectionHandler.Subscribe(_bus);
