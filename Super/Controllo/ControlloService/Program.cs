@@ -16,6 +16,8 @@ namespace Super.Controllo.ControlloService
             var projectionHandler = new ProjectionHandlerService();
             var commandWebService = new CommandWebService(bus, commandHandlerService, projectionHandler);
 
+            commandWebService.Init();
+
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {
                 commandServiceHost.Open();

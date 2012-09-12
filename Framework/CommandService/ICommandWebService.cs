@@ -18,5 +18,8 @@ namespace CommandService
         /// </summary>
         [OperationContract]
         ExecuteResponse Execute(CommandBase command);
+
+        [OperationContract]
+        string Login(string username, string password);
     }
 }

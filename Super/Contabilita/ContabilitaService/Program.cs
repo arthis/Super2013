@@ -15,6 +15,8 @@ namespace Super.Contabilita.ContabilitaService
             var commandHandler = new CommandHandlerService();
             var projectionHandler = new ProjectionHandlerService();
             var commandWebService = new CommandWebService(bus, commandHandler, projectionHandler);
+
+            commandWebService.Init();
             
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {

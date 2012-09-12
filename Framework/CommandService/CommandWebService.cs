@@ -38,8 +38,6 @@ namespace CommandService
             _commandHandler = commandHandlerService;
             _projectionHandler = projectionHandlerService;
             _bus = bus;
-            //do not know if it is really the place to do that....
-            Init();
         }
 
 
@@ -119,7 +117,10 @@ namespace CommandService
         }
 
 
-        
+        public string Login(string username, string password)
+        {
+            return Guid.NewGuid().ToString();
+        }
     }
 
 

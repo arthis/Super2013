@@ -15,6 +15,8 @@ namespace Super.Appaltatore.AppaltatoreService
             var commandHandlerService = new CommandHandlerService();
             var projectionHandler = new ProjectionHandlerService();
             var commandWebService = new CommandWebService(bus, commandHandlerService , projectionHandler);
+
+            commandWebService.Init();
             
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {
