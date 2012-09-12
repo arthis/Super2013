@@ -9,6 +9,8 @@ namespace Super.Programmazione.Commands.Builders.System
     {
         private string _lastName;
         private string _firstName;
+        private string _userName;
+        private string _password;
 
         public AddUserToSystemBuilder WithLastName(string lastName)
         {
@@ -22,6 +24,18 @@ namespace Super.Programmazione.Commands.Builders.System
             return this;
         }
 
+        public AddUserToSystemBuilder ForUserName(string userName)
+        {
+            _userName = userName;
+            return this;
+        }
+
+        public AddUserToSystemBuilder ForPassword(string password)
+        {
+            _password = password;
+            return this;
+        }
+
         public AddUserToSystem Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
@@ -30,8 +44,10 @@ namespace Super.Programmazione.Commands.Builders.System
         public AddUserToSystem Build(Guid id, Guid commitId, long version)
         {
             return new AddUserToSystem(id, commitId, version,
-                                                _firstName,
-                                                 _lastName);
+                                       _userName,
+                                       _password,
+                                       _firstName,
+                                       _lastName);
         }
     }
 }

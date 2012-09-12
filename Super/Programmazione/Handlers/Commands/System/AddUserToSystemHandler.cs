@@ -18,7 +18,7 @@ namespace Super.Programmazione.Handlers.Commands.System
         {
             Contract.Requires(cmd != null);
 
-            var user = Domain.System.AddNewUser(cmd.Id, cmd.FirstName, cmd.LastName);
+            var user = Domain.System.AddNewUser(cmd.Id, cmd.FirstName, cmd.LastName, cmd.Password,cmd.Username);
 
             EventRepository.Save(user, cmd.CommitId);
 

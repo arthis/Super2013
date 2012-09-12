@@ -17,6 +17,8 @@ namespace Super.Programmazione.Specs.System
         private Guid _id = Guid.NewGuid();
         private string _lastName = "lastname";
         private string _firstName = "firstName";
+        private string _username = "username";
+        private string _password = "password";
         
 
         public override string ToDescription()
@@ -40,6 +42,8 @@ namespace Super.Programmazione.Specs.System
             return BuildCmd.AddUserToSystem
                 .WithFirstName(_firstName)
                 .WithLastName(_lastName)
+                .ForUserName(_username)
+                .ForPassword(_password)
                 .Build(_id, 1);
         }
 
@@ -48,6 +52,8 @@ namespace Super.Programmazione.Specs.System
             yield return BuildEvt.UserAddedToSystem
                 .WithFirstName(_firstName)
                 .WithLastName(_lastName)
+                .ForUserName(_username)
+                .ForPassword(_password)
                 .Build(_id, 1);
         }
 

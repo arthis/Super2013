@@ -10,11 +10,14 @@ namespace Super.Programmazione.Domain
 {
     public class User : AggregateBase
     {
-        public User(Guid id, string firstName, string lastName)
+        public User(Guid id, string firstName, string lastName, string username, string password)
         {
             var evt = BuildEvt.UserAddedToSystem
                 .WithFirstName(firstName)
-                .WithLastName(lastName);
+                .WithLastName(lastName)
+                .ForUserName(username)
+                .ForPassword(password);
+
 
             RaiseEvent(id, evt);
         }

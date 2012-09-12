@@ -8,6 +8,8 @@ namespace Super.Programmazione.Events.Builders.System
     {
         private string _lastName;
         private string _firstName;
+        private string _username;
+        private string _password;
 
         public UserAddedToSystemBuilder WithLastName(string lastName)
         {
@@ -21,6 +23,18 @@ namespace Super.Programmazione.Events.Builders.System
             return this;
         }
 
+        public UserAddedToSystemBuilder ForUserName(string username)
+        {
+            _username = username;
+            return this;
+        }
+
+        public UserAddedToSystemBuilder ForPassword(string password)
+        {
+            _password = password;
+            return this;
+        }
+
         public UserAddedToSystem Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
@@ -28,9 +42,13 @@ namespace Super.Programmazione.Events.Builders.System
 
         public UserAddedToSystem Build(Guid id, Guid commitId, long version)
         {
-            return new UserAddedToSystem(id, commitId,version,
-                                                 _firstName,
-                                                 _lastName);
+            return new UserAddedToSystem(id, commitId, version,
+                                         _username,
+                                         _password,
+                                         _firstName,
+                                         _lastName);
         }
+
+        
     }
 }
