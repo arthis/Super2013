@@ -109,6 +109,7 @@
     <Compile Include="Schedulazione\Rotabile\aggiungere_una_schedulazione_rotabile_a_un_piano.cs" />
     <Compile Include="Schedulazione\Rotabile\aggiungere_una_schedulazione_rotabile_gia_esistente_a_un_piano.cs" />
     <Compile Include="Schedulazione\Rotabile\aggiungere_una_regola_a_una_schedulazione_rotabile.cs" />
+    <Compile Include="System\il_sistema_aggiunge_un_utente.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">

@@ -107,6 +107,7 @@
     <Compile Include="Builders\Schedulazione\SchedulazioneRotManAddedToScenarioBuilder.cs" />
     <Compile Include="Builders\Schedulazione\SchedulazioneRotManUpdatedOfScenarioBuilder.cs" />
     <Compile Include="Builders\Schedulazione\SchedulazioneRotUpdatedOfScenarioBuilder.cs" />
+    <Compile Include="Builders\System\AddUserToSystemBuilder.cs" />
     <Compile Include="BuildEvt.cs" />
     <Compile Include="Builders\Intervento\InterventoAmbAddedToPlanBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoAmbGeneratedFromSchedulazioneBuilder.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="InterventoGeneration\GenerationOfInterventiSucceeded.cs" />
     <Compile Include="Schedulazione\RuleAddedToSchedulazione.cs" />
     <Compile Include="Schedulazione\RuleRemovedFromSchedulazione.cs" />
+    <Compile Include="System\UserAddedToSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">

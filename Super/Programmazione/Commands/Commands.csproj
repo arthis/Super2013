@@ -111,6 +111,7 @@
     <Compile Include="Builders\Scenario\UpdateScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\CreateScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\DeleteScenarioBuilder.cs" />
+    <Compile Include="Builders\System\AddUserToSystemBuilder.cs" />
     <Compile Include="InterventoGeneration\ConfirmInterventoGenerated.cs" />
     <Compile Include="InterventoGeneration\TimeOutTheGenerationOfInterventi.cs" />
     <Compile Include="InterventoGeneration\StartGenerationOfInterventi.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Schedulazione\AddRuleToSchedulazione.cs" />
     <Compile Include="Schedulazione\AskToGenerateInterventi.cs" />
     <Compile Include="Schedulazione\RemoveRuleFromSchedulazione.cs" />
+    <Compile Include="System\AddUserToSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
@@ -150,7 +152,9 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="User\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

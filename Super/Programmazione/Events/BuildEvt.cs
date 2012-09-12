@@ -3,6 +3,7 @@ using Super.Programmazione.Events.Builders.InterventoGeneration;
 using Super.Programmazione.Events.Builders.Plan;
 using Super.Programmazione.Events.Builders.Scenario;
 using Super.Programmazione.Events.Builders.Schedulazione;
+using Super.Programmazione.Events.Builders.System;
 
 namespace Super.Programmazione.Events
 {
@@ -18,6 +19,12 @@ namespace Super.Programmazione.Events
 
         public static InterventoGeneratedConfirmedBuilder InterventoGeneratedConfirmed { get { return new InterventoGeneratedConfirmedBuilder(); } }
 
+        #endregion
+
+        #region
+         
+        public static UserAddedToSystemBuilder UserAddedToSystem {get {return new UserAddedToSystemBuilder();}}
+          
         #endregion
 
         public static InterventiAskedTobeGeneratedBuilder InterventiAskedTobeGenerated {get {return new InterventiAskedTobeGeneratedBuilder();}}

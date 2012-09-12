@@ -4,6 +4,7 @@ using Super.Programmazione.Commands.Builders.InterventoGeneration;
 using Super.Programmazione.Commands.Builders.Plan;
 using Super.Programmazione.Commands.Builders.Scenario;
 using Super.Programmazione.Commands.Builders.Schedulazione;
+using Super.Programmazione.Commands.Builders.System;
 
 namespace Super.Programmazione.Commands
 {
@@ -82,16 +83,19 @@ namespace Super.Programmazione.Commands
 
         public static GenerateInterventoAmbForSchedulazioneBuilder GenerateInterventoAmbForSchedulazione { get { return new GenerateInterventoAmbForSchedulazioneBuilder(); } }
 
-        #region InterventoGeneration
+        #region system
 
-        public static ConfirmInterventoGeneratedBuilder ConfirmInterventoGenerated { get { return new ConfirmInterventoGeneratedBuilder(); } }
 
-        public static StartGenerationOfInterventiBuilder StartGenerationOfInterventi { get { return new StartGenerationOfInterventiBuilder(); } }
+        public static AddUserToSystemBuilder AddUserToSystem { get { return new AddUserToSystemBuilder(); } }
 
-        public static TimeOutTheGenerationOfInterventiBuilder TimeOutTheGenerationOfInterventi { get { return new TimeOutTheGenerationOfInterventiBuilder(); } }
 
         #endregion
-               
+
+        #region Intervento Generation
+
+        public static StartGenerationOfInterventiBuilder StartGenerationOfInterventi {get {return new StartGenerationOfInterventiBuilder();}}
+        #endregion
+
     }
 
    
