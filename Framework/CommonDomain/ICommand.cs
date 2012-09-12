@@ -8,5 +8,6 @@ namespace CommonDomain
     public interface ICommand : IMessage
     {
         bool IsExecuted { get; }
+        Guid SecurityToken { get; }
     }
 }

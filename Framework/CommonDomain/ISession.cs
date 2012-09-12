@@ -5,7 +5,8 @@ using System.Text;
 
 namespace CommonDomain
 {
-    interface ISession
+    public interface ISession
     {
+        Guid UserId { get; }
     }
 }
