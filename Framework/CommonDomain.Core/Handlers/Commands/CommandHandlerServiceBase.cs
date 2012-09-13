@@ -8,7 +8,7 @@ namespace CommonDomain.Core.Handlers.Commands
     public abstract class CommandHandlerServiceBase : ICommandHandlerService
     {
         protected readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
-        protected readonly Dictionary<Type, Action<IEvent>> _ports = new Dictionary<Type, Action<IEvent>>();
+        protected readonly Dictionary<Type, Func<IEvent,ICommand>> _ports = new Dictionary<Type, Func<IEvent,ICommand>>();
         
         public abstract void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory);
         public abstract void Subscribe(IBus bus);
@@ -26,13 +26,16 @@ namespace CommonDomain.Core.Handlers.Commands
           
         }
 
-        public void Port(IEvent evt)
+        public void PortAndExecute(IEvent evt)
         {
             Contract.Requires(evt != null);
 
             var type = evt.GetType();
             if (_ports.ContainsKey(type))
-                _ports[type](evt);
+            {
+                var cmd = _ports[type](evt);
+                Execute(cmd);
+            }
             else
                 throw new HandlerForMessageNotFoundException(string.Format("No handler found for the event '{0}'", evt.GetType()));
         }

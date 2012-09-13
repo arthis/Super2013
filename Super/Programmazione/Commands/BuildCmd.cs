@@ -100,7 +100,7 @@ namespace Super.Programmazione.Commands
 
         public static CancelPlanBuilder CancelPlan { get { return new CancelPlanBuilder(); } }
 
-        public static CreatePlanBuilder CreatePlan { get { return new CreatePlanBuilder(); } }
+        public static CreatePlanFromPromotedScenarioBuilder CreatePlanFromPromotedScenario { get { return new CreatePlanFromPromotedScenarioBuilder(); } }
 
         #endregion
 

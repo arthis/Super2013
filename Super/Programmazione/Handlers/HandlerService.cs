@@ -7,9 +7,12 @@ using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
+using Super.Programmazione.Commands.Plan;
 using Super.Programmazione.Commands.Scenario;
 using Super.Programmazione.Events.Scenario;
+using Super.Programmazione.Handlers.Commands.Plan;
 using Super.Programmazione.Handlers.Commands.Scenario;
+using Super.Programmazione.Handlers.Ports.Plan;
 
 namespace Super.Programmazione.Handlers
 {
@@ -27,7 +30,7 @@ namespace Super.Programmazione.Handlers
             handlerHelper.Add(_handlers, new PromoteScenarioToPlanHandler(eventRepository, sessionFactory));
 
             
-            
+            handlerHelper.Add(_handlers, new CreatePlanFromPromotedScenarioHandler(eventRepository));
         }
 
         public override void Subscribe(IBus bus)
@@ -35,10 +38,11 @@ namespace Super.Programmazione.Handlers
             string subscriptionId = "Super";
 
             var portHelper = new PortHandlerHelper();
+            portHelper.Add(_ports, new ScenarioPromotedToPlanHandler());
 
-            portHelper.Add(_ports,);
 
-            bus.Subscribe<ScenarioPromotedToPlan>(subscriptionId, Port);
+
+            bus.Subscribe<ScenarioPromotedToPlan>(subscriptionId, PortAndExecute);
         }
 
     }

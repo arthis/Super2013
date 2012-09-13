@@ -1,4 +1,5 @@
 ﻿using System;
+using CommonDomain;
 using CommonDomain.Core;
 using Super.Programmazione.Domain.Exceptions;
 using Super.Programmazione.Events;
@@ -90,6 +91,17 @@ namespace Super.Programmazione.Domain
         {
             _promoted = true;
 
+        }
+
+        public Plan CreatePlan(Guid idPlan)
+        {
+            if(_deleted)
+                throw new ScenarioCancelledForbidsCreationOfPlan();
+
+            if(!_promoted)
+                throw new ScenarioNotPromotedForbidCreationOfPlan();
+
+            return new Plan(idPlan);
         }
     }
 }

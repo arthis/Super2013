@@ -81,6 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InconsistentAggregate.cs" />
+    <Compile Include="Exceptions\ScenarioCancelledForbidsCreationOfPlan.cs" />
+    <Compile Include="Exceptions\ScenarioNotPromotedForbidCreationOfPlan.cs" />
     <Compile Include="Exceptions\ScenarioPromotedDoNotAllowFurtherChanges.cs" />
     <Compile Include="Exceptions\ScenarioCancelledDoNotAllowFurtherChanges.cs" />
     <Compile Include="Exceptions\SchedulazionealreadyGeneratedException.cs" />

@@ -77,12 +77,13 @@
     <Compile Include="Commands\Intervento\GenerateInterventoAmbForSchedulazioneHandler.cs" />
     <Compile Include="Commands\Intervento\GenerateInterventoRotManForSchedulazioneHandler.cs" />
     <Compile Include="Commands\Intervento\GenerateInterventoRotForSchedulazioneHandler.cs" />
+    <Compile Include="Commands\Plan\CreatePlanFromPromotedScenarioHandler.cs" />
     <Compile Include="Commands\Schedulazione\AskToGenerateInterventiHandler.cs" />
     <Compile Include="Commands\Schedulazione\ConfirmGenerationSucceedHandler.cs" />
     <Compile Include="Commands\Schedulazione\ConfirmGenerationFailedHandler.cs" />
     <Compile Include="Commands\System\AddUserToSystemHandler.cs" />
     <Compile Include="HandlerService.cs" />
-    <Compile Include="Ports\Plan\GenerateInterventoAmbForSchedulazioneHandler.cs" />
+    <Compile Include="Ports\Plan\ScenarioPromotedToPlanHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\Schedulazione\CancelSchedulazioneFromPlanHandler.cs" />
     <Compile Include="Commands\Schedulazione\Ambiente\AddRuleToSchedulazioneRotHandler.cs" />

@@ -1,7 +1,9 @@
 namespace CommonDomain.Core.Handlers
 {
-    public interface IPortHandler<in TEvent> where TEvent : IMessage
+    public interface IPortHandler<in TEvent, out TCommand> 
+        where TEvent : IEvent
+        where TCommand : ICommand
     {
-        void port(TEvent command);
+        TCommand Port(TEvent evt);
     }
 }

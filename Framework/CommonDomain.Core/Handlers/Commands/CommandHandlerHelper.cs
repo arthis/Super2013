@@ -28,9 +28,11 @@ namespace CommonDomain.Core.Handlers.Commands
     public class PortHandlerHelper
     {
 
-        public void Add<T>(Dictionary<Type, Action<IEvent>> dictionnary,IPortHandler<T> eventHandler) where T : IEvent
+        public void Add<TEvent,TCommand>(Dictionary<Type, Func<IEvent,ICommand>> dictionnary,IPortHandler<TEvent,TCommand> eventHandler) 
+            where TEvent  : IEvent
+            where TCommand  : ICommand
         {
-            dictionnary.Add(typeof(T), (evt) => eventHandler.port((T)evt) );
+            dictionnary.Add(typeof(TEvent), (evt)=> eventHandler.Port((TEvent)evt) );
         }
     }
 }

@@ -79,6 +79,8 @@
     <Compile Include="Intervento\Generare_un_intervento_ambiente_da_una_schedulazione.cs" />
     <Compile Include="Intervento\Generare_un_intervento_rotabile_in_manutenzione_da_una_schedulazione.cs" />
     <Compile Include="Intervento\Generare_un_intervento_rotabile_da_una_schedulazione.cs" />
+    <Compile Include="Plan\creare_un_piano_da_un_scenario_non_promosso.cs" />
+    <Compile Include="Plan\creare_un_piano_da_un_scenario_promosso.cs" />
     <Compile Include="Scenario\Cambio_della_descrizione_di_un_scenario_gia_creato.cs" />
     <Compile Include="Scenario\Cambio_della_descrizione_di_un_scenario_non_esistente.cs" />
     <Compile Include="Scenario\Cancellazione_di_una_scenario_gia_cancellato.cs" />

@@ -4,11 +4,11 @@ using CommonDomain.Persistence;
 
 namespace CommonDomain.Core.Handlers.Commands
 {
+    
+
     public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where TCommand : IMessage
     {
         protected IEventRepository EventRepository;
-
-        public ISession Session { get; set; }
 
         public abstract CommandValidation Execute(TCommand command);
 

@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CommonDomain.Core;
+using Super.Programmazione.Events;
+using Super.Programmazione.Events.Plan;
 
 namespace Super.Programmazione.Domain
 {
@@ -15,7 +14,14 @@ namespace Super.Programmazione.Domain
 
         public Plan(Guid id)
         {
-            throw new NotImplementedException();
+            var evt = BuildEvt.PlanCreated;
+
+            RaiseEvent(id, evt);
+        }
+
+        public void Apply(PlanCreated e)
+        {
+            Id = e.Id;
         }
     }
 }
