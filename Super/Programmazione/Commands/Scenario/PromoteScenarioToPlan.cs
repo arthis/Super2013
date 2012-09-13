@@ -6,16 +6,13 @@ namespace Super.Programmazione.Commands.Scenario
 {
     public class PromoteScenarioToPlan : CommandBase
     {
-        public Guid IdPromotingUser { get; set; }
         public DateTime PromotionDate { get; set; }
 
-        public PromoteScenarioToPlan(Guid id, Guid commitId, long version, Guid idPromotingUser, DateTime promotionDate)
+        public PromoteScenarioToPlan(Guid id, Guid commitId, long version,  DateTime promotionDate)
             : base(id, commitId, version)
         {
-            Contract.Requires(idPromotingUser!= Guid.Empty);
             Contract.Requires(promotionDate>DateTime.MinValue);
 
-            IdPromotingUser = idPromotingUser;
             PromotionDate = promotionDate;
         }
 
@@ -28,7 +25,7 @@ namespace Super.Programmazione.Commands.Scenario
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdPromotingUser.Equals(IdPromotingUser) && other.PromotionDate.Equals(PromotionDate);
+            return base.Equals(other) && other.PromotionDate.Equals(PromotionDate);
         }
 
         public override bool Equals(object obj)
@@ -42,10 +39,7 @@ namespace Super.Programmazione.Commands.Scenario
         {
             unchecked
             {
-                int result = base.GetHashCode();
-                result = (result*397) ^ IdPromotingUser.GetHashCode();
-                result = (result*397) ^ PromotionDate.GetHashCode();
-                return result;
+                return (base.GetHashCode()*397) ^ PromotionDate.GetHashCode();
             }
         }
     }

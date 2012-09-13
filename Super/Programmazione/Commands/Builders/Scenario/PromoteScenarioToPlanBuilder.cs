@@ -6,15 +6,9 @@ namespace Super.Programmazione.Commands.Builders.Scenario
 {
     public class PromoteScenarioToPlanBuilder : ICommandBuilder<PromoteScenarioToPlan>
     {
-        private Guid _idUser;
         private DateTime _promotionDate;
 
 
-        public PromoteScenarioToPlanBuilder ByUser(Guid idUser)
-        {
-            _idUser = idUser;
-            return this;
-        }
 
         public PromoteScenarioToPlanBuilder When(DateTime promotionDate)
         {
@@ -29,7 +23,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
 
         public PromoteScenarioToPlan Build(Guid id, Guid idCommitId, long version)
         {
-            var cmd = new PromoteScenarioToPlan(id, idCommitId, version, _idUser,_promotionDate);
+            var cmd = new PromoteScenarioToPlan(id, idCommitId, version, _promotionDate);
 
             return cmd;
         }

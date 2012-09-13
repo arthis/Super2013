@@ -8,12 +8,13 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Programmazione.Commands;
 using Super.Programmazione.Commands.Scenario;
+using Super.Programmazione.Domain.Exceptions;
 using Super.Programmazione.Events;
 using Super.Programmazione.Handlers.Commands.Scenario;
 
 namespace Super.Programmazione.Specs.Scenario
 {
-    public class promuovere_un_scenario_in_un_piano_ : CommandBaseClass<PromoteScenarioToPlan>
+    public class promuovere_un_scenario_promosso_in_un_piano : CommandBaseClass<PromoteScenarioToPlan>
     {
         private Guid _id = Guid.NewGuid();
         
@@ -25,7 +26,7 @@ namespace Super.Programmazione.Specs.Scenario
 
         protected override CommandHandler<PromoteScenarioToPlan> OnHandle(IEventRepository eventRepository)
         {
-            var sessionFactory = new FakeSessionFactory(_idUserPromoting);
+            var sessionFactory = new FakeSessionFactory(_idUser);
             return new PromoteScenarioToPlanHandler(eventRepository, sessionFactory);
         }
 
@@ -35,27 +36,29 @@ namespace Super.Programmazione.Specs.Scenario
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
                 .Build(_id, 1);
+            yield return BuildEvt.ScenarioPromotedToPlan
+              .ByUser(_idUserPromoting)
+              .When(_promotingDate)
+              .Build(_id, 2);
         }
 
         public override PromoteScenarioToPlan When()
         {
             return BuildCmd.PromoteScenarioToPlan
                         .When(_promotingDate)
-                        .Build(_id, 1);
+                        .Build(_id, 2);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.ScenarioPromotedToPlan
-                .ByUser(_idUserPromoting)
-                .When(_promotingDate)
-                .Build(_id, 2);
+            yield break;
         }
 
         [Test]
-        public void non_genera_un_eccezzione()
+        public void genera_un_eccezzione()
         {
-            Assert.IsNull(Caught);
+            Assert.IsNotNull(Caught);
+            Assert.AreEqual(typeof(ScenarioPromotedDoNotAllowChangingDescription), Caught.GetType());
         }
 
 

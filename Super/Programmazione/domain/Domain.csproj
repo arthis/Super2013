@@ -81,7 +81,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\ScenarioCancelledDoNotAllowChangingDescription.cs" />
+    <Compile Include="Exceptions\ScenarioPromotedDoNotAllowChangingDescription.cs" />
+    <Compile Include="Exceptions\ScenarioCancelledDoNotAllowFurtherChanges.cs" />
     <Compile Include="Exceptions\SchedulazionealreadyGeneratedException.cs" />
     <Compile Include="Exceptions\SchedulazioneInCorsoDiGenerazioneException.cs" />
     <Compile Include="Scenario.cs" />

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
@@ -9,30 +11,31 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
 {
     public class PromoteScenarioToPlanHandler : CommandHandler<PromoteScenarioToPlan>
     {
-        public PromoteScenarioToPlanHandler(IEventRepository eventRepository)
+        private readonly ISessionFactory _sessionFactory;
+
+        public PromoteScenarioToPlanHandler(IEventRepository eventRepository, ISessionFactory sessionFactory)
             : base(eventRepository)
         {
+            _sessionFactory = sessionFactory;
         }
 
         public override CommandValidation Execute(PromoteScenarioToPlan cmd)
         {
-            throw new NotImplementedException();
+            Contract.Requires(cmd != null);
 
-            //Contract.Requires<ArgumentNullException>(cmd != null);
+            var session = _sessionFactory.CreateSession(cmd);
+
+            var existingScenario = EventRepository.GetById<Domain.Scenario>(cmd.Id);
+
+            if (existingScenario.IsNull())
+                throw new AggregateRootInstanceNotFoundException();
 
 
+            existingScenario.PromoteToPlan(session.UserId, cmd.PromotionDate);
 
+            EventRepository.Save(existingScenario, cmd.CommitId);
 
-            //var existingIntervento = EventRepository.GetById<Scenario>(cmd.Id);
-
-            //if (!existingIntervento.IsNull())
-            //    throw new AlreadyCreatedAggregateRootException();
-
-            //existingIntervento.AllowControl(cmd.Id);
-
-            //EventRepository.Save(existingIntervento, cmd.CommitId);
-
-            //return existingIntervento.CommandValidationMessages; 
+            return existingScenario.CommandValidationMessages; 
         }
     }
 }
