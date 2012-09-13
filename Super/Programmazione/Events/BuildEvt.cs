@@ -75,7 +75,7 @@ namespace Super.Programmazione.Events
 
         public static ScenarioCreatedBuilder ScenarioCreated { get { return new ScenarioCreatedBuilder(); } }
 
-        public static ScenarioUpdatedBuilder ScenarioUpdated { get { return new ScenarioUpdatedBuilder(); } }
+        public static DescriptionOfScenarioChangedBuilder DescriptionOfScenarioChanged { get { return new DescriptionOfScenarioChangedBuilder(); } }
         
         public static ScenarioDeletedBuilder ScenarioDeleted { get { return new ScenarioDeletedBuilder(); } }
 

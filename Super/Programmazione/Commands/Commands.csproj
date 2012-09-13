@@ -108,7 +108,7 @@
     <Compile Include="Builders\Schedulazione\RemoveRuleFromSchedulazioneBuilder.cs" />
     <Compile Include="Builders\Plan\UpdateSchedulazioneAmbOfPlanBuilder.cs" />
     <Compile Include="Builders\Scenario\UpdateSchedulazioneAmbOfScenarioBuilder.cs" />
-    <Compile Include="Builders\Scenario\UpdateScenarioBuilder.cs" />
+    <Compile Include="Builders\Scenario\ChangeDescriptionScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\CreateScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\DeleteScenarioBuilder.cs" />
     <Compile Include="Builders\System\AddUserToSystemBuilder.cs" />
@@ -131,7 +131,7 @@
     <Compile Include="Schedulazione\CancelSchedulationFromScenario.cs" />
     <Compile Include="Scenario\DeleteScenario.cs" />
     <Compile Include="Scenario\CreateScenario.cs" />
-    <Compile Include="Scenario\UpdateScenario.cs" />
+    <Compile Include="Scenario\ChangeDescriptionScenario.cs" />
     <Compile Include="Schedulazione\UpdateSchedulationOfScenario.cs" />
     <Compile Include="Schedulazione\AddRuleToSchedulazione.cs" />
     <Compile Include="Schedulazione\AskToGenerateInterventi.cs" />

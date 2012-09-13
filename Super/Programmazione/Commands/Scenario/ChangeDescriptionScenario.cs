@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
-using CommonDomain;
 using CommonDomain.Core;
 
-namespace Super.Programmazione.Events.Scenario
+namespace Super.Programmazione.Commands.Scenario
 {
-    public class ScenarioUpdated : Message , IEvent
+    public class ChangeDescriptionScenario : CommandBase
     {
         public string Description { get; set; }
 
-        public ScenarioUpdated()
+        public ChangeDescriptionScenario()
         {
             
         }
 
-        public ScenarioUpdated(Guid id, Guid commitId, long version, string description)
+        public ChangeDescriptionScenario(Guid id, Guid commitId, long version, string description)
             : base(id, commitId, version)
         {
             Contract.Requires(!string.IsNullOrEmpty(description) );
@@ -24,10 +23,10 @@ namespace Super.Programmazione.Events.Scenario
 
         public override string ToDescription()
         {
-            return string.Format("Scenario {0} é stato aggiornato", Id);
+            return string.Format("Cambiare la descrizione del scenario {0}", Id);
         }
 
-        public bool Equals(ScenarioUpdated other)
+        public bool Equals(ChangeDescriptionScenario other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -38,7 +37,7 @@ namespace Super.Programmazione.Events.Scenario
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as ScenarioUpdated);
+            return Equals(obj as ChangeDescriptionScenario);
         }
 
         public override int GetHashCode()

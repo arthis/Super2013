@@ -14,7 +14,7 @@ namespace Super.Programmazione.Commands
 
         public static CreateScenarioBuilder CreateScenario { get { return new CreateScenarioBuilder(); } }
 
-        public static UpdateScenarioBuilder UpdateScenario { get { return new UpdateScenarioBuilder(); } }
+        public static ChangeDescriptionScenarioBuilder ChangeDescriptionScenario { get { return new ChangeDescriptionScenarioBuilder(); } }
 
         public static DeleteScenarioBuilder DeleteScenario { get { return new DeleteScenarioBuilder(); } }
 

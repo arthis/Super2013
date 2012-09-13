@@ -26,68 +26,19 @@ namespace Super.Programmazione.Domain
             Id = e.Id;
         }
 
-        //private bool _isClosed;
+        public void ChangeDescription(string description)
+        {
+            var evt = BuildEvt.DescriptionOfScenarioChanged
+               .ForDescription(description);
 
-        //public Intervento()
-        //{
-          
-        //}
+            RaiseEvent(evt);
+        }
+
+        public void Apply(DescriptionOfScenarioChanged e)
+        {
+            //do nothing
+        }
 
 
-        //public void AllowControl(Guid id)
-        //{
-        //    var evt = BuildEvt.InterventoControlAllowed;
-
-        //    RaiseEvent(id, evt);
-        //}
-
-        //public void Apply(InterventoControlAllowed e)
-        //{
-        //    Id = e.Id;
-        //}
-
-        //public void Close(Guid idUser, DateTime closingDate)
-        //{
-        //    var evt = BuildEvt.InterventoClosed
-        //        .By(idUser)
-        //        .When(closingDate);
-
-        //    RaiseEvent(evt);
-        //}
-
-        //public void Apply(InterventoClosed e)
-        //{
-        //    _isClosed = true;
-        //}
-
-        //public void ControlNonReso(Guid idUser, DateTime controlDate, Guid idCausale, string note)
-        //{
-        //    var evt = BuildEvt.InterventoControlledNonReso
-        //        .By(idUser)
-        //        .When(controlDate)
-        //        .Because(idCausale)
-        //        .WithNote(note);
-
-        //    RaiseEvent(evt);
-        //}
-
-        //public void Apply(InterventoControlledNonReso e)
-        //{
-        //    //do nothing
-        //}
-
-        //public void Reopen(Guid idUser, DateTime reopeningDate)
-        //{
-        //    var evt = BuildEvt.InterventoReopened
-        //        .By(idUser)
-        //        .When(reopeningDate);
-
-        //    RaiseEvent(evt);
-        //}
-
-        //public void Apply(InterventoReopened e)
-        //{
-        //    _isClosed = false;
-        //}
     }
 }

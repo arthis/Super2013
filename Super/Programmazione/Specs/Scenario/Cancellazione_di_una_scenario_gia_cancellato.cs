@@ -15,7 +15,7 @@ using Super.Programmazione.Handlers.Commands.Scenario;
 
 namespace Super.Programmazione.Specs.Scenario
 {
-    public class Cancellazione_di_una_scenario_gia_cancellato : CommandBaseClass<DeleteScenario>
+    public class Cambio_della_descrizione_di_una_scenario_gia_cancellato : CommandBaseClass<DeleteScenario>
     {
         private Guid _id = Guid.NewGuid();
         private string _description = "test";

@@ -13,36 +13,38 @@ using Super.Programmazione.Handlers.Commands.Scenario;
 
 namespace Super.Programmazione.Specs.Scenario
 {
-    public class Aggiornamento_di_un_scenario_gia_creato : CommandBaseClass<UpdateScenario>
+    public class Cambio_della_descrizione_di_un_scenario_gia_creato : CommandBaseClass<ChangeDescriptionScenario>
     {
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
+        private Guid _idUser = Guid.NewGuid();
 
         private string _descriptionUpdated = "test 2";
 
 
-        protected override CommandHandler<UpdateScenario> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<ChangeDescriptionScenario> OnHandle(IEventRepository eventRepository)
         {
-            return new UpdateScenarioHandler(eventRepository);
+            return new ChangeDescriptionScenarioHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.ScenarioCreated
                                    .ForDescription(_description)
+                                   .ByUser(_idUser)
                                    .Build(_id, 1);
         }
 
-        public override UpdateScenario When()
+        public override ChangeDescriptionScenario When()
         {
-            return BuildCmd.UpdateScenario
+            return BuildCmd.ChangeDescriptionScenario
                             .ForDescription(_descriptionUpdated)
                             .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.ScenarioUpdated
+            yield return BuildEvt.DescriptionOfScenarioChanged
                 .ForDescription(_descriptionUpdated)
                 .Build(_id, 2);
 

@@ -14,14 +14,14 @@ using Super.Programmazione.Handlers.Commands.Scenario;
 
 namespace Super.Programmazione.Specs.Scenario
 {
-    public class Aggiornamento_di_un_scenario_non_esistente : CommandBaseClass<UpdateScenario>
+    public class Cambio_della_descrizione_di_un_scenario_non_esistente : CommandBaseClass<ChangeDescriptionScenario>
     {
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
 
-        protected override CommandHandler<UpdateScenario> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<ChangeDescriptionScenario> OnHandle(IEventRepository eventRepository)
         {
-            return new UpdateScenarioHandler(eventRepository);
+            return new ChangeDescriptionScenarioHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -29,10 +29,10 @@ namespace Super.Programmazione.Specs.Scenario
             yield break;
         }
 
-        public override UpdateScenario When()
+        public override ChangeDescriptionScenario When()
         {
 
-            return  BuildCmd.UpdateScenario
+            return  BuildCmd.ChangeDescriptionScenario
                          .ForDescription(_description)
                          .Build(_id, 1);
         }
