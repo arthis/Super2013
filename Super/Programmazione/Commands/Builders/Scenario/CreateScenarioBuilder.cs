@@ -6,15 +6,9 @@ namespace Super.Programmazione.Commands.Builders.Scenario
 {
     public class CreateScenarioBuilder : ICommandBuilder<CreateScenario>
     {
-        private Guid _idUser;
+
         private string _description;
 
-
-        public CreateScenarioBuilder ByUser(Guid idUser)
-        {
-            _idUser = idUser;
-            return this;
-        }
 
         public CreateScenarioBuilder WithDescription(string description)
         {
@@ -29,7 +23,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
 
         public CreateScenario Build(Guid id, Guid idCommitId, long version)
         {
-            var cmd = new CreateScenario(id, idCommitId, version, _idUser, _description);
+            var cmd = new CreateScenario(id, idCommitId, version,  _description);
 
             return cmd;
         }

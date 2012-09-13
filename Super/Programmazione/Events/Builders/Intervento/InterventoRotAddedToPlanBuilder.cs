@@ -5,7 +5,7 @@ using Super.Programmazione.Events.Plan;
 
 namespace Super.Programmazione.Events.Builders.Intervento
 {
-    public class InterventoRotAddedToPlanBuilder : ICommandBuilder<InterventoRotAddedToPlan>
+    public class InterventoRotAddedToPlanBuilder : IEventBuilder<InterventoRotAddedToPlan>
     {
         private Guid _idPeriodoProgrammazione;
         private Guid _idPlan;

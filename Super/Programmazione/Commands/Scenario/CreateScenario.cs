@@ -6,7 +6,6 @@ namespace Super.Programmazione.Commands.Scenario
 {
     public class CreateScenario : CommandBase
     {
-        public Guid IdUser { get; set; }
         public string Description { get; set; }
 
         public CreateScenario()
@@ -14,13 +13,11 @@ namespace Super.Programmazione.Commands.Scenario
             
         }
 
-        public CreateScenario(Guid id, Guid commitId, long version, Guid idUser, string description)
+        public CreateScenario(Guid id, Guid commitId, long version, string description)
             : base(id, commitId, version)
         {
-            Contract.Requires(idUser!= Guid.Empty);
             Contract.Requires(!string.IsNullOrEmpty(description) );
 
-            IdUser = idUser;
             Description = description;
         }
 
@@ -33,7 +30,7 @@ namespace Super.Programmazione.Commands.Scenario
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdUser.Equals(IdUser) && Equals(other.Description, Description);
+            return base.Equals(other) && Equals(other.Description, Description);
         }
 
         public override bool Equals(object obj)
@@ -47,10 +44,7 @@ namespace Super.Programmazione.Commands.Scenario
         {
             unchecked
             {
-                int result = base.GetHashCode();
-                result = (result*397) ^ IdUser.GetHashCode();
-                result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
-                return result;
+                return (base.GetHashCode()*397) ^ (Description != null ? Description.GetHashCode() : 0);
             }
         }
     }

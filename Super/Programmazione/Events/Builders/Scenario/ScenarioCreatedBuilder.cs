@@ -4,7 +4,7 @@ using Super.Programmazione.Events.Scenario;
 
 namespace Super.Programmazione.Events.Builders.Scenario
 {
-    public class ScenarioCreatedBuilder : ICommandBuilder<ScenarioCreated>
+    public class ScenarioCreatedBuilder : IEventBuilder<ScenarioCreated>
     {
         private Guid _idUser;
         private string _description;
@@ -33,8 +33,6 @@ namespace Super.Programmazione.Events.Builders.Scenario
 
             return cmd;
         }
-
-
 
     }
 }

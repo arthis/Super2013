@@ -22,11 +22,19 @@ namespace Super.Programmazione.Specs.Scenario
 
         protected override CommandHandler<CreateScenario> OnHandle(IEventRepository eventRepository)
         {
-            return new CreateScenarioHandler(eventRepository);
+            var sessionFactory = new FakeSessionFactory(_idUser);
+            return new CreateScenarioHandler(eventRepository, sessionFactory);
         }
 
         public override IEnumerable<IMessage> Given()
         {
+            yield return BuildEvt.UserAddedToSystem
+               .ForPassword("p")
+               .ForUserName("u")
+               .WithFirstName("f")
+               .WithLastName("l")
+               .Build(_idUser, 1);
+
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
@@ -36,7 +44,6 @@ namespace Super.Programmazione.Specs.Scenario
         public override CreateScenario When()
         {
             return BuildCmd.CreateScenario
-                        .ByUser(_idUser)
                         .WithDescription(_descritpion)
                         .Build(_Id, 1);
         }

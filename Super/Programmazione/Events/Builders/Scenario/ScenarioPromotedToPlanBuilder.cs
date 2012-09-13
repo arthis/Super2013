@@ -4,7 +4,7 @@ using Super.Programmazione.Events.Scenario;
 
 namespace Super.Programmazione.Events.Builders.Scenario
 {
-    public class ScenarioPromotedToPlanBuilder : ICommandBuilder<ScenarioPromotedToPlan>
+    public class ScenarioPromotedToPlanBuilder : IEventBuilder<ScenarioPromotedToPlan>
     {
         private Guid _idUser;
         private DateTime _promotionDate;

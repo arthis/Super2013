@@ -1,9 +1,10 @@
 using System;
+using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Schedulazione
 {
-    public class SchedulazioneCancelledFromScenario : CommandBase
+    public class SchedulazioneCancelledFromScenario : Message,IEvent
     {
         
         public SchedulazioneCancelledFromScenario()

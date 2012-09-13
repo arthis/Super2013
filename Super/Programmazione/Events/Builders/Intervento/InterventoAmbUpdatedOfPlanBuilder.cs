@@ -5,7 +5,7 @@ using Super.Programmazione.Events.Intervento;
 
 namespace Super.Programmazione.Events.Builders.Intervento
 {
-    public class InterventoAmbUpdatedOfPlanBuilder : ICommandBuilder<InterventoAmbUpdatedOfPlan>
+    public class InterventoAmbUpdatedOfPlanBuilder : IEventBuilder<InterventoAmbUpdatedOfPlan>
     {
         private Guid _idPeriodoProgrammazione;
         private Guid _idPlan;

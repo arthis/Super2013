@@ -5,7 +5,7 @@ using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders.Schedulazione
 {
-    public class RuleAddedToSchedulazioneRotBuilder :  ICommandBuilder<RuleAddedToSchedulazioneRot>
+    public class RuleAddedToSchedulazioneRotBuilder :  IEventBuilder<RuleAddedToSchedulazioneRot>
     {
 
         protected Interval _interval;

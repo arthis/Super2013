@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Programmazione.Events.Intervento
 {
-    public abstract class InterventoUpdatedOfPlan : CommandBase
+    public abstract class InterventoUpdatedOfPlan : Message,IEvent
     {
         public Guid IdPeriodoProgrammazione { get; set; }
         public Guid IdPlan { get; set; }

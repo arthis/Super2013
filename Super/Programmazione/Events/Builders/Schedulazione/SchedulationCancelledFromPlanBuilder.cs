@@ -4,7 +4,7 @@ using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders.Schedulazione
 {
-    public  class SchedulazioneCancelledFromPlanBuilder : ICommandBuilder<SchedulazioneCancelledFromPlan>
+    public  class SchedulazioneCancelledFromPlanBuilder : IEventBuilder<SchedulazioneCancelledFromPlan>
     {
         private Guid _idUser;
         private bool _deleteGeneratedInterventi;

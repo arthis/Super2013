@@ -4,7 +4,7 @@ using Super.Programmazione.Events.Scenario;
 
 namespace Super.Programmazione.Events.Builders.Scenario
 {
-    public class ScenarioDeletedBuilder : ICommandBuilder<ScenarioDeleted>
+    public class ScenarioDeletedBuilder : IEventBuilder<ScenarioDeleted>
     {
         
         public ScenarioDeleted Build(Guid id, long version)

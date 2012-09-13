@@ -4,7 +4,7 @@ using Super.Programmazione.Events.Plan;
 
 namespace Super.Programmazione.Events.Builders.Plan
 {
-    public class PlanCancelledBuilder : ICommandBuilder<PlanCancelled>
+    public class PlanCancelledBuilder : IEventBuilder<PlanCancelled>
     {
 
         public PlanCancelled Build(Guid id, long version)

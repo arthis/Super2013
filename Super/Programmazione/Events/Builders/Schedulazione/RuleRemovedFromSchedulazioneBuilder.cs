@@ -4,7 +4,7 @@ using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders.Schedulazione
 {
-    public class RuleRemovedFromSchedulazioneBuilder : ICommandBuilder<RuleRemovedFromSchedulazione>
+    public class RuleRemovedFromSchedulazioneBuilder : IEventBuilder<RuleRemovedFromSchedulazione>
     {
 
 

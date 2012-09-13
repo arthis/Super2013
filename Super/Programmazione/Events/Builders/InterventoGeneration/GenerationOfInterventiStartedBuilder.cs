@@ -5,7 +5,7 @@ using Super.Programmazione.Events.InterventoGeneration;
 namespace Super.Programmazione.Events.Builders.InterventoGeneration
 {
 
-    public class GenerationOfInterventiStartedBuilder : ICommandBuilder<GenerationOfInterventiStarted>
+    public class GenerationOfInterventiStartedBuilder : IEventBuilder<GenerationOfInterventiStarted>
     {
         private Guid _idSchedulazione;
 

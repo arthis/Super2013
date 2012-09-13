@@ -10,6 +10,11 @@ namespace Super.Programmazione.Domain
 {
     public class User : AggregateBase
     {
+        public User()
+        {
+            
+        }
+
         public User(Guid id, string firstName, string lastName, string username, string password)
         {
             var evt = BuildEvt.UserAddedToSystem
@@ -24,7 +29,12 @@ namespace Super.Programmazione.Domain
 
         public void Apply(UserAddedToSystem evt)
         {
-            
+            Id = evt.Id;
+        }
+
+        public Scenario CreateScenario(Guid idScenario, Guid idUser, string description)
+        {
+            return new Scenario(idScenario, idUser, description);
         }
     }
 }

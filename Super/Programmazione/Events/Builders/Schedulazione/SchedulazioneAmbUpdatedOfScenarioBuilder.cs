@@ -5,7 +5,7 @@ using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders.Schedulazione
 {
-    public class SchedulazioneAmbUpdatedOfScenarioBuilder : ICommandBuilder<SchedulazioneAmbUpdatedOfScenario>
+    public class SchedulazioneAmbUpdatedOfScenarioBuilder : IEventBuilder<SchedulazioneAmbUpdatedOfScenario>
     {
         protected Guid _idPeriodoProgrammazione;
         protected Guid _idScenario;

@@ -5,7 +5,7 @@ using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders.Schedulazione
 {
-    public class RuleAddedToSchedulazioneRotManBuilder :  ICommandBuilder<RuleAddedToSchedulazioneRotMan>
+    public class RuleAddedToSchedulazioneRotManBuilder :  IEventBuilder<RuleAddedToSchedulazioneRotMan>
     {
         protected Interval _interval;
         bool _monday;

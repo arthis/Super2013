@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Programmazione.Events.Schedulazione
 {
-    public abstract class SchedulazioneUpdatedOfPlan : CommandBase , IEvent
+    public abstract class SchedulazioneUpdatedOfPlan : Message,IEvent 
     {
         public Guid IdPeriodoProgrammazione { get; set; }
         public Guid IdPlan { get; set; }

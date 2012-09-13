@@ -1,38 +1,47 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
 using Super.Programmazione.Commands.Scenario;
+using Super.Programmazione.Domain;
 
 namespace Super.Programmazione.Handlers.Commands.Scenario
 {
     public class CreateScenarioHandler: CommandHandler<CreateScenario>
     {
-        public CreateScenarioHandler(IEventRepository eventRepository)
+        private readonly ISessionFactory _sessionFactory;
+
+        public CreateScenarioHandler(IEventRepository eventRepository, ISessionFactory sessionFactory)
             : base(eventRepository)
         {
+            Contract.Requires(sessionFactory!=null);
+            _sessionFactory = sessionFactory;
         }
 
         public override CommandValidation Execute(CreateScenario cmd)
         {
-            throw new NotImplementedException();
+            Contract.Requires(cmd != null);
 
-            //Contract.Requires<ArgumentNullException>(cmd != null);
+            var session = _sessionFactory.CreateSession(cmd);
 
-        
+            var user = EventRepository.GetById<User>(session.UserId);
 
+            if (user.IsNull())
+                throw new AggregateRootInstanceNotFoundException();
 
-            //var existingIntervento = EventRepository.GetById<Scenario>(cmd.Id);
+            var existingScenario = EventRepository.GetById<Domain.Scenario>(cmd.Id);
 
-            //if (!existingIntervento.IsNull())
-            //    throw new AlreadyCreatedAggregateRootException();
+            if(!existingScenario.IsNull())
+                throw new AlreadyCreatedAggregateRootException();
 
-            //existingIntervento.AllowControl(cmd.Id);
+            var scenario = user.CreateScenario(cmd.Id, user.Id, cmd.Description);
 
-            //EventRepository.Save(existingIntervento, cmd.CommitId);
+            EventRepository.Save(scenario, cmd.CommitId);
 
-            //return existingIntervento.CommandValidationMessages; 
+            return scenario.CommandValidationMessages; 
         }
     }
 }

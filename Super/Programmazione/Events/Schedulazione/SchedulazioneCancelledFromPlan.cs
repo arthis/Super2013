@@ -1,10 +1,11 @@
 using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Schedulazione
 {
-    public class SchedulazioneCancelledFromPlan : CommandBase
+    public class SchedulazioneCancelledFromPlan : Message,IEvent
     {
         public Guid IdUser { get; set; }
         public bool DeleteGeneratedIntervento { get; set; }

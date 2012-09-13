@@ -1,9 +1,10 @@
 ﻿using System;
+using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Plan
 {
-    public class PlanCancelled : CommandBase
+    public class PlanCancelled : Message,IEvent
     {
         
         public PlanCancelled()

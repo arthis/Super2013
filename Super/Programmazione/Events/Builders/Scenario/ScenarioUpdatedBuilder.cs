@@ -4,7 +4,7 @@ using Super.Programmazione.Events.Scenario;
 
 namespace Super.Programmazione.Events.Builders.Scenario
 {
-    public class ScenarioUpdatedBuilder : ICommandBuilder<ScenarioUpdated>
+    public class ScenarioUpdatedBuilder : IEventBuilder<ScenarioUpdated>
     {
         private string _description;
 

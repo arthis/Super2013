@@ -5,7 +5,7 @@ using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders.Schedulazione
 {
-    public class SchedulazioneRotManAddedToScenarioBuilder : ICommandBuilder<SchedulazioneRotManAddedToScenario>
+    public class SchedulazioneRotManAddedToScenarioBuilder : IEventBuilder<SchedulazioneRotManAddedToScenario>
     {
         protected Guid _idPeriodoProgrammazione;
         protected Guid _idScenario;
