@@ -4,17 +4,17 @@ using Super.Programmazione.Commands.Scenario;
 
 namespace Super.Programmazione.Commands.Builders.Scenario
 {
-    public class DeleteScenarioBuilder : ICommandBuilder<DeleteScenario>
+    public class CancelScenarioBuilder : ICommandBuilder<CancelScenario>
     {
         
-        public DeleteScenario Build(Guid id, long version)
+        public CancelScenario Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public DeleteScenario Build(Guid id, Guid idCommitId, long version)
+        public CancelScenario Build(Guid id, Guid idCommitId, long version)
         {
-            var cmd = new DeleteScenario(id, idCommitId, version);
+            var cmd = new CancelScenario(id, idCommitId, version);
 
             return cmd;
         }

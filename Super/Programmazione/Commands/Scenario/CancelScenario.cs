@@ -4,15 +4,15 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Commands.Scenario
 {
-    public class DeleteScenario : CommandBase
+    public class CancelScenario : CommandBase
     {
         
-        public DeleteScenario()
+        public CancelScenario()
         {
             
         }
 
-        public DeleteScenario(Guid id, Guid commitId, long version)
+        public CancelScenario(Guid id, Guid commitId, long version)
             : base(id, commitId, version)
         {
             
@@ -23,7 +23,7 @@ namespace Super.Programmazione.Commands.Scenario
             return string.Format("Cancellare un scenario {0}", Id);
         }
 
-        public bool Equals(DeleteScenario other)
+        public bool Equals(CancelScenario other)
         {
             return base.Equals(other);
         }
@@ -32,7 +32,7 @@ namespace Super.Programmazione.Commands.Scenario
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as DeleteScenario);
+            return Equals(obj as CancelScenario);
         }
 
         public override int GetHashCode()

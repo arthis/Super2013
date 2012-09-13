@@ -84,6 +84,7 @@
     <Compile Include="Scenario\Cancellazione_di_una_scenario_gia_cancellato.cs" />
     <Compile Include="Scenario\Cancellazione_di_una_scenario_gia_creato.cs" />
     <Compile Include="Scenario\Cancellazione_di_un_scenario_non_esistente.cs" />
+    <Compile Include="Scenario\Cambio_della_descrizione_di_un_scenario_cancellato.cs" />
     <Compile Include="Schedulazione\cancellare_una_schedulazione_da_un_piano_senza_interventi_generati.cs" />
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_regola_a_una_schedulazione_ambiente.cs" />
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_a_un_scenario.cs" />

@@ -91,7 +91,7 @@
     <Compile Include="Commands\Schedulazione\Ambiente\AddSchedulazioneAmbToScenarioHandler.cs" />
     <Compile Include="Commands\Scenario\PromoteScenarioToPlanHandler.cs" />
     <Compile Include="Commands\Scenario\ChangeDescriptionScenarioHandler.cs" />
-    <Compile Include="Commands\Scenario\DeleteScenarioHandler.cs" />
+    <Compile Include="Commands\Scenario\CancelScenarioHandler.cs" />
     <Compile Include="Commands\Scenario\CreateScenarioHandler.cs" />
     <Compile Include="Commands\Schedulazione\Ambiente\AddSchedulazioneAmbToPlanHandler.cs" />
     <Compile Include="Commands\Schedulazione\RotabileInManutenzione\AddSchedulazioneRotManToPlanHandler.cs" />

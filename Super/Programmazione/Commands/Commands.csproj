@@ -110,7 +110,7 @@
     <Compile Include="Builders\Scenario\UpdateSchedulazioneAmbOfScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\ChangeDescriptionScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\CreateScenarioBuilder.cs" />
-    <Compile Include="Builders\Scenario\DeleteScenarioBuilder.cs" />
+    <Compile Include="Builders\Scenario\CancelScenarioBuilder.cs" />
     <Compile Include="Builders\System\AddUserToSystemBuilder.cs" />
     <Compile Include="InterventoGeneration\ConfirmInterventoGenerated.cs" />
     <Compile Include="InterventoGeneration\TimeOutTheGenerationOfInterventi.cs" />
@@ -129,7 +129,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schedulazione\AddSchedulationToScenario.cs" />
     <Compile Include="Schedulazione\CancelSchedulationFromScenario.cs" />
-    <Compile Include="Scenario\DeleteScenario.cs" />
+    <Compile Include="Scenario\CancelScenario.cs" />
     <Compile Include="Scenario\CreateScenario.cs" />
     <Compile Include="Scenario\ChangeDescriptionScenario.cs" />
     <Compile Include="Schedulazione\UpdateSchedulationOfScenario.cs" />

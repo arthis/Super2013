@@ -13,13 +13,15 @@ using Super.Programmazione.Handlers.Commands.Scenario;
 
 namespace Super.Programmazione.Specs.Scenario
 {
-    public class Cancellazione_di_un_scenario_non_esistente : CommandBaseClass<DeleteScenario>
+    public class Cancellazione_di_un_scenario_non_esistente : CommandBaseClass<CancelScenario>
     {
         private Guid _id = Guid.NewGuid();
+        private Guid _idUser = Guid.NewGuid();
 
-        protected override CommandHandler<DeleteScenario> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<CancelScenario> OnHandle(IEventRepository eventRepository)
         {
-            return new DeleteScenarioHandler(eventRepository);
+            var sessionFactory = new FakeSessionFactory(_idUser);
+            return new CancelScenarioHandler(eventRepository, sessionFactory);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -27,9 +29,9 @@ namespace Super.Programmazione.Specs.Scenario
             yield break;
         }
 
-        public override DeleteScenario When()
+        public override CancelScenario When()
         {
-            return BuildCmd.DeleteScenario
+            return BuildCmd.CancelScenario
                 .Build(_id, 1);
         }
 

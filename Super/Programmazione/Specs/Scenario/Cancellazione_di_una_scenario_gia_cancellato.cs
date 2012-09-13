@@ -15,29 +15,33 @@ using Super.Programmazione.Handlers.Commands.Scenario;
 
 namespace Super.Programmazione.Specs.Scenario
 {
-    public class Cambio_della_descrizione_di_una_scenario_gia_cancellato : CommandBaseClass<DeleteScenario>
+    public class Cancellazione_di_un_scenario_gia_cancellato : CommandBaseClass<CancelScenario>
     {
         private Guid _id = Guid.NewGuid();
+        private Guid _idUser = Guid.NewGuid();
         private string _description = "test";
         
 
-        protected override CommandHandler<DeleteScenario> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<CancelScenario> OnHandle(IEventRepository eventRepository)
         {
-            return new DeleteScenarioHandler(eventRepository);
+            var sessionFactory = new FakeSessionFactory(_idUser);
+            return new CancelScenarioHandler(eventRepository, sessionFactory);
         }
 
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.ScenarioCreated
                 .ForDescription(_description)
+                .ByUser(_idUser)
                 .Build(_id,1);
-            yield return BuildEvt.ScenarioDeleted
+            yield return BuildEvt.ScenarioCancelled
+                .ByUser(_idUser)
                 .Build(_id, 2);
         }
 
-        public override DeleteScenario When()
+        public override CancelScenario When()
         {
-            return BuildCmd.DeleteScenario
+            return BuildCmd.CancelScenario
                 .Build(_id, 2);
         }
 

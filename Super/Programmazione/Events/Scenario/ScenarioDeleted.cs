@@ -5,18 +5,19 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Scenario
 {
-    public class ScenarioDeleted : Message , IEvent
+    public class ScenarioCancelled : Message , IEvent
     {
-        
-        public ScenarioDeleted()
+        public Guid IdUser { get; set; }
+
+        public ScenarioCancelled()
         {
             
         }
 
-        public ScenarioDeleted(Guid id, Guid commitId, long version)
+        public ScenarioCancelled(Guid id, Guid commitId, long version, Guid idUser)
             : base(id, commitId, version)
         {
-            
+            IdUser = idUser;
         }
 
         public override string ToDescription()
@@ -24,21 +25,26 @@ namespace Super.Programmazione.Events.Scenario
             return string.Format("Scenario {0} è stato cancellato", Id);
         }
 
-        public bool Equals(ScenarioDeleted other)
+        public bool Equals(ScenarioCancelled other)
         {
-            return base.Equals(other);
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return base.Equals(other) && other.IdUser.Equals(IdUser);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as ScenarioDeleted);
+            return Equals(obj as ScenarioCancelled);
         }
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            unchecked
+            {
+                return (base.GetHashCode()*397) ^ IdUser.GetHashCode();
+            }
         }
     }
 }
