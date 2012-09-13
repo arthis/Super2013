@@ -7,6 +7,9 @@ using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
+using Super.Programmazione.Commands.Scenario;
+using Super.Programmazione.Events.Scenario;
+using Super.Programmazione.Handlers.Commands.Scenario;
 
 namespace Super.Programmazione.Handlers
 {
@@ -17,20 +20,25 @@ namespace Super.Programmazione.Handlers
         {
             var handlerHelper = new CommandHandlerHelper(commandRepository, sessionFactory);
 
+
+            handlerHelper.Add(_handlers, new CancelScenarioHandler(eventRepository, sessionFactory));
+            handlerHelper.Add(_handlers, new ChangeDescriptionScenarioHandler(eventRepository));
+            handlerHelper.Add(_handlers, new CreateScenarioHandler(eventRepository, sessionFactory));
+            handlerHelper.Add(_handlers, new PromoteScenarioToPlanHandler(eventRepository, sessionFactory));
+
             
-            //handlerHelper.Add<CloseIntervento>(_handlers, new CloseInterventoHandler(eventRepository));
-            //handlerHelper.Add<ControlInterventoNonReso>(_handlers, new ControlInterventoNonResoHandler(eventRepository));
-            //handlerHelper.Add<ControlInterventoAmbReso>(_handlers, new ControlInterventoAmbResoHandler(eventRepository));
-            //handlerHelper.Add<ControlInterventoRotReso>(_handlers, new ControlInterventoRotResoHandler(eventRepository));
-            //handlerHelper.Add<ControlInterventoRotManReso>(_handlers, new ControlInterventoRotManResoHandler(eventRepository));
-            //handlerHelper.Add<ReopenIntervento>(_handlers, new ReopenInterventoHandler(eventRepository));
+            
         }
 
         public override void Subscribe(IBus bus)
         {
             string subscriptionId = "Super";
 
-            //bus.Subscribe<AllowControlIntervento>(subscriptionId, cmd => Execute(cmd));
+            var portHelper = new PortHandlerHelper();
+
+            portHelper.Add(_ports,);
+
+            bus.Subscribe<ScenarioPromotedToPlan>(subscriptionId, Port);
         }
 
     }

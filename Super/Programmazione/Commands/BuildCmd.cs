@@ -61,7 +61,7 @@ namespace Super.Programmazione.Commands
 
         public static ConfirmGenerationFailedBuilder ConfirmGenerationFailed { get { return new ConfirmGenerationFailedBuilder(); } }
 
-        public static CancelPlanBuilder CancelPlan { get { return new CancelPlanBuilder(); } }
+        
 
         public static AddInterventoRotToPlanBuilder AddInterventoRotToPlan { get { return new AddInterventoRotToPlanBuilder(); } }
 
@@ -94,6 +94,14 @@ namespace Super.Programmazione.Commands
         #region Intervento Generation
 
         public static StartGenerationOfInterventiBuilder StartGenerationOfInterventi {get {return new StartGenerationOfInterventiBuilder();}}
+        #endregion
+
+        #region Plan
+
+        public static CancelPlanBuilder CancelPlan { get { return new CancelPlanBuilder(); } }
+
+        public static CreatePlanBuilder CreatePlan { get { return new CreatePlanBuilder(); } }
+
         #endregion
 
     }

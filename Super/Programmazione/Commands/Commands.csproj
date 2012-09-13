@@ -84,6 +84,7 @@
     <Compile Include="Builders\Plan\AddInterventoRotToPlanBuilder.cs" />
     <Compile Include="Builders\Plan\AddSchedulazioneRotManToPlanBuilder.cs" />
     <Compile Include="Builders\Plan\AddSchedulazioneRotToPlanBuilder.cs" />
+    <Compile Include="Builders\Plan\CreatePlanBuilder.cs" />
     <Compile Include="Builders\Plan\UpdateSchedulazioneRotManOfPlanBuilder.cs" />
     <Compile Include="Builders\Plan\UpdateSchedulazioneRotOfPlanBuilder.cs" />
     <Compile Include="Builders\Scenario\AddSchedulazioneRotManToScenarioBuilder.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="InterventoGeneration\TimeOutTheGenerationOfInterventi.cs" />
     <Compile Include="InterventoGeneration\StartGenerationOfInterventi.cs" />
     <Compile Include="Intervento\GenerateInterventoForSchedulazione.cs" />
+    <Compile Include="Plan\CreatePlan.cs" />
     <Compile Include="Schedulazione\AddSchedulationToPlan.cs" />
     <Compile Include="Schedulazione\CancelSchedulationFromPlan.cs" />
     <Compile Include="Plan\CancelPlan.cs" />

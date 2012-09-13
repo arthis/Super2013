@@ -24,7 +24,7 @@ namespace Super.Appaltatore.Handlers
             var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
 
             if (existingIntervento.IsNull())
-                throw new HandlerForDomainEventNotFoundException();
+                throw new HandlerForMessageNotFoundException();
 
             existingIntervento.ConsuntivareNonReso(cmd.Id
                                 , cmd.IdInterventoAppaltatore

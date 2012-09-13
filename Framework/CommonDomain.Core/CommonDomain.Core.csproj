@@ -83,6 +83,7 @@
     <Compile Include="Handlers\Commands\CommandHandlerHelper.cs" />
     <Compile Include="Handlers\Commands\CommandAlreadyProcessedException.cs" />
     <Compile Include="CommandBase.cs" />
+    <Compile Include="Handlers\IPortHandler.cs" />
     <Compile Include="Handlers\ProjectOnlyOnceOnlyHandler.cs" />
     <Compile Include="Handlers\Commands\CommandHandler.cs" />
     <Compile Include="CommandValidation.cs" />
@@ -91,7 +92,7 @@
     <Compile Include="Handlers\Events\EventHandlerHelper.cs" />
     <Compile Include="Handlers\Commands\ExecuteCommandOnceOnlyHandler.cs" />
     <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="Handlers\HandlerForDomainEventNotFoundException.cs" />
+    <Compile Include="Handlers\HandlerForMessageNotFoundException.cs" />
     <Compile Include="Handlers\ICommandHandler.cs" />
     <Compile Include="Handlers\ICommandHandlerService.cs" />
     <Compile Include="ICommandService.cs" />

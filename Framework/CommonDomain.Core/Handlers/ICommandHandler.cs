@@ -5,6 +5,4 @@ namespace CommonDomain.Core.Handlers
         
         CommandValidation Execute(TCommand command);
     }
-
-    
 }

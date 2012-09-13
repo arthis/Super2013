@@ -36,7 +36,7 @@ namespace Super.Programmazione.Domain
                 throw new ScenarioCancelledDoNotAllowFurtherChanges();
 
             if (_promoted)
-                throw new ScenarioPromotedDoNotAllowChangingDescription();
+                throw new ScenarioPromotedDoNotAllowFurtherChanges();
 
             var evt = BuildEvt.DescriptionOfScenarioChanged
                .ForDescription(description);
@@ -53,7 +53,7 @@ namespace Super.Programmazione.Domain
         public void Cancel(Guid userId)
         {
             if (_promoted)
-                throw new ScenarioPromotedDoNotAllowChangingDescription();
+                throw new ScenarioPromotedDoNotAllowFurtherChanges();
 
             if (!_deleted)
             {
@@ -76,19 +76,20 @@ namespace Super.Programmazione.Domain
                 throw new ScenarioCancelledDoNotAllowFurtherChanges();
 
             if (_promoted)
-                throw new ScenarioPromotedDoNotAllowChangingDescription();
+                throw new ScenarioPromotedDoNotAllowFurtherChanges();
 
             var evt = BuildEvt.ScenarioPromotedToPlan
                 .ByUser(userId)
                 .When(promotingDate);
 
-
             RaiseEvent(evt);
+
         }
 
         public void Apply(ScenarioPromotedToPlan e)
         {
             _promoted = true;
+
         }
     }
 }

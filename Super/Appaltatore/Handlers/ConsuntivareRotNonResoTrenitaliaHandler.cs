@@ -23,7 +23,7 @@ namespace Super.Appaltatore.Handlers
             var existingIntervento = EventRepository.GetById<InterventoRot>(cmd.Id);
 
             if (existingIntervento.IsNull())
-                throw new HandlerForDomainEventNotFoundException();
+                throw new HandlerForMessageNotFoundException();
 
             existingIntervento.ConsuntivareNonResoTrenitalia(cmd.Id
                                 , cmd.DataConsuntivazione

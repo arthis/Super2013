@@ -74,7 +74,7 @@ namespace Super.Saga.Handlers
             if (_handlers.ContainsKey(type))
                  _handlers[type](message);
             else
-                throw new HandlerForDomainEventNotFoundException(string.Format("No handler found for the command '{0}'", message.GetType()));
+                throw new HandlerForMessageNotFoundException(string.Format("No handler found for the command '{0}'", message.GetType()));
             
         }
 

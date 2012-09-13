@@ -21,10 +21,24 @@ namespace Super.Programmazione.Events
 
         #endregion
 
-        #region
+        #region System
          
         public static UserAddedToSystemBuilder UserAddedToSystem {get {return new UserAddedToSystemBuilder();}}
           
+        #endregion
+
+        #region Plan
+
+        public static PlanCreatedBuilder PlanCreated { get { return new PlanCreatedBuilder(); } }
+
+        public static PlanCancelledBuilder PlanCancelled { get { return new PlanCancelledBuilder(); } }
+
+        #endregion
+
+        #region Scenario
+
+        public static ScenarioPromotedToPlanBuilder ScenarioPromotedToPlan { get { return new ScenarioPromotedToPlanBuilder(); } }
+
         #endregion
 
         public static InterventiAskedTobeGeneratedBuilder InterventiAskedTobeGenerated {get {return new InterventiAskedTobeGeneratedBuilder();}}
@@ -67,7 +81,7 @@ namespace Super.Programmazione.Events
 
         public static InterventoCancelledFromPlanBuilder InterventoCancelledFromPlan { get { return new InterventoCancelledFromPlanBuilder(); } }
 
-        public static PlanCancelledBuilder PlanCancelled { get { return new PlanCancelledBuilder(); } }
+        
 
         public static SchedulazioneCancelledFromPlanBuilder SchedulazioneCancelledFromPlan { get { return new SchedulazioneCancelledFromPlanBuilder(); } }
 
@@ -79,7 +93,7 @@ namespace Super.Programmazione.Events
         
         public static ScenarioCancelledBuilder ScenarioCancelled { get { return new ScenarioCancelledBuilder(); } }
 
-        public static ScenarioPromotedToPlanBuilder ScenarioPromotedToPlan { get { return new ScenarioPromotedToPlanBuilder(); } }
+        
 
         public static RuleRemovedFromSchedulazioneBuilder RuleRemovedFromSchedulazione { get { return new RuleRemovedFromSchedulazioneBuilder(); } }
 

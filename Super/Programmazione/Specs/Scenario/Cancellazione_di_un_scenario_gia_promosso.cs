@@ -57,7 +57,7 @@ namespace Super.Programmazione.Specs.Scenario
         public void genera_un_eccezzione()
         {
             Assert.IsNotNull(Caught);
-            Assert.AreEqual(typeof(ScenarioPromotedDoNotAllowChangingDescription), Caught.GetType());
+            Assert.AreEqual(typeof(ScenarioPromotedDoNotAllowFurtherChanges), Caught.GetType());
         }
 
 

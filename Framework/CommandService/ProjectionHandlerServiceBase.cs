@@ -22,7 +22,7 @@ namespace CommandService
             if (_handlers.ContainsKey(type))
                 _handlers[type](evt);
             else
-                throw new HandlerForDomainEventNotFoundException(string.Format("No handler found for the event '{0}'", evt.GetType()));
+                throw new HandlerForMessageNotFoundException(string.Format("No handler found for the event '{0}'", evt.GetType()));
 
         }
     }

@@ -82,6 +82,7 @@
     <Compile Include="Builders\Intervento\InterventoRotScheduledBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoRotManScheduledBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoRotUpdatedOfPlanBuilder.cs" />
+    <Compile Include="Builders\Plan\PlanCreatedBuilder.cs" />
     <Compile Include="Builders\Scenario\DescriptionOfScenarioChangedBuilder.cs" />
     <Compile Include="Builders\InterventoGeneration\GenerationFailedConfirmedBuilder.cs" />
     <Compile Include="Builders\InterventoGeneration\GenerationOfInterventiSucceededBuilder.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="InterventoGeneration\GenerationOfInterventiStarted.cs" />
     <Compile Include="Intervento\InterventoScheduled.cs" />
     <Compile Include="Intervento\IInterventoScheduled.cs" />
+    <Compile Include="Plan\PlanCreated.cs" />
     <Compile Include="Schedulazione\GenerationOfInterventiFailedConfirmed.cs" />
     <Compile Include="Schedulazione\GenerationSucceedConfirmed.cs" />
     <Compile Include="Schedulazione\InterventiAskedTobeGenerated.cs" />
