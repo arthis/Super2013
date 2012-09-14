@@ -5,8 +5,8 @@ namespace CommandService
 {
     public interface IProjectionHandlerService
     {
-        void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder);
-        void Subscribe(IBus bus);
+        void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder, IBus bus);
+        
         void Execute(IEvent evt);
     }
 }

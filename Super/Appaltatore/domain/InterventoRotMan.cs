@@ -27,7 +27,7 @@ namespace Super.Appaltatore.Domain
                     )
         {
             //builders
-            var periodBuilder = new WorkPeriodBuilder();
+            var periodBuilder = new MsgWorkPeriodBuilder();
 
             workPeriod.BuildValue(periodBuilder);
 
@@ -106,7 +106,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var periodBuilder = new WorkPeriodBuilder();
+                var periodBuilder = new MsgWorkPeriodBuilder();
 
                 workPeriod.BuildValue(periodBuilder);
 

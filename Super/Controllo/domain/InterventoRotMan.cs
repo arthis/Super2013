@@ -14,7 +14,7 @@ namespace Super.Controllo.Domain
     {
         public void ControlReso(Guid idUser, DateTime controlDate, WorkPeriod workPeriod, string note, IEnumerable<OggettoRotMan> oggetti)
         {
-            var periodBuilder = new WorkPeriodBuilder();
+            var periodBuilder = new MsgWorkPeriodBuilder();
 
             workPeriod.BuildValue(periodBuilder);
 

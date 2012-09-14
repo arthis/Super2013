@@ -37,7 +37,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             return _end;
         }
 
-        public void BuildValue(IntervalBuilder builder)
+        public void BuildValue(MsgIntervalBuilder builder)
         {
             builder.From(_start).To(_end);
         }

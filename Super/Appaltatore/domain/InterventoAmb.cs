@@ -30,14 +30,14 @@ namespace Super.Appaltatore.Domain
         {
 
             //builders
-            var periodBuilder = new WorkPeriodBuilder();
+            var workPeriodBuilder = new MsgWorkPeriodBuilder();
             
 
 
-            workPeriod.BuildValue(periodBuilder);
+            workPeriod.BuildValue(workPeriodBuilder);
 
             var evt = BuildEvt.InterventoAmbProgrammato
-                            .ForPeriod(periodBuilder.Build())
+                            .ForPeriod(workPeriodBuilder.Build())
                             .ForImpianto(idImpianto)
                             .OfType(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)
@@ -110,7 +110,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var periodBuilder = new WorkPeriodBuilder();
+                var periodBuilder = new MsgWorkPeriodBuilder();
 
                 workPeriod.BuildValue(periodBuilder);
 

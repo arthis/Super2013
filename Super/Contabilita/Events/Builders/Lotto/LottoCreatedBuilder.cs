@@ -27,7 +27,7 @@ namespace Super.Contabilita.Events.Builders.Lotto
             return this;
         }
 
-        public LottoCreatedBuilder ForInterval(IntervalBuilder builder)
+        public LottoCreatedBuilder ForInterval(MsgIntervalBuilder builder)
         {
             _interval = builder.Build();
             return this;
@@ -46,7 +46,7 @@ namespace Super.Contabilita.Events.Builders.Lotto
     {
         public static LottoCreatedBuilder ForInterval(this LottoCreatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Interval period)
         {
-            var valueBuilder = new IntervalBuilder();
+            var valueBuilder = new MsgIntervalBuilder();
             period.BuildValue(valueBuilder);
             builder.ForInterval(valueBuilder);
             return builder;

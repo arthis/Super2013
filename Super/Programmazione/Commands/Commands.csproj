@@ -119,6 +119,7 @@
     <Compile Include="Intervento\GenerateInterventoForSchedulazione.cs" />
     <Compile Include="Plan\CreatePlanFromPromotedScenario.cs" />
     <Compile Include="Schedulazione\AddSchedulationToPlan.cs" />
+    <Compile Include="Schedulazione\CreateSchedulazione.cs" />
     <Compile Include="Schedulazione\CancelSchedulationFromPlan.cs" />
     <Compile Include="Plan\CancelPlan.cs" />
     <Compile Include="Intervento\AddInterventoToPlan.cs" />
@@ -129,7 +130,7 @@
     <Compile Include="Schedulazione\UpdateSchedulationOfPlan.cs" />
     <Compile Include="Scenario\PromoteScenarioToPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedulazione\AddSchedulationToScenario.cs" />
+    <Compile Include="Scenario\AddSchedulationToScenario.cs" />
     <Compile Include="Schedulazione\CancelSchedulationFromScenario.cs" />
     <Compile Include="Scenario\CancelScenario.cs" />
     <Compile Include="Scenario\CreateScenario.cs" />

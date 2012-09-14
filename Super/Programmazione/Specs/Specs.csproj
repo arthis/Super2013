@@ -91,10 +91,12 @@
     <Compile Include="Scenario\Cancellazione_di_un_scenario_gia_promosso.cs" />
     <Compile Include="Scenario\promuovere_un_scenario_promosso_in_un_piano.cs" />
     <Compile Include="Scenario\promuovere_un_scenario_cancellato_in_un_piano_.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_a_un_scenario_cancellato.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_a_un_scenario_promosso_in_piano.cs" />
     <Compile Include="Schedulazione\cancellare_una_schedulazione_da_un_piano_senza_interventi_generati.cs" />
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_regola_a_una_schedulazione_ambiente.cs" />
-    <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_a_un_scenario.cs" />
-    <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_scenario.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_a_un_scenario.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_scenario.cs" />
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_a_un_piano.cs" />
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_piano.cs" />
     <Compile Include="Schedulazione\confirmare_la_generazione_degli_interventi_di_una_schedulazione.cs" />

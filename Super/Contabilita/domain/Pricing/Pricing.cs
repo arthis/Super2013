@@ -50,7 +50,7 @@ namespace Super.Contabilita.Domain.Pricing
 
         public void UpdateBasePrice(Guid idBasePrice, decimal value, Guid idGruppoOggettoIntervento, Guid idTipoIntervento, IntervalOpened interval)
         {
-            var builder = new IntervalOpenedBuilder();
+            var builder = new MsgIntervalOpenedBuilder();
             interval.BuildValue(builder);
 
             var evt = BuildEvt.BasePriceUpdated
@@ -78,7 +78,7 @@ namespace Super.Contabilita.Domain.Pricing
         public void CreateBasePrice(Guid idBasePrice, decimal value, Guid idGruppoOggettoIntervento, Guid idTipoIntervento, IntervalOpened interval)
         {
 
-            var builder = new IntervalOpenedBuilder();
+            var builder = new MsgIntervalOpenedBuilder();
             interval.BuildValue(builder);
 
             var evt = BuildEvt.BasePriceCreated

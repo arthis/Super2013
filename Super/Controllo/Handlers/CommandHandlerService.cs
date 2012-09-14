@@ -16,15 +16,15 @@ namespace Super.Controllo.Handlers
 
         public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository, sessionFactory);
+            var handlerHelper = new CommandHandlerHelper(commandRepository, sessionFactory, _handlers);
 
-            handlerHelper.Add<AllowControlIntervento>(_handlers, new AllowControlInterventoHandler(eventRepository));
-            handlerHelper.Add<CloseIntervento>(_handlers, new CloseInterventoHandler(eventRepository));
-            handlerHelper.Add<ControlInterventoNonReso>(_handlers, new ControlInterventoNonResoHandler(eventRepository));
-            handlerHelper.Add<ControlInterventoAmbReso>(_handlers, new ControlInterventoAmbResoHandler(eventRepository));
-            handlerHelper.Add<ControlInterventoRotReso>(_handlers, new ControlInterventoRotResoHandler(eventRepository));
-            handlerHelper.Add<ControlInterventoRotManReso>(_handlers, new ControlInterventoRotManResoHandler(eventRepository));
-            handlerHelper.Add<ReopenIntervento>(_handlers, new ReopenInterventoHandler(eventRepository));
+            handlerHelper.Add(new AllowControlInterventoHandler(eventRepository));
+            handlerHelper.Add( new CloseInterventoHandler(eventRepository));
+            handlerHelper.Add( new ControlInterventoNonResoHandler(eventRepository));
+            handlerHelper.Add( new ControlInterventoAmbResoHandler(eventRepository));
+            handlerHelper.Add( new ControlInterventoRotResoHandler(eventRepository));
+            handlerHelper.Add( new ControlInterventoRotManResoHandler(eventRepository));
+            handlerHelper.Add( new ReopenInterventoHandler(eventRepository));
         }
 
         public override void Subscribe(IBus bus)

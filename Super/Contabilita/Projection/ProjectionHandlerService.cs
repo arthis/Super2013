@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using CommandService;
+﻿using CommandService;
 using CommonDomain;
-using CommonDomain.Core;
-using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Events;
 using CommonDomain.Persistence;
 using Super.Contabilita.Events.Appaltatore;
@@ -16,56 +11,27 @@ namespace Super.Contabilita.Projection
 {
     public class ProjectionHandlerService : ProjectionHandlerServiceBase
     {
-     
-
-        public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder)
+        public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder, IBus bus)
         {
-            var handlerHelper = new EventHandlerHelper(projectionRepositoryBuilder);
+            var handlerHelper = new EventHandlerHelper(projectionRepositoryBuilder, _handlers, bus, Execute);
 
-            handlerHelper.Add<ImpiantoCreated>(_handlers, new ImpiantoProjection());
-            handlerHelper.Add<ImpiantoUpdated>(_handlers, new ImpiantoProjection());
-            handlerHelper.Add<ImpiantoDeleted>(_handlers, new ImpiantoProjection());
-
-
-            handlerHelper.Add<LottoCreated>(_handlers, new LottoProjection());
-            handlerHelper.Add<LottoUpdated>(_handlers, new LottoProjection());
-            handlerHelper.Add<LottoDeleted>(_handlers, new LottoProjection());
+            handlerHelper.Subscribe<ImpiantoCreated>( new ImpiantoProjection());
+            handlerHelper.Subscribe<ImpiantoUpdated>( new ImpiantoProjection());
+            handlerHelper.Subscribe<ImpiantoDeleted>( new ImpiantoProjection());
 
 
-            handlerHelper.Add<AppaltatoreCreated>(_handlers, new AppaltatoreProjection());
-            handlerHelper.Add<AppaltatoreUpdated>(_handlers, new AppaltatoreProjection());
-            handlerHelper.Add<AppaltatoreDeleted>(_handlers, new AppaltatoreProjection());
+            handlerHelper.Subscribe<LottoCreated>( new LottoProjection());
+            handlerHelper.Subscribe<LottoUpdated>( new LottoProjection());
+            handlerHelper.Subscribe<LottoDeleted>( new LottoProjection());
 
-            handlerHelper.Add<CategoriaCommercialeCreated>(_handlers, new CategoriaCommercialeProjection());
-            handlerHelper.Add<CategoriaCommercialeUpdated>(_handlers, new CategoriaCommercialeProjection());
-            handlerHelper.Add<CategoriaCommercialeDeleted>(_handlers, new CategoriaCommercialeProjection());
 
+            handlerHelper.Subscribe<AppaltatoreCreated>( new AppaltatoreProjection());
+            handlerHelper.Subscribe<AppaltatoreUpdated>( new AppaltatoreProjection());
+            handlerHelper.Subscribe<AppaltatoreDeleted>( new AppaltatoreProjection());
+
+            handlerHelper.Subscribe<CategoriaCommercialeCreated>( new CategoriaCommercialeProjection());
+            handlerHelper.Subscribe<CategoriaCommercialeUpdated>( new CategoriaCommercialeProjection());
+            handlerHelper.Subscribe<CategoriaCommercialeDeleted>( new CategoriaCommercialeProjection());
         }
-
-        public override void Subscribe(IBus bus)
-        {
-            string subscriptionId = "Super";
-
-            //Events
-            bus.Subscribe<ImpiantoCreated>(subscriptionId, Execute);
-            bus.Subscribe<ImpiantoUpdated>(subscriptionId, Execute);
-            bus.Subscribe<ImpiantoDeleted>(subscriptionId, Execute);
-
-            bus.Subscribe<LottoCreated>(subscriptionId, Execute);
-            bus.Subscribe<LottoUpdated>(subscriptionId, Execute);
-            bus.Subscribe<LottoDeleted>(subscriptionId, Execute);
-
-            bus.Subscribe<AppaltatoreCreated>(subscriptionId, Execute);
-            bus.Subscribe<AppaltatoreUpdated>(subscriptionId, Execute);
-            bus.Subscribe<AppaltatoreDeleted>(subscriptionId, Execute);
-
-            bus.Subscribe<CategoriaCommercialeCreated>(subscriptionId, Execute);
-            bus.Subscribe<CategoriaCommercialeUpdated>(subscriptionId, Execute);
-            bus.Subscribe<CategoriaCommercialeDeleted>(subscriptionId, Execute);
-        }
-
-        
     }
-
-    
 }

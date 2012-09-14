@@ -111,7 +111,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
 
 
-        public void BuildValue(OggettoRotBuilder builder)
+        public void BuildValue(MsgOggettoRotBuilder builder)
         {
             builder.OfQuantity(_quantity).OfType(_idTipoOggettoInterventoRot).ForDescription(_description).ForGruppo(_idGruppoOggettoIntervento);
         }
@@ -180,7 +180,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             }
         }
 
-        public void BuildValue(OggettoRotManBuilder builder)
+        public void BuildValue(MsgOggettoRotManBuilder builder)
         {
             builder.OfQuantity(_quantity)
                 .OfType(_idTipoOggettoInterventoRotMan)
@@ -193,7 +193,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
     {
         public static IEnumerable<Messaging.ValueObjects.OggettoRot> ToMessage(this IEnumerable<OggettoRot> value )
         {
-            var builder = new OggettoRotBuilder();
+            var builder = new MsgOggettoRotBuilder();
             foreach (var oggettoRot in value)
             {
                 oggettoRot.BuildValue(builder);
@@ -216,7 +216,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public static IEnumerable<Messaging.ValueObjects.OggettoRotMan> ToMessage(this IEnumerable<OggettoRotMan> value)
         {
-            var builder = new OggettoRotManBuilder();
+            var builder = new MsgOggettoRotManBuilder();
             foreach (var oggettoRotMan in value)
             {
                 oggettoRotMan.BuildValue(builder);

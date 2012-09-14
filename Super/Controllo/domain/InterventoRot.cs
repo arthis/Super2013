@@ -15,9 +15,9 @@ namespace Super.Controllo.Domain
 
         public void ControlReso(Guid idUser, DateTime  controlDate, WorkPeriod workPeriod, Treno trenoPartenza, Treno trenoArrivo, string convoglio, string note,IEnumerable<OggettoRot> oggetti, string rigaTurnoTreno, string turnoTreno)
         {
-            var periodBuilder = new WorkPeriodBuilder();
-            var trenoPartenzaBuilder = new TrenoBuilder();
-            var trenoArrivoBuilder = new TrenoBuilder();
+            var periodBuilder = new MsgWorkPeriodBuilder();
+            var trenoPartenzaBuilder = new MsgTrenoBuilder();
+            var trenoArrivoBuilder = new MsgTrenoBuilder();
 
             workPeriod.BuildValue(periodBuilder);
             trenoPartenza.BuildValue(trenoPartenzaBuilder);

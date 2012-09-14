@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using CommonDomain.Core.Super.Domain.Builders;
 using CommonDomain.Core.Super.Messaging.Builders;
-using PeriodBuilder = CommonDomain.Core.Super.Messaging.Builders.PeriodBuilder;
 
 namespace CommonDomain.Core.Super.Domain.ValueObjects
 {
@@ -40,7 +39,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             return _end;
         }
 
-        public void BuildValue(PeriodBuilder builder)
+        public void BuildValue(MsgPeriodBuilder builder)
         {
             builder.From(_start).To(_end);
         }

@@ -31,7 +31,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             get { return _data; }
         }
 
-        public void BuildValue(TrenoBuilder builder)
+        public void BuildValue(MsgTrenoBuilder builder)
         {
             builder.WithNumeroTreno(_numeroTreno).When(_data);
         }

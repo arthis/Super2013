@@ -3,6 +3,7 @@ using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
+using Super.Programmazione.Commands.Scenario;
 using Super.Programmazione.Commands.Schedulazione;
 
 namespace Super.Programmazione.Handlers.Commands.Schedulazione.RotabileInManutenzione

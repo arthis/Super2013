@@ -25,7 +25,7 @@ namespace Super.Contabilita.Domain.Intervento
 
         public InterventoRot(Guid id, Guid idTipoIntervento, Guid idPlan, IEnumerable<OggettoRot> oggetti, Period period)
         {
-            var periodBuilder = BuildMessagingVO.Period;
+            var periodBuilder = BuildMessagingVO.MsgPeriod;
             period.BuildValue(periodBuilder);
 
             var evt = BuildEvt.InterventoRotCreated

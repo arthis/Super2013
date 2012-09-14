@@ -56,7 +56,7 @@ namespace Super.Contabilita.Specs.Intervento
 
         public override CalculateInterventoRotPriceOfPlan When()
         {
-            _oggetti = new[] { BuildMessagingVO.OggettoRot
+            _oggetti = new[] { BuildMessagingVO.MsgOggettoRot
                                             .ForDescription("description")
                                             .OfType(_idTipoOggettoIntervento)
                                             .ForGruppo(_idGruppoOggettoIntervento)

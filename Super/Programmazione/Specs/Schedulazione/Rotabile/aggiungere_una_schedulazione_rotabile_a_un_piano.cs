@@ -33,10 +33,10 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _tipoIntervento = Guid.NewGuid();
         private string _note= "note";
-        private OggettoRot[] _oggetti = new OggettoRot[] { BuildMessagingVO.OggettoRot.ForDescription("description").ForGruppo(Guid.NewGuid()).OfQuantity(2).OfType(Guid.NewGuid()).Build()};
+        private OggettoRot[] _oggetti = new OggettoRot[] { BuildMessagingVO.MsgOggettoRot.ForDescription("description").ForGruppo(Guid.NewGuid()).OfQuantity(2).OfType(Guid.NewGuid()).Build()};
         private string _rigaTurnoTreno = "rigaTurnoTreno";
-        private Treno _trenoArrivo = BuildMessagingVO.Treno.When(DateTime.Now).WithNumeroTreno("1111").Build();
-        private Treno _trenoPartenza = BuildMessagingVO.Treno.When(DateTime.Now.AddHours(3)).WithNumeroTreno("1141").Build();
+        private Treno _trenoArrivo = BuildMessagingVO.MsgTreno.When(DateTime.Now).WithNumeroTreno("1111").Build();
+        private Treno _trenoPartenza = BuildMessagingVO.MsgTreno.When(DateTime.Now.AddHours(3)).WithNumeroTreno("1141").Build();
         private string _turnoTreno = "turnoTreno";
         
 

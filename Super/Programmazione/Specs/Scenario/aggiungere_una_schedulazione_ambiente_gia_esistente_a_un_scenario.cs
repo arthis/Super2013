@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
-using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
-using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Programmazione.Commands;
-using Super.Programmazione.Commands.Schedulazione;
+using Super.Programmazione.Commands.Scenario;
 using Super.Programmazione.Events;
-using Super.Programmazione.Handlers.Commands.Schedulazione.Ambiente;
+using Super.Programmazione.Handlers.Commands.Scenario;
 
-namespace Super.Programmazione.Specs.Schedulazione.Ambiente
+namespace Super.Programmazione.Specs.Scenario
 {
     public class aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_scenario : CommandBaseClass<AddSchedulazioneAmbToScenario>
     {
@@ -29,7 +27,8 @@ namespace Super.Programmazione.Specs.Schedulazione.Ambiente
         private Guid _idDirezioneRegionale = Guid.NewGuid();
         private Guid _idImpianto =Guid.NewGuid();
         private Guid _idLotto = Guid.NewGuid();
-        private WorkPeriod _period = new WorkPeriod(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
+        private WorkPeriod _workPeriod = new WorkPeriod(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
+        private Period _period = new Period(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _tipoIntervento = Guid.NewGuid();
         private string _note= "note";
@@ -56,9 +55,10 @@ namespace Super.Programmazione.Specs.Schedulazione.Ambiente
                         .ForDirezioneRegionale(_idDirezioneRegionale)
                         .ForImpianto(_idImpianto)
                         .ForLotto(_idLotto)
-                        .ForWorkPeriod(_period)
+                        .ForWorkPeriod(_workPeriod)
+                        .ForPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForScenario(_idScenario)
+                        .ForSchedulazione(_idScenario)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .ForQuantity(_quantity)
@@ -75,9 +75,10 @@ namespace Super.Programmazione.Specs.Schedulazione.Ambiente
                         .ForDirezioneRegionale(_idDirezioneRegionale)
                         .ForImpianto(_idImpianto)
                         .ForLotto(_idLotto)
-                        .ForWorkPeriod(_period)
+                        .ForWorkPeriod(_workPeriod)
+                        .ForPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForScenario(_idScenario)
+                        .ForSchedulazione(_idScenario)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .ForDescription(_descritpion)

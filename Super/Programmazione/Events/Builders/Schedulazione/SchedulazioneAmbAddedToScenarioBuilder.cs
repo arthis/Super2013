@@ -8,7 +8,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
     public class SchedulazioneAmbAddedToScenarioBuilder : IEventBuilder<SchedulazioneAmbAddedToScenario>
     {
         private Guid _idPeriodoProgrammazione;
-        private Guid _idScenario;
+        private Guid _idSchedulazione;
         private Guid _idCommittente;
         private Guid _idLotto;
         private Guid _idImpianto;
@@ -29,9 +29,9 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
             return this;
         }
 
-        public SchedulazioneAmbAddedToScenarioBuilder ForScenario(Guid idScenario)
+        public SchedulazioneAmbAddedToScenarioBuilder ForSchedulazione(Guid idSchedulazione)
         {
-            _idScenario = idScenario;
+            _idSchedulazione = idSchedulazione;
             return this;
         }
 
@@ -118,7 +118,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
                                                 commitId,
                                                 version,
                                                 _idPeriodoProgrammazione,
-                                                _idScenario,
+                                                _idSchedulazione,
                                                 _idCommittente,
                                                 _idLotto,
                                                 _idImpianto,

@@ -9,7 +9,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
     public class AddSchedulazioneAmbToScenarioBuilder : ICommandBuilder<AddSchedulazioneAmbToScenario>
     {
         protected Guid _idPeriodoProgrammazione;
-        protected Guid _idScenario;
+        protected Guid _idSchedulazione;
         protected Guid _idCommittente;
         protected Guid _idLotto;
         protected Guid _idImpianto;
@@ -29,9 +29,9 @@ namespace Super.Programmazione.Commands.Builders.Scenario
             return this;
         }
 
-        public AddSchedulazioneAmbToScenarioBuilder ForScenario(Guid idScenario)
+        public AddSchedulazioneAmbToScenarioBuilder ForSchedulazione(Guid idSchedulazione)
         {
-            _idScenario = idScenario;
+            _idSchedulazione = idSchedulazione;
             return this;
         }
 
@@ -119,7 +119,7 @@ namespace Super.Programmazione.Commands.Builders.Scenario
                                                 commitId,
                                                 version,
                                                 _idPeriodoProgrammazione,
-                                                _idScenario,
+                                                _idSchedulazione,
                                                 _idCommittente,
                                                 _idLotto,
                                                 _idImpianto,

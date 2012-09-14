@@ -4,13 +4,13 @@ namespace CommonDomain.Core.Super.Messaging
 {
     public static class BuildMessagingVO
     {
-        public static IntervalBuilder Interval { get { return new IntervalBuilder(); } }
-        public static IntervalOpenedBuilder IntervalOpened { get { return new IntervalOpenedBuilder(); } }
-        public static OggettoRotManBuilder OggettoRotMan { get { return new OggettoRotManBuilder(); } }
-        public static OggettoRotBuilder OggettoRot { get { return new OggettoRotBuilder(); } }
-        public static WorkPeriodBuilder WorkPeriod { get { return new WorkPeriodBuilder(); } }
-        public static PeriodBuilder Period { get { return new PeriodBuilder(); } }
-        public static TrenoBuilder Treno { get { return new TrenoBuilder(); } }
+        public static MsgIntervalBuilder MsgInterval { get { return new MsgIntervalBuilder(); } }
+        public static MsgIntervalOpenedBuilder MsgIntervalOpened { get { return new MsgIntervalOpenedBuilder(); } }
+        public static MsgOggettoRotManBuilder MsgOggettoRotMan { get { return new MsgOggettoRotManBuilder(); } }
+        public static MsgOggettoRotBuilder MsgOggettoRot { get { return new MsgOggettoRotBuilder(); } }
+        public static MsgWorkPeriodBuilder MsgWorkPeriod { get { return new MsgWorkPeriodBuilder(); } }
+        public static MsgPeriodBuilder MsgPeriod { get { return new MsgPeriodBuilder(); } }
+        public static MsgTrenoBuilder MsgTreno { get { return new MsgTrenoBuilder(); } }
 
         
     }

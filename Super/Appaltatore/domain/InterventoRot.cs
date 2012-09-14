@@ -33,9 +33,9 @@ namespace Super.Appaltatore.Domain
         {
 
             //builders
-            var periodBuilder = new WorkPeriodBuilder();
-            var trenoPartenzaBuilder = new TrenoBuilder();
-            var trenoArrivoBuilder = new TrenoBuilder();
+            var periodBuilder = new MsgWorkPeriodBuilder();
+            var trenoPartenzaBuilder = new MsgTrenoBuilder();
+            var trenoArrivoBuilder = new MsgTrenoBuilder();
 
             period.BuildValue(periodBuilder);
             trenoPartenza.BuildValue(trenoPartenzaBuilder);
@@ -123,9 +123,9 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var periodBuilder = new WorkPeriodBuilder();
-                var trenoPartenzaBuilder = new TrenoBuilder();
-                var trenoArrivoBuilder = new TrenoBuilder();
+                var periodBuilder = new MsgWorkPeriodBuilder();
+                var trenoPartenzaBuilder = new MsgTrenoBuilder();
+                var trenoArrivoBuilder = new MsgTrenoBuilder();
 
                 workPeriod.BuildValue(periodBuilder);
                 trenoPartenza.BuildValue(trenoPartenzaBuilder);

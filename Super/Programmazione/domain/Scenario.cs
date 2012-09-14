@@ -1,15 +1,17 @@
 ﻿using System;
-using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Domain.ValueObjects;
+using CommonDomain.Core.Super.Messaging.Builders;
 using Super.Programmazione.Domain.Exceptions;
 using Super.Programmazione.Events;
 using Super.Programmazione.Events.Scenario;
+using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Domain
 {
     public class Scenario : AggregateBase
     {
-        private bool _deleted;
+        private bool _cancelled;
         private bool _promoted;
 
         public Scenario()
@@ -33,7 +35,7 @@ namespace Super.Programmazione.Domain
 
         public void ChangeDescription(string description)
         {
-            if (_deleted)
+            if (_cancelled)
                 throw new ScenarioCancelledDoNotAllowFurtherChanges();
 
             if (_promoted)
@@ -56,7 +58,7 @@ namespace Super.Programmazione.Domain
             if (_promoted)
                 throw new ScenarioPromotedDoNotAllowFurtherChanges();
 
-            if (!_deleted)
+            if (!_cancelled)
             {
                 var evt = BuildEvt.ScenarioCancelled
                     .ByUser(userId);
@@ -67,13 +69,13 @@ namespace Super.Programmazione.Domain
 
         public void Apply(ScenarioCancelled e)
         {
-            _deleted = true;
+            _cancelled = true;
         }
 
 
         public void PromoteToPlan(Guid userId,DateTime promotingDate)
         {
-            if (_deleted)
+            if (_cancelled)
                 throw new ScenarioCancelledDoNotAllowFurtherChanges();
 
             if (_promoted)
@@ -95,13 +97,52 @@ namespace Super.Programmazione.Domain
 
         public Plan CreatePlan(Guid idPlan)
         {
-            if(_deleted)
-                throw new ScenarioCancelledForbidsCreationOfPlan();
+            if(_cancelled)
+                throw new ScenarioCancelledDoNotAllowFurtherChanges();
 
-            if(!_promoted)
-                throw new ScenarioNotPromotedForbidCreationOfPlan();
+            if(_promoted)
+                throw new  ScenarioPromotedDoNotAllowFurtherChanges(); 
 
             return new Plan(idPlan);
+        }
+
+        public void AddSchedulazioneAmb(Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, string description, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, int quantity, Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note)
+        {
+            if (_cancelled)
+                throw  new ScenarioCancelledDoNotAllowFurtherChanges();
+
+            if (_promoted)
+                throw new ScenarioPromotedDoNotAllowFurtherChanges();
+
+            var periodBuilderMsg = new MsgPeriodBuilder();
+            period.BuildValue(periodBuilderMsg);
+
+            var workPeriodBuilderMsg = new MsgWorkPeriodBuilder();
+            workPeriod.BuildValue((workPeriodBuilderMsg));
+
+            var evt = BuildEvt.SchedulazioneAmbAddedToScenario
+                .ForAppaltatore(idAppaltatore)
+                .ForCategoriaCommerciale(idCategoriaCommerciale)
+                .ForCommittente(idCommittente)
+                .ForDescription(description)
+                .ForDirezioneRegionale(idDirezioneRegionale)
+                .ForImpianto(idImpianto)
+                .ForLotto(idLotto)
+                .ForPeriod(periodBuilderMsg.Build())
+                .ForPeriodoProgrammazione(idPeriodoProgrammazione)
+                .ForQuantity(quantity)
+                .ForSchedulazione(idSchedulazione)
+                .ForWorkPeriod(workPeriodBuilderMsg.Build())
+                .OfTipoIntervento(idTipoIntervento)
+                .WithNote(note);
+
+            RaiseEvent(evt);
+        }
+
+        public void Apply(SchedulazioneAmbAddedToScenario e)
+        {
+            //do something ??
+
         }
     }
 }

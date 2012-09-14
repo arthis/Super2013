@@ -73,8 +73,8 @@ namespace CommandService
 
             _commandHandler.InitHandlers(GetCommandRepository(), eventRepository,sessionFactory);
             _commandHandler.Subscribe(_bus);
-            _projectionHandler.InitHandlers(projectionRepositoryBuilder);
-            _projectionHandler.Subscribe(_bus);
+            _projectionHandler.InitHandlers(projectionRepositoryBuilder, _bus);
+            
         }
 
 

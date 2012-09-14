@@ -50,7 +50,7 @@ namespace Super.Programmazione.Specs.Plan
         public void genera_un_eccezzione()
         {
             Assert.IsNotNull(Caught);
-            Assert.AreEqual(typeof(ScenarioNotPromotedForbidCreationOfPlan), Caught.GetType());
+            Assert.AreEqual(typeof(ScenarioPromotedDoNotAllowFurtherChanges), Caught.GetType());
         }
 
 

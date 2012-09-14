@@ -27,7 +27,7 @@ namespace Super.Contabilita.Events.Builders.Impianto
             return this;
         }
 
-        public ImpiantoCreatedBuilder ForInterval(IntervalBuilder builder)
+        public ImpiantoCreatedBuilder ForInterval(MsgIntervalBuilder builder)
         {
             _interval = builder.Build();
             return this;
@@ -52,7 +52,7 @@ namespace Super.Contabilita.Events.Builders.Impianto
     {
         public static ImpiantoCreatedBuilder ForInterval(this ImpiantoCreatedBuilder builder, CommonDomain.Core.Super.Domain.ValueObjects.Interval period)
         {
-            var valueBuilder = new IntervalBuilder();
+            var valueBuilder = new MsgIntervalBuilder();
             period.BuildValue(valueBuilder);
             builder.ForInterval(valueBuilder);
             return builder;

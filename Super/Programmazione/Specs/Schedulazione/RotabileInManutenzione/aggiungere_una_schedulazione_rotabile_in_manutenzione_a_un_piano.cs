@@ -33,7 +33,7 @@ namespace Super.Programmazione.Specs.Schedulazione.RotabileInManutenzione
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _tipoIntervento = Guid.NewGuid();
         private string _note= "note";
-        private OggettoRotMan[] _oggetti = new OggettoRotMan[] { BuildMessagingVO.OggettoRotMan.ForDescription("description").ForGruppo(Guid.NewGuid()).OfQuantity(2).OfType(Guid.NewGuid()).Build()};
+        private OggettoRotMan[] _oggetti = new OggettoRotMan[] { BuildMessagingVO.MsgOggettoRotMan.ForDescription("description").ForGruppo(Guid.NewGuid()).OfQuantity(2).OfType(Guid.NewGuid()).Build()};
         
 
         protected override CommandHandler<AddSchedulazioneRotManToPlan> OnHandle(IEventRepository eventRepository)

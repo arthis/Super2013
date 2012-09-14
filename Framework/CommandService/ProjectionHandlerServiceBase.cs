@@ -11,8 +11,7 @@ namespace CommandService
     {
         protected readonly Dictionary<Type, Action<IEvent>> _handlers = new Dictionary<Type, Action<IEvent>>();
 
-        public abstract void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder);
-        public abstract void Subscribe(IBus bus);
+        public abstract void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder,IBus bus);
 
         public void Execute(IEvent evt)
         {

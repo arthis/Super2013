@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
-using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
-namespace Super.Programmazione.Events.Schedulazione
+namespace Super.Programmazione.Commands.Scenario
 {
 
-    public abstract class SchedulazioneAddedToScenario : Message , IEvent
+    public abstract class AddSchedulazioneToScenario : CommandBase
     {
         public Guid IdPeriodoProgrammazione { get; set; }
         public Guid IdSchedulazione { get; set; }
@@ -23,12 +22,12 @@ namespace Super.Programmazione.Events.Schedulazione
         public Period Period { get; set; }
 
 
-        public SchedulazioneAddedToScenario()
+        public AddSchedulazioneToScenario()
         {
 
         }
 
-        public SchedulazioneAddedToScenario(Guid id,
+        public AddSchedulazioneToScenario(Guid id,
             Guid commitId,
             long version,
             Guid idPeriodoProgrammazione,
@@ -73,42 +72,43 @@ namespace Super.Programmazione.Events.Schedulazione
 
         }
 
-        protected bool Equals(SchedulazioneAddedToScenario other)
+        public bool Equals(AddSchedulazioneToScenario other)
         {
-            return base.Equals(other) && IdPeriodoProgrammazione.Equals(other.IdPeriodoProgrammazione) && IdSchedulazione.Equals(other.IdSchedulazione) && IdCommittente.Equals(other.IdCommittente) && IdLotto.Equals(other.IdLotto) && IdImpianto.Equals(other.IdImpianto) && IdTipoIntervento.Equals(other.IdTipoIntervento) && IdAppaltatore.Equals(other.IdAppaltatore) && IdCategoriaCommerciale.Equals(other.IdCategoriaCommerciale) && IdDirezioneRegionale.Equals(other.IdDirezioneRegionale) && string.Equals(Note, other.Note) && Equals(WorkPeriod, other.WorkPeriod) && Equals(Period, other.Period);
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return base.Equals(other) && other.IdPeriodoProgrammazione.Equals(IdPeriodoProgrammazione) && other.IdSchedulazione.Equals(IdSchedulazione) && other.IdCommittente.Equals(IdCommittente) && other.IdLotto.Equals(IdLotto) && other.IdImpianto.Equals(IdImpianto) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && Equals(other.Note, Note) && Equals(other.WorkPeriod, WorkPeriod) && Equals(other.Period, Period);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
-            return Equals((SchedulazioneAddedToScenario) obj);
+            return Equals(obj as AddSchedulazioneToScenario);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                int hashCode = base.GetHashCode();
-                hashCode = (hashCode*397) ^ IdPeriodoProgrammazione.GetHashCode();
-                hashCode = (hashCode*397) ^ IdSchedulazione.GetHashCode();
-                hashCode = (hashCode*397) ^ IdCommittente.GetHashCode();
-                hashCode = (hashCode*397) ^ IdLotto.GetHashCode();
-                hashCode = (hashCode*397) ^ IdImpianto.GetHashCode();
-                hashCode = (hashCode*397) ^ IdTipoIntervento.GetHashCode();
-                hashCode = (hashCode*397) ^ IdAppaltatore.GetHashCode();
-                hashCode = (hashCode*397) ^ IdCategoriaCommerciale.GetHashCode();
-                hashCode = (hashCode*397) ^ IdDirezioneRegionale.GetHashCode();
-                hashCode = (hashCode*397) ^ (Note != null ? Note.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (Period != null ? Period.GetHashCode() : 0);
-                return hashCode;
+                int result = base.GetHashCode();
+                result = (result*397) ^ IdPeriodoProgrammazione.GetHashCode();
+                result = (result*397) ^ IdSchedulazione.GetHashCode();
+                result = (result*397) ^ IdCommittente.GetHashCode();
+                result = (result*397) ^ IdLotto.GetHashCode();
+                result = (result*397) ^ IdImpianto.GetHashCode();
+                result = (result*397) ^ IdTipoIntervento.GetHashCode();
+                result = (result*397) ^ IdAppaltatore.GetHashCode();
+                result = (result*397) ^ IdCategoriaCommerciale.GetHashCode();
+                result = (result*397) ^ IdDirezioneRegionale.GetHashCode();
+                result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+                result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
+                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
+                return result;
             }
         }
     }
 
-    public class SchedulazioneRotAddedToScenario : SchedulazioneAddedToScenario
+    public class AddSchedulazioneRotToScenario : AddSchedulazioneToScenario
     {
         public string Convoglio { get; set; }
         public string RigaTurnoTreno { get; set; }
@@ -119,12 +119,12 @@ namespace Super.Programmazione.Events.Schedulazione
        
 
 
-        public SchedulazioneRotAddedToScenario()
+        public AddSchedulazioneRotToScenario()
         {
             
         }
 
-        public SchedulazioneRotAddedToScenario(Guid id,
+        public AddSchedulazioneRotToScenario(Guid id,
             Guid commitId,
             long version,
             Guid idPeriodoProgrammazione,
@@ -146,7 +146,7 @@ namespace Super.Programmazione.Events.Schedulazione
             string rigaTurnoTreno,
             string convoglio)
             : base(id, commitId, version, idPeriodoProgrammazione, idSchedulazione, idCommittente, idLotto, idImpianto,
-            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period, note)
+            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period,note)
         {
             Contract.Requires<ArgumentNullException>(oggetti != null);
 
@@ -164,7 +164,7 @@ namespace Super.Programmazione.Events.Schedulazione
             return string.Format("Aggiungere una schedulazione  rotabile {0}  al scenario ", Id);
         }
 
-        public bool Equals(SchedulazioneRotAddedToScenario other)
+        public bool Equals(AddSchedulazioneRotToScenario other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -175,7 +175,7 @@ namespace Super.Programmazione.Events.Schedulazione
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as SchedulazioneRotAddedToScenario);
+            return Equals(obj as AddSchedulazioneRotToScenario);
         }
 
         public override int GetHashCode()
@@ -194,17 +194,17 @@ namespace Super.Programmazione.Events.Schedulazione
         }
     }
 
-    public class SchedulazioneRotManAddedToScenario : SchedulazioneAddedToScenario
+    public class AddSchedulazioneRotManToScenario : AddSchedulazioneToScenario
     {
 
         public OggettoRotMan[] Oggetti { get; set; }
 
-        public SchedulazioneRotManAddedToScenario()
+        public AddSchedulazioneRotManToScenario()
         {
 
         }
 
-        public SchedulazioneRotManAddedToScenario(Guid id,
+        public AddSchedulazioneRotManToScenario(Guid id,
             Guid commitId,
             long version,
             Guid idPeriodoProgrammazione,
@@ -221,7 +221,7 @@ namespace Super.Programmazione.Events.Schedulazione
             string note,
             OggettoRotMan[] oggetti)
             : base(id, commitId, version, idPeriodoProgrammazione, idSchedulazione, idCommittente, idLotto, idImpianto,
-            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period, note)
+            idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod,period, note)
         {
             Contract.Requires<ArgumentNullException>(oggetti != null);
 
@@ -234,7 +234,7 @@ namespace Super.Programmazione.Events.Schedulazione
             return string.Format("Aggiungere una schedulazione  rotabile in manutenzione {0}  al scenario ", Id);
         }
 
-        public bool Equals(SchedulazioneRotManAddedToScenario other)
+        public bool Equals(AddSchedulazioneRotManToScenario other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -245,7 +245,7 @@ namespace Super.Programmazione.Events.Schedulazione
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as SchedulazioneRotManAddedToScenario);
+            return Equals(obj as AddSchedulazioneRotManToScenario);
         }
 
         public override int GetHashCode()
@@ -257,18 +257,18 @@ namespace Super.Programmazione.Events.Schedulazione
         }
     }
 
-    public class SchedulazioneAmbAddedToScenario : SchedulazioneAddedToScenario
+    public class AddSchedulazioneAmbToScenario : AddSchedulazioneToScenario
     {
 
         public string Description { get; set; }
         public int Quantity { get; set; }
 
-        public SchedulazioneAmbAddedToScenario()
+        public AddSchedulazioneAmbToScenario()
         {
 
         }
 
-        public SchedulazioneAmbAddedToScenario(Guid id,
+        public AddSchedulazioneAmbToScenario(Guid id,
             Guid commitId,
             long version,
             Guid idPeriodoProgrammazione,
@@ -286,7 +286,7 @@ namespace Super.Programmazione.Events.Schedulazione
             int quantity,
             string description)
             : base(id, commitId, version, idPeriodoProgrammazione, idSchedulazione, idCommittente, idLotto, idImpianto,
-                   idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period, note)
+                   idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod,period, note)
         {
             Contract.Requires<ArgumentOutOfRangeException>(quantity > 0);
 
@@ -299,7 +299,7 @@ namespace Super.Programmazione.Events.Schedulazione
             return string.Format("Aggiungere una schedulazione  ambiente {0}  al scenario ", Id);
         }
 
-        public bool Equals(SchedulazioneAmbAddedToScenario other)
+        public bool Equals(AddSchedulazioneAmbToScenario other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -310,7 +310,7 @@ namespace Super.Programmazione.Events.Schedulazione
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as SchedulazioneAmbAddedToScenario);
+            return Equals(obj as AddSchedulazioneAmbToScenario);
         }
 
         public override int GetHashCode()

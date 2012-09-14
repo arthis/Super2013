@@ -36,7 +36,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             return _end;
         }
 
-        public void BuildValue(WorkPeriodBuilder builder)
+        public void BuildValue(MsgWorkPeriodBuilder builder)
         {
             builder.From(_start).To(_end);
         }

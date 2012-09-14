@@ -12,7 +12,7 @@ namespace Commands.Impianto
 
     //        if (c.End.HasValue &&  c.Start>c.End )
     //        {
-    //            validationResult.MessagiValidazione.Add("Data start superiore a data end");
+    //            validationResult.MessagiValidazione.Subscribe("Data start superiore a data end");
     //            return false;
     //        }
 

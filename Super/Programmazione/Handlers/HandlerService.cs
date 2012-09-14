@@ -21,16 +21,18 @@ namespace Super.Programmazione.Handlers
 
         public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository, sessionFactory);
+            var handlerHelper = new CommandHandlerHelper(commandRepository, sessionFactory, _handlers);
 
 
-            handlerHelper.Add(_handlers, new CancelScenarioHandler(eventRepository, sessionFactory));
-            handlerHelper.Add(_handlers, new ChangeDescriptionScenarioHandler(eventRepository));
-            handlerHelper.Add(_handlers, new CreateScenarioHandler(eventRepository, sessionFactory));
-            handlerHelper.Add(_handlers, new PromoteScenarioToPlanHandler(eventRepository, sessionFactory));
+            handlerHelper.Add( new CancelScenarioHandler(eventRepository, sessionFactory));
+            handlerHelper.Add( new ChangeDescriptionScenarioHandler(eventRepository));
+            handlerHelper.Add( new CreateScenarioHandler(eventRepository, sessionFactory));
+            handlerHelper.Add( new PromoteScenarioToPlanHandler(eventRepository, sessionFactory));
 
             
-            handlerHelper.Add(_handlers, new CreatePlanFromPromotedScenarioHandler(eventRepository));
+            handlerHelper.Add( new CreatePlanFromPromotedScenarioHandler(eventRepository));
+
+            
         }
 
         public override void Subscribe(IBus bus)

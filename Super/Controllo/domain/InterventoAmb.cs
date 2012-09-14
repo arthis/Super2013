@@ -15,7 +15,7 @@ namespace Super.Controllo.Domain
 
         public void ControlReso(Guid idUser, DateTime controlDate, WorkPeriod workPeriod, string note, int quantity, string description)
         {
-            var periodBuilder = new WorkPeriodBuilder();
+            var periodBuilder = new MsgWorkPeriodBuilder();
             workPeriod.BuildValue(periodBuilder);
             var evt = BuildEvt.InterventoAmbControlledReso
                 .ForPeriod(periodBuilder.Build())

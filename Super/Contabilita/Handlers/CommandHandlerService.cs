@@ -29,53 +29,53 @@ namespace Super.Contabilita.Handlers
 
         public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository,sessionFactory);
+            var handlerHelper = new CommandHandlerHelper(commandRepository,sessionFactory, _handlers);
 
-            handlerHelper.Add(_handlers, new CreateImpiantoHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateImpiantoHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeleteImpiantoHandler(eventRepository));
+            handlerHelper.Add( new CreateImpiantoHandler(eventRepository));
+            handlerHelper.Add( new UpdateImpiantoHandler(eventRepository));
+            handlerHelper.Add( new DeleteImpiantoHandler(eventRepository));
 
-            handlerHelper.Add(_handlers, new CreateLottoHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateLottoHandler(eventRepository, new SqlLottoRepository()));
-            handlerHelper.Add(_handlers, new DeleteLottoHandler(eventRepository));
+            handlerHelper.Add( new CreateLottoHandler(eventRepository));
+            handlerHelper.Add( new UpdateLottoHandler(eventRepository, new SqlLottoRepository()));
+            handlerHelper.Add( new DeleteLottoHandler(eventRepository));
 
-            handlerHelper.Add(_handlers, new CreateAppaltatoreHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateAppaltatoreHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeleteAppaltatoreHandler(eventRepository));
+            handlerHelper.Add( new CreateAppaltatoreHandler(eventRepository));
+            handlerHelper.Add( new UpdateAppaltatoreHandler(eventRepository));
+            handlerHelper.Add( new DeleteAppaltatoreHandler(eventRepository));
 
 
-            handlerHelper.Add(_handlers, new CreateCategoriaCommercialeHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateCategoriaCommercialeHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeleteCategoriaCommercialeHandler(eventRepository));
+            handlerHelper.Add( new CreateCategoriaCommercialeHandler(eventRepository));
+            handlerHelper.Add( new UpdateCategoriaCommercialeHandler(eventRepository));
+            handlerHelper.Add( new DeleteCategoriaCommercialeHandler(eventRepository));
 
-            handlerHelper.Add(_handlers, new CreateCommittenteHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateCommittenteHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeleteCommittenteHandler(eventRepository));
+            handlerHelper.Add( new CreateCommittenteHandler(eventRepository));
+            handlerHelper.Add( new UpdateCommittenteHandler(eventRepository));
+            handlerHelper.Add( new DeleteCommittenteHandler(eventRepository));
 
-            handlerHelper.Add(_handlers, new CreateDirezioneRegionaleHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateDirezioneRegionaleHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeleteDirezioneRegionaleHandler(eventRepository));
+            handlerHelper.Add( new CreateDirezioneRegionaleHandler(eventRepository));
+            handlerHelper.Add( new UpdateDirezioneRegionaleHandler(eventRepository));
+            handlerHelper.Add( new DeleteDirezioneRegionaleHandler(eventRepository));
 
-            handlerHelper.Add(_handlers, new CreateMeasuringUnitHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateMeasuringUnitHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeleteMeasuringUnitHandler(eventRepository));
+            handlerHelper.Add( new CreateMeasuringUnitHandler(eventRepository));
+            handlerHelper.Add( new UpdateMeasuringUnitHandler(eventRepository));
+            handlerHelper.Add( new DeleteMeasuringUnitHandler(eventRepository));
 
-            handlerHelper.Add(_handlers, new CreatePeriodoProgrammazioneHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdatePeriodoProgrammazioneHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeletePeriodoProgrammazioneHandler(eventRepository));
-            handlerHelper.Add(_handlers, new ClosePeriodoProgrammazioneHandler(eventRepository));
+            handlerHelper.Add( new CreatePeriodoProgrammazioneHandler(eventRepository));
+            handlerHelper.Add( new UpdatePeriodoProgrammazioneHandler(eventRepository));
+            handlerHelper.Add( new DeletePeriodoProgrammazioneHandler(eventRepository));
+            handlerHelper.Add( new ClosePeriodoProgrammazioneHandler(eventRepository));
 
-            handlerHelper.Add(_handlers, new CreateTipoInterventoAmbHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateTipoInterventoAmbHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeleteTipoInterventoAmbHandler(eventRepository));
+            handlerHelper.Add( new CreateTipoInterventoAmbHandler(eventRepository));
+            handlerHelper.Add( new UpdateTipoInterventoAmbHandler(eventRepository));
+            handlerHelper.Add( new DeleteTipoInterventoAmbHandler(eventRepository));
 
-            handlerHelper.Add(_handlers, new CreateTipoInterventoRotHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateTipoInterventoRotHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeleteTipoInterventoRotHandler(eventRepository));
+            handlerHelper.Add( new CreateTipoInterventoRotHandler(eventRepository));
+            handlerHelper.Add( new UpdateTipoInterventoRotHandler(eventRepository));
+            handlerHelper.Add( new DeleteTipoInterventoRotHandler(eventRepository));
 
-            handlerHelper.Add(_handlers, new CreateTipoInterventoRotManHandler(eventRepository));
-            handlerHelper.Add(_handlers, new UpdateTipoInterventoRotManHandler(eventRepository));
-            handlerHelper.Add(_handlers, new DeleteTipoInterventoRotManHandler(eventRepository));
+            handlerHelper.Add( new CreateTipoInterventoRotManHandler(eventRepository));
+            handlerHelper.Add( new UpdateTipoInterventoRotManHandler(eventRepository));
+            handlerHelper.Add( new DeleteTipoInterventoRotManHandler(eventRepository));
 
         }
 

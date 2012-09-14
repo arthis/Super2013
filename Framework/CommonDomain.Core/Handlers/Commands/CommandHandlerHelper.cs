@@ -8,16 +8,18 @@ namespace CommonDomain.Core.Handlers.Commands
     {
         private readonly ICommandRepository _commandRepository;
         private readonly ISessionFactory _sessionFactory;
+        private readonly Dictionary<Type, Func<ICommand, CommandValidation>> _dictionnary;
 
-        public CommandHandlerHelper(ICommandRepository commandRepository,ISessionFactory sessionFactory)
+        public CommandHandlerHelper(ICommandRepository commandRepository, ISessionFactory sessionFactory, Dictionary<Type, Func<ICommand, CommandValidation>> dictionnary)
         {
             _commandRepository = commandRepository;
             _sessionFactory = sessionFactory;
+            _dictionnary = dictionnary;
         }
 
-        public void Add<T>(Dictionary<Type, Func<ICommand, CommandValidation>> dictionnary, ICommandHandler<T> finalhandler) where T : ICommand
+        public void Add<T>(ICommandHandler<T> finalhandler) where T : ICommand
         {
-            dictionnary.Add(typeof(T), (cmd) => new SecurityCommandHandler<T>(_sessionFactory,
+            _dictionnary.Add(typeof(T), (cmd) => new SecurityCommandHandler<T>(_sessionFactory,
                                                 new ExecuteCommandOnceOnlyHandler<T>(_commandRepository,
                                                 new LogCommandPerfomanceHandler<T>(
                                                 finalhandler)))

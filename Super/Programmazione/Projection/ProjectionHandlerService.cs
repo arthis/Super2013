@@ -14,28 +14,15 @@ namespace Super.Programmazione.Projection
 
         
 
-        public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder)
+        public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder,IBus bus)
         {
-            var handlerHelper = new EventHandlerHelper(projectionRepositoryBuilder);
+            var handlerHelper = new EventHandlerHelper(projectionRepositoryBuilder, _handlers, bus, Execute);
 
-            //handlerHelper.Add<InterventoRotProgrammato>(_handlers, new ConsuntivazioneRotProjection());
-            //handlerHelper.Add<InterventoRotManProgrammato>(_handlers, new ConsuntivazioneRotManProjection());
-            //handlerHelper.Add<InterventoAmbProgrammato>(_handlers, new ConsuntivazioneAmbProjection());
+            //handlerHelper.Subscribe<InterventoRotProgrammato>(_handlers, new ConsuntivazioneRotProjection());
+            //handlerHelper.Subscribe<InterventoRotManProgrammato>(_handlers, new ConsuntivazioneRotManProjection());
+            //handlerHelper.Subscribe<InterventoAmbProgrammato>(_handlers, new ConsuntivazioneAmbProjection());
 
         }
-
-        public override  void Subscribe(IBus bus)
-        {
-            string subscriptionId = "Super";
-
-            //Events
-            //bus.Subscribe<InterventoRotProgrammato>(subscriptionId, Execute);
-            //bus.Subscribe<InterventoRotManProgrammato>(subscriptionId, Execute);
-            //bus.Subscribe<InterventoAmbProgrammato>(subscriptionId, Execute);
-
-
-        }
-
-       
+      
     }
 }

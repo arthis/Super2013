@@ -8,7 +8,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
     public class SchedulazioneRotManUpdatedOfScenarioBuilder : IEventBuilder<SchedulazioneRotManUpdatedOfScenario>
     {
         protected Guid _idPeriodoProgrammazione;
-        protected Guid _idScenario;
+        protected Guid _idSchedulazione;
         protected Guid _idCommittente;
         protected Guid _idLotto;
         protected Guid _idImpianto;
@@ -28,9 +28,9 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
             return this;
         }
 
-        public SchedulazioneRotManUpdatedOfScenarioBuilder ForScenario(Guid idScenario)
+        public SchedulazioneRotManUpdatedOfScenarioBuilder ForSchedulazione(Guid idSchedulazione)
         {
-            _idScenario = idScenario;
+            _idSchedulazione = idSchedulazione;
             return this;
         }
 
@@ -111,7 +111,7 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
                                                             commitId,
                                                             version,
                                                             _idPeriodoProgrammazione,
-                                                            _idScenario,
+                                                            _idSchedulazione,
                                                             _idCommittente,
                                                             _idLotto,
                                                             _idImpianto,

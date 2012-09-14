@@ -48,7 +48,7 @@ namespace Super.Contabilita.Domain
 
         public PeriodoProgrammazione(Guid id,  string description, Interval interval)
         {
-            var intervalBuilder = new IntervalBuilder();
+            var intervalBuilder = new MsgIntervalBuilder();
             
             interval.BuildValue(intervalBuilder);
 
@@ -67,7 +67,7 @@ namespace Super.Contabilita.Domain
 
         public void Update(string description, Interval interval)
         {
-            var intervalBuilder = new IntervalBuilder();
+            var intervalBuilder = new MsgIntervalBuilder();
 
             interval.BuildValue(intervalBuilder);
 
