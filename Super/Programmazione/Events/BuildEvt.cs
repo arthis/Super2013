@@ -41,7 +41,17 @@ namespace Super.Programmazione.Events
 
         #endregion
 
-        public static InterventiAskedTobeGeneratedBuilder InterventiAskedTobeGenerated {get {return new InterventiAskedTobeGeneratedBuilder();}}
+        #region Schedulazione
+
+        public static SchedulazioneAmbCreatedBuilder SchedulazioneAmbCreated { get {return new SchedulazioneAmbCreatedBuilder();}}
+
+        public static SchedulazioneRotCreatedBuilder SchedulazioneRotCreated { get {return new SchedulazioneRotCreatedBuilder();}}
+
+        public static SchedulazioneRotManCreatedBuilder SchedulazioneRotManCreated { get {return new SchedulazioneRotManCreatedBuilder();}}
+        #endregion
+
+        public static InterventiAskedTobeGeneratedBuilder InterventiAskedTobeGenerated {get { return new InterventiAskedTobeGeneratedBuilder(); }
+        }
 
         public static InterventoRotGeneratedFromSchedulazioneBuilder InterventoRotGeneratedFromSchedulazione { get { return new InterventoRotGeneratedFromSchedulazioneBuilder(); } }
 

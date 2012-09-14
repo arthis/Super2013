@@ -1,15 +1,14 @@
 using System;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Programmazione.Events.Scenario;
-using Super.Programmazione.Events.Schedulazione;
+using Super.Programmazione.Commands.Schedulazione;
 
-namespace Super.Programmazione.Events.Builders.Schedulazione
+namespace Super.Programmazione.Commands.Builders.Schedulazione
 {
-    public class SchedulazioneAmbUpdatedOfScenarioBuilder : IEventBuilder<SchedulazioneAmbUpdatedOfScenario>
+    public class CreateSchedulazioneAmbBuilder : ICommandBuilder<CreateSchedulazioneAmb>
     {
         protected Guid _idPeriodoProgrammazione;
-        protected Guid _idScenario;
+        protected Guid _idSchedulazione;
         protected Guid _idCommittente;
         protected Guid _idLotto;
         protected Guid _idImpianto;
@@ -23,104 +22,103 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
         private string _description;
         private Period _period;
 
-
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
+        public CreateSchedulazioneAmbBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
         {
             _idPeriodoProgrammazione = idPeriodoProgrammazione;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForScenario(Guid idScenario)
+        public CreateSchedulazioneAmbBuilder ForSchedulazione(Guid idSchedulazione)
         {
-            _idScenario = idScenario;
+            _idSchedulazione = idSchedulazione;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForCommittente(Guid idCommittente)
+        public CreateSchedulazioneAmbBuilder ForCommittente(Guid idCommittente)
         {
             _idCommittente = idCommittente;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForLotto(Guid idLotto)
+        public CreateSchedulazioneAmbBuilder ForLotto(Guid idLotto)
         {
             _idLotto = idLotto;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForImpianto(Guid idImpianto)
+        public CreateSchedulazioneAmbBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder OfTipoIntervento(Guid idTipoIntervento)
+        public CreateSchedulazioneAmbBuilder OfTipoIntervento(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForAppaltatore(Guid idAppaltatore)
+        public CreateSchedulazioneAmbBuilder ForAppaltatore(Guid idAppaltatore)
         {
             _idAppaltatore = idAppaltatore;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForCategoriaCommerciale(Guid idCategoriaCommerciale)
+        public CreateSchedulazioneAmbBuilder ForCategoriaCommerciale(Guid idCategoriaCommerciale)
         {
             _idCategoriaCommerciale = idCategoriaCommerciale;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForDirezioneRegionale(Guid idDirezioneRegionale)
+        public CreateSchedulazioneAmbBuilder ForDirezioneRegionale(Guid idDirezioneRegionale)
         {
             _idDirezioneRegionale = idDirezioneRegionale;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder WithNote(string note)
+        public CreateSchedulazioneAmbBuilder WithNote(string note)
         {
             _note = note;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForWorkPeriod(WorkPeriod workPeriod)
+        public CreateSchedulazioneAmbBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForPeriod(Period period)
+        public CreateSchedulazioneAmbBuilder ForPeriod(Period period)
         {
             _period = period;
             return this;
         }
 
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForQuantity(int quantity)
+        public CreateSchedulazioneAmbBuilder ForQuantity(int quantity)
         {
             _quantity = quantity;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenarioBuilder ForDescription(string description)
+        public CreateSchedulazioneAmbBuilder ForDescription(string description)
         {
             _description = description;
             return this;
         }
 
-        public SchedulazioneAmbUpdatedOfScenario Build(Guid id, long version)
+        public CreateSchedulazioneAmb Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public SchedulazioneAmbUpdatedOfScenario Build(Guid id, Guid commitId, long version)
+        public CreateSchedulazioneAmb Build(Guid id, Guid commitId, long version)
         {
-            return new SchedulazioneAmbUpdatedOfScenario(id,
+            return new CreateSchedulazioneAmb(id,
                                                 commitId,
                                                 version,
                                                 _idPeriodoProgrammazione,
-                                                _idScenario,
+                                                _idSchedulazione,
                                                 _idCommittente,
                                                 _idLotto,
                                                 _idImpianto,

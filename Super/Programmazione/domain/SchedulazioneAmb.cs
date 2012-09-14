@@ -6,6 +6,7 @@ using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
 using Super.Programmazione.Events;
+using Super.Programmazione.Events.Scenario;
 using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Domain
@@ -22,7 +23,7 @@ namespace Super.Programmazione.Domain
             
         }
 
-        public void Apply(SchedulazioneAmbAddedToScenario evt)
+        public void Apply(SchedulazioneAmbCreated evt)
         {
             Id = evt.Id;
         }

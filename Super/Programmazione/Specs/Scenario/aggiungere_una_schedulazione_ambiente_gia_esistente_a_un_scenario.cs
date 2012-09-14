@@ -16,7 +16,7 @@ namespace Super.Programmazione.Specs.Scenario
 {
     public class aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_scenario : CommandBaseClass<AddSchedulazioneAmbToScenario>
     {
-        private Guid _idScenario = Guid.NewGuid();
+        private Guid _idSchedulazione = Guid.NewGuid();
         private Guid _idUser = Guid.NewGuid();
         private string _descritpion = "description";
 
@@ -47,7 +47,7 @@ namespace Super.Programmazione.Specs.Scenario
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
-                .Build(_idScenario, 1);
+                .Build(_id, 1);
             yield return BuildEvt.SchedulazioneAmbAddedToScenario
                         .ForAppaltatore(_idAppaltatore)
                         .ForCategoriaCommerciale(_idCategoriaCommerciale)
@@ -58,12 +58,29 @@ namespace Super.Programmazione.Specs.Scenario
                         .ForWorkPeriod(_workPeriod)
                         .ForPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForSchedulazione(_idScenario)
+                        .ForSchedulazione(_idSchedulazione)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .ForQuantity(_quantity)
                         .ForDescription(_description)
-                        .Build(_id, 1);
+                        .Build(_id, 2);
+            yield return BuildEvt.SchedulazioneAmbCreated
+                .ForAppaltatore(_idAppaltatore)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForCommittente(_idCommittente)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .ForImpianto(_idImpianto)
+                .ForLotto(_idLotto)
+                .ForWorkPeriod(_workPeriod)
+                .ForPeriod(_period)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForSchedulazione(_idSchedulazione)
+                .OfTipoIntervento(_tipoIntervento)
+                .WithNote(_note)
+                .ForQuantity(_quantity)
+                .ForDescription(_description)
+                .Build(_idSchedulazione, 1);
+
         }
 
         public override AddSchedulazioneAmbToScenario When()
@@ -78,12 +95,12 @@ namespace Super.Programmazione.Specs.Scenario
                         .ForWorkPeriod(_workPeriod)
                         .ForPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForSchedulazione(_idScenario)
+                        .ForSchedulazione(_idSchedulazione)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .ForDescription(_descritpion)
                         .ForQuantity(_quantity)
-                        .Build(_id, 0);
+                        .Build(_id, 2);
         }
 
         public override IEnumerable<IMessage> Expect()

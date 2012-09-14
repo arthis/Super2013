@@ -1,9 +1,9 @@
 using System;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Programmazione.Events.Schedulazione;
+using Super.Programmazione.Events.Scenario;
 
-namespace Super.Programmazione.Events.Builders.Schedulazione
+namespace Super.Programmazione.Events.Builders.Scenario
 {
     public class SchedulazioneAmbAddedToScenarioBuilder : IEventBuilder<SchedulazioneAmbAddedToScenario>
     {

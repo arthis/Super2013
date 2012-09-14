@@ -4,7 +4,7 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
-namespace Super.Programmazione.Events.Schedulazione
+namespace Super.Programmazione.Events.Scenario
 {
 
     public abstract class SchedulazioneAddedToScenario : Message , IEvent

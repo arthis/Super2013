@@ -5,7 +5,7 @@ using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders.Schedulazione
 {
-    public class SchedulazioneRotAddedToScenarioBuilder : IEventBuilder<SchedulazioneRotAddedToScenario>
+    public class SchedulazioneRotCreatedBuilder : IEventBuilder<SchedulazioneRotCreated>
     {
         protected Guid _idPeriodoProgrammazione;
         protected Guid _idSchedulazione;
@@ -27,122 +27,122 @@ namespace Super.Programmazione.Events.Builders.Schedulazione
         private string _convoglio;
 
 
-        public SchedulazioneRotAddedToScenarioBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
+        public SchedulazioneRotCreatedBuilder ForPeriodoProgrammazione(Guid idPeriodoProgrammazione)
         {
             _idPeriodoProgrammazione = idPeriodoProgrammazione;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForSchedulazione(Guid idSchedulazione)
+        public SchedulazioneRotCreatedBuilder ForSchedulazione(Guid idSchedulazione)
         {
             _idSchedulazione = idSchedulazione;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForCommittente(Guid idCommittente)
+        public SchedulazioneRotCreatedBuilder ForCommittente(Guid idCommittente)
         {
             _idCommittente = idCommittente;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForLotto(Guid idLotto)
+        public SchedulazioneRotCreatedBuilder ForLotto(Guid idLotto)
         {
             _idLotto = idLotto;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForImpianto(Guid idImpianto)
+        public SchedulazioneRotCreatedBuilder ForImpianto(Guid idImpianto)
         {
             _idImpianto = idImpianto;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder OfTipoIntervento(Guid idTipoIntervento)
+        public SchedulazioneRotCreatedBuilder OfTipoIntervento(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForAppaltatore(Guid idAppaltatore)
+        public SchedulazioneRotCreatedBuilder ForAppaltatore(Guid idAppaltatore)
         {
             _idAppaltatore = idAppaltatore;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForCategoriaCommerciale(Guid idCategoriaCommerciale)
+        public SchedulazioneRotCreatedBuilder ForCategoriaCommerciale(Guid idCategoriaCommerciale)
         {
             _idCategoriaCommerciale = idCategoriaCommerciale;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForDirezioneRegionale(Guid idDirezioneRegionale)
+        public SchedulazioneRotCreatedBuilder ForDirezioneRegionale(Guid idDirezioneRegionale)
         {
             _idDirezioneRegionale = idDirezioneRegionale;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder WithNote(string note)
+        public SchedulazioneRotCreatedBuilder WithNote(string note)
         {
             _note = note;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForWorkPeriod(WorkPeriod workPeriod)
+        public SchedulazioneRotCreatedBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForPeriod(Period period)
+        public SchedulazioneRotCreatedBuilder ForPeriod(Period period)
         {
             _period = period;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder WithOggetti(OggettoRot[] oggetti)
+        public SchedulazioneRotCreatedBuilder WithOggetti(OggettoRot[] oggetti)
         {
             _oggetti = oggetti;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder WithTrenoArrivo(Treno trenoArrivo)
+        public SchedulazioneRotCreatedBuilder WithTrenoArrivo(Treno trenoArrivo)
         {
             _trenoArrivo = trenoArrivo;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder WithTrenoPartenza(Treno trenoPartenza)
+        public SchedulazioneRotCreatedBuilder WithTrenoPartenza(Treno trenoPartenza)
         {
             _trenoPartenza = trenoPartenza;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder WithTurnoTreno(string turnoTreno)
+        public SchedulazioneRotCreatedBuilder WithTurnoTreno(string turnoTreno)
         {
             _turnoTreno = turnoTreno;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder WithRigaTurnoTreno(string rigaTurnoTreno)
+        public SchedulazioneRotCreatedBuilder WithRigaTurnoTreno(string rigaTurnoTreno)
         {
             _rigaTurnoTreno = rigaTurnoTreno;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenarioBuilder ForConvoglio(string convoglio)
+        public SchedulazioneRotCreatedBuilder ForConvoglio(string convoglio)
         {
             _convoglio = convoglio;
             return this;
         }
 
-        public SchedulazioneRotAddedToScenario Build(Guid id, long version)
+        public SchedulazioneRotCreated Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public SchedulazioneRotAddedToScenario Build(Guid id, Guid commitId, long version)
+        public SchedulazioneRotCreated Build(Guid id, Guid commitId, long version)
         {
-            return new SchedulazioneRotAddedToScenario(id,
+            return new SchedulazioneRotCreated(id,
                                                        commitId,
                                                        version,
                                                        _idPeriodoProgrammazione,

@@ -1,5 +1,6 @@
 using System;
 using CommonDomain;
+using Super.Programmazione.Events.Scenario;
 using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders.Schedulazione
