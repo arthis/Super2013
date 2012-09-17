@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using CommandService;
-using CommonDomain;
-using CommonDomain.Core;
-using CommonDomain.Core.Handlers;
+﻿using CommonDomain;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
-using Super.Programmazione.Commands.Plan;
-using Super.Programmazione.Commands.Scenario;
 using Super.Programmazione.Events.Scenario;
 using Super.Programmazione.Handlers.Commands.Plan;
 using Super.Programmazione.Handlers.Commands.Scenario;
 using Super.Programmazione.Handlers.Ports.Plan;
+using Super.Programmazione.Handlers.Ports.Schedulazione;
 
 namespace Super.Programmazione.Handlers
 {
@@ -41,6 +34,7 @@ namespace Super.Programmazione.Handlers
 
             var portHelper = new PortHandlerHelper();
             portHelper.Add(_ports, new ScenarioPromotedToPlanHandler());
+            portHelper.Add(_ports, new SchedulazioneAmbAddedToScenarioHandler());
 
 
 

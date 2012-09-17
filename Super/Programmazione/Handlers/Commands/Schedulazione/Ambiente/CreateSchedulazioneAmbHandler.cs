@@ -7,14 +7,14 @@ using Super.Programmazione.Commands.Schedulazione;
 
 namespace Super.Programmazione.Handlers.Commands.Schedulazione.Ambiente
 {
-    public partial class AddRuleToSchedulazioneAmbHandler: CommandHandler<AddRuleToSchedulazioneAmb>
+    public partial class CreateSchedulazioneAmbHandler: CommandHandler<CreateSchedulazioneAmb>
     {
-        public AddRuleToSchedulazioneAmbHandler(IEventRepository eventRepository)
+        public CreateSchedulazioneAmbHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(AddRuleToSchedulazioneAmb cmd)
+        public override CommandValidation Execute(CreateSchedulazioneAmb cmd)
         {
             throw new NotImplementedException();
 
