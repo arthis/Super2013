@@ -22,7 +22,7 @@ namespace Super.Programmazione.Specs.Schedulazione.RotabileInManutenzione
         private Guid _idUser = Guid.NewGuid();
         private string _descritpion = "description";
 
-        private Guid _id = Guid.NewGuid();
+        private Guid _idSchedulazione = Guid.NewGuid();
         private Guid _idAppaltatore =Guid.NewGuid();
         private Guid _idCategoriaCommerciale = Guid.NewGuid();
         private Guid _idCommittente = Guid.NewGuid();
@@ -60,11 +60,11 @@ namespace Super.Programmazione.Specs.Schedulazione.RotabileInManutenzione
                         .ForLotto(_idLotto)
                         .ForWorkPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForSchedulazione(_idScenario)
+                        .ForSchedulazione(_idSchedulazione)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .WithOggetti(_oggetti)
-                        .Build(_id, 1);
+                        .Build(_idScenario, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
@@ -82,7 +82,7 @@ namespace Super.Programmazione.Specs.Schedulazione.RotabileInManutenzione
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .WithOggetti(_oggetti)
-                .Build(_id, 1);
+                .Build(_idSchedulazione, 1);
         }
 
         [Test]

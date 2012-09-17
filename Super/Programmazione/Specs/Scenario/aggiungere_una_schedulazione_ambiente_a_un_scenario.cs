@@ -80,12 +80,12 @@ namespace Super.Programmazione.Specs.Scenario
                 .ForWorkPeriod(_workPeriod)
                 .ForPeriod(_period)
                 .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                .ForSchedulazione(_idSchedulazione)
+                .ForScenario(_idSchedulazione)
                 .OfTipoIntervento(_tipoIntervento)
                 .WithNote(_note)
                 .ForQuantity(_quantity)
                 .ForDescription(_description)
-                .Build(_id, 2);
+                .Build(_idSchedulazione, 1);
         }
 
         [Test]

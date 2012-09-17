@@ -18,12 +18,35 @@ namespace Super.Programmazione.Domain
             
         }
 
-        public SchedulazioneAmb(Guid id, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, string description, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, int quantity, Guid idScenario, WorkPeriod workPeriod, Guid idTipoIntervento, string note)
+        public void AddFromScenario(Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, string description, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, int quantity, Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note)
         {
-            
+
+            var periodBuilderMsg = new MsgPeriodBuilder();
+            period.BuildValue(periodBuilderMsg);
+
+            var workPeriodBuilderMsg = new MsgWorkPeriodBuilder();
+            workPeriod.BuildValue((workPeriodBuilderMsg));
+
+            var evt = BuildEvt.SchedulazioneAmbAddedToScenario
+                .ForAppaltatore(idAppaltatore)
+                .ForCategoriaCommerciale(idCategoriaCommerciale)
+                .ForCommittente(idCommittente)
+                .ForDescription(description)
+                .ForDirezioneRegionale(idDirezioneRegionale)
+                .ForImpianto(idImpianto)
+                .ForLotto(idLotto)
+                .ForPeriod(periodBuilderMsg.Build())
+                .ForPeriodoProgrammazione(idPeriodoProgrammazione)
+                .ForQuantity(quantity)
+                .ForScenario(idSchedulazione)
+                .ForWorkPeriod(workPeriodBuilderMsg.Build())
+                .OfTipoIntervento(idTipoIntervento)
+                .WithNote(note);
+
+            RaiseEvent(idSchedulazione, evt);
         }
 
-        public void Apply(SchedulazioneAmbCreated evt)
+        public void Apply(SchedulazioneAmbAddedToScenario evt)
         {
             Id = evt.Id;
         }

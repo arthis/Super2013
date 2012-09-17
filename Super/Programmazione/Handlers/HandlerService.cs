@@ -5,7 +5,6 @@ using Super.Programmazione.Events.Scenario;
 using Super.Programmazione.Handlers.Commands.Plan;
 using Super.Programmazione.Handlers.Commands.Scenario;
 using Super.Programmazione.Handlers.Ports.Plan;
-using Super.Programmazione.Handlers.Ports.Schedulazione;
 
 namespace Super.Programmazione.Handlers
 {
@@ -34,11 +33,7 @@ namespace Super.Programmazione.Handlers
 
             var portHelper = new PortHandlerHelper();
             portHelper.Add(_ports, new ScenarioPromotedToPlanHandler());
-            portHelper.Add(_ports, new SchedulazioneAmbAddedToScenarioHandler());
 
-
-
-            bus.Subscribe<ScenarioPromotedToPlan>(subscriptionId, PortAndExecute);
         }
 
     }

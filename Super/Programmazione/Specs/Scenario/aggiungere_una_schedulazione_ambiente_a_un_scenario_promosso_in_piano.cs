@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonDomain;
-using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
@@ -9,13 +8,11 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Programmazione.Commands;
 using Super.Programmazione.Commands.Scenario;
-using Super.Programmazione.Commands.Schedulazione;
 using Super.Programmazione.Domain.Exceptions;
 using Super.Programmazione.Events;
 using Super.Programmazione.Handlers.Commands.Scenario;
-using Super.Programmazione.Handlers.Commands.Schedulazione.Ambiente;
 
-namespace Super.Programmazione.Specs.Schedulazione.Ambiente
+namespace Super.Programmazione.Specs.Scenario
 {
     public class aggiungere_una_schedulazione_ambiente_a_un_scenario_promosso_in_piano : CommandBaseClass<AddSchedulazioneAmbToScenario>
     {
@@ -70,12 +67,12 @@ namespace Super.Programmazione.Specs.Schedulazione.Ambiente
                         .ForWorkPeriod(_workPeriod)
                         .ForPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForSchedulazione(_idScenario)
+                        .ForSchedulazione(_id)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .ForDescription(_descritpion)
                         .ForQuantity(_quantity)
-                        .Build(_id, 2);
+                        .Build(_idScenario, 2);
         }
 
         public override IEnumerable<IMessage> Expect()

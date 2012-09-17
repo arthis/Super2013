@@ -106,7 +106,7 @@ namespace Super.Programmazione.Domain
             return new Plan(idPlan);
         }
 
-        public void AddSchedulazioneAmb(Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, string description, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, int quantity, Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note)
+        public SchedulazioneAmb AddSchedulazioneAmb(Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, string description, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, int quantity, Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note)
         {
             if (_cancelled)
                 throw  new ScenarioCancelledDoNotAllowFurtherChanges();
@@ -114,35 +114,13 @@ namespace Super.Programmazione.Domain
             if (_promoted)
                 throw new ScenarioPromotedDoNotAllowFurtherChanges();
 
-            var periodBuilderMsg = new MsgPeriodBuilder();
-            period.BuildValue(periodBuilderMsg);
+            var schedulazione = new SchedulazioneAmb();
 
-            var workPeriodBuilderMsg = new MsgWorkPeriodBuilder();
-            workPeriod.BuildValue((workPeriodBuilderMsg));
+            schedulazione.AddFromScenario( idAppaltatore,  idCategoriaCommerciale,  idCommittente,  description,  idDirezioneRegionale,  idImpianto,  idLotto, period,  idPeriodoProgrammazione,  quantity,  idSchedulazione,  workPeriod,  idTipoIntervento,  note);
 
-            var evt = BuildEvt.SchedulazioneAmbAddedToScenario
-                .ForAppaltatore(idAppaltatore)
-                .ForCategoriaCommerciale(idCategoriaCommerciale)
-                .ForCommittente(idCommittente)
-                .ForDescription(description)
-                .ForDirezioneRegionale(idDirezioneRegionale)
-                .ForImpianto(idImpianto)
-                .ForLotto(idLotto)
-                .ForPeriod(periodBuilderMsg.Build())
-                .ForPeriodoProgrammazione(idPeriodoProgrammazione)
-                .ForQuantity(quantity)
-                .ForSchedulazione(idSchedulazione)
-                .ForWorkPeriod(workPeriodBuilderMsg.Build())
-                .OfTipoIntervento(idTipoIntervento)
-                .WithNote(note);
-
-            RaiseEvent(evt);
+            return schedulazione;
         }
 
-        public void Apply(SchedulazioneAmbAddedToScenario e)
-        {
-            //do something ??
-
-        }
+        
     }
 }

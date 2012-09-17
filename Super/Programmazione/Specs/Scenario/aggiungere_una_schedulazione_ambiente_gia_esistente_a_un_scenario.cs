@@ -58,28 +58,13 @@ namespace Super.Programmazione.Specs.Scenario
                         .ForWorkPeriod(_workPeriod)
                         .ForPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForSchedulazione(_idSchedulazione)
+                        .ForScenario(_id)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .ForQuantity(_quantity)
                         .ForDescription(_description)
-                        .Build(_id, 2);
-            yield return BuildEvt.SchedulazioneAmbCreated
-                .ForAppaltatore(_idAppaltatore)
-                .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                .ForCommittente(_idCommittente)
-                .ForDirezioneRegionale(_idDirezioneRegionale)
-                .ForImpianto(_idImpianto)
-                .ForLotto(_idLotto)
-                .ForWorkPeriod(_workPeriod)
-                .ForPeriod(_period)
-                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                .ForSchedulazione(_idSchedulazione)
-                .OfTipoIntervento(_tipoIntervento)
-                .WithNote(_note)
-                .ForQuantity(_quantity)
-                .ForDescription(_description)
-                .Build(_idSchedulazione, 1);
+                        .Build(_idSchedulazione, 2);
+           
 
         }
 

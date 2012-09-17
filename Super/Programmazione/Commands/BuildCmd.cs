@@ -105,9 +105,7 @@ namespace Super.Programmazione.Commands
         #endregion
 
         #region Schedulazione
-        public static CreateSchedulazioneAmbBuilder CreateSchedulazioneAmb {get { return new CreateSchedulazioneAmbBuilder();}}
-        public static CreateSchedulazioneRotManBuilder CreateSchedulazioneRotMan { get { return new CreateSchedulazioneRotManBuilder(); } }
-        public static CreateSchedulazioneRotBuilder CreateSchedulazioneRot { get { return new CreateSchedulazioneRotBuilder(); } }
+       
         #endregion
 
     }

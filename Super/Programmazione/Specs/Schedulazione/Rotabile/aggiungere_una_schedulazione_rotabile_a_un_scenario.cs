@@ -64,7 +64,7 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                         .ForLotto(_idLotto)
                         .ForWorkPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForSchedulazione(_idScenario)
+                        .ForSchedulazione(_id)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .WithOggetti(_oggetti)
@@ -72,7 +72,7 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                         .WithTrenoArrivo(_trenoArrivo)
                         .WithTrenoPartenza(_trenoPartenza)
                         .WithTurnoTreno(_turnoTreno)
-                        .Build(_id, 1);
+                        .Build(_idScenario, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
@@ -86,7 +86,7 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                         .ForLotto(_idLotto)
                         .ForWorkPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForSchedulazione(_idScenario)
+                        .ForScenario(_idScenario)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .WithOggetti(_oggetti)

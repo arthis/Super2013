@@ -93,7 +93,6 @@
     <Compile Include="Scenario\promuovere_un_scenario_cancellato_in_un_piano_.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_a_un_scenario_cancellato.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_a_un_scenario_promosso_in_piano.cs" />
-    <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_a_un_scenario.cs" />
     <Compile Include="Schedulazione\cancellare_una_schedulazione_da_un_piano_senza_interventi_generati.cs" />
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_regola_a_una_schedulazione_ambiente.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_a_un_scenario.cs" />

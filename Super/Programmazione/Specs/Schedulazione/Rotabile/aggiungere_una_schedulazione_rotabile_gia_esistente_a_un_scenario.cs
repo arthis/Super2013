@@ -23,7 +23,7 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
         private Guid _idUser = Guid.NewGuid();
         private string _descritpion = "description";
 
-        private Guid _id = Guid.NewGuid();
+        private Guid _idSchedulazione = Guid.NewGuid();
         private Guid _idAppaltatore =Guid.NewGuid();
         private Guid _idCategoriaCommerciale = Guid.NewGuid();
         private Guid _idCommittente = Guid.NewGuid();
@@ -61,7 +61,7 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                         .ForLotto(_idLotto)
                         .ForWorkPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForSchedulazione(_idScenario)
+                        .ForScenario(_idScenario)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .WithOggetti(_oggetti)
@@ -69,7 +69,7 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                         .WithTrenoArrivo(_trenoArrivo)
                         .WithTrenoPartenza(_trenoPartenza)
                         .WithTurnoTreno(_turnoTreno)
-                        .Build(_id, 1);
+                        .Build(_idSchedulazione, 1);
         }
 
         public override AddSchedulazioneRotToScenario When()
@@ -83,7 +83,7 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                         .ForLotto(_idLotto)
                         .ForWorkPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForSchedulazione(_idScenario)
+                        .ForSchedulazione(_idSchedulazione)
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .WithOggetti(_oggetti)
@@ -91,7 +91,7 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                         .WithTrenoArrivo(_trenoArrivo)
                         .WithTrenoPartenza(_trenoPartenza)
                         .WithTurnoTreno(_turnoTreno)
-                        .Build(_id, 0);
+                        .Build(_idScenario, 0);
         }
 
         public override IEnumerable<IMessage> Expect()

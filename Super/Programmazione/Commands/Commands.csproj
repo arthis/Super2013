@@ -95,9 +95,6 @@
     <Compile Include="Builders\Plan\AddSchedulazioneAmbToPlanBuilder.cs" />
     <Compile Include="Builders\Scenario\UpdateSchedulazioneRotManOfScenarioBuilder.cs" />
     <Compile Include="Builders\Scenario\UpdateSchedulazioneRotOfScenarioBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\CreateSchedulazioneAmbBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\CreateSchedulazioneRotManBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\CreateSchedulazioneRotBuilder.cs" />
     <Compile Include="Builders\Schedulazione\CancelSchedulationFromPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\AddRuleToSchedulazioneAmbBuilder.cs" />
     <Compile Include="Builders\Schedulazione\AddRuleToSchedulazioneRotBuilder.cs" />
@@ -122,7 +119,6 @@
     <Compile Include="Intervento\GenerateInterventoForSchedulazione.cs" />
     <Compile Include="Plan\CreatePlanFromPromotedScenario.cs" />
     <Compile Include="Schedulazione\AddSchedulationToPlan.cs" />
-    <Compile Include="Schedulazione\CreateSchedulazione.cs" />
     <Compile Include="Schedulazione\CancelSchedulationFromPlan.cs" />
     <Compile Include="Plan\CancelPlan.cs" />
     <Compile Include="Intervento\AddInterventoToPlan.cs" />

@@ -27,7 +27,7 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
             if(!existingSchedulazione.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
 
-            scenario.AddSchedulazioneAmb(
+            var schedulazione = scenario.AddSchedulazioneAmb(
                 cmd.IdAppaltatore,
                 cmd.IdCategoriaCommerciale,
                 cmd.IdCommittente,
@@ -43,9 +43,9 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
                 cmd.IdTipoIntervento,
                 cmd.Note);
 
-            EventRepository.Save(scenario, cmd.CommitId);
+            EventRepository.Save(schedulazione, cmd.CommitId);
 
-            return scenario.CommandValidationMessages; 
+            return schedulazione.CommandValidationMessages; 
         }
     }
 }
