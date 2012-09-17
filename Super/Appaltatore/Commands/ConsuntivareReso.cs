@@ -10,7 +10,7 @@ namespace Super.Appaltatore.Commands
     public abstract class ConsuntivareReso : CommandBase
     {
         public string Note { get; set; }
-        public WorkPeriod Period { get; set; }
+        public WorkPeriod WorkPeriod { get; set; }
         public string IdInterventoAppaltatore { get; set; }
         public DateTime DataConsuntivazione { get; set; }
 
@@ -33,7 +33,7 @@ namespace Super.Appaltatore.Commands
 
             IdInterventoAppaltatore = idInterventoAppaltatore;
             DataConsuntivazione = dataConsuntivazione;
-            Period = period;
+            WorkPeriod = period;
             Note = note;
         }
 
@@ -46,7 +46,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Note, Note) && Equals(other.Period, Period) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione);
+            return base.Equals(other) && Equals(other.Note, Note) && Equals(other.WorkPeriod, WorkPeriod) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione);
         }
 
         public override bool Equals(object obj)
@@ -62,7 +62,7 @@ namespace Super.Appaltatore.Commands
             {
                 int result = base.GetHashCode();
                 result = (result * 397) ^ (Note != null ? Note.GetHashCode() : 0);
-                result = (result * 397) ^ (Period != null ? Period.GetHashCode() : 0);
+                result = (result * 397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
                 result = (result * 397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
                 result = (result * 397) ^ DataConsuntivazione.GetHashCode();
                 return result;

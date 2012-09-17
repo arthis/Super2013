@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
@@ -116,7 +117,22 @@ namespace Super.Programmazione.Domain
 
             var schedulazione = new SchedulazioneAmb();
 
-            schedulazione.AddFromScenario( idAppaltatore,  idCategoriaCommerciale,  idCommittente,  description,  idDirezioneRegionale,  idImpianto,  idLotto, period,  idPeriodoProgrammazione,  quantity,  idSchedulazione,  workPeriod,  idTipoIntervento,  note);
+            schedulazione.AddFromScenario(Id, idAppaltatore,  idCategoriaCommerciale,  idCommittente,  description,  idDirezioneRegionale,  idImpianto,  idLotto, period,  idPeriodoProgrammazione,  quantity,  idSchedulazione,  workPeriod,  idTipoIntervento,  note);
+
+            return schedulazione;
+        }
+
+        public SchedulazioneRot AddSchedulazioneRot(Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione,  Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note, string convoglio, string rigaTurnoTreno, string turnoTreno, Treno trenoArrivo, Treno trenoPartenza, IEnumerable< OggettoRot> oggetti)
+        {
+            if (_cancelled)
+                throw new ScenarioCancelledDoNotAllowFurtherChanges();
+
+            if (_promoted)
+                throw new ScenarioPromotedDoNotAllowFurtherChanges();
+
+            var schedulazione = new SchedulazioneRot();
+
+            schedulazione.AddFromScenario(Id, idAppaltatore, idCategoriaCommerciale, idCommittente,  idDirezioneRegionale, idImpianto, idLotto, period, idPeriodoProgrammazione,  idSchedulazione, workPeriod, idTipoIntervento, note, convoglio, rigaTurnoTreno, turnoTreno, trenoArrivo, trenoPartenza,  oggetti);
 
             return schedulazione;
         }

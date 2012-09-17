@@ -13,7 +13,7 @@ namespace Super.Appaltatore.Commands
     {
 
         public string Note { get; set; }
-        public WorkPeriod Period { get; set; }
+        public WorkPeriod WorkPeriod { get; set; }
         public Guid IdDirezioneRegionale { get; set; }
         public Guid IdCategoriaCommerciale { get; set; }
         public Guid IdAppaltatore { get; set; }
@@ -48,7 +48,7 @@ namespace Super.Appaltatore.Commands
             IdAppaltatore = idAppaltatore;
             IdCategoriaCommerciale = idCategoriaCommerciale;
             IdDirezioneRegionale = idDirezioneRegionale;
-            Period = period;
+            WorkPeriod = period;
             Note = note;
         }
 
@@ -56,7 +56,7 @@ namespace Super.Appaltatore.Commands
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Note, Note) && Equals(other.Period, Period) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdImpianto.Equals(IdImpianto);
+            return base.Equals(other) && Equals(other.Note, Note) && Equals(other.WorkPeriod, WorkPeriod) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdImpianto.Equals(IdImpianto);
         }
 
         public override bool Equals(object obj)
@@ -72,7 +72,7 @@ namespace Super.Appaltatore.Commands
             {
                 int result = base.GetHashCode();
                 result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
+                result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
                 result = (result*397) ^ IdDirezioneRegionale.GetHashCode();
                 result = (result*397) ^ IdCategoriaCommerciale.GetHashCode();
                 result = (result*397) ^ IdAppaltatore.GetHashCode();

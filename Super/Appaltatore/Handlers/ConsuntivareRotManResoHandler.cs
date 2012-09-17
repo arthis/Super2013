@@ -28,10 +28,10 @@ namespace Super.Appaltatore.Handlers
 
             existingIntervento.ConsuntivareReso(cmd.Id
                                 , cmd.DataConsuntivazione
-                                , WorkPeriod.FromMessage(cmd.Period)
+                                , cmd.WorkPeriod.ToDomain()
                                 , cmd.IdInterventoAppaltatore
                                 , cmd.Note
-                                ,cmd.Oggetti.ToDomainObjects());
+                                ,cmd.Oggetti.ToDomain());
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

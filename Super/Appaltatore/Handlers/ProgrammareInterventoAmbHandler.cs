@@ -33,7 +33,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdAppaltatore
                                 , cmd.IdCategoriaCommerciale
                                 , cmd.IdDirezioneRegionale
-                                , WorkPeriod.FromMessage(cmd.Period)
+                                , cmd.WorkPeriod.ToDomain()
                                 , cmd.Note
                                 , cmd.Quantity
                                 , cmd.Description);

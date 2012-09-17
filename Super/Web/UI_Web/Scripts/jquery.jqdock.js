@@ -92,8 +92,8 @@
  *    - new option, fadeLayer (default ''), allows the fade-in to be switched from the original menu element down to either the
  *      div.jqDockWrap or div.jqDock layer
  * v1.3
- *    - new option, inactivity (default 0), allowing auto-collapse after a specified period (mouse on dock)
- *    - new option, fadeIn (default 0), allowing initialised menu to be faded in over a specified period (as opposed to an instant show)
+ *    - new option, inactivity (default 0), allowing auto-collapse after a specified WorkPeriod (mouse on dock)
+ *    - new option, fadeIn (default 0), allowing initialised menu to be faded in over a specified WorkPeriod (as opposed to an instant show)
  *    - new option, step (default 50), which is the interval between animation steps
  *    - default size increased to 48 (from 36)
  *    - default distance increased to 72 (from 54)
@@ -291,7 +291,7 @@ if(!$.jqDock){ //can't see why it should be, but it doesn't hurt to check
 /** returns a timestamp; if Dock is supplied and there is anything left of a previous timestamp - when
  *  duration is added - then subtract that remainder from the new timestamp
  *  Explain : if you go on then off the menu (before the expansion has completed), it makes the time
- *            period for the collapse the same as the time used for the partial expansion
+ *            WorkPeriod for the collapse the same as the time used for the partial expansion
  * @private
  * @param {object} Dock Dock object
  * @return {integer} New timestamp
@@ -612,7 +612,7 @@ if(!$.jqDock){ //can't see why it should be, but it doesn't hurt to check
 					css = null;
 				}
 			},
-/** modifies the target sizes in proportion to 'duration' if still within the 'duration' period following a mouseenter/leave;
+/** modifies the target sizes in proportion to 'duration' if still within the 'duration' WorkPeriod following a mouseenter/leave;
  *  calls CHANGE_SIZE() for each menu element (if more than Opts.step ms since mouseenter/leave)
  * @private
  * @param {object} Dock Dock object
@@ -930,7 +930,7 @@ if(!$.jqDock){ //can't see why it should be, but it doesn't hurt to check
 				idle : 0,           //[ms] duration of idle time after the mouse has left the menu (without re-entering, obviously!) before the docksleep event is triggered (on the original menu element)
 				onReady : 0,        //function: called with scope of original menu element when dock has been initialised but not yet revealed (ie. before being shown)
 														//  NB: the onReady() function is passed a single argument, 'ready', and can return false to cancel the 'reveal' of the menu and put the dock to sleep
-				onSleep : 0,        //function: called with scope of original menu element when dock has been idle for the defined idle period and has therefore gone to sleep,
+				onSleep : 0,        //function: called with scope of original menu element when dock has been idle for the defined idle WorkPeriod and has therefore gone to sleep,
 														//  or when either a sleep or freeze has been requested by the calling script (by triggering dockidle/dockfreeze, or commanding idle/freeze)
 														//  NB: the onSleep() function is passed a single argument, 'sleep' or 'freeze', and can return false to cancel the sleep/freeze
 				onWake : 0,         //function: called with scope of original menu element when dock is 'nudged' awake, but only triggered if the dock was asleep (incl. frozen) prior to the' nudge'
@@ -1523,7 +1523,7 @@ if(!$.jqDock){ //can't see why it should be, but it doesn't hurt to check
 								Indock : null //timer for IN_DOCK recursion
 								Overdock : null //timer for OVER_DOCK recursion
 								Offdock : null //timer for OFF_DOCK recursion
-								Asleep : false //set to true when dock is put is to sleep following an idle period timeout
+								Asleep : false //set to true when dock is put is to sleep following an idle WorkPeriod timeout
 								Frozen : false //set to true when the dock is 'freeze'd (dock is also sent to sleep!)
 								Doze : null //while Asleep, the most recent mouse event gets buffered for use on being nudged awake
 								Yard : 0 //jQuery of div.jqDock

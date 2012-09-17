@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using System.Linq;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 
-namespace Super.Programmazione.Events.Scenario
+namespace Super.Programmazione.Events.Schedulazione
 {
 
     public abstract class SchedulazioneAddedToScenario : Message , IEvent
@@ -168,7 +169,7 @@ namespace Super.Programmazione.Events.Scenario
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) && other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -234,18 +235,17 @@ namespace Super.Programmazione.Events.Scenario
             return string.Format("Aggiungere una schedulazione  rotabile in manutenzione {0}  al scenario ", Id);
         }
 
-        public bool Equals(SchedulazioneRotManAddedToScenario other)
+        protected bool Equals(SchedulazioneRotManAddedToScenario other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Oggetti, Oggetti);
+            return base.Equals(other) && other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as SchedulazioneRotManAddedToScenario);
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((SchedulazioneRotManAddedToScenario) obj);
         }
 
         public override int GetHashCode()

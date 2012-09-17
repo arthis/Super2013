@@ -1,4 +1,5 @@
 using System;
+using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.Builders;
 
 namespace CommonDomain.Core.Super.Domain.ValueObjects
@@ -53,12 +54,23 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
             return true;
         }
+    }
 
-        public static Interval FromMessage(Messaging.ValueObjects.Interval interval)
+    public static class IntervalExtension
+    {
+        public static Messaging.ValueObjects.Interval ToMessage(this  Interval interval)
         {
-            return new Interval(interval.Start, interval.End);
+            var builder = BuildMessagingVO.MsgInterval;
+            interval.BuildValue(builder);
+            return builder.Build();
         }
 
-
+        public static Interval ToDomain(this  Messaging.ValueObjects.Interval interval)
+        {
+            return BuildDomainVO.Interval
+                .From(interval.Start)
+                .To(interval.End)
+                .Build();
+        }
     }
 }

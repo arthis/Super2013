@@ -30,7 +30,7 @@ namespace Super.Contabilita.Handlers.Lotto
 
 
             var lotto = new Domain.Lotto(cmd.Id,
-                                          BuildDomainVO.Interval.FromPeriod(cmd.Interval).Build(),
+                                          BuildDomainVO.Interval.FromInterval(cmd.Interval).Build(),
                                           cmd.Description);
 
             EventRepository.Save(lotto, cmd.CommitId);

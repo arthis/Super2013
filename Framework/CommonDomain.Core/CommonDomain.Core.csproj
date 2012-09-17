@@ -108,6 +108,7 @@
     <Compile Include="SessionFactory.cs" />
     <Compile Include="Specifications.cs" />
     <Compile Include="Super\Domain\BuildDomainVO.cs" />
+    <Compile Include="Super\Domain\Builders\TrenoBuilder.cs" />
     <Compile Include="Super\Domain\Builders\PeriodBuilder.cs" />
     <Compile Include="Super\Domain\Builders\IntervalOpenedBuilder.cs" />
     <Compile Include="Super\Domain\Builders\OggettoRotBuilder.cs" />

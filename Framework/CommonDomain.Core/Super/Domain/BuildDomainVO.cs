@@ -10,6 +10,7 @@ namespace CommonDomain.Core.Super.Domain
         public static OggettoRotBuilder OggettoRot { get { return new OggettoRotBuilder(); } }
         public static PeriodBuilder Period { get { return new PeriodBuilder(); } }
         public static WorkPeriodBuilder WorkPeriod { get { return new WorkPeriodBuilder(); } }
+        public static TrenoBuilder Treno { get { return new TrenoBuilder(); } }
 
         
     }

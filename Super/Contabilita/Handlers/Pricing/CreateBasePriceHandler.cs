@@ -30,7 +30,7 @@ namespace Super.Contabilita.Handlers.Pricing
                 throw new AggregateRootInstanceNotFoundException();
 
 
-            pricing.CreateBasePrice(cmd.IdBasePrice, cmd.Value, cmd.IdGruppoOggettoIntervento, cmd.IdTipoIntervento, IntervalOpened.FromMessage(cmd.Intervall));
+            pricing.CreateBasePrice(cmd.IdBasePrice, cmd.Value, cmd.IdGruppoOggettoIntervento, cmd.IdTipoIntervento, cmd.Interval.ToDomain());
 
             EventRepository.Save(pricing, cmd.CommitId);
 

@@ -67,7 +67,7 @@ namespace Super.Contabilita.Domain.Pricing
         {
             var priceBase = Build.BasePrice
                 .ForGruppoOggettoIntervento(e.IdGruppoOggettoInervento)
-                .ForInterval(IntervalOpened.FromMessage(e.Intervall))
+                .ForInterval(e.Interval.ToDomain())
                 .ForType(e.IdTipoIntervento)
                 .ForValue(e.Value)
                 .Build();
@@ -95,7 +95,7 @@ namespace Super.Contabilita.Domain.Pricing
         {
             var priceBase = Build.BasePrice
                 .ForGruppoOggettoIntervento(e.IdGruppoOggettoInervento)
-                .ForInterval(IntervalOpened.FromMessage(e.Intervall))
+                .ForInterval(e.Interval.ToDomain())
                 .ForType(e.IdTipoIntervento)
                 .ForValue(e.Value)
                 .Build();

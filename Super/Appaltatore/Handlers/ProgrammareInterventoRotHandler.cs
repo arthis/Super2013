@@ -35,11 +35,11 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdAppaltatore
                                 , cmd.IdCategoriaCommerciale
                                 , cmd.IdDirezioneRegionale
-                                , WorkPeriod.FromMessage(cmd.Period)
+                                , cmd.WorkPeriod.ToDomain()
                                 , cmd.Note
-                                , cmd.Oggetti.ToDomainObjects()
-                                , Treno.FromMessage(cmd.TrenoArrivo)
-                                , Treno.FromMessage(cmd.TrenoPartenza)
+                                , cmd.Oggetti.ToDomain()
+                                , cmd.TrenoArrivo.ToDomain()
+                                , cmd.TrenoPartenza.ToDomain()
                                 , cmd.TurnoTreno
                                 , cmd.RigaTurnoTreno
                                 , cmd.Convoglio);

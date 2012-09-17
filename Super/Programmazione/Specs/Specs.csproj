@@ -89,6 +89,8 @@
     <Compile Include="Scenario\Cambio_della_descrizione_di_un_scenario_cancellato.cs" />
     <Compile Include="Scenario\Cambio_della_descrizione_di_un_scenario_promosso.cs" />
     <Compile Include="Scenario\Cancellazione_di_un_scenario_gia_promosso.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_a_un_scenario_cancellato.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_a_un_scenario_promosso_in_piano.cs" />
     <Compile Include="Scenario\promuovere_un_scenario_promosso_in_un_piano.cs" />
     <Compile Include="Scenario\promuovere_un_scenario_cancellato_in_un_piano_.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_a_un_scenario_cancellato.cs" />
@@ -109,12 +111,12 @@
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_gia_esistente_a_un_scenario.cs" />
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_piano.cs" />
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_gia_esistente_a_un_piano.cs" />
-    <Compile Include="Schedulazione\Rotabile\aggiungere_una_schedulazione_rotabile_a_un_scenario.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_a_un_scenario.cs" />
     <Compile Include="Scenario\promuovere_un_scenario_in_un_piano_.cs" />
     <Compile Include="Scenario\Creare_un_scenario_gia_creato.cs" />
     <Compile Include="Scenario\Creare_un_scenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedulazione\Rotabile\aggiungere_una_schedulazione_rotabile_gia_esistente_a_un_scenario.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_gia_esistente_a_un_scenario.cs" />
     <Compile Include="Schedulazione\Rotabile\aggiungere_una_schedulazione_rotabile_a_un_piano.cs" />
     <Compile Include="Schedulazione\Rotabile\aggiungere_una_schedulazione_rotabile_gia_esistente_a_un_piano.cs" />
     <Compile Include="Schedulazione\Rotabile\aggiungere_una_regola_a_una_schedulazione_rotabile.cs" />

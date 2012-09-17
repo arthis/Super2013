@@ -29,7 +29,7 @@ namespace Super.Controllo.Handlers
             if (existingIntervento.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            existingIntervento.ControlReso(cmd.IdUser, cmd.ControlDate, WorkPeriod.FromMessage(cmd.Period),  cmd.Note, cmd.Oggetti.ToDomainObjects());
+            existingIntervento.ControlReso(cmd.IdUser, cmd.ControlDate, cmd.WorkPeriod.ToDomain(),  cmd.Note, cmd.Oggetti.ToDomain());
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

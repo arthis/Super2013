@@ -42,8 +42,8 @@ namespace Super.Contabilita.Domain.Intervento
             Id = e.Id;
             _idPlan = e.IdPlan;
             _idTipoIntervento = e.IdTipoIntervento;
-            _oggetti = e.Oggetti.ToDomainObjects();
-            _period = Period.FromMessage(e.Period);
+            _oggetti = e.Oggetti.ToDomain();
+            _period = e.Period.ToDomain();
         }
 
         public void CalculatePrice(Pricing.Pricing bachibousouk)

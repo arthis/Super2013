@@ -1,4 +1,5 @@
 ﻿using System;
+using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.Builders;
 
 namespace CommonDomain.Core.Super.Domain.ValueObjects
@@ -33,12 +34,25 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public void BuildValue(MsgTrenoBuilder builder)
         {
-            builder.WithNumeroTreno(_numeroTreno).When(_data);
+            builder.WithNumeroTreno(_numeroTreno)
+                   .When(_data);
+        }
+    }
+
+    public static class TrenoExtension
+    {
+        public static Messaging.ValueObjects.Treno ToMessage(this  Treno treno)
+        {
+            var builder = BuildMessagingVO.MsgTreno;
+            treno.BuildValue(builder);
+            return builder.Build();
         }
 
-        public static Treno FromMessage(Messaging.ValueObjects.Treno treno)
+        public static Treno ToDomain(this  Messaging.ValueObjects.Treno treno)
         {
-            return new Treno(treno.NumeroTreno,treno.Data);
-        }
+            return BuildDomainVO.Treno
+                .FromTrenoMsg(treno)
+                .Build();
+            }
     }
 }

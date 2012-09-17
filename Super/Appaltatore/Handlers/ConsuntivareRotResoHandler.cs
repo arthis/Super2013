@@ -28,13 +28,13 @@ namespace Super.Appaltatore.Handlers
 
             existingIntervento.ConsuntivareReso(cmd.Id
                                 , cmd.DataConsuntivazione
-                                , WorkPeriod.FromMessage(cmd.Period)
+                                , cmd.WorkPeriod.ToDomain()
                                 , cmd.IdInterventoAppaltatore
                                 , cmd.Note
-                                ,cmd.Oggetti.ToDomainObjects()
-                                ,cmd.Convoglio
-                                ,Treno.FromMessage(cmd.TrenoPartenza)
-                                , Treno.FromMessage(cmd.TrenoArrivo)
+                                , cmd.Oggetti.ToDomain()
+                                , cmd.Convoglio
+                                , cmd.TrenoPartenza.ToDomain()
+                                , cmd.TrenoArrivo.ToDomain()
                                 , cmd.RigaTurnoTreno
                                 , cmd.TurnoTreno);
 

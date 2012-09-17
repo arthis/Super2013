@@ -34,9 +34,9 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdAppaltatore
                                 , cmd.IdCategoriaCommerciale
                                 , cmd.IdDirezioneRegionale
-                                , WorkPeriod.FromMessage(cmd.Period)
+                                , cmd.WorkPeriod.ToDomain()
                                 , cmd.Note
-                                , cmd.Oggetti.ToDomainObjects());
+                                , cmd.Oggetti.ToDomain());
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

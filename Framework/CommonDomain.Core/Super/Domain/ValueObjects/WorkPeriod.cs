@@ -1,4 +1,5 @@
 ﻿using System;
+using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.Builders;
 
 namespace CommonDomain.Core.Super.Domain.ValueObjects
@@ -41,11 +42,23 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             builder.From(_start).To(_end);
         }
 
-        public static WorkPeriod FromMessage(Messaging.ValueObjects.WorkPeriod workPeriod)
+    }
+
+    public static class WorkPeriodExtension
+    {
+        public static Messaging.ValueObjects.WorkPeriod ToMessage(this  WorkPeriod workPeriod)
         {
-            return new WorkPeriod(workPeriod.StartDate, workPeriod.EndDate);
+            var builder = BuildMessagingVO.MsgWorkPeriod;
+            workPeriod.BuildValue(builder);
+            return builder.Build();
         }
 
-
+        public static WorkPeriod ToDomain(this  Messaging.ValueObjects.WorkPeriod workPeriod)
+        {
+            return BuildDomainVO.WorkPeriod
+                .From(workPeriod.StartDate)
+                .To(workPeriod.EndDate)
+                .Build();
+        }
     }
 }

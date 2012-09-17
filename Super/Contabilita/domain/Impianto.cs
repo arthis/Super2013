@@ -79,7 +79,7 @@ namespace Super.Contabilita.Domain
         public void Apply(ImpiantoCreated e)
         {
             Id = e.Id;
-            _interval = BuildDomainVO.Interval.FromPeriod(e.Interval).Build();
+            _interval = BuildDomainVO.Interval.FromInterval(e.Interval).Build();
         }
 
 

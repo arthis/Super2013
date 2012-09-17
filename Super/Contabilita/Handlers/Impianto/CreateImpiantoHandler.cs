@@ -34,7 +34,7 @@ namespace Super.Contabilita.Handlers.Impianto
 
 
             var impianto = new Domain.Impianto(cmd.Id,
-                                          BuildDomainVO.Interval.FromPeriod(cmd.Interval).Build(),
+                                          BuildDomainVO.Interval.FromInterval(cmd.Interval).Build(),
                                           cmd.IdLotto,
                                           cmd.Description,
                                           existingLotto);

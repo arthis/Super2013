@@ -36,7 +36,7 @@ namespace Super.Contabilita.Handlers.Lotto
             if (_lottoRepository.AreImpiantoAssociatedOutOfInterval(cmd.Id, cmd.Interval))
                 throw new CommandValidationException("The interval of the impianti associated are not included in this interval");
 
-            lotto.Update(BuildDomainVO.Interval.FromPeriod(cmd.Interval).Build(), cmd.Description);
+            lotto.Update(BuildDomainVO.Interval.FromInterval(cmd.Interval).Build(), cmd.Description);
 
             EventRepository.Save(lotto, cmd.CommitId);
 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonDomain;
-using CommonDomain.Core;
-using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
@@ -11,13 +9,13 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Programmazione.Commands;
 using Super.Programmazione.Commands.Scenario;
-using Super.Programmazione.Commands.Schedulazione;
 using Super.Programmazione.Events;
+using Super.Programmazione.Handlers.Commands.Scenario;
 using Super.Programmazione.Handlers.Commands.Schedulazione.Rotabile;
 
-namespace Super.Programmazione.Specs.Schedulazione.Rotabile
+namespace Super.Programmazione.Specs.Scenario
 {
-    public class aggiungere_una_schedulazione_rotabile_gia_esistente_a_un_scenario : CommandBaseClass<AddSchedulazioneRotToScenario>
+    public class aggiungere_una_schedulazione_rotabile_a_un_scenario : CommandBaseClass<AddSchedulazioneRotToScenario>
     {
         private Guid _idScenario = Guid.NewGuid();
         private Guid _idUser = Guid.NewGuid();
@@ -30,7 +28,8 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
         private Guid _idDirezioneRegionale = Guid.NewGuid();
         private Guid _idImpianto =Guid.NewGuid();
         private Guid _idLotto = Guid.NewGuid();
-        private WorkPeriod _period = new WorkPeriod(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
+        private WorkPeriod _workPeriod = new WorkPeriod(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
+        private Period _period = new Period(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _tipoIntervento = Guid.NewGuid();
         private string _note= "note";
@@ -52,24 +51,6 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
                 .Build(_idScenario, 1);
-            yield return BuildEvt.SchedulazioneRotAddedToScenario
-                        .ForAppaltatore(_idAppaltatore)
-                        .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                        .ForCommittente(_idCommittente)
-                        .ForDirezioneRegionale(_idDirezioneRegionale)
-                        .ForImpianto(_idImpianto)
-                        .ForLotto(_idLotto)
-                        .ForWorkPeriod(_period)
-                        .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForScenario(_idScenario)
-                        .OfTipoIntervento(_tipoIntervento)
-                        .WithNote(_note)
-                        .WithOggetti(_oggetti)
-                        .WithRigaTurnoTreno(_rigaTurnoTreno)
-                        .WithTrenoArrivo(_trenoArrivo)
-                        .WithTrenoPartenza(_trenoPartenza)
-                        .WithTurnoTreno(_turnoTreno)
-                        .Build(_idSchedulazione, 1);
         }
 
         public override AddSchedulazioneRotToScenario When()
@@ -81,7 +62,8 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                         .ForDirezioneRegionale(_idDirezioneRegionale)
                         .ForImpianto(_idImpianto)
                         .ForLotto(_idLotto)
-                        .ForWorkPeriod(_period)
+                        .ForWorkPeriod(_workPeriod)
+                        .ForPeriod(_period)
                         .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
                         .ForSchedulazione(_idSchedulazione)
                         .OfTipoIntervento(_tipoIntervento)
@@ -91,19 +73,36 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                         .WithTrenoArrivo(_trenoArrivo)
                         .WithTrenoPartenza(_trenoPartenza)
                         .WithTurnoTreno(_turnoTreno)
-                        .Build(_idScenario, 0);
+                        .Build(_idScenario, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield break;
+            yield return BuildEvt.SchedulazioneRotAddedToScenario
+                        .ForAppaltatore(_idAppaltatore)
+                        .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                        .ForCommittente(_idCommittente)
+                        .ForDirezioneRegionale(_idDirezioneRegionale)
+                        .ForImpianto(_idImpianto)
+                        .ForLotto(_idLotto)
+                        .ForWorkPeriod(_workPeriod)
+                        .ForPeriod(_period)
+                        .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                        .ForScenario(_idScenario)
+                        .OfTipoIntervento(_tipoIntervento)
+                        .WithNote(_note)
+                        .WithOggetti(_oggetti)
+                        .WithRigaTurnoTreno(_rigaTurnoTreno)
+                        .WithTrenoArrivo(_trenoArrivo)
+                        .WithTrenoPartenza(_trenoPartenza)
+                        .WithTurnoTreno(_turnoTreno)
+                .Build(_idSchedulazione, 1);
         }
 
         [Test]
-        public void genera_un_eccezzione()
+        public void non_genera_un_eccezzione()
         {
-            Assert.IsNotNull(Caught);
-            Assert.AreEqual(typeof(AlreadyCreatedAggregateRootException), Caught.GetType());
+            Assert.IsNull(Caught);
         }
 
 

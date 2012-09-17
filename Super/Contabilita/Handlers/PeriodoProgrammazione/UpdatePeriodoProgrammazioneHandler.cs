@@ -28,7 +28,7 @@ namespace Super.Contabilita.Handlers.PeriodoProgrammazione
                 throw new AggregateRootInstanceNotFoundException();
 
             periodo.Update(cmd.Description,
-                               Interval.FromMessage(cmd.Interval));
+                               cmd.Interval.ToDomain());
 
             EventRepository.Save(periodo, cmd.CommitId);
 

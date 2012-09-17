@@ -18,7 +18,7 @@ namespace Super.Programmazione.Domain
             
         }
 
-        public void AddFromScenario(Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, string description, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, int quantity, Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note)
+        public void AddFromScenario( Guid idScenario, Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, string description, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, int quantity, Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note)
         {
 
             var periodBuilderMsg = new MsgPeriodBuilder();
@@ -27,6 +27,7 @@ namespace Super.Programmazione.Domain
             var workPeriodBuilderMsg = new MsgWorkPeriodBuilder();
             workPeriod.BuildValue((workPeriodBuilderMsg));
 
+            
             var evt = BuildEvt.SchedulazioneAmbAddedToScenario
                 .ForAppaltatore(idAppaltatore)
                 .ForCategoriaCommerciale(idCategoriaCommerciale)
@@ -38,7 +39,7 @@ namespace Super.Programmazione.Domain
                 .ForPeriod(periodBuilderMsg.Build())
                 .ForPeriodoProgrammazione(idPeriodoProgrammazione)
                 .ForQuantity(quantity)
-                .ForScenario(idSchedulazione)
+                .ForScenario(idScenario)
                 .ForWorkPeriod(workPeriodBuilderMsg.Build())
                 .OfTipoIntervento(idTipoIntervento)
                 .WithNote(note);

@@ -33,7 +33,7 @@ namespace Super.Contabilita.Handlers.PeriodoProgrammazione
 
             var periodo = new Domain.PeriodoProgrammazione(cmd.Id,
                                           cmd.Description,
-                                          Interval.FromMessage(cmd.Interval));
+                                          cmd.Interval.ToDomain());
 
             EventRepository.Save(periodo, cmd.CommitId);
 

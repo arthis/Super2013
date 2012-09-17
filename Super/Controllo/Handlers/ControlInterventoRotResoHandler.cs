@@ -30,12 +30,12 @@ namespace Super.Controllo.Handlers
 
             existingIntervento.ControlReso(cmd.IdUser,
                                             cmd.ControlDate,
-                                            WorkPeriod.FromMessage(cmd.Period),
-                                            Treno.FromMessage(cmd.TrenoPartenza),
-                                            Treno.FromMessage(cmd.TrenoArrivo),
+                                            cmd.WorkPeriod.ToDomain(),
+                                            cmd.TrenoPartenza.ToDomain(),
+                                            cmd.TrenoArrivo.ToDomain(),
                                             cmd.Convoglio,
                                             cmd.Note,
-                                            cmd.Oggetti.ToDomainObjects(),
+                                            cmd.Oggetti.ToDomain(),
                                             cmd.RigaTurnoTreno, 
                                             cmd.TurnoTreno);
 

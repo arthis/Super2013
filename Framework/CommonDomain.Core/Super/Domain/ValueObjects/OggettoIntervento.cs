@@ -201,7 +201,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             }
         }
 
-        public static IEnumerable<OggettoRot> ToDomainObjects(this IEnumerable<Messaging.ValueObjects.OggettoRot> value)
+        public static IEnumerable<OggettoRot> ToDomain(this IEnumerable<Messaging.ValueObjects.OggettoRot> value)
         {
             var builder = new CommonDomain.Core.Super.Domain.Builders.OggettoRotBuilder();
             foreach (var oggettoRot in value)
@@ -224,7 +224,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             }
         }
 
-        public static IEnumerable<OggettoRotMan> ToDomainObjects(this IEnumerable<Messaging.ValueObjects.OggettoRotMan> value)
+        public static IEnumerable<OggettoRotMan> ToDomain(this IEnumerable<Messaging.ValueObjects.OggettoRotMan> value)
         {
             var builder = new CommonDomain.Core.Super.Domain.Builders.OggettoRotManBuilder();
             foreach (var oggettoRotMan in value)

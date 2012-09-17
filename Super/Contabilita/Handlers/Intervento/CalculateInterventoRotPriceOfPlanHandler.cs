@@ -30,7 +30,7 @@ namespace Super.Contabilita.Handlers.Intervento
 
             if (intervento.IsNull())
             {
-                intervento = new Domain.Intervento.InterventoRot(cmd.Id, cmd.IdTipoIntervento, cmd.IdPlan, cmd.Oggetti.ToDomainObjects(), Period.FromMessage(cmd.Period));
+                intervento = new Domain.Intervento.InterventoRot(cmd.Id, cmd.IdTipoIntervento, cmd.IdPlan, cmd.Oggetti.ToDomain(), cmd.Period.ToDomain());
             }
 
             var bachibousouk = EventRepository.GetById<Domain.Pricing.Pricing>(cmd.IdBachBouzouk);

@@ -2,6 +2,7 @@ using System;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Programmazione.Events.Scenario;
+using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Programmazione.Events.Builders.Scenario
 {
