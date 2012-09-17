@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SchedulazioneRotMan.cs" />
     <Compile Include="SchedulazioneRot.cs" />
     <Compile Include="Exceptions\InconsistentAggregate.cs" />
     <Compile Include="Exceptions\ScenarioPromotedDoNotAllowFurtherChanges.cs" />

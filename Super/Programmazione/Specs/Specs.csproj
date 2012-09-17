@@ -91,6 +91,8 @@
     <Compile Include="Scenario\Cancellazione_di_un_scenario_gia_promosso.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_a_un_scenario_cancellato.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_a_un_scenario_promosso_in_piano.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_scenario_cancellato.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_scenario_promosso_in_piano.cs" />
     <Compile Include="Scenario\promuovere_un_scenario_promosso_in_un_piano.cs" />
     <Compile Include="Scenario\promuovere_un_scenario_cancellato_in_un_piano_.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_a_un_scenario_cancellato.cs" />
@@ -107,8 +109,8 @@
     <Compile Include="Schedulazione\generare_interventi_di_una_schedulazione_in_corso_di_generazione.cs" />
     <Compile Include="Schedulazione\generare_interventi_di_una_schedulazione.cs" />
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_regola_a_una_schedulazione_rotabile.cs" />
-    <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_scenario.cs" />
-    <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_gia_esistente_a_un_scenario.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_scenario.cs" />
+    <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_in_manutenzione_gia_esistente_a_un_scenario.cs" />
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_piano.cs" />
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_gia_esistente_a_un_piano.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_a_un_scenario.cs" />

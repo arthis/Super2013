@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
@@ -137,6 +138,20 @@ namespace Super.Programmazione.Domain
             return schedulazione;
         }
 
-        
+
+        public SchedulazioneRotMan AddSchedulazioneRotMan(Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note, IEnumerable<OggettoRotMan> oggetti)
+        {
+            if (_cancelled)
+                throw new ScenarioCancelledDoNotAllowFurtherChanges();
+
+            if (_promoted)
+                throw new ScenarioPromotedDoNotAllowFurtherChanges();
+
+            var schedulazione = new SchedulazioneRotMan();
+
+            schedulazione.AddFromScenario(Id, idAppaltatore, idCategoriaCommerciale, idCommittente, idDirezioneRegionale, idImpianto, idLotto, period, idPeriodoProgrammazione, idSchedulazione, workPeriod, idTipoIntervento, note,  oggetti);
+
+            return schedulazione;
+        }
     }
 }
