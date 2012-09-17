@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Super.Programmazione.ReadModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Super.Programmazione.ReadModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SuperProgrammazioneReadModelStoreContainer">
           <EntitySet Name="InterventoAmb" EntityType="Super.Programmazione.ReadModel.Store.InterventoAmb" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="InterventoOggettoRot" EntityType="Super.Programmazione.ReadModel.Store.InterventoOggettoRot" store:Type="Tables" Schema="dbo" />
@@ -194,6 +194,11 @@
           <Property Name="IdScenario" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="IdUser" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="IsPromotedToPlan" Type="bit" Nullable="false" />
+          <Property Name="PromotionDate" Type="datetime" />
+          <Property Name="PromotingUserId" Type="uniqueidentifier" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="SchedulationAmb">
           <Key>
@@ -281,8 +286,7 @@
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" Nullable="false" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Super.Programmazione.ReadModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -308,259 +312,264 @@
           <Key>
             <PropertyRef Name="IdIntervento" />
           </Key>
-          <Property Name="IdIntervento" Type="Guid" Nullable="false" />
-          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdIntervento" Nullable="false" Type="Guid" />
+          <Property Name="IdPeriodoProgrammazione" Nullable="false" Type="Guid" />
           <Property Name="IdPlan" Type="Guid" />
-          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
-          <Property Name="IdLotto" Type="Guid" Nullable="false" />
-          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
-          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
-          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
-          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
-          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="IdCommittente" Nullable="false" Type="Guid" />
+          <Property Name="IdLotto" Nullable="false" Type="Guid" />
+          <Property Name="IdImpianto" Nullable="false" Type="Guid" />
+          <Property Name="IdTipoIntervento" Nullable="false" Type="Guid" />
+          <Property Name="IdAppaltatore" Nullable="false" Type="Guid" />
+          <Property Name="IdCategoriaCommerciale" Nullable="false" Type="Guid" />
+          <Property Name="IdDirezioneRegionale" Nullable="false" Type="Guid" />
+          <Property Name="Note" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Start" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="End" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="Description" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Quantity" Type="Int32" />
         </EntityType>
         <EntityType Name="InterventoOggettoRot">
           <Key>
             <PropertyRef Name="IdOggettoRot" />
           </Key>
-          <Property Name="IdOggettoRot" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idInterventoRot" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="idTipoOggettoInterventoRot" Type="Guid" Nullable="false" />
+          <Property Name="IdOggettoRot" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="idInterventoRot" Nullable="false" Type="Guid" />
+          <Property Name="Description" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Quantity" Nullable="false" Type="Int32" />
+          <Property Name="idTipoOggettoInterventoRot" Nullable="false" Type="Guid" />
         </EntityType>
         <EntityType Name="InterventoOggettoRotMan">
           <Key>
             <PropertyRef Name="IdOggettoRotMan" />
           </Key>
-          <Property Name="IdOggettoRotMan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idInterventoRotMan" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="idTipoOggettoInterventoRotMan" Type="Guid" Nullable="false" />
+          <Property Name="IdOggettoRotMan" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="idInterventoRotMan" Nullable="false" Type="Guid" />
+          <Property Name="Description" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Quantity" Nullable="false" Type="Int32" />
+          <Property Name="idTipoOggettoInterventoRotMan" Nullable="false" Type="Guid" />
         </EntityType>
         <EntityType Name="InterventoRot">
           <Key>
             <PropertyRef Name="IdIntervento" />
           </Key>
-          <Property Name="IdIntervento" Type="Guid" Nullable="false" />
-          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdIntervento" Nullable="false" Type="Guid" />
+          <Property Name="IdPeriodoProgrammazione" Nullable="false" Type="Guid" />
           <Property Name="IdPlan" Type="Guid" />
-          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
-          <Property Name="IdLotto" Type="Guid" Nullable="false" />
-          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
-          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
-          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
-          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
-          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" Nullable="false" />
-          <Property Name="Convoglio" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="RigaTurnoTreno" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="TurnoTreno" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="NumeroTrenoPartenza" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="DateTrenoPartenza" Type="DateTime" />
-          <Property Name="NumeroTrenoArrivo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="DateTrenoArrivo" Type="DateTime" />
+          <Property Name="IdCommittente" Nullable="false" Type="Guid" />
+          <Property Name="IdLotto" Nullable="false" Type="Guid" />
+          <Property Name="IdImpianto" Nullable="false" Type="Guid" />
+          <Property Name="IdTipoIntervento" Nullable="false" Type="Guid" />
+          <Property Name="IdAppaltatore" Nullable="false" Type="Guid" />
+          <Property Name="IdCategoriaCommerciale" Nullable="false" Type="Guid" />
+          <Property Name="IdDirezioneRegionale" Nullable="false" Type="Guid" />
+          <Property Name="Note" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Start" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="End" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="Convoglio" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="RigaTurnoTreno" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="TurnoTreno" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="NumeroTrenoPartenza" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="DateTrenoPartenza" Type="DateTime" Precision="3" />
+          <Property Name="NumeroTrenoArrivo" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="DateTrenoArrivo" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="InterventoRotMan">
           <Key>
             <PropertyRef Name="IdIntervento" />
           </Key>
-          <Property Name="IdIntervento" Type="Guid" Nullable="false" />
-          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdIntervento" Nullable="false" Type="Guid" />
+          <Property Name="IdPeriodoProgrammazione" Nullable="false" Type="Guid" />
           <Property Name="IdPlan" Type="Guid" />
-          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
-          <Property Name="IdLotto" Type="Guid" Nullable="false" />
-          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
-          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
-          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
-          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
-          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" Nullable="false" />
+          <Property Name="IdCommittente" Nullable="false" Type="Guid" />
+          <Property Name="IdLotto" Nullable="false" Type="Guid" />
+          <Property Name="IdImpianto" Nullable="false" Type="Guid" />
+          <Property Name="IdTipoIntervento" Nullable="false" Type="Guid" />
+          <Property Name="IdAppaltatore" Nullable="false" Type="Guid" />
+          <Property Name="IdCategoriaCommerciale" Nullable="false" Type="Guid" />
+          <Property Name="IdDirezioneRegionale" Nullable="false" Type="Guid" />
+          <Property Name="Note" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Start" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="End" Nullable="false" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="LastEventsReadProgrammazione">
           <Key>
             <PropertyRef Name="CommitId" />
           </Key>
-          <Property Name="CommitId" Type="Guid" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="CommitId" Nullable="false" Type="Guid" />
+          <Property Name="Date" Nullable="false" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Plan">
           <Key>
             <PropertyRef Name="IdPlan" />
           </Key>
-          <Property Name="IdPlan" Type="Guid" Nullable="false" />
-          <Property Name="IdPromotingUser" Type="Guid" Nullable="false" />
+          <Property Name="IdPlan" Nullable="false" Type="Guid" />
+          <Property Name="IdPromotingUser" Nullable="false" Type="Guid" />
         </EntityType>
         <EntityType Name="RuleAmb">
           <Key>
             <PropertyRef Name="IdRule" />
           </Key>
-          <Property Name="IdRule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="Monday" Type="Boolean" Nullable="false" />
-          <Property Name="Tuesday" Type="Boolean" Nullable="false" />
-          <Property Name="Wednesday" Type="Boolean" Nullable="false" />
-          <Property Name="Thursday" Type="Boolean" Nullable="false" />
-          <Property Name="Friday" Type="Boolean" Nullable="false" />
-          <Property Name="Saturday" Type="Boolean" Nullable="false" />
-          <Property Name="Sunday" Type="Boolean" Nullable="false" />
-          <Property Name="WeekEnd" Type="Boolean" Nullable="false" />
-          <Property Name="HolyDay" Type="Boolean" Nullable="false" />
-          <Property Name="PreHolyDay" Type="Boolean" Nullable="false" />
-          <Property Name="PostHolyDay" Type="Boolean" Nullable="false" />
-          <Property Name="Repetition" Type="Boolean" Nullable="false" />
+          <Property Name="IdRule" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Start" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="End" Type="DateTime" Precision="3" />
+          <Property Name="Monday" Nullable="false" Type="Boolean" />
+          <Property Name="Tuesday" Nullable="false" Type="Boolean" />
+          <Property Name="Wednesday" Nullable="false" Type="Boolean" />
+          <Property Name="Thursday" Nullable="false" Type="Boolean" />
+          <Property Name="Friday" Nullable="false" Type="Boolean" />
+          <Property Name="Saturday" Nullable="false" Type="Boolean" />
+          <Property Name="Sunday" Nullable="false" Type="Boolean" />
+          <Property Name="WeekEnd" Nullable="false" Type="Boolean" />
+          <Property Name="HolyDay" Nullable="false" Type="Boolean" />
+          <Property Name="PreHolyDay" Nullable="false" Type="Boolean" />
+          <Property Name="PostHolyDay" Nullable="false" Type="Boolean" />
+          <Property Name="Repetition" Nullable="false" Type="Boolean" />
           <Property Name="Frequence" Type="Int32" />
         </EntityType>
         <EntityType Name="RuleRot">
           <Key>
             <PropertyRef Name="IdRule" />
           </Key>
-          <Property Name="IdRule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="Monday" Type="Boolean" Nullable="false" />
-          <Property Name="Tuesday" Type="Boolean" Nullable="false" />
-          <Property Name="Wednesday" Type="Boolean" Nullable="false" />
-          <Property Name="Thursday" Type="Boolean" Nullable="false" />
-          <Property Name="Friday" Type="Boolean" Nullable="false" />
-          <Property Name="Saturday" Type="Boolean" Nullable="false" />
-          <Property Name="Sunday" Type="Boolean" Nullable="false" />
-          <Property Name="WeekEnd" Type="Boolean" Nullable="false" />
-          <Property Name="HolyDay" Type="Boolean" Nullable="false" />
-          <Property Name="PreHolyDay" Type="Boolean" Nullable="false" />
-          <Property Name="PostHolyDay" Type="Boolean" Nullable="false" />
-          <Property Name="Repetition" Type="Boolean" Nullable="false" />
+          <Property Name="IdRule" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Start" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="End" Type="DateTime" Precision="3" />
+          <Property Name="Monday" Nullable="false" Type="Boolean" />
+          <Property Name="Tuesday" Nullable="false" Type="Boolean" />
+          <Property Name="Wednesday" Nullable="false" Type="Boolean" />
+          <Property Name="Thursday" Nullable="false" Type="Boolean" />
+          <Property Name="Friday" Nullable="false" Type="Boolean" />
+          <Property Name="Saturday" Nullable="false" Type="Boolean" />
+          <Property Name="Sunday" Nullable="false" Type="Boolean" />
+          <Property Name="WeekEnd" Nullable="false" Type="Boolean" />
+          <Property Name="HolyDay" Nullable="false" Type="Boolean" />
+          <Property Name="PreHolyDay" Nullable="false" Type="Boolean" />
+          <Property Name="PostHolyDay" Nullable="false" Type="Boolean" />
+          <Property Name="Repetition" Nullable="false" Type="Boolean" />
           <Property Name="Frequence" Type="Int32" />
-          <Property Name="NumeroTrenoArrivo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="DateTrenoArrivo" Type="DateTime" />
-          <Property Name="StartIntervento" Type="DateTime" />
-          <Property Name="EndIntervento" Type="DateTime" />
+          <Property Name="NumeroTrenoArrivo" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="DateTrenoArrivo" Type="DateTime" Precision="3" />
+          <Property Name="StartIntervento" Type="DateTime" Precision="3" />
+          <Property Name="EndIntervento" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="RuleRotMan">
           <Key>
             <PropertyRef Name="IdRule" />
           </Key>
-          <Property Name="IdRule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" />
-          <Property Name="Monday" Type="Boolean" Nullable="false" />
-          <Property Name="Tuesday" Type="Boolean" Nullable="false" />
-          <Property Name="Wednesday" Type="Boolean" Nullable="false" />
-          <Property Name="Thursday" Type="Boolean" Nullable="false" />
-          <Property Name="Friday" Type="Boolean" Nullable="false" />
-          <Property Name="Saturday" Type="Boolean" Nullable="false" />
-          <Property Name="Sunday" Type="Boolean" Nullable="false" />
-          <Property Name="WeekEnd" Type="Boolean" Nullable="false" />
-          <Property Name="HolyDay" Type="Boolean" Nullable="false" />
-          <Property Name="PreHolyDay" Type="Boolean" Nullable="false" />
-          <Property Name="PostHolyDay" Type="Boolean" Nullable="false" />
-          <Property Name="Repetition" Type="Boolean" Nullable="false" />
+          <Property Name="IdRule" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Start" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="End" Type="DateTime" Precision="3" />
+          <Property Name="Monday" Nullable="false" Type="Boolean" />
+          <Property Name="Tuesday" Nullable="false" Type="Boolean" />
+          <Property Name="Wednesday" Nullable="false" Type="Boolean" />
+          <Property Name="Thursday" Nullable="false" Type="Boolean" />
+          <Property Name="Friday" Nullable="false" Type="Boolean" />
+          <Property Name="Saturday" Nullable="false" Type="Boolean" />
+          <Property Name="Sunday" Nullable="false" Type="Boolean" />
+          <Property Name="WeekEnd" Nullable="false" Type="Boolean" />
+          <Property Name="HolyDay" Nullable="false" Type="Boolean" />
+          <Property Name="PreHolyDay" Nullable="false" Type="Boolean" />
+          <Property Name="PostHolyDay" Nullable="false" Type="Boolean" />
+          <Property Name="Repetition" Nullable="false" Type="Boolean" />
           <Property Name="Frequence" Type="Int32" />
         </EntityType>
         <EntityType Name="Scenario">
           <Key>
             <PropertyRef Name="IdScenario" />
           </Key>
-          <Property Name="IdScenario" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="IdUser" Type="Guid" Nullable="false" />
+          <Property Name="IdScenario" Nullable="false" Type="Guid" />
+          <Property Name="Description" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="IdUser" Nullable="false" Type="Guid" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Boolean" Name="IsPromotedToPlan" Nullable="false" />
+          <Property Type="DateTime" Name="PromotionDate" Precision="3" />
+          <Property Type="Guid" Name="PromotingUserId" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
         </EntityType>
         <EntityType Name="SchedulationAmb">
           <Key>
             <PropertyRef Name="IdSchedulation" />
           </Key>
-          <Property Name="IdSchedulation" Type="Guid" Nullable="false" />
-          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdSchedulation" Nullable="false" Type="Guid" />
+          <Property Name="IdPeriodoProgrammazione" Nullable="false" Type="Guid" />
           <Property Name="IdScenario" Type="Guid" />
           <Property Name="IdPlan" Type="Guid" />
-          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
-          <Property Name="IdLotto" Type="Guid" Nullable="false" />
-          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
-          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
-          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
-          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
-          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="IdCommittente" Nullable="false" Type="Guid" />
+          <Property Name="IdLotto" Nullable="false" Type="Guid" />
+          <Property Name="IdImpianto" Nullable="false" Type="Guid" />
+          <Property Name="IdTipoIntervento" Nullable="false" Type="Guid" />
+          <Property Name="IdAppaltatore" Nullable="false" Type="Guid" />
+          <Property Name="IdCategoriaCommerciale" Nullable="false" Type="Guid" />
+          <Property Name="IdDirezioneRegionale" Nullable="false" Type="Guid" />
+          <Property Name="Note" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Start" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="End" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="Description" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Quantity" Type="Int32" />
         </EntityType>
         <EntityType Name="SchedulationOggettoRot">
           <Key>
             <PropertyRef Name="IdOggettoRot" />
           </Key>
-          <Property Name="IdOggettoRot" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idSchedulationRot" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="idTipoOggettoInterventoRot" Type="Guid" Nullable="false" />
+          <Property Name="IdOggettoRot" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="idSchedulationRot" Nullable="false" Type="Guid" />
+          <Property Name="Description" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Quantity" Nullable="false" Type="Int32" />
+          <Property Name="idTipoOggettoInterventoRot" Nullable="false" Type="Guid" />
         </EntityType>
         <EntityType Name="SchedulationOggettoRotMan">
           <Key>
             <PropertyRef Name="IdOggettoRotMan" />
           </Key>
-          <Property Name="IdOggettoRotMan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idSchedulationRotMan" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="idTipoOggettoInterventoRotMan" Type="Guid" Nullable="false" />
+          <Property Name="IdOggettoRotMan" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="idSchedulationRotMan" Nullable="false" Type="Guid" />
+          <Property Name="Description" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Quantity" Nullable="false" Type="Int32" />
+          <Property Name="idTipoOggettoInterventoRotMan" Nullable="false" Type="Guid" />
         </EntityType>
         <EntityType Name="SchedulationRot">
           <Key>
             <PropertyRef Name="IdSchedulation" />
           </Key>
-          <Property Name="IdSchedulation" Type="Guid" Nullable="false" />
-          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdSchedulation" Nullable="false" Type="Guid" />
+          <Property Name="IdPeriodoProgrammazione" Nullable="false" Type="Guid" />
           <Property Name="IdScenario" Type="Guid" />
           <Property Name="IdPlan" Type="Guid" />
-          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
-          <Property Name="IdLotto" Type="Guid" Nullable="false" />
-          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
-          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
-          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
-          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
-          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" Nullable="false" />
-          <Property Name="Convoglio" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="RigaTurnoTreno" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="TurnoTreno" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="NumeroTrenoPartenza" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="DateTrenoPartenza" Type="DateTime" />
-          <Property Name="NumeroTrenoArrivo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="DateTrenoArrivo" Type="DateTime" />
+          <Property Name="IdCommittente" Nullable="false" Type="Guid" />
+          <Property Name="IdLotto" Nullable="false" Type="Guid" />
+          <Property Name="IdImpianto" Nullable="false" Type="Guid" />
+          <Property Name="IdTipoIntervento" Nullable="false" Type="Guid" />
+          <Property Name="IdAppaltatore" Nullable="false" Type="Guid" />
+          <Property Name="IdCategoriaCommerciale" Nullable="false" Type="Guid" />
+          <Property Name="IdDirezioneRegionale" Nullable="false" Type="Guid" />
+          <Property Name="Note" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Start" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="End" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="Convoglio" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="RigaTurnoTreno" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="TurnoTreno" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="NumeroTrenoPartenza" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="DateTrenoPartenza" Type="DateTime" Precision="3" />
+          <Property Name="NumeroTrenoArrivo" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="DateTrenoArrivo" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="SchedulationRotMan">
           <Key>
             <PropertyRef Name="IdSchedulation" />
           </Key>
-          <Property Name="IdSchedulation" Type="Guid" Nullable="false" />
-          <Property Name="IdPeriodoProgrammazione" Type="Guid" Nullable="false" />
+          <Property Name="IdSchedulation" Nullable="false" Type="Guid" />
+          <Property Name="IdPeriodoProgrammazione" Nullable="false" Type="Guid" />
           <Property Name="IdScenario" Type="Guid" />
           <Property Name="IdPlan" Type="Guid" />
-          <Property Name="IdCommittente" Type="Guid" Nullable="false" />
-          <Property Name="IdLotto" Type="Guid" Nullable="false" />
-          <Property Name="IdImpianto" Type="Guid" Nullable="false" />
-          <Property Name="IdTipoIntervento" Type="Guid" Nullable="false" />
-          <Property Name="IdAppaltatore" Type="Guid" Nullable="false" />
-          <Property Name="IdCategoriaCommerciale" Type="Guid" Nullable="false" />
-          <Property Name="IdDirezioneRegionale" Type="Guid" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" Nullable="false" />
+          <Property Name="IdCommittente" Nullable="false" Type="Guid" />
+          <Property Name="IdLotto" Nullable="false" Type="Guid" />
+          <Property Name="IdImpianto" Nullable="false" Type="Guid" />
+          <Property Name="IdTipoIntervento" Nullable="false" Type="Guid" />
+          <Property Name="IdAppaltatore" Nullable="false" Type="Guid" />
+          <Property Name="IdCategoriaCommerciale" Nullable="false" Type="Guid" />
+          <Property Name="IdDirezioneRegionale" Nullable="false" Type="Guid" />
+          <Property Name="Note" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Start" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="End" Nullable="false" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -703,7 +712,12 @@
             <ScalarProperty Name="Frequence" ColumnName="Frequence" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Scenarios"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.Scenario"><MappingFragment StoreEntitySet="Scenario">
-            <ScalarProperty Name="IdScenario" ColumnName="IdScenario" />
+            <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PromotingUserId" ColumnName="PromotingUserId" />
+                <ScalarProperty Name="PromotionDate" ColumnName="PromotionDate" />
+                <ScalarProperty Name="IsPromotedToPlan" ColumnName="IsPromotedToPlan" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IdScenario" ColumnName="IdScenario" />
             <ScalarProperty Name="Description" ColumnName="Description" />
             <ScalarProperty Name="IdUser" ColumnName="IdUser" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
@@ -799,22 +813,22 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Programmazione">
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoAmb" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoOggettoRot" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoOggettoRotMan" Width="1.5" PointX="2.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoRot" Width="1.5" PointX="4.75" PointY="0.75" Height="4.8648079427083335" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.InterventoRotMan" Width="1.5" PointX="6.75" PointY="0.75" Height="3.5186979166666656" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.LastEventsReadProgrammazione" Width="1.5" PointX="0.75" PointY="6.75" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.Plan" Width="1.5" PointX="2.75" PointY="6.75" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.RuleAmb" Width="1.5" PointX="4.75" PointY="6.75" Height="4.0956022135416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.RuleRot" Width="1.5" PointX="6.75" PointY="5.75" Height="4.8648079427083353" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.RuleRotMan" Width="1.5" PointX="8.75" PointY="0.75" Height="4.0956022135416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.Scenario" Width="1.5" PointX="8.75" PointY="5.75" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationAmb" Width="1.5" PointX="8.75" PointY="8.75" Height="4.0956022135416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRot" Width="1.5" PointX="0.75" PointY="9.75" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRotMan" Width="1.5" PointX="10.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationRot" Width="1.5" PointX="10.75" PointY="3.75" Height="5.0571093750000031" IsExpanded="true" />
-        <EntityTypeShape EntityType="Super.Programmazione.ReadModel.SchedulationRotMan" Width="1.5" PointX="10.75" PointY="9.75" Height="3.7109993489583388" IsExpanded="true" />
+        <EntityTypeShape Height="3.9033007812499996" EntityType="Super.Programmazione.ReadModel.InterventoAmb" PointX="0.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="1.9802864583333335" EntityType="Super.Programmazione.ReadModel.InterventoOggettoRot" PointX="2.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="1.9802864583333322" EntityType="Super.Programmazione.ReadModel.InterventoOggettoRotMan" PointX="2.75" PointY="3.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="4.8648079427083335" EntityType="Super.Programmazione.ReadModel.InterventoRot" PointX="4.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="3.5186979166666656" EntityType="Super.Programmazione.ReadModel.InterventoRotMan" PointX="6.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="1.4033821614583317" EntityType="Super.Programmazione.ReadModel.LastEventsReadProgrammazione" PointX="0.75" PointY="6.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="1.4033821614583317" EntityType="Super.Programmazione.ReadModel.Plan" PointX="2.75" PointY="6.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="4.0956022135416674" EntityType="Super.Programmazione.ReadModel.RuleAmb" PointX="4.75" PointY="6.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="4.8648079427083353" EntityType="Super.Programmazione.ReadModel.RuleRot" PointX="6.75" PointY="5.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="4.0956022135416674" EntityType="Super.Programmazione.ReadModel.RuleRotMan" PointX="8.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="1.5956835937500031" EntityType="Super.Programmazione.ReadModel.Scenario" PointX="8.75" PointY="5.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="4.0956022135416674" EntityType="Super.Programmazione.ReadModel.SchedulationAmb" PointX="8.75" PointY="8.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="1.9802864583333388" EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRot" PointX="0.75" PointY="9.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="1.9802864583333388" EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRotMan" PointX="10.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="5.0571093750000031" EntityType="Super.Programmazione.ReadModel.SchedulationRot" PointX="10.75" PointY="3.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="3.7109993489583388" EntityType="Super.Programmazione.ReadModel.SchedulationRotMan" PointX="10.75" PointY="9.75" Width="1.5" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

@@ -50,6 +50,11 @@ CREATE TABLE [dbo].[Scenario](
 	[IdScenario] [uniqueidentifier] NOT NULL,
 	[Description] [nvarchar](255) NOT NULL,
 	[IdUser] [uniqueidentifier] NOT NULL,
+	[IsDeleted] [bit] NOT NULL,
+	[IsPromotedToPlan] [bit] NOT NULL,
+	[PromotionDate] [datetime] NULL,
+	[PromotingUserId] [uniqueidentifier] NULL,
+	[Version] [bigint] NOT NULL,
  CONSTRAINT [PK_Scenario] PRIMARY KEY CLUSTERED 
 (
 	[IdScenario] ASC

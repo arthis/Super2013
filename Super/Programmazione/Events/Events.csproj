@@ -137,7 +137,7 @@
     <Compile Include="Schedulazione\SchedulazioneAddedToScenario.cs" />
     <Compile Include="Schedulazione\SchedulazioneOfScenarioCancelled.cs" />
     <Compile Include="Scenario\ScenarioCreated.cs" />
-    <Compile Include="Scenario\ScenarioDeleted.cs" />
+    <Compile Include="Scenario\ScenarioCancelled.cs" />
     <Compile Include="Scenario\ScenarioPromotedToPlan.cs" />
     <Compile Include="Scenario\DescriptionOfScenarioChanged.cs" />
     <Compile Include="Scenario\SchedulazioneUpdatedOfScenario.cs" />

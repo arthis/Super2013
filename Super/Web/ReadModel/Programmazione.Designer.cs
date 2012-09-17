@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-
 namespace Super.ReadModel
 {
     #region Contexts
@@ -322,6 +322,7 @@ namespace Super.ReadModel
         private ObjectSet<SchedulationRotMan> _SchedulationRotMen;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -453,11 +454,11 @@ namespace Super.ReadModel
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -502,6 +503,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -868,6 +870,7 @@ namespace Super.ReadModel
         partial void OnQuantityChanged();
 
         #endregion
+
     
     }
     
@@ -899,6 +902,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1025,6 +1029,7 @@ namespace Super.ReadModel
         partial void OnidTipoOggettoInterventoRotChanged();
 
         #endregion
+
     
     }
     
@@ -1056,6 +1061,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1182,6 +1188,7 @@ namespace Super.ReadModel
         partial void OnidTipoOggettoInterventoRotManChanged();
 
         #endregion
+
     
     }
     
@@ -1227,6 +1234,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1713,6 +1721,7 @@ namespace Super.ReadModel
         partial void OnDateTrenoArrivoChanged();
 
         #endregion
+
     
     }
     
@@ -1758,6 +1767,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2076,6 +2086,7 @@ namespace Super.ReadModel
         partial void OnEndChanged();
 
         #endregion
+
     
     }
     
@@ -2103,6 +2114,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2157,6 +2169,7 @@ namespace Super.ReadModel
         partial void OnDateChanged();
 
         #endregion
+
     
     }
     
@@ -2184,6 +2197,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2238,6 +2252,7 @@ namespace Super.ReadModel
         partial void OnIdPromotingUserChanged();
 
         #endregion
+
     
     }
     
@@ -2289,6 +2304,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2679,6 +2695,7 @@ namespace Super.ReadModel
         partial void OnFrequenceChanged();
 
         #endregion
+
     
     }
     
@@ -2730,6 +2747,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3216,6 +3234,7 @@ namespace Super.ReadModel
         partial void OnEndInterventoChanged();
 
         #endregion
+
     
     }
     
@@ -3267,6 +3286,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3657,6 +3677,7 @@ namespace Super.ReadModel
         partial void OnFrequenceChanged();
 
         #endregion
+
     
     }
     
@@ -3676,16 +3697,23 @@ namespace Super.ReadModel
         /// <param name="idScenario">Initial value of the IdScenario property.</param>
         /// <param name="description">Initial value of the Description property.</param>
         /// <param name="idUser">Initial value of the IdUser property.</param>
-        public static Scenario CreateScenario(global::System.Guid idScenario, global::System.String description, global::System.Guid idUser)
+        /// <param name="isDeleted">Initial value of the IsDeleted property.</param>
+        /// <param name="isPromotedToPlan">Initial value of the IsPromotedToPlan property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
+        public static Scenario CreateScenario(global::System.Guid idScenario, global::System.String description, global::System.Guid idUser, global::System.Boolean isDeleted, global::System.Boolean isPromotedToPlan, global::System.Int64 version)
         {
             Scenario scenario = new Scenario();
             scenario.IdScenario = idScenario;
             scenario.Description = description;
             scenario.IdUser = idUser;
+            scenario.IsDeleted = isDeleted;
+            scenario.IsPromotedToPlan = isPromotedToPlan;
+            scenario.Version = version;
             return scenario;
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3762,8 +3790,129 @@ namespace Super.ReadModel
         private global::System.Guid _IdUser;
         partial void OnIdUserChanging(global::System.Guid value);
         partial void OnIdUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsDeleted
+        {
+            get
+            {
+                return _IsDeleted;
+            }
+            set
+            {
+                OnIsDeletedChanging(value);
+                ReportPropertyChanging("IsDeleted");
+                _IsDeleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsDeleted");
+                OnIsDeletedChanged();
+            }
+        }
+        private global::System.Boolean _IsDeleted;
+        partial void OnIsDeletedChanging(global::System.Boolean value);
+        partial void OnIsDeletedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsPromotedToPlan
+        {
+            get
+            {
+                return _IsPromotedToPlan;
+            }
+            set
+            {
+                OnIsPromotedToPlanChanging(value);
+                ReportPropertyChanging("IsPromotedToPlan");
+                _IsPromotedToPlan = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsPromotedToPlan");
+                OnIsPromotedToPlanChanged();
+            }
+        }
+        private global::System.Boolean _IsPromotedToPlan;
+        partial void OnIsPromotedToPlanChanging(global::System.Boolean value);
+        partial void OnIsPromotedToPlanChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> PromotionDate
+        {
+            get
+            {
+                return _PromotionDate;
+            }
+            set
+            {
+                OnPromotionDateChanging(value);
+                ReportPropertyChanging("PromotionDate");
+                _PromotionDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PromotionDate");
+                OnPromotionDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _PromotionDate;
+        partial void OnPromotionDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnPromotionDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> PromotingUserId
+        {
+            get
+            {
+                return _PromotingUserId;
+            }
+            set
+            {
+                OnPromotingUserIdChanging(value);
+                ReportPropertyChanging("PromotingUserId");
+                _PromotingUserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PromotingUserId");
+                OnPromotingUserIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _PromotingUserId;
+        partial void OnPromotingUserIdChanging(Nullable<global::System.Guid> value);
+        partial void OnPromotingUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 Version
+        {
+            get
+            {
+                return _Version;
+            }
+            set
+            {
+                OnVersionChanging(value);
+                ReportPropertyChanging("Version");
+                _Version = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Version");
+                OnVersionChanged();
+            }
+        }
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
+        partial void OnVersionChanged();
 
         #endregion
+
     
     }
     
@@ -3809,6 +3958,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -4199,6 +4349,7 @@ namespace Super.ReadModel
         partial void OnQuantityChanged();
 
         #endregion
+
     
     }
     
@@ -4230,6 +4381,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -4356,6 +4508,7 @@ namespace Super.ReadModel
         partial void OnidTipoOggettoInterventoRotChanged();
 
         #endregion
+
     
     }
     
@@ -4387,6 +4540,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -4513,6 +4667,7 @@ namespace Super.ReadModel
         partial void OnidTipoOggettoInterventoRotManChanged();
 
         #endregion
+
     
     }
     
@@ -4558,6 +4713,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -5068,6 +5224,7 @@ namespace Super.ReadModel
         partial void OnDateTrenoArrivoChanged();
 
         #endregion
+
     
     }
     
@@ -5113,6 +5270,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -5455,9 +5613,11 @@ namespace Super.ReadModel
         partial void OnEndChanged();
 
         #endregion
+
     
     }
 
     #endregion
+
     
 }
