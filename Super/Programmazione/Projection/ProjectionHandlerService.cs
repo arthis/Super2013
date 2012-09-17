@@ -12,9 +12,6 @@ namespace Super.Programmazione.Projection
 {
     public class ProjectionHandlerService : ProjectionHandlerServiceBase
     {
-
-        
-
         public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder,IBus bus)
         {
             var handlerHelper = new EventHandlerHelper(projectionRepositoryBuilder, _handlers, bus, Execute);

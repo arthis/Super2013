@@ -74,16 +74,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Saga_Intervento\Ambiente\consuntivazione_intervento.cs" />
-    <Compile Include="Saga_Intervento\Ambiente\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
-    <Compile Include="Saga_Intervento\Ambiente\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
-    <Compile Include="Saga_Intervento\Rotabile\consuntivazione_intervento.cs" />
-    <Compile Include="Saga_Intervento\Rotabile_in_Manutenzione\consuntivazione_intervento.cs" />
-    <Compile Include="Saga_Intervento\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
-    <Compile Include="Saga_Intervento\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
-    <Compile Include="Saga_Intervento\Rotabile\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
-    <Compile Include="Saga_Intervento\Rotabile\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
+    <Compile Include="Intervento\Ambiente\consuntivazione_intervento.cs" />
+    <Compile Include="Intervento\Ambiente\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
+    <Compile Include="Intervento\Ambiente\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
+    <Compile Include="Intervento\Rotabile\consuntivazione_intervento.cs" />
+    <Compile Include="Intervento\Rotabile_in_Manutenzione\consuntivazione_intervento.cs" />
+    <Compile Include="Intervento\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
+    <Compile Include="Intervento\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
+    <Compile Include="Intervento\Rotabile\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
+    <Compile Include="Intervento\Rotabile\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScenarioPrice\consuntivazione_intervento.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">

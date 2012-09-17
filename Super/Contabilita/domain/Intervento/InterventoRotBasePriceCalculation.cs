@@ -11,23 +11,23 @@ namespace Super.Contabilita.Domain.Intervento
     {
         private readonly Guid _idTipoIntervento;
         private readonly IEnumerable<OggettoRot> _oggetti;
-        private readonly Period _period;
+        private readonly WorkPeriod _workPeriod;
 
-        public InterventoRotBasePriceCalculation(Guid idTipoIntervento, IEnumerable<OggettoRot> oggetti, Period period)
+        public InterventoRotBasePriceCalculation(Guid idTipoIntervento, IEnumerable<OggettoRot> oggetti, WorkPeriod workPeriod)
         {
             Contract.Requires(idTipoIntervento!= Guid.Empty);
             Contract.Requires(oggetti!=null);
-            Contract.Requires(period!=null);
+            Contract.Requires(workPeriod!=null);
 
             _idTipoIntervento = idTipoIntervento;
             _oggetti = oggetti;
-            _period = period;
+            _workPeriod = workPeriod;
         }
 
         public decimal Calculate(List<BasePrice> prices)
         {
             var totalPrice = 0M;
-            foreach(var date in _period.GetDays())
+            foreach(var date in _workPeriod.GetDays())
             {
                 foreach(var oggetto  in _oggetti)
                 {

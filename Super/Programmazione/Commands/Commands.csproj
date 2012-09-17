@@ -129,7 +129,7 @@
     <Compile Include="Schedulazione\UpdateSchedulationOfPlan.cs" />
     <Compile Include="Scenario\PromoteScenarioToPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scenario\AddSchedulationToScenario.cs" />
+    <Compile Include="Scenario\AddSchedulazioneToScenario.cs" />
     <Compile Include="Schedulazione\CancelSchedulationFromScenario.cs" />
     <Compile Include="Scenario\CancelScenario.cs" />
     <Compile Include="Scenario\CreateScenario.cs" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.Builders;
 
@@ -40,6 +41,14 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
         public void BuildValue(MsgWorkPeriodBuilder builder)
         {
             builder.From(_start).To(_end);
+        }
+
+        public IEnumerable<DateTime> GetDays()
+        {
+            for (DateTime mydate = _start; mydate <= _end; mydate = mydate.AddDays(1))
+            {
+                yield return mydate;
+            }
         }
 
     }

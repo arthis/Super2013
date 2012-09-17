@@ -1,20 +1,17 @@
 using System;
-using System.Diagnostics.Contracts;
-using System.Linq;
 using CommonDomain.Core;
-using CommonDomain.Core.Super.Messaging.ValueObjects;
 
-namespace Super.Contabilita.Commands.Schedulation
+namespace Super.Contabilita.Commands.Schedulazione
 {
-    public class CancelSchedulationPriceOfScenario : CommandBase
+    public class CancelSchedulazionePriceOfScenario : CommandBase
     {
 
-        public CancelSchedulationPriceOfScenario()
+        public CancelSchedulazionePriceOfScenario()
         {
             
         }
 
-        public CancelSchedulationPriceOfScenario(Guid id,
+        public CancelSchedulazionePriceOfScenario(Guid id,
                                           Guid commitId,
                                           long version)
             : base(id,commitId,  version)
@@ -23,7 +20,7 @@ namespace Super.Contabilita.Commands.Schedulation
         }
 
 
-        public bool Equals(CancelSchedulationPriceOfScenario other)
+        public bool Equals(CancelSchedulazionePriceOfScenario other)
         {
             return base.Equals(other);
         }
@@ -37,7 +34,7 @@ namespace Super.Contabilita.Commands.Schedulation
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as CancelSchedulationPriceOfScenario);
+            return Equals(obj as CancelSchedulazionePriceOfScenario);
         }
 
         public override int GetHashCode()

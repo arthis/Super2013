@@ -74,18 +74,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bachibouzouk\DeleteBasePrice.cs" />
-    <Compile Include="bachibouzouk\CreateBasePrice.cs" />
-    <Compile Include="Builders\BachiBouzouk\DeleteBasePriceBuilder.cs" />
-    <Compile Include="Builders\BachiBouzouk\CreateBasePriceBuilder.cs" />
-    <Compile Include="Builders\BachiBouzouk\CreateBachiBouzoukBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\CalculateSchedulazioneRotPriceOfScenarioBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\CancelInterventoPriceOfPlanBuilder.cs" />
+    <Compile Include="Pricing\DeleteBasePrice.cs" />
+    <Compile Include="Pricing\CreateBasePrice.cs" />
+    <Compile Include="Builders\Pricing\DeleteBasePriceBuilder.cs" />
+    <Compile Include="Builders\Pricing\CreateBasePriceBuilder.cs" />
+    <Compile Include="Builders\Pricing\CreateBachiBouzoukBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\CreateGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\DeleteGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\UpdateGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\Intervento\CancelInterventoPriceOfPlanBuilder.cs" />
     <Compile Include="Builders\PeriodoProgrammazione\ClosePeriodoProgrammazioneBuilder.cs" />
     <Compile Include="Builders\Intervento\CalculateInterventoRotPriceOfPlanBuilder.cs" />
-    <Compile Include="Builders\BachiBouzouk\UpdateAppaltatoreBuilder.cs" />
+    <Compile Include="Builders\Pricing\UpdateAppaltatoreBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\CreateTipoInterventoRotManBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\DeleteTipoInterventoRotManBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\UpdateTipoInterventoRotManBuilder.cs" />
@@ -153,14 +155,14 @@
     <Compile Include="MeasuringUnit\CreateMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\DeleteMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\UpdateMeasuringUnit.cs" />
-    <Compile Include="bachibouzouk\Createbachibouzouk.cs" />
-    <Compile Include="bachibouzouk\UpdateBasePrice.cs" />
+    <Compile Include="Pricing\CreatePricing.cs" />
+    <Compile Include="Pricing\UpdateBasePrice.cs" />
     <Compile Include="PeriodoProgrammazione\CreatePeriodoProgrammazione.cs" />
     <Compile Include="PeriodoProgrammazione\DeletePeriodoProgrammazione.cs" />
     <Compile Include="PeriodoProgrammazione\UpdatePeriodoProgrammazione.cs" />
     <Compile Include="PeriodoProgrammazione\ClosePeriodoProgrammazione.cs" />
-    <Compile Include="Schedulation\CancelSchedulationPriceOfScenario.cs" />
-    <Compile Include="Schedulation\CalculateSchedulationPriceOfScenario.cs" />
+    <Compile Include="Schedulazione\CancelSchedulationPriceOfScenario.cs" />
+    <Compile Include="Schedulazione\CalculateSchedulationPriceOfScenario.cs" />
     <Compile Include="TipoIntervento\Ambiente\CreateTipoInterventoAmb.cs" />
     <Compile Include="TipoIntervento\Ambiente\DeleteTipoInterventoAmb.cs" />
     <Compile Include="TipoIntervento\Ambiente\UpdateTipoInterventoAmb.cs" />

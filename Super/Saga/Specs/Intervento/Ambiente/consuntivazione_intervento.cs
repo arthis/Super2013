@@ -1,24 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using CommandService;
 using CommonDomain;
-using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
-using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Consuntivazione;
-using Super.Controllo.Commands;
+using Super.Controllo.Commands.Builders;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
-using BuildEvtApp = Super.Appaltatore.Events.BuildEvt;
-using BuildCmdCtrl = Super.Controllo.Commands.Builders.Build;
 
-
-
-namespace Super.Saga.Specs.Saga_Intervento.Ambiente
+namespace Super.Saga.Specs.Intervento.Ambiente
 {
     public class consuntivazione_intervento : SagaBaseClass<InterventoConsuntivatoAmbReso>
     {
@@ -75,7 +68,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 
         public override InterventoConsuntivatoAmbReso When()
         {
-            return BuildEvtApp.InterventoConsuntivatoAmbReso
+            return Appaltatore.Events.BuildEvt.InterventoConsuntivatoAmbReso
                             .ForDescription(_description)
                             .ForInterventoAppaltatore(_idInterventoAppaltatore)
                             .ForPeriod(_periodCons)
@@ -88,7 +81,7 @@ namespace Super.Saga.Specs.Saga_Intervento.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildCmdCtrl.AllowControlIntervento
+            yield return Build.AllowControlIntervento
                                      .Build(_id,0);
         }
 

@@ -11,7 +11,7 @@ namespace Super.Contabilita.Commands.Intervento
         public Guid IdPlan { get; set; }
         public Guid IdBachBouzouk { get; set; }
         public Guid IdTipoIntervento { get; set; }
-        public Period Period { get; set; }
+        public WorkPeriod WorkPeriod { get; set; }
 
         public CalculateInterventoPriceOfPlan()
         {
@@ -24,26 +24,26 @@ namespace Super.Contabilita.Commands.Intervento
                                    Guid idPlan,
                                    Guid idBachBouzouk,
                                    Guid idTipoIntervento,
-                                   Period period)
+                                   WorkPeriod workPeriod)
             : base(id,commitId,  version)
         {
         
             Contract.Requires<ArgumentNullException>(idPlan != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idBachBouzouk != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires<ArgumentNullException>(workPeriod != null);
 
             IdPlan = idPlan;
             IdBachBouzouk = idBachBouzouk;
             IdTipoIntervento = idTipoIntervento;
-            Period = period;
+            WorkPeriod = workPeriod;
         }
 
         public bool Equals(CalculateInterventoPriceOfPlan other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && other.IdPlan.Equals(IdPlan) && other.IdTipoIntervento.Equals(IdTipoIntervento) && Equals(other.Period, Period);
+            return base.Equals(other) && other.IdPlan.Equals(IdPlan) && other.IdTipoIntervento.Equals(IdTipoIntervento) && Equals(other.WorkPeriod, WorkPeriod);
         }
 
         public override bool Equals(object obj)
@@ -60,7 +60,7 @@ namespace Super.Contabilita.Commands.Intervento
                 int result = base.GetHashCode();
                 result = (result*397) ^ IdPlan.GetHashCode();
                 result = (result*397) ^ IdTipoIntervento.GetHashCode();
-                result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
+                result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
                 return result;
             }
         }
@@ -79,9 +79,9 @@ namespace Super.Contabilita.Commands.Intervento
            Guid idPlan,
            Guid idBachBouzouk,
            Guid idTipoIntervento,
-           Period period,
+           WorkPeriod workPeriod,
            OggettoRot[] oggetti)
-            : base(id, commitId, version,   idPlan, idBachBouzouk,  idTipoIntervento,  period)
+            : base(id, commitId, version,   idPlan, idBachBouzouk,  idTipoIntervento,  workPeriod)
         {
             Contract.Requires(oggetti != null);
 
@@ -131,9 +131,9 @@ namespace Super.Contabilita.Commands.Intervento
             Guid idPlan,
             Guid idBachBouzouk,
             Guid idTipoIntervento,
-            Period period, 
+            WorkPeriod workPeriod, 
             OggettoRotMan[] oggetti)
-            : base(id, commitId, version,   idPlan,idBachBouzouk,   idTipoIntervento,  period)
+            : base(id, commitId, version,   idPlan,idBachBouzouk,   idTipoIntervento,  workPeriod)
         {
             Contract.Requires(oggetti != null);
 
@@ -183,10 +183,10 @@ namespace Super.Contabilita.Commands.Intervento
             long version,
             Guid idPlan,
             Guid idBachBouzouk,
-            Guid idTipoIntervento, 
-            Period period,
+            Guid idTipoIntervento,
+            WorkPeriod workPeriod,
             int quantity)
-            : base(id, commitId, version,   idPlan, idBachBouzouk,   idTipoIntervento,    period)
+            : base(id, commitId, version,   idPlan, idBachBouzouk,   idTipoIntervento,    workPeriod)
         {
             Quantity = quantity;
         }
