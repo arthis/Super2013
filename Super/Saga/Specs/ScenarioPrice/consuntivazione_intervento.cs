@@ -8,80 +8,71 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Controllo.Commands.Builders;
+using Super.Programmazione.Events.Schedulazione;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
 
+
 namespace Super.Saga.Specs.ScenarioPrice
 {
-    public class consuntivazione_intervento : SagaBaseClass<InterventoConsuntivatoAmbReso>
+    public class consuntivazione_intervento : SagaBaseClass<SchedulazioneAmbAddedToScenario>
     {
-        readonly Guid _id = Guid.NewGuid();
-        readonly Guid _idImpianto = Guid.NewGuid();
-        readonly Guid _idTipoIntervento = Guid.NewGuid();
-        readonly Guid _idAppaltatore = Guid.NewGuid();
-        readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
-        readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        readonly Guid _idPeriodoProgrammazione = Guid.NewGuid();
-        readonly Guid _idPlan = Guid.NewGuid();
-        readonly Guid _idLotto = Guid.NewGuid();
-        readonly Guid _idCommittente = Guid.NewGuid();
-        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
-        private int _quantity = 12;
-        private string _description = "desc";
-        string _note = "note";
+        private Guid _idScenario = Guid.NewGuid();
+        private Guid _idAppaltatore = Guid.NewGuid();
+        private Guid _idCategoriaCommerciale = Guid.NewGuid();
+        private Guid _idCommittente = Guid.NewGuid();
+        private Guid _idDirezioneRegionale = Guid.NewGuid();
+        private Guid _idImpianto = Guid.NewGuid();
+        private Guid _idLotto = Guid.NewGuid();
+        private WorkPeriod _workPeriod = new WorkPeriod(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
+        private Guid _idPeriodoProgrammazione = Guid.NewGuid();
+        private Guid _tipoIntervento = Guid.NewGuid();
+        private string _note = "note";
+        private int _quantity = 25;
+        private string _description = "description";
+        private Period _period = new Period(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
+        private Guid _idSchedulazione = Guid.NewGuid();
 
-        readonly string _idInterventoAppaltatore = "dsfsd";
-        readonly WorkPeriod _periodCons = new WorkPeriod(DateTime.Now.AddHours(-19), DateTime.Now.AddMinutes(-17));
-        private int _quantityCons = 13;
-        private DateTime DataCons = DateTime.Now;
-        private string _descriptionCons = "desc cons";
-        string _noteCons = "note cons";
 
         public override string ToDescription()
         {
             return "";
         }
 
-        protected override SagaHandler<InterventoConsuntivatoAmbReso> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<SchedulazioneAmbAddedToScenario> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoConsuntivatoAmbResoHandler(repository, bus);
+            return new SchedulazioneAmbAddedToScenarioHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
         {
-            yield return BuildEvt.InterventoAmbScheduled
-              .ForWorkPeriod(_period)
-              .ForImpianto(_idImpianto)
-              .OfType(_idTipoIntervento)
-              .ForAppaltatore(_idAppaltatore)
-              .OfCategoriaCommerciale(_idCategoriaCommerciale)
-              .OfDirezioneRegionale(_idDirezioneRegionale)
-              .ForQuantity(_quantity)
-              .ForDescription(_description)
-              .WithNote(_note)
-              .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-              .ForCommittente(_idCommittente)
-              .ForPlan(_idPlan)
-              .ForLotto(_idLotto)
-              .Build(_id, 1);
+            yield break;
         }
 
-        public override InterventoConsuntivatoAmbReso When()
+        public override SchedulazioneAmbAddedToScenario When()
         {
-            return Appaltatore.Events.BuildEvt.InterventoConsuntivatoAmbReso
-                            .ForDescription(_description)
-                            .ForInterventoAppaltatore(_idInterventoAppaltatore)
-                            .ForPeriod(_periodCons)
-                            .ForQuantity(_quantityCons)
-                            .When(DataCons)
-                            .WithNote(_noteCons)
-                            .Build(_id,14);
+            return BuildEvt.SchedulazioneAmbAddedToScenario
+                .ForAppaltatore(_idAppaltatore)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForCommittente(_idCommittente)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .ForImpianto(_idImpianto)
+                .ForLotto(_idLotto)
+                .ForWorkPeriod(_workPeriod)
+                .ForPeriod(_period)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForScenario(_idScenario)
+                .OfTipoIntervento(_tipoIntervento)
+                .WithNote(_note)
+                .ForQuantity(_quantity)
+                .ForDescription(_description)
+                .Build(_idSchedulazione, 1);
             
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Build.AllowControlIntervento
+            yield return BuildC.AllowControlIntervento
                                      .Build(_id,0);
         }
 

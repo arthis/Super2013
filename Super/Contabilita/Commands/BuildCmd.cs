@@ -18,6 +18,11 @@ namespace Super.Contabilita.Commands
 {
     public static class BuildCmd
     {
+
+        #region Schedulazione
+
+        public static CalculateSchedulazionePriceOfScenarioBuilder CalculateSchedulazionePriceOfScenario { get{ return new CalculateSchedulazionePriceOfScenarioBuilder();}}
+        #endregion
         public static CreateImpiantoBuilder CreateImpianto { get { return new CreateImpiantoBuilder(); } }
 
         public static UpdateImpiantoBuilder UpdateImpianto { get { return new UpdateImpiantoBuilder(); } }

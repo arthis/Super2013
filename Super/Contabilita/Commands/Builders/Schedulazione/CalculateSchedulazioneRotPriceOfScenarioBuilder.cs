@@ -10,22 +10,25 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
     public class CalculateSchedulazioneRotPriceOfScenarioBuilder : ICommandBuilder<CalculateSchedulazioneRotPriceOfScenario>
     {
         
-        private Guid _idPlan;
-        private Guid _idPricing;
+        private Guid _idScenario;
         private Guid _idTipoIntervento;
         private Period _period;
         private OggettoRot[] _oggetti;
+        private Guid _idSchedulazione;
+        private WorkPeriod _workPeriod
+            ;
 
-        public CalculateSchedulazioneRotPriceOfScenarioBuilder Build(Guid id, long version)
+        public CalculateSchedulazioneRotPriceOfScenario Build(Guid id, long version)
         {
             return Build(id, Guid.NewGuid(), version);
         }
 
-        public CalculateSchedulazioneRotPriceOfScenarioBuilder Build(Guid id, Guid commitId, long version)
+        public CalculateSchedulazioneRotPriceOfScenario Build(Guid id, Guid commitId, long version)
         {
             var cmd = new CalculateSchedulazioneRotPriceOfScenario(id, commitId, version,
-                _idPlan,
-                _idPricing,
+                _idScenario,
+                _idSchedulazione,
+                _workPeriod,
                 _idTipoIntervento,
                 _period,
                 _oggetti);
@@ -33,15 +36,17 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
         }
 
 
-        public CalculateSchedulazioneRotPriceOfScenarioBuilder ForPricing(Guid idPricing)
+        
+
+        public CalculateSchedulazioneRotPriceOfScenarioBuilder ForScenario(Guid idScenario)
         {
-            _idPricing = idPricing;
+            _idScenario = idScenario;
             return this;
         }
 
-        public CalculateSchedulazioneRotPriceOfScenarioBuilder ForPlan(Guid idPlan)
+        public CalculateSchedulazioneRotPriceOfScenarioBuilder ForSchedulazione(Guid idSchedulazione)
         {
-            _idPlan = idPlan;
+            _idSchedulazione = idSchedulazione;
             return this;
         }
 
@@ -55,6 +60,12 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
         public CalculateInterventoRotPriceOfPlanBuilder ForPeriod(Period period)
         {
             _period = period;
+            return this;
+        }
+
+        public CalculateInterventoRotPriceOfPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
+        {
+            _workPeriod = workPeriod;
             return this;
         }
 
