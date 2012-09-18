@@ -19,7 +19,7 @@ namespace Super.Contabilita.Specs.Intervento
         private Guid _id = Guid.NewGuid();
         private Guid _idPlan = Guid.NewGuid();
         private OggettoRot[] _oggetti;
-        private Period _period = new Period(DateTime.Parse("28/08/2012 10:00"), DateTime.Parse("28/08/2012 11:00"));
+        private WorkPeriod _workPeriod = new WorkPeriod(DateTime.Parse("28/08/2012 10:00"), DateTime.Parse("28/08/2012 11:00"));
         
         private Guid _idPricing = Guid.NewGuid();
         private Guid _idBasePrice = Guid.NewGuid();
@@ -65,7 +65,7 @@ namespace Super.Contabilita.Specs.Intervento
                                  };
 
             return Commands.BuildCmd.CalculateInterventoRotPriceOfPlan
-                .ForPeriod(_period)
+                .ForWorkPeriod(_workPeriod)
                 .ForPlan(_idPlan)
                 .ForTipoIntervento(_idTipoIntervento)
                 .WithOggetti(_oggetti)
@@ -76,7 +76,7 @@ namespace Super.Contabilita.Specs.Intervento
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildEvt.InterventoRotCreated
-             .ForPeriod(_period)
+             .ForWorkPeriod(_workPeriod)
              .ForPlan(_idPlan)
              .OfType(_idTipoIntervento)
              .WithOggetti(_oggetti)

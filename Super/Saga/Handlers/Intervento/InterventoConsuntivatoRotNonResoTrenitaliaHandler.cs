@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CommonDomain;
-using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Saga.Domain.Intervento;
 
-namespace Super.Saga.Handlers
+namespace Super.Saga.Handlers.Intervento
 {
-
-    public class InterventoConsuntivatoRotResoHandler : SagaHandler<InterventoConsuntivatoRotReso>
+    public class InterventoConsuntivatoRotNonResoTrenitaliaHandler : SagaHandler<InterventoConsuntivatoRotNonResoTrenitalia>
     {
-        public InterventoConsuntivatoRotResoHandler(ISagaRepository repository, IBus bus)
+        public InterventoConsuntivatoRotNonResoTrenitaliaHandler(ISagaRepository repository, IBus bus)
             : base(repository, bus, null)
         {
         }
 
-        public sealed override ISaga OnHandle(InterventoConsuntivatoRotReso @event)
+        public sealed override ISaga OnHandle(InterventoConsuntivatoRotNonResoTrenitalia @event)
         {
             var sagaId = @event.Id;
 

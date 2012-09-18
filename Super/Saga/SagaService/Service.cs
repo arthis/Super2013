@@ -1,33 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CommonDomain;
-using CommonDomain.Core;
 using CommonDomain.Persistence.EventStore;
-using EasyNetQ;
 using EventStore;
-using EventStore.Dispatcher;
 using EventStore.Persistence.SqlPersistence.SqlDialects;
-using EventStore.Serialization;
 using Super.Saga.Handlers;
-using Super.Programmazione.Events;
+
 
 namespace Super.Saga.SagaService
 {
     public class Service
     {
-        private readonly MessageHandlerService _messageHandlerService; 
-        private static IBus bus;
+        private readonly MessageHandlerService _messageHandlerService;
+        private readonly IBus _bus;
         private readonly byte[] _encryptionKey = new byte[]
                                                      {
                                                          0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf
                                                      };
 
 
-        public Service(MessageHandlerService messageHandlerService)
+        public Service(MessageHandlerService messageHandlerService,IBus bus)
         {
             _messageHandlerService = messageHandlerService;
+            _bus = bus;
         }
 
         private IStoreEvents WireupEventStore()
@@ -53,8 +48,8 @@ namespace Super.Saga.SagaService
             
             var repository = new SagaEventStoreRepository(storeEvents);
 
-            _messageHandlerService.InitHandlers(repository);
-            _messageHandlerService.Subscribe();
+            _messageHandlerService.InitHandlers(repository, _bus);
+            
         }
 
       

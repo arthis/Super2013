@@ -89,6 +89,8 @@
     <Compile Include="Intervento\InterventoRotManSaga.cs" />
     <Compile Include="Intervento\InterventoRotSaga.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchedulazioneOfScenarioPrice\enum.cs" />
+    <Compile Include="SchedulazioneOfScenarioPrice\SchedulazioneAmbPriceSaga.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
@@ -106,6 +108,14 @@
     <ProjectReference Include="..\..\Appaltatore\Events\Events.csproj">
       <Project>{11241956-CC2D-46B0-B46C-C2E2F34AE693}</Project>
       <Name>Events %28Super\Appaltatore\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Contabilita\Commands\Commands.csproj">
+      <Project>{7C1A8FCA-5A29-4A72-9D3E-D477CF0B96BF}</Project>
+      <Name>Commands %28Super\Contabilita\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Contabilita\Events\Events.csproj">
+      <Project>{82672BF6-2C86-44F0-BDE6-DEA5FBDE6099}</Project>
+      <Name>Events %28Super\Contabilita\Events%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Controllo\Commands\Commands.csproj">
       <Project>{CB4B07C5-EAAF-4392-844E-D5C59F4C937E}</Project>

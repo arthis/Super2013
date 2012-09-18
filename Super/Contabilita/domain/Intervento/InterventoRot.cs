@@ -16,20 +16,18 @@ namespace Super.Contabilita.Domain.Intervento
         private Guid _idPlan;
         private Guid _idTipoIntervento;
         private IEnumerable<OggettoRot> _oggetti;
-        private Period _period;
+        private WorkPeriod _workPeriod;
 
         public InterventoRot()
         {
             
         }
 
-        public InterventoRot(Guid id, Guid idTipoIntervento, Guid idPlan, IEnumerable<OggettoRot> oggetti, Period period)
+        public InterventoRot(Guid id, Guid idTipoIntervento, Guid idPlan, IEnumerable<OggettoRot> oggetti, WorkPeriod workPeriod)
         {
-            var periodBuilder = BuildMessagingVO.MsgPeriod;
-            period.BuildValue(periodBuilder);
 
             var evt = BuildEvt.InterventoRotCreated
-                .ForPeriod(periodBuilder.Build())
+                .ForWorkPeriod(workPeriod.ToMessage())
                 .ForPlan(idPlan)
                 .OfType(idTipoIntervento)
                 .WithOggetti(oggetti.ToMessage().ToArray());
@@ -43,12 +41,12 @@ namespace Super.Contabilita.Domain.Intervento
             _idPlan = e.IdPlan;
             _idTipoIntervento = e.IdTipoIntervento;
             _oggetti = e.Oggetti.ToDomain();
-            _period = e.Period.ToDomain();
+            _workPeriod = e.WorkPeriod.ToDomain();
         }
 
         public void CalculatePrice(Pricing.Pricing bachibousouk)
         {
-            var priceCalculation = new InterventoRotBasePriceCalculation(_idTipoIntervento, _oggetti, _period);
+            var priceCalculation = new InterventoRotBasePriceCalculation(_idTipoIntervento, _oggetti, _workPeriod);
             
             var evt = BuildEvt.InterventoPriceOfPlanCalculated
                 .ForPlan(_idPlan)

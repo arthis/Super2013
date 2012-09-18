@@ -1,25 +1,24 @@
 using CommonDomain;
-using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Saga.Domain.Intervento;
 
-namespace Super.Saga.Handlers
+namespace Super.Saga.Handlers.Intervento
 {
-    public class InterventoConsuntivatoRotManNonResoTrenitaliaHandler : SagaHandler<InterventoConsuntivatoRotManNonResoTrenitalia>
+    public class InterventoConsuntivatoAmbNonResoHandler : SagaHandler<InterventoConsuntivatoAmbNonReso>
     {
-        public InterventoConsuntivatoRotManNonResoTrenitaliaHandler(ISagaRepository repository, IBus bus)
+        public InterventoConsuntivatoAmbNonResoHandler(ISagaRepository repository, IBus bus)
             : base(repository, bus, null)
         {
         }
 
-        public sealed override ISaga OnHandle(InterventoConsuntivatoRotManNonResoTrenitalia @event)
+        public sealed override ISaga OnHandle(InterventoConsuntivatoAmbNonReso @event)
         {
             var sagaId = @event.Id;
 
             // purchase correlation 
-            var saga = Repository.GetById<InterventoRotManSaga>(sagaId);
+            var saga = Repository.GetById<InterventoAmbSaga>(sagaId);
 
             saga.ConsuntivareIntervento(@event);
 

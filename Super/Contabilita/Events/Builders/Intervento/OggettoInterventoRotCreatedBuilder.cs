@@ -10,13 +10,13 @@ namespace Super.Contabilita.Events.Builders.Intervento
         private Guid _idTipoIntervento;
         private Guid _idPlan;
         private OggettoRot[] _oggetti;
-        private Period _period
+        private WorkPeriod _workPeriod
             ;
 
 
         public InterventoRotCreated Build(Guid id, long version)
         {
-            var evt = new InterventoRotCreated(id, Guid.NewGuid(), version,_idTipoIntervento,_idPlan, _oggetti, _period);
+            var evt = new InterventoRotCreated(id, Guid.NewGuid(), version,_idTipoIntervento,_idPlan, _oggetti, _workPeriod);
             
             return evt;
         }
@@ -40,9 +40,9 @@ namespace Super.Contabilita.Events.Builders.Intervento
             return this;
         }
 
-        public InterventoRotCreatedBuilder ForPeriod(Period period)
+        public InterventoRotCreatedBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
-            _period = period;
+            _workPeriod = workPeriod;
             return this;
         }
 

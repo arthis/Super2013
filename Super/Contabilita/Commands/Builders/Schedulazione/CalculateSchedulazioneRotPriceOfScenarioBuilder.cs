@@ -7,7 +7,7 @@ using Super.Contabilita.Commands.Schedulazione;
 
 namespace Super.Contabilita.Commands.Builders.Schedulazione
 {
-    public class CalculateSchedulazioneRotPriceOfScenarioBuilder : ICommandBuilder<CalculateSchedulazioneRotPriceOfScenario>
+    public class    CalculateSchedulazioneRotPriceOfScenarioBuilder : ICommandBuilder<CalculateSchedulazioneRotPriceOfScenario>
     {
         
         private Guid _idScenario;
@@ -57,20 +57,20 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
         }
 
 
-        public CalculateInterventoRotPriceOfPlanBuilder ForPeriod(Period period)
+        public CalculateSchedulazioneRotPriceOfScenarioBuilder ForPeriod(Period period)
         {
             _period = period;
             return this;
         }
 
-        public CalculateInterventoRotPriceOfPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
+        public CalculateSchedulazioneRotPriceOfScenarioBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
             _workPeriod = workPeriod;
             return this;
         }
 
-       
-        public CalculateInterventoRotPriceOfPlanBuilder WithOggetti(OggettoRot[] oggetti)
+
+        public CalculateSchedulazioneRotPriceOfScenarioBuilder WithOggetti(OggettoRot[] oggetti)
         {
             _oggetti = oggetti;
             return this;

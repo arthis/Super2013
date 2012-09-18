@@ -123,7 +123,7 @@ namespace Super.Contabilita.Commands.Schedulazione
             unchecked
             {
                 return (base.GetHashCode()*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
-            }              ▲
+            }              
         }
     }
 

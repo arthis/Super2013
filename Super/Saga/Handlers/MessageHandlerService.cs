@@ -1,69 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
 using CommonDomain;
-using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
-using Super.Appaltatore.Events.Consuntivazione;
-using Super.Programmazione.Events;
-using Super.Programmazione.Events.Intervento;
-using Super.Programmazione.Events.Schedulazione;
+using Super.Saga.Handlers.Intervento;
 
 namespace Super.Saga.Handlers
 {
     public class MessageHandlerService 
     {
-        private readonly IBus _bus;
+        
         private readonly Dictionary<Type, Action<IMessage>> _handlers = new Dictionary<Type, Action<IMessage>>();
 
-        public MessageHandlerService(IBus bus)
+
+        public void InitHandlers(ISagaRepository repository, IBus bus)
         {
-            _bus = bus;
-        }
+            var sagaHandler = new SagaHandler(repository, _handlers, bus, Execute);
 
-        public void InitHandlers(ISagaRepository repository)
-        {
-            var sagaHandler = new SagaHandler(repository);
+            sagaHandler.Add(new InterventoRotScheduledHandler(repository, bus));
+            sagaHandler.Add(new InterventoRotManScheduledHandler(repository, bus));
+            sagaHandler.Add(new InterventoAmbScheduledHandler(repository, bus));
 
-            sagaHandler.Add(_handlers, new InterventoRotScheduledHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoRotManScheduledHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoAmbScheduledHandler(repository, _bus));
+            sagaHandler.Add(new InterventoConsuntivatoRotResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoConsuntivatoRotNonResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoConsuntivatoRotNonResoTrenitaliaHandler(repository, bus));
 
-            sagaHandler.Add(_handlers, new InterventoConsuntivatoRotResoHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoConsuntivatoRotNonResoHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoConsuntivatoRotNonResoTrenitaliaHandler(repository, _bus));
+            sagaHandler.Add(new InterventoConsuntivatoRotManResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoConsuntivatoRotManNonResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoConsuntivatoRotManNonResoTrenitaliaHandler(repository, bus));
 
-            sagaHandler.Add(_handlers, new InterventoConsuntivatoRotManResoHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoConsuntivatoRotManNonResoHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoConsuntivatoRotManNonResoTrenitaliaHandler(repository, _bus));
-
-            sagaHandler.Add(_handlers, new InterventoConsuntivatoAmbResoHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoConsuntivatoAmbNonResoHandler(repository, _bus));
-            sagaHandler.Add(_handlers, new InterventoConsuntivatoAmbNonResoTrenitaliaHandler(repository, _bus));
-        }
-
-        public void Subscribe()
-        {
-            string subscriptionId = "Super";
-
-            _bus.Subscribe<InterventoRotGeneratedFromSchedulazione>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoRotManGeneratedFromSchedulazione>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoAmbGeneratedFromSchedulazione>(subscriptionId, Execute);
-
-            _bus.Subscribe<InterventoConsuntivatoRotReso>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoConsuntivatoRotNonReso>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoConsuntivatoRotNonResoTrenitalia>(subscriptionId, Execute);
-
-            _bus.Subscribe<InterventoConsuntivatoRotManReso>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoConsuntivatoRotManNonReso>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoConsuntivatoRotManNonResoTrenitalia>(subscriptionId, Execute);
-
-            _bus.Subscribe<InterventoConsuntivatoAmbReso>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoConsuntivatoAmbNonReso>(subscriptionId, Execute);
-            _bus.Subscribe<InterventoConsuntivatoAmbNonResoTrenitalia>(subscriptionId, Execute);
+            sagaHandler.Add(new InterventoConsuntivatoAmbResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoConsuntivatoAmbNonResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoConsuntivatoAmbNonResoTrenitaliaHandler(repository, bus));
         }
 
         public void Execute(IMessage message)

@@ -10,8 +10,8 @@ namespace Super.Saga.SagaService
         static void Main(string[] args)
         {
             var bus = RabbitHutch.CreateBus("host=localhost");
-            var messageHandler = new MessageHandlerService(bus);
-            var service = new Service(messageHandler);
+            var messageHandler = new MessageHandlerService();
+            var service = new Service(messageHandler, bus);
 
             service.Start();
             Console.WriteLine("saga service started");

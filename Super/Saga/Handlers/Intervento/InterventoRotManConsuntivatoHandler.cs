@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CommonDomain;
-using CommonDomain.Core;
+﻿using CommonDomain;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Saga.Domain.Intervento;
 
-namespace Super.Saga.Handlers
+namespace Super.Saga.Handlers.Intervento
 {
 
     public class InterventoConsuntivatoRotManResoHandler : SagaHandler<InterventoConsuntivatoRotManReso>

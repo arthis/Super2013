@@ -106,6 +106,7 @@
     <Compile Include="Builders\Plan\UpdateInterventoOfPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\ConfirmGenerationSucceedBuilder.cs" />
     <Compile Include="Builders\Schedulazione\ConfirmGenerationFailedBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\Copy of CancelSchedulationFromPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\RemoveRuleFromSchedulazioneBuilder.cs" />
     <Compile Include="Builders\Plan\UpdateSchedulazioneAmbOfPlanBuilder.cs" />
     <Compile Include="Builders\Scenario\UpdateSchedulazioneAmbOfScenarioBuilder.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="InterventoGeneration\StartGenerationOfInterventi.cs" />
     <Compile Include="Intervento\GenerateInterventoForSchedulazione.cs" />
     <Compile Include="Plan\CreatePlanFromPromotedScenario.cs" />
+    <Compile Include="Scenario\CalculateSchedulazionePrice.cs" />
     <Compile Include="Schedulazione\AddSchedulationToPlan.cs" />
     <Compile Include="Schedulazione\CancelSchedulationFromPlan.cs" />
     <Compile Include="Plan\CancelPlan.cs" />

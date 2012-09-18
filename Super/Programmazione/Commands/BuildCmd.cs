@@ -105,6 +105,8 @@ namespace Super.Programmazione.Commands
         #endregion
 
         #region Schedulazione
+
+        public static CalculateSchedulazionePriceBuilder CalculateSchedulazionePrice { get { return new CalculateSchedulazionePriceBuilder(); } }
        
         #endregion
 

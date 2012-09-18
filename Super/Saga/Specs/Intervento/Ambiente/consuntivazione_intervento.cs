@@ -10,6 +10,7 @@ using Super.Appaltatore.Events.Consuntivazione;
 using Super.Controllo.Commands.Builders;
 using Super.Saga.Handlers;
 using Super.Programmazione.Events;
+using Super.Saga.Handlers.Intervento;
 
 namespace Super.Saga.Specs.Intervento.Ambiente
 {

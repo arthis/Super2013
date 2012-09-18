@@ -75,7 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\Schedulazione\CalculateSchedulazioneRotPriceOfScenarioBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\CancelInterventoPriceOfPlanBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\CancelSchedulazionePriceOfPlanBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\CalculateSchedulazioneAmbPriceOfScenarioBuilder.cs" />
     <Compile Include="Pricing\DeleteBasePrice.cs" />
     <Compile Include="Pricing\CreateBasePrice.cs" />
     <Compile Include="Builders\Pricing\DeleteBasePriceBuilder.cs" />

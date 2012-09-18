@@ -11,7 +11,7 @@ namespace Super.Contabilita.Commands.Builders.Intervento
         private Guid _idPlan;
         private Guid _idPricing;
         private Guid _idTipoIntervento;
-        private Period _period;
+        private WorkPeriod _workPeriod;
         private OggettoRot[] _oggetti;
 
         public CalculateInterventoRotPriceOfPlan Build(Guid id, long version)
@@ -25,7 +25,7 @@ namespace Super.Contabilita.Commands.Builders.Intervento
                 _idPlan,
                 _idPricing,
                 _idTipoIntervento,
-                _period,
+                _workPeriod,
                 _oggetti);
             return cmd;
         }
@@ -50,9 +50,9 @@ namespace Super.Contabilita.Commands.Builders.Intervento
         }
 
 
-        public CalculateInterventoRotPriceOfPlanBuilder ForPeriod(Period period)
+        public CalculateInterventoRotPriceOfPlanBuilder ForWorkPeriod(WorkPeriod workPeriod)
         {
-            _period = period;
+            _workPeriod = workPeriod;
             return this;
         }
 

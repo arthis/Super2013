@@ -1,16 +1,10 @@
 ﻿using CommonDomain;
-using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Programmazione.Events.Intervento;
-using Super.Programmazione.Events.Schedulazione;
-using Super.Saga.Domain;
 using Super.Saga.Domain.Intervento;
-using Super.Programmazione.Events;
-using ISaga = CommonDomain.ISaga;
 
-
-namespace Super.Saga.Handlers
+namespace Super.Saga.Handlers.Intervento
 {
     public class InterventoRotManScheduledHandler : SagaHandler<InterventoRotManScheduled>
     {

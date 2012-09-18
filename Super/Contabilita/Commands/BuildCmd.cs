@@ -9,6 +9,7 @@ using Super.Contabilita.Commands.Builders.Intervento;
 using Super.Contabilita.Commands.Builders.Lotto;
 using Super.Contabilita.Commands.Builders.MeasuringUnit;
 using Super.Contabilita.Commands.Builders.PeriodoProgrammazione;
+using Super.Contabilita.Commands.Builders.Schedulazione;
 using Super.Contabilita.Commands.Builders.TipoIntervento;
 using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.Rotabile;
@@ -21,8 +22,12 @@ namespace Super.Contabilita.Commands
 
         #region Schedulazione
 
-        public static CalculateSchedulazionePriceOfScenarioBuilder CalculateSchedulazionePriceOfScenario { get{ return new CalculateSchedulazionePriceOfScenarioBuilder();}}
+        public static CalculateSchedulazioneRotPriceOfScenarioBuilder CalculateSchedulazioneRotPriceOfScenario { get { return new CalculateSchedulazioneRotPriceOfScenarioBuilder(); } }
+
+        public static CalculateSchedulazioneAmbPriceOfScenarioBuilder CalculateSchedulazioneAmbPriceOfScenario { get { return new CalculateSchedulazioneAmbPriceOfScenarioBuilder(); } }
+
         #endregion
+
         public static CreateImpiantoBuilder CreateImpianto { get { return new CreateImpiantoBuilder(); } }
 
         public static UpdateImpiantoBuilder UpdateImpianto { get { return new UpdateImpiantoBuilder(); } }

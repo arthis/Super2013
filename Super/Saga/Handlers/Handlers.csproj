@@ -82,21 +82,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HandleMessageOnlyOnce.cs" />
-    <Compile Include="InterventoConsuntivatoAmbNonResoHandler.cs" />
-    <Compile Include="InterventoConsuntivatoAmbNonResoTrenitaliaHandler.cs" />
-    <Compile Include="InterventoConsuntivatoRotManNonResoHandler.cs" />
-    <Compile Include="InterventoConsuntivatoRotManNonResoTrenitaliaHandler.cs" />
-    <Compile Include="InterventoConsuntivatoRotNonResoHandler.cs" />
-    <Compile Include="InterventoConsuntivatoRotNonResoTrenitaliaHandler.cs" />
-    <Compile Include="InterventoRotManConsuntivatoHandler.cs" />
-    <Compile Include="InterventoConsuntivatoRotResoHandler.cs" />
-    <Compile Include="InterventoConsuntivatoAmbResoHandler.cs" />
-    <Compile Include="InterventoAmbScheduledHandler.cs" />
-    <Compile Include="InterventoRotManScheduledHandler.cs" />
-    <Compile Include="InterventoRotScheduledHandler.cs" />
+    <Compile Include="Intervento\InterventoConsuntivatoAmbNonResoHandler.cs" />
+    <Compile Include="Intervento\InterventoConsuntivatoAmbNonResoTrenitaliaHandler.cs" />
+    <Compile Include="Intervento\InterventoConsuntivatoRotManNonResoHandler.cs" />
+    <Compile Include="Intervento\InterventoConsuntivatoRotManNonResoTrenitaliaHandler.cs" />
+    <Compile Include="Intervento\InterventoConsuntivatoRotNonResoHandler.cs" />
+    <Compile Include="Intervento\InterventoConsuntivatoRotNonResoTrenitaliaHandler.cs" />
+    <Compile Include="Intervento\InterventoRotManConsuntivatoHandler.cs" />
+    <Compile Include="Intervento\InterventoConsuntivatoRotResoHandler.cs" />
+    <Compile Include="Intervento\InterventoConsuntivatoAmbResoHandler.cs" />
+    <Compile Include="Intervento\InterventoAmbScheduledHandler.cs" />
+    <Compile Include="Intervento\InterventoRotManScheduledHandler.cs" />
+    <Compile Include="Intervento\InterventoRotScheduledHandler.cs" />
     <Compile Include="MessageHandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SagaHandler.cs" />
+    <Compile Include="ScenarioPrice\InterventoAmbScheduledHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
