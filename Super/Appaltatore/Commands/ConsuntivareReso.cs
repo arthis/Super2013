@@ -27,9 +27,11 @@ namespace Super.Appaltatore.Commands
                                 string note)
             :base (id,commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
-            Contract.Requires<ArgumentNullException>(dataConsuntivazione > DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(version >= (long)(0));
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+            Contract.Requires(period != null);
 
             IdInterventoAppaltatore = idInterventoAppaltatore;
             DataConsuntivazione = dataConsuntivazione;
@@ -92,6 +94,8 @@ namespace Super.Appaltatore.Commands
             : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
             Contract.Requires(oggetti != null);
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires(period != null);
 
             Oggetti = oggetti;
             TrenoPartenza = trenoPartenza;
@@ -153,6 +157,8 @@ namespace Super.Appaltatore.Commands
             : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
             Contract.Requires(oggetti != null);
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires(period != null);
 
             Oggetti = oggetti;
         }
@@ -206,7 +212,9 @@ namespace Super.Appaltatore.Commands
                                     string description)
             : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(quantity > 0);
+            Contract.Requires(quantity > 0);
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires(period != null);
 
             Quantity = quantity;
             Description = description;

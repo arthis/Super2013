@@ -27,9 +27,10 @@ namespace Super.Appaltatore.Commands
                                 string note)
             :base (id,commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
-            Contract.Requires<ArgumentNullException>(dataConsuntivazione > DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(idCausaleAppaltatore != Guid.Empty);
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+            Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+            Contract.Requires(version >= (long)(0));
 
             IdInterventoAppaltatore = idInterventoAppaltatore;
             DataConsuntivazione = dataConsuntivazione;
@@ -90,7 +91,7 @@ namespace Super.Appaltatore.Commands
                                 string note)
             : base (id,commitId,version, idInterventoAppaltatore,dataConsuntivazione, idCausaleAppaltatore, note)
         {
-            
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));    
         }
 
         public override string ToDescription()
@@ -120,7 +121,7 @@ namespace Super.Appaltatore.Commands
                                 string note)
             : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
-            
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));    
         }
        
         public override string ToDescription()
@@ -164,7 +165,7 @@ namespace Super.Appaltatore.Commands
                                 string note)
             : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
-            
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));    
         }
 
         public override string ToDescription()

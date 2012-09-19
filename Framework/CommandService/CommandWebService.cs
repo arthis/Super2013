@@ -81,7 +81,7 @@ namespace CommandService
 
         public ExecuteResponse Execute(CommandBase command)
         {
-            Contract.Requires(command != null);
+            
             Contract.Ensures(Contract.Result<ExecuteResponse>() != null);
 
             try
@@ -99,6 +99,9 @@ namespace CommandService
         
         private void DispatchCommit(Commit commit)
         {
+            Contract.Requires(commit != null);
+            Contract.Requires(commit.Events != null);
+
             try
             {
                 for (var i = 0; i < commit.Events.Count; i++)

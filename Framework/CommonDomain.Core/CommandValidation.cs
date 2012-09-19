@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Runtime.Serialization;
 
 namespace CommonDomain.Core
@@ -24,6 +25,7 @@ namespace CommonDomain.Core
 
         public void Add(ValidationMessage error)
         {
+            Contract.Requires(this.Messages != null);
             Messages.Add(error);
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 
 namespace CommonDomain.Persistence
 {
@@ -6,6 +7,8 @@ namespace CommonDomain.Persistence
     {
          public static void Save(this IEventRepository eventRepository, IAggregate aggregate, Guid commitId)
          {
+             Contract.Requires(eventRepository != null);
+
              eventRepository.Save(aggregate, commitId, a => {});
          }
     }

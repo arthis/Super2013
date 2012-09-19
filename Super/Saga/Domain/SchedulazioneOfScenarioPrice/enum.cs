@@ -9,7 +9,7 @@
     enum State
     {
         Start,
-        Calculating,
+        Calculating,
         End
     }
 }

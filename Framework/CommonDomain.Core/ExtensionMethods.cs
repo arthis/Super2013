@@ -1,3 +1,4 @@
+using System.Diagnostics.Contracts;
 using CommonDomain.Core.Handlers;
 
 namespace CommonDomain.Core
@@ -8,6 +9,7 @@ namespace CommonDomain.Core
 	{
 		public static string FormatWith(this string format, params object[] args)
 		{
+            Contract.Requires(args != null);
 			return string.Format(CultureInfo.InvariantCulture, format ?? string.Empty, args);
 		}
 

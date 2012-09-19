@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using CommonDomain.Core.Super.Domain.Builders;
 using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.Builders;
@@ -42,6 +43,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public void BuildValue(MsgPeriodBuilder builder)
         {
+            Contract.Requires(builder != null);
+
             builder.From(_start).To(_end);
         }
 
@@ -58,6 +61,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
     {
         public static Messaging.ValueObjects.Period ToMessage(this  Period period)
         {
+            Contract.Requires(period != null);
+
             var builder = BuildMessagingVO.MsgPeriod;
             period.BuildValue(builder);
             return builder.Build();
@@ -65,6 +70,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public static Period ToDomain(this  Messaging.ValueObjects.Period period)
         {
+            Contract.Requires(period != null);
+
             return BuildDomainVO.Period
                 .From(period.StartDate)
                 .To(period.EndDate)

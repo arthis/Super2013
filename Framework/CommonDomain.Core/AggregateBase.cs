@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Diagnostics.Contracts;
 
 namespace CommonDomain.Core
 {
@@ -16,7 +17,7 @@ namespace CommonDomain.Core
         protected AggregateBase()
             : this(null)
         {
-        }
+        } 
 
         protected AggregateBase(IRouteEvents handler)
         {
@@ -57,6 +58,8 @@ namespace CommonDomain.Core
 
         protected void RaiseEvent(IEventBuilder<IEvent> builder)
         {
+            Contract.Requires(builder != null);
+
             var @event = builder.Build(Id, Version);
             ((IAggregate)this).ApplyEvent(@event);
             this.uncommittedEvents.Add(@event);
@@ -64,6 +67,8 @@ namespace CommonDomain.Core
 
         protected void RaiseEvent(Guid id, IEventBuilder<IEvent> builder)
         {
+            Contract.Requires(builder != null);
+
             var @event = builder.Build(id, Version);
             ((IAggregate)this).ApplyEvent(@event);
             this.uncommittedEvents.Add(@event);

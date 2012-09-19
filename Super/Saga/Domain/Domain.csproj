@@ -121,6 +121,10 @@
       <Project>{CB4B07C5-EAAF-4392-844E-D5C59F4C937E}</Project>
       <Name>Commands %28Super\Controllo\Commands%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Programmazione\Commands\Commands.csproj">
+      <Project>{8a1120f1-6778-4ad1-8f09-45a2abe5c1fc}</Project>
+      <Name>Commands %28Super\Programmazione\Commands%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
       <Name>Events %28Super\Programmazione\Events%29</Name>

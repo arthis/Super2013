@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.Serialization;
 
@@ -20,7 +21,7 @@ namespace CommonDomain.Core
         public CommandBase(Guid id, Guid commitId, long version)
             :base(id,commitId,version)
         {
-            
+            Contract.Requires(version >= (long)(0));    
         }
 
         public static Type[] GetKnownTypes()

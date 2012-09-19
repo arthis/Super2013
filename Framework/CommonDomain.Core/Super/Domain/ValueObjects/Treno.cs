@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.Builders;
 
@@ -34,6 +35,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public void BuildValue(MsgTrenoBuilder builder)
         {
+            Contract.Requires(builder != null);
+
             builder.WithNumeroTreno(_numeroTreno)
                    .When(_data);
         }
@@ -43,6 +46,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
     {
         public static Messaging.ValueObjects.Treno ToMessage(this  Treno treno)
         {
+            Contract.Requires(treno != null);
+
             var builder = BuildMessagingVO.MsgTreno;
             treno.BuildValue(builder);
             return builder.Build();
@@ -50,6 +55,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public static Treno ToDomain(this  Messaging.ValueObjects.Treno treno)
         {
+            Contract.Requires(treno != null);
+
             return BuildDomainVO.Treno
                 .FromTrenoMsg(treno)
                 .Build();

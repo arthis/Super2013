@@ -15,8 +15,6 @@ namespace CommonDomain.Core.Handlers.Commands
         
         public  CommandValidation Execute(ICommand commandBase)
         {
-            Contract.Requires(commandBase != null);
-
 
             var type = commandBase.GetType();
             if (_handlers.ContainsKey(type))

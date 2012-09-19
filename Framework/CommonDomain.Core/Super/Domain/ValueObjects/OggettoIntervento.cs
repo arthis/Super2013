@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using CommonDomain.Core.Super.Messaging.Builders;
 
@@ -113,6 +114,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public void BuildValue(MsgOggettoRotBuilder builder)
         {
+            Contract.Requires(builder != null);
+
             builder.OfQuantity(_quantity).OfType(_idTipoOggettoInterventoRot).ForDescription(_description).ForGruppo(_idGruppoOggettoIntervento);
         }
     }
@@ -182,6 +185,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public void BuildValue(MsgOggettoRotManBuilder builder)
         {
+            Contract.Requires(builder != null);
+
             builder.OfQuantity(_quantity)
                 .OfType(_idTipoOggettoInterventoRotMan)
                 .ForDescription(_description)

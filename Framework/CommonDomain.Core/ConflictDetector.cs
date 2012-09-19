@@ -1,3 +1,5 @@
+using System.Diagnostics.Contracts;
+
 namespace CommonDomain.Core
 {
 	using System;
@@ -27,6 +29,8 @@ namespace CommonDomain.Core
 			if (!this.actions.TryGetValue(typeof(TUncommitted), out inner))
 				this.actions[typeof(TUncommitted)] = inner = new Dictionary<Type, ConflictDelegate>();
 
+            Contract.Requires(inner!=null);
+
 			inner[typeof(TCommitted)] = (uncommitted, committed) =>
 				handler(uncommitted as TUncommitted, committed as TCommitted);
 		}
@@ -40,6 +44,11 @@ namespace CommonDomain.Core
 		}
 		private bool Conflicts(object uncommitted, object committed)
 		{
+            Contract.Requires(uncommitted != null);
+            Contract.Requires(this.actions != null);
+            Contract.Requires(committed != null);
+
+
 			IDictionary<Type, ConflictDelegate> registration;
 			if (!this.actions.TryGetValue(uncommitted.GetType(), out registration))
 				return uncommitted.GetType() == committed.GetType(); // no reg, only conflict if the events are the same time

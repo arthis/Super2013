@@ -1,3 +1,5 @@
+using System.Diagnostics.Contracts;
+
 namespace CommonDomain.Persistence.EventStore
 {
 	using System;
@@ -50,6 +52,8 @@ namespace CommonDomain.Persistence.EventStore
 
 		private IEventStream OpenStream(Guid sagaId)
 		{
+            Contract.Requires(this.streams != null);
+
 			IEventStream stream;
 			if (this.streams.TryGetValue(sagaId, out stream))
 				return stream;
@@ -68,6 +72,9 @@ namespace CommonDomain.Persistence.EventStore
 
 		private static TSaga BuildSaga<TSaga>(IEventStream stream) where TSaga : class, ISaga, new()
 		{
+            Contract.Requires(stream != null);
+            Contract.Requires(stream.CommittedEvents != null);
+
 			var saga = new TSaga();
 			foreach (var @event in stream.CommittedEvents.Select(x => x.Body))
 				saga.Transition(@event);
@@ -94,6 +101,8 @@ namespace CommonDomain.Persistence.EventStore
 
 		private static Dictionary<string, object> PrepareHeaders(ISaga saga, Action<IDictionary<string, object>> updateHeaders)
 		{
+            Contract.Requires(saga != null);
+
 			var headers = new Dictionary<string, object>();
 
 			headers[SagaTypeHeader] = saga.GetType().FullName;
@@ -108,6 +117,10 @@ namespace CommonDomain.Persistence.EventStore
 		}
 		private IEventStream PrepareStream(ISaga saga, Dictionary<string, object> headers)
 		{
+            Contract.Requires(saga != null);
+            Contract.Requires(this.streams != null);
+            Contract.Requires(headers != null);
+
 			IEventStream stream;
 			if (!this.streams.TryGetValue(saga.Id, out stream))
 				this.streams[saga.Id] = stream = this.eventStore.CreateStream(saga.Id);
@@ -125,6 +138,8 @@ namespace CommonDomain.Persistence.EventStore
 		}
 		private static void Persist(IEventStream stream, Guid commitId)
 		{
+            Contract.Requires(stream != null);
+
 			try
 			{
 				stream.CommitChanges(commitId);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 
@@ -46,11 +47,15 @@ namespace CommonDomain.Core
 
         public virtual void Serialize<T>(Stream output, T graph)
         {
+            Contract.Requires(graph != null); 
+            
             using (var streamWriter = new StreamWriter(output, Encoding.UTF8))
                 this.Serialize(new JsonTextWriter(streamWriter), graph);
         }
         protected virtual void Serialize(JsonWriter writer, object graph)
         {
+            Contract.Requires(graph != null);
+
             using (writer)
                 this.GetSerializer(graph.GetType()).Serialize(writer, graph);
         }

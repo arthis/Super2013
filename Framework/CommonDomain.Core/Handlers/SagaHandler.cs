@@ -34,6 +34,8 @@ namespace CommonDomain.Core.Handlers
 
         public void Dispatch(ISaga saga)
         {
+            Contract.Requires(saga != null);
+
             foreach (var msg in saga.GetUndispatchedMessages())
             {
                 var message = msg as IMessage;

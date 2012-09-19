@@ -6,7 +6,7 @@ namespace CommonDomain.Core.Handlers
 {
     public class ProjectOnlyOnceOnlyHandler<T> : IEventHandler<T> where T : IMessage
     {
-        private readonly ICommandRepository _commandRepository;
+
         private readonly IProjectionRepository _repository;
         private IEventHandler<T> _next;
 

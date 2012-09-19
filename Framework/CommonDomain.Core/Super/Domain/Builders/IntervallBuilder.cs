@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using CommonDomain.Core.Super.Domain.ValueObjects;
@@ -25,6 +26,8 @@ namespace CommonDomain.Core.Super.Domain.Builders
 
         public IntervalBuilder FromInterval(Messaging.ValueObjects.Interval interval)
         {
+            Contract.Requires(interval != null);
+
             _from = interval.Start;
             _to = interval.End;
             return this;

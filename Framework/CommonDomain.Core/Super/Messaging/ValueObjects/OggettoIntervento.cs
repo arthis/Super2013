@@ -61,6 +61,8 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         public OggettoRot(string description, int quantity, Guid idTipoOggettoInterventoRot, Guid idGruppoOggettoIntervento)
             : base(description,quantity)
         {
+            Contract.Requires(quantity > 0);
+            Contract.Requires(!string.IsNullOrEmpty(description));
             Contract.Requires(idTipoOggettoInterventoRot != Guid.Empty);
             Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
@@ -107,6 +109,8 @@ namespace CommonDomain.Core.Super.Messaging.ValueObjects
         public OggettoRotMan(string description, int quantity, Guid idTipoOggettoInterventoRotMan, Guid idGruppoOggettoIntervento)
             : base(description,quantity)
         {
+            Contract.Requires(quantity > 0);
+            Contract.Requires(!string.IsNullOrEmpty(description));
             Contract.Requires(idTipoOggettoInterventoRotMan != Guid.Empty);
             Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 

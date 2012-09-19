@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.Contracts;
 using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.Builders;
 
@@ -40,11 +41,15 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public void BuildValue(MsgIntervalBuilder builder)
         {
+            Contract.Requires(builder != null);
+
             builder.From(_start).To(_end);
         }
 
         public bool Contains(Interval other)
         {
+            Contract.Requires(other != null);
+
             if (_start > other._start)
                 return false;
             if(_end.HasValue && !other._end.HasValue)
@@ -60,6 +65,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
     {
         public static Messaging.ValueObjects.Interval ToMessage(this  Interval interval)
         {
+            Contract.Requires(interval != null);
+
             var builder = BuildMessagingVO.MsgInterval;
             interval.BuildValue(builder);
             return builder.Build();
@@ -67,6 +74,8 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
 
         public static Interval ToDomain(this  Messaging.ValueObjects.Interval interval)
         {
+            Contract.Requires(interval != null);
+
             return BuildDomainVO.Interval
                 .From(interval.Start)
                 .To(interval.End)

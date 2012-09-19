@@ -23,7 +23,7 @@ namespace Super.Saga.Domain.SchedulazioneOfScenarioPrice
             _stateMachine = new StateMachine<State, Trigger>(() => _state, newState => _state = newState);
 
             _stateMachine.Configure(State.Start)
-                .Permit(Trigger.SchedulazionAdded, State.Calculating);
+                .Permit(Trigger.SchedulazionAdded, State.Calculating);
 
             _stateMachine.Configure(State.Calculating)
                 .Permit(Trigger.SchedulazioneCalculated, State.End);
@@ -64,7 +64,7 @@ namespace Super.Saga.Domain.SchedulazioneOfScenarioPrice
             if (!_stateMachine.IsInState(State.Calculating))
                 throw new Exception("Saga is not in calculating state");
 
-            var cmd = Build.AllowControlIntervento
+            var cmd = Super.Programmazione.Commands.BuildCmd.CalculateSchedulazionePrice
                                      .Build(Id, 0);
 
             Dispatch(cmd);
@@ -75,7 +75,7 @@ namespace Super.Saga.Domain.SchedulazioneOfScenarioPrice
         private void OnSchedulationPriceOfScenarioCalculated(SchedulationPriceOfScenarioCalculated evt)
         {
             //publish intervento to appaltatore
-            _stateMachine.Fire(Trigger.Consuntivato);
+            _stateMachine.Fire(Trigger.SchedulazioneCalculated);
         }
 
     }

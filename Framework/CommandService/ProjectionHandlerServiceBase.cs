@@ -15,7 +15,6 @@ namespace CommandService
 
         public void Execute(IEvent evt)
         {
-            Contract.Requires<ArgumentNullException>(evt != null);
 
             var type = evt.GetType();
             if (_handlers.ContainsKey(type))

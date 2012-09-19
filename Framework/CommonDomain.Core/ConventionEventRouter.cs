@@ -1,3 +1,5 @@
+using System.Diagnostics.Contracts;
+
 namespace CommonDomain.Core
 {
 	using System;
@@ -71,6 +73,7 @@ namespace CommonDomain.Core
 
 		private void Register(Type messageType, Action<object> handler)
 		{
+            Contract.Requires(this.handlers != null);
 			this.handlers[messageType] = handler;
 		}
 	}

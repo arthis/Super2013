@@ -36,6 +36,7 @@ namespace Super.Appaltatore.Commands
                                      string note)
             : base(id, commitId, version)
         {
+            Contract.Requires(version >= (long)(0));
             Contract.Requires<ArgumentNullException>(idImpianto != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
             Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
@@ -116,6 +117,7 @@ namespace Super.Appaltatore.Commands
             : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Contract.Requires(oggetti != null);
+            Contract.Requires(period != null);
 
             Oggetti = oggetti;
             TrenoPartenza = trenoPartenza;
@@ -182,6 +184,7 @@ namespace Super.Appaltatore.Commands
             : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Contract.Requires(oggetti != null);
+            Contract.Requires(period != null);
 
             Oggetti = oggetti;
         }
@@ -240,6 +243,8 @@ namespace Super.Appaltatore.Commands
             : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
             Contract.Requires<ArgumentOutOfRangeException>(quantity >= 0);
+            Contract.Requires(period != null);
+            
 
             Quantity = quantity;
             Description = description;
