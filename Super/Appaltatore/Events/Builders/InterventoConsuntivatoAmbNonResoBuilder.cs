@@ -6,12 +6,21 @@ namespace Super.Appaltatore.Events.Builders
 {
     public class InterventoConsuntivatoAmbNonResoBuilder : IEventBuilder<InterventoConsuntivatoAmbNonReso>
     {
-        private Guid _id;
-        private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
+        private Guid _id;
         private Guid _idCausaleAppaltatore;
+        private string _idInterventoAppaltatore;
         private string _note;
 
+        #region IEventBuilder<InterventoConsuntivatoAmbNonReso> Members
+
+        public InterventoConsuntivatoAmbNonReso Build(Guid id, long version)
+        {
+            return new InterventoConsuntivatoAmbNonReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore,
+                                                        _dataConsuntivazione, _idCausaleAppaltatore, _note);
+        }
+
+        #endregion
 
         public InterventoConsuntivatoAmbNonResoBuilder ForInterventoAppaltatore(string idInterventoAppaltatore)
         {
@@ -36,11 +45,5 @@ namespace Super.Appaltatore.Events.Builders
             _note = note;
             return this;
         }
-
-        public InterventoConsuntivatoAmbNonReso Build(Guid id, long version)
-        {
-            return new InterventoConsuntivatoAmbNonReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
-        }
-
     }
 }

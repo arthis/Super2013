@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Consuntivazione;
@@ -8,13 +7,22 @@ namespace Super.Appaltatore.Events.Builders
 {
     public class InterventoConsuntivatoAmbResoBuilder : IEventBuilder<InterventoConsuntivatoAmbReso>
     {
-        private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
-        private WorkPeriod _period;
-        private string _note;
-        private int _quantity;
         private string _description;
+        private string _idInterventoAppaltatore;
+        private string _note;
+        private WorkPeriod _period;
+        private int _quantity;
 
+        #region IEventBuilder<InterventoConsuntivatoAmbReso> Members
+
+        public InterventoConsuntivatoAmbReso Build(Guid id, long version)
+        {
+            return new InterventoConsuntivatoAmbReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore,
+                                                     _dataConsuntivazione, _period, _note, _quantity, _description);
+        }
+
+        #endregion
 
         public InterventoConsuntivatoAmbResoBuilder ForQuantity(int quantity)
         {
@@ -52,13 +60,5 @@ namespace Super.Appaltatore.Events.Builders
             _note = note;
             return this;
         }
-
-
-        public InterventoConsuntivatoAmbReso Build(Guid id, long version)
-        {
-
-            return new InterventoConsuntivatoAmbReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note, _quantity, _description);
-        }
-
     }
 }

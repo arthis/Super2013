@@ -4,15 +4,27 @@ using Super.Appaltatore.Events.Consuntivazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
-    public class InterventoConsuntivatoRotManNonResoTrenitaliaBuilder : IEventBuilder<InterventoConsuntivatoRotManNonResoTrenitalia>
+    public class InterventoConsuntivatoRotManNonResoTrenitaliaBuilder :
+        IEventBuilder<InterventoConsuntivatoRotManNonResoTrenitalia>
     {
-        private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
         private Guid _idCausaleTrenitalia;
+        private string _idInterventoAppaltatore;
         private string _note;
 
+        #region IEventBuilder<InterventoConsuntivatoRotManNonResoTrenitalia> Members
 
-        public InterventoConsuntivatoRotManNonResoTrenitaliaBuilder ForInterventoAppaltatore(string idInterventoAppaltatore)
+        public InterventoConsuntivatoRotManNonResoTrenitalia Build(Guid id, long version)
+        {
+            return new InterventoConsuntivatoRotManNonResoTrenitalia(id, Guid.NewGuid(), version,
+                                                                     _idInterventoAppaltatore, _dataConsuntivazione,
+                                                                     _idCausaleTrenitalia, _note);
+        }
+
+        #endregion
+
+        public InterventoConsuntivatoRotManNonResoTrenitaliaBuilder ForInterventoAppaltatore(
+            string idInterventoAppaltatore)
         {
             _idInterventoAppaltatore = idInterventoAppaltatore;
             return this;
@@ -29,16 +41,11 @@ namespace Super.Appaltatore.Events.Builders
             _idCausaleTrenitalia = idCausaleTrenitalia;
             return this;
         }
+
         public InterventoConsuntivatoRotManNonResoTrenitaliaBuilder WithNote(string note)
         {
             _note = note;
             return this;
         }
-
-        public InterventoConsuntivatoRotManNonResoTrenitalia Build(Guid id, long version)
-        {
-            return new InterventoConsuntivatoRotManNonResoTrenitalia(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleTrenitalia, _note);
-        }
-
     }
 }

@@ -1,30 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CommonDomain;
-using CommonDomain.Core.Super.Messaging.Builders;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
-
     public class InterventoRotProgrammatoBuilder : IEventBuilder<InterventoRotProgrammato>
     {
-        private Guid _idImpianto;
-        private Guid _idTipoIntervento;
+        private string _convoglio;
         private Guid _idAppaltatore;
         private Guid _idCategoriaCommerciale;
         private Guid _idDirezioneRegionale;
-        private WorkPeriod _period;
+        private Guid _idImpianto;
+        private Guid _idTipoIntervento;
         private string _note;
         private OggettoRot[] _oggetti;
-        private Treno _trenoPartenza;
-        private Treno _trenoArrivo;
-        private string _turnoTreno;
+        private WorkPeriod _period;
         private string _rigaTurnoTreno;
-        private string _convoglio;
+        private Treno _trenoArrivo;
+        private Treno _trenoPartenza;
+        private string _turnoTreno;
+
+        #region IEventBuilder<InterventoRotProgrammato> Members
+
+        public InterventoRotProgrammato Build(Guid id, long version)
+        {
+            return new InterventoRotProgrammato(id, Guid.NewGuid(),
+                                                version,
+                                                _idImpianto,
+                                                _idTipoIntervento,
+                                                _idAppaltatore,
+                                                _idCategoriaCommerciale,
+                                                _idDirezioneRegionale,
+                                                _period,
+                                                _note,
+                                                _oggetti,
+                                                _trenoPartenza,
+                                                _trenoArrivo,
+                                                _turnoTreno,
+                                                _rigaTurnoTreno,
+                                                _convoglio);
+        }
+
+        #endregion
 
         public InterventoRotProgrammatoBuilder WithOggetti(OggettoRot[] oggetti)
         {
@@ -38,7 +56,6 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-     
 
         public InterventoRotProgrammatoBuilder ForImpianto(Guid idImpianto)
         {
@@ -105,25 +122,5 @@ namespace Super.Appaltatore.Events.Builders
             _convoglio = convoglio;
             return this;
         }
-
-        public InterventoRotProgrammato Build(Guid id, long version)
-        {
-            return new InterventoRotProgrammato(id, Guid.NewGuid(),
-                                      version,
-                                      _idImpianto,
-                                      _idTipoIntervento,
-                                      _idAppaltatore,
-                                      _idCategoriaCommerciale,
-                                      _idDirezioneRegionale,
-                                      _period,
-                                      _note,
-                                      _oggetti,
-                                      _trenoPartenza,
-                                      _trenoArrivo,
-                                      _turnoTreno,
-                                      _rigaTurnoTreno,
-                                      _convoglio);
-        }
-
     }
 }

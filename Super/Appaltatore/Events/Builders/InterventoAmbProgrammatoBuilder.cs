@@ -1,29 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
 using CommonDomain;
-using CommonDomain.Core.Super.Messaging.Builders;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
-
     public class InterventoAmbProgrammatoBuilder : IEventBuilder<InterventoAmbProgrammato>
     {
-
-        private Guid _idImpianto;
-        private Guid _idTipoIntervento;
+        private string _description;
         private Guid _idAppaltatore;
         private Guid _idCategoriaCommerciale;
         private Guid _idDirezioneRegionale;
-        private WorkPeriod _period;
+        private Guid _idImpianto;
+        private Guid _idTipoIntervento;
         private string _note;
-        private  int _quantity;
-        private string _description;
+        private WorkPeriod _period;
+        private int _quantity;
 
+        #region IEventBuilder<InterventoAmbProgrammato> Members
+
+        public InterventoAmbProgrammato Build(Guid id, long version)
+        {
+            return new InterventoAmbProgrammato(id, Guid.NewGuid(),
+                                                version,
+                                                _idImpianto,
+                                                _idTipoIntervento,
+                                                _idAppaltatore,
+                                                _idCategoriaCommerciale,
+                                                _idDirezioneRegionale,
+                                                _period,
+                                                _note,
+                                                _quantity,
+                                                _description);
+        }
+
+        #endregion
 
         public InterventoAmbProgrammatoBuilder ForPeriod(WorkPeriod period)
         {
@@ -78,24 +89,5 @@ namespace Super.Appaltatore.Events.Builders
             _description = description;
             return this;
         }
-
-
-
-        public InterventoAmbProgrammato Build(Guid id, long version)
-        {
-
-            return new InterventoAmbProgrammato(id, Guid.NewGuid(),
-                                        version,
-                                      _idImpianto,
-                                      _idTipoIntervento,
-                                      _idAppaltatore,
-                                      _idCategoriaCommerciale,
-                                      _idDirezioneRegionale,
-                                      _period,
-                                      _note,
-                                      _quantity,
-                                      _description);
-        }
-
     }
 }

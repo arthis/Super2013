@@ -1,35 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using CommonDomain;
 using CommonDomain.Core;
 
 namespace Super.Appaltatore.Events.Consuntivazione
 {
     public abstract class InterventoConsuntivatoNonReso : Message, IInterventoConsuntivato
     {
-
-
-        public string Note { get; set; }
-        public Guid IdCausaleAppaltatore { get; set; }
-        public DateTime DataConsuntivazione { get; set; }
-        public string IdInterventoAppaltatore { get; set; }
-
-        //for serialization
         public InterventoConsuntivatoNonReso()
         {
-            
         }
 
         public InterventoConsuntivatoNonReso(Guid id,
-                                Guid commitId,
-                                long version,
-                                string idInterventoAppaltatore,
-                                DateTime dataConsuntivazione,
-                                Guid idCausaleAppaltatore,
-                                string note)
+                                             Guid commitId,
+                                             long version,
+                                             string idInterventoAppaltatore,
+                                             DateTime dataConsuntivazione,
+                                             Guid idCausaleAppaltatore,
+                                             string note)
             : base(id, commitId, version)
         {
             Contract.Requires<ArgumentNullException>(id != Guid.Empty);
@@ -44,11 +31,21 @@ namespace Super.Appaltatore.Events.Consuntivazione
             Note = note;
         }
 
+        public string Note { get; set; }
+        public Guid IdCausaleAppaltatore { get; set; }
+        public DateTime DataConsuntivazione { get; set; }
+        public string IdInterventoAppaltatore { get; set; }
+
+        //for serialization
+
         public bool Equals(InterventoConsuntivatoNonReso other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Note, Note) && other.IdCausaleAppaltatore.Equals(IdCausaleAppaltatore) && other.DataConsuntivazione.Equals(DataConsuntivazione) && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore);
+            return base.Equals(other) && Equals(other.Note, Note) &&
+                   other.IdCausaleAppaltatore.Equals(IdCausaleAppaltatore) &&
+                   other.DataConsuntivazione.Equals(DataConsuntivazione) &&
+                   Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore);
         }
 
         public override bool Equals(object obj)
@@ -77,19 +74,22 @@ namespace Super.Appaltatore.Events.Consuntivazione
         //for serialization
         public InterventoConsuntivatoRotNonReso()
         {
-            
         }
 
-        public InterventoConsuntivatoRotNonReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
+        public InterventoConsuntivatoRotNonReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore,
+                                                DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
             : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
         }
+
+        #region IInterventoRotConsuntivato Members
 
         public override string ToDescription()
         {
             return string.Format("Il intervento rotabile '{0}' é stato consuntivato non reso.", Id);
         }
 
+        #endregion
 
         public bool Equals(InterventoConsuntivatoRotNonReso other)
         {
@@ -114,18 +114,22 @@ namespace Super.Appaltatore.Events.Consuntivazione
         //for serialization
         public InterventoConsuntivatoRotManNonReso()
         {
-            
         }
 
-        public InterventoConsuntivatoRotManNonReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
+        public InterventoConsuntivatoRotManNonReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore,
+                                                   DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
             : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
         }
+
+        #region IInterventoRotManConsuntivato Members
 
         public override string ToDescription()
         {
             return string.Format("Il intervento rotabile in manutenzione '{0}' é stato consuntivato non reso.", Id);
         }
+
+        #endregion
 
         public bool Equals(InterventoConsuntivatoRotManNonReso other)
         {
@@ -145,26 +149,28 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
     }
 
-    public class InterventoConsuntivatoAmbNonReso : InterventoConsuntivatoNonReso,  IInterventoAmbConsuntivato
+    public class InterventoConsuntivatoAmbNonReso : InterventoConsuntivatoNonReso, IInterventoAmbConsuntivato
     {
         //for serialization
         public InterventoConsuntivatoAmbNonReso()
         {
-            
         }
 
 
-        public InterventoConsuntivatoAmbNonReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
+        public InterventoConsuntivatoAmbNonReso(Guid id, Guid commitId, long version, string idInterventoAppaltatore,
+                                                DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
             : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, idCausaleAppaltatore, note)
         {
-            
         }
-    
+
+        #region IInterventoAmbConsuntivato Members
 
         public override string ToDescription()
         {
             return string.Format("Il intervento ambiente '{0}' é stato consuntivato non reso.", Id);
         }
+
+        #endregion
 
         public bool Equals(InterventoConsuntivatoAmbNonReso other)
         {

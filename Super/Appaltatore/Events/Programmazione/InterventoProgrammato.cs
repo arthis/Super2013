@@ -9,19 +9,8 @@ namespace Super.Appaltatore.Events.Programmazione
 {
     public abstract class InterventoProgrammato : Message, IEvent
     {
-        public string Note { get;  set; }
-        public WorkPeriod Period { get;  set; }
-        public Guid IdDirezioneRegionale { get;  set; }
-        public Guid IdCategoriaCommerciale { get;  set; }
-        public Guid IdAppaltatore { get;  set; }
-        public Guid IdTipoIntervento { get;  set; }
-        public Guid IdImpianto { get;  set; }
-
-
-        //for serialization
         public InterventoProgrammato()
         {
-            
         }
 
         public InterventoProgrammato(Guid id,
@@ -52,11 +41,26 @@ namespace Super.Appaltatore.Events.Programmazione
             Note = note;
         }
 
+        public string Note { get; set; }
+        public WorkPeriod Period { get; set; }
+        public Guid IdDirezioneRegionale { get; set; }
+        public Guid IdCategoriaCommerciale { get; set; }
+        public Guid IdAppaltatore { get; set; }
+        public Guid IdTipoIntervento { get; set; }
+        public Guid IdImpianto { get; set; }
+
+
+        //for serialization
+
         public bool Equals(InterventoProgrammato other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Note, Note) && Equals(other.Period, Period) && other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) && other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) && other.IdAppaltatore.Equals(IdAppaltatore) && other.IdTipoIntervento.Equals(IdTipoIntervento) && other.IdImpianto.Equals(IdImpianto);
+            return base.Equals(other) && Equals(other.Note, Note) && Equals(other.Period, Period) &&
+                   other.IdDirezioneRegionale.Equals(IdDirezioneRegionale) &&
+                   other.IdCategoriaCommerciale.Equals(IdCategoriaCommerciale) &&
+                   other.IdAppaltatore.Equals(IdAppaltatore) && other.IdTipoIntervento.Equals(IdTipoIntervento) &&
+                   other.IdImpianto.Equals(IdImpianto);
         }
 
         public override bool Equals(object obj)
@@ -85,38 +89,30 @@ namespace Super.Appaltatore.Events.Programmazione
 
     public class InterventoRotProgrammato : InterventoProgrammato
     {
-
-        public string Convoglio { get;  set; }
-        public string RigaTurnoTreno { get; set; }
-        public string TurnoTreno { get; set; }
-        public Treno TrenoArrivo { get; set; }
-        public Treno TrenoPartenza { get; set; }
-        public OggettoRot[] Oggetti { get; set; }
-
-        //for serialization
         public InterventoRotProgrammato()
         {
-            
         }
-        
+
         public InterventoRotProgrammato(Guid id,
-                                    Guid commitId,
-                                     long version,
-                                     Guid idImpianto,
-                                     Guid idTipoIntervento,
-                                     Guid idAppaltatore,
-                                     Guid idCategoriaCommerciale,
-                                     Guid idDirezioneRegionale,
-                                     WorkPeriod period,
-                                     string note,
-                                    OggettoRot[] oggetti,
-                                    Treno trenoPartenza,
-                                    Treno trenoArrivo,
-                                    string turnoTreno,
-                                    string rigaTurnoTreno,
-                                    string convoglio
+                                        Guid commitId,
+                                        long version,
+                                        Guid idImpianto,
+                                        Guid idTipoIntervento,
+                                        Guid idAppaltatore,
+                                        Guid idCategoriaCommerciale,
+                                        Guid idDirezioneRegionale,
+                                        WorkPeriod period,
+                                        string note,
+                                        OggettoRot[] oggetti,
+                                        Treno trenoPartenza,
+                                        Treno trenoArrivo,
+                                        string turnoTreno,
+                                        string rigaTurnoTreno,
+                                        string convoglio
             )
-            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+            : base(
+                id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale,
+                idDirezioneRegionale, period, note)
         {
             Oggetti = oggetti;
             TrenoPartenza = trenoPartenza;
@@ -125,6 +121,15 @@ namespace Super.Appaltatore.Events.Programmazione
             RigaTurnoTreno = rigaTurnoTreno;
             Convoglio = convoglio;
         }
+
+        public string Convoglio { get; set; }
+        public string RigaTurnoTreno { get; set; }
+        public string TurnoTreno { get; set; }
+        public Treno TrenoArrivo { get; set; }
+        public Treno TrenoPartenza { get; set; }
+        public OggettoRot[] Oggetti { get; set; }
+
+        //for serialization
 
         public override string ToDescription()
         {
@@ -135,7 +140,10 @@ namespace Super.Appaltatore.Events.Programmazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Convoglio, Convoglio) && Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) && Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) &&  other.Oggetti.SequenceEqual(Oggetti);
+            return base.Equals(other) && Equals(other.Convoglio, Convoglio) &&
+                   Equals(other.RigaTurnoTreno, RigaTurnoTreno) && Equals(other.TurnoTreno, TurnoTreno) &&
+                   Equals(other.TrenoArrivo, TrenoArrivo) && Equals(other.TrenoPartenza, TrenoPartenza) &&
+                   other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -163,30 +171,30 @@ namespace Super.Appaltatore.Events.Programmazione
 
     public class InterventoRotManProgrammato : InterventoProgrammato
     {
-
-        public OggettoRotMan[] Oggetti { get; set; }
-
         //for serialization
         public InterventoRotManProgrammato()
         {
-            
         }
 
         public InterventoRotManProgrammato(Guid id,
-                                     Guid commitId,
-                                     long version,
-                                     Guid idImpianto,
-                                     Guid idTipoIntervento,
-                                     Guid idAppaltatore,
-                                     Guid idCategoriaCommerciale,
-                                     Guid idDirezioneRegionale,
-                                     WorkPeriod period,
-                                     string note,
-                                     OggettoRotMan[] oggetti)
-            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+                                           Guid commitId,
+                                           long version,
+                                           Guid idImpianto,
+                                           Guid idTipoIntervento,
+                                           Guid idAppaltatore,
+                                           Guid idCategoriaCommerciale,
+                                           Guid idDirezioneRegionale,
+                                           WorkPeriod period,
+                                           string note,
+                                           OggettoRotMan[] oggetti)
+            : base(
+                id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale,
+                idDirezioneRegionale, period, note)
         {
             Oggetti = oggetti;
         }
+
+        public OggettoRotMan[] Oggetti { get; set; }
 
         public override string ToDescription()
         {
@@ -197,7 +205,7 @@ namespace Super.Appaltatore.Events.Programmazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) &&  other.Oggetti.SequenceEqual(Oggetti);
+            return base.Equals(other) && other.Oggetti.SequenceEqual(Oggetti);
         }
 
         public override bool Equals(object obj)
@@ -218,30 +226,29 @@ namespace Super.Appaltatore.Events.Programmazione
 
     public class InterventoAmbProgrammato : InterventoProgrammato
     {
-        
-
         //for serialization
         public InterventoAmbProgrammato()
         {
-            
         }
 
         public InterventoAmbProgrammato(Guid id,
-                                     Guid commitId,
-                                     long version,
-                                     Guid idImpianto,
-                                     Guid idTipoIntervento,
-                                     Guid idAppaltatore,
-                                     Guid idCategoriaCommerciale,
-                                     Guid idDirezioneRegionale,
-                                     WorkPeriod period,
-                                     string note,
-                                     int quantity,
-                                     string description)
-            : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
+                                        Guid commitId,
+                                        long version,
+                                        Guid idImpianto,
+                                        Guid idTipoIntervento,
+                                        Guid idAppaltatore,
+                                        Guid idCategoriaCommerciale,
+                                        Guid idDirezioneRegionale,
+                                        WorkPeriod period,
+                                        string note,
+                                        int quantity,
+                                        string description)
+            : base(
+                id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale,
+                idDirezioneRegionale, period, note)
         {
-            Contract.Requires(quantity>0);
-            Contract.Requires(!string.IsNullOrEmpty(description)); 
+            Contract.Requires(quantity > 0);
+            Contract.Requires(!string.IsNullOrEmpty(description));
 
             Quantity = quantity;
             Description = description;

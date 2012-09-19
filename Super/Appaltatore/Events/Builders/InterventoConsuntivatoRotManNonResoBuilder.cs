@@ -6,11 +6,20 @@ namespace Super.Appaltatore.Events.Builders
 {
     public class InterventoConsuntivatoRotManNonResoBuilder : IEventBuilder<InterventoConsuntivatoRotManNonReso>
     {
-        private string _idInterventoAppaltatore;
         private DateTime _dataConsuntivazione;
         private Guid _idCausaleAppaltatore;
+        private string _idInterventoAppaltatore;
         private string _note;
 
+        #region IEventBuilder<InterventoConsuntivatoRotManNonReso> Members
+
+        public InterventoConsuntivatoRotManNonReso Build(Guid id, long version)
+        {
+            return new InterventoConsuntivatoRotManNonReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore,
+                                                           _dataConsuntivazione, _idCausaleAppaltatore, _note);
+        }
+
+        #endregion
 
         public InterventoConsuntivatoRotManNonResoBuilder ForInterventoAppaltatore(string idInterventoAppaltatore)
         {
@@ -29,16 +38,11 @@ namespace Super.Appaltatore.Events.Builders
             _idCausaleAppaltatore = idCausaleAppalatatore;
             return this;
         }
+
         public InterventoConsuntivatoRotManNonResoBuilder WithNote(string note)
         {
             _note = note;
             return this;
         }
-
-        public InterventoConsuntivatoRotManNonReso Build(Guid id, long version)
-        {
-            return new InterventoConsuntivatoRotManNonReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _idCausaleAppaltatore, _note);
-        }
-
     }
 }

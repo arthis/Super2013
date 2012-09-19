@@ -5,19 +5,30 @@ using Super.Appaltatore.Events.Consuntivazione;
 
 namespace Super.Appaltatore.Events.Builders
 {
-
     public class InterventoConsuntivatoRotResoBuilder : IEventBuilder<InterventoConsuntivatoRotReso>
     {
-        private  string _idInterventoAppaltatore;
-        private  DateTime _dataConsuntivazione;
-        private  WorkPeriod _period;
-        private  string _note;
-        private  OggettoRot[] _oggetti;
-        private  Treno _trenoPartenza;
-        private  Treno _trenoArrivo;
-        private  string _turnoTreno;
-        private  string _rigaTurnoTreno;
-        private  string _convoglio;
+        private string _convoglio;
+        private DateTime _dataConsuntivazione;
+        private string _idInterventoAppaltatore;
+        private string _note;
+        private OggettoRot[] _oggetti;
+        private WorkPeriod _period;
+        private string _rigaTurnoTreno;
+        private Treno _trenoArrivo;
+        private Treno _trenoPartenza;
+        private string _turnoTreno;
+
+        #region IEventBuilder<InterventoConsuntivatoRotReso> Members
+
+        public InterventoConsuntivatoRotReso Build(Guid id, long version)
+        {
+            return new InterventoConsuntivatoRotReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore,
+                                                     _dataConsuntivazione, _period, _note,
+                                                     _oggetti, _trenoPartenza, _trenoArrivo, _turnoTreno,
+                                                     _rigaTurnoTreno, _convoglio);
+        }
+
+        #endregion
 
         public InterventoConsuntivatoRotResoBuilder WithOggetti(OggettoRot[] oggetti)
         {
@@ -78,12 +89,5 @@ namespace Super.Appaltatore.Events.Builders
             _convoglio = convoglio;
             return this;
         }
-
-        public InterventoConsuntivatoRotReso Build(Guid id, long version)
-        {
-            return new InterventoConsuntivatoRotReso(id, Guid.NewGuid(), version, _idInterventoAppaltatore, _dataConsuntivazione, _period, _note,
-                 _oggetti, _trenoPartenza, _trenoArrivo, _turnoTreno, _rigaTurnoTreno, _convoglio);
-        }
-
     }
 }

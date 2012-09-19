@@ -7,14 +7,32 @@ namespace Super.Appaltatore.Events.Builders
 {
     public class InterventoRotManProgrammatoBuilder : IEventBuilder<InterventoRotManProgrammato>
     {
-        private Guid _idImpianto;
-        private Guid _idTipoIntervento;
         private Guid _idAppaltatore;
         private Guid _idCategoriaCommerciale;
         private Guid _idDirezioneRegionale;
-        private WorkPeriod _period;
+        private Guid _idImpianto;
+        private Guid _idTipoIntervento;
         private string _note;
         private OggettoRotMan[] _oggetti;
+        private WorkPeriod _period;
+
+        #region IEventBuilder<InterventoRotManProgrammato> Members
+
+        public InterventoRotManProgrammato Build(Guid id, long version)
+        {
+            return new InterventoRotManProgrammato(id, Guid.NewGuid(),
+                                                   version,
+                                                   _idImpianto,
+                                                   _idTipoIntervento,
+                                                   _idAppaltatore,
+                                                   _idCategoriaCommerciale,
+                                                   _idDirezioneRegionale,
+                                                   _period,
+                                                   _note,
+                                                   _oggetti);
+        }
+
+        #endregion
 
         public InterventoRotManProgrammatoBuilder WithOggetti(OggettoRotMan[] oggetti)
         {
@@ -64,20 +82,5 @@ namespace Super.Appaltatore.Events.Builders
             _note = note;
             return this;
         }
-
-        public InterventoRotManProgrammato Build(Guid id, long version)
-        {
-            return new InterventoRotManProgrammato(id, Guid.NewGuid(),
-                                                    version,
-                                                   _idImpianto,
-                                                   _idTipoIntervento,
-                                                   _idAppaltatore,
-                                                   _idCategoriaCommerciale,
-                                                   _idDirezioneRegionale,
-                                                   _period,
-                                                   _note,
-                                                   _oggetti);
-        }
-
     }
 }
