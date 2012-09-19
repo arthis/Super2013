@@ -25,11 +25,13 @@ namespace CommonDomain.Core
 			where TUncommitted : class
 			where TCommitted : class
 		{
+            
+
 			IDictionary<Type, ConflictDelegate> inner;
 			if (!this.actions.TryGetValue(typeof(TUncommitted), out inner))
 				this.actions[typeof(TUncommitted)] = inner = new Dictionary<Type, ConflictDelegate>();
 
-            Contract.Requires(inner!=null);
+            
 
 			inner[typeof(TCommitted)] = (uncommitted, committed) =>
 				handler(uncommitted as TUncommitted, committed as TCommitted);
