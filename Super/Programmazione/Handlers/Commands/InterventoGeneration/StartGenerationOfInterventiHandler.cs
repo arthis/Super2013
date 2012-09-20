@@ -17,7 +17,7 @@ namespace Super.Programmazione.Handlers.Commands.InterventoGeneration
         {
             throw new NotImplementedException();
 
-            //Contract.Requires<ArgumentNullException>(cmd != null);
+            //Contract.Requires(cmd != null);
 
         
 

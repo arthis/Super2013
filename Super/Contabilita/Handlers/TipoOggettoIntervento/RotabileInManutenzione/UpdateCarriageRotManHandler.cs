@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.RotabileInManutenzion
 
         public override CommandValidation Execute(UpdateCarriageRotMan cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
 
             var carriage = EventRepository.GetById<Domain.TipoOggettoIntervento.CarriageRotMan>(cmd.Id);

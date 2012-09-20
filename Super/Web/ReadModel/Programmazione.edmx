@@ -17,11 +17,11 @@
           <EntitySet Name="RuleRot" EntityType="Super.Programmazione.ReadModel.Store.RuleRot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RuleRotMan" EntityType="Super.Programmazione.ReadModel.Store.RuleRotMan" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Scenario" EntityType="Super.Programmazione.ReadModel.Store.Scenario" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SchedulationAmb" EntityType="Super.Programmazione.ReadModel.Store.SchedulationAmb" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SchedulationOggettoRot" EntityType="Super.Programmazione.ReadModel.Store.SchedulationOggettoRot" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SchedulationOggettoRotMan" EntityType="Super.Programmazione.ReadModel.Store.SchedulationOggettoRotMan" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SchedulationRot" EntityType="Super.Programmazione.ReadModel.Store.SchedulationRot" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SchedulationRotMan" EntityType="Super.Programmazione.ReadModel.Store.SchedulationRotMan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulazioneAmb" EntityType="Super.Programmazione.ReadModel.Store.SchedulazioneAmb" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulazioneOggettoRot" EntityType="Super.Programmazione.ReadModel.Store.SchedulazioneOggettoRot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulazioneOggettoRotMan" EntityType="Super.Programmazione.ReadModel.Store.SchedulazioneOggettoRotMan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulazioneRot" EntityType="Super.Programmazione.ReadModel.Store.SchedulazioneRot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchedulazioneRotMan" EntityType="Super.Programmazione.ReadModel.Store.SchedulazioneRotMan" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="InterventoAmb">
           <Key>
@@ -200,11 +200,11 @@
           <Property Name="PromotingUserId" Type="uniqueidentifier" />
           <Property Name="Version" Type="bigint" Nullable="false" />
         </EntityType>
-        <EntityType Name="SchedulationAmb">
+        <EntityType Name="SchedulazioneAmb">
           <Key>
-            <PropertyRef Name="IdSchedulation" />
+            <PropertyRef Name="IdSchedulazione" />
           </Key>
-          <Property Name="IdSchedulation" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdSchedulazione" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IdPeriodoProgrammazione" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IdScenario" Type="uniqueidentifier" />
           <Property Name="IdPlan" Type="uniqueidentifier" />
@@ -221,31 +221,31 @@
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="Quantity" Type="int" />
         </EntityType>
-        <EntityType Name="SchedulationOggettoRot">
+        <EntityType Name="SchedulazioneOggettoRot">
           <Key>
             <PropertyRef Name="IdOggettoRot" />
           </Key>
           <Property Name="IdOggettoRot" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="idSchedulationRot" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idSchedulazioneRot" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="idTipoOggettoInterventoRot" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <EntityType Name="SchedulationOggettoRotMan">
+        <EntityType Name="SchedulazioneOggettoRotMan">
           <Key>
             <PropertyRef Name="IdOggettoRotMan" />
           </Key>
           <Property Name="IdOggettoRotMan" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="idSchedulationRotMan" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idSchedulazioneRotMan" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="idTipoOggettoInterventoRotMan" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <EntityType Name="SchedulationRot">
+        <EntityType Name="SchedulazioneRot">
           <Key>
-            <PropertyRef Name="IdSchedulation" />
+            <PropertyRef Name="IdSchedulazione" />
           </Key>
-          <Property Name="IdSchedulation" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdSchedulazione" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IdPeriodoProgrammazione" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IdScenario" Type="uniqueidentifier" />
           <Property Name="IdPlan" Type="uniqueidentifier" />
@@ -267,11 +267,11 @@
           <Property Name="NumeroTrenoArrivo" Type="nvarchar" MaxLength="255" />
           <Property Name="DateTrenoArrivo" Type="datetime" />
         </EntityType>
-        <EntityType Name="SchedulationRotMan">
+        <EntityType Name="SchedulazioneRotMan">
           <Key>
-            <PropertyRef Name="IdSchedulation" />
+            <PropertyRef Name="IdSchedulazione" />
           </Key>
-          <Property Name="IdSchedulation" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdSchedulazione" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IdPeriodoProgrammazione" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IdScenario" Type="uniqueidentifier" />
           <Property Name="IdPlan" Type="uniqueidentifier" />
@@ -302,11 +302,11 @@
           <EntitySet Name="RuleRots" EntityType="Super.Programmazione.ReadModel.RuleRot" />
           <EntitySet Name="RuleRotMen" EntityType="Super.Programmazione.ReadModel.RuleRotMan" />
           <EntitySet Name="Scenarios" EntityType="Super.Programmazione.ReadModel.Scenario" />
-          <EntitySet Name="SchedulationAmbs" EntityType="Super.Programmazione.ReadModel.SchedulationAmb" />
-          <EntitySet Name="SchedulationOggettoRots" EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRot" />
-          <EntitySet Name="SchedulationOggettoRotMen" EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRotMan" />
-          <EntitySet Name="SchedulationRots" EntityType="Super.Programmazione.ReadModel.SchedulationRot" />
-          <EntitySet Name="SchedulationRotMen" EntityType="Super.Programmazione.ReadModel.SchedulationRotMan" />
+          <EntitySet Name="SchedulazioneAmbs" EntityType="Super.Programmazione.ReadModel.SchedulazioneAmb" />
+          <EntitySet Name="SchedulazioneOggettoRots" EntityType="Super.Programmazione.ReadModel.SchedulazioneOggettoRot" />
+          <EntitySet Name="SchedulazioneOggettoRotMen" EntityType="Super.Programmazione.ReadModel.SchedulazioneOggettoRotMan" />
+          <EntitySet Name="SchedulazioneRots" EntityType="Super.Programmazione.ReadModel.SchedulazioneRot" />
+          <EntitySet Name="SchedulazioneRotMen" EntityType="Super.Programmazione.ReadModel.SchedulazioneRotMan" />
         </EntityContainer>
         <EntityType Name="InterventoAmb">
           <Key>
@@ -485,11 +485,11 @@
           <Property Type="Guid" Name="PromotingUserId" />
           <Property Type="Int64" Name="Version" Nullable="false" />
         </EntityType>
-        <EntityType Name="SchedulationAmb">
+        <EntityType Name="SchedulazioneAmb">
           <Key>
-            <PropertyRef Name="IdSchedulation" />
+            <PropertyRef Name="IdSchedulazione" />
           </Key>
-          <Property Name="IdSchedulation" Nullable="false" Type="Guid" />
+          <Property Name="IdSchedulazione" Nullable="false" Type="Guid" />
           <Property Name="IdPeriodoProgrammazione" Nullable="false" Type="Guid" />
           <Property Name="IdScenario" Type="Guid" />
           <Property Name="IdPlan" Type="Guid" />
@@ -506,31 +506,31 @@
           <Property Name="Description" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Quantity" Type="Int32" />
         </EntityType>
-        <EntityType Name="SchedulationOggettoRot">
+        <EntityType Name="SchedulazioneOggettoRot">
           <Key>
             <PropertyRef Name="IdOggettoRot" />
           </Key>
           <Property Name="IdOggettoRot" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="idSchedulationRot" Nullable="false" Type="Guid" />
+          <Property Name="idSchedulazioneRot" Nullable="false" Type="Guid" />
           <Property Name="Description" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Quantity" Nullable="false" Type="Int32" />
           <Property Name="idTipoOggettoInterventoRot" Nullable="false" Type="Guid" />
         </EntityType>
-        <EntityType Name="SchedulationOggettoRotMan">
+        <EntityType Name="SchedulazioneOggettoRotMan">
           <Key>
             <PropertyRef Name="IdOggettoRotMan" />
           </Key>
           <Property Name="IdOggettoRotMan" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="idSchedulationRotMan" Nullable="false" Type="Guid" />
+          <Property Name="idSchedulazioneRotMan" Nullable="false" Type="Guid" />
           <Property Name="Description" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Quantity" Nullable="false" Type="Int32" />
           <Property Name="idTipoOggettoInterventoRotMan" Nullable="false" Type="Guid" />
         </EntityType>
-        <EntityType Name="SchedulationRot">
+        <EntityType Name="SchedulazioneRot">
           <Key>
-            <PropertyRef Name="IdSchedulation" />
+            <PropertyRef Name="IdSchedulazione" />
           </Key>
-          <Property Name="IdSchedulation" Nullable="false" Type="Guid" />
+          <Property Name="IdSchedulazione" Nullable="false" Type="Guid" />
           <Property Name="IdPeriodoProgrammazione" Nullable="false" Type="Guid" />
           <Property Name="IdScenario" Type="Guid" />
           <Property Name="IdPlan" Type="Guid" />
@@ -552,11 +552,11 @@
           <Property Name="NumeroTrenoArrivo" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="DateTrenoArrivo" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="SchedulationRotMan">
+        <EntityType Name="SchedulazioneRotMan">
           <Key>
-            <PropertyRef Name="IdSchedulation" />
+            <PropertyRef Name="IdSchedulazione" />
           </Key>
-          <Property Name="IdSchedulation" Nullable="false" Type="Guid" />
+          <Property Name="IdSchedulazione" Nullable="false" Type="Guid" />
           <Property Name="IdPeriodoProgrammazione" Nullable="false" Type="Guid" />
           <Property Name="IdScenario" Type="Guid" />
           <Property Name="IdPlan" Type="Guid" />
@@ -721,8 +721,8 @@
             <ScalarProperty Name="Description" ColumnName="Description" />
             <ScalarProperty Name="IdUser" ColumnName="IdUser" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SchedulationAmbs"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationAmb"><MappingFragment StoreEntitySet="SchedulationAmb">
-            <ScalarProperty Name="IdSchedulation" ColumnName="IdSchedulation" />
+          <EntitySetMapping Name="SchedulazioneAmbs"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulazioneAmb"><MappingFragment StoreEntitySet="SchedulazioneAmb">
+            <ScalarProperty Name="IdSchedulazione" ColumnName="IdSchedulazione" />
             <ScalarProperty Name="IdPeriodoProgrammazione" ColumnName="IdPeriodoProgrammazione" />
             <ScalarProperty Name="IdScenario" ColumnName="IdScenario" />
             <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
@@ -739,22 +739,22 @@
             <ScalarProperty Name="Description" ColumnName="Description" />
             <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SchedulationOggettoRots"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationOggettoRot"><MappingFragment StoreEntitySet="SchedulationOggettoRot">
+          <EntitySetMapping Name="SchedulazioneOggettoRots"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulazioneOggettoRot"><MappingFragment StoreEntitySet="SchedulazioneOggettoRot">
             <ScalarProperty Name="IdOggettoRot" ColumnName="IdOggettoRot" />
-            <ScalarProperty Name="idSchedulationRot" ColumnName="idSchedulationRot" />
+            <ScalarProperty Name="idSchedulazioneRot" ColumnName="idSchedulazioneRot" />
             <ScalarProperty Name="Description" ColumnName="Description" />
             <ScalarProperty Name="Quantity" ColumnName="Quantity" />
             <ScalarProperty Name="idTipoOggettoInterventoRot" ColumnName="idTipoOggettoInterventoRot" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SchedulationOggettoRotMen"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationOggettoRotMan"><MappingFragment StoreEntitySet="SchedulationOggettoRotMan">
+          <EntitySetMapping Name="SchedulazioneOggettoRotMen"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulazioneOggettoRotMan"><MappingFragment StoreEntitySet="SchedulazioneOggettoRotMan">
             <ScalarProperty Name="IdOggettoRotMan" ColumnName="IdOggettoRotMan" />
-            <ScalarProperty Name="idSchedulationRotMan" ColumnName="idSchedulationRotMan" />
+            <ScalarProperty Name="idSchedulazioneRotMan" ColumnName="idSchedulazioneRotMan" />
             <ScalarProperty Name="Description" ColumnName="Description" />
             <ScalarProperty Name="Quantity" ColumnName="Quantity" />
             <ScalarProperty Name="idTipoOggettoInterventoRotMan" ColumnName="idTipoOggettoInterventoRotMan" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SchedulationRots"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationRot"><MappingFragment StoreEntitySet="SchedulationRot">
-            <ScalarProperty Name="IdSchedulation" ColumnName="IdSchedulation" />
+          <EntitySetMapping Name="SchedulazioneRots"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulazioneRot"><MappingFragment StoreEntitySet="SchedulazioneRot">
+            <ScalarProperty Name="IdSchedulazione" ColumnName="IdSchedulazione" />
             <ScalarProperty Name="IdPeriodoProgrammazione" ColumnName="IdPeriodoProgrammazione" />
             <ScalarProperty Name="IdScenario" ColumnName="IdScenario" />
             <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
@@ -776,8 +776,8 @@
             <ScalarProperty Name="NumeroTrenoArrivo" ColumnName="NumeroTrenoArrivo" />
             <ScalarProperty Name="DateTrenoArrivo" ColumnName="DateTrenoArrivo" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SchedulationRotMen"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulationRotMan"><MappingFragment StoreEntitySet="SchedulationRotMan">
-            <ScalarProperty Name="IdSchedulation" ColumnName="IdSchedulation" />
+          <EntitySetMapping Name="SchedulazioneRotMen"><EntityTypeMapping TypeName="Super.Programmazione.ReadModel.SchedulazioneRotMan"><MappingFragment StoreEntitySet="SchedulazioneRotMan">
+            <ScalarProperty Name="IdSchedulazione" ColumnName="IdSchedulazione" />
             <ScalarProperty Name="IdPeriodoProgrammazione" ColumnName="IdPeriodoProgrammazione" />
             <ScalarProperty Name="IdScenario" ColumnName="IdScenario" />
             <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
@@ -824,11 +824,11 @@
         <EntityTypeShape Height="4.8648079427083353" EntityType="Super.Programmazione.ReadModel.RuleRot" PointX="6.75" PointY="5.75" Width="1.5" IsExpanded="true" />
         <EntityTypeShape Height="4.0956022135416674" EntityType="Super.Programmazione.ReadModel.RuleRotMan" PointX="8.75" PointY="0.75" Width="1.5" IsExpanded="true" />
         <EntityTypeShape Height="1.5956835937500031" EntityType="Super.Programmazione.ReadModel.Scenario" PointX="8.75" PointY="5.75" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape Height="4.0956022135416674" EntityType="Super.Programmazione.ReadModel.SchedulationAmb" PointX="8.75" PointY="8.75" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape Height="1.9802864583333388" EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRot" PointX="0.75" PointY="9.75" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape Height="1.9802864583333388" EntityType="Super.Programmazione.ReadModel.SchedulationOggettoRotMan" PointX="10.75" PointY="0.75" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape Height="5.0571093750000031" EntityType="Super.Programmazione.ReadModel.SchedulationRot" PointX="10.75" PointY="3.75" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape Height="3.7109993489583388" EntityType="Super.Programmazione.ReadModel.SchedulationRotMan" PointX="10.75" PointY="9.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="4.0956022135416674" EntityType="Super.Programmazione.ReadModel.SchedulazioneAmb" PointX="8.75" PointY="8.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="1.9802864583333388" EntityType="Super.Programmazione.ReadModel.SchedulazioneOggettoRot" PointX="0.75" PointY="9.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="1.9802864583333388" EntityType="Super.Programmazione.ReadModel.SchedulazioneOggettoRotMan" PointX="10.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="5.0571093750000031" EntityType="Super.Programmazione.ReadModel.SchedulazioneRot" PointX="10.75" PointY="3.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape Height="3.7109993489583388" EntityType="Super.Programmazione.ReadModel.SchedulazioneRotMan" PointX="10.75" PointY="9.75" Width="1.5" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

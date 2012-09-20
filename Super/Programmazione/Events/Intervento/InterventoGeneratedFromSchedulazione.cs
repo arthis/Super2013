@@ -46,18 +46,18 @@ namespace Super.Programmazione.Events.Intervento
             string note)
             : base(id,commitId,  version)
         {
-            Contract.Requires<ArgumentNullException>(idPeriodoProgrammazione != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idProgramm != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idSchedulazione != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idInterventoGeneration != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idCommittente != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idLotto != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idImpianto != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(workPeriod != null);
+            Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+            Contract.Requires(idProgramm != Guid.Empty);
+            Contract.Requires(idSchedulazione != Guid.Empty);
+            Contract.Requires(idInterventoGeneration != Guid.Empty);
+            Contract.Requires(idCommittente != Guid.Empty);
+            Contract.Requires(idLotto != Guid.Empty);
+            Contract.Requires(idImpianto != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(idAppaltatore != Guid.Empty);
+            Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+            Contract.Requires(idDirezioneRegionale != Guid.Empty);
+            Contract.Requires(workPeriod != null);
 
             IdPeriodoProgrammazione = idPeriodoProgrammazione;
             IdProgramm = idProgramm;

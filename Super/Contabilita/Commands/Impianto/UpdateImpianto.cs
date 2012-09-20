@@ -20,7 +20,7 @@ namespace Super.Contabilita.Commands.Impianto
             :base(id,commitId,version)
         {
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(period != null);
 
             Interval = period;
             Description = description;

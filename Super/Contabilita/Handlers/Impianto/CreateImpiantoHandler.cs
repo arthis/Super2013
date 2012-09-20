@@ -21,7 +21,7 @@ namespace Super.Contabilita.Handlers.Impianto
 
         public override CommandValidation Execute(CreateImpianto cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var existingLotto = EventRepository.GetById<Domain.Lotto>(cmd.IdLotto);
             var existingImpianto = EventRepository.GetById<Domain.Impianto>(cmd.Id);

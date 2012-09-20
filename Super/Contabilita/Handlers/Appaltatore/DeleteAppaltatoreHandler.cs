@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.Appaltatore
 
         public override CommandValidation Execute(DeleteAppaltatore cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var appaltatore= EventRepository.GetById<Domain.Appaltatore>(cmd.Id);
 

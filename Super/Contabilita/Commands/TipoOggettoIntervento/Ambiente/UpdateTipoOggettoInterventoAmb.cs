@@ -17,8 +17,8 @@ namespace Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente
         public UpdateTipoOggettoInterventoAmb(Guid id, Guid commitId, long version, string sign, string description, Guid idGruppoOggettoIntervento)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(sign));
+            Contract.Requires(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(sign));
             Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
             Description = description;

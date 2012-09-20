@@ -42,9 +42,9 @@ namespace Super.Controllo.Events
             :base(id,commitId,version)
         {
             
-            Contract.Requires<ArgumentNullException>(idUser != Guid.Empty);
+            Contract.Requires(idUser != Guid.Empty);
             Contract.Requires<ArgumentOutOfRangeException>(controlDate > DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(period != null);
 
             
             _idUser = idUser;

@@ -19,7 +19,7 @@ namespace Super.Contabilita.Handlers.DirezioneRegionale
 
         public override CommandValidation Execute(UpdateDirezioneRegionale cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var direzione = EventRepository.GetById<Domain.DirezioneRegionale>(cmd.Id);
 

@@ -18,7 +18,7 @@ namespace Super.Appaltatore.Handlers
 
         public override CommandValidation Execute(ConsuntivareRotNonResoTrenitalia cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var existingIntervento = EventRepository.GetById<InterventoRot>(cmd.Id);
 

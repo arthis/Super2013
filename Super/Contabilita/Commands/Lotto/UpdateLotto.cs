@@ -20,8 +20,8 @@ namespace Super.Contabilita.Commands.Lotto
             :base (id,commitId,version)
         {
             
-            Contract.Requires<ArgumentNullException>(period != null);
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(period != null);
+            Contract.Requires(!string.IsNullOrEmpty(description));
 
             
             Interval = period;

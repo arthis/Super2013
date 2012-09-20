@@ -19,7 +19,7 @@ namespace Super.Contabilita.Commands.MeasuringUnit
             :base (id,commitId,version)
         {
             
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(description));
             
             Description = description;
         }

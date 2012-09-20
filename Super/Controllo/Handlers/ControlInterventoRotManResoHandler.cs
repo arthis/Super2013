@@ -20,7 +20,7 @@ namespace Super.Controllo.Handlers
 
         public override CommandValidation Execute(ControlInterventoRotManReso cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             Treno trenoPartenza=null, trenoArrivo=null;
 

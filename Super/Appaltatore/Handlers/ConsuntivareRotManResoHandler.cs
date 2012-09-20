@@ -19,7 +19,7 @@ namespace Super.Appaltatore.Handlers
 
         public override CommandValidation Execute(ConsuntivareRotManReso cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var existingIntervento = EventRepository.GetById<InterventoRotMan>(cmd.Id);
 

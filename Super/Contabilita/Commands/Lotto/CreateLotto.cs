@@ -20,7 +20,7 @@ namespace Super.Contabilita.Commands.Lotto
         public CreateLotto(Guid id, Guid commitId, long version,  Interval period, string description)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(period != null);
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
 
             this.Interval = period;

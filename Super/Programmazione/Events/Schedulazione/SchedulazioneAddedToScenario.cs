@@ -46,17 +46,17 @@ namespace Super.Programmazione.Events.Schedulazione
             string note)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(idPeriodoProgrammazione != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idScenario != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idCommittente != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idLotto != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idImpianto != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(workPeriod != null);
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+            Contract.Requires(idScenario != Guid.Empty);
+            Contract.Requires(idCommittente != Guid.Empty);
+            Contract.Requires(idLotto != Guid.Empty);
+            Contract.Requires(idImpianto != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(idAppaltatore != Guid.Empty);
+            Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+            Contract.Requires(idDirezioneRegionale != Guid.Empty);
+            Contract.Requires(workPeriod != null);
+            Contract.Requires(period != null);
 
 
             IdPeriodoProgrammazione = idPeriodoProgrammazione;
@@ -149,7 +149,7 @@ namespace Super.Programmazione.Events.Schedulazione
             : base(id, commitId, version, idPeriodoProgrammazione, idScenario, idCommittente, idLotto, idImpianto,
             idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period, note)
         {
-            Contract.Requires<ArgumentNullException>(oggetti != null);
+            Contract.Requires(oggetti != null);
 
             Oggetti = oggetti;
             TrenoPartenza = trenoPartenza;
@@ -224,7 +224,7 @@ namespace Super.Programmazione.Events.Schedulazione
             : base(id, commitId, version, idPeriodoProgrammazione, idScenario, idCommittente, idLotto, idImpianto,
             idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period, note)
         {
-            Contract.Requires<ArgumentNullException>(oggetti != null);
+            Contract.Requires(oggetti != null);
 
             Oggetti = oggetti;
 
@@ -288,7 +288,7 @@ namespace Super.Programmazione.Events.Schedulazione
             : base(id, commitId, version, idPeriodoProgrammazione, idScenario, idCommittente, idLotto, idImpianto,
                    idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, period, note)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(quantity > 0);
+            Contract.Requires(quantity > 0);
 
             Quantity = quantity;
             Description = description;

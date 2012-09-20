@@ -22,8 +22,8 @@ namespace Super.Contabilita.Events.TipoOggettoIntervento.RotabileInManutenzione
         public LocomotiveRotManCreated(Guid id, Guid commitId, long version, string sign, string description, Guid idGruppoOggettoIntervento)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(sign));
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(sign));
+            Contract.Requires(!string.IsNullOrEmpty(description));
             Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
 

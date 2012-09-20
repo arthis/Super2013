@@ -24,7 +24,7 @@ namespace Super.Contabilita.Handlers.Intervento
 
         public override CommandValidation Execute(CalculateInterventoRotPriceOfPlan cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var intervento = EventRepository.GetById<Domain.Intervento.InterventoRot>(cmd.Id);
 

@@ -37,7 +37,7 @@ namespace Super.Saga.Handlers
 
         public void Execute(IMessage message)
         {
-            Contract.Requires<ArgumentNullException>(message != null);
+            Contract.Requires(message != null);
 
             var type = message.GetType();
             if (_handlers.ContainsKey(type))

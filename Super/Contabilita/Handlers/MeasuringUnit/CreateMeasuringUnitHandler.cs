@@ -20,7 +20,7 @@ namespace Super.Contabilita.Handlers.MeasuringUnit
 
         public override CommandValidation Execute(CreateMeasuringUnit cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
             
 
             var existingMeasuringUnit = EventRepository.GetById<Domain.MeasuringUnit>(cmd.Id);

@@ -20,7 +20,7 @@ namespace Super.Controllo.Handlers
 
         public override CommandValidation Execute(ControlInterventoRotReso cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var existingIntervento = EventRepository.GetById<InterventoRot>(cmd.Id);
 

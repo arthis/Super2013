@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.Committente
 
         public override CommandValidation Execute(DeleteCommittente cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var committente= EventRepository.GetById<Domain.Committente>(cmd.Id);
 

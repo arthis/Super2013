@@ -129,6 +129,7 @@
     <Compile Include="MessageHandlerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SagaHandler.cs" />
+    <Compile Include="ScenarioPrice\SchedulationPriceOfScenarioCalculatedHandler.cs" />
     <Compile Include="ScenarioPrice\InterventoAmbScheduledHandler.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +148,10 @@
     <ProjectReference Include="..\..\Appaltatore\Events\Events.csproj">
       <Project>{11241956-CC2D-46B0-B46C-C2E2F34AE693}</Project>
       <Name>Events %28Super\Appaltatore\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Contabilita\Events\Events.csproj">
+      <Project>{82672BF6-2C86-44F0-BDE6-DEA5FBDE6099}</Project>
+      <Name>Events %28Super\Contabilita\Events%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>

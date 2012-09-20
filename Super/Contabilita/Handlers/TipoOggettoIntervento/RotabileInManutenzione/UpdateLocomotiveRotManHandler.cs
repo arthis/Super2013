@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.RotabileInManutenzion
 
         public override CommandValidation Execute(UpdateLocomotiveRotMan cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
 
             var locomotive = EventRepository.GetById<Domain.TipoOggettoIntervento.LocomotiveRotMan>(cmd.Id);

@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.MeasuringUnit
 
         public override CommandValidation Execute(DeleteMeasuringUnit cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var measuringUnit= EventRepository.GetById<Domain.MeasuringUnit>(cmd.Id);
 

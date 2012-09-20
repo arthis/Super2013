@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.GruppoOggettoIntervento
 
         public override CommandValidation Execute(DeleteGruppoOggettoIntervento cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var gruppoOggettoIntervento= EventRepository.GetById<Domain.GruppoOggettoIntervento>(cmd.Id);
 

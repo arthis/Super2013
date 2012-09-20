@@ -24,9 +24,9 @@ namespace Super.Contabilita.Commands.Impianto
         public CreateImpianto(Guid id, Guid commitId, long version,  Interval period, string description, Guid idLotto)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(period != null);
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description) );
-            Contract.Requires<ArgumentNullException>(idLotto != Guid.Empty);
+            Contract.Requires(idLotto != Guid.Empty);
 
             Interval = period;
             Description = description;

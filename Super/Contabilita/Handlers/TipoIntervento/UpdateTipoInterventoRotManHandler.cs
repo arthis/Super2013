@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.TipoIntervento
 
         public override CommandValidation Execute(UpdateTipoInterventoRotMan cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var tipoIntervento = EventRepository.GetById<Domain.TipoInterventoRotMan>(cmd.Id);
 

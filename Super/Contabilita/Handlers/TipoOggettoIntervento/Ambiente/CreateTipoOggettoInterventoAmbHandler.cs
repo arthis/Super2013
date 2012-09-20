@@ -19,7 +19,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.Ambiente
 
         public override CommandValidation Execute(CreateTipoOggettoInterventoAmb cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
             
 
             var existingTipoOggettoInterventoAmb = EventRepository.GetById<Domain.TipoOggettoIntervento.TipoOggettoInterventoAmb>(cmd.Id);

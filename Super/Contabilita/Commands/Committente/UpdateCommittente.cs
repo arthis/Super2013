@@ -20,8 +20,8 @@ namespace Super.Contabilita.Commands.Committente
             :base (id,commitId,version)
         {
             
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(sign));
+            Contract.Requires(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(sign));
 
             Sign = sign;
             Description = description;

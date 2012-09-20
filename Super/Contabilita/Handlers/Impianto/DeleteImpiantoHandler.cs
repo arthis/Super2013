@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.Impianto
 
         public override CommandValidation Execute(DeleteImpianto cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var impianto= EventRepository.GetById<Domain.Impianto>(cmd.Id);
 

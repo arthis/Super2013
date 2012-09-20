@@ -30,7 +30,7 @@ namespace Super.Controllo.Events
         public InterventoReopened(Guid id, Guid commitId, long version, Guid idUser, DateTime reopeningDate)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(idUser != Guid.Empty);
+            Contract.Requires(idUser != Guid.Empty);
             Contract.Requires<ArgumentOutOfRangeException>(reopeningDate > DateTime.MinValue);
 
             _idUser = idUser;

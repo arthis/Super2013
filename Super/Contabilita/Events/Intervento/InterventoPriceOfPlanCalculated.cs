@@ -24,7 +24,7 @@ namespace Super.Contabilita.Events.Intervento
                                    decimal price)
             : base(id,commitId,  version)
         {
-            Contract.Requires<ArgumentNullException>(idPlan != Guid.Empty);
+            Contract.Requires(idPlan != Guid.Empty);
             
             IdPlan = idPlan;
             Price = price;

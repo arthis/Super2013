@@ -22,9 +22,9 @@ namespace Super.Contabilita.Events.TipoOggettoIntervento.Ambiente
              :base(id,commitId,version)
         {
             
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(sign));
-            Contract.Requires<ArgumentNullException>(idGruppoOggettoIntervento!= Guid.Empty);
+            Contract.Requires(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(sign));
+            Contract.Requires(idGruppoOggettoIntervento!= Guid.Empty);
             
             Description = description;
             IdGruppoOggettoIntervento = idGruppoOggettoIntervento;

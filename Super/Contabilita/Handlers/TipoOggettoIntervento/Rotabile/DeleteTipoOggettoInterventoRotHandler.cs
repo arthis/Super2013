@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.TipoOggettoIntervento.Rotabile
 
         public override CommandValidation Execute(DeleteTipoOggettoInterventoRot cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var tipoOggettoIntervento= EventRepository.GetById<Domain.TipoOggettoIntervento.TipoOgettoInterventoRot>(cmd.Id);
 

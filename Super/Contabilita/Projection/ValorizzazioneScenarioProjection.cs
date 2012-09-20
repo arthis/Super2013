@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CommonDomain.Core.Handlers;
-using Super.Contabilita.Events.Schedulation;
+using Super.Contabilita.Events.Schedulazione;
 
 namespace Super.Contabilita.Projection
 {
-    public class ValorizzazioneScenarioProjection: IEventHandler<SchedulationPriceOfScenarioCalculated>
+    public class ValorizzazioneScenarioProjection: IEventHandler<SchedulazionePriceOfScenarioCalculated>
     {
-        public void Handle(SchedulationPriceOfScenarioCalculated @event)
+        public void Handle(SchedulazionePriceOfScenarioCalculated @event)
         {
              using (var container = Container.GetEntities())
             {

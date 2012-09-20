@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.CategoriaCommerciale
 
         public override CommandValidation Execute(DeleteCategoriaCommerciale cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var appaltatore= EventRepository.GetById<Domain.CategoriaCommerciale>(cmd.Id);
 

@@ -20,7 +20,7 @@ namespace Super.Contabilita.Handlers.GruppoOggettoIntervento
 
         public override CommandValidation Execute(CreateGruppoOggettoIntervento cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
             
 
             var existingGruppoOggettoIntervento = EventRepository.GetById<Domain.GruppoOggettoIntervento>(cmd.Id);

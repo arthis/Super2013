@@ -30,7 +30,7 @@ namespace Super.Controllo.Events
         public InterventoClosed(Guid id, Guid commitId, long version, Guid idUser, DateTime closingDate)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(idUser != Guid.Empty);
+            Contract.Requires(idUser != Guid.Empty);
             Contract.Requires<ArgumentOutOfRangeException>(closingDate > DateTime.MinValue);
 
             _idUser = idUser;

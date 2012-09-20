@@ -22,10 +22,10 @@ namespace Super.Appaltatore.Events.Consuntivazione
                                           string note)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(id != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(idInterventoAppaltatore));
-            Contract.Requires<ArgumentNullException>(dataConsuntivazione > DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(id != Guid.Empty);
+            Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+            Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+            Contract.Requires(period != null);
 
             Id = id;
             IdInterventoAppaltatore = idInterventoAppaltatore;

@@ -3,7 +3,7 @@ using CommonDomain.Core;
 using Stateless;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Contabilita.Commands;
-using Super.Contabilita.Events.Schedulation;
+using Super.Contabilita.Events.Schedulazione;
 using Super.Programmazione.Events.Intervento;
 using Super.Programmazione.Events.Schedulazione;
 
@@ -18,7 +18,7 @@ namespace Super.Saga.Domain.SchedulazioneOfScenarioPrice
         public SchedulazioneAmbPriceSaga()
         {
             Register<SchedulazioneAmbAddedToScenario>(OnSchedulazioneAmbAddedToScenario);
-            Register<SchedulationPriceOfScenarioCalculated>(OnSchedulationPriceOfScenarioCalculated);
+            Register<SchedulazionePriceOfScenarioCalculated>(OnSchedulazionePriceOfScenarioCalculated);
 
             _stateMachine = new StateMachine<State, Trigger>(() => _state, newState => _state = newState);
 
@@ -30,7 +30,7 @@ namespace Super.Saga.Domain.SchedulazioneOfScenarioPrice
 
         }
 
-        public void CalcolarePrezzoSchedulazione(SchedulazioneAmbAddedToScenario evt)
+        public void CalculateSchedulazionePrice(SchedulazioneAmbAddedToScenario evt)
         {
             if (!_stateMachine.IsInState(State.Start))
                 throw  new Exception("Saga already started");
@@ -59,20 +59,22 @@ namespace Super.Saga.Domain.SchedulazioneOfScenarioPrice
         }
 
 
-        public void CalculateSchedulazionePrice(SchedulationPriceOfScenarioCalculated evt)
+        public void ProjectNumbers(SchedulazionePriceOfScenarioCalculated evt)
         {
             if (!_stateMachine.IsInState(State.Calculating))
                 throw new Exception("Saga is not in calculating state");
 
-            var cmd = Super.Programmazione.Commands.BuildCmd.CalculateSchedulazionePrice
-                                     .Build(Id, 0);
+            var cmd = Programmazione.Commands.BuildCmd.CalculateSchedulazionePrice
+                .ForScenario(evt.IdScenario)
+                .ToPrice(evt.Price)
+                .Build(Id, 0);
 
             Dispatch(cmd);
 
             Transition(evt);
         }
 
-        private void OnSchedulationPriceOfScenarioCalculated(SchedulationPriceOfScenarioCalculated evt)
+        private void OnSchedulazionePriceOfScenarioCalculated(SchedulazionePriceOfScenarioCalculated evt)
         {
             //publish intervento to appaltatore
             _stateMachine.Fire(Trigger.SchedulazioneCalculated);

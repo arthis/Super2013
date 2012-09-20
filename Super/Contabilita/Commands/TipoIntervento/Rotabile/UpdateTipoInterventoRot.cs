@@ -22,9 +22,9 @@ namespace Super.Contabilita.Commands.TipoIntervento.Rotabile
         public UpdateTipoInterventoRot(Guid id, Guid commitId, long version, string mnemo, Guid idMeasuringUnit, bool calcoloDetrazioni, bool aiTreni, char classe, string description)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(mnemo));
-            Contract.Requires<ArgumentNullException>(idMeasuringUnit != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(mnemo));
+            Contract.Requires(idMeasuringUnit != Guid.Empty);
+            Contract.Requires(!string.IsNullOrEmpty(description));
 
             Mnemo = mnemo;
             IdMeasuringUnit = idMeasuringUnit;

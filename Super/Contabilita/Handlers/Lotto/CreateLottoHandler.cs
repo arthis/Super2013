@@ -21,7 +21,7 @@ namespace Super.Contabilita.Handlers.Lotto
 
         public override CommandValidation Execute(CreateLotto cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var existingLotto = EventRepository.GetById<Domain.Lotto>(cmd.Id);
 

@@ -123,7 +123,7 @@
     <Compile Include="Builders\GruppoOggettoIntervento\GruppoOggettoInterventoCreatedBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\GruppoOggettoInterventoDeletedBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\GruppoOggettoInterventoUpdatedBuilder.cs" />
-    <Compile Include="Builders\Intervento\OggettoInterventoRotCreatedBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoRotCreatedBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoPriceOfPlanCalculatedBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoPriceOfPlanCancelledBuilder.cs" />
     <Compile Include="Builders\MeasuringUnit\MeasuringUnitCreatedBuilder.cs" />
@@ -141,6 +141,7 @@
     <Compile Include="Builders\Lotto\LottoDeletedBuilder.cs" />
     <Compile Include="Builders\Lotto\LottoUpdatedBuilder.cs" />
     <Compile Include="Builders\Impianto\ImpiantoDeletedBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\InterventoPriceOfPlanCalculatedBuilder.cs" />
     <Compile Include="BuildEvt.cs" />
     <Compile Include="Builders\Impianto\ImpiantoCreatedBuilder.cs" />
     <Compile Include="Builders\Impianto\ImpiantoUpdatedBuilder.cs" />
@@ -208,8 +209,9 @@
     <Compile Include="Lotto\LottoUpdated.cs" />
     <Compile Include="bachibouzouk\BasePriceUpdated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedulation\SchedulationPriceOfScenarioCancelled.cs" />
-    <Compile Include="Schedulation\SchedulationPriceOfScenarioCalculated.cs" />
+    <Compile Include="Schedulazione\SchedulationPriceOfScenarioCancelled.cs" />
+    <Compile Include="Schedulazione\SchedulationPriceOfScenarioCalculated.cs" />
+    <Compile Include="Schedulazione\SchedulazioneRotCreated.cs" />
     <Compile Include="TipoIntervento\Ambiente\TipoInterventoAmbCreated.cs" />
     <Compile Include="TipoIntervento\Ambiente\TipoInterventoAmbDeleted.cs" />
     <Compile Include="TipoIntervento\Ambiente\TipoInterventoAmbUpdated.cs" />

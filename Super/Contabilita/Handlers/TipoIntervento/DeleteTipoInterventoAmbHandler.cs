@@ -18,7 +18,7 @@ namespace Super.Contabilita.Handlers.TipoIntervento
 
         public override CommandValidation Execute(DeleteTipoInterventoAmb cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
             var tipoIntervento= EventRepository.GetById<Domain.TipoInterventoAmb>(cmd.Id);
 

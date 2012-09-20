@@ -42,16 +42,16 @@ namespace Super.Programmazione.Commands.Intervento
                                    string note)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(idPeriodoProgrammazione != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idPlan != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idCommittente != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idLotto != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idImpianto != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(workPeriod != null);
+            Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+            Contract.Requires(idPlan != Guid.Empty);
+            Contract.Requires(idCommittente != Guid.Empty);
+            Contract.Requires(idLotto != Guid.Empty);
+            Contract.Requires(idImpianto != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(idAppaltatore != Guid.Empty);
+            Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+            Contract.Requires(idDirezioneRegionale != Guid.Empty);
+            Contract.Requires(workPeriod != null);
 
 
             IdPeriodoProgrammazione = idPeriodoProgrammazione;
@@ -140,7 +140,7 @@ namespace Super.Programmazione.Commands.Intervento
             : base(id, commitId, version, idPeriodoProgrammazione, idPlan, idCommittente, idLotto, idImpianto,
             idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, note)
         {
-            Contract.Requires<ArgumentNullException>(oggetti != null);
+            Contract.Requires(oggetti != null);
 
             Oggetti = oggetti;
             TrenoPartenza = trenoPartenza;
@@ -214,7 +214,7 @@ namespace Super.Programmazione.Commands.Intervento
             : base(id, commitId, version, idPeriodoProgrammazione, idPlan, idCommittente, idLotto, idImpianto,
             idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, workPeriod, note)
         {
-            Contract.Requires<ArgumentNullException>(oggetti != null);
+            Contract.Requires(oggetti != null);
 
             Oggetti = oggetti;
 

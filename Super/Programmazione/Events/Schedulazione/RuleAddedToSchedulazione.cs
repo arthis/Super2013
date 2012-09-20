@@ -43,7 +43,7 @@ namespace Super.Programmazione.Events.Schedulazione
                                         bool postHolyDay)
             : base(id, idCommitId, version)
         {
-            Contract.Requires<ArgumentNullException>(interval != null);
+            Contract.Requires(interval != null);
 
             Interval = interval;
             Monday = monday;

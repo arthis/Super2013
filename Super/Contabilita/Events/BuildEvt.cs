@@ -8,6 +8,7 @@ using Super.Contabilita.Events.Builders.Intervento;
 using Super.Contabilita.Events.Builders.Lotto;
 using Super.Contabilita.Events.Builders.MeasuringUnit;
 using Super.Contabilita.Events.Builders.PeriodoProgrammazione;
+using Super.Contabilita.Events.Builders.Schedulazione;
 using Super.Contabilita.Events.Builders.TipoIntervento;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Rotabile;
@@ -135,6 +136,10 @@ namespace Super.Contabilita.Events
         public static PricingCreatedBuilder PricingCreated { get { return new PricingCreatedBuilder(); } }
 
         public static InterventoRotCreatedBuilder InterventoRotCreated { get { return new InterventoRotCreatedBuilder(); } }
-        
+
+        #region Schedulazione
+        public static SchedulazionePriceOfScenarioCalculatedBuilder SchedulazionePriceOfScenarioCalculated {get {return new SchedulazionePriceOfScenarioCalculatedBuilder();}}
+        #endregion
+
     }
 }

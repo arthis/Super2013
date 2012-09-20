@@ -21,7 +21,7 @@ namespace Super.Contabilita.Handlers.PeriodoProgrammazione
 
         public override CommandValidation Execute(CreatePeriodoProgrammazione cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
             
 
             var existingPeriodoProgrammazione = EventRepository.GetById<Domain.PeriodoProgrammazione>(cmd.Id);

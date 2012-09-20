@@ -28,10 +28,10 @@ namespace Super.Contabilita.Commands.Intervento
             : base(id,commitId,  version)
         {
         
-            Contract.Requires<ArgumentNullException>(idPlan != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idBachBouzouk != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(workPeriod != null);
+            Contract.Requires(idPlan != Guid.Empty);
+            Contract.Requires(idBachBouzouk != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(workPeriod != null);
 
             IdPlan = idPlan;
             IdBachBouzouk = idBachBouzouk;

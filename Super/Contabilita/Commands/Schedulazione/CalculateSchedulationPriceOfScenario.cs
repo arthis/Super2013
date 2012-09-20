@@ -30,11 +30,11 @@ namespace Super.Contabilita.Commands.Schedulazione
                                           Period period)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(idScenario != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idSchedulazione != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(workPeriod != null);
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(idScenario != Guid.Empty);
+            Contract.Requires(idSchedulazione != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(workPeriod != null);
+            Contract.Requires(period != null);
 
             IdScenario = idScenario;
             IdSchedulazione = idSchedulazione;

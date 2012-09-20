@@ -124,6 +124,7 @@
     <Compile Include="Intervento\Rotabile\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioPrice\calcolo_del_prezzo_della_schedulazione_ambiente.cs" />
+    <Compile Include="ScenarioPrice\Fa_la_projection_del_prezzo_per_la_programmazione_del_prezzo_per_la_schedulazione_calcolata.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
@@ -158,9 +159,17 @@
       <Project>{7C1A8FCA-5A29-4A72-9D3E-D477CF0B96BF}</Project>
       <Name>Commands %28Super\Contabilita\Commands%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Contabilita\Events\Events.csproj">
+      <Project>{82672BF6-2C86-44F0-BDE6-DEA5FBDE6099}</Project>
+      <Name>Events %28Super\Contabilita\Events%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Controllo\Commands\Commands.csproj">
       <Project>{CB4B07C5-EAAF-4392-844E-D5C59F4C937E}</Project>
       <Name>Commands %28Super\Controllo\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Programmazione\Commands\Commands.csproj">
+      <Project>{8a1120f1-6778-4ad1-8f09-45a2abe5c1fc}</Project>
+      <Name>Commands %28Super\Programmazione\Commands%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>

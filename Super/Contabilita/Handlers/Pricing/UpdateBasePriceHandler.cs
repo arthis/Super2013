@@ -21,7 +21,7 @@ namespace Super.Contabilita.Handlers.Pricing
 
         public override CommandValidation Execute(UpdateBasePrice cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
 
 
             var pricing = EventRepository.GetById<Domain.Pricing.Pricing>(cmd.Id);

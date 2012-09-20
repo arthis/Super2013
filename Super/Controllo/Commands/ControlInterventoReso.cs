@@ -42,9 +42,9 @@ namespace Super.Controllo.Commands
         public ControlInterventoReso(Guid id, Guid commitId, long version, Guid idUser, DateTime controlDate, WorkPeriod workPeriod, string note)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(idUser != Guid.Empty);
+            Contract.Requires(idUser != Guid.Empty);
             Contract.Requires<ArgumentOutOfRangeException>(controlDate > DateTime.MinValue);
-            Contract.Requires<ArgumentNullException>(workPeriod != null);
+            Contract.Requires(workPeriod != null);
 
             _idUser = idUser;
             _controlDate = controlDate;

@@ -18,7 +18,7 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione
         public UpdatePeriodoProgrammazione(Guid id, Guid commitId, long version, Interval period,  string description)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(period != null);
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
 
             this.Interval = period;

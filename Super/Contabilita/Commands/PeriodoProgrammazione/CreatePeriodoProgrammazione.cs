@@ -20,7 +20,7 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione
         public CreatePeriodoProgrammazione(Guid id, Guid commitId, long version, Interval interval,  string description)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(interval != null);
+            Contract.Requires(interval != null);
             Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
 
             this.Interval = interval;

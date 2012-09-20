@@ -92,23 +92,23 @@ GO
 USE [Super2013.Programmazione.ReadStore]
 GO
 
-/****** Object:  Table [dbo].[SchedulationRot]    Script Date: 07/26/2012 10:24:29 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulationRot]') AND type in (N'U'))
-DROP TABLE [dbo].[SchedulationRot]
+/****** Object:  Table [dbo].[SchedulazioneRot]    Script Date: 07/26/2012 10:24:29 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulazioneRot]') AND type in (N'U'))
+DROP TABLE [dbo].[SchedulazioneRot]
 GO
 
 USE [Super2013.Programmazione.ReadStore]
 GO
 
-/****** Object:  Table [dbo].[SchedulationRot]    Script Date: 07/26/2012 10:24:29 ******/
+/****** Object:  Table [dbo].[SchedulazioneRot]    Script Date: 07/26/2012 10:24:29 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[SchedulationRot](
-	[IdSchedulation] [uniqueidentifier] NOT NULL,
+CREATE TABLE [dbo].[SchedulazioneRot](
+	[IdSchedulazione] [uniqueidentifier] NOT NULL,
 	[IdPeriodoProgrammazione] [uniqueidentifier] NOT NULL,
 	[IdScenario] [uniqueidentifier] NULL,
 	[IdPlan] [uniqueidentifier] NULL,
@@ -129,32 +129,32 @@ CREATE TABLE [dbo].[SchedulationRot](
 	[DateTrenoPartenza] [datetime] NULL,
 	[NumeroTrenoArrivo] [nvarchar](255) NULL,
 	[DateTrenoArrivo] [datetime] NULL,
- CONSTRAINT [PK_SchedulationRot] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_SchedulazioneRot] PRIMARY KEY CLUSTERED 
 (
-	[IdSchedulation] ASC
+	[IdSchedulazione] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
 
 
-/****** Object:  Table [dbo].[SchedulationRotMan]    Script Date: 07/26/2012 10:24:29 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulationRotMan]') AND type in (N'U'))
-DROP TABLE [dbo].[SchedulationRotMan]
+/****** Object:  Table [dbo].[SchedulazioneRotMan]    Script Date: 07/26/2012 10:24:29 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulazioneRotMan]') AND type in (N'U'))
+DROP TABLE [dbo].[SchedulazioneRotMan]
 GO
 
 USE [Super2013.Programmazione.ReadStore]
 GO
 
-/****** Object:  Table [dbo].[SchedulationRotMan]    Script Date: 07/26/2012 10:24:29 ******/
+/****** Object:  Table [dbo].[SchedulazioneRotMan]    Script Date: 07/26/2012 10:24:29 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[SchedulationRotMan](
-	[IdSchedulation] [uniqueidentifier] NOT NULL,
+CREATE TABLE [dbo].[SchedulazioneRotMan](
+	[IdSchedulazione] [uniqueidentifier] NOT NULL,
 	[IdPeriodoProgrammazione] [uniqueidentifier] NOT NULL,
 	[IdScenario] [uniqueidentifier] NULL,
 	[IdPlan] [uniqueidentifier] NULL,
@@ -168,9 +168,9 @@ CREATE TABLE [dbo].[SchedulationRotMan](
 	[Note] [nvarchar](255) NULL,
 	[Start] [datetime] NOT NULL,
 	[End] [datetime] NOT NULL
- CONSTRAINT [PK_SchedulationRotMan] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_SchedulazioneRotMan] PRIMARY KEY CLUSTERED 
 (
-	[IdSchedulation] ASC
+	[IdSchedulazione] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
@@ -178,23 +178,23 @@ GO
 
 
 
-/****** Object:  Table [dbo].[SchedulationAmb]    Script Date: 07/26/2012 10:24:29 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulationAmb]') AND type in (N'U'))
-DROP TABLE [dbo].[SchedulationAmb]
+/****** Object:  Table [dbo].[SchedulazioneAmb]    Script Date: 07/26/2012 10:24:29 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulazioneAmb]') AND type in (N'U'))
+DROP TABLE [dbo].[SchedulazioneAmb]
 GO
 
 USE [Super2013.Programmazione.ReadStore]
 GO
 
-/****** Object:  Table [dbo].[SchedulationAmb]    Script Date: 07/26/2012 10:24:29 ******/
+/****** Object:  Table [dbo].[SchedulazioneAmb]    Script Date: 07/26/2012 10:24:29 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[SchedulationAmb](
-	[IdSchedulation] [uniqueidentifier] NOT NULL,
+CREATE TABLE [dbo].[SchedulazioneAmb](
+	[IdSchedulazione] [uniqueidentifier] NOT NULL,
 	[IdPeriodoProgrammazione] [uniqueidentifier] NOT NULL,
 	[IdScenario] [uniqueidentifier] NULL,
 	[IdPlan] [uniqueidentifier] NULL,
@@ -210,9 +210,9 @@ CREATE TABLE [dbo].[SchedulationAmb](
 	[End] [datetime] NOT NULL,
 	[Description] [nvarchar](255) NULL,
 	[Quantity] [int] NULL
- CONSTRAINT [PK_SchedulationAmb] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_SchedulazioneAmb] PRIMARY KEY CLUSTERED 
 (
-	[IdSchedulation] ASC
+	[IdSchedulazione] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
@@ -222,28 +222,28 @@ GO
 USE [Super2013.Programmazione.ReadStore]
 GO
 
-/****** Object:  Table [dbo].[SchedulationOggettoRot]    Script Date: 07/26/2012 10:29:46 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulationOggettoRot]') AND type in (N'U'))
-DROP TABLE [dbo].[SchedulationOggettoRot]
+/****** Object:  Table [dbo].[SchedulazioneOggettoRot]    Script Date: 07/26/2012 10:29:46 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulazioneOggettoRot]') AND type in (N'U'))
+DROP TABLE [dbo].[SchedulazioneOggettoRot]
 GO
 
 USE [Super2013.Programmazione.ReadStore]
 GO
 
-/****** Object:  Table [dbo].[SchedulationOggettoRot]    Script Date: 07/26/2012 10:29:46 ******/
+/****** Object:  Table [dbo].[SchedulazioneOggettoRot]    Script Date: 07/26/2012 10:29:46 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[SchedulationOggettoRot](
+CREATE TABLE [dbo].[SchedulazioneOggettoRot](
 	[IdOggettoRot] [int] IDENTITY(1,1) NOT NULL,
-	[idSchedulationRot] [uniqueidentifier] NOT NULL,
+	[idSchedulazioneRot] [uniqueidentifier] NOT NULL,
 	[Description] [nvarchar](255) NULL,
 	[Quantity] [int] NOT NULL,
 	[idTipoOggettoInterventoRot] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_SchedulationOggettoRot] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_SchedulazioneOggettoRot] PRIMARY KEY CLUSTERED 
 (
 	[IdOggettoRot] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
@@ -258,28 +258,28 @@ GO
 USE [Super2013.Programmazione.ReadStore]
 GO
 
-/****** Object:  Table [dbo].[SchedulationOggettoRotMan]    Script Date: 07/26/2012 10:29:46 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulationOggettoRotMan]') AND type in (N'U'))
-DROP TABLE [dbo].[SchedulationOggettoRotMan]
+/****** Object:  Table [dbo].[SchedulazioneOggettoRotMan]    Script Date: 07/26/2012 10:29:46 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SchedulazioneOggettoRotMan]') AND type in (N'U'))
+DROP TABLE [dbo].[SchedulazioneOggettoRotMan]
 GO
 
 USE [Super2013.Programmazione.ReadStore]
 GO
 
-/****** Object:  Table [dbo].[SchedulationOggettoRotMan]    Script Date: 07/26/2012 10:29:46 ******/
+/****** Object:  Table [dbo].[SchedulazioneOggettoRotMan]    Script Date: 07/26/2012 10:29:46 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[SchedulationOggettoRotMan](
+CREATE TABLE [dbo].[SchedulazioneOggettoRotMan](
 	[IdOggettoRotMan] [int] IDENTITY(1,1) NOT NULL,
-	[idSchedulationRotMan] [uniqueidentifier] NOT NULL,
+	[idSchedulazioneRotMan] [uniqueidentifier] NOT NULL,
 	[Description] [nvarchar](255) NULL,
 	[Quantity] [int] NOT NULL,
 	[idTipoOggettoInterventoRotMan] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_SchedulationOggettoRotMan] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_SchedulazioneOggettoRotMan] PRIMARY KEY CLUSTERED 
 (
 	[IdOggettoRotMan] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]

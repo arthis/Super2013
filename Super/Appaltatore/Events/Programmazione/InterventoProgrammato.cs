@@ -25,12 +25,12 @@ namespace Super.Appaltatore.Events.Programmazione
                                      string note)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentNullException>(idImpianto != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idTipoIntervento != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idAppaltatore != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idCategoriaCommerciale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(idDirezioneRegionale != Guid.Empty);
-            Contract.Requires<ArgumentNullException>(period != null);
+            Contract.Requires(idImpianto != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(idAppaltatore != Guid.Empty);
+            Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+            Contract.Requires(idDirezioneRegionale != Guid.Empty);
+            Contract.Requires(period != null);
 
             IdImpianto = idImpianto;
             IdTipoIntervento = idTipoIntervento;

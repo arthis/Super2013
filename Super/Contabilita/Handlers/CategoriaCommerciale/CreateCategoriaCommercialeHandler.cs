@@ -20,7 +20,7 @@ namespace Super.Contabilita.Handlers.CategoriaCommerciale
 
         public override CommandValidation Execute(CreateCategoriaCommerciale cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
             
 
             var existingCategoriaCommerciale = EventRepository.GetById<Domain.CategoriaCommerciale>(cmd.Id);

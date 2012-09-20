@@ -244,82 +244,82 @@ namespace Super.ReadModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SchedulationAmb> SchedulationAmbs
+        public ObjectSet<SchedulazioneAmb> SchedulazioneAmbs
         {
             get
             {
-                if ((_SchedulationAmbs == null))
+                if ((_SchedulazioneAmbs == null))
                 {
-                    _SchedulationAmbs = base.CreateObjectSet<SchedulationAmb>("SchedulationAmbs");
+                    _SchedulazioneAmbs = base.CreateObjectSet<SchedulazioneAmb>("SchedulazioneAmbs");
                 }
-                return _SchedulationAmbs;
+                return _SchedulazioneAmbs;
             }
         }
-        private ObjectSet<SchedulationAmb> _SchedulationAmbs;
+        private ObjectSet<SchedulazioneAmb> _SchedulazioneAmbs;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SchedulationOggettoRot> SchedulationOggettoRots
+        public ObjectSet<SchedulazioneOggettoRot> SchedulazioneOggettoRots
         {
             get
             {
-                if ((_SchedulationOggettoRots == null))
+                if ((_SchedulazioneOggettoRots == null))
                 {
-                    _SchedulationOggettoRots = base.CreateObjectSet<SchedulationOggettoRot>("SchedulationOggettoRots");
+                    _SchedulazioneOggettoRots = base.CreateObjectSet<SchedulazioneOggettoRot>("SchedulazioneOggettoRots");
                 }
-                return _SchedulationOggettoRots;
+                return _SchedulazioneOggettoRots;
             }
         }
-        private ObjectSet<SchedulationOggettoRot> _SchedulationOggettoRots;
+        private ObjectSet<SchedulazioneOggettoRot> _SchedulazioneOggettoRots;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SchedulationOggettoRotMan> SchedulationOggettoRotMen
+        public ObjectSet<SchedulazioneOggettoRotMan> SchedulazioneOggettoRotMen
         {
             get
             {
-                if ((_SchedulationOggettoRotMen == null))
+                if ((_SchedulazioneOggettoRotMen == null))
                 {
-                    _SchedulationOggettoRotMen = base.CreateObjectSet<SchedulationOggettoRotMan>("SchedulationOggettoRotMen");
+                    _SchedulazioneOggettoRotMen = base.CreateObjectSet<SchedulazioneOggettoRotMan>("SchedulazioneOggettoRotMen");
                 }
-                return _SchedulationOggettoRotMen;
+                return _SchedulazioneOggettoRotMen;
             }
         }
-        private ObjectSet<SchedulationOggettoRotMan> _SchedulationOggettoRotMen;
+        private ObjectSet<SchedulazioneOggettoRotMan> _SchedulazioneOggettoRotMen;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SchedulationRot> SchedulationRots
+        public ObjectSet<SchedulazioneRot> SchedulazioneRots
         {
             get
             {
-                if ((_SchedulationRots == null))
+                if ((_SchedulazioneRots == null))
                 {
-                    _SchedulationRots = base.CreateObjectSet<SchedulationRot>("SchedulationRots");
+                    _SchedulazioneRots = base.CreateObjectSet<SchedulazioneRot>("SchedulazioneRots");
                 }
-                return _SchedulationRots;
+                return _SchedulazioneRots;
             }
         }
-        private ObjectSet<SchedulationRot> _SchedulationRots;
+        private ObjectSet<SchedulazioneRot> _SchedulazioneRots;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SchedulationRotMan> SchedulationRotMen
+        public ObjectSet<SchedulazioneRotMan> SchedulazioneRotMen
         {
             get
             {
-                if ((_SchedulationRotMen == null))
+                if ((_SchedulazioneRotMen == null))
                 {
-                    _SchedulationRotMen = base.CreateObjectSet<SchedulationRotMan>("SchedulationRotMen");
+                    _SchedulazioneRotMen = base.CreateObjectSet<SchedulazioneRotMan>("SchedulazioneRotMen");
                 }
-                return _SchedulationRotMen;
+                return _SchedulazioneRotMen;
             }
         }
-        private ObjectSet<SchedulationRotMan> _SchedulationRotMen;
+        private ObjectSet<SchedulazioneRotMan> _SchedulazioneRotMen;
 
         #endregion
 
@@ -414,43 +414,43 @@ namespace Super.ReadModel
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SchedulationAmbs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the SchedulazioneAmbs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSchedulationAmbs(SchedulationAmb schedulationAmb)
+        public void AddToSchedulazioneAmbs(SchedulazioneAmb SchedulazioneAmb)
         {
-            base.AddObject("SchedulationAmbs", schedulationAmb);
+            base.AddObject("SchedulazioneAmbs", SchedulazioneAmb);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SchedulationOggettoRots EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the SchedulazioneOggettoRots EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSchedulationOggettoRots(SchedulationOggettoRot schedulationOggettoRot)
+        public void AddToSchedulazioneOggettoRots(SchedulazioneOggettoRot SchedulazioneOggettoRot)
         {
-            base.AddObject("SchedulationOggettoRots", schedulationOggettoRot);
+            base.AddObject("SchedulazioneOggettoRots", SchedulazioneOggettoRot);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SchedulationOggettoRotMen EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the SchedulazioneOggettoRotMen EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSchedulationOggettoRotMen(SchedulationOggettoRotMan schedulationOggettoRotMan)
+        public void AddToSchedulazioneOggettoRotMen(SchedulazioneOggettoRotMan SchedulazioneOggettoRotMan)
         {
-            base.AddObject("SchedulationOggettoRotMen", schedulationOggettoRotMan);
+            base.AddObject("SchedulazioneOggettoRotMen", SchedulazioneOggettoRotMan);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SchedulationRots EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the SchedulazioneRots EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSchedulationRots(SchedulationRot schedulationRot)
+        public void AddToSchedulazioneRots(SchedulazioneRot SchedulazioneRot)
         {
-            base.AddObject("SchedulationRots", schedulationRot);
+            base.AddObject("SchedulazioneRots", SchedulazioneRot);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SchedulationRotMen EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the SchedulazioneRotMen EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSchedulationRotMen(SchedulationRotMan schedulationRotMan)
+        public void AddToSchedulazioneRotMen(SchedulazioneRotMan SchedulazioneRotMan)
         {
-            base.AddObject("SchedulationRotMen", schedulationRotMan);
+            base.AddObject("SchedulazioneRotMen", SchedulazioneRotMan);
         }
 
         #endregion
@@ -3919,17 +3919,17 @@ namespace Super.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulationAmb")]
+    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulazioneAmb")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SchedulationAmb : EntityObject
+    public partial class SchedulazioneAmb : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new SchedulationAmb object.
+        /// Create a new SchedulazioneAmb object.
         /// </summary>
-        /// <param name="idSchedulation">Initial value of the IdSchedulation property.</param>
+        /// <param name="idSchedulazione">Initial value of the IdSchedulazione property.</param>
         /// <param name="idPeriodoProgrammazione">Initial value of the IdPeriodoProgrammazione property.</param>
         /// <param name="idCommittente">Initial value of the IdCommittente property.</param>
         /// <param name="idLotto">Initial value of the IdLotto property.</param>
@@ -3940,21 +3940,21 @@ namespace Super.ReadModel
         /// <param name="idDirezioneRegionale">Initial value of the IdDirezioneRegionale property.</param>
         /// <param name="start">Initial value of the Start property.</param>
         /// <param name="end">Initial value of the End property.</param>
-        public static SchedulationAmb CreateSchedulationAmb(global::System.Guid idSchedulation, global::System.Guid idPeriodoProgrammazione, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idImpianto, global::System.Guid idTipoIntervento, global::System.Guid idAppaltatore, global::System.Guid idCategoriaCommerciale, global::System.Guid idDirezioneRegionale, global::System.DateTime start, global::System.DateTime end)
+        public static SchedulazioneAmb CreateSchedulazioneAmb(global::System.Guid idSchedulazione, global::System.Guid idPeriodoProgrammazione, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idImpianto, global::System.Guid idTipoIntervento, global::System.Guid idAppaltatore, global::System.Guid idCategoriaCommerciale, global::System.Guid idDirezioneRegionale, global::System.DateTime start, global::System.DateTime end)
         {
-            SchedulationAmb schedulationAmb = new SchedulationAmb();
-            schedulationAmb.IdSchedulation = idSchedulation;
-            schedulationAmb.IdPeriodoProgrammazione = idPeriodoProgrammazione;
-            schedulationAmb.IdCommittente = idCommittente;
-            schedulationAmb.IdLotto = idLotto;
-            schedulationAmb.IdImpianto = idImpianto;
-            schedulationAmb.IdTipoIntervento = idTipoIntervento;
-            schedulationAmb.IdAppaltatore = idAppaltatore;
-            schedulationAmb.IdCategoriaCommerciale = idCategoriaCommerciale;
-            schedulationAmb.IdDirezioneRegionale = idDirezioneRegionale;
-            schedulationAmb.Start = start;
-            schedulationAmb.End = end;
-            return schedulationAmb;
+            SchedulazioneAmb SchedulazioneAmb = new SchedulazioneAmb();
+            SchedulazioneAmb.IdSchedulazione = idSchedulazione;
+            SchedulazioneAmb.IdPeriodoProgrammazione = idPeriodoProgrammazione;
+            SchedulazioneAmb.IdCommittente = idCommittente;
+            SchedulazioneAmb.IdLotto = idLotto;
+            SchedulazioneAmb.IdImpianto = idImpianto;
+            SchedulazioneAmb.IdTipoIntervento = idTipoIntervento;
+            SchedulazioneAmb.IdAppaltatore = idAppaltatore;
+            SchedulazioneAmb.IdCategoriaCommerciale = idCategoriaCommerciale;
+            SchedulazioneAmb.IdDirezioneRegionale = idDirezioneRegionale;
+            SchedulazioneAmb.Start = start;
+            SchedulazioneAmb.End = end;
+            return SchedulazioneAmb;
         }
 
         #endregion
@@ -3966,27 +3966,27 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Guid IdSchedulation
+        public global::System.Guid IdSchedulazione
         {
             get
             {
-                return _IdSchedulation;
+                return _IdSchedulazione;
             }
             set
             {
-                if (_IdSchedulation != value)
+                if (_IdSchedulazione != value)
                 {
-                    OnIdSchedulationChanging(value);
-                    ReportPropertyChanging("IdSchedulation");
-                    _IdSchedulation = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("IdSchedulation");
-                    OnIdSchedulationChanged();
+                    OnIdSchedulazioneChanging(value);
+                    ReportPropertyChanging("IdSchedulazione");
+                    _IdSchedulazione = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdSchedulazione");
+                    OnIdSchedulazioneChanged();
                 }
             }
         }
-        private global::System.Guid _IdSchedulation;
-        partial void OnIdSchedulationChanging(global::System.Guid value);
-        partial void OnIdSchedulationChanged();
+        private global::System.Guid _IdSchedulazione;
+        partial void OnIdSchedulazioneChanging(global::System.Guid value);
+        partial void OnIdSchedulazioneChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4356,28 +4356,28 @@ namespace Super.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulationOggettoRot")]
+    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulazioneOggettoRot")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SchedulationOggettoRot : EntityObject
+    public partial class SchedulazioneOggettoRot : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new SchedulationOggettoRot object.
+        /// Create a new SchedulazioneOggettoRot object.
         /// </summary>
         /// <param name="idOggettoRot">Initial value of the IdOggettoRot property.</param>
-        /// <param name="idSchedulationRot">Initial value of the idSchedulationRot property.</param>
+        /// <param name="idSchedulazioneRot">Initial value of the idSchedulazioneRot property.</param>
         /// <param name="quantity">Initial value of the Quantity property.</param>
         /// <param name="idTipoOggettoInterventoRot">Initial value of the idTipoOggettoInterventoRot property.</param>
-        public static SchedulationOggettoRot CreateSchedulationOggettoRot(global::System.Int32 idOggettoRot, global::System.Guid idSchedulationRot, global::System.Int32 quantity, global::System.Guid idTipoOggettoInterventoRot)
+        public static SchedulazioneOggettoRot CreateSchedulazioneOggettoRot(global::System.Int32 idOggettoRot, global::System.Guid idSchedulazioneRot, global::System.Int32 quantity, global::System.Guid idTipoOggettoInterventoRot)
         {
-            SchedulationOggettoRot schedulationOggettoRot = new SchedulationOggettoRot();
-            schedulationOggettoRot.IdOggettoRot = idOggettoRot;
-            schedulationOggettoRot.idSchedulationRot = idSchedulationRot;
-            schedulationOggettoRot.Quantity = quantity;
-            schedulationOggettoRot.idTipoOggettoInterventoRot = idTipoOggettoInterventoRot;
-            return schedulationOggettoRot;
+            SchedulazioneOggettoRot SchedulazioneOggettoRot = new SchedulazioneOggettoRot();
+            SchedulazioneOggettoRot.IdOggettoRot = idOggettoRot;
+            SchedulazioneOggettoRot.idSchedulazioneRot = idSchedulazioneRot;
+            SchedulazioneOggettoRot.Quantity = quantity;
+            SchedulazioneOggettoRot.idTipoOggettoInterventoRot = idTipoOggettoInterventoRot;
+            return SchedulazioneOggettoRot;
         }
 
         #endregion
@@ -4416,24 +4416,24 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Guid idSchedulationRot
+        public global::System.Guid idSchedulazioneRot
         {
             get
             {
-                return _idSchedulationRot;
+                return _idSchedulazioneRot;
             }
             set
             {
-                OnidSchedulationRotChanging(value);
-                ReportPropertyChanging("idSchedulationRot");
-                _idSchedulationRot = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("idSchedulationRot");
-                OnidSchedulationRotChanged();
+                OnidSchedulazioneRotChanging(value);
+                ReportPropertyChanging("idSchedulazioneRot");
+                _idSchedulazioneRot = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idSchedulazioneRot");
+                OnidSchedulazioneRotChanged();
             }
         }
-        private global::System.Guid _idSchedulationRot;
-        partial void OnidSchedulationRotChanging(global::System.Guid value);
-        partial void OnidSchedulationRotChanged();
+        private global::System.Guid _idSchedulazioneRot;
+        partial void OnidSchedulazioneRotChanging(global::System.Guid value);
+        partial void OnidSchedulazioneRotChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4515,28 +4515,28 @@ namespace Super.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulationOggettoRotMan")]
+    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulazioneOggettoRotMan")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SchedulationOggettoRotMan : EntityObject
+    public partial class SchedulazioneOggettoRotMan : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new SchedulationOggettoRotMan object.
+        /// Create a new SchedulazioneOggettoRotMan object.
         /// </summary>
         /// <param name="idOggettoRotMan">Initial value of the IdOggettoRotMan property.</param>
-        /// <param name="idSchedulationRotMan">Initial value of the idSchedulationRotMan property.</param>
+        /// <param name="idSchedulazioneRotMan">Initial value of the idSchedulazioneRotMan property.</param>
         /// <param name="quantity">Initial value of the Quantity property.</param>
         /// <param name="idTipoOggettoInterventoRotMan">Initial value of the idTipoOggettoInterventoRotMan property.</param>
-        public static SchedulationOggettoRotMan CreateSchedulationOggettoRotMan(global::System.Int32 idOggettoRotMan, global::System.Guid idSchedulationRotMan, global::System.Int32 quantity, global::System.Guid idTipoOggettoInterventoRotMan)
+        public static SchedulazioneOggettoRotMan CreateSchedulazioneOggettoRotMan(global::System.Int32 idOggettoRotMan, global::System.Guid idSchedulazioneRotMan, global::System.Int32 quantity, global::System.Guid idTipoOggettoInterventoRotMan)
         {
-            SchedulationOggettoRotMan schedulationOggettoRotMan = new SchedulationOggettoRotMan();
-            schedulationOggettoRotMan.IdOggettoRotMan = idOggettoRotMan;
-            schedulationOggettoRotMan.idSchedulationRotMan = idSchedulationRotMan;
-            schedulationOggettoRotMan.Quantity = quantity;
-            schedulationOggettoRotMan.idTipoOggettoInterventoRotMan = idTipoOggettoInterventoRotMan;
-            return schedulationOggettoRotMan;
+            SchedulazioneOggettoRotMan SchedulazioneOggettoRotMan = new SchedulazioneOggettoRotMan();
+            SchedulazioneOggettoRotMan.IdOggettoRotMan = idOggettoRotMan;
+            SchedulazioneOggettoRotMan.idSchedulazioneRotMan = idSchedulazioneRotMan;
+            SchedulazioneOggettoRotMan.Quantity = quantity;
+            SchedulazioneOggettoRotMan.idTipoOggettoInterventoRotMan = idTipoOggettoInterventoRotMan;
+            return SchedulazioneOggettoRotMan;
         }
 
         #endregion
@@ -4575,24 +4575,24 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Guid idSchedulationRotMan
+        public global::System.Guid idSchedulazioneRotMan
         {
             get
             {
-                return _idSchedulationRotMan;
+                return _idSchedulazioneRotMan;
             }
             set
             {
-                OnidSchedulationRotManChanging(value);
-                ReportPropertyChanging("idSchedulationRotMan");
-                _idSchedulationRotMan = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("idSchedulationRotMan");
-                OnidSchedulationRotManChanged();
+                OnidSchedulazioneRotManChanging(value);
+                ReportPropertyChanging("idSchedulazioneRotMan");
+                _idSchedulazioneRotMan = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idSchedulazioneRotMan");
+                OnidSchedulazioneRotManChanged();
             }
         }
-        private global::System.Guid _idSchedulationRotMan;
-        partial void OnidSchedulationRotManChanging(global::System.Guid value);
-        partial void OnidSchedulationRotManChanged();
+        private global::System.Guid _idSchedulazioneRotMan;
+        partial void OnidSchedulazioneRotManChanging(global::System.Guid value);
+        partial void OnidSchedulazioneRotManChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4674,17 +4674,17 @@ namespace Super.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulationRot")]
+    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulazioneRot")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SchedulationRot : EntityObject
+    public partial class SchedulazioneRot : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new SchedulationRot object.
+        /// Create a new SchedulazioneRot object.
         /// </summary>
-        /// <param name="idSchedulation">Initial value of the IdSchedulation property.</param>
+        /// <param name="idSchedulazione">Initial value of the IdSchedulazione property.</param>
         /// <param name="idPeriodoProgrammazione">Initial value of the IdPeriodoProgrammazione property.</param>
         /// <param name="idCommittente">Initial value of the IdCommittente property.</param>
         /// <param name="idLotto">Initial value of the IdLotto property.</param>
@@ -4695,21 +4695,21 @@ namespace Super.ReadModel
         /// <param name="idDirezioneRegionale">Initial value of the IdDirezioneRegionale property.</param>
         /// <param name="start">Initial value of the Start property.</param>
         /// <param name="end">Initial value of the End property.</param>
-        public static SchedulationRot CreateSchedulationRot(global::System.Guid idSchedulation, global::System.Guid idPeriodoProgrammazione, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idImpianto, global::System.Guid idTipoIntervento, global::System.Guid idAppaltatore, global::System.Guid idCategoriaCommerciale, global::System.Guid idDirezioneRegionale, global::System.DateTime start, global::System.DateTime end)
+        public static SchedulazioneRot CreateSchedulazioneRot(global::System.Guid idSchedulazione, global::System.Guid idPeriodoProgrammazione, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idImpianto, global::System.Guid idTipoIntervento, global::System.Guid idAppaltatore, global::System.Guid idCategoriaCommerciale, global::System.Guid idDirezioneRegionale, global::System.DateTime start, global::System.DateTime end)
         {
-            SchedulationRot schedulationRot = new SchedulationRot();
-            schedulationRot.IdSchedulation = idSchedulation;
-            schedulationRot.IdPeriodoProgrammazione = idPeriodoProgrammazione;
-            schedulationRot.IdCommittente = idCommittente;
-            schedulationRot.IdLotto = idLotto;
-            schedulationRot.IdImpianto = idImpianto;
-            schedulationRot.IdTipoIntervento = idTipoIntervento;
-            schedulationRot.IdAppaltatore = idAppaltatore;
-            schedulationRot.IdCategoriaCommerciale = idCategoriaCommerciale;
-            schedulationRot.IdDirezioneRegionale = idDirezioneRegionale;
-            schedulationRot.Start = start;
-            schedulationRot.End = end;
-            return schedulationRot;
+            SchedulazioneRot SchedulazioneRot = new SchedulazioneRot();
+            SchedulazioneRot.IdSchedulazione = idSchedulazione;
+            SchedulazioneRot.IdPeriodoProgrammazione = idPeriodoProgrammazione;
+            SchedulazioneRot.IdCommittente = idCommittente;
+            SchedulazioneRot.IdLotto = idLotto;
+            SchedulazioneRot.IdImpianto = idImpianto;
+            SchedulazioneRot.IdTipoIntervento = idTipoIntervento;
+            SchedulazioneRot.IdAppaltatore = idAppaltatore;
+            SchedulazioneRot.IdCategoriaCommerciale = idCategoriaCommerciale;
+            SchedulazioneRot.IdDirezioneRegionale = idDirezioneRegionale;
+            SchedulazioneRot.Start = start;
+            SchedulazioneRot.End = end;
+            return SchedulazioneRot;
         }
 
         #endregion
@@ -4721,27 +4721,27 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Guid IdSchedulation
+        public global::System.Guid IdSchedulazione
         {
             get
             {
-                return _IdSchedulation;
+                return _IdSchedulazione;
             }
             set
             {
-                if (_IdSchedulation != value)
+                if (_IdSchedulazione != value)
                 {
-                    OnIdSchedulationChanging(value);
-                    ReportPropertyChanging("IdSchedulation");
-                    _IdSchedulation = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("IdSchedulation");
-                    OnIdSchedulationChanged();
+                    OnIdSchedulazioneChanging(value);
+                    ReportPropertyChanging("IdSchedulazione");
+                    _IdSchedulazione = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdSchedulazione");
+                    OnIdSchedulazioneChanged();
                 }
             }
         }
-        private global::System.Guid _IdSchedulation;
-        partial void OnIdSchedulationChanging(global::System.Guid value);
-        partial void OnIdSchedulationChanged();
+        private global::System.Guid _IdSchedulazione;
+        partial void OnIdSchedulazioneChanging(global::System.Guid value);
+        partial void OnIdSchedulazioneChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5231,17 +5231,17 @@ namespace Super.ReadModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulationRotMan")]
+    [EdmEntityTypeAttribute(NamespaceName="Super.Programmazione.ReadModel", Name="SchedulazioneRotMan")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SchedulationRotMan : EntityObject
+    public partial class SchedulazioneRotMan : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new SchedulationRotMan object.
+        /// Create a new SchedulazioneRotMan object.
         /// </summary>
-        /// <param name="idSchedulation">Initial value of the IdSchedulation property.</param>
+        /// <param name="idSchedulazione">Initial value of the IdSchedulazione property.</param>
         /// <param name="idPeriodoProgrammazione">Initial value of the IdPeriodoProgrammazione property.</param>
         /// <param name="idCommittente">Initial value of the IdCommittente property.</param>
         /// <param name="idLotto">Initial value of the IdLotto property.</param>
@@ -5252,21 +5252,21 @@ namespace Super.ReadModel
         /// <param name="idDirezioneRegionale">Initial value of the IdDirezioneRegionale property.</param>
         /// <param name="start">Initial value of the Start property.</param>
         /// <param name="end">Initial value of the End property.</param>
-        public static SchedulationRotMan CreateSchedulationRotMan(global::System.Guid idSchedulation, global::System.Guid idPeriodoProgrammazione, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idImpianto, global::System.Guid idTipoIntervento, global::System.Guid idAppaltatore, global::System.Guid idCategoriaCommerciale, global::System.Guid idDirezioneRegionale, global::System.DateTime start, global::System.DateTime end)
+        public static SchedulazioneRotMan CreateSchedulazioneRotMan(global::System.Guid idSchedulazione, global::System.Guid idPeriodoProgrammazione, global::System.Guid idCommittente, global::System.Guid idLotto, global::System.Guid idImpianto, global::System.Guid idTipoIntervento, global::System.Guid idAppaltatore, global::System.Guid idCategoriaCommerciale, global::System.Guid idDirezioneRegionale, global::System.DateTime start, global::System.DateTime end)
         {
-            SchedulationRotMan schedulationRotMan = new SchedulationRotMan();
-            schedulationRotMan.IdSchedulation = idSchedulation;
-            schedulationRotMan.IdPeriodoProgrammazione = idPeriodoProgrammazione;
-            schedulationRotMan.IdCommittente = idCommittente;
-            schedulationRotMan.IdLotto = idLotto;
-            schedulationRotMan.IdImpianto = idImpianto;
-            schedulationRotMan.IdTipoIntervento = idTipoIntervento;
-            schedulationRotMan.IdAppaltatore = idAppaltatore;
-            schedulationRotMan.IdCategoriaCommerciale = idCategoriaCommerciale;
-            schedulationRotMan.IdDirezioneRegionale = idDirezioneRegionale;
-            schedulationRotMan.Start = start;
-            schedulationRotMan.End = end;
-            return schedulationRotMan;
+            SchedulazioneRotMan SchedulazioneRotMan = new SchedulazioneRotMan();
+            SchedulazioneRotMan.IdSchedulazione = idSchedulazione;
+            SchedulazioneRotMan.IdPeriodoProgrammazione = idPeriodoProgrammazione;
+            SchedulazioneRotMan.IdCommittente = idCommittente;
+            SchedulazioneRotMan.IdLotto = idLotto;
+            SchedulazioneRotMan.IdImpianto = idImpianto;
+            SchedulazioneRotMan.IdTipoIntervento = idTipoIntervento;
+            SchedulazioneRotMan.IdAppaltatore = idAppaltatore;
+            SchedulazioneRotMan.IdCategoriaCommerciale = idCategoriaCommerciale;
+            SchedulazioneRotMan.IdDirezioneRegionale = idDirezioneRegionale;
+            SchedulazioneRotMan.Start = start;
+            SchedulazioneRotMan.End = end;
+            return SchedulazioneRotMan;
         }
 
         #endregion
@@ -5278,27 +5278,27 @@ namespace Super.ReadModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Guid IdSchedulation
+        public global::System.Guid IdSchedulazione
         {
             get
             {
-                return _IdSchedulation;
+                return _IdSchedulazione;
             }
             set
             {
-                if (_IdSchedulation != value)
+                if (_IdSchedulazione != value)
                 {
-                    OnIdSchedulationChanging(value);
-                    ReportPropertyChanging("IdSchedulation");
-                    _IdSchedulation = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("IdSchedulation");
-                    OnIdSchedulationChanged();
+                    OnIdSchedulazioneChanging(value);
+                    ReportPropertyChanging("IdSchedulazione");
+                    _IdSchedulazione = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdSchedulazione");
+                    OnIdSchedulazioneChanged();
                 }
             }
         }
-        private global::System.Guid _IdSchedulation;
-        partial void OnIdSchedulationChanging(global::System.Guid value);
-        partial void OnIdSchedulationChanged();
+        private global::System.Guid _IdSchedulazione;
+        partial void OnIdSchedulazioneChanging(global::System.Guid value);
+        partial void OnIdSchedulazioneChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

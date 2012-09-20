@@ -18,7 +18,7 @@ namespace Super.Programmazione.Handlers.Commands.Schedulazione.Ambiente
         {
             throw new NotImplementedException();
 
-            //Contract.Requires<ArgumentNullException>(cmd != null);
+            //Contract.Requires(cmd != null);
 
         
 

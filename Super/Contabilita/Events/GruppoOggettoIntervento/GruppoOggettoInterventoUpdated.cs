@@ -19,7 +19,7 @@ namespace Super.Contabilita.Events.GruppoOggettoIntervento
             :base (id,commitId,version)
         {
             
-            Contract.Requires<ArgumentNullException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(description));
 
             Description = description;
         }

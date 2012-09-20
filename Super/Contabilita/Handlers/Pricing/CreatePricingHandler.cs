@@ -20,7 +20,7 @@ namespace Super.Contabilita.Handlers.Pricing
 
         public override CommandValidation Execute(CreatePricing cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
             
 
             var existingPricing = EventRepository.GetById<Domain.Pricing.Pricing>(cmd.Id);

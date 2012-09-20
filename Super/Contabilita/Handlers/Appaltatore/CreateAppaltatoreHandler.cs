@@ -20,7 +20,7 @@ namespace Super.Contabilita.Handlers.Appaltatore
 
         public override CommandValidation Execute(CreateAppaltatore cmd)
         {
-            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires(cmd != null);
             
 
             var existingAppaltatore = EventRepository.GetById<Domain.Appaltatore>(cmd.Id);
