@@ -18,8 +18,8 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione
         public ClosePeriodoProgrammazione(Guid id, Guid commitId, long version, DateTime closingDate, Guid idUser)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(closingDate > DateTime.MinValue);
-            Contract.Requires<ArgumentException>(idUser!= Guid.Empty);
+            Contract.Requires(closingDate > DateTime.MinValue);
+            Contract.Requires(idUser!= Guid.Empty);
 
             this.ClosingDate = closingDate;
             this.IdUser = idUser;

@@ -279,7 +279,7 @@ namespace Super.Programmazione.Commands.Intervento
             : base(id, commitId, version, idPeriodoProgrammazione, idPlan, idCommittente, idLotto, idImpianto,
                    idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(quantity > 0);
+            Contract.Requires(quantity > 0);
 
             Quantity = quantity;
             Description = description;

@@ -25,7 +25,7 @@ namespace Super.Contabilita.Commands.Impianto
             : base(id, commitId, version)
         {
             Contract.Requires(period != null);
-            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description) );
+            Contract.Requires(!string.IsNullOrEmpty(description) );
             Contract.Requires(idLotto != Guid.Empty);
 
             Interval = period;

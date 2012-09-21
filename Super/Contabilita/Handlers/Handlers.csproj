@@ -146,6 +146,7 @@
     <Compile Include="Repositories\Container.cs" />
     <Compile Include="Repositories\ILottoRepository.cs" />
     <Compile Include="Repositories\SqlLottoRepository.cs" />
+    <Compile Include="Schedulazione\CalculateSchedulazioneAmbPriceOfScenarioHandler.cs" />
     <Compile Include="TipoIntervento\CreateTipoInterventoRotManHandler.cs" />
     <Compile Include="TipoIntervento\DeleteTipoInterventoRotManHandler.cs" />
     <Compile Include="TipoIntervento\UpdateTipoInterventoRotManHandler.cs" />

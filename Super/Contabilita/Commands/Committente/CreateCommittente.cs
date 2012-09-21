@@ -20,8 +20,8 @@ namespace Super.Contabilita.Commands.Committente
         public CreateCommittente(Guid id, Guid commitId, long version,  string description,string sign)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
-            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(sign));
+            Contract.Requires(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(sign));
 
             
             this.Description = description;

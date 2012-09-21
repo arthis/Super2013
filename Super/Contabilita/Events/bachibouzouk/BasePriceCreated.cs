@@ -22,10 +22,10 @@ namespace Super.Contabilita.Events.Pricing
         public BasePriceCreated(Guid id, Guid commitId, long version, Guid idBasePrice, decimal value, IntervalOpened interval, Guid idTipoIntervento, Guid idGruppoOggettoInervento)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentException>(idBasePrice != Guid.Empty);
-            Contract.Requires<ArgumentException>(interval != null);
-            Contract.Requires<ArgumentException>(idTipoIntervento != Guid.Empty);
-            Contract.Requires<ArgumentException>(idGruppoOggettoInervento != Guid.Empty);
+            Contract.Requires(idBasePrice != Guid.Empty);
+            Contract.Requires(interval != null);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(idGruppoOggettoInervento != Guid.Empty);
 
             IdBasePrice = idBasePrice;
             Value = value;

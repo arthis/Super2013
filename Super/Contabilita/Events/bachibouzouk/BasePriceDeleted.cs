@@ -17,7 +17,7 @@ namespace Super.Contabilita.Events.Pricing
         public BasePriceDeleted(Guid id, Guid commitId, long version, Guid idBasePrice)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentException>(idBasePrice != Guid.Empty);
+            Contract.Requires(idBasePrice != Guid.Empty);
         
             IdBasePrice = idBasePrice;
         }

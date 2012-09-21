@@ -212,7 +212,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
                                              string description)
             : base(id, commitId, version, idInterventoAppaltatore, dataConsuntivazione, period, note)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(quantity >= 0);
+            Contract.Requires(quantity >= 0);
 
             Quantity = quantity;
             Description = description;

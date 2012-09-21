@@ -8,19 +8,7 @@ namespace Super.Programmazione.Events.Schedulazione
 {
     public abstract class RuleAddedToSchedulazione : Message, IEvent
     {
-
-        public Interval Interval { get; set; }
-        public bool Monday { get; set; }
-        public bool Tuesday { get; set; }
-        public bool Wednesday { get; set; }
-        public bool Thursday { get; set; }
-        public bool Friday { get; set; }
-        public bool Saturday { get; set; }
-        public bool Sunday { get; set; }
-        public bool WeekEnd { get; set; }
-        public bool HolyDay { get; set; }
-        public bool PreHolyDay { get; set; }
-        public bool PostHolyDay { get; set; }
+        public Rule Rule { get; set; }
 
 
         public RuleAddedToSchedulazione()
@@ -28,35 +16,11 @@ namespace Super.Programmazione.Events.Schedulazione
 
         }
 
-        public RuleAddedToSchedulazione(Guid id, Guid idCommitId, long version,
-                                        Interval interval,
-                                        bool monday,
-            bool tuesday,
-            bool wednesday,
-            bool thursday,
-            bool friday,
-            bool saturday,
-            bool sunday,
-                                        bool weekEnd,
-                                        bool holyDay,
-                                        bool preHolyDay,
-                                        bool postHolyDay)
+        public RuleAddedToSchedulazione(Guid id, Guid idCommitId, long version, Rule rule)
             : base(id, idCommitId, version)
         {
-            Contract.Requires(interval != null);
-
-            Interval = interval;
-            Monday = monday;
-            Tuesday = tuesday;
-            Wednesday = wednesday;
-            Thursday = thursday;
-            Friday = friday;
-            Saturday = saturday;
-            Sunday = sunday;
-            WeekEnd = weekEnd;
-            HolyDay = holyDay;
-            PreHolyDay = preHolyDay;
-            PostHolyDay = postHolyDay;
+            Contract.Requires(rule != null);
+            Rule = rule;
         }
 
         public override string ToDescription()
@@ -64,38 +28,24 @@ namespace Super.Programmazione.Events.Schedulazione
             return string.Format("Regola é stata aggiunta alla schedulazione {0} ", Id);
         }
 
-        public bool Equals(RuleAddedToSchedulazione other)
+        protected bool Equals(RuleAddedToSchedulazione other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) && Equals(other.Interval, Interval) && other.Monday.Equals(Monday) && other.Tuesday.Equals(Tuesday) && other.Wednesday.Equals(Wednesday) && other.Thursday.Equals(Thursday) && other.Friday.Equals(Friday) && other.Saturday.Equals(Saturday) && other.Sunday.Equals(Sunday) && other.WeekEnd.Equals(WeekEnd) && other.HolyDay.Equals(HolyDay) && other.PreHolyDay.Equals(PreHolyDay) && other.PostHolyDay.Equals(PostHolyDay);
+            return base.Equals(other) && Equals(Rule, other.Rule);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as RuleAddedToSchedulazione);
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((RuleAddedToSchedulazione) obj);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                int result = base.GetHashCode();
-                result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-                result = (result*397) ^ Monday.GetHashCode();
-                result = (result*397) ^ Tuesday.GetHashCode();
-                result = (result*397) ^ Wednesday.GetHashCode();
-                result = (result*397) ^ Thursday.GetHashCode();
-                result = (result*397) ^ Friday.GetHashCode();
-                result = (result*397) ^ Saturday.GetHashCode();
-                result = (result*397) ^ Sunday.GetHashCode();
-                result = (result*397) ^ WeekEnd.GetHashCode();
-                result = (result*397) ^ HolyDay.GetHashCode();
-                result = (result*397) ^ PreHolyDay.GetHashCode();
-                result = (result*397) ^ PostHolyDay.GetHashCode();
-                return result;
+                return (base.GetHashCode()*397) ^ (Rule != null ? Rule.GetHashCode() : 0);
             }
         }
     }
@@ -137,21 +87,10 @@ namespace Super.Programmazione.Events.Schedulazione
         }
 
         public RuleAddedToSchedulazioneRot(Guid id, Guid idCommitId, long version,
-            Interval interval,
-            bool monday,
-            bool tuesday,
-            bool wednesday,
-            bool thursday,
-            bool friday,
-            bool saturday,
-            bool sunday,
-            bool weekEnd,
-            bool holyDay,
-            bool preHolyDay,
-            bool postHolyDay,
+            Rule rule,
             Treno trenoArrivo,
             WorkPeriod workPeriod)
-            : base(id, idCommitId, version, interval, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay)
+            : base(id, idCommitId, version, rule)
         {
             TrenoArrivo = trenoArrivo;
             WorkPeriod = workPeriod;
@@ -174,20 +113,8 @@ namespace Super.Programmazione.Events.Schedulazione
 
         }
 
-        public RuleAddedToSchedulazioneRotMan(Guid id, Guid idCommitId, long version,
-            Interval interval,
-            bool monday,
-            bool tuesday,
-            bool wednesday,
-            bool thursday,
-            bool friday,
-            bool saturday,
-            bool sunday,
-            bool weekEnd,
-            bool holyDay,
-            bool preHolyDay,
-            bool postHolyDay)
-            : base(id, idCommitId, version, interval, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay)
+        public RuleAddedToSchedulazioneRotMan(Guid id, Guid idCommitId, long version, Rule rule)
+            : base(id, idCommitId, version,  rule)
         {
 
         }
@@ -224,20 +151,8 @@ namespace Super.Programmazione.Events.Schedulazione
 
         }
 
-        public RuleAddedToSchedulazioneAmb(Guid id, Guid idCommitId, long version,
-            Interval interval,
-            bool monday,
-            bool tuesday,
-            bool wednesday,
-            bool thursday,
-            bool friday,
-            bool saturday,
-            bool sunday,
-            bool weekEnd,
-            bool holyDay,
-            bool preHolyDay,
-            bool postHolyDay)
-            : base(id, idCommitId, version, interval, monday, tuesday, wednesday, thursday, friday, saturday, sunday, weekEnd, holyDay, preHolyDay, postHolyDay)
+        public RuleAddedToSchedulazioneAmb(Guid id, Guid idCommitId, long version, Rule rule)
+            : base(id, idCommitId, version, rule)
         {
 
         }

@@ -43,7 +43,7 @@ namespace Super.Controllo.Events
         {
             
             Contract.Requires(idUser != Guid.Empty);
-            Contract.Requires<ArgumentOutOfRangeException>(controlDate > DateTime.MinValue);
+            Contract.Requires(controlDate > DateTime.MinValue);
             Contract.Requires(period != null);
 
             

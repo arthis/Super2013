@@ -43,7 +43,7 @@ namespace Super.Controllo.Commands
             : base(id, commitId, version)
         {
             Contract.Requires(idUser != Guid.Empty);
-            Contract.Requires<ArgumentOutOfRangeException>(controlDate > DateTime.MinValue);
+            Contract.Requires(controlDate > DateTime.MinValue);
             Contract.Requires(workPeriod != null);
 
             _idUser = idUser;

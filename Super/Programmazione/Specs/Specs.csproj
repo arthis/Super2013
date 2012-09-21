@@ -140,8 +140,8 @@
     <Compile Include="Schedulazione\Ambiente\aggiungere_una_regola_a_una_schedulazione_ambiente.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_a_un_scenario.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_scenario.cs" />
-    <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_a_un_piano.cs" />
-    <Compile Include="Schedulazione\Ambiente\aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_piano.cs" />
+    <Compile Include="Plan\aggiungere_una_schedulazione_ambiente_a_un_piano.cs" />
+    <Compile Include="Plan\aggiungere_una_schedulazione_ambiente_gia_esistente_a_un_piano.cs" />
     <Compile Include="Schedulazione\confirmare_la_generazione_degli_interventi_di_una_schedulazione.cs" />
     <Compile Include="Schedulazione\confirmare_il_fallimento_della_generazione_degli_interventi_di_una_schedulazione.cs" />
     <Compile Include="Schedulazione\generare_interventi_di_una_schedulazione_gia_generata.cs" />
@@ -150,16 +150,16 @@
     <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_regola_a_una_schedulazione_rotabile.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_scenario.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_in_manutenzione_gia_esistente_a_un_scenario.cs" />
-    <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_piano.cs" />
-    <Compile Include="Schedulazione\RotabileInManutenzione\aggiungere_una_schedulazione_rotabile_in_manutenzione_gia_esistente_a_un_piano.cs" />
+    <Compile Include="Plan\aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_piano.cs" />
+    <Compile Include="Plan\aggiungere_una_schedulazione_rotabile_in_manutenzione_gia_esistente_a_un_piano.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_a_un_scenario.cs" />
     <Compile Include="Scenario\promuovere_un_scenario_in_un_piano_.cs" />
     <Compile Include="Scenario\Creare_un_scenario_gia_creato.cs" />
     <Compile Include="Scenario\Creare_un_scenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenario\aggiungere_una_schedulazione_rotabile_gia_esistente_a_un_scenario.cs" />
-    <Compile Include="Schedulazione\Rotabile\aggiungere_una_schedulazione_rotabile_a_un_piano.cs" />
-    <Compile Include="Schedulazione\Rotabile\aggiungere_una_schedulazione_rotabile_gia_esistente_a_un_piano.cs" />
+    <Compile Include="Plan\aggiungere_una_schedulazione_rotabile_a_un_piano.cs" />
+    <Compile Include="Plan\aggiungere_una_schedulazione_rotabile_gia_esistente_a_un_piano.cs" />
     <Compile Include="Schedulazione\Rotabile\aggiungere_una_regola_a_una_schedulazione_rotabile.cs" />
     <Compile Include="System\il_sistema_aggiunge_un_utente.cs" />
   </ItemGroup>

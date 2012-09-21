@@ -242,7 +242,7 @@ namespace Super.Appaltatore.Commands
                                      string description)
             : base(id, commitId, version, idImpianto, idTipoIntervento, idAppaltatore, idCategoriaCommerciale, idDirezioneRegionale, period, note)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(quantity >= 0);
+            Contract.Requires(quantity >= 0);
             Contract.Requires(period != null);
             
 

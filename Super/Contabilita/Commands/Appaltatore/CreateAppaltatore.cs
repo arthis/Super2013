@@ -18,7 +18,7 @@ namespace Super.Contabilita.Commands.Appaltatore
         public CreateAppaltatore(Guid id, Guid commitId, long version,  string description)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(description));
 
             
             this.Description = description;

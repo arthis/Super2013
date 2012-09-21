@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
@@ -16,19 +17,16 @@ namespace Super.Programmazione.Handlers.Commands.Schedulazione.Ambiente
 
         public override CommandValidation Execute(AddRuleToSchedulazioneAmb cmd)
         {
-            throw new NotImplementedException();
 
+            throw  new NotImplementedException();
             //Contract.Requires(cmd != null);
 
-        
+            //var schedulazione = EventRepository.GetById<Domain.SchedulazioneAmb>(cmd.Id);
 
+            //if (schedulazione.IsNull())
+            //    throw new AggregateRootInstanceNotFoundException();
 
-            //var existingIntervento = EventRepository.GetById<Plan>(cmd.Id);
-
-            //if (!existingIntervento.IsNull())
-            //    throw new AlreadyCreatedAggregateRootException();
-
-            //existingIntervento.AllowControl(cmd.Id);
+            //schedulazione.
 
             //EventRepository.Save(existingIntervento, cmd.CommitId);
 

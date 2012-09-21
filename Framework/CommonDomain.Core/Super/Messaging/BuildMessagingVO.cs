@@ -11,6 +11,7 @@ namespace CommonDomain.Core.Super.Messaging
         public static MsgWorkPeriodBuilder MsgWorkPeriod { get { return new MsgWorkPeriodBuilder(); } }
         public static MsgPeriodBuilder MsgPeriod { get { return new MsgPeriodBuilder(); } }
         public static MsgTrenoBuilder MsgTreno { get { return new MsgTrenoBuilder(); } }
+        public static MsgRuleBuilder MsgRule { get { return new MsgRuleBuilder(); } }
 
         
     }

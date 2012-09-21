@@ -21,7 +21,7 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione
             : base(id, commitId, version)
         {
             Contract.Requires(interval != null);
-            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(description));
 
             this.Interval = interval;
             this.Description = description;

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonDomain;
-using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
-using CommonDomain.Core.Super.Messaging;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
@@ -13,9 +11,9 @@ using Super.Programmazione.Commands.Schedulazione;
 using Super.Programmazione.Events;
 using Super.Programmazione.Handlers.Commands.Schedulazione.Ambiente;
 
-namespace Super.Programmazione.Specs.Schedulazione.Ambiente
+namespace Super.Programmazione.Specs.Plan
 {
-    public class aggiungere_una_regola_a_una_schedulazione_ambiente : CommandBaseClass<AddRuleToSchedulazioneAmb>
+    public class aggiungere_una_schedulazione_ambiente_a_un_piano : CommandBaseClass<AddSchedulazioneAmbToPlan>
     {
         private Guid _idPlan = Guid.NewGuid();
         private Guid _idUser = Guid.NewGuid();
@@ -33,40 +31,48 @@ namespace Super.Programmazione.Specs.Schedulazione.Ambiente
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _tipoIntervento = Guid.NewGuid();
         private string _note= "note";
-        int _quantity = 12;
+        private int _quantity = 25;
         private string _description = "description";
-        
-        private Rule _rule = BuildMessagingVO.MsgRule
-            .ForFriday(true)
-            .ForHolyday(true)
-            .ForInterval(new Interval(DateTime.Now, DateTime.Now.AddDays(25)))
-            .ForMonday(true)
-            .ForPostHolyday(true)
-            .ForPreHolyday(true)
-            .ForSaturday(true)
-            .ForSunday(true)
-            .ForThursday(true)
-            .ForTuesday(true)
-            .ForWedneday(true)
-            .ForWeekEnd(true)
-            .Build();
 
 
-        protected override CommandHandler<AddRuleToSchedulazioneAmb> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<AddSchedulazioneAmbToPlan> OnHandle(IEventRepository eventRepository)
         {
-            return new AddRuleToSchedulazioneAmbHandler(eventRepository);
+            return new AddSchedulazioneAmbToPlanHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.ScenarioCreated
-                .ByUser(_idUser)
-                .ForDescription(_descritpion)
-                .Build(_idPlan, 1);
+               .ByUser(_idUser)
+               .ForDescription(_descritpion)
+               .Build(_idPlan, 1);
             yield return BuildEvt.ScenarioPromotedToPlan
                 .ByUser(_idUser)
                 .When(_promotingDate)
                 .Build(_idPlan, 2);
+        }
+
+        public override AddSchedulazioneAmbToPlan When()
+        {
+            return BuildCmd.AddSchedulazioneAmbToPlan
+                        .ForAppaltatore(_idAppaltatore)
+                        .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                        .ForCommittente(_idCommittente)
+                        .ForDirezioneRegionale(_idDirezioneRegionale)
+                        .ForImpianto(_idImpianto)
+                        .ForLotto(_idLotto)
+                        .ForWorkPeriod(_period)
+                        .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                        .ForPlan(_idPlan)
+                        .OfTipoIntervento(_tipoIntervento)
+                        .WithNote(_note)
+                        .ForDescription(_descritpion)
+                        .ForQuantity(_quantity)
+                        .Build(_id, 0);
+        }
+
+        public override IEnumerable<IMessage> Expect()
+        {
             yield return BuildEvt.SchedulazioneAmbAddedToPlan
                 .ForAppaltatore(_idAppaltatore)
                 .ForCategoriaCommerciale(_idCategoriaCommerciale)
@@ -82,21 +88,6 @@ namespace Super.Programmazione.Specs.Schedulazione.Ambiente
                 .ForQuantity(_quantity)
                 .ForDescription(_description)
                 .Build(_id, 1);
-        }
-
-        public override AddRuleToSchedulazioneAmb When()
-        {
-            return BuildCmd.AddRuleToSchedulazioneAmb
-                        .WithRule(_rule)
-                        .Build(_id, 1);
-        }
-
-        public override IEnumerable<IMessage> Expect()
-        {
-            yield return BuildEvt.RuleAddedToSchedulazioneAmb
-                .WithRule(_rule)
-                .Build(_id, 2);
-
         }
 
         [Test]

@@ -18,7 +18,7 @@ namespace Super.Contabilita.Commands.GruppoOggettoIntervento
         public CreateGruppoOggettoIntervento(Guid id, Guid commitId, long version,  string description)
             : base(id, commitId, version)
         {
-            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(description));
 
             
             this.Description = description;

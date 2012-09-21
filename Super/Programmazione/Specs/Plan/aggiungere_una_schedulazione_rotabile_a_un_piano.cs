@@ -12,9 +12,9 @@ using Super.Programmazione.Commands.Schedulazione;
 using Super.Programmazione.Events;
 using Super.Programmazione.Handlers.Commands.Schedulazione.Rotabile;
 
-namespace Super.Programmazione.Specs.Schedulazione.Rotabile
+namespace Super.Programmazione.Specs.Plan
 {
-    public class aggiungere_una_regola_a_una_schedulazione_rotabile : CommandBaseClass<AddRuleToSchedulazioneRot>
+    public class aggiungere_una_schedulazione_rotabile_a_un_piano : CommandBaseClass<AddSchedulazioneRotToPlan>
     {
         private Guid _idPlan = Guid.NewGuid();
         private Guid _idUser = Guid.NewGuid();
@@ -38,28 +38,10 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
         private Treno _trenoPartenza = BuildMessagingVO.MsgTreno.When(DateTime.Now.AddHours(3)).WithNumeroTreno("1141").Build();
         private string _turnoTreno = "turnoTreno";
         
-        private Treno _trenoArrivoRegola = BuildMessagingVO.MsgTreno.When(DateTime.Now).WithNumeroTreno("1215").Build();
-        private WorkPeriod _workPeriodRegola = new WorkPeriod(DateTime.Parse("06/08/2012 12:00"), DateTime.Parse("06/08/2012 12:15"));
 
-        private Rule _rule = BuildMessagingVO.MsgRule
-            .ForFriday(true)
-            .ForHolyday(true)
-            .ForInterval(new Interval(DateTime.Now, DateTime.Now.AddDays(25)))
-            .ForMonday(true)
-            .ForPostHolyday(true)
-            .ForPreHolyday(true)
-            .ForSaturday(true)
-            .ForSunday(true)
-            .ForThursday(true)
-            .ForTuesday(true)
-            .ForWedneday(true)
-            .ForWeekEnd(true)
-            .Build();
-
-
-        protected override CommandHandler<AddRuleToSchedulazioneRot> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<AddSchedulazioneRotToPlan> OnHandle(IEventRepository eventRepository)
         {
-            return new AddRuleToSchedulazioneRotHandler(eventRepository);
+            return new AddSchedulazioneRotToPlanHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -72,44 +54,50 @@ namespace Super.Programmazione.Specs.Schedulazione.Rotabile
                 .ByUser(_idUser)
                 .When(_promotingDate)
                 .Build(_idPlan, 2);
-            yield return BuildEvt.SchedulazioneRotAddedToPlan
-                .ForAppaltatore(_idAppaltatore)
-                .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                .ForCommittente(_idCommittente)
-                .ForDirezioneRegionale(_idDirezioneRegionale)
-                .ForImpianto(_idImpianto)
-                .ForLotto(_idLotto)
-                .ForWorkPeriod(_period)
-                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                .ForPlan(_idPlan)
-                .OfTipoIntervento(_tipoIntervento)
-                .WithNote(_note)
-                .WithOggetti(_oggetti)
-                .WithRigaTurnoTreno(_rigaTurnoTreno)
-                .WithTrenoArrivo(_trenoArrivo)
-                .WithTrenoPartenza(_trenoPartenza)
-                .WithTurnoTreno(_turnoTreno)
-                .Build(_id, 1);
         }
 
-        public override AddRuleToSchedulazioneRot When()
+        public override AddSchedulazioneRotToPlan When()
         {
-
-            return BuildCmd.AddRuleToSchedulazioneRot
-                .WithRule(_rule)
-                .WithTrenoArrivo(_trenoArrivoRegola)
-                .WithWorkPeriod(_workPeriodRegola)
-                .Build(_id, 1);
+            return BuildCmd.AddSchedulazioneRotToPlan
+                        .ForAppaltatore(_idAppaltatore)
+                        .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                        .ForCommittente(_idCommittente)
+                        .ForDirezioneRegionale(_idDirezioneRegionale)
+                        .ForImpianto(_idImpianto)
+                        .ForLotto(_idLotto)
+                        .ForWorkPeriod(_period)
+                        .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                        .ForPlan(_idPlan)
+                        .OfTipoIntervento(_tipoIntervento)
+                        .WithNote(_note)
+                        .WithOggetti(_oggetti)
+                        .WithRigaTurnoTreno(_rigaTurnoTreno)
+                        .WithTrenoArrivo(_trenoArrivo)
+                        .WithTrenoPartenza(_trenoPartenza)
+                        .WithTurnoTreno(_turnoTreno)
+                        .Build(_id, 1);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.RuleAddedToSchedulazioneRot
-                .WithRule(_rule)
-                .WithTrenoArrivo(_trenoArrivoRegola)
-                .WithWorkPeriod(_workPeriodRegola)
-                .Build(_id, 2);
-
+            yield return BuildEvt.SchedulazioneRotAddedToPlan
+                        .ForAppaltatore(_idAppaltatore)
+                        .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                        .ForCommittente(_idCommittente)
+                        .ForDirezioneRegionale(_idDirezioneRegionale)
+                        .ForImpianto(_idImpianto)
+                        .ForLotto(_idLotto)
+                        .ForWorkPeriod(_period)
+                        .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                        .ForPlan(_idPlan)
+                        .OfTipoIntervento(_tipoIntervento)
+                        .WithNote(_note)
+                        .WithOggetti(_oggetti)
+                        .WithRigaTurnoTreno(_rigaTurnoTreno)
+                        .WithTrenoArrivo(_trenoArrivo)
+                        .WithTrenoPartenza(_trenoPartenza)
+                        .WithTurnoTreno(_turnoTreno)
+                .Build(_id, 1);
         }
 
         [Test]

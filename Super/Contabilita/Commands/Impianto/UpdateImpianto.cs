@@ -19,7 +19,7 @@ namespace Super.Contabilita.Commands.Impianto
         public UpdateImpianto(Guid id, Guid commitId, long version,  Interval period,  string description)
             :base(id,commitId,version)
         {
-            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(description));
+            Contract.Requires(!string.IsNullOrEmpty(description));
             Contract.Requires(period != null);
 
             Interval = period;

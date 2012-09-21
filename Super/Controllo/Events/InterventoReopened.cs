@@ -31,7 +31,7 @@ namespace Super.Controllo.Events
             : base(id, commitId, version)
         {
             Contract.Requires(idUser != Guid.Empty);
-            Contract.Requires<ArgumentOutOfRangeException>(reopeningDate > DateTime.MinValue);
+            Contract.Requires(reopeningDate > DateTime.MinValue);
 
             _idUser = idUser;
             _reopeningDate = reopeningDate;

@@ -1,4 +1,6 @@
-﻿using CommonDomain.Core.Super.Domain.Builders;
+﻿using System.Collections.Generic;
+using CommonDomain.Core.Super.Domain.Builders;
+using System.Linq;
 
 namespace CommonDomain.Core.Super.Domain
 {
@@ -11,7 +13,11 @@ namespace CommonDomain.Core.Super.Domain
         public static PeriodBuilder Period { get { return new PeriodBuilder(); } }
         public static WorkPeriodBuilder WorkPeriod { get { return new WorkPeriodBuilder(); } }
         public static TrenoBuilder Treno { get { return new TrenoBuilder(); } }
-
+        public static RuleBuilder Rule { get { return new RuleBuilder(); } }
+        
         
     }
+
+
+    
 }
