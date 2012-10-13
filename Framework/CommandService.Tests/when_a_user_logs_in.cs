@@ -13,7 +13,7 @@ namespace CommandService.Tests
 {
     public class when_a_user_logs_in
     {
-        static CommandWebService _commandWebService;
+        static CommandWebService<ISession> _commandWebService;
         private static string _username = "username";
         private static string _password = "password";
         private static string _tokenId ;
@@ -21,9 +21,10 @@ namespace CommandService.Tests
         Establish context = () =>
                                 {
                                     var bus = new Mock<IBus>();
-                                    var handler = new Mock<ICommandHandlerService>();
+                                    var handler = new Mock<ICommandHandlerService<ISession>>();
                                     var projection = new Mock<IProjectionHandlerService>();
-                                    _commandWebService = new CommandWebService(bus.Object, handler.Object, projection.Object);
+                                    var sessionFactory = new Mock<ISessionFactory<ISession>>();
+                                    _commandWebService = new CommandWebService<ISession>(handler.Object);
                                 };
 
         private Cleanup after = () => _commandWebService = null;

@@ -1,0 +1,42 @@
+﻿
+<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #><#+
+
+void BuildCtor(ObjectDTO evt)
+{
+	var name = evt.Name;
+	var ctorArgs =string.Empty;
+	foreach (var property in evt.Properties)
+    	ctorArgs += string.Format(",{0} {1}",property.Type, property.GetCamelCasedName());
+	#>
+
+
+		public <#= name #> ()
+		{
+			//for serialisation
+		}	     
+
+		public <#= name #>(Guid id, Guid commitId, long version<#= ctorArgs #>)
+		   : base(id,commitId,version)
+		{
+		<#+
+	foreach (var property in evt.Properties)
+        {
+			
+			foreach(string requirement in property.GetRequires())
+            {#>
+	<#= requirement #>
+
+<#+
+            }
+        }
+
+	foreach (var property in evt.Properties)
+        {#>
+			<#= property.GetPascalCasedName() #> = <#= property.GetCamelCasedName() #> ;
+<#+         }#>
+		}
+	<#+
+}
+
+#>

@@ -1,0 +1,15 @@
+﻿
+<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #><#+
+void BuildDescription(ObjectDTO cmd)
+	{
+		if(!string.IsNullOrEmpty(cmd.Description))
+		{#>
+		public override string ToDescription()
+		{
+			return string.Format("<#= cmd.Description #>", Id);
+		}
+		<#+ 
+		}
+	}
+#>

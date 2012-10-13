@@ -24,10 +24,15 @@ namespace Super.Programmazione.Handlers.Commands.Plan
         {
             Contract.Requires(cmd != null);
 
-            var existingScenario = EventRepository.GetById<Domain.Scenario>(cmd.Id);
+            var existingScenario = EventRepository.GetById<Domain.Programma.Scenario>(cmd.IdScenario);
 
             if (existingScenario.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
+
+            var existingPlan = EventRepository.GetById<Domain.Programma.Scenario>(cmd.Id);
+
+            if(!existingPlan.IsNull())
+                throw new AlreadyCreatedAggregateRootException();
 
             var plan = existingScenario.CreatePlan(cmd.Id);
 

@@ -118,6 +118,7 @@
     <Compile Include="IBus.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="ICommandBuilder.cs" />
+    <Compile Include="IDispatcher.cs" />
     <Compile Include="IEnvelope.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="IEventBuilder.cs" />
@@ -138,6 +139,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="EventStore">
+      <HintPath>..\..\Super\Web\Core_Web\bin\Debug\EventStore.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>

@@ -1,0 +1,28 @@
+﻿
+<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #>
+<#@include file="..\GenerationDTO.Events\TEventProp.tt"#>
+<#@include file="..\GenerationDTO.Events\TEventCtor.tt"#>
+<#@include file="..\GenerationDTO.Events\TEventDescription.tt"#>
+<#@include file="..\GenerationDTO.Events\TEventEquals.tt"#>
+<#@include file="..\GenerationDTO.Events\TEventHashCode.tt"#><#+
+ void BuildEvent(ObjectDTO evt)
+{
+
+	var name = evt.Name;
+	
+#>
+
+	public class <#= name #> : Message, IEvent
+	{
+	<#+ 
+		BuildProp(evt); 
+		BuildCtor(evt); 
+		BuildDescription(evt);
+	    BuildEquals(evt);
+		BuildHashCode(evt);
+	 #>
+	}
+<#+
+}
+	#>

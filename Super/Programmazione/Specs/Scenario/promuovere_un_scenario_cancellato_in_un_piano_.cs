@@ -19,6 +19,7 @@ namespace Super.Programmazione.Specs.Scenario
         
         private Guid _idUser = Guid.NewGuid();
         private string _descritpion = "description";
+        private Guid _idProgramma = Guid.NewGuid();
 
         private Guid _idUserPromoting = Guid.NewGuid();
         private DateTime _promotingDate = DateTime.Now;
@@ -26,7 +27,7 @@ namespace Super.Programmazione.Specs.Scenario
         protected override CommandHandler<PromoteScenarioToPlan> OnHandle(IEventRepository eventRepository)
         {
             var sessionFactory = new FakeSessionFactory(_idUserPromoting);
-            return new PromoteScenarioToPlanHandler(eventRepository, sessionFactory);
+            return new PromoteScenarioToPlanHandler<ISession>(eventRepository, sessionFactory);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -34,6 +35,7 @@ namespace Super.Programmazione.Specs.Scenario
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
+                .ForProgramma(_idProgramma)
                 .Build(_id, 1);
             yield return BuildEvt.ScenarioCancelled
              .ByUser(_idUser)
@@ -44,7 +46,8 @@ namespace Super.Programmazione.Specs.Scenario
         public override PromoteScenarioToPlan When()
         {
             return BuildCmd.PromoteScenarioToPlan
-                        .When(_promotingDate)
+                        .WhenPromotionDate(_promotingDate)
+                        .ForPlan(_idProgramma)
                         .Build(_id, 2);
         }
 

@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
     <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
@@ -113,17 +113,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SchedulazioneRotMan.cs" />
-    <Compile Include="SchedulazioneRot.cs" />
+    <Compile Include="Exceptions\InterventoAlreadyAddedToProgramma.cs" />
+    <Compile Include="Exceptions\PlanCancelledDoNotAllowFurtherChanges.cs" />
+    <Compile Include="Exceptions\ScenarioNotPromotedCannotCreatePlan.cs" />
+    <Compile Include="Exceptions\SchedulazioneAlreadyAddedToProgramma.cs" />
+    <Compile Include="Intervento\InterventoRotMan.cs" />
+    <Compile Include="Intervento\InterventoRot.cs" />
+    <Compile Include="Intervento\InterventoAmb.cs" />
+    <Compile Include="Programma\Programma.cs" />
+    <Compile Include="Schedulazione\SchedulazioneRotMan.cs" />
+    <Compile Include="Schedulazione\SchedulazioneRot.cs" />
     <Compile Include="Exceptions\InconsistentAggregate.cs" />
     <Compile Include="Exceptions\ScenarioPromotedDoNotAllowFurtherChanges.cs" />
     <Compile Include="Exceptions\ScenarioCancelledDoNotAllowFurtherChanges.cs" />
     <Compile Include="Exceptions\SchedulazionealreadyGeneratedException.cs" />
     <Compile Include="Exceptions\SchedulazioneInCorsoDiGenerazioneException.cs" />
-    <Compile Include="Plan.cs" />
-    <Compile Include="Scenario.cs" />
+    <Compile Include="Programma\Plan.cs" />
+    <Compile Include="Programma\Scenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SchedulazioneAmb.cs" />
+    <Compile Include="Schedulazione\SchedulazioneAmb.cs" />
     <Compile Include="System.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
@@ -146,7 +154,7 @@
     </ProjectReference>
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
-      <Name>Events %28Super\Schedulazione\Events%29</Name>
+      <Name>Events %28Super\Programmazione\Events%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

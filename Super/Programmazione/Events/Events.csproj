@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -13,6 +14,11 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
     <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
@@ -105,6 +111,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -115,13 +122,10 @@
     <Compile Include="Builders\InterventoGeneration\InterventoGeneratedConfirmedBuilder.cs" />
     <Compile Include="Builders\InterventoGeneration\GenerationOfInterventiStartedBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoAmbScheduledBuilder.cs" />
-    <Compile Include="Builders\Intervento\InterventoRotAddedToPlanBuilder.cs" />
-    <Compile Include="Builders\Intervento\InterventoRotManAddedToPlanBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoRotManUpdatedOfPlanBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoRotScheduledBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoRotManScheduledBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoRotUpdatedOfPlanBuilder.cs" />
-    <Compile Include="Builders\Plan\PlanCreatedBuilder.cs" />
     <Compile Include="Builders\Scenario\DescriptionOfScenarioChangedBuilder.cs" />
     <Compile Include="Builders\InterventoGeneration\GenerationFailedConfirmedBuilder.cs" />
     <Compile Include="Builders\InterventoGeneration\GenerationOfInterventiSucceededBuilder.cs" />
@@ -131,25 +135,18 @@
     <Compile Include="Builders\Schedulazione\RuleAddedToSchedulazioneRotBuilder.cs" />
     <Compile Include="Builders\Schedulazione\RuleAddedToSchedulazioneRotManBuilder.cs" />
     <Compile Include="Builders\Schedulazione\RuleRemovedFromSchedulazioneBuilder.cs" />
-    <Compile Include="Builders\Scenario\ScenarioPromotedToPlanBuilder.cs" />
     <Compile Include="Builders\Scenario\ScenarioDeletedBuilder.cs" />
     <Compile Include="Builders\Scenario\ScenarioCreatedBuilder.cs" />
     <Compile Include="Builders\Schedulazione\SchedulationCancelledFromScenarioBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\SchedulationCancelledFromPlanBuilder.cs" />
-    <Compile Include="Builders\Plan\PlanCancelledBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoCancelledFromPlanBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\SchedulazioneAmbAddedToScenarioBuilder.cs" />
+    <Compile Include="Builders\Scenario\SchedulazioneAmbAddedToScenarioBuilder.cs" />
     <Compile Include="Builders\Schedulazione\RuleAddedToSchedulazioneAmbBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\SchedulazioneAmbAddedToPlanBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\SchedulazioneRotAddedToPlanBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\SchedulazioneRotAddedToScenarioBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\SchedulazioneRotManAddedToPlanBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\SchedulazioneRotManAddedToScenarioBuilder.cs" />
+    <Compile Include="Builders\Scenario\SchedulazioneRotAddedToScenarioBuilder.cs" />
+    <Compile Include="Builders\Scenario\SchedulazioneRotManAddedToScenarioBuilder.cs" />
     <Compile Include="Builders\Schedulazione\SchedulazioneRotManUpdatedOfScenarioBuilder.cs" />
     <Compile Include="Builders\Schedulazione\SchedulazioneRotUpdatedOfScenarioBuilder.cs" />
     <Compile Include="Builders\System\AddUserToSystemBuilder.cs" />
     <Compile Include="BuildEvt.cs" />
-    <Compile Include="Builders\Intervento\InterventoAmbAddedToPlanBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoAmbGeneratedFromSchedulazioneBuilder.cs" />
     <Compile Include="Builders\Intervento\InterventoAmbUpdatedOfPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\SchedulazioneAmbUpdatedOfScenarioBuilder.cs" />
@@ -158,32 +155,74 @@
     <Compile Include="InterventoGeneration\GenerationOfInterventiStarted.cs" />
     <Compile Include="Intervento\InterventoScheduled.cs" />
     <Compile Include="Intervento\IInterventoScheduled.cs" />
-    <Compile Include="Plan\PlanCreated.cs" />
+    <Compile Include="Intervento\Super.Programmazione.Events.Intervento.Builders.cs">
+      <DependentUpon>Super.Programmazione.Events.Intervento.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Intervento\Super.Programmazione.Events.Intervento.cs">
+      <DependentUpon>Super.Programmazione.Events.Intervento.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Plan\Super.Programmazione.Events.Plan.Builders.cs">
+      <DependentUpon>Super.Programmazione.Events.Plan.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Plan\Super.Programmazione.Events.Plan.cs">
+      <DependentUpon>Super.Programmazione.Events.Plan.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Scenario\Super.Programmazione.Events.Scenario.Builders.cs">
+      <DependentUpon>Super.Programmazione.Events.Scenario.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Scenario\Super.Programmazione.Events.Scenario.cs">
+      <DependentUpon>Super.Programmazione.Events.Scenario.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Schedulazione\GenerationOfInterventiFailedConfirmed.cs" />
     <Compile Include="Schedulazione\GenerationSucceedConfirmed.cs" />
     <Compile Include="Schedulazione\InterventiAskedTobeGenerated.cs" />
     <Compile Include="Scenario\SchedulazioneCancelledFromScenario.cs" />
     <Compile Include="Intervento\InterventoGeneratedFromSchedulazione.cs" />
-    <Compile Include="Schedulazione\SchedulazioneAddedToPlan.cs" />
     <Compile Include="Intervento\InterventoCancelledFromPlan.cs" />
-    <Compile Include="Plan\PlanCancelled.cs" />
-    <Compile Include="Schedulazione\SchedulazioneCreated.cs" />
-    <Compile Include="Schedulazione\SchedulazioneCancelledFromPlan.cs" />
-    <Compile Include="Intervento\InterventoAddedToPlan.cs" />
     <Compile Include="Intervento\InterventoUpdatedOfPlan.cs" />
-    <Compile Include="Schedulazione\SchedulazioneUpdatedOfPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedulazione\SchedulazioneAddedToScenario.cs" />
-    <Compile Include="Schedulazione\SchedulazioneOfScenarioCancelled.cs" />
+    <Compile Include="Scenario\SchedulazioneAddedToScenario.cs" />
+    <Compile Include="Scenario\SchedulazioneOfScenarioCancelled.cs" />
     <Compile Include="Scenario\ScenarioCreated.cs" />
     <Compile Include="Scenario\ScenarioCancelled.cs" />
-    <Compile Include="Scenario\ScenarioPromotedToPlan.cs" />
     <Compile Include="Scenario\DescriptionOfScenarioChanged.cs" />
     <Compile Include="Scenario\SchedulazioneUpdatedOfScenario.cs" />
     <Compile Include="InterventoGeneration\GenerationOfInterventiSucceeded.cs" />
     <Compile Include="Schedulazione\RuleAddedToSchedulazione.cs" />
     <Compile Include="Schedulazione\RuleRemovedFromSchedulazione.cs" />
+    <Compile Include="Programma\Super.Programmazione.Events.Programma.Builders.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Super.Programmazione.Events.Programma.Builders.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Schedulazione\Super.Programmazione.Events.Schedulazione.Builders.cs">
+      <DependentUpon>Super.Programmazione.Events.Schedulazione.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Schedulazione\Super.Programmazione.Events.Schedulazione.cs">
+      <DependentUpon>Super.Programmazione.Events.Schedulazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="System\UserAddedToSystem.cs" />
+    <Compile Include="Programma\Super.Programmazione.Events.Programma.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Super.Programmazione.Events.Programma.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
@@ -195,7 +234,67 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Intervento\Super.Programmazione.Events.Intervento.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Intervento.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Intervento\Super.Programmazione.Events.Intervento.json" />
+    <None Include="Intervento\Super.Programmazione.Events.Intervento.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Intervento.cs</LastGenOutput>
+    </None>
+    <None Include="Plan\Super.Programmazione.Events.Plan.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Plan.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Plan\Super.Programmazione.Events.Plan.json" />
+    <None Include="Plan\Super.Programmazione.Events.Plan.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Plan.cs</LastGenOutput>
+    </None>
+    <None Include="Programma\Super.Programmazione.Events.Programma.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Programma.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Programma\Super.Programmazione.Events.Programma.json" />
+    <None Include="Programma\Super.Programmazione.Events.Programma.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Programma.cs</LastGenOutput>
+    </None>
+    <None Include="Scenario\Super.Programmazione.Events.Scenario.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Scenario.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Scenario\Super.Programmazione.Events.Scenario.json" />
+    <None Include="Scenario\Super.Programmazione.Events.Scenario.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Scenario.cs</LastGenOutput>
+    </None>
+    <None Include="Schedulazione\Super.Programmazione.Events.Schedulazione.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Schedulazione.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Schedulazione\Super.Programmazione.Events.Schedulazione.json" />
+    <None Include="Schedulazione\Super.Programmazione.Events.Schedulazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Schedulazione.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <TransformOnBuild>true</TransformOnBuild>
+    <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\TextTemplating\Microsoft.TextTemplating.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

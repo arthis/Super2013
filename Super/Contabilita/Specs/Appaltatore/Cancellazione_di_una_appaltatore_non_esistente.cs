@@ -9,7 +9,7 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Appaltatore;
-using Super.Contabilita.Handlers.Appaltatore;
+using Super.Contabilita.Handlers.Commands.Appaltatore;
 
 namespace Super.Contabilita.Specs.Appaltatore
 {

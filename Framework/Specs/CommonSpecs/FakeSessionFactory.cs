@@ -7,7 +7,7 @@ using CommonDomain.Core;
 
 namespace CommonSpecs
 {
-    public class FakeSessionFactory :ISessionFactory
+    public class FakeSessionFactory :ISessionFactory<ISession>
     {
         private readonly Guid _userId;
 
@@ -18,7 +18,9 @@ namespace CommonSpecs
 
         public ISession CreateSession(ICommand cmd)
         {
-            return new Session(_userId,true);
+            return new CommonSession(_userId,true);
         }
     }
+
+    
 }

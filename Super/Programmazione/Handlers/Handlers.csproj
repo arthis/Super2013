@@ -12,7 +12,7 @@
     <AssemblyName>Super.Programmazione.Handlers</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <CodeContractsAssemblyMode>0</CodeContractsAssemblyMode>
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
     <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
@@ -105,6 +105,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -113,20 +114,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\InterventoGeneration\StartGenerationOfInterventiHandler.cs" />
+    <Compile Include="Commands\Intervento\CreateInterventoAmbHandler.cs" />
+    <Compile Include="Commands\Intervento\CreateInterventoRotHandler.cs" />
+    <Compile Include="Commands\Intervento\CreateSchedulazioneRotManHandler.cs" />
     <Compile Include="Commands\Intervento\GenerateInterventoAmbForSchedulazioneHandler.cs" />
     <Compile Include="Commands\Intervento\GenerateInterventoRotForSchedulazioneHandler.cs" />
     <Compile Include="Commands\Intervento\GenerateInterventoRotManForSchedulazioneHandler.cs" />
+    <Compile Include="Commands\Plan\AddInterventoAmbToPlanHandler.cs" />
+    <Compile Include="Commands\Plan\AddInterventoRotToPlanHandler.cs" />
+    <Compile Include="Commands\Plan\AddInterventoRotManToPlanHandler.cs" />
     <Compile Include="Commands\Plan\CreatePlanFromPromotedScenarioHandler.cs" />
+    <Compile Include="Commands\Programma\AddSchedulazioneRotToProgrammaHandler.cs" />
+    <Compile Include="Commands\Programma\AddSchedulazioneRotManToProgrammaHandler.cs" />
+    <Compile Include="Commands\Programma\AddSchedulazioneAmbToProgrammaHandler.cs" />
+    <Compile Include="Commands\Programma\CreateProgrammaFromScenarioHandler.cs" />
     <Compile Include="Commands\Schedulazione\AskToGenerateInterventiHandler.cs" />
+    <Compile Include="Commands\Schedulazione\CreateSchedulazioneAmbHandler.cs" />
     <Compile Include="Commands\Schedulazione\ConfirmGenerationSucceedHandler.cs" />
     <Compile Include="Commands\Schedulazione\ConfirmGenerationFailedHandler.cs" />
+    <Compile Include="Commands\Schedulazione\CreateSchedulazioneRotManHandler.cs" />
+    <Compile Include="Commands\Schedulazione\CreateSchedulazioneRotHandler.cs" />
     <Compile Include="Commands\System\AddUserToSystemHandler.cs" />
     <Compile Include="HandlerService.cs" />
+    <Compile Include="Ports\Intervento\InterventoAmbAddedToProgrammaHandler.cs" />
+    <Compile Include="Ports\Intervento\InterventoRotAddedToProgrammaHandler.cs" />
+    <Compile Include="Ports\Intervento\InterventoRotManAddedToProgrammaHandler.cs" />
     <Compile Include="Ports\Plan\ScenarioPromotedToPlanHandler.cs" />
+    <Compile Include="Ports\Programma\SchedulazioneRotManAddedToPlanHandler.cs" />
+    <Compile Include="Ports\Programma\SchedulazioneRotAddedToPlanHandler.cs" />
+    <Compile Include="Ports\Programma\SchedulazioneAmbAddedToPlanHandler.cs" />
+    <Compile Include="Ports\Programma\SchedulazioneRotAddedToScenarioHandler.cs" />
+    <Compile Include="Ports\Programma\ScenarioCreatedHandler.cs" />
+    <Compile Include="Ports\Programma\SchedulazioneAmbAddedToScenarioHandler.cs" />
+    <Compile Include="Ports\Programma\SchedulazioneRotManAddedToScenarioHandler.cs" />
+    <Compile Include="Ports\Schedulazione\SchedulazioneAmbAddedToPlanHandler.cs" />
+    <Compile Include="Ports\Schedulazione\SchedulazioneRotAddedToProgrammaHandler.cs" />
+    <Compile Include="Ports\Schedulazione\SchedulazioneRotManAddedToProgrammaHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\Schedulazione\CancelSchedulazioneFromPlanHandler.cs" />
-    <Compile Include="Commands\Schedulazione\Ambiente\AddRuleToSchedulazioneRotHandler.cs" />
-    <Compile Include="Commands\Schedulazione\RotabileInManutenzione\AddRuleToSchedulazioneRotHandler.cs" />
+    <Compile Include="Commands\Schedulazione\AddRuleToSchedulazioneRotHandler.cs" />
     <Compile Include="Commands\Scenario\AddSchedulazioneRotToScenarioHandler.cs" />
     <Compile Include="Commands\Scenario\AddSchedulazioneRotManToScenarioHandler.cs" />
     <Compile Include="Commands\Scenario\AddSchedulazioneAmbToScenarioHandler.cs" />
@@ -134,10 +160,9 @@
     <Compile Include="Commands\Scenario\ChangeDescriptionScenarioHandler.cs" />
     <Compile Include="Commands\Scenario\CancelScenarioHandler.cs" />
     <Compile Include="Commands\Scenario\CreateScenarioHandler.cs" />
-    <Compile Include="Commands\Schedulazione\Ambiente\AddSchedulazioneAmbToPlanHandler.cs" />
-    <Compile Include="Commands\Schedulazione\RotabileInManutenzione\AddSchedulazioneRotManToPlanHandler.cs" />
-    <Compile Include="Commands\Schedulazione\Rotabile\AddSchedulazioneRotToPlanHandler.cs" />
-    <Compile Include="Commands\Schedulazione\Rotabile\AddRuleToSchedulazioneRotHandler.cs" />
+    <Compile Include="Commands\Plan\AddSchedulazioneAmbToPlanHandler.cs" />
+    <Compile Include="Commands\Plan\AddSchedulazioneRotManToPlanHandler.cs" />
+    <Compile Include="Commands\Plan\AddSchedulazioneRotToPlanHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
@@ -156,6 +181,10 @@
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Contabilita\domain\Domain.csproj">
+      <Project>{5B1B79C7-BE33-4DE3-9C11-EAD25956C5F6}</Project>
+      <Name>Domain %28Super\Contabilita\Domain%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{8A1120F1-6778-4AD1-8F09-45A2ABE5C1FC}</Project>
       <Name>Commands %28Super\Programmazione\Commands%29</Name>
@@ -169,10 +198,7 @@
       <Name>Events %28Super\Programmazione\Events%29</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ports\InterventoGenerator\" />
-    <Folder Include="Ports\Schedulazione\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

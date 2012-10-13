@@ -10,8 +10,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands.Appaltatore;
 using Super.Contabilita.Commands.Pricing;
 using Super.Contabilita.Events;
-using Super.Contabilita.Handlers.Appaltatore;
-using Super.Contabilita.Handlers.Pricing;
+using Super.Contabilita.Handlers.Commands.Pricing;
 
 namespace Super.Contabilita.Specs.Pricing
 {

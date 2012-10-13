@@ -11,7 +11,7 @@ GO
 
 /****** Object:  Database [Super2013.Saga.EventStore]    Script Date: 06/21/2012 09:01:25 ******/
 CREATE DATABASE [Super2013.Saga.EventStore] ON  PRIMARY 
-( NAME = N'Super2013.Saga.EventStore', FILENAME = N'D:\Databases\Super2013.Saga.EventStore.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'Super2013.Saga.EventStore', FILENAME = N'D:\Databases\Super2013.Saga.EventStore.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
 ( NAME = N'Super2013.Saga.EventStore_log', FILENAME = N'D:\Databases\Super2013.Saga.EventStore_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
@@ -122,7 +122,7 @@ GO
 
 /****** Object:  Database [Super2013.Appaltatore.EventStore]    Script Date: 06/21/2012 09:01:25 ******/
 CREATE DATABASE [Super2013.Appaltatore.EventStore] ON  PRIMARY 
-( NAME = N'Super2013.Appaltatore.EventStore', FILENAME = N'D:\Databases\Super2013.Appaltatore.EventStore.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'Super2013.Appaltatore.EventStore', FILENAME = N'D:\Databases\Super2013.Appaltatore.EventStore.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
 ( NAME = N'Super2013.Appaltatore.EventStore_log', FILENAME = N'D:\Databases\Super2013.Appaltatore.EventStore_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
@@ -233,7 +233,7 @@ GO
 
 /****** Object:  Database [Super2013.Controllo.EventStore]    Script Date: 06/21/2012 09:01:25 ******/
 CREATE DATABASE [Super2013.Controllo.EventStore] ON  PRIMARY 
-( NAME = N'Super2013.Controllo.EventStore', FILENAME = N'D:\Databases\Super2013.Controllo.EventStore.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'Super2013.Controllo.EventStore', FILENAME = N'D:\Databases\Super2013.Controllo.EventStore.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
 ( NAME = N'Super2013.Controllo.EventStore_log', FILENAME = N'D:\Databases\Super2013.Controllo.EventStore_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
@@ -344,7 +344,7 @@ GO
 
 /****** Object:  Database [Super2013.Programmazione.EventStore]    Script Date: 06/21/2012 09:01:25 ******/
 CREATE DATABASE [Super2013.Programmazione.EventStore] ON  PRIMARY 
-( NAME = N'Super2013.Programmazione.EventStore', FILENAME = N'D:\Databases\Super2013.Programmazione.EventStore.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'Super2013.Programmazione.EventStore', FILENAME = N'D:\Databases\Super2013.Programmazione.EventStore.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
 ( NAME = N'Super2013.Programmazione.EventStore_log', FILENAME = N'D:\Databases\Super2013.Programmazione.EventStore_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
@@ -455,7 +455,7 @@ GO
 
 /****** Object:  Database [Super2013.Contabilita.EventStore]    Script Date: 06/21/2012 09:01:25 ******/
 CREATE DATABASE [Super2013.Contabilita.EventStore] ON  PRIMARY 
-( NAME = N'Super2013.Contabilita.EventStore', FILENAME = N'D:\Databases\Super2013.Contabilita.EventStore.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'Super2013.Contabilita.EventStore', FILENAME = N'D:\Databases\Super2013.Contabilita.EventStore.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
 ( NAME = N'Super2013.Contabilita.EventStore_log', FILENAME = N'D:\Databases\Super2013.Contabilita.EventStore_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO

@@ -9,7 +9,7 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.MeasuringUnit;
-using Super.Contabilita.Handlers.MeasuringUnit;
+using Super.Contabilita.Handlers.Commands.MeasuringUnit;
 
 namespace Super.Contabilita.Specs.MeasuringUnit
 {

@@ -12,7 +12,7 @@ using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Committente;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
-using Super.Contabilita.Handlers.Committente;
+using Super.Contabilita.Handlers.Commands.Committente;
 
 namespace Super.Contabilita.Specs.Committente
 {

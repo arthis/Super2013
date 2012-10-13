@@ -18,6 +18,7 @@ namespace Super.Programmazione.Specs.Scenario
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private Guid _idUser = Guid.NewGuid();
+        private Guid _idProgramma = Guid.NewGuid();
 
         protected override CommandHandler<ChangeDescriptionScenario> OnHandle(IEventRepository eventRepository)
         {
@@ -28,6 +29,7 @@ namespace Super.Programmazione.Specs.Scenario
         {
             yield return BuildEvt.ScenarioCreated
                                   .ForDescription(_description)
+                                  .ForProgramma(_idProgramma)
                                   .ByUser(_idUser)
                                   .Build(_id, 1);
 
@@ -41,7 +43,7 @@ namespace Super.Programmazione.Specs.Scenario
 
             return  BuildCmd.ChangeDescriptionScenario
                          .ForDescription(_description)
-                         .Build(_id, 1);
+                         .Build(_id, 2);
         }
 
         public override IEnumerable<IMessage> Expect()

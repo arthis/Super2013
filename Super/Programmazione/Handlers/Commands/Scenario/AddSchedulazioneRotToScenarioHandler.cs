@@ -5,6 +5,7 @@ using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Programmazione.Commands.Scenario;
+using Super.Programmazione.Domain.Schedulazione;
 
 namespace Super.Programmazione.Handlers.Commands.Scenario
 {
@@ -19,19 +20,17 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
         {
             Contract.Requires(cmd != null);
 
-            var existingSchedulazione = EventRepository.GetById<Domain.SchedulazioneRot>(cmd.IdSchedulazione);
+            var existingSchedulazione = EventRepository.GetById<SchedulazioneRot>(cmd.IdSchedulazione);
 
             if(!existingSchedulazione.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
 
-            var scenario = EventRepository.GetById<Domain.Scenario>(cmd.Id);
+            var scenario = EventRepository.GetById<Domain.Programma.Scenario>(cmd.Id);
 
             if (scenario.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
-
-
-
-            var schedulazione = scenario.AddSchedulazioneRot(
+            
+            scenario.AddSchedulazioneRot(
                 cmd.IdAppaltatore,
                 cmd.IdCategoriaCommerciale,
                 cmd.IdCommittente,
@@ -51,10 +50,10 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
                 cmd.TrenoPartenza.ToDomain(),
                 cmd.Oggetti.ToDomain()
                 );
-            
-            EventRepository.Save(schedulazione, cmd.CommitId);
 
-            return schedulazione.CommandValidationMessages; 
+            EventRepository.Save(scenario, cmd.CommitId);
+
+            return scenario.CommandValidationMessages; 
         }
     }
 }

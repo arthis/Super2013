@@ -164,7 +164,7 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
-      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
+      <Project>{b8def709-5168-48f1-b8d3-ad44e4a4a22b}</Project>
       <Name>EasyNetQ</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Appaltatore\Events\Events.csproj">

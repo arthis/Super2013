@@ -9,7 +9,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.Builders;
-using Super.Contabilita.Handlers.TipoOggettoIntervento.Ambiente;
+using Super.Contabilita.Handlers.Commands.TipoOggettoIntervento.Ambiente;
 
 namespace Super.Contabilita.Specs.TipoOggettoIntervento.Rotabile
 {

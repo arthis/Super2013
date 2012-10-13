@@ -10,7 +10,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands.Intervento;
 using Super.Contabilita.Events;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Contabilita.Handlers.Intervento;
+using Super.Contabilita.Handlers.Commands.Intervento;
 
 namespace Super.Contabilita.Specs.Intervento
 {

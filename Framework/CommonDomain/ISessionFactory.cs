@@ -1,7 +1,7 @@
 namespace CommonDomain
 {
-    public interface ISessionFactory
+    public interface ISessionFactory<TSession> where TSession:ISession
     {
-        ISession CreateSession(ICommand cmd);
+        TSession CreateSession(ICommand cmd);
     }
 }

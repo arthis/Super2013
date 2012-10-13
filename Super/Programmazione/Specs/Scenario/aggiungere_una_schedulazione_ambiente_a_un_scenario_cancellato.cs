@@ -20,7 +20,7 @@ namespace Super.Programmazione.Specs.Scenario
         private Guid _idUser = Guid.NewGuid();
         private string _descritpion = "description";
 
-        private Guid _id = Guid.NewGuid();
+        private Guid _idScenario = Guid.NewGuid();
         private Guid _idAppaltatore =Guid.NewGuid();
         private Guid _idCategoriaCommerciale = Guid.NewGuid();
         private Guid _idCommittente = Guid.NewGuid();
@@ -34,6 +34,7 @@ namespace Super.Programmazione.Specs.Scenario
         private int _quantity = 25;
         
         private Period _period = new Period(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
+        private Guid _idProgramma = Guid.NewGuid();
 
 
         protected override CommandHandler<AddSchedulazioneAmbToScenario> OnHandle(IEventRepository eventRepository)
@@ -46,11 +47,12 @@ namespace Super.Programmazione.Specs.Scenario
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
-                .Build(_id, 1);
+                .ForProgramma(_idProgramma)
+                .Build(_idScenario, 1);
 
             yield return BuildEvt.ScenarioCancelled
                 .ByUser(_idUser)
-                .Build(_id, 2);
+                .Build(_idScenario, 2);
         }
 
         public override AddSchedulazioneAmbToScenario When()
@@ -70,7 +72,7 @@ namespace Super.Programmazione.Specs.Scenario
                         .WithNote(_note)
                         .ForDescription(_descritpion)
                         .ForQuantity(_quantity)
-                        .Build(_id, 2);
+                        .Build(_idScenario, 2);
         }
 
         public override IEnumerable<IMessage> Expect()

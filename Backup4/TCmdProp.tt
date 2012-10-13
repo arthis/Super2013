@@ -1,0 +1,14 @@
+﻿<#@ template  debug="true" hostSpecific="true" #>
+<#@ assembly name="$(SolutionDir)\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #><#+
+void BuildProp(ObjectDTO cmd)
+	{
+	foreach (var property in cmd.Properties)
+        {
+			#> 
+		public <#= property.Type #> <#= property.GetPascalCasedName() #> { get; set;}<#+
+
+        }
+	}
+
+#>

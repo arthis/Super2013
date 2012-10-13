@@ -2,6 +2,7 @@
 using CommonDomain;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
+using Super.Programmazione.Events.Scenario;
 using Super.Programmazione.Events.Schedulazione;
 using Super.Saga.Domain.SchedulazioneOfScenarioPrice;
 

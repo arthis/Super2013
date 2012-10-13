@@ -32,9 +32,9 @@ namespace Super.Programmazione.Domain
             Id = evt.Id;
         }
 
-        public Scenario CreateScenario(Guid idScenario, Guid idUser, string description)
+        public Programma.Scenario CreateScenario(Guid idScenario, Guid idProgrammma,  string description)
         {
-            return new Scenario(idScenario, idUser, description);
+            return new Programma.Scenario(idScenario, this.Id, description, idProgrammma);
         }
     }
 }

@@ -1,0 +1,21 @@
+﻿
+<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #><#+
+
+void BuildCtorHelper(ObjectDTO cmd)
+{
+	var name = cmd.Name;
+	var ctorArgs =string.Empty;
+	foreach (var property in cmd.Properties)
+    {
+	#>
+
+		public <#= name #>Builder <#= property.GetBuilderName() #>(<#= property.Type #> <#= property.GetCamelCasedName() #>) 
+		{
+			<#= property.GetPrivateName() #> = <#= property.GetCamelCasedName() #>;
+			return this;
+		}
+	<#+ 
+	}
+}
+#>

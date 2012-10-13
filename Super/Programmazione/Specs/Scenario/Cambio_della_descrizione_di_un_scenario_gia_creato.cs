@@ -18,6 +18,7 @@ namespace Super.Programmazione.Specs.Scenario
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private Guid _idUser = Guid.NewGuid();
+        private Guid _idProgramma = Guid.NewGuid();
 
         private string _descriptionUpdated = "test 2";
 
@@ -31,6 +32,7 @@ namespace Super.Programmazione.Specs.Scenario
         {
             yield return BuildEvt.ScenarioCreated
                                    .ForDescription(_description)
+                                   .ForProgramma(_idProgramma)
                                    .ByUser(_idUser)
                                    .Build(_id, 1);
         }

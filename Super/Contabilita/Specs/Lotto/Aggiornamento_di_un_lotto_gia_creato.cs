@@ -14,7 +14,7 @@ using Super.Contabilita.Events;
 using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Handlers;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
-using Super.Contabilita.Handlers.Lotto;
+using Super.Contabilita.Handlers.Commands.Lotto;
 using Super.Contabilita.Handlers.Repositories;
 
 namespace Super.Contabilita.Specs.Lotto

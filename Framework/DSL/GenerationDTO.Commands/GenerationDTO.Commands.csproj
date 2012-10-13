@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E7F87DF9-8BBB-4FAB-AB5B-2BC6BC2051E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GenerationDTO.Commands</RootNamespace>
+    <AssemblyName>GenerationDTO.Commands</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TBuilderCmd.cs">
+      <DependentUpon>TBuilderCmd.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TBuilderCmdBuilder.cs">
+      <DependentUpon>TBuilderCmdBuilder.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TBuilderCmdCtorHelper.cs">
+      <DependentUpon>TBuilderCmdCtorHelper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TBuilderCmdProp.cs">
+      <DependentUpon>TBuilderCmdProp.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TBuilderCmdWrapper.cs">
+      <DependentUpon>TBuilderCmdWrapper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TCmd.cs">
+      <DependentUpon>TCmd.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TCmdCtor.cs">
+      <DependentUpon>TCmdCtor.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TCmdDescription.cs">
+      <DependentUpon>TCmdDescription.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TCmdEquals.cs">
+      <DependentUpon>TCmdEquals.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TCmdHashCode.cs">
+      <DependentUpon>TCmdHashCode.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TCmdProp.cs">
+      <DependentUpon>TCmdProp.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TCmdWrapper.cs">
+      <DependentUpon>TCmdWrapper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TBuilderCmd.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TBuilderCmd.cs</LastGenOutput>
+    </None>
+    <None Include="TBuilderCmdBuilder.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TBuilderCmdBuilder.cs</LastGenOutput>
+    </None>
+    <None Include="TBuilderCmdCtorHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TBuilderCmdCtorHelper.cs</LastGenOutput>
+    </None>
+    <None Include="TBuilderCmdProp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TBuilderCmdProp.cs</LastGenOutput>
+    </None>
+    <None Include="TBuilderCmdWrapper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TBuilderCmdWrapper.cs</LastGenOutput>
+    </None>
+    <None Include="TCmd.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TCmd.cs</LastGenOutput>
+    </None>
+    <None Include="TCmdCtor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TCmdCtor.cs</LastGenOutput>
+    </None>
+    <None Include="TCmdDescription.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TCmdDescription.cs</LastGenOutput>
+    </None>
+    <None Include="TCmdEquals.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TCmdEquals.cs</LastGenOutput>
+    </None>
+    <None Include="TCmdHashCode.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TCmdHashCode.cs</LastGenOutput>
+    </None>
+    <None Include="TCmdProp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TCmdProp.cs</LastGenOutput>
+    </None>
+    <None Include="TCmdWrapper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TCmdWrapper.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

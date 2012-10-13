@@ -14,7 +14,7 @@ using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.Lotto;
 using Super.Contabilita.Handlers;
-using Super.Contabilita.Handlers.Lotto;
+using Super.Contabilita.Handlers.Commands.Lotto;
 
 namespace Super.Contabilita.Specs.Lotto
 {

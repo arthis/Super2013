@@ -2,9 +2,9 @@ using CommonDomain.Persistence;
 
 namespace CommonDomain.Core.Handlers
 {
-    public interface ICommandHandlerService
+    public interface ICommandHandlerService<TSession> where TSession:ISession
     {
-        void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory);
+        void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory<TSession> sessionFactory);
         void Subscribe( IBus bus);
         CommandValidation Execute(ICommand commandBase);
     }

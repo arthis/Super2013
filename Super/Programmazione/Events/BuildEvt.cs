@@ -1,13 +1,12 @@
 using Super.Programmazione.Events.Builders.Intervento;
 using Super.Programmazione.Events.Builders.InterventoGeneration;
-using Super.Programmazione.Events.Builders.Plan;
 using Super.Programmazione.Events.Builders.Scenario;
 using Super.Programmazione.Events.Builders.Schedulazione;
 using Super.Programmazione.Events.Builders.System;
 
 namespace Super.Programmazione.Events
 {
-    public static class BuildEvt
+    public static partial class BuildEvt
     {
         #region InterventoGeneration
 
@@ -27,19 +26,6 @@ namespace Super.Programmazione.Events
           
         #endregion
 
-        #region Plan
-
-        public static PlanCreatedBuilder PlanCreated { get { return new PlanCreatedBuilder(); } }
-
-        public static PlanCancelledBuilder PlanCancelled { get { return new PlanCancelledBuilder(); } }
-
-        #endregion
-
-        #region Scenario
-
-        public static ScenarioPromotedToPlanBuilder ScenarioPromotedToPlan { get { return new ScenarioPromotedToPlanBuilder(); } }
-
-        #endregion
 
         #region Schedulazione
 
@@ -61,17 +47,7 @@ namespace Super.Programmazione.Events
 
         public static InterventoAmbScheduledBuilder InterventoAmbScheduled { get { return new InterventoAmbScheduledBuilder(); } }
 
-        public static InterventoRotAddedToPlanBuilder InterventoRotAddedToPlan { get { return new InterventoRotAddedToPlanBuilder(); } }
-
-        public static InterventoRotManAddedToPlanBuilder InterventoRotManAddedToPlan { get { return new InterventoRotManAddedToPlanBuilder(); } }
-
-        public static InterventoAmbAddedToPlanBuilder InterventoAmbAddedToPlan { get { return new InterventoAmbAddedToPlanBuilder(); } }
-
-        public static SchedulazioneRotAddedToPlanBuilder SchedulazioneRotAddedToPlan { get { return new SchedulazioneRotAddedToPlanBuilder(); } }
-
-        public static SchedulazioneRotManAddedToPlanBuilder SchedulazioneRotManAddedToPlan { get { return new SchedulazioneRotManAddedToPlanBuilder(); } }
-
-        public static SchedulazioneAmbAddedToPlanBuilder SchedulazioneAmbAddedToPlan { get { return new SchedulazioneAmbAddedToPlanBuilder(); } }
+        
 
         public static RuleAddedToSchedulazioneRotBuilder RuleAddedToSchedulazioneRot { get { return new RuleAddedToSchedulazioneRotBuilder(); } }
 
@@ -89,8 +65,7 @@ namespace Super.Programmazione.Events
 
         
 
-        public static SchedulazioneCancelledFromPlanBuilder SchedulazioneCancelledFromPlan { get { return new SchedulazioneCancelledFromPlanBuilder(); } }
-
+        
         public static SchedulazioneCancelledFromScenarioBuilder SchedulazioneCancelledFromScenario { get { return new SchedulazioneCancelledFromScenarioBuilder(); } }
 
         public static ScenarioCreatedBuilder ScenarioCreated { get { return new ScenarioCreatedBuilder(); } }

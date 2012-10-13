@@ -34,6 +34,7 @@ namespace Super.Programmazione.Specs.Scenario
         private string _description = "description";
         private Period _period = new Period(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
         private Guid _idSchedulazione = Guid.NewGuid();
+        private Guid _idProgramma = Guid.NewGuid();
 
         protected override CommandHandler<AddSchedulazioneAmbToScenario> OnHandle(IEventRepository eventRepository)
         {
@@ -45,6 +46,7 @@ namespace Super.Programmazione.Specs.Scenario
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
+                .ForProgramma(_idProgramma)
                 .Build(_idScenario, 1);
         }
 
@@ -71,6 +73,7 @@ namespace Super.Programmazione.Specs.Scenario
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildEvt.SchedulazioneAmbAddedToScenario
+                .ForProgramma(_idProgramma)
                 .ForAppaltatore(_idAppaltatore)
                 .ForCategoriaCommerciale(_idCategoriaCommerciale)
                 .ForCommittente(_idCommittente)
@@ -80,12 +83,12 @@ namespace Super.Programmazione.Specs.Scenario
                 .ForWorkPeriod(_workPeriod)
                 .ForPeriod(_period)
                 .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                .ForScenario(_idScenario)
+                .ForSchedulazione(_idSchedulazione)
                 .OfTipoIntervento(_tipoIntervento)
                 .WithNote(_note)
                 .ForQuantity(_quantity)
                 .ForDescription(_description)
-                .Build(_idSchedulazione, 1);
+                .Build(_idSchedulazione, 2);
         }
 
         [Test]

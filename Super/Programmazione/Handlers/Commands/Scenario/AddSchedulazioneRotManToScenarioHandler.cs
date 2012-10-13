@@ -5,6 +5,7 @@ using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Programmazione.Commands.Scenario;
+using Super.Programmazione.Domain.Schedulazione;
 
 namespace Super.Programmazione.Handlers.Commands.Scenario
 {
@@ -19,14 +20,17 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
         {
             Contract.Requires(cmd != null);
 
-            var existingSchedulazione = EventRepository.GetById<Domain.SchedulazioneRotMan>(cmd.IdSchedulazione);
+            var existingSchedulazione = EventRepository.GetById<SchedulazioneRotMan>(cmd.IdSchedulazione);
 
             if (!existingSchedulazione.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
 
-            var scenario = EventRepository.GetById<Domain.Scenario>(cmd.Id);
+            var scenario = EventRepository.GetById<Domain.Programma.Scenario>(cmd.Id);
 
-            var schedulazione = scenario.AddSchedulazioneRotMan(
+            if(scenario.IsNull())
+                throw  new AggregateRootInstanceNotFoundException();
+
+            scenario.AddSchedulazioneRotMan(
                 cmd.IdAppaltatore,
                 cmd.IdCategoriaCommerciale,
                 cmd.IdCommittente,
@@ -42,9 +46,9 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
                 cmd.Oggetti.ToDomain()
                 );
 
-            EventRepository.Save(schedulazione, cmd.CommitId);
+            EventRepository.Save(scenario, cmd.CommitId);
 
-            return schedulazione.CommandValidationMessages; 
+            return scenario.CommandValidationMessages; 
 
         }
     }

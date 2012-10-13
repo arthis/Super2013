@@ -1,0 +1,12 @@
+﻿<#@ template  debug="true" hostSpecific="true" #>
+<#@ assembly name="$(SolutionDir)Framework\DSL\GenerationDTO.Core\bin\Debug\GenerationDTO.Core.dll" #>
+<#@ include  file="$(SolutionDir)Framework\DSL\GenerationDTO.Events\TBuilderEventWrapper.tt"#>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #>
+<#
+
+	string json = System.IO.File.ReadAllText( System.IO.Path.GetDirectoryName(this.Host.TemplateFile) + "\\Super.Programmazione.Events.Programma.json");  	
+	DTOWrapper wrapper = JsonConvert.DeserializeObject<DTOWrapper>(json);
+	 
+	BuildBuilders(wrapper);
+	
+#>

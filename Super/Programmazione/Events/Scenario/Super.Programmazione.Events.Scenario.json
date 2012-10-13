@@ -1,0 +1,29 @@
+﻿{
+    "Namespace" : "Super.Programmazione.Events.Scenario",
+    "Objects" :
+    [
+		{
+            "Name" :"ScenarioPromotedToPlan",
+			"Description" : "Scenario é stato promosso come piano",
+            "Properties" : [
+				{
+                    "Name" : "IdUser",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By"
+                },
+				{
+                    "Name" : "PromotionDate",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When"
+                },
+				{
+                    "Name" : "IdPlan",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+                }
+            ]
+        }
+    ]
+}

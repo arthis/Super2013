@@ -1,0 +1,25 @@
+﻿<#@ template  debug="true" hostSpecific="true" #>
+<#@ assembly name="$(SolutionDir)\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #><#+
+void BuildHashCode(ObjectDTO cmd)
+	{
+		#>
+
+		public override int GetHashCode()
+        {
+            unchecked
+            {
+				int result = base.GetHashCode();
+				<#+ 
+			foreach(var property in cmd.Properties)
+            {
+				#>
+result = (result*397) ^ (<#= property.GetPascalCasedName() #> != null ? <#= property.GetPascalCasedName() #>.GetHashCode() : 0);
+				<#+
+            }
+			#>return result;
+            }
+        }
+<#+
+    }
+#>

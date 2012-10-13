@@ -19,17 +19,19 @@ namespace Super.Programmazione.Specs.Scenario
         private Guid _idUserCreating = Guid.NewGuid();
         private Guid _idUserCancelling = Guid.NewGuid();
         private string _description = "test";
+        private Guid _idProgramma = Guid.NewGuid();
         
         protected override CommandHandler<CancelScenario> OnHandle(IEventRepository eventRepository)
         {
             var sessionFactory = new FakeSessionFactory(_idUserCancelling);
-            return new CancelScenarioHandler(eventRepository, sessionFactory);
+            return new CancelScenarioHandler<ISession>(eventRepository, sessionFactory);
         }
 
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.ScenarioCreated
                 .ForDescription(_description)
+                .ForProgramma(_idProgramma)
                 .ByUser(_idUserCreating)
                 .Build(_id,1);
         }

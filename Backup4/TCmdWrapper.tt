@@ -1,0 +1,44 @@
+﻿<#@ template  debug="true" hostSpecific="true" #>
+<#@ assembly name="$(SolutionDir)\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ Assembly Name="$(SolutionDir)\packages\Newtonsoft.Json.4.5.8\lib\net40\Newtonsoft.Json.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #>
+<#@ import namespace="Newtonsoft.Json" #>
+<#@include file="$(SolutionDir)\Framework\DSL\GenerationDTO.Commands\TCmd.tt"#>
+<#+
+void BuildCmds(DTOWrapper wrapper)
+{
+#>
+
+using System;
+using System.Linq;
+using System.Diagnostics.Contracts;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
+using CommonDomain;
+using CommonDomain.Core;
+
+
+namespace <#= wrapper.Namespace #>
+{
+
+<#+
+	foreach (var cmd in wrapper.Objects)
+	{
+		BuildCmd(cmd);
+    }
+
+#>
+}
+<#+
+}
+#>

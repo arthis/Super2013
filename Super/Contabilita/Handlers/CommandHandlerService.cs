@@ -10,26 +10,27 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Contabilita.Commands.Impianto;
 using Super.Contabilita.Commands.Lotto;
-using Super.Contabilita.Handlers.Appaltatore;
-using Super.Contabilita.Handlers.CategoriaCommerciale;
-using Super.Contabilita.Handlers.Committente;
-using Super.Contabilita.Handlers.DirezioneRegionale;
+using Super.Contabilita.Domain;
+using Super.Contabilita.Handlers.Commands.Appaltatore;
+using Super.Contabilita.Handlers.Commands.CategoriaCommerciale;
+using Super.Contabilita.Handlers.Commands.Committente;
+using Super.Contabilita.Handlers.Commands.DirezioneRegionale;
+using Super.Contabilita.Handlers.Commands.Lotto;
+using Super.Contabilita.Handlers.Commands.MeasuringUnit;
+using Super.Contabilita.Handlers.Commands.PeriodoProgrammazione;
+using Super.Contabilita.Handlers.Commands.TipoIntervento;
 using Super.Contabilita.Handlers.Impianto;
-using Super.Contabilita.Handlers.Lotto;
-using Super.Contabilita.Handlers.MeasuringUnit;
-using Super.Contabilita.Handlers.PeriodoProgrammazione;
 using Super.Contabilita.Handlers.Repositories;
-using Super.Contabilita.Handlers.TipoIntervento;
 
 namespace Super.Contabilita.Handlers
 {
-    public class CommandHandlerService : CommandHandlerServiceBase
+    public class CommandHandlerService<TSession> : CommandHandlerServiceBase<TSession> where TSession:ISessionContabilita
     {
-        
 
-        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory)
+
+        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, ISessionFactory<TSession> sessionFactory)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository,sessionFactory, _handlers);
+            var handlerHelper = new CommandHandlerHelper<TSession>(commandRepository, sessionFactory, _handlers);
 
             handlerHelper.Add( new CreateImpiantoHandler(eventRepository));
             handlerHelper.Add( new UpdateImpiantoHandler(eventRepository));

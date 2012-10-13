@@ -5,12 +5,12 @@ using CommonDomain.Persistence;
 
 namespace CommonDomain.Core.Handlers.Commands
 {
-    public abstract class CommandHandlerServiceBase : ICommandHandlerService
+    public abstract class CommandHandlerServiceBase<TSession> : ICommandHandlerService<TSession> where TSession:ISession
     {
         protected readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
         protected readonly Dictionary<Type, Func<IEvent,ICommand>> _ports = new Dictionary<Type, Func<IEvent,ICommand>>();
         
-        public abstract void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory);
+        public abstract void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory<TSession> sessionFactory);
         public abstract void Subscribe(IBus bus);
         
         public  CommandValidation Execute(ICommand commandBase)

@@ -12,7 +12,6 @@ using Super.Programmazione.Commands.Scenario;
 using Super.Programmazione.Domain.Exceptions;
 using Super.Programmazione.Events;
 using Super.Programmazione.Handlers.Commands.Scenario;
-using Super.Programmazione.Handlers.Commands.Schedulazione.RotabileInManutenzione;
 
 namespace Super.Programmazione.Specs.Scenario
 {
@@ -21,6 +20,7 @@ namespace Super.Programmazione.Specs.Scenario
         private Guid _idScenario = Guid.NewGuid();
         private Guid _idUser = Guid.NewGuid();
         private string _descritpion = "description";
+        private Guid _idProgramma = Guid.NewGuid();
 
         private Guid _idSchedulazione = Guid.NewGuid();
         private Guid _idAppaltatore =Guid.NewGuid();
@@ -47,6 +47,7 @@ namespace Super.Programmazione.Specs.Scenario
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
+                .ForProgramma(_idProgramma)
                 .Build(_idScenario, 1);
             yield return BuildEvt.ScenarioCancelled
                 .ByUser(_idUser)
@@ -69,7 +70,7 @@ namespace Super.Programmazione.Specs.Scenario
                         .OfTipoIntervento(_tipoIntervento)
                         .WithNote(_note)
                         .WithOggetti(_oggetti)
-                        .Build(_idScenario, 1);
+                        .Build(_idScenario, 2);
         }
 
         public override IEnumerable<IMessage> Expect()

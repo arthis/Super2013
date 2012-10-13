@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Configuration;
 using System.ServiceModel;
 using CommandService;
+using CommonDomain.Core;
+using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
+using EventStore;
+using EventStore.Persistence.SqlPersistence.SqlDialects;
 using Super.Controllo.Handlers;
 using Super.Controllo.Projection;
 
@@ -11,12 +16,46 @@ namespace Super.Controllo.ControlloService
     {
         static void Main(string[] args)
         {
-            var bus = RabbitHutch.CreateBus("host=localhost"); ;
-            var commandHandlerService = new CommandHandlerService();
-            var projectionHandler = new ProjectionHandlerService();
-            var commandWebService = new CommandWebService(bus, commandHandlerService, projectionHandler);
 
-            commandWebService.Init();
+            var bus = RabbitHutch.CreateBus("host=localhost");
+            var dispatcher = new CommonDispatcher(bus);
+
+            var storeEvents = Wireup.Init()
+                .LogToOutputWindow()
+                .UsingSqlPersistence("EventStore")
+                .WithDialect(new MsSqlDialect())
+                .InitializeStorageEngine()
+                .UsingJsonSerialization()
+                //.Compress()
+                //.EncryptWith(_encryptionKey)
+                .HookIntoPipelineUsing(new[] { new AuthorizationPipelineHook() })
+                .UsingSynchronousDispatchScheduler()
+                .DispatchTo(new DelegateMessageDispatcher(dispatcher.DispatchCommit))
+                .Build();
+            var aggregateFactory = new AggregateFactory();
+            var conflictDetector = new ConflictDetector();
+            var eventRepository = new EventStoreRepository(storeEvents, aggregateFactory, conflictDetector);
+
+
+
+
+            var sessionRepository = new SessionRepository();
+            var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
+            var sessionFactory = new CommonSessionFactory(sessionRepository);
+
+            var commandHandlerService = new CommandHandlerService<CommonSession>();
+            commandHandlerService.Subscribe(bus);
+            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, sessionFactory);
+
+
+            var projectionHandler = new ProjectionHandlerService();
+            var projectionRepositoryBuilder = new ProjectionRepositoryBuilder();
+            projectionHandler.InitHandlers(projectionRepositoryBuilder, bus);
+
+            var commandWebService = new CommandWebService<CommonSession>(commandHandlerService);
+
+
+
 
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {
@@ -30,8 +69,6 @@ namespace Super.Controllo.ControlloService
                                && keyInfo.Modifiers == ConsoleModifiers.Control;
                 }
             }
-
-
 
         }
     }

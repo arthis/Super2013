@@ -12,7 +12,7 @@ using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Lotto;
 using Super.Contabilita.Events;
 using Super.Contabilita.Handlers;
-using Super.Contabilita.Handlers.Lotto;
+using Super.Contabilita.Handlers.Commands.Lotto;
 
 namespace Super.Contabilita.Specs.Lotto
 {

@@ -12,7 +12,7 @@ using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.CategoriaCommerciale;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
-using Super.Contabilita.Handlers.CategoriaCommerciale;
+using Super.Contabilita.Handlers.Commands.CategoriaCommerciale;
 
 namespace Super.Contabilita.Specs.CategoriaCommerciale
 {

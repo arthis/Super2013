@@ -8,11 +8,11 @@ using Super.Programmazione.Commands.Scenario;
 
 namespace Super.Programmazione.Handlers.Commands.Scenario
 {
-    public class CancelScenarioHandler: CommandHandler<CancelScenario>
+    public class CancelScenarioHandler<TSession>: CommandHandler<CancelScenario> where TSession:ISession
     {
-        private readonly ISessionFactory _sessionFactory;
+        private readonly ISessionFactory<TSession> _sessionFactory;
 
-        public CancelScenarioHandler(IEventRepository eventRepository, ISessionFactory sessionFactory)
+        public CancelScenarioHandler(IEventRepository eventRepository, ISessionFactory<TSession> sessionFactory)
             : base(eventRepository)
         {
             _sessionFactory = sessionFactory;
@@ -24,7 +24,7 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
 
             var session = _sessionFactory.CreateSession(cmd);
 
-            var existingScenario = EventRepository.GetById<Domain.Scenario>(cmd.Id);
+            var existingScenario = EventRepository.GetById<Domain.Programma.Scenario>(cmd.Id);
 
             if (existingScenario.IsNull())
                 throw new AggregateRootInstanceNotFoundException();

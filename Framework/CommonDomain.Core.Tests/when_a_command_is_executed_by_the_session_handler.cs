@@ -19,7 +19,7 @@
 //                                {
 //                                    _commandHandlerWithSession = new MyCommandHandlerWithSession<MyMessage>();
 //                                    var repo = new Mock<ISessionRepository>();
-//                                    repo.Setup(x => x.GetSession(securityToken)).Returns(new Session(userId));
+//                                    repo.Setup(x => x.GetSession(securityToken)).Returns(new CommonSession(userId));
 //                                    sessionHandler = new SecurityCommandHandler<MyMessage>(repo.Object, _commandHandlerWithSession);
 //                                };
 
@@ -29,8 +29,8 @@
 
 //        It should_injects_the_session_into_the_final_handler = () =>
 //                                                           {
-//                                                               _commandHandlerWithSession.Session.ShouldNotBeNull();
-//                                                               _commandHandlerWithSession.Session.UserId.ShouldEqual(userId);
+//                                                               _commandHandlerWithSession.CommonSession.ShouldNotBeNull();
+//                                                               _commandHandlerWithSession.CommonSession.UserId.ShouldEqual(userId);
 //                                                           };
 //    }
 //}

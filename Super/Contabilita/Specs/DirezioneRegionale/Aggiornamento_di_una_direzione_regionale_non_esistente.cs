@@ -12,7 +12,7 @@ using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.DirezioneRegionale;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
-using Super.Contabilita.Handlers.DirezioneRegionale;
+using Super.Contabilita.Handlers.Commands.DirezioneRegionale;
 
 namespace Super.Contabilita.Specs.DirezioneRegionale
 {

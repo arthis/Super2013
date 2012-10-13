@@ -113,6 +113,7 @@
     <Compile Include="AggregateBase.cs" />
     <Compile Include="AggregateRootInstanceNotFoundException.cs" />
     <Compile Include="AlreadyCreatedAggregateRootException.cs" />
+    <Compile Include="CommonDispatcher.cs" />
     <Compile Include="Handlers\Commands\CommandHandlerServiceBase.cs" />
     <Compile Include="CommandValidationException.cs" />
     <Compile Include="Envelope.cs" />
@@ -197,6 +198,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="EventStore">
+      <HintPath>..\..\Super\Web\Core_Web\bin\Debug\EventStore.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\json4.5r7\Net40\Newtonsoft.Json.dll</HintPath>

@@ -1,0 +1,491 @@
+﻿{
+    "Namespace" : "Super.Programmazione.Events.Programma",
+    "Objects" :
+    [
+		{
+            "Name" :"ProgrammaCreated",
+			"Description" : "Un programma {0} é stato creato",
+            "Properties" : [
+				{
+                    "Name" : "IdScenario",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By"
+                }
+            ]
+        },
+		{
+            "Name" :"SchedulazioneRotAddedToProgramma",
+			"Description" : "La schedulazione rotabile é stata  aggiunta al programma",
+            "Properties" : [
+		        {
+                    "Name" : "IdSchedulazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Convoglio",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "RigaTurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoArrivo",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoPartenza",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"SchedulazioneRotManAddedToProgramma",
+			"Description" : "La schedulazione rotabile in manutenzione é stata  aggiuntata al programma",
+            "Properties" : [
+                {
+                    "Name" : "IdSchedulazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"SchedulazioneAmbAddedToProgramma",
+			"Description" : "La schedulazione ambiente é stata  aggiunta al programma",
+            "Properties" : [
+                {
+                    "Name" : "IdSchedulazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : false ,
+					"BuilderHelper" : "For"
+                }
+            ]
+        },	
+        {
+            "Name" :"InterventoRotAddedToProgramma",
+			"Description" : "Il Intervento rotabile é stato  aggiunto al programma",
+            "Properties" : [
+			    {
+                    "Name" : "IdIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Convoglio",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "RigaTurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoArrivo",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoPartenza",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoRotManAddedToProgramma",
+			"Description" : "Il Intervento rotabile in manutenzione é stato  aggiuntato al programma",
+            "Properties" : [
+                {
+                    "Name" : "IdIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoAmbAddedToProgramma",
+			"Description" : "Il Intervento ambiente é stato  aggiunto al programma",
+            "Properties" : [
+				{
+                    "Name" : "IdIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : false ,
+					"BuilderHelper" : "For"
+                }
+            ]
+        }
+    ]
+}

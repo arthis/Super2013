@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Super.Programmazione.Events</RootNamespace>
+    <AssemblyName>Super.Programmazione.Events</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>True</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>True</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>True</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>True</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>True</CodeContractsRedundantAssumptions>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>False</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>%28none%29</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
+    <CodeContractsInferRequires>False</CodeContractsInferRequires>
+    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+    <CodeContractsSuggestRequires>True</CodeContractsSuggestRequires>
+    <CodeContractsSuggestEnsures>False</CodeContractsSuggestEnsures>
+    <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>True</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>True</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>True</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>True</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>True</CodeContractsRedundantAssumptions>
+    <CodeContractsInferRequires>False</CodeContractsInferRequires>
+    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+    <CodeContractsSuggestRequires>True</CodeContractsSuggestRequires>
+    <CodeContractsSuggestEnsures>False</CodeContractsSuggestEnsures>
+    <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>True</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builders\InterventoGeneration\InterventoGeneratedConfirmedBuilder.cs" />
+    <Compile Include="Builders\InterventoGeneration\GenerationOfInterventiStartedBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoAmbScheduledBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoRotAddedToPlanBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoRotManAddedToPlanBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoRotManUpdatedOfPlanBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoRotScheduledBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoRotManScheduledBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoRotUpdatedOfPlanBuilder.cs" />
+    <Compile Include="Builders\Plan\PlanCreatedBuilder.cs" />
+    <Compile Include="Builders\Scenario\DescriptionOfScenarioChangedBuilder.cs" />
+    <Compile Include="Builders\InterventoGeneration\GenerationFailedConfirmedBuilder.cs" />
+    <Compile Include="Builders\InterventoGeneration\GenerationOfInterventiSucceededBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\InterventiAskedTobeGenerated.cs" />
+    <Compile Include="Builders\Intervento\InterventoRotGeneratedFromSchedulazioneBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoRotManGeneratedFromSchedulazioneBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\RuleAddedToSchedulazioneRotBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\RuleAddedToSchedulazioneRotManBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\RuleRemovedFromSchedulazioneBuilder.cs" />
+    <Compile Include="Builders\Scenario\ScenarioPromotedToPlanBuilder.cs" />
+    <Compile Include="Builders\Scenario\ScenarioDeletedBuilder.cs" />
+    <Compile Include="Builders\Scenario\ScenarioCreatedBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\SchedulationCancelledFromScenarioBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\SchedulationCancelledFromPlanBuilder.cs" />
+    <Compile Include="Builders\Plan\PlanCancelledBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoCancelledFromPlanBuilder.cs" />
+    <Compile Include="Builders\Scenario\SchedulazioneAmbAddedToScenarioBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\RuleAddedToSchedulazioneAmbBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\SchedulazioneAmbAddedToPlanBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\SchedulazioneRotAddedToPlanBuilder.cs" />
+    <Compile Include="Builders\Scenario\SchedulazioneRotAddedToScenarioBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\SchedulazioneRotManAddedToPlanBuilder.cs" />
+    <Compile Include="Builders\Scenario\SchedulazioneRotManAddedToScenarioBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\SchedulazioneRotManUpdatedOfScenarioBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\SchedulazioneRotUpdatedOfScenarioBuilder.cs" />
+    <Compile Include="Builders\System\AddUserToSystemBuilder.cs" />
+    <Compile Include="BuildEvt.cs" />
+    <Compile Include="Builders\Intervento\InterventoAmbAddedToPlanBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoAmbGeneratedFromSchedulazioneBuilder.cs" />
+    <Compile Include="Builders\Intervento\InterventoAmbUpdatedOfPlanBuilder.cs" />
+    <Compile Include="Builders\Schedulazione\SchedulazioneAmbUpdatedOfScenarioBuilder.cs" />
+    <Compile Include="InterventoGeneration\GenerationOfInterventiTimedOut.cs" />
+    <Compile Include="InterventoGeneration\InterventoGeneratedConfirmed.cs" />
+    <Compile Include="InterventoGeneration\GenerationOfInterventiStarted.cs" />
+    <Compile Include="Intervento\InterventoScheduled.cs" />
+    <Compile Include="Intervento\IInterventoScheduled.cs" />
+    <Compile Include="Plan\PlanCreated.cs" />
+    <Compile Include="Schedulazione\GenerationOfInterventiFailedConfirmed.cs" />
+    <Compile Include="Schedulazione\GenerationSucceedConfirmed.cs" />
+    <Compile Include="Schedulazione\InterventiAskedTobeGenerated.cs" />
+    <Compile Include="Scenario\SchedulazioneCancelledFromScenario.cs" />
+    <Compile Include="Intervento\InterventoGeneratedFromSchedulazione.cs" />
+    <Compile Include="Schedulazione\SchedulazioneAddedToPlan.cs" />
+    <Compile Include="Intervento\InterventoCancelledFromPlan.cs" />
+    <Compile Include="Plan\PlanCancelled.cs" />
+    <Compile Include="Schedulazione\SchedulazioneCreated.cs" />
+    <Compile Include="Schedulazione\SchedulazioneCancelledFromPlan.cs" />
+    <Compile Include="Intervento\InterventoAddedToPlan.cs" />
+    <Compile Include="Intervento\InterventoUpdatedOfPlan.cs" />
+    <Compile Include="Schedulazione\SchedulazioneUpdatedOfPlan.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenario\SchedulazioneAddedToScenario.cs" />
+    <Compile Include="Schedulazione\SchedulazioneOfScenarioCancelled.cs" />
+    <Compile Include="Scenario\ScenarioCreated.cs" />
+    <Compile Include="Scenario\ScenarioCancelled.cs" />
+    <Compile Include="Scenario\ScenarioPromotedToPlan.cs" />
+    <Compile Include="Scenario\DescriptionOfScenarioChanged.cs" />
+    <Compile Include="Scenario\SchedulazioneUpdatedOfScenario.cs" />
+    <Compile Include="InterventoGeneration\GenerationOfInterventiSucceeded.cs" />
+    <Compile Include="Schedulazione\RuleAddedToSchedulazione.cs" />
+    <Compile Include="Schedulazione\RuleRemovedFromSchedulazione.cs" />
+    <Compile Include="Programma\Super.Programmazione.Events.Programma.Builders.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Super.Programmazione.Events.Programma.Builders.tt</DependentUpon>
+    </Compile>
+    <Compile Include="System\UserAddedToSystem.cs" />
+    <Compile Include="Programma\Super.Programmazione.Events.Programma.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Super.Programmazione.Events.Programma.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
+      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
+      <Name>CommonDomain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
+      <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
+      <Name>CommonDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Programma\Super.Programmazione.Events.Programma.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Programma.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Programma\Super.Programmazione.Events.Programma.json" />
+    <None Include="Programma\Super.Programmazione.Events.Programma.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Events.Programma.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <TransformOnBuild>true</TransformOnBuild>
+    <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\TextTemplating\Microsoft.TextTemplating.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

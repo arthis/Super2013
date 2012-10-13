@@ -10,8 +10,8 @@ using CommonSpecs;
 using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Commands.TipoOggettoIntervento.Ambiente;
-using Super.Contabilita.Handlers.TipoOggettoIntervento;
-using Super.Contabilita.Handlers.TipoOggettoIntervento.Ambiente;
+using Super.Contabilita.Handlers.Commands.TipoOggettoIntervento.Ambiente;
+
 
 namespace Super.Contabilita.Specs.TipoOggettoIntervento.Ambiente
 {

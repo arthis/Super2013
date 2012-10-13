@@ -114,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appaltatore.cs" />
+    <Compile Include="Schedulazione\SchedulazioneAmb.cs" />
+    <Compile Include="ISessionContabilita.cs" />
+    <Compile Include="ISessionContabilitaFactory.cs" />
     <Compile Include="Pricing\BasePrice.cs" />
     <Compile Include="Build.cs" />
     <Compile Include="Builders\BasePriceBuilder.cs" />
@@ -125,6 +128,7 @@
     <Compile Include="GruppoOggettoIntervento.cs" />
     <Compile Include="Intervento\InterventoRot.cs" />
     <Compile Include="Pricing\Pricing.cs" />
+    <Compile Include="SessionContabilita.cs" />
     <Compile Include="TipoInterventoRotMan.cs" />
     <Compile Include="TipoInterventoRot.cs" />
     <Compile Include="TipoInterventoAmb.cs" />
@@ -164,6 +168,7 @@
       <Name>Events %28Super\Contabilita\Events%29</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

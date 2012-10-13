@@ -3,18 +3,18 @@ using CommonDomain.Persistence;
 
 namespace CommonDomain.Core
 {
-    public class SessionFactory :ISessionFactory
+    public class CommonSessionFactory : ISessionFactory<CommonSession>
     {
-        private readonly ISessionRepository _sessionRepository;
+        private readonly ISessionRepository<CommonSession> _sessionRepository;
 
-        public SessionFactory(ISessionRepository sessionRepository)
+        public CommonSessionFactory(ISessionRepository<CommonSession> sessionRepository)
         {
             Contract.Requires(sessionRepository != null);
 
             _sessionRepository = sessionRepository;
         }
 
-        public ISession CreateSession(ICommand cmd)
+        public CommonSession CreateSession(ICommand cmd)
         {
             var session = _sessionRepository.GetSession(cmd.SecurityToken);
             return session;

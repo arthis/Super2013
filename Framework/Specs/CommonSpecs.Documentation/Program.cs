@@ -9,7 +9,7 @@ using CommonSpecs.Documentation;
 using NVelocity.Context;
 using Super.Contabilita.Specs.Impianto;
 using Super.Appaltatore.Specs.Programmazione.Rotabile;
-using Super.Saga.Specs.Saga_Intervento.Rotabile;
+//using Super.Saga.Specs.Saga_Intervento.Rotabile;
 
 
 namespace CommonSpecs.Documentation
@@ -56,12 +56,12 @@ namespace CommonSpecs.Documentation
             startInfo.CreateNoWindow = false;
             startInfo.UseShellExecute = false;
             //Give the name as Xcopy
-            startInfo.FileName = @"D:\Projects\Super2013\lib\Reflector\Reflector.exe";
+            startInfo.FileName = @"$(SolutionDir)\lib\Reflector\Reflector.exe";
             //make the window Hidden
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             //Send the Source and destination as Arguments to the process
             startInfo.Arguments =
-                @"/Run:Reflector.CodeMetrics /Assembly:""D:\Projects\Super2013\Framework\CommonSpecs.Documentation\bin\Debug\CommandService.dll"" /OutputPath:""D:\Projects\Super2013\Documentation\Toxicity\super.xml";
+                @"/Run:Reflector.CodeMetrics /Assembly:""$(SolutionDir)\Framework\CommonSpecs.Documentation\bin\Debug\CommandService.dll"" /OutputPath:""$(SolutionDir)\Documentation\Toxicity\super.xml";
            
             try
             {
@@ -78,8 +78,8 @@ namespace CommonSpecs.Documentation
             }
 
             var toxicRunner = new Toxicity.Runner();
-            toxicRunner.Run(@"D:\Projects\Super2013\Documentation\Toxicity\super.xml", new List<string>());
-            //D:\Projects\Super2013\lib\Reflector\Reflector.exe /Run:Reflector.CodeMetrics /Assembly:"D:\Projects\Super2013\Framework\CommonSpecs.Documentation\bin\Debug\*.dll" /OutputPath:"c:\Report.txt"
+            toxicRunner.Run(@"$(SolutionDir)\Documentation\Toxicity\super.xml", new List<string>());
+            //$(SolutionDir)\lib\Reflector\Reflector.exe /Run:Reflector.CodeMetrics /Assembly:"$(SolutionDir)\Framework\CommonSpecs.Documentation\bin\Debug\*.dll" /OutputPath:"c:\Report.txt"
         }
 
         static void Main(string[] args)
@@ -105,14 +105,14 @@ namespace CommonSpecs.Documentation
             //Assembly specsProgrammazione = typeof(Super.Programmazione.Specs.Creation_of_a_new_inventory_item).Assembly;
             Assembly specsAppaltatore = typeof(Programmazione_di_intervento_rotabile_gia_esistente).Assembly;
             Assembly specsControllo = typeof(Super.Controllo.Specs.Close.Chiudiere_un_intervento).Assembly;
-            Assembly specsSaga = typeof(Inizio_della_saga_intervento_rotabile_gia_iniziata).Assembly;
+            //Assembly specsSaga = typeof(Inizio_della_saga_intervento_rotabile_gia_iniziata).Assembly;
 
             var doc = DocumentationFactory.CreateDocumentation("Specifications"
                                                                , specsContabilita
                                                                //, specsProgrammazione
                                                                , specsAppaltatore
                                                                , specsControllo
-                                                               , specsSaga
+                                                               //, specsSaga
                                                                );
 
 

@@ -9,7 +9,7 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Committente;
-using Super.Contabilita.Handlers.Committente;
+using Super.Contabilita.Handlers.Commands.Committente;
 
 namespace Super.Contabilita.Specs.Committente
 {

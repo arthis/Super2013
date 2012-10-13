@@ -11,13 +11,13 @@ using Super.Appaltatore.Commands;
 
 namespace Super.Appaltatore.Handlers
 {
-    public class CommandHandlerService : CommandHandlerServiceBase
+    public class CommandHandlerService<TSession> : CommandHandlerServiceBase <TSession> where TSession:ISession
     {
         
 
-        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent,ISessionFactory sessionFactory)
+        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent,ISessionFactory<TSession> sessionFactory)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository, sessionFactory, _handlers);
+            var handlerHelper = new CommandHandlerHelper<TSession>(commandRepository, sessionFactory, _handlers);
 
             handlerHelper.Add( new ProgrammareInterventoAmbHandler(eventRepositoryEvent));
             handlerHelper.Add( new ProgrammareInterventoRotHandler(eventRepositoryEvent));

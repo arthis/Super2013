@@ -11,7 +11,6 @@ using Super.Programmazione.Commands;
 using Super.Programmazione.Commands.Scenario;
 using Super.Programmazione.Events;
 using Super.Programmazione.Handlers.Commands.Scenario;
-using Super.Programmazione.Handlers.Commands.Schedulazione.Rotabile;
 
 namespace Super.Programmazione.Specs.Scenario
 {
@@ -20,6 +19,7 @@ namespace Super.Programmazione.Specs.Scenario
         private Guid _idScenario = Guid.NewGuid();
         private Guid _idUser = Guid.NewGuid();
         private string _descritpion = "description";
+        private Guid _idProgramma = Guid.NewGuid();
 
         private Guid _idSchedulazione = Guid.NewGuid();
         private Guid _idAppaltatore =Guid.NewGuid();
@@ -50,6 +50,7 @@ namespace Super.Programmazione.Specs.Scenario
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
+                .ForProgramma(_idProgramma)
                 .Build(_idScenario, 1);
         }
 
@@ -79,24 +80,25 @@ namespace Super.Programmazione.Specs.Scenario
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildEvt.SchedulazioneRotAddedToScenario
-                        .ForAppaltatore(_idAppaltatore)
-                        .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                        .ForCommittente(_idCommittente)
-                        .ForDirezioneRegionale(_idDirezioneRegionale)
-                        .ForImpianto(_idImpianto)
-                        .ForLotto(_idLotto)
-                        .ForWorkPeriod(_workPeriod)
-                        .ForPeriod(_period)
-                        .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForScenario(_idScenario)
-                        .OfTipoIntervento(_tipoIntervento)
-                        .WithNote(_note)
-                        .WithOggetti(_oggetti)
-                        .WithRigaTurnoTreno(_rigaTurnoTreno)
-                        .WithTrenoArrivo(_trenoArrivo)
-                        .WithTrenoPartenza(_trenoPartenza)
-                        .WithTurnoTreno(_turnoTreno)
-                .Build(_idSchedulazione, 1);
+                .ForAppaltatore(_idAppaltatore)
+                .ForProgramma(_idProgramma)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForCommittente(_idCommittente)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .ForImpianto(_idImpianto)
+                .ForLotto(_idLotto)
+                .ForWorkPeriod(_workPeriod)
+                .ForPeriod(_period)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForSchedulazione(_idSchedulazione)
+                .OfTipoIntervento(_tipoIntervento)
+                .WithNote(_note)
+                .WithOggetti(_oggetti)
+                .WithRigaTurnoTreno(_rigaTurnoTreno)
+                .WithTrenoArrivo(_trenoArrivo)
+                .WithTrenoPartenza(_trenoPartenza)
+                .WithTurnoTreno(_turnoTreno)
+                .Build(_idScenario, 2);
         }
 
         [Test]

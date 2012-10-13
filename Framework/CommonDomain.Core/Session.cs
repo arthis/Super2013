@@ -6,11 +6,11 @@ using System.Text;
 
 namespace CommonDomain.Core
 {
-    public class Session :ISession
+    public class CommonSession : ISession
     {
         
 
-        public Session(Guid userId, bool isAuthenticated)
+        public CommonSession(Guid userId, bool isAuthenticated)
         {
             Contract.Requires(userId!=Guid.Empty);
             

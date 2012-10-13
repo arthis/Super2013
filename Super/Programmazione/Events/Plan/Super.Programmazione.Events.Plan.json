@@ -1,0 +1,306 @@
+﻿{
+    "Namespace" : "Super.Programmazione.Events.Plan",
+    "Objects" :
+    [
+		{
+            "Name" :"PlanCancelled",
+			"Description" : "piano {0} é stato cancellato",
+            "Properties" : [
+            ]
+        },
+		{
+            "Name" :"PlanCreated",
+			"Description" : "piano {0} é stato creato",
+            "Properties" : [
+				{
+                    "Name" : "IdScenario",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By"
+                },
+				{
+                    "Name" : "IdProgramma",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+            ]
+        },
+        {
+            "Name" :"SchedulazioneRotAddedToPlan",
+			"Description" : "La schedulazione rotabile é stata  aggiunta al piano",
+            "Properties" : [
+			    {
+                    "Name" : "IdSchedulazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdProgramma",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Convoglio",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "RigaTurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoArrivo",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoPartenza",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"SchedulazioneRotManAddedToPlan",
+			"Description" : "La schedulazione rotabile in manutenzione é stata  aggiuntata al piano",
+            "Properties" : [
+                {
+                    "Name" : "IdSchedulazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdProgramma",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"SchedulazioneAmbAddedToPlan",
+			"Description" : "La schedulazione ambiente é stata  aggiunta al piano",
+            "Properties" : [
+				{
+                    "Name" : "IdSchedulazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "IdProgramma",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : false ,
+					"BuilderHelper" : "For"
+                }
+            ]
+        },
+		{
+            "Name" :"SchedulazioneCancelledFromPlan",
+			"Description" : "Schedulazione {0} é stat cancellata dal piano",
+            "Properties" : [
+				{
+                    "Name" : "IdUser",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By"
+                },
+				{
+                    "Name" : "DeleteGeneratedInterventoToo",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "And"
+                }
+            ]
+        }
+    ]
+}

@@ -9,13 +9,13 @@ namespace CommonDomain.Core.Handlers.Commands
     
 
     
-    public class SecurityCommandHandler<T> : ICommandHandler<T> where T : ICommand
+    public class SecurityCommandHandler<T,TSession> : ICommandHandler<T> where T : ICommand where  TSession:ISession
     {
         
-        private readonly ISessionFactory _sessionFactory;
+        private readonly ISessionFactory<TSession> _sessionFactory;
         private ICommandHandler<T> _next;
 
-        public SecurityCommandHandler(ISessionFactory sessionFactory, ICommandHandler<T> next)
+        public SecurityCommandHandler(ISessionFactory<TSession> sessionFactory, ICommandHandler<T> next)
         {
             Contract.Requires(sessionFactory != null);
             Contract.Requires(next != null);    
@@ -32,9 +32,6 @@ namespace CommonDomain.Core.Handlers.Commands
 
             if (session.IsAuthenticated)
             {
-
-
-
                 var validation = _next.Execute(command);
 
                 return validation;

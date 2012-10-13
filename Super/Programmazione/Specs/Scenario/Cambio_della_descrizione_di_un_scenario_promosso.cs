@@ -19,6 +19,8 @@ namespace Super.Programmazione.Specs.Scenario
         private string _description = "test";
         private DateTime _promotingDate = DateTime.Now;
         private Guid _idUser = Guid.NewGuid();
+        private Guid _idProgramma = Guid.NewGuid();
+        private Guid _idPlan = Guid.NewGuid();
 
         protected override CommandHandler<ChangeDescriptionScenario> OnHandle(IEventRepository eventRepository)
         {
@@ -29,12 +31,14 @@ namespace Super.Programmazione.Specs.Scenario
         {
             yield return BuildEvt.ScenarioCreated
                                   .ForDescription(_description)
+                                  .ForProgramma(_idProgramma)
                                   .ByUser(_idUser)
                                   .Build(_id, 1);
 
             yield return BuildEvt.ScenarioPromotedToPlan
                                   .ByUser(_idUser)
-                                  .When(_promotingDate)
+                                  .WhenPromotionDate(_promotingDate)
+                                  .ForPlan(_idPlan)
                                   .Build(_id, 2);
         }
 

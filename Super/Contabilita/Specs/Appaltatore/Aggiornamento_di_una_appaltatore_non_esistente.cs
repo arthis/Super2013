@@ -12,7 +12,7 @@ using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Appaltatore;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
-using Super.Contabilita.Handlers.Appaltatore;
+using Super.Contabilita.Handlers.Commands.Appaltatore;
 
 namespace Super.Contabilita.Specs.Appaltatore
 {

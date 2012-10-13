@@ -36,7 +36,7 @@
 //        int _quantity = 12;
 //        private string _description = "description";
         
-//        private Guid _idScenario = Guid.NewGuid();
+//        private Guid _idSchedulazione = Guid.NewGuid();
 
 //        protected override CommandHandler<StartGenerationOfInterventi> OnHandle(IEventRepository eventRepository)
 //        {
@@ -68,23 +68,23 @@
 //             .WithNote(_note)
 //             .ForQuantity(_quantity)
 //             .ForDescription(_description)
-//             .Build(_idScenario, 1);
+//             .Build(_idSchedulazione, 1);
 
 //            yield return BuildEvt.InterventiAskedTobeGenerated
-//            .Build(_idScenario, 2);
+//            .Build(_idSchedulazione, 2);
 //        }
 
 //        public override StartGenerationOfInterventi When()
 //        {
 //            return BuildCmd.StartGenerationOfInterventi
-//                .ForScenario(_idScenario)
+//                .ForSchedulazione(_idSchedulazione)
 //                .Build(_id, 1);
 //        }
 
 //        public override IEnumerable<IMessage> Expect()
 //        {
 //            yield return BuildEvt.GenerationOfInterventiStarted
-//                .ForScenario(_idScenario)
+//                .ForSchedulazione(_idSchedulazione)
 //                .Build(_id, 1);
 //        }
 

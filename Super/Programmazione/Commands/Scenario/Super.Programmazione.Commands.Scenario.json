@@ -1,0 +1,303 @@
+﻿{
+    "Namespace" : "Super.Programmazione.Commands.Scenario",
+    "Objects" :
+    [
+        {
+            "Name" :"AddSchedulazioneRotToScenario",
+			"Description" : "Aggiungere una schedulazione rotabile al scenario",
+            "Properties" : [
+                {
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdSchedulazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Convoglio",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "RigaTurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoArrivo",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoPartenza",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"AddSchedulazioneRotManToScenario",
+			"Description" : "Aggiungere una schedulazione rotabile in manutenzione al scenario",
+            "Properties" : [
+                {
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdSchedulazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"AddSchedulazioneAmbToScenario",
+			"Description" : "Aggiungere una schedulazione ambiente al scenario",
+            "Properties" : [
+                {
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdSchedulazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : false ,
+					"BuilderHelper" : "For"
+                }
+            ]
+        },
+		{
+            "Name" :"CreateScenario",
+			"Description" : "Creare un scenario {0}",
+            "Properties" : [
+                {
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdProgramma",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "With"
+                }
+            ]
+        },
+		{
+            "Name" :"CancelScenario",
+			"Description" : "Cancellare un scenario {0}",
+            "Properties" : [
+            ]
+        },
+		{
+            "Name" :"ChangeDescriptionScenario",
+			"Description" : "Cambiare la descrizione del scenario {0}",
+            "Properties" : [
+                {
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : true ,
+					"BuilderHelper" : "For"
+                }
+            ]
+        },
+		{
+            "Name" :"PromoteScenarioToPlan",
+			"Description" : "Promuovere il scenario {0} come piano ",
+            "Properties" : [
+                {
+                    "Name" : "PromotionDate",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When"
+                },
+				{
+                    "Name" : "IdPlan",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "For"
+                }
+            ]
+        }
+    ]
+}

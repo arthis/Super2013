@@ -9,7 +9,7 @@ using NUnit.Framework;
 using CommonSpecs;
 using Super.Contabilita.Commands.Pricing;
 using Super.Contabilita.Events;
-using Super.Contabilita.Handlers.Pricing;
+using Super.Contabilita.Handlers.Commands.Pricing;
 
 namespace Super.Contabilita.Specs.Pricing
 {

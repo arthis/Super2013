@@ -18,70 +18,18 @@ namespace CommandService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class CommandWebService : ICommandWebService
+    public class CommandWebService<TSession> : ICommandWebService where TSession : ISession
     {
-        protected const string AggregateIdKey = "AggregateId";
-        protected const string CommitVersionKey = "CommitVersion";
-        protected const string EventVersionKey = "EventVersion";
-        protected const string BusPrefixKey = "Bus.";
+        private ICommandHandlerService<TSession> _commandHandler;
         
-
-        protected IBus _bus;
-        private ICommandHandlerService _commandHandler;
-        private IProjectionHandlerService _projectionHandler;
-
-        public CommandWebService(IBus bus, ICommandHandlerService commandHandlerService, IProjectionHandlerService projectionHandlerService)
+        public CommandWebService(ICommandHandlerService<TSession> commandHandlerService)
         {
             _commandHandler = commandHandlerService;
-            _projectionHandler = projectionHandlerService;
-            _bus = bus;
-        }
-
-
-        private IStoreEvents WireupEventStore()
-        {
-            return Wireup.Init()
-                .LogToOutputWindow()
-                .UsingSqlPersistence("EventStore")
-                .WithDialect(new MsSqlDialect())
-                .InitializeStorageEngine()
-                .UsingJsonSerialization()
-                //.Compress()
-                //.EncryptWith(_encryptionKey)
-                .HookIntoPipelineUsing(new[] { new AuthorizationPipelineHook() })
-                .UsingSynchronousDispatchScheduler()
-                .DispatchTo(new DelegateMessageDispatcher(DispatchCommit))
-                .Build();
-        }
-
-       private ICommandRepository GetCommandRepository()
-       {
-           return new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
-       }
-
-       
-
-        public void Init()
-        {
-            var storeEvents = WireupEventStore();
-            var aggregateFactory = new AggregateFactory();
-            var conflictDetector = new ConflictDetector();
-            var eventRepository = new EventStoreRepository(storeEvents, aggregateFactory, conflictDetector);
-            var projectionRepositoryBuilder = new ProjectionRepositoryBuilder();
-            var sessionRepository = new SessionRepository();
-            var sessionFactory = new SessionFactory(sessionRepository);
-
-            _commandHandler.InitHandlers(GetCommandRepository(), eventRepository,sessionFactory);
-            _commandHandler.Subscribe(_bus);
-            _projectionHandler.InitHandlers(projectionRepositoryBuilder, _bus);
             
         }
-
-
 
         public ExecuteResponse Execute(CommandBase command)
         {
-            
             Contract.Ensures(Contract.Result<ExecuteResponse>() != null);
 
             try
@@ -97,26 +45,7 @@ namespace CommandService
         }
 
         
-        private void DispatchCommit(Commit commit)
-        {
-            Contract.Requires(commit != null);
-            Contract.Requires(commit.Events != null);
-
-            try
-            {
-                for (var i = 0; i < commit.Events.Count; i++)
-                {
-                    var eventMessage = commit.Events[i];
-                    var busMessage = eventMessage.Body as IMessage;
-                   _bus.Publish(busMessage);
-                }
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-        }
+        
 
 
         public string Login(string username, string password)

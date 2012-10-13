@@ -9,11 +9,11 @@ using Super.Programmazione.Commands.Scenario;
 
 namespace Super.Programmazione.Handlers.Commands.Scenario
 {
-    public class PromoteScenarioToPlanHandler : CommandHandler<PromoteScenarioToPlan>
+    public class PromoteScenarioToPlanHandler<TSession> : CommandHandler<PromoteScenarioToPlan> where TSession:ISession
     {
-        private readonly ISessionFactory _sessionFactory;
+        private readonly ISessionFactory<TSession> _sessionFactory;
 
-        public PromoteScenarioToPlanHandler(IEventRepository eventRepository, ISessionFactory sessionFactory)
+        public PromoteScenarioToPlanHandler(IEventRepository eventRepository, ISessionFactory<TSession> sessionFactory)
             : base(eventRepository)
         {
             _sessionFactory = sessionFactory;
@@ -25,17 +25,16 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
 
             var session = _sessionFactory.CreateSession(cmd);
 
-            var existingScenario = EventRepository.GetById<Domain.Scenario>(cmd.Id);
+            var scenario = EventRepository.GetById<Domain.Programma.Scenario>(cmd.Id);
 
-            if (existingScenario.IsNull())
+            if (scenario.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
+            scenario.PromoteToPlan(session.UserId, cmd.PromotionDate, cmd.IdPlan);
 
-            existingScenario.PromoteToPlan(session.UserId, cmd.PromotionDate);
+            EventRepository.Save(scenario, cmd.CommitId);
 
-            EventRepository.Save(existingScenario, cmd.CommitId);
-
-            return existingScenario.CommandValidationMessages; 
+            return scenario.CommandValidationMessages; 
         }
     }
 }

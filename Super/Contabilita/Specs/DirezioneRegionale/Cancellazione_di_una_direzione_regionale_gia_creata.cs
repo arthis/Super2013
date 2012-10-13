@@ -9,7 +9,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.DirezioneRegionale;
 using Super.Contabilita.Events;
-using Super.Contabilita.Handlers.DirezioneRegionale;
+using Super.Contabilita.Handlers.Commands.DirezioneRegionale;
 
 namespace Super.Contabilita.Specs.DirezioneRegionale
 {

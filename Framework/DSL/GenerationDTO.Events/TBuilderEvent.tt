@@ -1,0 +1,26 @@
+﻿
+<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #>
+
+<#@include file="..\GenerationDTO.Events\TBuilderEventProp.tt"#>
+<#@include file="..\GenerationDTO.Events\TBuilderEventCtorHelper.tt"#>
+<#@include file="..\GenerationDTO.Events\TBuilderEventBuilder.tt"#><#+
+void BuildEventBuilder(ObjectDTO evt)
+{
+
+	var name = evt.Name;
+	
+#>
+
+	public class <#= name #>Builder : IEventBuilder<<#= name #>>
+	{
+	<#+ 
+		BuildProperties(evt); 
+		BuildCtorHelper(evt); 
+		BuildBuilder(evt);
+	 #>
+	}
+<#+
+}
+	#>

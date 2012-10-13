@@ -10,7 +10,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Commands.TipoOggettoIntervento.RotabileInManutenzione;
-using Super.Contabilita.Handlers.TipoOggettoIntervento.RotabileInManutenzione;
+using Super.Contabilita.Handlers.Commands.TipoOggettoIntervento.RotabileInManutenzione;
 
 namespace Super.Contabilita.Specs.TipoOggettoIntervento.RotabileInManuenzione
 {

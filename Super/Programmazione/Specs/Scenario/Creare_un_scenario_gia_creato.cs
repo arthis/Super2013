@@ -19,11 +19,12 @@ namespace Super.Programmazione.Specs.Scenario
         private Guid _Id = Guid.NewGuid();
         private Guid _idUser = Guid.NewGuid();
         private string _descritpion = "description";
+        private Guid _idProgramma = Guid.NewGuid();
 
         protected override CommandHandler<CreateScenario> OnHandle(IEventRepository eventRepository)
         {
             var sessionFactory = new FakeSessionFactory(_idUser);
-            return new CreateScenarioHandler(eventRepository, sessionFactory);
+            return new CreateScenarioHandler<ISession>(eventRepository, sessionFactory);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -38,6 +39,7 @@ namespace Super.Programmazione.Specs.Scenario
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
+                .ForProgramma(_idProgramma)
                 .Build(_Id,1);
         }
 
@@ -45,6 +47,7 @@ namespace Super.Programmazione.Specs.Scenario
         {
             return BuildCmd.CreateScenario
                         .WithDescription(_descritpion)
+                        .WithProgramma(_idProgramma)
                         .Build(_Id, 1);
         }
 

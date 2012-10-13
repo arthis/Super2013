@@ -9,7 +9,7 @@ using CommonSpecs;
 using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Commands.TipoIntervento.Ambiente;
-using Super.Contabilita.Handlers.TipoIntervento;
+using Super.Contabilita.Handlers.Commands.TipoIntervento;
 
 namespace Super.Contabilita.Specs.TipoIntervento.Ambiente
 {

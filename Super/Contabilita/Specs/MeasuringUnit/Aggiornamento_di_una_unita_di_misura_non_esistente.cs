@@ -12,7 +12,7 @@ using Super.Contabilita.Commands;
 using Super.Contabilita.Commands.MeasuringUnit;
 using Super.Contabilita.Commands.Builders;
 using Super.Contabilita.Handlers;
-using Super.Contabilita.Handlers.MeasuringUnit;
+using Super.Contabilita.Handlers.Commands.MeasuringUnit;
 
 namespace Super.Contabilita.Specs.MeasuringUnit
 {

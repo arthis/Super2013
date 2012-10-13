@@ -129,6 +129,7 @@
       <HintPath>..\..\..\lib\EventStore\persistence\mongo\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -164,8 +165,16 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
-      <Project>{B8DEF709-5168-48F1-B8D3-AD44E4A4A22B}</Project>
+      <Project>{b8def709-5168-48f1-b8d3-ad44e4a4a22b}</Project>
       <Name>EasyNetQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Appaltatore\Handlers\Handlers.csproj">
+      <Project>{B2759F91-46E5-42EC-ABFA-33DEA9C9D120}</Project>
+      <Name>Handlers %28Super\Appaltatore\Handlers%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\domain\Domain.csproj">
+      <Project>{5B1B79C7-BE33-4DE3-9C11-EAD25956C5F6}</Project>
+      <Name>Domain %28Super\Contabilita\Domain%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Handlers\Handlers.csproj">
       <Project>{9F59F075-6C58-46BC-90D6-1180FB884971}</Project>

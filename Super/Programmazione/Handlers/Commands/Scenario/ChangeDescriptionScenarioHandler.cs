@@ -19,7 +19,7 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
         {
             Contract.Requires(cmd != null);
 
-            var existingScenario = EventRepository.GetById<Domain.Scenario>(cmd.Id);
+            var existingScenario = EventRepository.GetById<Domain.Programma.Scenario>(cmd.Id);
 
             if (existingScenario.IsNull())
                 throw new AggregateRootInstanceNotFoundException();

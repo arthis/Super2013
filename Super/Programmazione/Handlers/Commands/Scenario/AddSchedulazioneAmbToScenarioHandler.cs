@@ -1,9 +1,11 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System;
+using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Programmazione.Commands.Scenario;
+using Super.Programmazione.Domain.Schedulazione;
 
 namespace Super.Programmazione.Handlers.Commands.Scenario
 {
@@ -18,16 +20,17 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
         {
             Contract.Requires(cmd != null);
 
-            var scenario = EventRepository.GetById<Domain.Scenario>(cmd.Id);
-            var existingSchedulazione = EventRepository.GetById<Domain.SchedulazioneAmb>(cmd.IdSchedulazione);
+            var scenario = EventRepository.GetById<Domain.Programma.Scenario>(cmd.Id);
+            var existingSchedulazione = EventRepository.GetById<SchedulazioneAmb>(cmd.IdSchedulazione);
 
             if (scenario.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            if(!existingSchedulazione.IsNull())
+            if (!existingSchedulazione.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
 
-            var schedulazione = scenario.AddSchedulazioneAmb(
+
+            scenario.AddSchedulazioneAmb(
                 cmd.IdAppaltatore,
                 cmd.IdCategoriaCommerciale,
                 cmd.IdCommittente,
@@ -43,9 +46,9 @@ namespace Super.Programmazione.Handlers.Commands.Scenario
                 cmd.IdTipoIntervento,
                 cmd.Note);
 
-            EventRepository.Save(schedulazione, cmd.CommitId);
+            EventRepository.Save(scenario, cmd.CommitId);
 
-            return schedulazione.CommandValidationMessages; 
+            return scenario.CommandValidationMessages; 
         }
     }
 }

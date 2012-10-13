@@ -11,7 +11,6 @@ using Super.Programmazione.Commands;
 using Super.Programmazione.Commands.Scenario;
 using Super.Programmazione.Events;
 using Super.Programmazione.Handlers.Commands.Scenario;
-using Super.Programmazione.Handlers.Commands.Schedulazione.RotabileInManutenzione;
 
 namespace Super.Programmazione.Specs.Scenario
 {
@@ -20,6 +19,7 @@ namespace Super.Programmazione.Specs.Scenario
         private Guid _idScenario = Guid.NewGuid();
         private Guid _idUser = Guid.NewGuid();
         private string _descritpion = "description";
+        private Guid _idProgramma = Guid.NewGuid();
 
         private Guid _idSchedulazione = Guid.NewGuid();
         private Guid _idAppaltatore =Guid.NewGuid();
@@ -44,6 +44,7 @@ namespace Super.Programmazione.Specs.Scenario
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.ScenarioCreated
+                .ForProgramma(_idProgramma)
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
                 .Build(_idScenario, 1);
@@ -71,20 +72,21 @@ namespace Super.Programmazione.Specs.Scenario
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildEvt.SchedulazioneRotManAddedToScenario
-                        .ForAppaltatore(_idAppaltatore)
-                        .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                        .ForCommittente(_idCommittente)
-                        .ForDirezioneRegionale(_idDirezioneRegionale)
-                        .ForImpianto(_idImpianto)
-                        .ForLotto(_idLotto)
-                        .ForWorkPeriod(_workPeriod)
-                        .ForPeriod(_period)
-                        .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
-                        .ForScenario(_idScenario)
-                        .OfTipoIntervento(_tipoIntervento)
-                        .WithNote(_note)
-                        .WithOggetti(_oggetti)
-                .Build(_idSchedulazione, 1);
+                .ForAppaltatore(_idAppaltatore)
+                .ForProgramma(_idProgramma)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForCommittente(_idCommittente)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .ForImpianto(_idImpianto)
+                .ForLotto(_idLotto)
+                .ForWorkPeriod(_workPeriod)
+                .ForPeriod(_period)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForSchedulazione(_idSchedulazione)
+                .OfTipoIntervento(_tipoIntervento)
+                .WithNote(_note)
+                .WithOggetti(_oggetti)
+                .Build(_idScenario, 2);
         }
 
         [Test]

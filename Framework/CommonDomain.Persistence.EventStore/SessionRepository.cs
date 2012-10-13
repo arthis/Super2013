@@ -6,11 +6,13 @@ using CommonDomain.Core;
 
 namespace CommonDomain.Persistence.EventStore
 {
-    public class SessionRepository :ISessionRepository
+    public class SessionRepository :ISessionRepository<CommonSession>
     {
-        public ISession GetSession(Guid securityToken)
+        public CommonSession GetSession(Guid securityToken)
         {
-            return  new Session(Guid.NewGuid(),true);
+            return  new CommonSession(Guid.NewGuid(),true);
         }
     }
+
+
 }

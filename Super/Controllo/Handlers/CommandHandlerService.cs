@@ -11,12 +11,12 @@ using Super.Controllo.Commands;
 
 namespace Super.Controllo.Handlers
 {
-    public class CommandHandlerService : CommandHandlerServiceBase
+    public class CommandHandlerService<TSession> : CommandHandlerServiceBase<TSession> where TSession : ISession
     {
 
-        public override void InitHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory sessionFactory)
+        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, ISessionFactory<TSession> sessionFactory)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository, sessionFactory, _handlers);
+            var handlerHelper = new CommandHandlerHelper<TSession>(commandRepository, sessionFactory, _handlers);
 
             handlerHelper.Add(new AllowControlInterventoHandler(eventRepository));
             handlerHelper.Add( new CloseInterventoHandler(eventRepository));

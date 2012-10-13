@@ -10,35 +10,36 @@
 //using Super.Contabilita.Commands.Schedulazione;
 //using Super.Contabilita.Events;
 //using CommonDomain.Core.Super.Messaging.ValueObjects;
-//using Super.Contabilita.Handlers.Intervento;
-//using Super.Contabilita.Handlers.Schedulazione;
+//using Super.Contabilita.Handlers.Commands.Schedulazione;
 
 //namespace Super.Contabilita.Specs.Schedulazione
 //{
 //    public class Calcolo_di_schedulazione_ambiente_di_un_scenario : CommandBaseClass<CalculateSchedulazioneAmbPriceOfScenario>
 //    {
 //        private Guid _id = Guid.NewGuid();
+//        private Guid _userId = Guid.NewGuid();
 //        private Guid _idScenario = Guid.NewGuid();
-//        private Guid _idSchedulazione= Guid.NewGuid();
+//        private Guid _idSchedulazione = Guid.NewGuid();
 //        private OggettoRot[] _oggetti;
 //        private WorkPeriod _workPeriod = new WorkPeriod(DateTime.Parse("28/08/2012 10:00"), DateTime.Parse("28/08/2012 11:00"));
-        
+
 //        private Guid _idPricing = Guid.NewGuid();
 //        private Guid _idBasePrice = Guid.NewGuid();
 //        private Guid _idGruppoOggettoIntervento = Guid.NewGuid();
 //        private IntervalOpened _intervalPrezzoBase = new IntervalOpened(DateTime.Parse("01/01/2012"), DateTime.Parse("01/01/2015"));
 //        private decimal _valuePrezzoBase = 25;
 //        private Guid _idTipoIntervento = Guid.NewGuid();
-        
-//        private decimal _priceCalculated=50;
+
+//        private decimal _priceCalculated = 50;
 //        private string _description = "description";
-//        private int _quantity =2;
-//        private Period _period = new Period(DateTime.Today,DateTime.Today.AddDays(10));
+//        private int _quantity = 2;
+//        private Period _period = new Period(DateTime.Today, DateTime.Today.AddDays(10));
 
 
 //        protected override CommandHandler<CalculateSchedulazioneAmbPriceOfScenario> OnHandle(IEventRepository eventRepository)
 //        {
-//            return new CalculateSchedulazioneAmbPriceOfScenarioHandler(eventRepository);
+//            var session = new FakeSessionContabilitaFactory(_userId, _idPricing, eventRepository);
+//            return new CalculateSchedulazioneAmbPriceOfScenarioHandler(eventRepository, session);
 //        }
 
 //        public override IEnumerable<IMessage> Given()
@@ -52,7 +53,7 @@
 //                .ForType(_idTipoIntervento)
 //                .ForValue(_valuePrezzoBase)
 //                .ForBasePrice(_idBasePrice)
-//                .Build(_idPricing,2);
+//                .Build(_idPricing, 2);
 
 //        }
 
@@ -71,17 +72,18 @@
 
 //        public override IEnumerable<IMessage> Expect()
 //        {
-//            yield return BuildEvt.SchedulazioneRotCreated
-             
-//              .ForWorkPeriod(_workPeriod)
-//             .ForPlan(_idScenario)
-//             .OfType(_idTipoIntervento)
-//             .WithOggetti(_oggetti)
-//             .Build(_id, 1);
-//            yield return BuildEvt.InterventoPriceOfPlanCalculated
-//                .ForPlan(_idScenario)
-//                .ToPrice(_priceCalculated)
-//                .Build(_id, 2);
+//            //yield return BuildEvt.SchedulazioneRotCreated
+
+//            //  .ForWorkPeriod(_workPeriod)
+//            // .ForPlan(_idScenario)
+//            // .OfType(_idTipoIntervento)
+//            // .WithOggetti(_oggetti)
+//            // .Build(_id, 1);
+//            //yield return BuildEvt.InterventoPriceOfPlanCalculated
+//            //    .ForPlan(_idScenario)
+//            //    .ToPrice(_priceCalculated)
+//            //    .Build(_id, 2);
+//            yield break;
 
 //        }
 

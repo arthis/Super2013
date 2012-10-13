@@ -5,6 +5,7 @@ using Super.Appaltatore.Events.Consuntivazione;
 using Super.Contabilita.Commands;
 using Super.Contabilita.Events.Schedulazione;
 using Super.Programmazione.Events.Intervento;
+using Super.Programmazione.Events.Scenario;
 using Super.Programmazione.Events.Schedulazione;
 
 namespace Super.Saga.Domain.SchedulazioneOfScenarioPrice
@@ -37,7 +38,7 @@ namespace Super.Saga.Domain.SchedulazioneOfScenarioPrice
 
             var cmd = BuildCmd.CalculateSchedulazioneAmbPriceOfScenario
                                  .ForPeriod(evt.Period)
-                                 .ForScenario(evt.IdScenario)
+                                 .ForScenario(evt.IdSchedulazione)
                                  .ForSchedulazione(evt.Id)
                                  .ForTipoIntervento(evt.IdTipoIntervento)
                                  .ForWorkPeriod(evt.WorkPeriod)

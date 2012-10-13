@@ -21,7 +21,7 @@
 //                                {
 //                                    _commandHandlerWithSession = new MyCommandHandlerWithSession<MyMessage>();
 //                                    var repo = new Mock<ISessionRepository>();
-//                                    repo.Setup(x => x.GetSession(securityToken)).Returns(new Session(userId));
+//                                    repo.Setup(x => x.GetSession(securityToken)).Returns(new CommonSession(userId));
 //                                    sessionHandler = new SecurityCommandHandler<MyMessage>(repo.Object, _commandHandlerWithSession);
 //                                };
 
