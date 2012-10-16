@@ -30,6 +30,14 @@ namespace Super.Programmazione.Events.Programma
 
 			IdScenario = idScenario ;
 		}
+
+		public ProgrammaCreated(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idScenario)
+		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idScenario != Guid.Empty);
+
+			IdScenario = idScenario ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Un programma {0} é stato creato", Id);
@@ -89,6 +97,49 @@ namespace Super.Programmazione.Events.Programma
 
 		public SchedulazioneRotAddedToProgramma(Guid id, Guid commitId, long version,Guid idSchedulazione,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
 		   : base(id,commitId,version)
+		{
+			Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdSchedulazione = idSchedulazione ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Convoglio = convoglio ;
+			RigaTurnoTreno = rigaTurnoTreno ;
+			TurnoTreno = turnoTreno ;
+			TrenoArrivo = trenoArrivo ;
+			TrenoPartenza = trenoPartenza ;
+			Oggetti = oggetti ;
+		}
+
+		public SchedulazioneRotAddedToProgramma(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idSchedulazione,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idSchedulazione != Guid.Empty);
 
@@ -235,6 +286,44 @@ namespace Super.Programmazione.Events.Programma
 			Period = period ;
 			Oggetti = oggetti ;
 		}
+
+		public SchedulazioneRotManAddedToProgramma(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idSchedulazione,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,OggettoRotMan[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdSchedulazione = idSchedulazione ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Oggetti = oggetti ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("La schedulazione rotabile in manutenzione é stata  aggiuntata al programma", Id);
@@ -302,6 +391,43 @@ namespace Super.Programmazione.Events.Programma
 
 		public SchedulazioneAmbAddedToProgramma(Guid id, Guid commitId, long version,Guid idSchedulazione,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
 		   : base(id,commitId,version)
+		{
+			Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+			IdSchedulazione = idSchedulazione ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Quantity = quantity ;
+			Description = description ;
+		}
+
+		public SchedulazioneAmbAddedToProgramma(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idSchedulazione,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
+		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idSchedulazione != Guid.Empty);
 
@@ -446,6 +572,48 @@ namespace Super.Programmazione.Events.Programma
 			TrenoPartenza = trenoPartenza ;
 			Oggetti = oggetti ;
 		}
+
+		public InterventoRotAddedToProgramma(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idIntervento,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idIntervento != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdIntervento = idIntervento ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Convoglio = convoglio ;
+			RigaTurnoTreno = rigaTurnoTreno ;
+			TurnoTreno = turnoTreno ;
+			TrenoArrivo = trenoArrivo ;
+			TrenoPartenza = trenoPartenza ;
+			Oggetti = oggetti ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Il Intervento rotabile é stato  aggiunto al programma", Id);
@@ -549,6 +717,43 @@ namespace Super.Programmazione.Events.Programma
 			WorkPeriod = workPeriod ;
 			Oggetti = oggetti ;
 		}
+
+		public InterventoRotManAddedToProgramma(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idIntervento,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,OggettoRotMan[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idIntervento != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdIntervento = idIntervento ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Oggetti = oggetti ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Il Intervento rotabile in manutenzione é stato  aggiuntato al programma", Id);
@@ -614,6 +819,42 @@ namespace Super.Programmazione.Events.Programma
 
 		public InterventoAmbAddedToProgramma(Guid id, Guid commitId, long version,Guid idIntervento,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,int quantity,string description)
 		   : base(id,commitId,version)
+		{
+			Contract.Requires(idIntervento != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+			IdIntervento = idIntervento ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Quantity = quantity ;
+			Description = description ;
+		}
+
+		public InterventoAmbAddedToProgramma(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idIntervento,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,int quantity,string description)
+		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idIntervento != Guid.Empty);
 

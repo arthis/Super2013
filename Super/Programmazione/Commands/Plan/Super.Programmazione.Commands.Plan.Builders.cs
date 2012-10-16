@@ -21,9 +21,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public CancelPlan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public CancelPlan Build(Guid id, Guid commitId, long version)
         {
             return new CancelPlan(id, commitId, version);
+		 }
+
+		 public CancelPlan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new CancelPlan(id, commitId, version, wakeupTime);
 		 }
         
 	
@@ -44,9 +54,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public CreatePlanFromPromotedScenario Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public CreatePlanFromPromotedScenario Build(Guid id, Guid commitId, long version)
         {
             return new CreatePlanFromPromotedScenario(id, commitId, version, _idScenario);
+		 }
+
+		 public CreatePlanFromPromotedScenario Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new CreatePlanFromPromotedScenario(id, commitId, version, wakeupTime, _idScenario);
 		 }
         
 	
@@ -193,9 +213,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddSchedulazioneRotToPlan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddSchedulazioneRotToPlan Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneRotToPlan(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		 }
+
+		 public AddSchedulazioneRotToPlan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddSchedulazioneRotToPlan(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
         
 	
@@ -307,9 +337,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddSchedulazioneRotManToPlan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddSchedulazioneRotManToPlan Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneRotManToPlan(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
+		 }
+
+		 public AddSchedulazioneRotManToPlan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddSchedulazioneRotManToPlan(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
 		 }
         
 	
@@ -428,9 +468,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddSchedulazioneAmbToPlan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddSchedulazioneAmbToPlan Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneAmbToPlan(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
+		 }
+
+		 public AddSchedulazioneAmbToPlan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddSchedulazioneAmbToPlan(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
 		 }
         
 	
@@ -570,9 +620,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddInterventoRotToPlan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddInterventoRotToPlan Build(Guid id, Guid commitId, long version)
         {
             return new AddInterventoRotToPlan(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idIntervento, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		 }
+
+		 public AddInterventoRotToPlan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddInterventoRotToPlan(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idIntervento, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
         
 	
@@ -677,9 +737,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddInterventoRotManToPlan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddInterventoRotManToPlan Build(Guid id, Guid commitId, long version)
         {
             return new AddInterventoRotManToPlan(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idIntervento, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
+		 }
+
+		 public AddInterventoRotManToPlan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddInterventoRotManToPlan(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idIntervento, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
 		 }
         
 	
@@ -791,9 +861,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddInterventoAmbToPlan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddInterventoAmbToPlan Build(Guid id, Guid commitId, long version)
         {
             return new AddInterventoAmbToPlan(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idIntervento, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
+		 }
+
+		 public AddInterventoAmbToPlan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddInterventoAmbToPlan(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idIntervento, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
 		 }
         
 	

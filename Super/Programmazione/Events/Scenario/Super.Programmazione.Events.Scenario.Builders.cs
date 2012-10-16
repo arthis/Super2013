@@ -1,7 +1,6 @@
 ﻿
 
 
-
 using System;
 using CommonDomain;
 using System.Diagnostics.Contracts;
@@ -42,9 +41,19 @@ namespace Super.Programmazione.Events.Scenario.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public ScenarioPromotedToPlan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public ScenarioPromotedToPlan Build(Guid id, Guid commitId, long version)
         {
             return new ScenarioPromotedToPlan(id, commitId, version, _idUser, _promotionDate, _idPlan);
+		 }
+
+		public ScenarioPromotedToPlan Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
+        {
+            return new ScenarioPromotedToPlan(id, commitId, version, wakeupTime, _idUser, _promotionDate, _idPlan);
 		 }
         
 	

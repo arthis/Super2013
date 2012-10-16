@@ -66,7 +66,7 @@
 
 //        public override IEnumerable<IMessage> Expect()
 //        {
-//            yield return BuildEvt.InterventoRotManGeneratedFromSchedulazione
+//            yield return BuildEvt.InterventoRotManCreated
 //                .ForAppaltatore(_idAppaltatore)
 //                .OfCategoriaCommerciale(_idCategoriaCommerciale)
 //                .ForCommittente(_idCommittente)

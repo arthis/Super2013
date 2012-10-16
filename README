@@ -8,6 +8,8 @@ This Project is a try out at re analysing the super application(cleaning managem
 
 nCQRS framework has been used used but is totally discarded now. Current solution implies the use of Joliver Commain domain and events store.
 
+A bus with RABBITMQ is currently used. I use an EasyNetQ modified to fit my purpose. This is somewhat temporary.
+
 The application deals currently with one website in ASP.net MVC which communicates with 4 webservices each responsible for a bounded context.
 
 *The application is under hardcore development and so might work or not depending on the day you get it.*
@@ -23,10 +25,10 @@ A basic contextmap can be found in the documentation folder.
 To define the bounded context and their interactions (see contextmap.png in documentation)
 so far I have found :
  
-    - Schedulazione : 	BC responsible for the generation of intervento
+    - programmazione : 	BC responsible for the generation of intervento
     - Appaltatore : 	Handling of Intervento by the appaltatore
     - Controllo :       Control of the intervento through the means of schede and various tools
-    - Accounting :      BC responsible for creating the context in which the other BCs evolve. Besides it uses information provided by the other Bcs to create reports depending on accounting rules.
+    - Contabilita :      BC responsible for creating the context in which the other BCs evolve. Besides it uses information provided by the other Bcs to create reports depending on accounting rules.
 
 
 The initial aim of this project was to give tools to develop a full blown solution using BDD.
@@ -53,7 +55,7 @@ CommandBase is used to to centralize ICommand behavior and allows to operate spe
 ** Intervento Saga **
 
 Programmazione aims at creating interventi that are going to be handled by the people of both Appaltatore and Controllo. Albeit the start and end date are vital information for the Appaltatore coming from Programmazione. The subsequent change is not so important when done by the appaltatore.
-Furthermore, the controll is aimed to take place once the job is done. Therefore the saga will only handle the information that some intervento was consuntivato , the read model of the controllo should have then plenty of time to get the information from the appaltatore.
+Furthermore, the controll is aimed to take place once the job is done. Therefore the saga will only handle the information that some intervento was consuntivato , the read model of the controllo should have then plenty of time to get the information from the appaltatore. (to be assessed...)
 
 
 
@@ -71,10 +73,11 @@ Projection have a HandleEventOnlyOnceHandler which save the id already projected
 
 
 ** current worries **
+ - modelling the domain... (quite a lot to do actually) I am redoing things several times before getting someting acceptable so far, but I huess, I am learning something with every iteration... ;)
  - Serialization of the command and Command Repository to be enhanced... for now, quick n' dirty! 
  - having one readModel per bounded context, I am afraid it is the only way. 
- - experimenting with sagas ( among other things, I have to add a alarm clock to trigger a time out..)
- - experimenting with code contracts
+ - experimenting with sagas 
+
 
  
  
@@ -88,7 +91,8 @@ Projection have a HandleEventOnlyOnceHandler which save the id already projected
  - Elmah for mvc
  - Create a build server
  - Create a production server to hold the Mammuth!!!!
-
+ - experimenting with code contracts ( have to add some build server to see how to maximize building time and contract features..)
+ - Sagas : among other things, I have to add a alarm clock to trigger a time out.., FuturePublish is used but not implemented in EasyNetQ so far. I have to add the scheduler but too lazy to do it now. This is a simple mechanism to add, nothing more, and nothing real interesting.
 
 ** Dependencies **
 

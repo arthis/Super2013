@@ -147,9 +147,19 @@ namespace Super.Programmazione.Commands.Programma.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddSchedulazioneRotToProgramma Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddSchedulazioneRotToProgramma Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneRotToProgramma(id, commitId, version, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		 }
+
+		 public AddSchedulazioneRotToProgramma Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddSchedulazioneRotToProgramma(id, commitId, version, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
         
 	
@@ -254,9 +264,19 @@ namespace Super.Programmazione.Commands.Programma.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddSchedulazioneRotManToProgramma Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddSchedulazioneRotManToProgramma Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneRotManToProgramma(id, commitId, version, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
+		 }
+
+		 public AddSchedulazioneRotManToProgramma Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddSchedulazioneRotManToProgramma(id, commitId, version, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
 		 }
         
 	
@@ -368,9 +388,19 @@ namespace Super.Programmazione.Commands.Programma.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddSchedulazioneAmbToProgramma Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddSchedulazioneAmbToProgramma Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneAmbToProgramma(id, commitId, version, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
+		 }
+
+		 public AddSchedulazioneAmbToProgramma Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddSchedulazioneAmbToProgramma(id, commitId, version, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
 		 }
         
 	
@@ -391,9 +421,19 @@ namespace Super.Programmazione.Commands.Programma.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public CreateProgramma Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public CreateProgramma Build(Guid id, Guid commitId, long version)
         {
             return new CreateProgramma(id, commitId, version, _idScenario);
+		 }
+
+		 public CreateProgramma Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new CreateProgramma(id, commitId, version, wakeupTime, _idScenario);
 		 }
         
 	

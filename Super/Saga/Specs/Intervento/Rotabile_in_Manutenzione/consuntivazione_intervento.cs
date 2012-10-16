@@ -55,7 +55,7 @@
 
 //        public override IEnumerable<IMessage> Given()
 //        {
-//            yield return BuildEvt.InterventoRotManScheduled
+//            yield return BuildEvt.InterventoRotManCreated
 //               .WithOggetti(_oggetti.ToArray())
 //              .ForWorkPeriod(_period)
 //              .ForImpianto(_idImpianto)
@@ -75,7 +75,7 @@
 //        {
 //            return BuildEvtApp.InterventoConsuntivatoRotManReso
 //                .ForInterventoAppaltatore(_idInterventoAppaltatore)
-//                .ForPeriod(_periodCons)
+//                .ForWorkPeriod(_periodCons)
 //                .When(DataCons)
 //                .WithNote(_noteCons)
 //                .WithOggetti(_oggettiCons.ToArray())

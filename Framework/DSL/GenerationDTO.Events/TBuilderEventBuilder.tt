@@ -1,6 +1,4 @@
-﻿
-<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
-
+﻿<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Collections.Generic" #>
@@ -17,9 +15,23 @@ void BuildBuilder(ObjectDTO evt)
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public <#= name #> Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public <#= name #> Build(Guid id, Guid commitId, long version)
         {
             return new <#= name #>(id, commitId, version<#+
+	     foreach(var property in evt.Properties)
+         {	#>, <#= property.GetPrivateName() #><#+
+         }
+			 #>);
+		 }
+
+		public <#= name #> Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
+        {
+            return new <#= name #>(id, commitId, version, wakeupTime<#+
 	     foreach(var property in evt.Properties)
          {	#>, <#= property.GetPrivateName() #><#+
          }

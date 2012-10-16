@@ -40,7 +40,7 @@ namespace Super.Appaltatore.Events.Builders
             return this;
         }
 
-        public InterventoRotManProgrammatoBuilder ForPeriod(WorkPeriod period)
+        public InterventoRotManProgrammatoBuilder ForWorkPeriod(WorkPeriod period)
         {
             _period = period;
             return this;

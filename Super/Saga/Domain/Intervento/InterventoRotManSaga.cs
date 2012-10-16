@@ -2,12 +2,12 @@
 using CommonDomain.Core;
 using Stateless;
 using Super.Appaltatore.Commands;
-using Super.Appaltatore.Commands.Builders;
+
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Programmazione.Events;
 using Super.Programmazione.Events.Intervento;
 using Super.Programmazione.Events.Schedulazione;
-using BuildApp = Super.Appaltatore.Commands.Builders.Build;
+using BuildApp = Super.Appaltatore.Commands.BuildCmd;
 using BuildCtrl = Super.Controllo.Commands.Builders.Build;
 
 namespace Super.Saga.Domain.Intervento
@@ -20,7 +20,7 @@ namespace Super.Saga.Domain.Intervento
 
         public InterventoRotManSaga()
         {
-            Register<InterventoRotManGeneratedFromSchedulazione>(OnInterventoRotManGenerated);
+            Register<InterventoRotManCreated>(OnInterventoRotManGenerated);
             Register<InterventoConsuntivatoRotManReso>(OnInterventoConsuntivato);
             Register<InterventoConsuntivatoRotManNonReso>(OnInterventoConsuntivato);
             Register<InterventoConsuntivatoRotManNonResoTrenitalia>(OnInterventoConsuntivato);
@@ -38,18 +38,18 @@ namespace Super.Saga.Domain.Intervento
 
         }
 
-        public void ProgrammareIntervento(InterventoRotManScheduled evt)
+        public void ProgrammareIntervento(InterventoRotManCreated evt)
         {
             if (!_stateMachine.IsInState(State.Start))
                 throw new Exception("Saga already started");
 
-            var cmd = BuildApp.ProgrammareInterventoRotMan
-                                .ForPeriod(evt.WorkPeriod)
+            var cmd = BuildApp.ProgramInterventoRotMan
+                                .ForWorkPeriod(evt.WorkPeriod)
                                 .ForImpianto(evt.IdImpianto)
-                                .ForTipo(evt.IdTipoIntervento)
+                                .OfTipoIntervento(evt.IdTipoIntervento)
                                 .ForAppaltatore(evt.IdAppaltatore)
-                                .OfCategoriaCommerciale(evt.IdCategoriaCommerciale)
-                                .OfDirezioneRegionale(evt.IdDirezioneRegionale)
+                                .ForCategoriaCommerciale(evt.IdCategoriaCommerciale)
+                                .ForDirezioneRegionale(evt.IdDirezioneRegionale)
                                 .WithNote(evt.Note)
                                 .WithOggetti(evt.Oggetti)
                                 .Build(evt.Id, 0);
@@ -59,7 +59,7 @@ namespace Super.Saga.Domain.Intervento
             Transition(evt);
         }
 
-        private void OnInterventoRotManGenerated(InterventoRotManGeneratedFromSchedulazione evt)
+        private void OnInterventoRotManGenerated(InterventoRotManCreated evt)
         {
             //assign the Id for the Saga
             Id = evt.Id;

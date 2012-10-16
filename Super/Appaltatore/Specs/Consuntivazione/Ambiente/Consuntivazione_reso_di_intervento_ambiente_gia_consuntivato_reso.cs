@@ -9,15 +9,16 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Appaltatore.Commands;
 using CommonSpecs;
+using Super.Appaltatore.Commands.Consuntivazione;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
-using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
 using Super.Appaltatore.Events;
 
 namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
 {
-    public class Consuntivazione_reso_di_intervento_ambiente_gia_consuntivato_reso : CommandBaseClass<ConsuntivareAmbReso>
+    public class Consuntivazione_reso_di_intervento_ambiente_gia_consuntivato_reso : CommandBaseClass<ConsuntivareResoAmb>
     {
         //Programmazione
         readonly Guid _id = Guid.NewGuid();
@@ -43,14 +44,14 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
         private readonly Guid _commitId = Guid.NewGuid();
         readonly string _idInterventoAppaltatoreCons2 = "id intervento appaltatore Cons2";
         readonly DateTime _dataConsuntivazioneCons2 = DateTime.Now.AddSeconds(-20);
-        readonly WorkPeriod _periodCons2 = new WorkPeriod(DateTime.Now.AddMinutes(-50), DateTime.Now.AddMinutes(-10));
+        readonly WorkPeriod _workPeriodCons2 = new WorkPeriod(DateTime.Now.AddMinutes(-50), DateTime.Now.AddMinutes(-10));
         string _noteCons2 = "note Cons2";
         readonly int _quantityCons2 = 24;
         private readonly string _descriptionCons2 = "bla bla bla description oggetto Cons2";
 
-        protected override CommandHandler<ConsuntivareAmbReso> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<ConsuntivareResoAmb> OnHandle(IEventRepository eventRepository)
         {
-            return new ConsuntivareAmbResoHandler(eventRepository);
+            return new ConsuntivareResoAmbHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -61,7 +62,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 .ForAppaltatore(_idAppaltatore)
                 .OfCategoriaCommerciale(_idCategoriaCommerciale)
                 .OfDirezioneRegionale(_idDirezioneRegionale)
-                .ForPeriod(_period)
+                .ForWorkPeriod(_period)
                 .WithNote(_note)
                 .ForQuantity(_quantity)
                 .ForDescription(_description)
@@ -76,12 +77,12 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
                 .Build(_id, 2);
         }
 
-        public override ConsuntivareAmbReso When()
+        public override ConsuntivareResoAmb When()
         {
-            return BuildCmd.ConsuntivareAmbReso
+            return BuildCmd.ConsuntivareResoAmb
                 .ForInterventoAppaltatore(_idInterventoAppaltatoreCons2)
-                .When(_dataConsuntivazioneCons2)
-                .ForPeriod(_periodCons2)
+                .ForDataConsuntivazione(_dataConsuntivazioneCons2)
+                .ForWorkPeriod(_workPeriodCons2)
                 .ForQuantity(_quantityCons2)
                 .ForDescription(_descriptionCons2)
                 .WithNote(_noteCons2)
@@ -93,7 +94,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
             yield return BuildEvt.InterventoConsuntivatoAmbReso
                 .ForInterventoAppaltatore(_idInterventoAppaltatoreCons2)
                 .When(_dataConsuntivazioneCons2)
-                .ForPeriod(_periodCons2)
+                .ForPeriod(_workPeriodCons2)
                 .WithNote(_noteCons2)
                 .ForQuantity(_quantityCons2)
                 .ForDescription(_descriptionCons2)

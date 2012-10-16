@@ -18,9 +18,9 @@ namespace Super.Saga.Handlers
         {
             var sagaHandler = new SagaHandler(repository, _handlers, bus, Execute);
 
-            sagaHandler.Add(new InterventoRotScheduledHandler(repository, bus));
-            sagaHandler.Add(new InterventoRotManScheduledHandler(repository, bus));
-            sagaHandler.Add(new InterventoAmbScheduledHandler(repository, bus));
+            sagaHandler.Add(new InterventoRotCreatedHandler(repository, bus));
+            sagaHandler.Add(new InterventoRotManCreatedHandler(repository, bus));
+            sagaHandler.Add(new InterventoAmbCreatedHandler(repository, bus));
 
             sagaHandler.Add(new InterventoConsuntivatoRotResoHandler(repository, bus));
             sagaHandler.Add(new InterventoConsuntivatoRotNonResoHandler(repository, bus));

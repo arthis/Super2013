@@ -6,14 +6,14 @@ using Super.Saga.Domain.Intervento;
 
 namespace Super.Saga.Handlers.Intervento
 {
-    public class InterventoRotScheduledHandler : SagaHandler<InterventoRotScheduled>
+    public class InterventoRotCreatedHandler : SagaHandler<InterventoRotCreated>
     {
-        public InterventoRotScheduledHandler(ISagaRepository repository, IBus bus)
+        public InterventoRotCreatedHandler(ISagaRepository repository, IBus bus)
             : base(repository, bus, null)
         {
         }
 
-        public sealed override ISaga OnHandle(InterventoRotScheduled @event)
+        public sealed override ISaga OnHandle(InterventoRotCreated @event)
         {
             var sagaId = @event.Id;
 

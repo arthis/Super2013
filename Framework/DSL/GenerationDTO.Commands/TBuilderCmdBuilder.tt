@@ -17,9 +17,23 @@ void BuildBuilder(ObjectDTO cmd)
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public <#= name #> Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public <#= name #> Build(Guid id, Guid commitId, long version)
         {
             return new <#= name #>(id, commitId, version<#+
+	     foreach(var property in cmd.Properties)
+         {	#>, <#= property.GetPrivateName() #><#+
+         }
+			 #>);
+		 }
+
+		 public <#= name #> Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new <#= name #>(id, commitId, version, wakeupTime<#+
 	     foreach(var property in cmd.Properties)
          {	#>, <#= property.GetPrivateName() #><#+
          }

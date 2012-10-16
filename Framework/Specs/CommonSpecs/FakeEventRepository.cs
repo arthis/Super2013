@@ -82,6 +82,11 @@ namespace CommonSpecs
             throw new NotImplementedException();
         }
 
+        public void FuturePublish<T>(DateTime timeToRespond, T message) where T : IMessage
+        {
+            // do nothing
+        }
+
         public event Action Connected;
         public event Action Disconnected;
 

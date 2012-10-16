@@ -82,6 +82,49 @@ namespace Super.Programmazione.Commands.Schedulazione
 			TrenoPartenza = trenoPartenza ;
 			Oggetti = oggetti ;
 		}
+
+		public CreateSchedulazioneRot(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idProgramma != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdProgramma = idProgramma ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Convoglio = convoglio ;
+			RigaTurnoTreno = rigaTurnoTreno ;
+			TurnoTreno = turnoTreno ;
+			TrenoArrivo = trenoArrivo ;
+			TrenoPartenza = trenoPartenza ;
+			Oggetti = oggetti ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Create una schedulazione rotabile", Id);
@@ -188,6 +231,44 @@ namespace Super.Programmazione.Commands.Schedulazione
 			Period = period ;
 			Oggetti = oggetti ;
 		}
+
+		public CreateSchedulazioneRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,OggettoRotMan[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idProgramma != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdProgramma = idProgramma ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Oggetti = oggetti ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Creare una schedulazione rotabile", Id);
@@ -255,6 +336,43 @@ namespace Super.Programmazione.Commands.Schedulazione
 
 		public CreateSchedulazioneAmb(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
 		   : base(id,commitId,version)
+		{
+			Contract.Requires(idProgramma != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+			IdProgramma = idProgramma ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Quantity = quantity ;
+			Description = description ;
+		}
+
+		public CreateSchedulazioneAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
+		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
 

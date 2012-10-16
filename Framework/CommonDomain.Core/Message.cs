@@ -13,6 +13,7 @@ namespace CommonDomain.Core
         public Guid Id { get; set; }
         public Guid CommitId { get; set; }
         public long Version { get; set; }
+        public DateTime? WakeTime { get; set; }
 
         public abstract string ToDescription();
 
@@ -32,18 +33,29 @@ namespace CommonDomain.Core
             Version = version;
         }
 
-        public bool Equals(Message other)
+        public Message(Guid id, Guid commitId, long version,DateTime wakeTime)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return other.Id.Equals(Id) && other.Version == Version;
+            Contract.Requires(id != Guid.Empty);
+            Contract.Requires(commitId != Guid.Empty);
+            Contract.Requires(version >= 0);
+            Contract.Requires(wakeTime> DateTime.MinValue);
+
+            Id = id;
+            CommitId = commitId;
+            Version = version;
+            WakeTime = wakeTime;
+        }
+
+        protected bool Equals(Message other)
+        {
+            return Id.Equals(other.Id) && Version == other.Version && WakeTime.Equals(other.WakeTime);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof (Message)) return false;
+            if (obj.GetType() != this.GetType()) return false;
             return Equals((Message) obj);
         }
 
@@ -51,10 +63,10 @@ namespace CommonDomain.Core
         {
             unchecked
             {
-                int result = Id.GetHashCode();
-                result = (result*397) ^ CommitId.GetHashCode();
-                result = (result*397) ^ Version.GetHashCode();
-                return result;
+                int hashCode = Id.GetHashCode();
+                hashCode = (hashCode*397) ^ Version.GetHashCode();
+                hashCode = (hashCode*397) ^ WakeTime.GetHashCode();
+                return hashCode;
             }
         }
     }

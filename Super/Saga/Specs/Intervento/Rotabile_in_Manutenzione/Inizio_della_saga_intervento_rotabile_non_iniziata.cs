@@ -18,7 +18,7 @@
 
 //namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 //{
-//    public class Inizio_della_saga_intervento_rotabile_in_manutenzione_non_iniziata : SagaBaseClass<InterventoRotManScheduled>
+//    public class Inizio_della_saga_intervento_rotabile_in_manutenzione_non_iniziata : SagaBaseClass<InterventoRotManCreated>
 //    {
 //        readonly Guid _id = Guid.NewGuid();
 //        readonly Guid _idImpianto = Guid.NewGuid();
@@ -39,9 +39,9 @@
 //            return "un inizo di saga normale";
 //        }
 
-//        protected override SagaHandler<InterventoRotManScheduled> SagaHandler(ISagaRepository repository, IBus bus)
+//        protected override SagaHandler<InterventoRotManCreated> SagaHandler(ISagaRepository repository, IBus bus)
 //        {
-//            return new InterventoRotManScheduledHandler(repository, bus);
+//            return new InterventoRotManCreatedHandler(repository, bus);
 //        }
 
 //        public override IEnumerable<IMessage> Given()
@@ -49,9 +49,9 @@
 //            yield break;
 //        }
 
-//        public override InterventoRotManScheduled When()
+//        public override InterventoRotManCreated When()
 //        {
-//            return new InterventoRotManScheduled()
+//            return new InterventoRotManCreated()
 //                       {
 //                           WorkPeriod = _period,
 //                           Id = _id,
@@ -68,8 +68,8 @@
 
 //        public override IEnumerable<IMessage> Expect()
 //        {
-//            yield return BuildCmd.ProgrammareInterventoRotMan
-//                            .ForPeriod(_period)
+//            yield return BuildCmd.ProgramInterventoRotMan
+//                            .ForWorkPeriod(_period)
 //                            .ForImpianto(_idImpianto)
 //                            .OfType(_idTipoIntervento)
 //                            .ForAppaltatore(_idAppaltatore)

@@ -72,7 +72,7 @@
 //            return Appaltatore.Events.BuildEvt.InterventoConsuntivatoAmbReso
 //                            .ForDescription(_description)
 //                            .ForInterventoAppaltatore(_idInterventoAppaltatore)
-//                            .ForPeriod(_periodCons)
+//                            .ForWorkPeriod(_periodCons)
 //                            .ForQuantity(_quantityCons)
 //                            .When(DataCons)
 //                            .WithNote(_noteCons)

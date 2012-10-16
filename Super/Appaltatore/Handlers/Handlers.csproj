@@ -81,18 +81,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandlerService.cs" />
-    <Compile Include="ConsuntivareAmbNonResoTrenitaliaHandler.cs" />
-    <Compile Include="ConsuntivareAmbResoHandler.cs" />
-    <Compile Include="ConsuntivareRotManNonResoTrenitaliaHandler.cs" />
-    <Compile Include="ConsuntivareRotManResoHandler.cs" />
-    <Compile Include="ConsuntivareRotNonResoHandler.cs" />
-    <Compile Include="ConsuntivareRotResoHandler.cs" />
-    <Compile Include="ConsuntivareAmbNonResoHandler.cs" />
-    <Compile Include="ConsuntivareRotManNonResoHandler.cs" />
-    <Compile Include="ConsuntivareRotNonResoTrenitaliaHandler.cs" />
-    <Compile Include="ProgrammareInterventoRotManHandler.cs" />
-    <Compile Include="ProgrammareInterventoAmbHandler.cs" />
-    <Compile Include="ProgrammareInterventoRotHandler.cs" />
+    <Compile Include="ConsuntivareNonResoTrenitaliaHandler.cs" />
+    <Compile Include="ConsuntivareResoAmbHandler.cs" />
+    <Compile Include="ConsuntivareResoRotManHandler.cs" />
+    <Compile Include="ConsuntivareResoRotHandler.cs" />
+    <Compile Include="ConsuntivareNonResoHandler.cs" />
+    <Compile Include="ProgramInterventoRotManHandler.cs" />
+    <Compile Include="ProgramInterventoAmbHandler.cs" />
+    <Compile Include="ProgramInterventoRotHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

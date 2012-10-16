@@ -56,7 +56,7 @@
 //                .ForImpianto(_idImpianto)
 //                .ForLotto(_idLotto)
 //                .ForWorkPeriod(_workPeriod)
-//                .ForPeriod(_period)
+//                .ForWorkPeriod(_period)
 //                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
 //                .ForScenario(_idScenario)
 //                .OfTipoIntervento(_idTipoIntervento)

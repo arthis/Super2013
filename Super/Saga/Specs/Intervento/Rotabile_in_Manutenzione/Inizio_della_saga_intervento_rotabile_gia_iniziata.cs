@@ -18,7 +18,7 @@
 
 //namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 //{
-//    public class Inizio_della_saga_intervento_rotabile_in_manutenzione_gia_iniziata : SagaBaseClass<InterventoRotManScheduled>
+//    public class Inizio_della_saga_intervento_rotabile_in_manutenzione_gia_iniziata : SagaBaseClass<InterventoRotManCreated>
 //    {
 //        readonly Guid _id = Guid.NewGuid();
 //        readonly Guid _idImpianto = Guid.NewGuid();
@@ -40,14 +40,14 @@
 //            return "Une saga gia inziata non può essere iniziata di nuovo. vero?.";
 //        }
 
-//        protected override SagaHandler<InterventoRotManScheduled> SagaHandler(ISagaRepository repository, IBus bus)
+//        protected override SagaHandler<InterventoRotManCreated> SagaHandler(ISagaRepository repository, IBus bus)
 //        {
-//            return new InterventoRotManScheduledHandler(repository, bus);
+//            return new InterventoRotManCreatedHandler(repository, bus);
 //        }
 
 //        public override IEnumerable<IMessage> Given()
 //        {
-//            yield return new InterventoRotManScheduled()
+//            yield return new InterventoRotManCreated()
 //            {
 //                WorkPeriod = _period,
 //                Id = _id,
@@ -62,9 +62,9 @@
 //            };
 //        }
 
-//        public override InterventoRotManScheduled When()
+//        public override InterventoRotManCreated When()
 //        {
-//            return new InterventoRotManScheduled()
+//            return new InterventoRotManCreated()
 //                       {
 //                           WorkPeriod = _period,
 //                           Id = _id,

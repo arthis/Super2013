@@ -140,9 +140,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public CreateInterventoRot Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public CreateInterventoRot Build(Guid id, Guid commitId, long version)
         {
             return new CreateInterventoRot(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		 }
+
+		 public CreateInterventoRot Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new CreateInterventoRot(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
         
 	
@@ -240,9 +250,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public CreateInterventoRotMan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public CreateInterventoRotMan Build(Guid id, Guid commitId, long version)
         {
             return new CreateInterventoRotMan(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
+		 }
+
+		 public CreateInterventoRotMan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new CreateInterventoRotMan(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
 		 }
         
 	
@@ -347,9 +367,19 @@ namespace Super.Programmazione.Commands.Plan.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public CreateInterventoAmb Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public CreateInterventoAmb Build(Guid id, Guid commitId, long version)
         {
             return new CreateInterventoAmb(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
+		 }
+
+		 public CreateInterventoAmb Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new CreateInterventoAmb(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
 		 }
         
 	

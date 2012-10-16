@@ -8,6 +8,7 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Commands;
+using Super.Appaltatore.Commands.Consuntivazione;
 
 namespace Super.Appaltatore.Handlers
 {
@@ -19,30 +20,28 @@ namespace Super.Appaltatore.Handlers
         {
             var handlerHelper = new CommandHandlerHelper<TSession>(commandRepository, sessionFactory, _handlers);
 
-            handlerHelper.Add( new ProgrammareInterventoAmbHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ProgrammareInterventoRotHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ProgrammareInterventoRotManHandler(eventRepositoryEvent));
+            handlerHelper.Add( new ProgramInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.Add( new ProgramInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.Add( new ProgramInterventoRotManHandler(eventRepositoryEvent));
 
-            handlerHelper.Add( new ConsuntivareAmbNonResoHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ConsuntivareRotNonResoHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ConsuntivareRotManNonResoHandler(eventRepositoryEvent));
+            handlerHelper.Add( new ConsuntivareNonResoHandler(eventRepositoryEvent));
+            
 
-            handlerHelper.Add( new ConsuntivareAmbResoHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ConsuntivareRotResoHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ConsuntivareRotManResoHandler(eventRepositoryEvent));
+            handlerHelper.Add( new ConsuntivareResoAmbHandler(eventRepositoryEvent));
+            handlerHelper.Add( new ConsuntivareResoRotHandler(eventRepositoryEvent));
+            handlerHelper.Add( new ConsuntivareResoRotManHandler(eventRepositoryEvent));
 
-            handlerHelper.Add( new ConsuntivareAmbNonResoTrenitaliaHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ConsuntivareRotNonResoTrenitaliaHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ConsuntivareRotManNonResoTrenitaliaHandler(eventRepositoryEvent));
+            handlerHelper.Add( new ConsuntivareNonResoTrenitaliaHandler(eventRepositoryEvent));
+            
         }
 
         public override void Subscribe(IBus bus)
         {
             string subscriptionId = "Super";
 
-            bus.Subscribe<ProgrammareInterventoRot>(subscriptionId, cmd => Execute(cmd));
-            bus.Subscribe<ProgrammareInterventoRotMan>(subscriptionId, cmd => Execute(cmd));
-            bus.Subscribe<ProgrammareInterventoAmb>(subscriptionId, cmd => Execute(cmd));
+            bus.Subscribe<ProgramInterventoRot>(subscriptionId, cmd => Execute(cmd));
+            bus.Subscribe<ProgramInterventoRotMan>(subscriptionId, cmd => Execute(cmd));
+            bus.Subscribe<ProgramInterventoAmb>(subscriptionId, cmd => Execute(cmd));
         }
 
 

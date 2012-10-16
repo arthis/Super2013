@@ -29,7 +29,14 @@ namespace CommonDomain.Core
                 {
                     var eventMessage = commit.Events[i];
                     var busMessage = eventMessage.Body as IMessage;
-                   _bus.Publish(busMessage);
+
+                    if (busMessage != null)
+                    {
+                        if (busMessage.WakeTime.HasValue)
+                            _bus.FuturePublish(busMessage.WakeTime.Value, busMessage);
+                        else
+                            _bus.Publish(busMessage);
+                    }
                 }
 
             }

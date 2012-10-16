@@ -36,6 +36,27 @@ void BuildCtor(ObjectDTO evt)
 			<#= property.GetPascalCasedName() #> = <#= property.GetCamelCasedName() #> ;
 <#+         }#>
 		}
+
+		public <#= name #>(Guid id, Guid commitId, long version,DateTime wakeupTime<#= ctorArgs #>)
+		   : base(id,commitId,version,wakeupTime)
+		{
+		<#+
+	foreach (var property in evt.Properties)
+        {
+			
+			foreach(string requirement in property.GetRequires())
+            {#>
+	<#= requirement #>
+
+<#+
+            }
+        }
+
+	foreach (var property in evt.Properties)
+        {#>
+			<#= property.GetPascalCasedName() #> = <#= property.GetCamelCasedName() #> ;
+<#+         }#>
+		}
 	<#+
 }
 

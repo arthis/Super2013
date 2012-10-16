@@ -26,6 +26,11 @@ namespace Super.Programmazione.Commands.Plan
 		   : base(id,commitId,version)
 		{
 				}
+
+		public CancelPlan(Guid id, Guid commitId, long version, DateTime wakeupTime)
+		   : base(id,commitId,version,wakeupTime)
+		{
+				}
 			public override string ToDescription()
 		{
 			return string.Format("Cancellare un piano {0}", Id);
@@ -67,6 +72,14 @@ namespace Super.Programmazione.Commands.Plan
 
 		public CreatePlanFromPromotedScenario(Guid id, Guid commitId, long version,Guid idScenario)
 		   : base(id,commitId,version)
+		{
+			Contract.Requires(idScenario != Guid.Empty);
+
+			IdScenario = idScenario ;
+		}
+
+		public CreatePlanFromPromotedScenario(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idScenario)
+		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idScenario != Guid.Empty);
 
@@ -132,6 +145,52 @@ namespace Super.Programmazione.Commands.Plan
 
 		public AddSchedulazioneRotToPlan(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
 		   : base(id,commitId,version)
+		{
+			Contract.Requires(idProgramma != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdProgramma = idProgramma ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdSchedulazione = idSchedulazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Convoglio = convoglio ;
+			RigaTurnoTreno = rigaTurnoTreno ;
+			TurnoTreno = turnoTreno ;
+			TrenoArrivo = trenoArrivo ;
+			TrenoPartenza = trenoPartenza ;
+			Oggetti = oggetti ;
+		}
+
+		public AddSchedulazioneRotToPlan(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
 
@@ -286,6 +345,47 @@ namespace Super.Programmazione.Commands.Plan
 			Period = period ;
 			Oggetti = oggetti ;
 		}
+
+		public AddSchedulazioneRotManToPlan(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,OggettoRotMan[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idProgramma != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdProgramma = idProgramma ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdSchedulazione = idSchedulazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Oggetti = oggetti ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Aggiungere una schedulazione rotabile in manutenzione al Plan", Id);
@@ -355,6 +455,46 @@ namespace Super.Programmazione.Commands.Plan
 
 		public AddSchedulazioneAmbToPlan(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
 		   : base(id,commitId,version)
+		{
+			Contract.Requires(idProgramma != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+			IdProgramma = idProgramma ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdSchedulazione = idSchedulazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Quantity = quantity ;
+			Description = description ;
+		}
+
+		public AddSchedulazioneAmbToPlan(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
+		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
 
@@ -507,6 +647,51 @@ namespace Super.Programmazione.Commands.Plan
 			TrenoPartenza = trenoPartenza ;
 			Oggetti = oggetti ;
 		}
+
+		public AddInterventoRotToPlan(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idIntervento,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idProgramma != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idIntervento != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdProgramma = idProgramma ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdIntervento = idIntervento ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Convoglio = convoglio ;
+			RigaTurnoTreno = rigaTurnoTreno ;
+			TurnoTreno = turnoTreno ;
+			TrenoArrivo = trenoArrivo ;
+			TrenoPartenza = trenoPartenza ;
+			Oggetti = oggetti ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Aggiungere una Intervento rotabile al Plan", Id);
@@ -615,6 +800,46 @@ namespace Super.Programmazione.Commands.Plan
 			WorkPeriod = workPeriod ;
 			Oggetti = oggetti ;
 		}
+
+		public AddInterventoRotManToPlan(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idIntervento,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,OggettoRotMan[] oggetti)
+		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idProgramma != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idIntervento != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdProgramma = idProgramma ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdIntervento = idIntervento ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Oggetti = oggetti ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Aggiungere una Intervento rotabile in manutenzione al Plan", Id);
@@ -682,6 +907,45 @@ namespace Super.Programmazione.Commands.Plan
 
 		public AddInterventoAmbToPlan(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idIntervento,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,int quantity,string description)
 		   : base(id,commitId,version)
+		{
+			Contract.Requires(idProgramma != Guid.Empty);
+
+	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idIntervento != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+			IdProgramma = idProgramma ;
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdIntervento = idIntervento ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Quantity = quantity ;
+			Description = description ;
+		}
+
+		public AddInterventoAmbToPlan(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idIntervento,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,int quantity,string description)
+		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
 

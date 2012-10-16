@@ -10,16 +10,16 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Appaltatore.Commands;
 using CommonSpecs;
-using Super.Appaltatore.Commands.Builders;
+using Super.Appaltatore.Commands.Consuntivazione;
 using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
-using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
 using Super.Appaltatore.Events;
 
 namespace Super.Appaltatore.Specs.Programmazione.Rotabile
 {
-    public class Programmazione_di_intervento_rotabile_gia_esistente : CommandBaseClass<ProgrammareInterventoRot>
+    public class Programmazione_di_intervento_rotabile_gia_esistente : CommandBaseClass<ProgramInterventoRot>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _commitId = Guid.NewGuid();
@@ -28,7 +28,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-10));
+        readonly WorkPeriod _workPeriod = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-10));
         List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desccons", 22, Guid.NewGuid(), Guid.NewGuid()) };
         Treno _trenoArrivo = new Treno("numeroA cons", DateTime.Now.AddHours(10));
         Treno _trenoPartenza = new Treno("numeroP cons", DateTime.Now.AddHours(15));
@@ -38,9 +38,9 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
         string _convoglio = "convoglio";
         string _note = "note";
 
-        protected override CommandHandler<ProgrammareInterventoRot> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<ProgramInterventoRot> OnHandle(IEventRepository eventRepository)
         {
-            return new ProgrammareInterventoRotHandler(eventRepository);
+            return new ProgramInterventoRotHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -49,7 +49,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
 
             yield return BuildEvt.InterventoRotProgrammato
                 .WithOggetti(_oggetti.ToArray())
-                .ForPeriod(_period)
+                .ForWorkPeriod(_workPeriod)
                 .ForImpianto(_idImpianto)
                 .OfType(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
@@ -64,17 +64,17 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
                 .Build(_id, 1);
         }
 
-        public override ProgrammareInterventoRot When()
+        public override ProgramInterventoRot When()
         {
 
-            return BuildCmd.ProgrammareInterventoRot
+            return BuildCmd.ProgramInterventoRot
                 .WithOggetti(_oggetti.ToArray())
-                .ForPeriod(_period)
+                .ForWorkPeriod(_workPeriod)
                 .ForImpianto(_idImpianto)
-                .OfType(_idTipoIntervento)
+                .OfTipoIntervento(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
-                .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
                 .WithNote(_note)
                 .WithTrenoPartenza(_trenoPartenza)
                 .WithTrenoArrivo(_trenoArrivo)

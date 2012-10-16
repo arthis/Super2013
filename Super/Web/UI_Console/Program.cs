@@ -151,7 +151,7 @@ namespace UI_Console
             //Bus.Publish(evt);
 
             //var service = new Appaltatore.CommandWebServiceClient();
-            //var builder = new ConsuntivareRotResoBuilder();
+            //var builder = new ConsuntivareResoRotBuilder();
             //builder.
             //var executeRequest = new Appaltatore.ExecuteRequest()
             //                         { Message = };

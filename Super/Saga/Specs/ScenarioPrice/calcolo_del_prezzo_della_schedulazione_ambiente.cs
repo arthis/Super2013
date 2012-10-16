@@ -59,7 +59,7 @@
 //                .ForImpianto(_idImpianto)
 //                .ForLotto(_idLotto)
 //                .ForWorkPeriod(_workPeriod)
-//                .ForPeriod(_period)
+//                .ForWorkPeriod(_period)
 //                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
 //                .ForScenario(_idScenario)
 //                .OfTipoIntervento(_idTipoIntervento)
@@ -73,7 +73,7 @@
 //        public override IEnumerable<IMessage> Expect()
 //        {
 //            yield return BuildCmd.CalculateSchedulazioneAmbPriceOfScenario
-//                                 .ForPeriod(_period)
+//                                 .ForWorkPeriod(_period)
 //                                 .ForScenario(_idScenario)
 //                                 .ForSchedulazione(_idSchedulazione)
 //                                 .ForTipoIntervento(_idTipoIntervento)

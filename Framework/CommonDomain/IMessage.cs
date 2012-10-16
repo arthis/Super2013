@@ -5,10 +5,14 @@ using System.Text;
 
 namespace CommonDomain
 {
+
+   
+
     public interface IMessage
     {
         Guid Id { get; }
         Guid CommitId { get; }
+        DateTime? WakeTime { get; set; }
 
         string ToDescription();
     }

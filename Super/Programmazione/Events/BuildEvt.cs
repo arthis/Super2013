@@ -35,19 +35,7 @@ namespace Super.Programmazione.Events
         public static InterventiAskedTobeGeneratedBuilder InterventiAskedTobeGenerated {get { return new InterventiAskedTobeGeneratedBuilder(); }
         }
 
-        public static InterventoRotGeneratedFromSchedulazioneBuilder InterventoRotGeneratedFromSchedulazione { get { return new InterventoRotGeneratedFromSchedulazioneBuilder(); } }
-
-        public static InterventoRotManGeneratedFromSchedulazioneBuilder InterventoRotManGeneratedFromSchedulazione { get { return new InterventoRotManGeneratedFromSchedulazioneBuilder(); } }
-
-        public static InterventoAmbGeneratedFromSchedulazioneBuilder InterventoAmbGeneratedFromSchedulazione { get { return new InterventoAmbGeneratedFromSchedulazioneBuilder(); } }
-
-        public static InterventoRotScheduledBuilder InterventoRotScheduled { get { return new InterventoRotScheduledBuilder(); } }
-
-        public static InterventoRotManScheduledBuilder InterventoRotManScheduled { get { return new InterventoRotManScheduledBuilder(); } }
-
-        public static InterventoAmbScheduledBuilder InterventoAmbScheduled { get { return new InterventoAmbScheduledBuilder(); } }
-
-        
+      
 
         public static RuleAddedToSchedulazioneRotBuilder RuleAddedToSchedulazioneRot { get { return new RuleAddedToSchedulazioneRotBuilder(); } }
 
@@ -78,11 +66,6 @@ namespace Super.Programmazione.Events
 
         public static RuleRemovedFromSchedulazioneBuilder RuleRemovedFromSchedulazione { get { return new RuleRemovedFromSchedulazioneBuilder(); } }
 
-        public static InterventoRotUpdatedOfPlanBuilder InterventoRotUpdatedOfPlan { get { return new InterventoRotUpdatedOfPlanBuilder(); } }
-
-        public static InterventoRotManUpdatedOfPlanBuilder InterventoRotManUpdatedOfPlan { get { return new InterventoRotManUpdatedOfPlanBuilder(); } }
-
-        public static InterventoAmbUpdatedOfPlanBuilder InterventoAmbUpdatedOfPlan { get { return new InterventoAmbUpdatedOfPlanBuilder(); } }
 
         public static SchedulazioneRotUpdatedOfScenarioBuilder SchedulazioneRotUpdatedOfScenario { get { return new SchedulazioneRotUpdatedOfScenarioBuilder(); } }
 

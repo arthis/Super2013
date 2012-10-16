@@ -1,0 +1,418 @@
+﻿{
+    "Namespace" : "Super.Appaltatore.Commands.Consuntivazione",
+    "Objects" :
+    [
+        {
+            "Name" :"ConsuntivareAutomaticamenteNonReso",
+			"Description" : "il intervento é stato  consuntivato non reso appaltatore automaticamente",
+            "Properties" : [
+		    ]
+        },
+		{
+            "Name" :"ConsuntivareNonReso",
+			"Description" : "il intervento é stato  consuntivato non reso appaltatore",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "IdCausaleAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"ConsuntivareNonResoTrenitalia",
+			"Description" : "il intervento é stato  consuntivato non reso trenitalia",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "IdCausaleTrenitalia",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"ConsuntivareResoRot",
+			"Description" : "il intervento rotabile é stato  consuntivato reso",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Convoglio",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "RigaTurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoArrivo",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoPartenza",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true
+                }
+            ]
+        },
+		{
+            "Name" :"ConsuntivareResoRotMan",
+			"Description" : "il intervento rotabile in manutenzione é stato  consuntivato reso",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true
+                }
+            ]
+        },
+		{
+            "Name" :"ConsuntivareResoAmb",
+			"Description" : "il intervento rotabile in manutenzione é stato  consuntivato reso",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : false,
+					"BuilderHelper" : "For"
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : true
+                }
+            ]
+        },
+		{
+            "Name" :"ProgramInterventoRot",
+			"Description" : "Programmare un intervento rotabile",
+            "Properties" : [
+			    {
+                    "Name" : "IdProgramma",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Convoglio",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "RigaTurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoArrivo",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoPartenza",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"ProgramInterventoRotMan",
+			"Description" : "Programmare un intervento rotabile",
+            "Properties" : [
+				{
+                    "Name" : "IdProgramma",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"ProgramInterventoAmb",
+			"Description" : "Programmare una intervento ambiente",
+            "Properties" : [
+                {
+                    "Name" : "IdProgramma",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPeriodoProgrammazione",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCommittente",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdLotto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdImpianto",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdCategoriaCommerciale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdDirezioneRegionale",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : false ,
+					"BuilderHelper" : "For"
+                }
+            ]
+        }
+
+    ]
+}

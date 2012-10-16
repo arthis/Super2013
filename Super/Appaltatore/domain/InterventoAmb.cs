@@ -37,7 +37,7 @@ namespace Super.Appaltatore.Domain
             workPeriod.BuildValue(workPeriodBuilder);
 
             var evt = BuildEvt.InterventoAmbProgrammato
-                            .ForPeriod(workPeriodBuilder.Build())
+                            .ForWorkPeriod(workPeriodBuilder.Build())
                             .ForImpianto(idImpianto)
                             .OfType(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)

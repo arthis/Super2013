@@ -10,16 +10,16 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Appaltatore.Commands;
 using CommonSpecs;
-using Super.Appaltatore.Commands.Builders;
+using Super.Appaltatore.Commands.Consuntivazione;
 using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
-using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
 using Super.Appaltatore.Events;
 
 namespace Super.Appaltatore.Specs.Programmazione.Ambiente
 {
-    public class Programmazione_di_intervento_ambiente_gia_esistente : CommandBaseClass<ProgrammareInterventoAmb>
+    public class Programmazione_di_intervento_ambiente_gia_esistente : CommandBaseClass<ProgramInterventoAmb>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _commitId = Guid.NewGuid();
@@ -28,21 +28,21 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
+        readonly WorkPeriod _workPeriod = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         string _note = "note";
         private readonly int _quantity = 12;
         private readonly string _description = "desc";
 
-        protected override CommandHandler<ProgrammareInterventoAmb> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<ProgramInterventoAmb> OnHandle(IEventRepository eventRepository)
         {
-            return new ProgrammareInterventoAmbHandler(eventRepository);
+            return new ProgramInterventoAmbHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
         {
             //builders
             yield return  BuildEvt.InterventoAmbProgrammato
-                            .ForPeriod(_period)
+                            .ForWorkPeriod(_workPeriod)
                             .ForImpianto(_idImpianto)
                             .OfType(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
@@ -54,16 +54,15 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
                             .Build(_id,1);
         }
 
-        public override ProgrammareInterventoAmb When()
+        public override ProgramInterventoAmb When()
         {
-            return BuildCmd.ProgrammareInterventoAmb
-                            .ForPeriod(_period)
+            return BuildCmd.ProgramInterventoAmb
+                            .ForWorkPeriod(_workPeriod)
                             .ForImpianto(_idImpianto)
-                            .OfType(_idTipoIntervento)
+                            .OfTipoIntervento(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
-                            .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                            .OfDirezioneRegionale(_idDirezioneRegionale)
-                            .OfType(_idTipoIntervento)
+                            .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                            .ForDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
                             .ForQuantity(_quantity)
                             .ForDescription(_description)

@@ -1,13 +1,9 @@
 ﻿using System;
 using CommonDomain.Core;
 using Stateless;
-using Super.Appaltatore.Commands;
 using Super.Appaltatore.Events.Consuntivazione;
-using Super.Programmazione.Events;
-using Super.Appaltatore.Events;
 using Super.Programmazione.Events.Intervento;
-using Super.Programmazione.Events.Schedulazione;
-using BuildApp = Super.Appaltatore.Commands.Builders.Build;
+using BuildApp = Super.Appaltatore.Commands.BuildCmd;
 using BuildCtrl = Super.Controllo.Commands.Builders.Build;
 
 namespace Super.Saga.Domain.Intervento
@@ -20,7 +16,7 @@ namespace Super.Saga.Domain.Intervento
 
         public InterventoAmbSaga()
         {
-            Register<InterventoAmbGeneratedFromSchedulazione>(OnInterventoAmbGenerated);
+            Register<InterventoAmbCreated>(OnInterventoAmbGenerated);
             Register<InterventoConsuntivatoAmbReso>(OnInterventoConsuntivato);
             Register<InterventoConsuntivatoAmbNonReso>(OnInterventoConsuntivato);
             Register<InterventoConsuntivatoAmbNonResoTrenitalia>(OnInterventoConsuntivato);
@@ -38,29 +34,34 @@ namespace Super.Saga.Domain.Intervento
 
         }
 
-        public void ProgrammareIntervento(InterventoAmbScheduled evt)
+        public void ProgrammareIntervento(InterventoAmbCreated evt)
         {
             if (!_stateMachine.IsInState(State.Start))
                 throw  new Exception("Saga already started");
 
-            var cmd = BuildApp.ProgrammareInterventoAmb
-                                .ForPeriod(evt.WorkPeriod)
+            var cmdProgramm = BuildApp.ProgramInterventoAmb
+                                .ForWorkPeriod(evt.WorkPeriod)
                                 .ForImpianto(evt.IdImpianto)
-                                .OfType(evt.IdTipoIntervento)
+                                .OfTipoIntervento(evt.IdTipoIntervento)
                                 .ForAppaltatore(evt.IdAppaltatore)
-                                .OfCategoriaCommerciale(evt.IdCategoriaCommerciale)
-                                .OfDirezioneRegionale(evt.IdDirezioneRegionale)
+                                .ForCategoriaCommerciale(evt.IdCategoriaCommerciale)
+                                .ForDirezioneRegionale(evt.IdDirezioneRegionale)
                                 .WithNote(evt.Note)
                                 .ForQuantity(evt.Quantity)
                                 .ForDescription(evt.Description)
                                 .Build(evt.Id,0);
 
-            Dispatch(cmd);
+            Dispatch(cmdProgramm);
+
+            var cmdTimeOut = BuildApp.ConsuntivareAutomaticamenteNonReso
+                .Build(evt.Id, 999, evt.WorkPeriod.EndDate.AddMinutes(20));
+
+            Dispatch(cmdTimeOut);
 
             Transition(evt);
         }
 
-        private void OnInterventoAmbGenerated(InterventoAmbGeneratedFromSchedulazione evt)
+        private void OnInterventoAmbGenerated(InterventoAmbCreated evt)
         {
             //assign the Id for the Saga
             Id = evt.Id;

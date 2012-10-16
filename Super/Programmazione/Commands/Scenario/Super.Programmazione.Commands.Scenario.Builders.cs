@@ -147,9 +147,19 @@ namespace Super.Programmazione.Commands.Scenario.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddSchedulazioneRotToScenario Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddSchedulazioneRotToScenario Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneRotToScenario(id, commitId, version, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		 }
+
+		 public AddSchedulazioneRotToScenario Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddSchedulazioneRotToScenario(id, commitId, version, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
         
 	
@@ -254,9 +264,19 @@ namespace Super.Programmazione.Commands.Scenario.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddSchedulazioneRotManToScenario Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddSchedulazioneRotManToScenario Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneRotManToScenario(id, commitId, version, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
+		 }
+
+		 public AddSchedulazioneRotManToScenario Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddSchedulazioneRotManToScenario(id, commitId, version, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
 		 }
         
 	
@@ -368,9 +388,19 @@ namespace Super.Programmazione.Commands.Scenario.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public AddSchedulazioneAmbToScenario Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public AddSchedulazioneAmbToScenario Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneAmbToScenario(id, commitId, version, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
+		 }
+
+		 public AddSchedulazioneAmbToScenario Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new AddSchedulazioneAmbToScenario(id, commitId, version, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
 		 }
         
 	
@@ -398,9 +428,19 @@ namespace Super.Programmazione.Commands.Scenario.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public CreateScenario Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public CreateScenario Build(Guid id, Guid commitId, long version)
         {
             return new CreateScenario(id, commitId, version, _description, _idProgramma);
+		 }
+
+		 public CreateScenario Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new CreateScenario(id, commitId, version, wakeupTime, _description, _idProgramma);
 		 }
         
 	
@@ -414,9 +454,19 @@ namespace Super.Programmazione.Commands.Scenario.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public CancelScenario Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public CancelScenario Build(Guid id, Guid commitId, long version)
         {
             return new CancelScenario(id, commitId, version);
+		 }
+
+		 public CancelScenario Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new CancelScenario(id, commitId, version, wakeupTime);
 		 }
         
 	
@@ -437,9 +487,19 @@ namespace Super.Programmazione.Commands.Scenario.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public ChangeDescriptionScenario Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public ChangeDescriptionScenario Build(Guid id, Guid commitId, long version)
         {
             return new ChangeDescriptionScenario(id, commitId, version, _description);
+		 }
+
+		 public ChangeDescriptionScenario Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new ChangeDescriptionScenario(id, commitId, version, wakeupTime, _description);
 		 }
         
 	
@@ -467,9 +527,19 @@ namespace Super.Programmazione.Commands.Scenario.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public PromoteScenarioToPlan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public PromoteScenarioToPlan Build(Guid id, Guid commitId, long version)
         {
             return new PromoteScenarioToPlan(id, commitId, version, _promotionDate, _idPlan);
+		 }
+
+		 public PromoteScenarioToPlan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new PromoteScenarioToPlan(id, commitId, version, wakeupTime, _promotionDate, _idPlan);
 		 }
         
 	

@@ -1,7 +1,6 @@
 ﻿
 
 
-
 using System;
 using CommonDomain;
 using System.Diagnostics.Contracts;
@@ -147,9 +146,19 @@ namespace Super.Programmazione.Events.Schedulazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public SchedulazioneRotCreated Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public SchedulazioneRotCreated Build(Guid id, Guid commitId, long version)
         {
             return new SchedulazioneRotCreated(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		 }
+
+		public SchedulazioneRotCreated Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
+        {
+            return new SchedulazioneRotCreated(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
         
 	
@@ -254,9 +263,19 @@ namespace Super.Programmazione.Events.Schedulazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public SchedulazioneRotManCreated Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public SchedulazioneRotManCreated Build(Guid id, Guid commitId, long version)
         {
             return new SchedulazioneRotManCreated(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
+		 }
+
+		public SchedulazioneRotManCreated Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
+        {
+            return new SchedulazioneRotManCreated(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
 		 }
         
 	
@@ -368,9 +387,19 @@ namespace Super.Programmazione.Events.Schedulazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
+		public SchedulazioneAmbCreated Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
 		public SchedulazioneAmbCreated Build(Guid id, Guid commitId, long version)
         {
             return new SchedulazioneAmbCreated(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
+		 }
+
+		public SchedulazioneAmbCreated Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
+        {
+            return new SchedulazioneAmbCreated(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
 		 }
         
 	

@@ -9,16 +9,16 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Appaltatore.Commands;
 using CommonSpecs;
-using Super.Appaltatore.Commands.Builders;
+using Super.Appaltatore.Commands.Consuntivazione;
 using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
-using BuildCmd = Super.Appaltatore.Commands.Builders.Build;
+using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
 using Super.Appaltatore.Events;
 
 namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
 {
-    public class Programmazione_di_intervento_rotabile_in_manutenzione_gia_esistente : CommandBaseClass<ProgrammareInterventoRotMan>
+    public class Programmazione_di_intervento_rotabile_in_manutenzione_gia_esistente : CommandBaseClass<ProgramInterventoRotMan>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _commitId = Guid.NewGuid();
@@ -27,20 +27,20 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
         readonly Guid _idAppaltatore = Guid.NewGuid();
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
-        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-10));
+        readonly WorkPeriod _workPeriod = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-10));
         List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desccons", 22, Guid.NewGuid(), Guid.NewGuid()) };
         string _note = "note";
 
-        protected override CommandHandler<ProgrammareInterventoRotMan> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<ProgramInterventoRotMan> OnHandle(IEventRepository eventRepository)
         {
-            return new ProgrammareInterventoRotManHandler(eventRepository);
+            return new ProgramInterventoRotManHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.InterventoRotManProgrammato
                 .WithOggetti(_oggetti.ToArray())
-                .ForPeriod(_period)
+                .ForWorkPeriod(_workPeriod)
                 .ForImpianto(_idImpianto)
                 .OfType(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
@@ -50,16 +50,16 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
                 .Build(_id, 1);
         }
 
-        public override ProgrammareInterventoRotMan When()
+        public override ProgramInterventoRotMan When()
         {
-            return BuildCmd.ProgrammareInterventoRotMan
+            return BuildCmd.ProgramInterventoRotMan
                 .WithOggetti(_oggetti.ToArray())
-                .ForPeriod(_period)
-                .In(_idImpianto)
-                .OfType(_idTipoIntervento)
+                .ForWorkPeriod(_workPeriod)
+                .ForImpianto(_idImpianto)
+                .OfTipoIntervento(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
-                .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
                 .WithNote(_note)
                 .Build(_id, _commitId, 1);
 

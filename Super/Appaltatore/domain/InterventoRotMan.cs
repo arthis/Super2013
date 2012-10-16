@@ -33,7 +33,7 @@ namespace Super.Appaltatore.Domain
 
             var evt = BuildEvt.InterventoRotManProgrammato
                             .WithOggetti(oggetti.ToMessage().ToArray())
-                            .ForPeriod(periodBuilder.Build())
+                            .ForWorkPeriod(periodBuilder.Build())
                             .ForImpianto(idImpianto)
                             .OfType(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)

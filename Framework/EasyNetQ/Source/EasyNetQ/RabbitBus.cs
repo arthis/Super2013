@@ -550,28 +550,37 @@ namespace EasyNetQ
             AddSubscriptionAction(subscribeAction);
         }
 
-        //public void FuturePublish<T>(DateTime timeToRespond, T message)
-        //{
-        //    if (message == null)
-        //    {
-        //        throw new ArgumentNullException("message");
-        //    }
+        public void FuturePublish<T>(DateTime timeToRespond, T message) where T : IMessage
+        {
+            if (message == null)
+            {
+                throw new ArgumentNullException("message");
+            }
 
-        //    if (!connection.IsConnected)
-        //    {
-        //        throw new EasyNetQException("FuturePublish failed. No rabbit server connected.");
-        //    }
+            if (!connection.IsConnected)
+            {
+                throw new EasyNetQException("FuturePublish failed. No rabbit server connected.");
+            }
 
-        //    var typeName = serializeType(typeof(T));
-        //    var messageBody = serializer.MessageToBytes(message);
+            var messageBody = serializer.MessageToBytes(message);
+            var typeNameMessage = serializeType(typeof(T));
+            var scheduleMe = new ScheduleMe
+                                 {
+                                     WakeTime = timeToRespond,
+                                     BindingKey = typeNameMessage,
+                                     InnerMessage = messageBody
+                                 };
 
-        //    Publish(new ScheduleMe
-        //    {
-        //        WakeTime = timeToRespond,
-        //        BindingKey = typeName,
-        //        InnerMessage = messageBody
-        //    });
-        //}
+            var messageBodyScheduleMe = serializer.MessageToBytes(scheduleMe);
+
+            var exchangeName = GetExchangeName(scheduleMe.GetType());
+            var typeName = serializeType(typeof(ScheduleMe));
+            var topic = GetTopic(message.GetType());
+
+            RawPublish(exchangeName, topic, typeName, messageBodyScheduleMe);
+        }
+
+        
 
         public event Action Connected;
 

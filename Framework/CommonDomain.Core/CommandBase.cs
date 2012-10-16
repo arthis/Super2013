@@ -24,6 +24,12 @@ namespace CommonDomain.Core
             Contract.Requires(version >= (long)(0));    
         }
 
+        public CommandBase(Guid id, Guid commitId, long version,DateTime wakeupTime)
+            : base(id, commitId, version, wakeupTime)
+        {
+            Contract.Requires(version >= (long)(0));
+        }
+
         public static Type[] GetKnownTypes()
         {
             var types = from asm in AppDomain.CurrentDomain.GetAssemblies()

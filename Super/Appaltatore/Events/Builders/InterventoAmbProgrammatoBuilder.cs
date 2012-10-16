@@ -36,7 +36,7 @@ namespace Super.Appaltatore.Events.Builders
 
         #endregion
 
-        public InterventoAmbProgrammatoBuilder ForPeriod(WorkPeriod period)
+        public InterventoAmbProgrammatoBuilder ForWorkPeriod(WorkPeriod period)
         {
             _period = period;
             return this;
