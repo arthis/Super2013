@@ -49,6 +49,9 @@ namespace Super.Saga.Domain.Consuntivazione
                                 .ForCategoriaCommerciale(evt.IdCategoriaCommerciale)
                                 .ForDirezioneRegionale(evt.IdDirezioneRegionale)
                                 .WithNote(evt.Note)
+                                .ForCommittente(evt.IdCommittente)
+                                .ForLotto(evt.IdLotto)
+                                .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)                               
                                 .WithOggetti(evt.Oggetti)
                                 .WithTrenoPartenza(evt.TrenoPartenza)
                                 .WithTrenoArrivo(evt.TrenoArrivo)
@@ -57,7 +60,6 @@ namespace Super.Saga.Domain.Consuntivazione
                                 .ForConvoglio(evt.Convoglio)
                                 .ForProgramma(evt.IdProgramma)
                                 .Build(evt.Id, 0);
-
 
             Dispatch(cmdProgramm);
 

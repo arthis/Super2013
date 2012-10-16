@@ -50,9 +50,19 @@ namespace Super.Saga.Domain.Consuntivazione
                                 .ForDirezioneRegionale(evt.IdDirezioneRegionale)
                                 .WithNote(evt.Note)
                                 .WithOggetti(evt.Oggetti)
+                                .ForProgramma(evt.IdProgramma)
+                                .ForCommittente(evt.IdCommittente)
+                                .ForLotto(evt.IdLotto)
+                                .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)
+                                .WithNote(evt.Note)
                                 .Build(evt.Id, 0);
 
             Dispatch(cmd);
+
+            var cmdTimeOut = BuildCmd.ConsuntivareAutomaticamenteNonReso
+                .Build(evt.Id, 999, evt.WorkPeriod.EndDate.AddMinutes(20));
+
+            Dispatch(cmdTimeOut);
 
             Transition(evt);
         }
