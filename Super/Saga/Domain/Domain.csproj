@@ -116,10 +116,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Intervento\InterventoAmbSaga.cs" />
-    <Compile Include="Intervento\enum.cs" />
-    <Compile Include="Intervento\InterventoRotManSaga.cs" />
-    <Compile Include="Intervento\InterventoRotSaga.cs" />
+    <Compile Include="Consuntivazione\InterventoAmbSaga.cs" />
+    <Compile Include="Consuntivazione\enum.cs" />
+    <Compile Include="Consuntivazione\InterventoRotManSaga.cs" />
+    <Compile Include="Consuntivazione\InterventoRotSaga.cs" />
+    <Compile Include="Exceptions\SagaStateException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchedulazioneOfScenarioPrice\enum.cs" />
     <Compile Include="SchedulazioneOfScenarioPrice\SchedulazioneAmbPriceSaga.cs" />

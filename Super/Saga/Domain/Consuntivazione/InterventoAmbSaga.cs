@@ -2,28 +2,26 @@
 using CommonDomain.Core;
 using Stateless;
 using Super.Appaltatore.Commands;
-
 using Super.Appaltatore.Events.Consuntivazione;
-using Super.Programmazione.Events;
+using Super.Controllo.Commands.Builders;
 using Super.Programmazione.Events.Intervento;
-using Super.Programmazione.Events.Schedulazione;
-using BuildApp = Super.Appaltatore.Commands.BuildCmd;
-using BuildCtrl = Super.Controllo.Commands.Builders.Build;
+using Super.Saga.Domain.Exceptions;
+using Super.Saga.Domain.Intervento;
 
-namespace Super.Saga.Domain.Intervento
+namespace Super.Saga.Domain.Consuntivazione
 {
-    public class InterventoRotManSaga : SagaBase<Message>
+    public class ConsuntivaziioneAmbSaga : SagaBase<Message>
     {
 
         private readonly StateMachine<State, Trigger> _stateMachine;
         private State _state = State.Start;
 
-        public InterventoRotManSaga()
+        public ConsuntivaziioneAmbSaga()
         {
-            Register<InterventoRotManCreated>(OnInterventoRotManGenerated);
-            Register<InterventoConsuntivatoRotManReso>(OnInterventoConsuntivato);
-            Register<InterventoConsuntivatoRotManNonReso>(OnInterventoConsuntivato);
-            Register<InterventoConsuntivatoRotManNonResoTrenitalia>(OnInterventoConsuntivato);
+            Register<InterventoAmbCreated>(OnInterventoAmbGenerated);
+            Register<InterventoConsuntivatoAmbReso>(OnInterventoConsuntivato);
+            Register<InterventoConsuntivatoAmbNonReso>(OnInterventoConsuntivato);
+            Register<InterventoConsuntivatoAmbNonResoTrenitalia>(OnInterventoConsuntivato);
 
             _stateMachine = new StateMachine<State, Trigger>(() => _state, newState => _state = newState);
 
@@ -38,12 +36,12 @@ namespace Super.Saga.Domain.Intervento
 
         }
 
-        public void ProgrammareIntervento(InterventoRotManCreated evt)
+        public void ProgrammareIntervento(InterventoAmbCreated evt)
         {
             if (!_stateMachine.IsInState(State.Start))
-                throw new Exception("Saga already started");
+                throw  new SagaStateException("Saga already started");
 
-            var cmd = BuildApp.ProgramInterventoRotMan
+            var cmdProgramm = BuildCmd.ProgramInterventoAmb
                                 .ForWorkPeriod(evt.WorkPeriod)
                                 .ForImpianto(evt.IdImpianto)
                                 .OfTipoIntervento(evt.IdTipoIntervento)
@@ -51,15 +49,21 @@ namespace Super.Saga.Domain.Intervento
                                 .ForCategoriaCommerciale(evt.IdCategoriaCommerciale)
                                 .ForDirezioneRegionale(evt.IdDirezioneRegionale)
                                 .WithNote(evt.Note)
-                                .WithOggetti(evt.Oggetti)
-                                .Build(evt.Id, 0);
+                                .ForQuantity(evt.Quantity)
+                                .ForDescription(evt.Description)
+                                .Build(evt.Id,0);
 
-            Dispatch(cmd);
+            Dispatch(cmdProgramm);
+
+            var cmdTimeOut = BuildCmd.ConsuntivareAutomaticamenteNonReso
+                .Build(evt.Id, 999, evt.WorkPeriod.EndDate.AddMinutes(20));
+
+            Dispatch(cmdTimeOut);
 
             Transition(evt);
         }
 
-        private void OnInterventoRotManGenerated(InterventoRotManCreated evt)
+        private void OnInterventoAmbGenerated(InterventoAmbCreated evt)
         {
             //assign the Id for the Saga
             Id = evt.Id;
@@ -67,12 +71,13 @@ namespace Super.Saga.Domain.Intervento
             _stateMachine.Fire(Trigger.Scheduled);
         }
 
-        public void ConsuntivareIntervento(IInterventoRotManConsuntivato evt)
+
+        public void ConsuntivareIntervento(IInterventoAmbConsuntivato evt)
         {
             if (!_stateMachine.IsInState(State.Programmation))
-                throw new Exception("Saga is not in programamtion state");
+                throw new SagaStateException("Saga is not in programamtion state");
 
-            var cmd = BuildCtrl.AllowControlIntervento
+            var cmd = Build.AllowControlIntervento
                                      .Build(Id, 0);
 
             Dispatch(cmd);
@@ -80,16 +85,13 @@ namespace Super.Saga.Domain.Intervento
             Transition(evt);
         }
 
-        private void OnInterventoConsuntivato(IInterventoRotManConsuntivato evt)
+        private void OnInterventoConsuntivato(IInterventoAmbConsuntivato evt)
         {
             //publish intervento to appaltatore
             _stateMachine.Fire(Trigger.Consuntivato);
         }
 
-     
-
     }
-
 
 
 

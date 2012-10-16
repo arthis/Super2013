@@ -11,9 +11,9 @@ using Super.Programmazione.Events.Intervento;
 using Super.Programmazione.Events;
 using Super.Saga.Handlers.Intervento;
 
-namespace Super.Saga.Specs.Intervento.Ambiente
+namespace Super.Saga.Specs.Consuntivazione.Rotabile
 {
-    public class Inizio_della_saga_intervento_ambiente_non_iniziata : SagaBaseClass<InterventoAmbCreated>
+    public class Inizio_della_saga_consuntivazione_rotabile_non_iniziata : SagaBaseClass<InterventoRotCreated>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -25,21 +25,24 @@ namespace Super.Saga.Specs.Intervento.Ambiente
         readonly Guid _idProgramma = Guid.NewGuid();
         readonly Guid _idLotto = Guid.NewGuid();
         readonly Guid _idCommittente = Guid.NewGuid();
+        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15, Guid.NewGuid(), Guid.NewGuid()) };
         private readonly DateTime _dataConsuntivazioneAutomatica = DateTime.Now.AddHours(-17).AddMinutes(20);
-        readonly WorkPeriod _workPeriod = new WorkPeriod(DateTime.Now.AddHours(-19), DateTime.Now.AddHours(-17));
+        readonly WorkPeriod _workPeriod = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddHours(-17));
+        Treno _trenoArrivo = new Treno("numeroA", DateTime.Now.AddHours(9));
+        Treno _trenoPartenza = new Treno("numeroP", DateTime.Now.AddHours(14));
+        string _turnoTreno = "turno";
+        string _rigaTurnoTreno = "rigaturno";
+        string _convoglio = "convoglio";
         string _note = "note";
-        private int _quantity = 12;
-        private string _description = "desc";
-
 
         public override string ToDescription()
         {
             return "un inizo di saga normale";
         }
 
-        protected override SagaHandler<InterventoAmbCreated> SagaHandler(ISagaRepository repository, IBus bus)
+        protected override SagaHandler<InterventoRotCreated> SagaHandler(ISagaRepository repository, IBus bus)
         {
-            return new InterventoAmbCreatedHandler(repository, bus);
+            return new InterventoRotCreatedHandler(repository, bus);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -47,29 +50,32 @@ namespace Super.Saga.Specs.Intervento.Ambiente
             yield break;
         }
 
-        public override InterventoAmbCreated When()
+        public override InterventoRotCreated When()
         {
-            return BuildEvt.InterventoAmbCreated
+            return BuildEvt.InterventoRotCreated
                 .ForWorkPeriod(_workPeriod)
                 .ForImpianto(_idImpianto)
                 .OfTipoIntervento(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
                 .ForCategoriaCommerciale(_idCategoriaCommerciale)
                 .ForDirezioneRegionale(_idDirezioneRegionale)
-                .ForQuantity(_quantity)
-                .ForDescription(_description)
                 .WithNote(_note)
+                .WithOggetti(_oggetti.ToArray())
+                .WithTrenoArrivo(_trenoArrivo)
+                .WithTrenoPartenza(_trenoPartenza)
+                .WithTurnoTreno(_turnoTreno)
+                .WithRigaTurnoTreno(_rigaTurnoTreno)
+                .ForConvoglio(_convoglio)
                 .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
                 .ForCommittente(_idCommittente)
                 .ForProgramma(_idProgramma)
                 .ForLotto(_idLotto)
-                .Build(_id, 1);
+                .Build(_id, 0);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-
-            yield return BuildCmd.ProgramInterventoAmb
+            yield return BuildCmd.ProgramInterventoRot
                             .ForWorkPeriod(_workPeriod)
                             .ForImpianto(_idImpianto)
                             .OfTipoIntervento(_idTipoIntervento)
@@ -77,11 +83,18 @@ namespace Super.Saga.Specs.Intervento.Ambiente
                             .ForCategoriaCommerciale(_idCategoriaCommerciale)
                             .ForDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
-                            .ForQuantity(_quantity)
-                            .ForDescription(_description)
+                            .WithOggetti(_oggetti.ToArray())
+                            .WithTrenoPartenza(_trenoPartenza)
+                            .WithTrenoArrivo(_trenoArrivo)
+                            .WithTurnoTreno(_turnoTreno)
+                            .WithRigaTurnoTreno(_rigaTurnoTreno)
+                            .ForConvoglio(_convoglio)
+                            .ForProgramma(_idProgramma)
                             .Build(_id, 0);
+
             yield return BuildCmd.ConsuntivareAutomaticamenteNonReso
-                            .Build(_id, 999, _dataConsuntivazioneAutomatica);
+                .Build(_id, 999, _dataConsuntivazioneAutomatica);
+
         }
 
         [Test]

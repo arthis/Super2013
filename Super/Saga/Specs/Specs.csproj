@@ -113,15 +113,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Intervento\Ambiente\consuntivazione_intervento.cs" />
-    <Compile Include="Intervento\Ambiente\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
-    <Compile Include="Intervento\Ambiente\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
-    <Compile Include="Intervento\Rotabile\consuntivazione_intervento.cs" />
-    <Compile Include="Intervento\Rotabile_in_Manutenzione\consuntivazione_intervento.cs" />
-    <Compile Include="Intervento\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
-    <Compile Include="Intervento\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
-    <Compile Include="Intervento\Rotabile\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
-    <Compile Include="Intervento\Rotabile\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
+    <Compile Include="Consuntivazione\Ambiente\consuntivazione_intervento.cs" />
+    <Compile Include="Consuntivazione\Ambiente\Inizio_della_saga_consuntivazione_ambiente_gia_iniziata.cs" />
+    <Compile Include="Consuntivazione\Ambiente\Inizio_della_saga_consuntivazione_ambiente_non_iniziata.cs" />
+    <Compile Include="Consuntivazione\Rotabile\consuntivazione_intervento.cs" />
+    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_intervento.cs" />
+    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
+    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
+    <Compile Include="Consuntivazione\Rotabile\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
+    <Compile Include="Consuntivazione\Rotabile\Inizio_della_saga_consuntivazione_rotabile_non_iniziata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioPrice\calcolo_del_prezzo_della_schedulazione_ambiente.cs" />
     <Compile Include="ScenarioPrice\Fa_la_projection_del_prezzo_per_la_programmazione_del_prezzo_per_la_schedulazione_calcolata.cs" />
@@ -174,6 +174,10 @@
     <ProjectReference Include="..\..\Programmazione\Events\Events.csproj">
       <Project>{321FF6F9-DBA2-48FA-99F4-65F9F8627913}</Project>
       <Name>Events %28Super\Programmazione\Events%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{269A703A-8AAD-4FF1-B1D8-B20B1A21AA90}</Project>
+      <Name>Domain %28Super\Saga\Domain%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Handlers\Handlers.csproj">
       <Project>{ED040216-1CD7-44D0-A567-0101C9FEC2E3}</Project>
