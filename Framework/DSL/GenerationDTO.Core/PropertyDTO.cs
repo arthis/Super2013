@@ -102,7 +102,14 @@ namespace Super.DSL.GenerationDTO.Core
             }
             else
             {
-                returnValue = BuilderHelper + returnValue;
+                if (BuilderHelper.Substring(BuilderHelper.Length-1)=="!")
+                {
+                    returnValue = BuilderHelper.Substring(0,BuilderHelper.Length-1);
+                }
+                else
+                {
+                    returnValue = BuilderHelper + returnValue;    
+                }
             }
 
             return returnValue;

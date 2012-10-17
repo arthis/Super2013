@@ -9,11 +9,11 @@ using CommonDomain;
 using CommonDomain.Core;
 
 
-namespace Super.Programmazione.Commands.Plan
+namespace Super.Appaltatore.Events.Programmazione
 {
 
 
-	public class CreateInterventoRot :  CommandBase  
+	public class InterventoRotProgrammato : Message, IEvent  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -34,12 +34,12 @@ namespace Super.Programmazione.Commands.Plan
 		public Treno TrenoPartenza { get; set;} 
 		public OggettoRot[] Oggetti { get; set;}
 
-		public CreateInterventoRot ()
+		public InterventoRotProgrammato ()
 		{
 			//for serialisation
 		}	     
 
-		public CreateInterventoRot(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		public InterventoRotProgrammato(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
 		   : base(id,commitId,version)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
@@ -81,7 +81,7 @@ namespace Super.Programmazione.Commands.Plan
 			Oggetti = oggetti ;
 		}
 
-		public CreateInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		public InterventoRotProgrammato(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
@@ -124,10 +124,10 @@ namespace Super.Programmazione.Commands.Plan
 		}
 			public override string ToDescription()
 		{
-			return string.Format("Creare un intervento rotabile", Id);
+			return string.Format("il intervento rotabile é stato  programmato", Id);
 		}
 		
-		public bool Equals(CreateInterventoRot other)
+		public bool Equals(InterventoRotProgrammato other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -138,7 +138,7 @@ namespace Super.Programmazione.Commands.Plan
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as CreateInterventoRot);
+            return Equals(obj as InterventoRotProgrammato);
         }
 
 		public override int GetHashCode()
@@ -168,7 +168,7 @@ namespace Super.Programmazione.Commands.Plan
         }
 	}
 
-	public class CreateInterventoRotMan :  CommandBase  
+	public class InterventoRotManProgrammato : Message, IEvent  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -184,12 +184,12 @@ namespace Super.Programmazione.Commands.Plan
 		public WorkPeriod WorkPeriod { get; set;} 
 		public OggettoRotMan[] Oggetti { get; set;}
 
-		public CreateInterventoRotMan ()
+		public InterventoRotManProgrammato ()
 		{
 			//for serialisation
 		}	     
 
-		public CreateInterventoRotMan(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,OggettoRotMan[] oggetti)
+		public InterventoRotManProgrammato(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,OggettoRotMan[] oggetti)
 		   : base(id,commitId,version)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
@@ -226,7 +226,7 @@ namespace Super.Programmazione.Commands.Plan
 			Oggetti = oggetti ;
 		}
 
-		public CreateInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,OggettoRotMan[] oggetti)
+		public InterventoRotManProgrammato(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,OggettoRotMan[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
@@ -264,10 +264,10 @@ namespace Super.Programmazione.Commands.Plan
 		}
 			public override string ToDescription()
 		{
-			return string.Format("Creare un intervento rotabile", Id);
+			return string.Format("Il intervento rotabile in manutenzione é stato programmato", Id);
 		}
 		
-		public bool Equals(CreateInterventoRotMan other)
+		public bool Equals(InterventoRotManProgrammato other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -278,7 +278,7 @@ namespace Super.Programmazione.Commands.Plan
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as CreateInterventoRotMan);
+            return Equals(obj as InterventoRotManProgrammato);
         }
 
 		public override int GetHashCode()
@@ -303,7 +303,7 @@ namespace Super.Programmazione.Commands.Plan
         }
 	}
 
-	public class CreateInterventoAmb :  CommandBase  
+	public class InterventoAmbProgrammato : Message, IEvent  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -320,12 +320,12 @@ namespace Super.Programmazione.Commands.Plan
 		public int Quantity { get; set;} 
 		public string Description { get; set;}
 
-		public CreateInterventoAmb ()
+		public InterventoAmbProgrammato ()
 		{
 			//for serialisation
 		}	     
 
-		public CreateInterventoAmb(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,int quantity,string description)
+		public InterventoAmbProgrammato(Guid id, Guid commitId, long version,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,int quantity,string description)
 		   : base(id,commitId,version)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
@@ -361,7 +361,7 @@ namespace Super.Programmazione.Commands.Plan
 			Description = description ;
 		}
 
-		public CreateInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,int quantity,string description)
+		public InterventoAmbProgrammato(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,int quantity,string description)
 		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(idProgramma != Guid.Empty);
@@ -398,10 +398,10 @@ namespace Super.Programmazione.Commands.Plan
 		}
 			public override string ToDescription()
 		{
-			return string.Format("Creare una intervento ambiente", Id);
+			return string.Format("Il intervento ambiente é stato programmato", Id);
 		}
 		
-		public bool Equals(CreateInterventoAmb other)
+		public bool Equals(InterventoAmbProgrammato other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -412,7 +412,7 @@ namespace Super.Programmazione.Commands.Plan
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as CreateInterventoAmb);
+            return Equals(obj as InterventoAmbProgrammato);
         }
 
 		public override int GetHashCode()

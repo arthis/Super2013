@@ -1,4 +1,4 @@
-using CommonDomain;
+﻿using CommonDomain;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Events.Consuntivazione;
@@ -7,14 +7,15 @@ using Super.Saga.Domain.Intervento;
 
 namespace Super.Saga.Handlers.Intervento
 {
-    public class InterventoConsuntivatoRotNonResoHandler : SagaHandler<InterventoConsuntivatoRotNonReso>
+
+    public class InterventoRotConsuntivatoResoHandler : SagaHandler<InterventoRotConsuntivatoReso>
     {
-        public InterventoConsuntivatoRotNonResoHandler(ISagaRepository repository, IBus bus)
+        public InterventoRotConsuntivatoResoHandler(ISagaRepository repository, IBus bus)
             : base(repository, bus, null)
         {
         }
 
-        public sealed override ISaga OnHandle(InterventoConsuntivatoRotNonReso @event)
+        public sealed override ISaga OnHandle(InterventoRotConsuntivatoReso @event)
         {
             var sagaId = @event.Id;
 

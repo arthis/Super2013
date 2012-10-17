@@ -11,8 +11,8 @@ using NUnit.Framework;
 using Super.Appaltatore.Commands;
 using CommonSpecs;
 using Super.Appaltatore.Commands.Consuntivazione;
-using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
+using Super.Appaltatore.Events.Programmazione.Builders;
 using Super.Appaltatore.Handlers;
 using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
 using Super.Appaltatore.Events;
@@ -45,16 +45,14 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
 
         public override IEnumerable<IMessage> Given()
         {
-            var builder = new InterventoRotProgrammatoBuilder();
-
             yield return BuildEvt.InterventoRotProgrammato
                 .WithOggetti(_oggetti.ToArray())
                 .ForWorkPeriod(_workPeriod)
                 .ForImpianto(_idImpianto)
-                .OfType(_idTipoIntervento)
+                .OfTipoIntervento(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
-                .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
                 .WithNote(_note)
                 .WithTrenoPartenza(_trenoPartenza)
                 .WithTrenoArrivo(_trenoArrivo)
@@ -66,7 +64,6 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
 
         public override ProgramInterventoRot When()
         {
-
             return BuildCmd.ProgramInterventoRot
                 .WithOggetti(_oggetti.ToArray())
                 .ForWorkPeriod(_workPeriod)

@@ -13,7 +13,7 @@ namespace Super.Programmazione.Commands.Plan
 {
 
 
-	public class CancelPlan :  CommandBase
+	public class CancelPlan :  CommandBase  
 	{
 	
 
@@ -60,7 +60,7 @@ namespace Super.Programmazione.Commands.Plan
         }
 	}
 
-	public class CreatePlanFromPromotedScenario :  CommandBase
+	public class CreatePlanFromPromotedScenario :  CommandBase  
 	{
 	 
 		public Guid IdScenario { get; set;}
@@ -115,7 +115,7 @@ namespace Super.Programmazione.Commands.Plan
         }
 	}
 
-	public class AddSchedulazioneRotToPlan :  CommandBase
+	public class AddSchedulazioneRotToPlan :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -282,7 +282,7 @@ namespace Super.Programmazione.Commands.Plan
         }
 	}
 
-	public class AddSchedulazioneRotManToPlan :  CommandBase
+	public class AddSchedulazioneRotManToPlan :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -429,7 +429,7 @@ namespace Super.Programmazione.Commands.Plan
         }
 	}
 
-	public class AddSchedulazioneAmbToPlan :  CommandBase
+	public class AddSchedulazioneAmbToPlan :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -576,7 +576,7 @@ namespace Super.Programmazione.Commands.Plan
         }
 	}
 
-	public class AddInterventoRotToPlan :  CommandBase
+	public class AddInterventoRotToPlan :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -739,7 +739,7 @@ namespace Super.Programmazione.Commands.Plan
         }
 	}
 
-	public class AddInterventoRotManToPlan :  CommandBase
+	public class AddInterventoRotManToPlan :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -882,7 +882,7 @@ namespace Super.Programmazione.Commands.Plan
         }
 	}
 
-	public class AddInterventoAmbToPlan :  CommandBase
+	public class AddInterventoAmbToPlan :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 

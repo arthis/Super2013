@@ -14,7 +14,7 @@ namespace Super.Programmazione.Events.Intervento
 {
 
 
-	public class InterventoRotCreated : Message, IEvent
+	public class InterventoRotCreated : Message, IEvent  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -169,7 +169,7 @@ namespace Super.Programmazione.Events.Intervento
         }
 	}
 
-	public class InterventoRotManCreated : Message, IEvent
+	public class InterventoRotManCreated : Message, IEvent  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -304,7 +304,7 @@ namespace Super.Programmazione.Events.Intervento
         }
 	}
 
-	public class InterventoAmbCreated : Message, IEvent
+	public class InterventoAmbCreated : Message, IEvent  
 	{
 	 
 		public Guid IdProgramma { get; set;} 

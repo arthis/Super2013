@@ -13,7 +13,7 @@ namespace Super.Programmazione.Events.Scenario
 {
 
 
-	public class ScenarioPromotedToPlan : Message, IEvent
+	public class ScenarioPromotedToPlan : Message, IEvent  
 	{
 	 
 		public Guid IdUser { get; set;} 

@@ -50,10 +50,10 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
         {
             yield return  BuildEvt.InterventoAmbProgrammato
                 .ForImpianto(_idImpianto)
-                .OfType(_idTipoIntervento)
+                .OfTipoIntervento(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
-                .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
                 .ForWorkPeriod(_period)
                 .WithNote(_note)
                 .ForQuantity(_quantity)
@@ -75,10 +75,10 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.InterventoConsuntivatoAmbReso
+            yield return BuildEvt.InterventoAmbConsuntivatoReso
                 .ForInterventoAppaltatore(_idInterventoAppaltatore)
                 .When(_dataConsuntivazione)
-                .ForPeriod(_workPeriodCons)
+                .ForWorkPeriod(_workPeriodCons)
                 .WithNote(_noteCons)
                 .ForQuantity(_quantityCons)
                 .ForDescription(_descriptionCons)

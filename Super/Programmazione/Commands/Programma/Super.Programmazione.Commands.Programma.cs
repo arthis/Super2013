@@ -13,7 +13,7 @@ namespace Super.Programmazione.Commands.Programma
 {
 
 
-	public class AddSchedulazioneRotToProgramma :  CommandBase
+	public class AddSchedulazioneRotToProgramma :  CommandBase  
 	{
 	 
 		public Guid IdPeriodoProgrammazione { get; set;} 
@@ -172,7 +172,7 @@ namespace Super.Programmazione.Commands.Programma
         }
 	}
 
-	public class AddSchedulazioneRotManToProgramma :  CommandBase
+	public class AddSchedulazioneRotManToProgramma :  CommandBase  
 	{
 	 
 		public Guid IdPeriodoProgrammazione { get; set;} 
@@ -311,7 +311,7 @@ namespace Super.Programmazione.Commands.Programma
         }
 	}
 
-	public class AddSchedulazioneAmbToProgramma :  CommandBase
+	public class AddSchedulazioneAmbToProgramma :  CommandBase  
 	{
 	 
 		public Guid IdPeriodoProgrammazione { get; set;} 
@@ -450,7 +450,7 @@ namespace Super.Programmazione.Commands.Programma
         }
 	}
 
-	public class CreateProgramma :  CommandBase
+	public class CreateProgramma :  CommandBase  
 	{
 	 
 		public Guid IdScenario { get; set;}

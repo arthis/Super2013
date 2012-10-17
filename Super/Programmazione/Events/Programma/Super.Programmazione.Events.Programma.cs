@@ -13,7 +13,7 @@ namespace Super.Programmazione.Events.Programma
 {
 
 
-	public class ProgrammaCreated : Message, IEvent
+	public class ProgrammaCreated : Message, IEvent  
 	{
 	 
 		public Guid IdScenario { get; set;}
@@ -68,7 +68,7 @@ namespace Super.Programmazione.Events.Programma
         }
 	}
 
-	public class SchedulazioneRotAddedToProgramma : Message, IEvent
+	public class SchedulazioneRotAddedToProgramma : Message, IEvent  
 	{
 	 
 		public Guid IdSchedulazione { get; set;} 
@@ -227,7 +227,7 @@ namespace Super.Programmazione.Events.Programma
         }
 	}
 
-	public class SchedulazioneRotManAddedToProgramma : Message, IEvent
+	public class SchedulazioneRotManAddedToProgramma : Message, IEvent  
 	{
 	 
 		public Guid IdSchedulazione { get; set;} 
@@ -366,7 +366,7 @@ namespace Super.Programmazione.Events.Programma
         }
 	}
 
-	public class SchedulazioneAmbAddedToProgramma : Message, IEvent
+	public class SchedulazioneAmbAddedToProgramma : Message, IEvent  
 	{
 	 
 		public Guid IdSchedulazione { get; set;} 
@@ -505,7 +505,7 @@ namespace Super.Programmazione.Events.Programma
         }
 	}
 
-	public class InterventoRotAddedToProgramma : Message, IEvent
+	public class InterventoRotAddedToProgramma : Message, IEvent  
 	{
 	 
 		public Guid IdIntervento { get; set;} 
@@ -660,7 +660,7 @@ namespace Super.Programmazione.Events.Programma
         }
 	}
 
-	public class InterventoRotManAddedToProgramma : Message, IEvent
+	public class InterventoRotManAddedToProgramma : Message, IEvent  
 	{
 	 
 		public Guid IdIntervento { get; set;} 
@@ -795,7 +795,7 @@ namespace Super.Programmazione.Events.Programma
         }
 	}
 
-	public class InterventoAmbAddedToProgramma : Message, IEvent
+	public class InterventoAmbAddedToProgramma : Message, IEvent  
 	{
 	 
 		public Guid IdIntervento { get; set;} 

@@ -13,7 +13,7 @@ namespace Super.Programmazione.Commands.Schedulazione
 {
 
 
-	public class CreateSchedulazioneRot :  CommandBase
+	public class CreateSchedulazioneRot :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -172,7 +172,7 @@ namespace Super.Programmazione.Commands.Schedulazione
         }
 	}
 
-	public class CreateSchedulazioneRotMan :  CommandBase
+	public class CreateSchedulazioneRotMan :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -311,7 +311,7 @@ namespace Super.Programmazione.Commands.Schedulazione
         }
 	}
 
-	public class CreateSchedulazioneAmb :  CommandBase
+	public class CreateSchedulazioneAmb :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 

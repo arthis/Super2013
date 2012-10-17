@@ -20,7 +20,7 @@
 
 //namespace Super.Saga.Specs.Saga_Intervento.Rotabile_in_Manutenzione
 //{
-//    public class consuntivazione_intervento : SagaBaseClass<InterventoConsuntivatoRotManReso>
+//    public class consuntivazione_intervento : SagaBaseClass<InterventoRotManConsuntivatoReso>
 //    {
 //        readonly Guid _id = Guid.NewGuid();
 //        readonly Guid _idImpianto = Guid.NewGuid();
@@ -48,9 +48,9 @@
 //            return "";
 //        }
 
-//        protected override SagaHandler<InterventoConsuntivatoRotManReso> SagaHandler(ISagaRepository repository, IBus bus)
+//        protected override SagaHandler<InterventoRotManConsuntivatoReso> SagaHandler(ISagaRepository repository, IBus bus)
 //        {
-//            return new InterventoConsuntivatoRotManResoHandler(repository, bus);
+//            return new InterventoRotManConsuntivatoResoHandler(repository, bus);
 //        }
 
 //        public override IEnumerable<IMessage> Given()
@@ -71,9 +71,9 @@
 //              .Build(_id, 1);
 //        }
 
-//        public override InterventoConsuntivatoRotManReso When()
+//        public override InterventoRotManConsuntivatoReso When()
 //        {
-//            return BuildEvtApp.InterventoConsuntivatoRotManReso
+//            return BuildEvtApp.InterventoRotManConsuntivatoReso
 //                .ForInterventoAppaltatore(_idInterventoAppaltatore)
 //                .ForWorkPeriod(_periodCons)
 //                .When(DataCons)

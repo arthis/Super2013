@@ -113,7 +113,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consuntivazione\Ambiente\consuntivazione_intervento.cs" />
+    <Compile Include="Consuntivazione\Ambiente\consuntivazione_reso_di_un_intervento_ambiente.cs" />
+    <Compile Include="Consuntivazione\Ambiente\consuntivazione_non_reso_di_un_intervento_ambiente.cs" />
+    <Compile Include="Consuntivazione\Ambiente\consuntivazione_non_reso_trenitalia_di_un_intervento_ambiente.cs" />
     <Compile Include="Consuntivazione\Ambiente\Inizio_della_saga_consuntivazione_ambiente_gia_iniziata.cs" />
     <Compile Include="Consuntivazione\Ambiente\Inizio_della_saga_consuntivazione_ambiente_non_iniziata.cs" />
     <Compile Include="Consuntivazione\Rotabile\consuntivazione_intervento.cs" />

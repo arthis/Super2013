@@ -28,7 +28,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
         List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desc", 15, Guid.NewGuid(), Guid.NewGuid()) };
-        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
+        readonly WorkPeriod _workPeriod = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         string _note = "note";
 
         //Cons
@@ -50,11 +50,11 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         {
             yield return  BuildEvt.InterventoRotManProgrammato
                 .ForImpianto(_idImpianto)
-                .OfType(_idTipoIntervento)
+                .OfTipoIntervento(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
-                .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                .OfDirezioneRegionale(_idDirezioneRegionale)
-                .ForWorkPeriod(_period)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .ForWorkPeriod(_workPeriod)
                 .WithNote(_note)
                 .WithOggetti(_oggetti.ToArray())
                 .Build(_id, 1);
@@ -74,10 +74,10 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.InterventoConsuntivatoRotManReso
+            yield return BuildEvt.InterventoRotManConsuntivatoReso
                 .ForInterventoAppaltatore(_idInterventoAppaltatore)
                 .When(_dataConsuntivazione)
-                .ForPeriod(_workPeriodCons)
+                .ForWorkPeriod(_workPeriodCons)
                 .WithNote(_noteCons)
                 .WithOggetti(_oggettiCons.ToArray())
                 .Build(_id, 2);

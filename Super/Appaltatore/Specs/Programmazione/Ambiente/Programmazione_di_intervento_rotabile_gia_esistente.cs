@@ -11,7 +11,6 @@ using NUnit.Framework;
 using Super.Appaltatore.Commands;
 using CommonSpecs;
 using Super.Appaltatore.Commands.Consuntivazione;
-using Super.Appaltatore.Events.Builders;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
 using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
@@ -44,10 +43,10 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
             yield return  BuildEvt.InterventoAmbProgrammato
                             .ForWorkPeriod(_workPeriod)
                             .ForImpianto(_idImpianto)
-                            .OfType(_idTipoIntervento)
+                            .OfTipoIntervento(_idTipoIntervento)
                             .ForAppaltatore(_idAppaltatore)
-                            .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                            .OfDirezioneRegionale(_idDirezioneRegionale)
+                            .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                            .ForDirezioneRegionale(_idDirezioneRegionale)
                             .WithNote(_note)
                             .ForQuantity(_quantity)
                             .ForDescription(_description)

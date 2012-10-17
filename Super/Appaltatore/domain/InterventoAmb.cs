@@ -39,10 +39,10 @@ namespace Super.Appaltatore.Domain
             var evt = BuildEvt.InterventoAmbProgrammato
                             .ForWorkPeriod(workPeriodBuilder.Build())
                             .ForImpianto(idImpianto)
-                            .OfType(idTipoIntervento)
+                            .OfTipoIntervento(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)
-                            .OfCategoriaCommerciale(idCategoriaCommerciale)
-                            .OfDirezioneRegionale(idDirezioneRegionale)
+                            .ForCategoriaCommerciale(idCategoriaCommerciale)
+                            .ForDirezioneRegionale(idDirezioneRegionale)
                             .WithNote(note)
                             .ForQuantity(quantity)
                             .ForDescription((description));
@@ -64,7 +64,7 @@ namespace Super.Appaltatore.Domain
 
             if(specs.IsSatisfiedBy(this))
             {
-                var evt = BuildEvt.InterventoConsuntivatoAmbNonReso
+                var evt = BuildEvt.InterventoAmbConsuntivatoNonReso
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .Because(idCausaleAppaltatore)
                                 .When(dataConsuntivazione)
@@ -74,7 +74,7 @@ namespace Super.Appaltatore.Domain
             }
         }
 
-        public void Apply(InterventoConsuntivatoAmbNonReso e)
+        public void Apply(InterventoAmbConsuntivatoNonReso e)
         {
             //do something here if needed
         }
@@ -87,7 +87,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = BuildEvt.InterventoConsuntivatoAmbNonResoTrenitalia
+                var evt = BuildEvt.InterventoAmbConsuntivatoNonResoTrenitalia
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .Because(idCausaleTrenitalia)
                                 .When(dataConsuntivazione)
@@ -97,7 +97,7 @@ namespace Super.Appaltatore.Domain
             }
         }
 
-        public void Apply(InterventoConsuntivatoAmbNonResoTrenitalia e)
+        public void Apply(InterventoAmbConsuntivatoNonResoTrenitalia e)
         {
             //do something here if needed
         }
@@ -114,11 +114,11 @@ namespace Super.Appaltatore.Domain
 
                 workPeriod.BuildValue(periodBuilder);
 
-                var evt = BuildEvt.InterventoConsuntivatoAmbReso
+                var evt = BuildEvt.InterventoAmbConsuntivatoReso
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .When(dataConsuntivazione)
                     .WithNote(note)
-                    .ForPeriod(periodBuilder.Build())
+                    .ForWorkPeriod(workPeriod.ToMessage())
                     .ForQuantity(quantity)
                     .ForDescription(description);
 
@@ -127,7 +127,7 @@ namespace Super.Appaltatore.Domain
             }
         }
 
-        public void Apply(InterventoConsuntivatoAmbReso e)
+        public void Apply(InterventoAmbConsuntivatoReso e)
         {
             //do something here if needed
         }

@@ -14,7 +14,7 @@ namespace Super.Programmazione.Events.Schedulazione
 {
 
 
-	public class SchedulazioneRotCreated : Message, IEvent
+	public class SchedulazioneRotCreated : Message, IEvent  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -173,7 +173,7 @@ namespace Super.Programmazione.Events.Schedulazione
         }
 	}
 
-	public class SchedulazioneRotManCreated : Message, IEvent
+	public class SchedulazioneRotManCreated : Message, IEvent  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -312,7 +312,7 @@ namespace Super.Programmazione.Events.Schedulazione
         }
 	}
 
-	public class SchedulazioneAmbCreated : Message, IEvent
+	public class SchedulazioneAmbCreated : Message, IEvent  
 	{
 	 
 		public Guid IdProgramma { get; set;} 

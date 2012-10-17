@@ -19,9 +19,9 @@ namespace Super.Saga.Domain.Consuntivazione
         public ConsuntivaziioneRotManSaga()
         {
             Register<InterventoRotManCreated>(OnInterventoRotManGenerated);
-            Register<InterventoConsuntivatoRotManReso>(OnInterventoConsuntivato);
-            Register<InterventoConsuntivatoRotManNonReso>(OnInterventoConsuntivato);
-            Register<InterventoConsuntivatoRotManNonResoTrenitalia>(OnInterventoConsuntivato);
+            Register<InterventoRotManConsuntivatoReso>(OnInterventoConsuntivato);
+            Register<InterventoRotManConsuntivatoNonReso>(OnInterventoConsuntivato);
+            Register<InterventoRotManConsuntivatoNonResoTrenitalia>(OnInterventoConsuntivato);
 
             _stateMachine = new StateMachine<State, Trigger>(() => _state, newState => _state = newState);
 
@@ -75,7 +75,7 @@ namespace Super.Saga.Domain.Consuntivazione
             _stateMachine.Fire(Trigger.Scheduled);
         }
 
-        public void ConsuntivareIntervento(IInterventoRotManConsuntivato evt)
+        public void ConsuntivareIntervento(IInterventoConsuntivato evt)
         {
             if (!_stateMachine.IsInState(State.Programmation))
                 throw new SagaStateException("Saga is not in programamtion state");
@@ -88,7 +88,7 @@ namespace Super.Saga.Domain.Consuntivazione
             Transition(evt);
         }
 
-        private void OnInterventoConsuntivato(IInterventoRotManConsuntivato evt)
+        private void OnInterventoConsuntivato(IInterventoConsuntivato evt)
         {
             //publish intervento to appaltatore
             _stateMachine.Fire(Trigger.Consuntivato);

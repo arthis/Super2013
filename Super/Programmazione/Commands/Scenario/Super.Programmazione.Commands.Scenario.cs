@@ -13,7 +13,7 @@ namespace Super.Programmazione.Commands.Scenario
 {
 
 
-	public class AddSchedulazioneRotToScenario :  CommandBase
+	public class AddSchedulazioneRotToScenario :  CommandBase  
 	{
 	 
 		public Guid IdPeriodoProgrammazione { get; set;} 
@@ -172,7 +172,7 @@ namespace Super.Programmazione.Commands.Scenario
         }
 	}
 
-	public class AddSchedulazioneRotManToScenario :  CommandBase
+	public class AddSchedulazioneRotManToScenario :  CommandBase  
 	{
 	 
 		public Guid IdPeriodoProgrammazione { get; set;} 
@@ -311,7 +311,7 @@ namespace Super.Programmazione.Commands.Scenario
         }
 	}
 
-	public class AddSchedulazioneAmbToScenario :  CommandBase
+	public class AddSchedulazioneAmbToScenario :  CommandBase  
 	{
 	 
 		public Guid IdPeriodoProgrammazione { get; set;} 
@@ -450,7 +450,7 @@ namespace Super.Programmazione.Commands.Scenario
         }
 	}
 
-	public class CreateScenario :  CommandBase
+	public class CreateScenario :  CommandBase  
 	{
 	 
 		public string Description { get; set;} 
@@ -513,7 +513,7 @@ namespace Super.Programmazione.Commands.Scenario
         }
 	}
 
-	public class CancelScenario :  CommandBase
+	public class CancelScenario :  CommandBase  
 	{
 	
 
@@ -560,7 +560,7 @@ namespace Super.Programmazione.Commands.Scenario
         }
 	}
 
-	public class ChangeDescriptionScenario :  CommandBase
+	public class ChangeDescriptionScenario :  CommandBase  
 	{
 	 
 		public string Description { get; set;}
@@ -615,7 +615,7 @@ namespace Super.Programmazione.Commands.Scenario
         }
 	}
 
-	public class PromoteScenarioToPlan :  CommandBase
+	public class PromoteScenarioToPlan :  CommandBase  
 	{
 	 
 		public DateTime PromotionDate { get; set;} 

@@ -10,10 +10,13 @@
 {
 
 	var name = evt.Name;
+	var inheritance= string.Empty; 
 	
+	if (!string.IsNullOrEmpty(evt.Inheritance))
+		inheritance = string.Format(",{0}", evt.Inheritance);
 #>
 
-	public class <#= name #> : Message, IEvent
+	public class <#= name #> : Message, IEvent <#= inheritance #> 
 	{
 	<#+ 
 		BuildProp(evt); 

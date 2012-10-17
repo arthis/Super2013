@@ -7,19 +7,19 @@ using Super.Saga.Domain.Intervento;
 
 namespace Super.Saga.Handlers.Intervento
 {
-    public class InterventoConsuntivatoRotManNonResoTrenitaliaHandler : SagaHandler<InterventoConsuntivatoRotManNonResoTrenitalia>
+    public class InterventoRotConsuntivatoNonResoHandler : SagaHandler<InterventoRotConsuntivatoNonReso>
     {
-        public InterventoConsuntivatoRotManNonResoTrenitaliaHandler(ISagaRepository repository, IBus bus)
+        public InterventoRotConsuntivatoNonResoHandler(ISagaRepository repository, IBus bus)
             : base(repository, bus, null)
         {
         }
 
-        public sealed override ISaga OnHandle(InterventoConsuntivatoRotManNonResoTrenitalia @event)
+        public sealed override ISaga OnHandle(InterventoRotConsuntivatoNonReso @event)
         {
             var sagaId = @event.Id;
 
             // purchase correlation 
-            var saga = Repository.GetById<ConsuntivaziioneRotManSaga>(sagaId);
+            var saga = Repository.GetById<ConsuntivaziioneRotSaga>(sagaId);
 
             saga.ConsuntivareIntervento(@event);
 

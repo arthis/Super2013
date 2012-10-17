@@ -59,10 +59,10 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
         {
             yield return BuildEvt.InterventoRotProgrammato
                 .ForImpianto(_idImpianto)
-                .OfType(_idTipoIntervento)
+                .OfTipoIntervento(_idTipoIntervento)
                 .ForAppaltatore(_idAppaltatore)
-                .OfCategoriaCommerciale(_idCategoriaCommerciale)
-                .OfDirezioneRegionale(_idDirezioneRegionale)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
                 .ForWorkPeriod(_period)
                 .WithNote(_note)
                 .WithOggetti(_oggetti.ToArray())
@@ -92,10 +92,10 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.InterventoConsuntivatoRotReso
+            yield return BuildEvt.InterventoRotConsuntivatoReso
                 .ForInterventoAppaltatore(_idInterventoAppaltatore)
                 .When(_dataConsuntivazione)
-                .ForPeriod(_workPeriodCons)
+                .ForWorkPeriod(_workPeriodCons)
                 .WithNote(_noteCons)
                 .WithOggetti(_oggettiCons.ToArray())
                 .WithTrenoPartenza(_trenoPartenzaCons)

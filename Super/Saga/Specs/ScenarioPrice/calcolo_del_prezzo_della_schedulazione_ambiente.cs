@@ -30,7 +30,7 @@
 //        private string _note = "note";
 //        private int _quantity = 25;
 //        private string _description = "description";
-//        private Period _period = new Period(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
+//        private WorkPeriod _period = new WorkPeriod(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
 //        private Guid _idSchedulazione = Guid.NewGuid();
 
 

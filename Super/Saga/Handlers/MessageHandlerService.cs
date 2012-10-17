@@ -22,17 +22,17 @@ namespace Super.Saga.Handlers
             sagaHandler.Add(new InterventoRotManCreatedHandler(repository, bus));
             sagaHandler.Add(new InterventoAmbCreatedHandler(repository, bus));
 
-            sagaHandler.Add(new InterventoConsuntivatoRotResoHandler(repository, bus));
-            sagaHandler.Add(new InterventoConsuntivatoRotNonResoHandler(repository, bus));
-            sagaHandler.Add(new InterventoConsuntivatoRotNonResoTrenitaliaHandler(repository, bus));
+            sagaHandler.Add(new InterventoRotConsuntivatoResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoRotConsuntivatoNonResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoRotConsuntivatoNonResoTrenitaliaHandler(repository, bus));
 
-            sagaHandler.Add(new InterventoConsuntivatoRotManResoHandler(repository, bus));
-            sagaHandler.Add(new InterventoConsuntivatoRotManNonResoHandler(repository, bus));
-            sagaHandler.Add(new InterventoConsuntivatoRotManNonResoTrenitaliaHandler(repository, bus));
+            sagaHandler.Add(new InterventoRotManConsuntivatoResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoRotManConsuntivatoNonResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoRotManConsuntivatoNonResoTrenitaliaHandler(repository, bus));
 
-            sagaHandler.Add(new InterventoConsuntivatoAmbResoHandler(repository, bus));
-            sagaHandler.Add(new InterventoConsuntivatoAmbNonResoHandler(repository, bus));
-            sagaHandler.Add(new InterventoConsuntivatoAmbNonResoTrenitaliaHandler(repository, bus));
+            sagaHandler.Add(new InterventoAmbConsuntivatoResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoAmbConsuntivatoNonResoHandler(repository, bus));
+            sagaHandler.Add(new InterventoAmbConsuntivatoNonResoTrenitaliaHandler(repository, bus));
         }
 
         public void Execute(IMessage message)

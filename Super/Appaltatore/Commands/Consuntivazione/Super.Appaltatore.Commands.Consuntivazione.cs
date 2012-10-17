@@ -14,7 +14,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 {
 
 
-	public class ConsuntivareAutomaticamenteNonReso :  CommandBase
+	public class ConsuntivareAutomaticamenteNonReso :  CommandBase  
 	{
 	
 
@@ -61,7 +61,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         }
 	}
 
-	public class ConsuntivareNonReso :  CommandBase
+	public class ConsuntivareNonReso :  CommandBase  
 	{
 	 
 		public string Note { get; set;} 
@@ -136,7 +136,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         }
 	}
 
-	public class ConsuntivareNonResoTrenitalia :  CommandBase
+	public class ConsuntivareNonResoTrenitalia :  CommandBase  
 	{
 	 
 		public string Note { get; set;} 
@@ -211,7 +211,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         }
 	}
 
-	public class ConsuntivareResoRot :  CommandBase
+	public class ConsuntivareResoRot :  CommandBase  
 	{
 	 
 		public string Note { get; set;} 
@@ -314,7 +314,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         }
 	}
 
-	public class ConsuntivareResoRotMan :  CommandBase
+	public class ConsuntivareResoRotMan :  CommandBase  
 	{
 	 
 		public string Note { get; set;} 
@@ -397,7 +397,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         }
 	}
 
-	public class ConsuntivareResoAmb :  CommandBase
+	public class ConsuntivareResoAmb :  CommandBase  
 	{
 	 
 		public string Note { get; set;} 
@@ -484,7 +484,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         }
 	}
 
-	public class ProgramInterventoRot :  CommandBase
+	public class ProgramInterventoRot :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -639,7 +639,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         }
 	}
 
-	public class ProgramInterventoRotMan :  CommandBase
+	public class ProgramInterventoRotMan :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -774,7 +774,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         }
 	}
 
-	public class ProgramInterventoAmb :  CommandBase
+	public class ProgramInterventoAmb :  CommandBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 

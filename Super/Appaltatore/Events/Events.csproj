@@ -118,24 +118,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Build.cs" />
-    <Compile Include="Builders\InterventoConsuntivatoAmbNonResoBuilder.cs" />
-    <Compile Include="Builders\InterventoConsuntivatoRotNonResoBuilder.cs" />
-    <Compile Include="Builders\InterventoConsuntivatoRotManNonResoBuilder.cs" />
-    <Compile Include="Builders\InterventoConsuntivatoAmbNonResoTrenitaliaBuilder.cs" />
-    <Compile Include="Builders\InterventoConsuntivatoRotNonResoTrenitaliaBuilder.cs" />
-    <Compile Include="Builders\InterventoConsuntivatoRotManNonResoTrenitaliaBuilder.cs" />
-    <Compile Include="Builders\InterventoConsuntivatoRotManResoBuilder.cs" />
-    <Compile Include="Builders\InterventoConsuntivatoRotResoBuilder.cs" />
-    <Compile Include="Builders\InterventoConsuntivatoAmbResoBuilder.cs" />
-    <Compile Include="Builders\InterventoAmbProgrammatoBuilder.cs" />
-    <Compile Include="Builders\InterventoRotManProgrammatoBuilder.cs" />
-    <Compile Include="Builders\InterventoRotProgrammatoBuilder.cs" />
-    <Compile Include="Consuntivazione\IInterventoRotConsuntivato.cs" />
-    <Compile Include="Consuntivazione\InterventoConsuntivatoNonReso.cs" />
-    <Compile Include="Consuntivazione\InterventoConsuntivatoNonResoTrenitalia.cs" />
-    <Compile Include="Consuntivazione\InterventoConsuntivatoReso.cs" />
-    <Compile Include="Programmazione\InterventoProgrammato.cs" />
+    <Compile Include="Consuntivazione\IInterventoConsuntivato.cs" />
+    <Compile Include="Consuntivazione\Super.Appaltatore.Events.Consuntivazione.Builders.cs">
+      <DependentUpon>Super.Appaltatore.Events.Consuntivazione.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Consuntivazione\Super.Appaltatore.Events.Consuntivazione.cs">
+      <DependentUpon>Super.Appaltatore.Events.Consuntivazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Programmazione\Super.Appaltatore.Events.Programmazione.Builders.cs">
+      <DependentUpon>Super.Appaltatore.Events.Programmazione.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Programmazione\Super.Appaltatore.Events.Programmazione.cs">
+      <DependentUpon>Super.Appaltatore.Events.Programmazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -148,7 +151,29 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Consuntivazione\Super.Appaltatore.Events.Consuntivazione.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Appaltatore.Events.Consuntivazione.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Consuntivazione\Super.Appaltatore.Events.Consuntivazione.json" />
+    <None Include="Consuntivazione\Super.Appaltatore.Events.Consuntivazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Appaltatore.Events.Consuntivazione.cs</LastGenOutput>
+    </None>
+    <None Include="Programmazione\Super.Appaltatore.Events.Programmazione.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Appaltatore.Events.Programmazione.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Programmazione\Super.Appaltatore.Events.Programmazione.json" />
+    <None Include="Programmazione\Super.Appaltatore.Events.Programmazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Appaltatore.Events.Programmazione.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

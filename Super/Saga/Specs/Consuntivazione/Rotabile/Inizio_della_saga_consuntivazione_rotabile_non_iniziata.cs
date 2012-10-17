@@ -76,21 +76,24 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildCmd.ProgramInterventoRot
-                            .ForWorkPeriod(_workPeriod)
-                            .ForImpianto(_idImpianto)
-                            .OfTipoIntervento(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                            .ForDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .WithOggetti(_oggetti.ToArray())
-                            .WithTrenoPartenza(_trenoPartenza)
-                            .WithTrenoArrivo(_trenoArrivo)
-                            .WithTurnoTreno(_turnoTreno)
-                            .WithRigaTurnoTreno(_rigaTurnoTreno)
-                            .ForConvoglio(_convoglio)
-                            .ForProgramma(_idProgramma)
-                            .Build(_id, 0);
+                .ForWorkPeriod(_workPeriod)
+                .ForImpianto(_idImpianto)
+                .OfTipoIntervento(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .WithOggetti(_oggetti.ToArray())
+                .WithTrenoArrivo(_trenoArrivo)
+                .WithTrenoPartenza(_trenoPartenza)
+                .WithTurnoTreno(_turnoTreno)
+                .WithRigaTurnoTreno(_rigaTurnoTreno)
+                .ForConvoglio(_convoglio)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForProgramma(_idProgramma)
+                .ForLotto(_idLotto)
+                .Build(_id, 0);
 
             yield return BuildCmd.ConsuntivareAutomaticamenteNonReso
                 .Build(_id, 999, _dataConsuntivazioneAutomatica);

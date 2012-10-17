@@ -1,0 +1,310 @@
+﻿{
+    "Namespace" : "Super.Appaltatore.Events.Consuntivazione",
+    "Objects" :
+    [
+        {
+            "Name" :"InterventoRotConsuntivatoNonReso",
+			"Inheritance" : "IInterventoRotConsuntivato",
+			"Description" : "il intervento rotabile é stato  consuntivato non reso appaltatore",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+                {
+                    "Name" : "IdCausaleAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "Because!"
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoRotManConsuntivatoNonReso",
+			"Inheritance" : "IInterventoRotManConsuntivato",
+			"Description" : "il intervento rotabile in manutenzione é stato  consuntivato non reso appaltatore",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+                {
+                    "Name" : "IdCausaleAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "Because!"
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoAmbConsuntivatoNonReso",
+			"Inheritance" : "IInterventoAmbConsuntivato",
+			"Description" : "il intervento ambiente é stato  consuntivato non reso appaltatore",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+                {
+                    "Name" : "IdCausaleAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "Because!"
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoRotConsuntivatoNonResoTrenitalia",
+			"Inheritance" : "IInterventoRotConsuntivato",
+			"Description" : "il intervento rotabile é stato  consuntivato non reso trenitalia",
+            "Properties" : [
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+                {
+                    "Name" : "IdCausaleTrenitalia",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "Because!"
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoRotManConsuntivatoNonResoTrenitalia",
+			"Inheritance" : "IInterventoRotManConsuntivato",
+			"Description" : "il intervento rotabile in manutenzione é stato  consuntivato non reso trenitalia",
+            "Properties" : [
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+                {
+                    "Name" : "IdCausaleTrenitalia",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "Because!"
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoAmbConsuntivatoNonResoTrenitalia",
+			"Inheritance" : "IInterventoAmbConsuntivato",
+			"Description" : "il intervento ambiente é stato  consuntivato non reso trenitalia",
+            "Properties" : [
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+                {
+                    "Name" : "IdCausaleTrenitalia",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "Because!"
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoAmbConsuntivatoReso",
+			"Inheritance" : "IInterventoAmbConsuntivato",
+			"Description" : "Il intervento ambiente é stato consuntivato reso",
+            "Properties" : [
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+                {
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : false ,
+					"BuilderHelper" : "For"
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoRotConsuntivatoReso",
+			"Inheritance" : "IInterventoRotConsuntivato",
+			"Description" : "Il intervento rotabile é stato consuntivato reso",
+            "Properties" : [
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+                {
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Convoglio",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoArrivo",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "RigaTurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoPartenza",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoRotManConsuntivatoReso",
+			"Inheritance" : "IInterventoRotManConsuntivato",
+			"Description" : "Il intervento rotabile in manutenzione é stato consuntivato reso",
+            "Properties" : [
+                {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+                {
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true 
+                }
+            ]
+        }
+    ]
+}

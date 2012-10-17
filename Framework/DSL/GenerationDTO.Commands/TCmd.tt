@@ -10,10 +10,13 @@
 {
 
 	var name = cmd.Name;
+	var inheritance = string.Empty;
+	if (!string.IsNullOrEmpty(cmd.Inheritance))
+		inheritance = string.Format(",{0}", cmd.Inheritance);
 	
 #>
 
-	public class <#= name #> :  CommandBase
+	public class <#= name #> :  CommandBase <#= inheritance #> 
 	{
 	<#+ 
 		BuildProp(cmd); 

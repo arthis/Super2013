@@ -13,7 +13,7 @@ namespace Super.Programmazione.Events.Plan
 {
 
 
-	public class PlanCancelled : Message, IEvent
+	public class PlanCancelled : Message, IEvent  
 	{
 	
 
@@ -60,7 +60,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class PlanCreated : Message, IEvent
+	public class PlanCreated : Message, IEvent  
 	{
 	 
 		public Guid IdScenario { get; set;} 
@@ -123,7 +123,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class SchedulazioneRotAddedToPlan : Message, IEvent
+	public class SchedulazioneRotAddedToPlan : Message, IEvent  
 	{
 	 
 		public Guid IdSchedulazione { get; set;} 
@@ -290,7 +290,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class SchedulazioneRotManAddedToPlan : Message, IEvent
+	public class SchedulazioneRotManAddedToPlan : Message, IEvent  
 	{
 	 
 		public Guid IdSchedulazione { get; set;} 
@@ -437,7 +437,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class SchedulazioneAmbAddedToPlan : Message, IEvent
+	public class SchedulazioneAmbAddedToPlan : Message, IEvent  
 	{
 	 
 		public Guid IdSchedulazione { get; set;} 
@@ -584,7 +584,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class SchedulazioneCancelledFromPlan : Message, IEvent
+	public class SchedulazioneCancelledFromPlan : Message, IEvent  
 	{
 	 
 		public Guid IdUser { get; set;} 

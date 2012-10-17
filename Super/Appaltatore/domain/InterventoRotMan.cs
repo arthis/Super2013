@@ -35,10 +35,10 @@ namespace Super.Appaltatore.Domain
                             .WithOggetti(oggetti.ToMessage().ToArray())
                             .ForWorkPeriod(periodBuilder.Build())
                             .ForImpianto(idImpianto)
-                            .OfType(idTipoIntervento)
+                            .OfTipoIntervento(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)
-                            .OfCategoriaCommerciale(idCategoriaCommerciale)
-                            .OfDirezioneRegionale(idDirezioneRegionale)
+                            .ForCategoriaCommerciale(idCategoriaCommerciale)
+                            .ForDirezioneRegionale(idDirezioneRegionale)
                             .WithNote(note);
 
             RaiseEvent(id, evt);
@@ -59,7 +59,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = BuildEvt.InterventoConsuntivatoRotManNonReso
+                var evt = BuildEvt.InterventoRotConsuntivatoNonReso
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .Because(idCausaleAppaltatore)
                     .When(dataConsuntivazione)
@@ -69,7 +69,7 @@ namespace Super.Appaltatore.Domain
             }
         }
 
-        public void Apply(InterventoConsuntivatoRotManNonReso e)
+        public void Apply(InterventoRotConsuntivatoNonReso e)
         {
             //do something here if needed
         }
@@ -83,7 +83,7 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = BuildEvt.InterventoConsuntivatoRotManNonResoTrenitalia
+                var evt = BuildEvt.InterventoRotManConsuntivatoNonResoTrenitalia
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .Because(idCausaleTrenitalia)
                     .When(dataConsuntivazione)
@@ -93,7 +93,7 @@ namespace Super.Appaltatore.Domain
             }
         }
 
-        public void Apply(InterventoConsuntivatoRotManNonResoTrenitalia e)
+        public void Apply(InterventoRotManConsuntivatoNonResoTrenitalia e)
         {
             //do something here if needed
         }
@@ -110,18 +110,18 @@ namespace Super.Appaltatore.Domain
 
                 workPeriod.BuildValue(periodBuilder);
 
-                var evt = BuildEvt.InterventoConsuntivatoRotManReso
+                var evt = BuildEvt.InterventoRotManConsuntivatoReso
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .When(dataConsuntivazione)
                     .WithNote(note)
-                    .ForPeriod(periodBuilder.Build())
+                    .ForWorkPeriod(periodBuilder.Build())
                     .WithOggetti(oggetti.ToMessage().ToArray());
 
                 RaiseEvent(evt);
             }
         }
 
-        public void Apply(InterventoConsuntivatoRotManReso e)
+        public void Apply(InterventoRotManConsuntivatoReso e)
         {
             //do something here if needed
         }
