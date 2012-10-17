@@ -118,7 +118,9 @@
     <Compile Include="Consuntivazione\Ambiente\consuntivazione_non_reso_trenitalia_di_un_intervento_ambiente.cs" />
     <Compile Include="Consuntivazione\Ambiente\Inizio_della_saga_consuntivazione_ambiente_gia_iniziata.cs" />
     <Compile Include="Consuntivazione\Ambiente\Inizio_della_saga_consuntivazione_ambiente_non_iniziata.cs" />
-    <Compile Include="Consuntivazione\Rotabile\consuntivazione_intervento.cs" />
+    <Compile Include="Consuntivazione\Rotabile\consuntivazione_reso_di_un_intervento_rotabile.cs" />
+    <Compile Include="Consuntivazione\Rotabile\consuntivazione_non_reso_di_un_intervento_rotabile.cs" />
+    <Compile Include="Consuntivazione\Rotabile\consuntivazione_non_reso_trenitalia_di_un_intervento_rotabile.cs" />
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_intervento.cs" />
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Inizio_della_saga_consuntivazione_rotabile_in_manutenzione_gia_iniziata.cs" />
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
