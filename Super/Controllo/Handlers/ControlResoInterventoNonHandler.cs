@@ -11,25 +11,23 @@ using System.Diagnostics.Contracts;
 
 namespace Super.Controllo.Handlers
 {
-    public class AllowControlInterventoHandler : CommandHandler<AllowControlIntervento>
+    public class ControlResoInterventoNonHandler : CommandHandler<ControlNonResoIntervento>
     {
-        public AllowControlInterventoHandler(IEventRepository eventRepository)
+        public ControlResoInterventoNonHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(AllowControlIntervento cmd)
+        public override CommandValidation Execute(ControlNonResoIntervento cmd)
         {
             Contract.Requires(cmd != null);
 
-
-
             var existingIntervento = EventRepository.GetById<Intervento>(cmd.Id);
 
-            if (!existingIntervento.IsNull())
-                throw new AlreadyCreatedAggregateRootException();
+            if (existingIntervento.IsNull())
+                throw new AggregateRootInstanceNotFoundException();
 
-            existingIntervento.AllowControl(cmd.Id);
+            existingIntervento.ControlNonReso( cmd.IdUser, cmd.ControlDate, cmd.IdCausale, cmd.Note);
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

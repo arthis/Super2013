@@ -66,7 +66,7 @@
 //                .WithNote(_note)
 //                .ForQuantity(_quantity)
 //                .ForDescription(_description)
-//                .Build(_idSchedulazione, 1);
+//                .BuildCmd(_idSchedulazione, 1);
             
 //        }
 
@@ -80,7 +80,7 @@
 //                                 .ForWorkPeriod(_workPeriod)
 //                                 .ForQuantity(_quantity)
 //                                 .ForDescription(_description)
-//                                 .Build(_idSchedulazione,0);
+//                                 .BuildCmd(_idSchedulazione,0);
             
 //        }
 

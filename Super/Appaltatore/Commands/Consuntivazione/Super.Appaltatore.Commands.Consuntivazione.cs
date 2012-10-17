@@ -34,7 +34,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 				}
 			public override string ToDescription()
 		{
-			return string.Format("il intervento é stato  consuntivato non reso appaltatore automaticamente", Id);
+			return string.Format("Consuntivare automaticamente non reso appaltatore il intervento", Id);
 		}
 		
 		public bool Equals(ConsuntivareAutomaticamenteNonReso other)
@@ -105,7 +105,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		}
 			public override string ToDescription()
 		{
-			return string.Format("il intervento é stato  consuntivato non reso appaltatore", Id);
+			return string.Format("Consuntivare non reso appaltatore il intervento", Id);
 		}
 		
 		public bool Equals(ConsuntivareNonReso other)
@@ -180,7 +180,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		}
 			public override string ToDescription()
 		{
-			return string.Format("il intervento é stato  consuntivato non reso trenitalia", Id);
+			return string.Format("Consuntivare non reso trenitalia il intervento", Id);
 		}
 		
 		public bool Equals(ConsuntivareNonResoTrenitalia other)
@@ -277,7 +277,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		}
 			public override string ToDescription()
 		{
-			return string.Format("il intervento rotabile é stato  consuntivato reso", Id);
+			return string.Format("Consuntivato reso  il intervento rotabile", Id);
 		}
 		
 		public bool Equals(ConsuntivareResoRot other)
@@ -365,7 +365,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		}
 			public override string ToDescription()
 		{
-			return string.Format("il intervento rotabile in manutenzione é stato  consuntivato reso", Id);
+			return string.Format("Consuntivare reso il intervento rotabile in manutenzione", Id);
 		}
 		
 		public bool Equals(ConsuntivareResoRotMan other)
@@ -451,7 +451,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		}
 			public override string ToDescription()
 		{
-			return string.Format("il intervento rotabile in manutenzione é stato  consuntivato reso", Id);
+			return string.Format("Consuntivare reso il intervento ambiente", Id);
 		}
 		
 		public bool Equals(ConsuntivareResoAmb other)

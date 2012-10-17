@@ -8,15 +8,14 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Controllo.Commands;
 using CommonSpecs;
-using Super.Controllo.Commands.Builders;
+using Super.Controllo.Commands.Consuntivazione;
 using Super.Controllo.Events;
 using Super.Controllo.Events.Builders;
 using Super.Controllo.Handlers;
-using BuildCmd = Super.Controllo.Commands.Builders.Build;
 
 namespace Super.Controllo.Specs.Controllo_intervento_non_reso
 {
-    public class Controllare_un_intervento_non_reso : CommandBaseClass<ControlInterventoNonReso>
+    public class Controllare_un_intervento_non_reso : CommandBaseClass<ControlNonResoIntervento>
     {
         private Guid _Id = Guid.NewGuid();
         private DateTime _controlDate = DateTime.Now;
@@ -25,9 +24,9 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
         private string _note = "note";
 
 
-        protected override CommandHandler<ControlInterventoNonReso> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<ControlNonResoIntervento> OnHandle(IEventRepository eventRepository)
         {
-            return new ControlInterventoNonResoHandler(eventRepository);
+            return new ControlResoInterventoNonHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -36,10 +35,10 @@ namespace Super.Controllo.Specs.Controllo_intervento_non_reso
                 .Build(_Id, 1);
         }
 
-        public override ControlInterventoNonReso When()
+        public override ControlNonResoIntervento When()
         {
 
-            return BuildCmd.ControlInterventoNonReso
+            return BuildCmd.ControlNonResoIntervento
                 .By(_idUser)
                 .Because(_idCausale)
                 .When(_controlDate)

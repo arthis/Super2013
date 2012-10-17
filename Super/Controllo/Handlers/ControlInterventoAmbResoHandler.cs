@@ -5,20 +5,21 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using Super.Controllo.Commands;
+using Super.Controllo.Commands.Consuntivazione;
 using Super.Controllo.Domain;
 using CommonDomain.Persistence;
 using System.Diagnostics.Contracts;
 
 namespace Super.Controllo.Handlers
 {
-    public class ControlInterventoAmbResoHandler : CommandHandler<ControlInterventoAmbReso>
+    public class ControlInterventoAmbResoHandler : CommandHandler<ControlResoInterventoAmb>
     {
         public ControlInterventoAmbResoHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(ControlInterventoAmbReso cmd)
+        public override CommandValidation Execute(ControlResoInterventoAmb cmd)
         {
             Contract.Requires(cmd != null);
 

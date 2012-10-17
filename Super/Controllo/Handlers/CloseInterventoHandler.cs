@@ -4,6 +4,7 @@ using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using Super.Controllo.Commands;
+using Super.Controllo.Commands.Consuntivazione;
 using Super.Controllo.Domain;
 using CommonDomain.Persistence;
 using System.Diagnostics.Contracts;

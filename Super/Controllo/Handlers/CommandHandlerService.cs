@@ -8,6 +8,8 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
 using Super.Controllo.Commands;
+using Super.Controllo.Commands.Consuntivazione;
+
 
 namespace Super.Controllo.Handlers
 {
@@ -20,10 +22,10 @@ namespace Super.Controllo.Handlers
 
             handlerHelper.Add(new AllowControlInterventoHandler(eventRepository));
             handlerHelper.Add( new CloseInterventoHandler(eventRepository));
-            handlerHelper.Add( new ControlInterventoNonResoHandler(eventRepository));
+            handlerHelper.Add( new ControlResoInterventoNonHandler(eventRepository));
             handlerHelper.Add( new ControlInterventoAmbResoHandler(eventRepository));
-            handlerHelper.Add( new ControlInterventoRotResoHandler(eventRepository));
-            handlerHelper.Add( new ControlInterventoRotManResoHandler(eventRepository));
+            handlerHelper.Add( new ControlResoInterventoRotHandler(eventRepository));
+            handlerHelper.Add( new ControlResoInterventoRotManHandler(eventRepository));
             handlerHelper.Add( new ReopenInterventoHandler(eventRepository));
         }
 

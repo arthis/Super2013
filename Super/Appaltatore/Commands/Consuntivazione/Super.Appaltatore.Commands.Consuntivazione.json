@@ -4,13 +4,13 @@
     [
         {
             "Name" :"ConsuntivareAutomaticamenteNonReso",
-			"Description" : "il intervento é stato  consuntivato non reso appaltatore automaticamente",
+			"Description" : "Consuntivare automaticamente non reso appaltatore il intervento",
             "Properties" : [
 		    ]
         },
 		{
             "Name" :"ConsuntivareNonReso",
-			"Description" : "il intervento é stato  consuntivato non reso appaltatore",
+			"Description" : "Consuntivare non reso appaltatore il intervento",
             "Properties" : [
 			    {
                     "Name" : "Note",
@@ -36,7 +36,7 @@
         },
 		{
             "Name" :"ConsuntivareNonResoTrenitalia",
-			"Description" : "il intervento é stato  consuntivato non reso trenitalia",
+			"Description" : "Consuntivare non reso trenitalia il intervento",
             "Properties" : [
 			    {
                     "Name" : "Note",
@@ -62,7 +62,7 @@
         },
 		{
             "Name" :"ConsuntivareResoRot",
-			"Description" : "il intervento rotabile é stato  consuntivato reso",
+			"Description" : "Consuntivato reso  il intervento rotabile",
             "Properties" : [
 			    {
                     "Name" : "Note",
@@ -118,7 +118,7 @@
         },
 		{
             "Name" :"ConsuntivareResoRotMan",
-			"Description" : "il intervento rotabile in manutenzione é stato  consuntivato reso",
+			"Description" : "Consuntivare reso il intervento rotabile in manutenzione",
             "Properties" : [
 			    {
                     "Name" : "Note",
@@ -149,7 +149,7 @@
         },
 		{
             "Name" :"ConsuntivareResoAmb",
-			"Description" : "il intervento rotabile in manutenzione é stato  consuntivato reso",
+			"Description" : "Consuntivare reso il intervento ambiente",
             "Properties" : [
 			    {
                     "Name" : "Note",

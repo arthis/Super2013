@@ -1,12 +1,13 @@
 ﻿using System;
 using CommonDomain.Core;
 using Stateless;
-using Super.Appaltatore.Commands;
 using Super.Appaltatore.Events.Consuntivazione;
-using Super.Controllo.Commands.Builders;
+using BuildControlloCmd = Super.Controllo.Commands.BuildCmd;
+using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 using Super.Programmazione.Events.Intervento;
 using Super.Saga.Domain.Exceptions;
 using Super.Saga.Domain.Intervento;
+
 
 namespace Super.Saga.Domain.Consuntivazione
 {
@@ -41,7 +42,7 @@ namespace Super.Saga.Domain.Consuntivazione
             if (!_stateMachine.IsInState(State.Start))
                 throw  new SagaStateException("Saga already started");
 
-            var cmdProgramm = BuildCmd.ProgramInterventoAmb
+            var cmdProgramm = BuildAppaltatoreCmd.ProgramInterventoAmb
                                 .ForWorkPeriod(evt.WorkPeriod)
                                 .ForImpianto(evt.IdImpianto)
                                 .OfTipoIntervento(evt.IdTipoIntervento)
@@ -55,7 +56,7 @@ namespace Super.Saga.Domain.Consuntivazione
 
             Dispatch(cmdProgramm);
 
-            var cmdTimeOut = BuildCmd.ConsuntivareAutomaticamenteNonReso
+            var cmdTimeOut = BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
                 .Build(evt.Id, 999, evt.WorkPeriod.EndDate.AddMinutes(20));
 
             Dispatch(cmdTimeOut);
@@ -77,7 +78,7 @@ namespace Super.Saga.Domain.Consuntivazione
             if (!_stateMachine.IsInState(State.Programmation))
                 throw new SagaStateException("Saga is not in programamtion state");
 
-            var cmd = Build.AllowControlIntervento
+            var cmd = BuildControlloCmd.AllowControlIntervento
                                      .Build(Id, 0);
 
             Dispatch(cmd);

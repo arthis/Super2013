@@ -7,7 +7,8 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Appaltatore.Events.Consuntivazione;
-using Super.Controllo.Commands.Builders;
+using Super.Controllo.Commands;
+
 using Super.Programmazione.Events;
 using Super.Saga.Handlers.Intervento;
 
@@ -77,7 +78,7 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return Build.AllowControlIntervento
+            yield return BuildCmd.AllowControlIntervento
                                      .Build(_id, 0);
         }
 

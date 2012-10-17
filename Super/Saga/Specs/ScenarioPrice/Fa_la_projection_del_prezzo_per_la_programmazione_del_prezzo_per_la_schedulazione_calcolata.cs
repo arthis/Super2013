@@ -63,7 +63,7 @@
 //                .WithNote(_note)
 //                .ForQuantity(_quantity)
 //                .ForDescription(_description)
-//                .Build(_idSchedulazione, 1);
+//                .BuildCmd(_idSchedulazione, 1);
 
 //                ;
 //        }
@@ -73,7 +73,7 @@
 //            return BuildEvt.SchedulazionePriceOfScenarioCalculated
 //                .ForScenario(_idScenario)
 //                .ToPrice(_price)
-//                .Build(_idSchedulazione, 1);
+//                .BuildCmd(_idSchedulazione, 1);
             
 //        }
 
@@ -82,7 +82,7 @@
 //            yield return BuildCmd.CalculateSchedulazionePrice
 //                .ForScenario(_idScenario)
 //                .ToPrice(_price)
-//                .Build(_idSchedulazione, 0);
+//                .BuildCmd(_idSchedulazione, 0);
 //        }
 
 //        [Test]

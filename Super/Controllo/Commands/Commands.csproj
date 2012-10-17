@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -13,6 +14,11 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -112,19 +118,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AllowControlIntervento.cs" />
-    <Compile Include="Builders\Build.cs" />
-    <Compile Include="Builders\CloseInterventoBuilder.cs" />
-    <Compile Include="Builders\ControlInterventoNonResoBuilder.cs" />
-    <Compile Include="Builders\ControlInterventoRotResoBuilder.cs" />
-    <Compile Include="Builders\ControlInterventoRotManResoBuilder.cs" />
-    <Compile Include="Builders\ControlInterventoAmbResoBuilder.cs" />
-    <Compile Include="Builders\AllowControlInterventoBuilder.cs" />
-    <Compile Include="Builders\ReopenInterventoBuilder.cs" />
-    <Compile Include="CloseIntervento.cs" />
-    <Compile Include="ControlInterventoReso.cs" />
-    <Compile Include="ControlInterventoNonReso.cs" />
-    <Compile Include="ReOpenIntervento.cs" />
+    <Compile Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.Builders.cs">
+      <DependentUpon>Super.Controllo.Commands.Consuntivazione.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.cs">
+      <DependentUpon>Super.Controllo.Commands.Consuntivazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +144,31 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Controllo.Commands.Consuntivazione.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.json" />
+    <None Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Controllo.Commands.Consuntivazione.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- process *.tt templates on each build  -->
+  <PropertyGroup>
+    <TransformOnBuild>true</TransformOnBuild>
+    <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\TextTemplating\Microsoft.TextTemplating.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

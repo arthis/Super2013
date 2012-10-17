@@ -8,9 +8,9 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Controllo.Commands;
 using CommonSpecs;
+using Super.Controllo.Commands.Consuntivazione;
 using Super.Controllo.Events;
 using Super.Controllo.Handlers;
-using BuildCmd = Super.Controllo.Commands.Builders.Build;
 
 namespace Super.Controllo.Specs.Permessi_Controllo
 {
