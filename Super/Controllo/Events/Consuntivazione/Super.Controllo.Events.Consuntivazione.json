@@ -1,0 +1,222 @@
+﻿{
+    "Namespace" : "Super.Controllo.Events.Consuntivazione",
+    "Objects" :
+    [
+        {
+            "Name" :"InterventoControlAllowed",
+			"Description" : "E permesso controllare il intervento '{0}'.",
+            "Properties" : [
+		    ]
+        },
+		{
+            "Name" :"InterventoClosed",
+			"Description" : "Il intervento '{0}' é stato chiuso.",
+            "Properties" : [
+			    {
+                    "Name" : "IdUser",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By!"
+                },
+				{
+                    "Name" : "ClosingDate",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoReopened",
+			"Description" : "Il intervento {0} é stato aperto di nuovo.",
+            "Properties" : [
+			    {
+                    "Name" : "IdUser",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By!"
+                },
+				{
+                    "Name" : "ReopeningDate",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoControlledNonReso",
+			"Description" : "Il intervento '{0}' é stato rilevato non reso.",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "IdCausale",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "Because!"
+                },
+				{
+                    "Name" : "ControlDate",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdUser",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By!"
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoRotControlledReso",
+			"Description" : "Il intervento rotabile '{0}' é stato controllato reso.",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true ,
+                },
+				{
+                    "Name" : "ControlDate",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdUser",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Convoglio",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "RigaTurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TurnoTreno",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoArrivo",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "TrenoPartenza",
+                    "Type" : "Treno",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoRotManControlledReso",
+			"Description" : "Il intervento rotabile in manutenzione '{0}' é stato controllato reso.",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true ,
+                },
+				{
+                    "Name" : "ControlDate",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdUser",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoAmbControlledReso",
+			"Description" : "Il intervento ambiente '{0}' é stato controllato reso.",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true ,
+                },
+				{
+                    "Name" : "ControlDate",
+                    "Type" : "DateTime",
+					"IsRequired" : true ,
+					"BuilderHelper" : "When!"
+                },
+				{
+                    "Name" : "IdUser",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By!"
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : false,
+					"BuilderHelper" : "For"
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : true
+                }
+            ]
+        }
+    ]
+}

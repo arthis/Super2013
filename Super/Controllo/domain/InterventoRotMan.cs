@@ -6,7 +6,8 @@ using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
 using Super.Controllo.Events;
-using Super.Controllo.Events.Builders;
+
+using Super.Controllo.Events.Consuntivazione;
 
 namespace Super.Controllo.Domain
 {
@@ -14,12 +15,9 @@ namespace Super.Controllo.Domain
     {
         public void ControlReso(Guid idUser, DateTime controlDate, WorkPeriod workPeriod, string note, IEnumerable<OggettoRotMan> oggetti)
         {
-            var periodBuilder = new MsgWorkPeriodBuilder();
-
-            workPeriod.BuildValue(periodBuilder);
-
+            
             var evt = BuildEvt.InterventoRotManControlledReso
-                .ForPeriod(periodBuilder.Build())
+                .ForWorkPeriod(workPeriod.ToMessage())
                 .By(idUser)
                 .When(controlDate)
                 .WithNote(note)

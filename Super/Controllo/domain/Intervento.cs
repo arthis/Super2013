@@ -1,7 +1,8 @@
 ﻿using System;
 using CommonDomain.Core;
 using Super.Controllo.Events;
-using Super.Controllo.Events.Builders;
+
+using Super.Controllo.Events.Consuntivazione;
 
 namespace Super.Controllo.Domain
 {

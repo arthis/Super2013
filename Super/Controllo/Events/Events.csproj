@@ -112,19 +112,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildEvt.cs" />
-    <Compile Include="Builders\InterventoControlAllowedBuilder.cs" />
-    <Compile Include="Builders\InterventoClosedBuilder.cs" />
-    <Compile Include="Builders\InterventoControlledNonResoBuilder.cs" />
-    <Compile Include="Builders\InterventoAmbControlledResoBuilder.cs" />
-    <Compile Include="Builders\InterventoRotControlledResoBuilder.cs" />
-    <Compile Include="Builders\InterventoRotManControlledResoBuilder.cs" />
-    <Compile Include="Builders\ReopenInterventoBuilder.cs" />
-    <Compile Include="InterventoControlledReso.cs" />
-    <Compile Include="InterventoControlledNonReso.cs" />
-    <Compile Include="InterventoReopened.cs" />
-    <Compile Include="InterventoClosed.cs" />
-    <Compile Include="InterventoControlAllowed.cs" />
+    <Compile Include="Consuntivazione\Super.Controllo.Events.Consuntivazione.Builders.cs">
+      <DependentUpon>Super.Controllo.Events.Consuntivazione.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Consuntivazione\Super.Controllo.Events.Consuntivazione.cs">
+      <DependentUpon>Super.Controllo.Events.Consuntivazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +133,20 @@
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Consuntivazione\Super.Controllo.Events.Consuntivazione.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Controllo.Events.Consuntivazione.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Consuntivazione\Super.Controllo.Events.Consuntivazione.json" />
+    <None Include="Consuntivazione\Super.Controllo.Events.Consuntivazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Controllo.Events.Consuntivazione.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

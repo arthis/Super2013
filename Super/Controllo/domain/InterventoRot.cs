@@ -6,7 +6,8 @@ using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
 using Super.Controllo.Events;
-using Super.Controllo.Events.Builders;
+
+using Super.Controllo.Events.Consuntivazione;
 
 namespace Super.Controllo.Domain
 {
@@ -15,21 +16,14 @@ namespace Super.Controllo.Domain
 
         public void ControlReso(Guid idUser, DateTime  controlDate, WorkPeriod workPeriod, Treno trenoPartenza, Treno trenoArrivo, string convoglio, string note,IEnumerable<OggettoRot> oggetti, string rigaTurnoTreno, string turnoTreno)
         {
-            var periodBuilder = new MsgWorkPeriodBuilder();
-            var trenoPartenzaBuilder = new MsgTrenoBuilder();
-            var trenoArrivoBuilder = new MsgTrenoBuilder();
-
-            workPeriod.BuildValue(periodBuilder);
-            trenoPartenza.BuildValue(trenoPartenzaBuilder);
-            trenoArrivo.BuildValue(trenoArrivoBuilder);
 
             var evt = BuildEvt.InterventoRotControlledReso
-                .ForPeriod(periodBuilder.Build())
+                .ForWorkPeriod(workPeriod.ToMessage())
                 .By(idUser)
                 .When(controlDate)
                 .WithNote(note)
-                .WithTrenoPartenza(trenoPartenzaBuilder.Build())
-                .WithTrenoArrivo(trenoArrivoBuilder.Build())
+                .WithTrenoPartenza(trenoPartenza.ToMessage())
+                .WithTrenoArrivo(trenoArrivo.ToMessage())
                 .ForConvoglio(convoglio)
                 .WithOggetti(oggetti.ToMessage().ToArray())
                 .WithRigaTurnoTreno(rigaTurnoTreno)

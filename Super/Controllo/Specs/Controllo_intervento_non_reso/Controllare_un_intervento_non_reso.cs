@@ -10,7 +10,7 @@ using Super.Controllo.Commands;
 using CommonSpecs;
 using Super.Controllo.Commands.Consuntivazione;
 using Super.Controllo.Events;
-using Super.Controllo.Events.Builders;
+
 using Super.Controllo.Handlers;
 
 namespace Super.Controllo.Specs.Controllo_intervento_non_reso
