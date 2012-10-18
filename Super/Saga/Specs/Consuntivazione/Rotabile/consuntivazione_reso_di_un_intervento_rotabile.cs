@@ -98,7 +98,7 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildCmd.AllowControlIntervento
+            yield return BuildCmd.AllowInterventoControl
                                      .Build(_id, 0);
         }
 

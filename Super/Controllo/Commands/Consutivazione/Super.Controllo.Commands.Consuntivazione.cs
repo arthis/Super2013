@@ -14,21 +14,21 @@ namespace Super.Controllo.Commands.Consuntivazione
 {
 
 
-	public class AllowControlIntervento :  CommandBase  
+	public class AllowInterventoControl :  CommandBase  
 	{
 	
 
-		public AllowControlIntervento ()
+		public AllowInterventoControl ()
 		{
 			//for serialisation
 		}	     
 
-		public AllowControlIntervento(Guid id, Guid commitId, long version)
+		public AllowInterventoControl(Guid id, Guid commitId, long version)
 		   : base(id,commitId,version)
 		{
 				}
 
-		public AllowControlIntervento(Guid id, Guid commitId, long version, DateTime wakeupTime)
+		public AllowInterventoControl(Guid id, Guid commitId, long version, DateTime wakeupTime)
 		   : base(id,commitId,version,wakeupTime)
 		{
 				}
@@ -37,7 +37,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 			return string.Format("si permette il controllo dell'intervento {0}.", Id);
 		}
 		
-		public bool Equals(AllowControlIntervento other)
+		public bool Equals(AllowInterventoControl other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -48,7 +48,7 @@ namespace Super.Controllo.Commands.Consuntivazione
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(obj as AllowControlIntervento);
+            return Equals(obj as AllowInterventoControl);
         }
 
 		public override int GetHashCode()

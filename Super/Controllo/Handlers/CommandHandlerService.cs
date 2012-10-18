@@ -20,7 +20,7 @@ namespace Super.Controllo.Handlers
         {
             var handlerHelper = new CommandHandlerHelper<TSession>(commandRepository, sessionFactory, _handlers);
 
-            handlerHelper.Add(new AllowControlInterventoHandler(eventRepository));
+            handlerHelper.Add(new AllowInterventoControlHandler(eventRepository));
             handlerHelper.Add( new CloseInterventoHandler(eventRepository));
             handlerHelper.Add( new ControlResoInterventoNonHandler(eventRepository));
             handlerHelper.Add( new ControlInterventoAmbResoHandler(eventRepository));
@@ -33,7 +33,7 @@ namespace Super.Controllo.Handlers
         {
             string subscriptionId = "Super";
 
-            bus.Subscribe<AllowControlIntervento>(subscriptionId, cmd => Execute(cmd));
+            bus.Subscribe<AllowInterventoControl>(subscriptionId, cmd => Execute(cmd));
         }
 
     }

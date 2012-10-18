@@ -14,7 +14,7 @@ using Super.Controllo.Handlers;
 
 namespace Super.Controllo.Specs.Permessi_Controllo
 {
-    public class Permettere_il_controllo_di_un_intervento_gia_permesso_prima : CommandBaseClass<AllowControlIntervento>
+    public class Permettere_il_controllo_di_un_intervento_gia_permesso_prima : CommandBaseClass<AllowInterventoControl>
     {
         private Guid _Id = Guid.NewGuid();
 
@@ -24,9 +24,9 @@ namespace Super.Controllo.Specs.Permessi_Controllo
             return "non e possibile permettere di nuovo il controllo di un intervento gia permesso.";
         }
 
-        protected override CommandHandler<AllowControlIntervento> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<AllowInterventoControl> OnHandle(IEventRepository eventRepository)
         {
-            return new AllowControlInterventoHandler(eventRepository);
+            return new AllowInterventoControlHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -35,9 +35,9 @@ namespace Super.Controllo.Specs.Permessi_Controllo
                 .Build(_Id, 1);
         }
 
-        public override AllowControlIntervento When()
+        public override AllowInterventoControl When()
         {
-            return BuildCmd.AllowControlIntervento
+            return BuildCmd.AllowInterventoControl
                 .Build(_Id,1);
         }
 

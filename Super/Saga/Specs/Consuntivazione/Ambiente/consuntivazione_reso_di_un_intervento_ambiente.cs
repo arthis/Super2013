@@ -83,7 +83,7 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildCmd.AllowControlIntervento
+            yield return BuildCmd.AllowInterventoControl
                                      .Build(_id, 0);
         }
 

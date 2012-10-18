@@ -11,14 +11,14 @@ using System.Diagnostics.Contracts;
 
 namespace Super.Controllo.Handlers
 {
-    public class AllowControlInterventoHandler : CommandHandler<AllowControlIntervento>
+    public class AllowInterventoControlHandler : CommandHandler<AllowInterventoControl>
     {
-        public AllowControlInterventoHandler(IEventRepository eventRepository)
+        public AllowInterventoControlHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(AllowControlIntervento cmd)
+        public override CommandValidation Execute(AllowInterventoControl cmd)
         {
             Contract.Requires(cmd != null);
 

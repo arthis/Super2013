@@ -78,7 +78,7 @@ namespace Super.Saga.Domain.Consuntivazione
             if (!_stateMachine.IsInState(State.Programmation))
                 throw new SagaStateException("Saga is not in programamtion state");
 
-            var cmd = BuildControlloCmd.AllowControlIntervento
+            var cmd = BuildControlloCmd.AllowInterventoControl
                                      .Build(Id, 0);
 
             Dispatch(cmd);

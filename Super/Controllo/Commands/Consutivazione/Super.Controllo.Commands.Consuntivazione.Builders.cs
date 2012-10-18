@@ -13,27 +13,27 @@ namespace Super.Controllo.Commands.Consuntivazione.Builders
 {
 
 
-	public class AllowControlInterventoBuilder : ICommandBuilder<AllowControlIntervento>
+	public class AllowInterventoControlBuilder : ICommandBuilder<AllowInterventoControl>
 	{
 	
-		public AllowControlIntervento Build(Guid id, long version)
+		public AllowInterventoControl Build(Guid id, long version)
 		{
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public AllowControlIntervento Build(Guid id, long version,DateTime wakeupTime)
+		public AllowInterventoControl Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
 		}
 
-		public AllowControlIntervento Build(Guid id, Guid commitId, long version)
+		public AllowInterventoControl Build(Guid id, Guid commitId, long version)
         {
-            return new AllowControlIntervento(id, commitId, version);
+            return new AllowInterventoControl(id, commitId, version);
 		 }
 
-		 public AllowControlIntervento Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+		 public AllowInterventoControl Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new AllowControlIntervento(id, commitId, version, wakeupTime);
+            return new AllowInterventoControl(id, commitId, version, wakeupTime);
 		 }
         
 	
@@ -424,7 +424,7 @@ namespace Super.Controllo.Commands
 {
 	public static partial class BuildCmd 
 	{
-		  public static AllowControlInterventoBuilder AllowControlIntervento {get { return new AllowControlInterventoBuilder(); } }
+		  public static AllowInterventoControlBuilder AllowInterventoControl {get { return new AllowInterventoControlBuilder(); } }
 	  		  public static CloseInterventoBuilder CloseIntervento {get { return new CloseInterventoBuilder(); } }
 	  		  public static ReopenInterventoBuilder ReopenIntervento {get { return new ReopenInterventoBuilder(); } }
 	  		  public static ControlNonResoInterventoBuilder ControlNonResoIntervento {get { return new ControlNonResoInterventoBuilder(); } }
