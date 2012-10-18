@@ -8,16 +8,16 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Core.Super.Messaging.Builders;
 using CommonDomain.Persistence;
 using NUnit.Framework;
-using Super.Appaltatore.Commands;
+using Super.Controllo.Commands;
 using CommonSpecs;
-using Super.Appaltatore.Commands.Programmazione;
-using Super.Appaltatore.Events.Programmazione;
-using Super.Appaltatore.Events.Programmazione.Builders;
-using Super.Appaltatore.Handlers;
-using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
-using Super.Appaltatore.Events;
+using Super.Controllo.Commands.Programmazione;
+using Super.Controllo.Events.Programmazione;
+using Super.Controllo.Events.Programmazione.Builders;
+using Super.Controllo.Handlers;
+using BuildCmd = Super.Controllo.Commands.BuildCmd;
+using Super.Controllo.Events;
 
-namespace Super.Appaltatore.Specs.Programmazione.Rotabile
+namespace Super.Controllo.Specs.Programmazione.Rotabile
 {
     public class Programmazione_di_intervento_rotabile_gia_esistente : CommandBaseClass<ProgramInterventoRot>
     {

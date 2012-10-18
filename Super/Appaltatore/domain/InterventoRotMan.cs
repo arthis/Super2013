@@ -26,14 +26,10 @@ namespace Super.Appaltatore.Domain
                                         , IEnumerable<OggettoRotMan> oggetti
                     )
         {
-            //builders
-            var periodBuilder = new MsgWorkPeriodBuilder();
-
-            workPeriod.BuildValue(periodBuilder);
 
             var evt = BuildEvt.InterventoRotManProgrammato
                             .WithOggetti(oggetti.ToMessage().ToArray())
-                            .ForWorkPeriod(periodBuilder.Build())
+                            .ForWorkPeriod(workPeriod.ToMessage())
                             .ForImpianto(idImpianto)
                             .OfTipoIntervento(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)

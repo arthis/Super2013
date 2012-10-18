@@ -9,7 +9,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using Super.Appaltatore.Commands;
 using CommonSpecs;
-using Super.Appaltatore.Commands.Consuntivazione;
+using Super.Appaltatore.Commands.Programmazione;
 using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
 using BuildCmd = Super.Appaltatore.Commands.BuildCmd;

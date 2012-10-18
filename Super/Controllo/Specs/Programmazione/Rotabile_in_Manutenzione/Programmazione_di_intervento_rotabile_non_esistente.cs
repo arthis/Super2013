@@ -7,16 +7,16 @@ using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
-using Super.Appaltatore.Commands;
+using Super.Controllo.Commands;
 using CommonSpecs;
-using Super.Appaltatore.Commands.Programmazione;
-using Super.Appaltatore.Events.Programmazione;
-using Super.Appaltatore.Handlers;
-using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
-using Super.Appaltatore.Events;
+using Super.Controllo.Commands.Programmazione;
+using Super.Controllo.Events.Programmazione;
+using Super.Controllo.Handlers;
+using BuildCmd = Super.Controllo.Commands.BuildCmd;
+using Super.Controllo.Events;
 
 
-namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
+namespace Super.Controllo.Specs.Programmazione.Rotabile_in_Manutenzione
 {
     public class Programmazione_di_intervento_rotabile_in_manutenzione_non_esistente : CommandBaseClass<ProgramInterventoRotMan>
     {

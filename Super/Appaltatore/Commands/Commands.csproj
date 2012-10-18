@@ -118,6 +118,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Programmazione\Super.Appaltatore.Commands.Programmazione.Builders.cs">
+      <DependentUpon>Super.Appaltatore.Commands.Programmazione.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Programmazione\Super.Appaltatore.Commands.Programmazione.cs">
+      <DependentUpon>Super.Appaltatore.Commands.Programmazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Consuntivazione\Super.Appaltatore.Commands.Consuntivazione.Builders.cs">
       <DependentUpon>Super.Appaltatore.Commands.Consuntivazione.Builders.tt</DependentUpon>
@@ -153,6 +163,15 @@
     <None Include="Consuntivazione\Super.Appaltatore.Commands.Consuntivazione.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Super.Appaltatore.Commands.Consuntivazione.cs</LastGenOutput>
+    </None>
+    <None Include="Programmazione\Super.Appaltatore.Commands.Programmazione.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Appaltatore.Commands.Programmazione.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Programmazione\Super.Appaltatore.Commands.Programmazione.json" />
+    <None Include="Programmazione\Super.Appaltatore.Commands.Programmazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Appaltatore.Commands.Programmazione.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

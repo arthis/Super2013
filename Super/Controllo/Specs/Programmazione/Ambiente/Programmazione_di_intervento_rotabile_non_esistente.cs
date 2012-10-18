@@ -4,21 +4,20 @@ using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
-using CommonDomain.Core.Super.Messaging.Builders;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
-using Super.Appaltatore.Commands;
+using Super.Controllo.Commands;
 using CommonSpecs;
-using Super.Appaltatore.Commands.Programmazione;
-using Super.Appaltatore.Events.Programmazione;
-using Super.Appaltatore.Handlers;
-using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
-using Super.Appaltatore.Events;
+using Super.Controllo.Commands.Programmazione;
+using Super.Controllo.Events.Programmazione;
+using Super.Controllo.Handlers;
+using BuildCmd = Super.Controllo.Commands.BuildCmd;
+using Super.Controllo.Events;
 
-namespace Super.Appaltatore.Specs.Programmazione.Ambiente
+namespace Super.Controllo.Specs.Programmazione.Ambiente
 {
-    public class Programmazione_di_intervento_ambiente_gia_esistente : CommandBaseClass<ProgramInterventoAmb>
+    public class Programmazione_di_intervento_ambiente_non_esistente : CommandBaseClass<ProgramInterventoAmb>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _commitId = Guid.NewGuid();
@@ -39,18 +38,7 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
 
         public override IEnumerable<IMessage> Given()
         {
-            //builders
-            yield return  BuildEvt.InterventoAmbProgrammato
-                            .ForWorkPeriod(_workPeriod)
-                            .ForImpianto(_idImpianto)
-                            .OfTipoIntervento(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                            .ForDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .ForQuantity(_quantity)
-                            .ForDescription(_description)
-                            .Build(_id,1);
+            yield break;
         }
 
         public override ProgramInterventoAmb When()
@@ -65,20 +53,28 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
                             .WithNote(_note)
                             .ForQuantity(_quantity)
                             .ForDescription(_description)
-                            .Build(_id, _commitId,1);
-          
+                            .Build(_id, _commitId,0);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield break;
+            yield return BuildEvt.InterventoAmbProgrammato
+                            .ForWorkPeriod(_workPeriod)
+                            .ForImpianto(_idImpianto)
+                            .OfTipoIntervento(_idTipoIntervento)
+                            .ForAppaltatore(_idAppaltatore)
+                            .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                            .ForDirezioneRegionale(_idDirezioneRegionale)
+                            .WithNote(_note)
+                            .ForQuantity(_quantity)
+                            .ForDescription(_description)
+                            .Build(_id,1);
         }
 
         [Test]
-        public void genera_un_eccezzione()
+        public void non_genera_un_eccezzione()
         {
-            Assert.IsNotNull(Caught);
-            Assert.AreEqual(typeof(AlreadyCreatedAggregateRootException), Caught.GetType());
+            Assert.IsNull(Caught);
         }
 
 

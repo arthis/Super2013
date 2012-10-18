@@ -28,16 +28,8 @@ namespace Super.Appaltatore.Domain
 
             )
         {
-
-            //builders
-            var workPeriodBuilder = new MsgWorkPeriodBuilder();
-            
-
-
-            workPeriod.BuildValue(workPeriodBuilder);
-
             var evt = BuildEvt.InterventoAmbProgrammato
-                            .ForWorkPeriod(workPeriodBuilder.Build())
+                            .ForWorkPeriod(workPeriod.ToMessage())
                             .ForImpianto(idImpianto)
                             .OfTipoIntervento(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)

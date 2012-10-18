@@ -5,25 +5,26 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
-using Super.Appaltatore.Commands;
-using Super.Appaltatore.Commands.Programmazione;
-using Super.Appaltatore.Domain;
+using Super.Controllo.Commands;
+using Super.Controllo.Commands.Programmazione;
+using Super.Controllo.Domain;
 
-namespace Super.Appaltatore.Handlers
+namespace Super.Controllo.Handlers
 {
-    public class ProgramInterventoAmbHandler : CommandHandler<ProgramInterventoAmb>
+    public class ProgramInterventoRotManHandler : CommandHandler<ProgramInterventoRotMan>
     {
-        public ProgramInterventoAmbHandler(IEventRepository eventRepository)
+        public ProgramInterventoRotManHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(ProgramInterventoAmb cmd)
+        public override CommandValidation Execute(ProgramInterventoRotMan cmd)
         {
+
             Contract.Requires(cmd != null);
 
 
-            var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<InterventoRotMan>(cmd.Id);
 
             if (!existingIntervento.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
@@ -36,8 +37,7 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdDirezioneRegionale
                                 , cmd.WorkPeriod.ToDomain()
                                 , cmd.Note
-                                , cmd.Quantity
-                                , cmd.Description);
+                                , cmd.Oggetti.ToDomain());
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

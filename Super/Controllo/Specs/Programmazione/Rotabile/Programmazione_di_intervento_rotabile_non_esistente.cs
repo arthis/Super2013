@@ -7,18 +7,17 @@ using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
-using Super.Appaltatore.Commands;
+using Super.Controllo.Commands;
 using CommonSpecs;
-using Super.Appaltatore.Commands.Programmazione;
-using Super.Appaltatore.Events.Programmazione;
-using Super.Appaltatore.Handlers;
-using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
-using Super.Appaltatore.Events;
+using Super.Controllo.Commands.Programmazione;
+using Super.Controllo.Events.Programmazione;
+using Super.Controllo.Handlers;
+using BuildCmd = Super.Controllo.Commands.BuildCmd;
+using Super.Controllo.Events;
 
-
-namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
+namespace Super.Controllo.Specs.Programmazione.Rotabile
 {
-    public class Programmazione_di_intervento_rotabile_in_manutenzione_non_esistente : CommandBaseClass<ProgramInterventoRotMan>
+    public class Programmazione_di_intervento_rotabile_non_esistente : CommandBaseClass<ProgramInterventoRot>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _commitId = Guid.NewGuid();
@@ -28,12 +27,18 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
         readonly Guid _idCategoriaCommerciale = Guid.NewGuid();
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
         readonly WorkPeriod _workPeriod = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-10));
-        List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desccons", 22, Guid.NewGuid(), Guid.NewGuid()) };
+        List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desccons", 22, Guid.NewGuid(), Guid.NewGuid()) };
+        Treno _trenoArrivo = new Treno("numeroA cons", DateTime.Now.AddHours(10));
+        Treno _trenoPartenza = new Treno("numeroP cons", DateTime.Now.AddHours(15));
+
+        string _turnoTreno = "turno";
+        string _rigaTurnoTreno = "rigaturno";
+        string _convoglio = "convoglio";
         string _note = "note";
 
-        protected override CommandHandler<ProgramInterventoRotMan> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<ProgramInterventoRot> OnHandle(IEventRepository eventRepository)
         {
-            return new ProgramInterventoRotManHandler(eventRepository);
+            return new ProgramInterventoRotHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -41,9 +46,10 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
             yield break;
         }
 
-        public override ProgramInterventoRotMan When()
+        public override ProgramInterventoRot When()
         {
-            return BuildCmd.ProgramInterventoRotMan
+
+            return BuildCmd.ProgramInterventoRot
                 .WithOggetti(_oggetti.ToArray())
                 .ForWorkPeriod(_workPeriod)
                 .ForImpianto(_idImpianto)
@@ -52,12 +58,17 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
                 .ForCategoriaCommerciale(_idCategoriaCommerciale)
                 .ForDirezioneRegionale(_idDirezioneRegionale)
                 .WithNote(_note)
-                .Build(_id,_commitId,0);
+                .WithTrenoPartenza(_trenoPartenza)
+                .WithTrenoArrivo(_trenoArrivo)
+                .WithTurnoTreno(_turnoTreno)
+                .WithRigaTurnoTreno(_rigaTurnoTreno)
+                .ForConvoglio(_convoglio)
+                .Build(_id, _commitId, 0);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.InterventoRotManProgrammato
+            yield return BuildEvt.InterventoRotProgrammato
                 .WithOggetti(_oggetti.ToArray())
                 .ForWorkPeriod(_workPeriod)
                 .ForImpianto(_idImpianto)
@@ -66,7 +77,12 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
                 .ForCategoriaCommerciale(_idCategoriaCommerciale)
                 .ForDirezioneRegionale(_idDirezioneRegionale)
                 .WithNote(_note)
-                .Build(_id, 1);
+                .WithTrenoPartenza(_trenoPartenza)
+                .WithTrenoArrivo(_trenoArrivo)
+                .WithTurnoTreno(_turnoTreno)
+                .WithRigaTurnoTreno(_rigaTurnoTreno)
+                .ForConvoglio(_convoglio)
+                .Build(_id,1);
         }
 
         [Test]

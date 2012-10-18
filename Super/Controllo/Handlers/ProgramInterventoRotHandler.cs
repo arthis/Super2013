@@ -1,29 +1,31 @@
 using System;
 using System.Diagnostics.Contracts;
+using System.Linq;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
-using Super.Appaltatore.Commands;
-using Super.Appaltatore.Commands.Programmazione;
-using Super.Appaltatore.Domain;
+using Super.Controllo.Commands;
+using Super.Controllo.Commands.Programmazione;
+using Super.Controllo.Domain;
 
-namespace Super.Appaltatore.Handlers
+namespace Super.Controllo.Handlers
 {
-    public class ProgramInterventoAmbHandler : CommandHandler<ProgramInterventoAmb>
+    public class ProgramInterventoRotHandler : CommandHandler<ProgramInterventoRot>
     {
-        public ProgramInterventoAmbHandler(IEventRepository eventRepository)
+        public ProgramInterventoRotHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(ProgramInterventoAmb cmd)
+        public override CommandValidation Execute(ProgramInterventoRot cmd)
         {
+
             Contract.Requires(cmd != null);
 
 
-            var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<InterventoRot>(cmd.Id);
 
             if (!existingIntervento.IsNull())
                 throw new AlreadyCreatedAggregateRootException();
@@ -36,8 +38,12 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.IdDirezioneRegionale
                                 , cmd.WorkPeriod.ToDomain()
                                 , cmd.Note
-                                , cmd.Quantity
-                                , cmd.Description);
+                                , cmd.Oggetti.ToDomain()
+                                , cmd.TrenoArrivo.ToDomain()
+                                , cmd.TrenoPartenza.ToDomain()
+                                , cmd.TurnoTreno
+                                , cmd.RigaTurnoTreno
+                                , cmd.Convoglio);
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

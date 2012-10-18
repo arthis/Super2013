@@ -21,7 +21,7 @@ namespace Super.Appaltatore.Domain
                                 , Guid idAppaltatore
                                 , Guid idCategoriaCommerciale
                                 , Guid idDirezioneRegionale
-                                , WorkPeriod period
+                                , WorkPeriod workPeriod
                                 , string note
                                 , IEnumerable<OggettoRot> oggetti
                                 ,Treno trenoArrivo
@@ -32,26 +32,18 @@ namespace Super.Appaltatore.Domain
             )
         {
 
-            //builders
-            var periodBuilder = new MsgWorkPeriodBuilder();
-            var trenoPartenzaBuilder = new MsgTrenoBuilder();
-            var trenoArrivoBuilder = new MsgTrenoBuilder();
-
-            period.BuildValue(periodBuilder);
-            trenoPartenza.BuildValue(trenoPartenzaBuilder);
-            trenoArrivo.BuildValue(trenoArrivoBuilder);
 
             var evt = BuildEvt.InterventoRotProgrammato
                             .WithOggetti(oggetti.ToMessage().ToArray())
-                            .ForWorkPeriod(periodBuilder.Build())
+                            .ForWorkPeriod(workPeriod.ToMessage())
                             .ForImpianto(idImpianto)
                             .OfTipoIntervento(idTipoIntervento)
                             .ForAppaltatore(idAppaltatore)
                             .ForCategoriaCommerciale(idCategoriaCommerciale)
                             .ForDirezioneRegionale(idDirezioneRegionale)
                             .WithNote(note)
-                            .WithTrenoPartenza(trenoPartenzaBuilder.Build())
-                            .WithTrenoArrivo(trenoArrivoBuilder.Build())
+                            .WithTrenoPartenza(trenoPartenza.ToMessage())
+                            .WithTrenoArrivo(trenoArrivo.ToMessage())
                             .WithTurnoTreno(turnoTreno)
                             .WithRigaTurnoTreno(rigaTurnoTreno)
                             .ForConvoglio(convoglio);

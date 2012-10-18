@@ -113,12 +113,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Close\Chiudiere_un_intervento.cs" />
-    <Compile Include="Close\Chiudiere_un_intervento_cui_controllo_non_era_permesso.cs" />
-    <Compile Include="Controllo_intervento_non_reso\Controllare_un_intervento_non_reso.cs" />
-    <Compile Include="Controllo_intervento_non_reso\Controllare_un_intervento_non_reso_cui_controllo_non_era_permesso.cs" />
-    <Compile Include="Permessi_Controllo\Permettere_il_controllo_di_un_intervento_gia_permesso_prima.cs" />
-    <Compile Include="Permessi_Controllo\Permettere_il_controllo_di_un_intervento.cs" />
+    <Compile Include="Consuntivazione\Chiudiere_un_intervento.cs" />
+    <Compile Include="Consuntivazione\Chiudiere_un_intervento_cui_controllo_non_era_permesso.cs" />
+    <Compile Include="Consuntivazione\Controllare_un_intervento_non_reso.cs" />
+    <Compile Include="Consuntivazione\Controllare_un_intervento_non_reso_cui_controllo_non_era_permesso.cs" />
+    <Compile Include="Consuntivazione\Permettere_il_controllo_di_un_intervento_gia_permesso_prima.cs" />
+    <Compile Include="Consuntivazione\Permettere_il_controllo_di_un_intervento.cs" />
+    <Compile Include="Programmazione\Ambiente\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
+    <Compile Include="Programmazione\Ambiente\Programmazione_di_intervento_rotabile_non_esistente.cs" />
+    <Compile Include="Programmazione\Rotabile\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
+    <Compile Include="Programmazione\Rotabile\Programmazione_di_intervento_rotabile_non_esistente.cs" />
+    <Compile Include="Programmazione\Rotabile_in_Manutenzione\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
+    <Compile Include="Programmazione\Rotabile_in_Manutenzione\Programmazione_di_intervento_rotabile_non_esistente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

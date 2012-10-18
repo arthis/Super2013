@@ -5,11 +5,11 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
-using Super.Appaltatore.Commands;
-using Super.Appaltatore.Commands.Programmazione;
-using Super.Appaltatore.Domain;
+using Super.Controllo.Commands;
+using Super.Controllo.Commands.Programmazione;
+using Super.Controllo.Domain;
 
-namespace Super.Appaltatore.Handlers
+namespace Super.Controllo.Handlers
 {
     public class ProgramInterventoAmbHandler : CommandHandler<ProgramInterventoAmb>
     {

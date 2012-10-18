@@ -6,7 +6,8 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
-using Super.Appaltatore.Commands;
+using BuildControlloCmd =  Super.Controllo.Commands.BuildCmd;
+using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 using Super.Programmazione.Events.Intervento;
 using Super.Programmazione.Events;
 using Super.Saga.Handlers.Intervento;
@@ -65,7 +66,7 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildCmd.ProgramInterventoRotMan
+            yield return BuildAppaltatoreCmd.ProgramInterventoRotMan
                             .ForWorkPeriod(_workPeriod)
                            .ForImpianto(_idImpianto)
                            .OfTipoIntervento(_idTipoIntervento)
@@ -80,7 +81,7 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione
                            .WithOggetti(_oggetti.ToArray())
                            .Build(_id, 0);
 
-            yield return BuildCmd.ConsuntivareAutomaticamenteNonReso
+            yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
                 .Build(_id, 999, _dataConsuntivazioneAutomatica);
         }
 

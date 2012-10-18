@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonDomain;
-using CommonDomain.Core;
-using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
 using NUnit.Framework;
@@ -12,7 +10,7 @@ using Super.Controllo.Commands.Consuntivazione;
 using Super.Controllo.Events;
 using Super.Controllo.Handlers;
 
-namespace Super.Controllo.Specs.Permessi_Controllo
+namespace Super.Controllo.Specs.Consuntivazione
 {
     public class Permettere_il_controllo_di_un_intervento : CommandBaseClass<AllowInterventoControl>
     {

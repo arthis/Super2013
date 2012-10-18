@@ -122,6 +122,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Programmazione\Super.Controllo.Events.Programmazione.Builders.cs">
+      <DependentUpon>Super.Controllo.Events.Programmazione.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Programmazione\Super.Controllo.Events.Programmazione.cs">
+      <DependentUpon>Super.Controllo.Events.Programmazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +153,15 @@
     <None Include="Consuntivazione\Super.Controllo.Events.Consuntivazione.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Super.Controllo.Events.Consuntivazione.cs</LastGenOutput>
+    </None>
+    <None Include="Programmazione\Super.Controllo.Events.Programmazione.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Controllo.Events.Programmazione.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Programmazione\Super.Controllo.Events.Programmazione.json" />
+    <None Include="Programmazione\Super.Controllo.Events.Programmazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Controllo.Events.Programmazione.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

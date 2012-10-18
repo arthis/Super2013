@@ -119,6 +119,9 @@
     <Compile Include="ControlResoInterventoRotHandler.cs" />
     <Compile Include="ControlResoInterventoRotManHandler.cs" />
     <Compile Include="ControlInterventoAmbResoHandler.cs" />
+    <Compile Include="ProgramInterventoAmbHandler.cs" />
+    <Compile Include="ProgramInterventoRotHandler.cs" />
+    <Compile Include="ProgramInterventoRotManHandler.cs" />
     <Compile Include="ReopenInterventoHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
