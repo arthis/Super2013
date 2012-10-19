@@ -41,7 +41,7 @@ namespace Super.Saga.Domain.Consuntivazione
             if (!_stateMachine.IsInState(State.Start))
                 throw new SagaStateException("Saga already started");
 
-            var cmdProgramm = BuildAppaltatoreCmd.ProgramInterventoRot
+            var cmdProgrammAppaltatore = BuildAppaltatoreCmd.ProgramInterventoRot
                                 .ForWorkPeriod(evt.WorkPeriod)
                                 .ForImpianto(evt.IdImpianto)
                                 .OfTipoIntervento(evt.IdTipoIntervento)
@@ -51,7 +51,7 @@ namespace Super.Saga.Domain.Consuntivazione
                                 .WithNote(evt.Note)
                                 .ForCommittente(evt.IdCommittente)
                                 .ForLotto(evt.IdLotto)
-                                .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)                               
+                                .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)                     
                                 .WithOggetti(evt.Oggetti)
                                 .WithTrenoPartenza(evt.TrenoPartenza)
                                 .WithTrenoArrivo(evt.TrenoArrivo)
@@ -61,7 +61,29 @@ namespace Super.Saga.Domain.Consuntivazione
                                 .ForProgramma(evt.IdProgramma)
                                 .Build(evt.Id, 0);
 
-            Dispatch(cmdProgramm);
+            Dispatch(cmdProgrammAppaltatore);
+
+            var cmdProgrammControllo = BuildControlloCmd.ProgramInterventoRot
+                                .ForWorkPeriod(evt.WorkPeriod)
+                                .ForImpianto(evt.IdImpianto)
+                                .OfTipoIntervento(evt.IdTipoIntervento)
+                                .ForAppaltatore(evt.IdAppaltatore)
+                                .ForCategoriaCommerciale(evt.IdCategoriaCommerciale)
+                                .ForDirezioneRegionale(evt.IdDirezioneRegionale)
+                                .WithNote(evt.Note)
+                                .ForCommittente(evt.IdCommittente)
+                                .ForLotto(evt.IdLotto)
+                                .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)
+                                .WithOggetti(evt.Oggetti)
+                                .WithTrenoPartenza(evt.TrenoPartenza)
+                                .WithTrenoArrivo(evt.TrenoArrivo)
+                                .WithTurnoTreno(evt.TurnoTreno)
+                                .WithRigaTurnoTreno(evt.RigaTurnoTreno)
+                                .ForConvoglio(evt.Convoglio)
+                                .ForProgramma(evt.IdProgramma)
+                                .Build(evt.Id, 0);
+
+            Dispatch(cmdProgrammControllo);
 
             var cmdTimeOut = BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
                 .Build(evt.Id, 999, evt.WorkPeriod.EndDate.AddMinutes(20));

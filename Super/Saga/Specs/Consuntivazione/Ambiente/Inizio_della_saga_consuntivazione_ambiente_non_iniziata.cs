@@ -6,7 +6,8 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
-using Super.Appaltatore.Commands;
+using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
+using BuildControlloCmd = Super.Controllo.Commands.BuildCmd;
 using Super.Programmazione.Events.Intervento;
 using Super.Programmazione.Events;
 using Super.Saga.Handlers.Intervento;
@@ -69,18 +70,39 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
         public override IEnumerable<IMessage> Expect()
         {
 
-            yield return BuildCmd.ProgramInterventoAmb
-                            .ForWorkPeriod(_workPeriod)
-                            .ForImpianto(_idImpianto)
-                            .OfTipoIntervento(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                            .ForDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .ForQuantity(_quantity)
-                            .ForDescription(_description)
-                            .Build(_id, 0);
-            yield return BuildCmd.ConsuntivareAutomaticamenteNonReso
+            yield return BuildAppaltatoreCmd.ProgramInterventoAmb
+                .ForWorkPeriod(_workPeriod)
+                .ForImpianto(_idImpianto)
+                .OfTipoIntervento(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .ForQuantity(_quantity)
+                .ForDescription(_description)
+                .WithNote(_note)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForProgramma(_idProgramma)
+                .ForLotto(_idLotto)
+                .Build(_id, 0);
+            
+            yield return BuildControlloCmd.ProgramInterventoAmb
+                .ForWorkPeriod(_workPeriod)
+                .ForImpianto(_idImpianto)
+                .OfTipoIntervento(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .ForQuantity(_quantity)
+                .ForDescription(_description)
+                .WithNote(_note)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForProgramma(_idProgramma)
+                .ForLotto(_idLotto)
+                .Build(_id, 0);
+
+            yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
                             .Build(_id, 999, _dataConsuntivazioneAutomatica);
         }
 

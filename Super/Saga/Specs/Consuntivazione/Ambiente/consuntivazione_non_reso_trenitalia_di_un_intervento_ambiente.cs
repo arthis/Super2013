@@ -7,7 +7,8 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Appaltatore.Events.Consuntivazione;
-using Super.Controllo.Commands;
+using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
+using BuildControlloCmd = Super.Controllo.Commands.BuildCmd;
 
 using Super.Programmazione.Events;
 using Super.Saga.Handlers.Intervento;
@@ -80,7 +81,7 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildCmd.AllowInterventoControl
+            yield return BuildControlloCmd.AllowInterventoControl
                                      .Build(_id, 0);
         }
 

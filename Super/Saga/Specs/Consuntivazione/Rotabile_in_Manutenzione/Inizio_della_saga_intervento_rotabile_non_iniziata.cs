@@ -14,7 +14,7 @@ using Super.Saga.Handlers.Intervento;
 
 namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione
 {
-    public class Inizio_della_saga_consuntivazione_rotabile_in_manutenzione_non_iniziata : SagaBaseClass<InterventoRotManCreated>
+    public class inizio_della_saga_consuntivazione_rotabile_in_manutenzione_non_iniziata : SagaBaseClass<InterventoRotManCreated>
     {
         readonly Guid _id = Guid.NewGuid();
         readonly Guid _idImpianto = Guid.NewGuid();
@@ -67,6 +67,21 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildAppaltatoreCmd.ProgramInterventoRotMan
+                            .ForWorkPeriod(_workPeriod)
+                           .ForImpianto(_idImpianto)
+                           .OfTipoIntervento(_idTipoIntervento)
+                           .ForAppaltatore(_idAppaltatore)
+                           .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                           .ForDirezioneRegionale(_idDirezioneRegionale)
+                           .WithNote(_note)
+                           .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                           .ForCommittente(_idCommittente)
+                           .ForProgramma(_idProgramma)
+                           .ForLotto(_idLotto)
+                           .WithOggetti(_oggetti.ToArray())
+                           .Build(_id, 0);
+
+            yield return BuildControlloCmd.ProgramInterventoRotMan
                             .ForWorkPeriod(_workPeriod)
                            .ForImpianto(_idImpianto)
                            .OfTipoIntervento(_idTipoIntervento)

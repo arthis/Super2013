@@ -42,19 +42,41 @@ namespace Super.Saga.Domain.Consuntivazione
             if (!_stateMachine.IsInState(State.Start))
                 throw  new SagaStateException("Saga already started");
 
-            var cmdProgramm = BuildAppaltatoreCmd.ProgramInterventoAmb
+            var cmdAppaltatore = BuildAppaltatoreCmd.ProgramInterventoAmb
                                 .ForWorkPeriod(evt.WorkPeriod)
                                 .ForImpianto(evt.IdImpianto)
                                 .OfTipoIntervento(evt.IdTipoIntervento)
                                 .ForAppaltatore(evt.IdAppaltatore)
                                 .ForCategoriaCommerciale(evt.IdCategoriaCommerciale)
                                 .ForDirezioneRegionale(evt.IdDirezioneRegionale)
-                                .WithNote(evt.Note)
                                 .ForQuantity(evt.Quantity)
                                 .ForDescription(evt.Description)
+                                .WithNote(evt.Note)
+                                .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)
+                                .ForCommittente(evt.IdCommittente)
+                                .ForProgramma(evt.IdProgramma)
+                                .ForLotto(evt.IdLotto)
                                 .Build(evt.Id,0);
 
-            Dispatch(cmdProgramm);
+            Dispatch(cmdAppaltatore);
+
+            var cmdControllo = BuildControlloCmd.ProgramInterventoAmb
+                                .ForWorkPeriod(evt.WorkPeriod)
+                                .ForImpianto(evt.IdImpianto)
+                                .OfTipoIntervento(evt.IdTipoIntervento)
+                                .ForAppaltatore(evt.IdAppaltatore)
+                                .ForCategoriaCommerciale(evt.IdCategoriaCommerciale)
+                                .ForDirezioneRegionale(evt.IdDirezioneRegionale)
+                                .ForQuantity(evt.Quantity)
+                                .ForDescription(evt.Description)
+                                .WithNote(evt.Note)
+                                .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)
+                                .ForCommittente(evt.IdCommittente)
+                                .ForProgramma(evt.IdProgramma)
+                                .ForLotto(evt.IdLotto)
+                                .Build(evt.Id, 0);
+
+            Dispatch(cmdControllo);
 
             var cmdTimeOut = BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
                 .Build(evt.Id, 999, evt.WorkPeriod.EndDate.AddMinutes(20));

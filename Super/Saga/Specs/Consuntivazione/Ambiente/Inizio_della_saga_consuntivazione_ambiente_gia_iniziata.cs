@@ -10,6 +10,8 @@ using Super.Programmazione.Events.Intervento;
 using Super.Programmazione.Events;
 using Super.Saga.Domain.Exceptions;
 using Super.Saga.Handlers.Intervento;
+using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
+using BuildControlloCmd = Super.Controllo.Commands.BuildCmd;
 
 namespace Super.Saga.Specs.Consuntivazione.Ambiente
 {

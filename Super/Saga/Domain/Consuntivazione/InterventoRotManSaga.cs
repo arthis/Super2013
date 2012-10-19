@@ -42,7 +42,7 @@ namespace Super.Saga.Domain.Consuntivazione
             if (!_stateMachine.IsInState(State.Start))
                 throw new SagaStateException("Saga already started");
 
-            var cmd = BuildAppaltatoreCmd.ProgramInterventoRotMan
+            var cmdProgrammAppaltatore = BuildAppaltatoreCmd.ProgramInterventoRotMan
                                 .ForWorkPeriod(evt.WorkPeriod)
                                 .ForImpianto(evt.IdImpianto)
                                 .OfTipoIntervento(evt.IdTipoIntervento)
@@ -58,7 +58,25 @@ namespace Super.Saga.Domain.Consuntivazione
                                 .WithNote(evt.Note)
                                 .Build(evt.Id, 0);
 
-            Dispatch(cmd);
+            Dispatch(cmdProgrammAppaltatore);
+
+            var cmdProgrammControllo = BuildControlloCmd.ProgramInterventoRotMan
+                                .ForWorkPeriod(evt.WorkPeriod)
+                                .ForImpianto(evt.IdImpianto)
+                                .OfTipoIntervento(evt.IdTipoIntervento)
+                                .ForAppaltatore(evt.IdAppaltatore)
+                                .ForCategoriaCommerciale(evt.IdCategoriaCommerciale)
+                                .ForDirezioneRegionale(evt.IdDirezioneRegionale)
+                                .WithNote(evt.Note)
+                                .WithOggetti(evt.Oggetti)
+                                .ForProgramma(evt.IdProgramma)
+                                .ForCommittente(evt.IdCommittente)
+                                .ForLotto(evt.IdLotto)
+                                .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)
+                                .WithNote(evt.Note)
+                                .Build(evt.Id, 0);
+
+            Dispatch(cmdProgrammControllo);
 
             var cmdTimeOut = BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
                 .Build(evt.Id, 999, evt.WorkPeriod.EndDate.AddMinutes(20));
