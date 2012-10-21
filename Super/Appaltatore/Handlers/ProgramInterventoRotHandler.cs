@@ -43,7 +43,11 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.TrenoPartenza.ToDomain()
                                 , cmd.TurnoTreno
                                 , cmd.RigaTurnoTreno
-                                , cmd.Convoglio);
+                                , cmd.Convoglio
+                                , cmd.IdCommittente
+                                , cmd.IdPeriodoProgrammazione
+                                , cmd.IdProgramma
+                                , cmd.IdLotto);
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

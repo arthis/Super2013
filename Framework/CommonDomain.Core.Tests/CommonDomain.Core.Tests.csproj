@@ -73,6 +73,9 @@
     <Reference Include="Moq">
       <HintPath>..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\lib\NUnit 2.5.10\framework\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -85,6 +88,8 @@
     <Compile Include="MyMessage.cs" />
     <Compile Include="MyFinalHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Super\Domain\ValueObjects\IntervalTests.cs" />
+    <Compile Include="Super\Domain\ValueObjects\WorkPeriodTests.cs" />
     <Compile Include="when_a_command_is_executed_by_the_session_handler.cs" />
     <Compile Include="when_a_command_is_executed_by_the_session_handler_and_the_token_is_known.cs" />
   </ItemGroup>
@@ -105,6 +110,7 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

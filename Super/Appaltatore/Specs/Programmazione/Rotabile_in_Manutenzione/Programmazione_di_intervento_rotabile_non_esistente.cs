@@ -30,6 +30,10 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
         readonly WorkPeriod _workPeriod = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-10));
         List<OggettoRotMan> _oggetti = new List<OggettoRotMan>() { new OggettoRotMan("desccons", 22, Guid.NewGuid(), Guid.NewGuid()) };
         string _note = "note";
+        private Guid _idProgramma = Guid.NewGuid();
+        private Guid _idPeriodoProgrammazione = Guid.NewGuid();
+        private Guid _idCommittente = Guid.NewGuid();
+        private Guid _idlotto = Guid.NewGuid();
 
         protected override CommandHandler<ProgramInterventoRotMan> OnHandle(IEventRepository eventRepository)
         {
@@ -52,6 +56,10 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
                 .ForCategoriaCommerciale(_idCategoriaCommerciale)
                 .ForDirezioneRegionale(_idDirezioneRegionale)
                 .WithNote(_note)
+                .ForProgramma(_idProgramma)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForLotto(_idlotto)
                 .Build(_id,_commitId,0);
         }
 
@@ -66,6 +74,10 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
                 .ForCategoriaCommerciale(_idCategoriaCommerciale)
                 .ForDirezioneRegionale(_idDirezioneRegionale)
                 .WithNote(_note)
+                .ForProgramma(_idProgramma)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForLotto(_idlotto)
                 .Build(_id, 1);
         }
 

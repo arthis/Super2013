@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
     <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
@@ -81,11 +81,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandlerService.cs" />
-    <Compile Include="ConsuntivareNonResoTrenitaliaHandler.cs" />
+    <Compile Include="ConsuntivareNonResoTrenitaliaInterventoRotHandler.cs" />
     <Compile Include="ConsuntivareResoAmbHandler.cs" />
     <Compile Include="ConsuntivareResoRotManHandler.cs" />
     <Compile Include="ConsuntivareResoRotHandler.cs" />
-    <Compile Include="ConsuntivareNonResoHandler.cs" />
+    <Compile Include="ConsuntivareNonResoInterventoRotHandler.cs" />
+    <Compile Include="ConsuntivareNonResoInterventoRotManHandler.cs" />
+    <Compile Include="ConsuntivareNonResoInterventoAmbHandler.cs" />
+    <Compile Include="ConsuntivareNonResoTrenitaliaInterventoAmbHandler.cs" />
+    <Compile Include="ConsuntivareNonResoTrenitaliaInterventoRotManHandler.cs" />
     <Compile Include="ProgramInterventoRotManHandler.cs" />
     <Compile Include="ProgramInterventoAmbHandler.cs" />
     <Compile Include="ProgramInterventoRotHandler.cs" />

@@ -10,11 +10,9 @@ using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 
 namespace Super.Saga.Domain.Consuntivazione
 {
-    public class ConsuntivaziioneRotSaga : SagaBase<Message>
+    public class ConsuntivaziioneRotSaga : ConsuntivazioneSaga
     {
 
-        private readonly StateMachine<State, Trigger> _stateMachine;
-        private State _state = State.Start;
 
         public ConsuntivaziioneRotSaga()
         {
@@ -22,17 +20,6 @@ namespace Super.Saga.Domain.Consuntivazione
             Register<InterventoRotConsuntivatoReso>(OnInterventoConsuntivato);
             Register<InterventoRotConsuntivatoNonReso>(OnInterventoConsuntivato);
             Register<InterventoRotConsuntivatoNonResoTrenitalia>(OnInterventoConsuntivato);
-
-            _stateMachine = new StateMachine<State, Trigger>(() => _state, newState => _state = newState);
-
-            _stateMachine.Configure(State.Start)
-                .Permit(Trigger.Scheduled, State.Programmation);
-
-            _stateMachine.Configure(State.Programmation)
-                .Permit(Trigger.Consuntivato, State.Control);
-
-            _stateMachine.Configure(State.Control)
-                .Permit(Trigger.Closed, State.End);
 
         }
 
@@ -102,7 +89,7 @@ namespace Super.Saga.Domain.Consuntivazione
         }
 
 
-        public void ConsuntivareIntervento(IInterventoConsuntivato evt)
+        public void ConsuntivareResoIntervento(IInterventoConsuntivato evt)
         {
             if (!_stateMachine.IsInState(State.Programmation))
                 throw new SagaStateException("Saga is not in programamtion state");

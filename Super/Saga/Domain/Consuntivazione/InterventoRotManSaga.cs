@@ -11,29 +11,15 @@ using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 
 namespace Super.Saga.Domain.Consuntivazione
 {
-    public class ConsuntivaziioneRotManSaga : SagaBase<Message>
+    public class ConsuntivaziioneRotManSaga : ConsuntivazioneSaga
     {
-
-        private readonly StateMachine<State, Trigger> _stateMachine;
-        private State _state = State.Start;
 
         public ConsuntivaziioneRotManSaga()
         {
-            Register<InterventoRotManCreated>(OnInterventoRotManGenerated);
+            Register<InterventoRotManCreated>(OnInterventoRotManCreated);
             Register<InterventoRotManConsuntivatoReso>(OnInterventoConsuntivato);
             Register<InterventoRotManConsuntivatoNonReso>(OnInterventoConsuntivato);
             Register<InterventoRotManConsuntivatoNonResoTrenitalia>(OnInterventoConsuntivato);
-
-            _stateMachine = new StateMachine<State, Trigger>(() => _state, newState => _state = newState);
-
-            _stateMachine.Configure(State.Start)
-                .Permit(Trigger.Scheduled, State.Programmation);
-
-            _stateMachine.Configure(State.Programmation)
-                .Permit(Trigger.Consuntivato, State.Control);
-
-            _stateMachine.Configure(State.Control)
-                .Permit(Trigger.Closed, State.End);
 
         }
 
@@ -78,7 +64,7 @@ namespace Super.Saga.Domain.Consuntivazione
 
             Dispatch(cmdProgrammControllo);
 
-            var cmdTimeOut = BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
+            var cmdTimeOut = BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonResoInterventoRotMan
                 .Build(evt.Id, 999, evt.WorkPeriod.EndDate.AddMinutes(20));
 
             Dispatch(cmdTimeOut);
@@ -86,7 +72,7 @@ namespace Super.Saga.Domain.Consuntivazione
             Transition(evt);
         }
 
-        private void OnInterventoRotManGenerated(InterventoRotManCreated evt)
+        private void OnInterventoRotManCreated(InterventoRotManCreated evt)
         {
             //assign the Id for the Saga
             Id = evt.Id;
@@ -94,7 +80,7 @@ namespace Super.Saga.Domain.Consuntivazione
             _stateMachine.Fire(Trigger.Scheduled);
         }
 
-        public void ConsuntivareIntervento(IInterventoConsuntivato evt)
+        public void ConsuntivareResoIntervento(IInterventoConsuntivato evt)
         {
             if (!_stateMachine.IsInState(State.Programmation))
                 throw new SagaStateException("Saga is not in programamtion state");

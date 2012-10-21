@@ -3,36 +3,35 @@ using System.Diagnostics.Contracts;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
-using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
+using Super.Appaltatore.Commands;
 using Super.Appaltatore.Commands.Consuntivazione;
 using Super.Appaltatore.Domain;
 
 namespace Super.Appaltatore.Handlers
 {
-    public class ConsuntivareResoAmbHandler : CommandHandler<ConsuntivareResoInterventoAmb>
+    public class ConsuntivareNonResoInterventoRotHandler : CommandHandler<ConsuntivareNonResoInterventoRot>
     {
-        public ConsuntivareResoAmbHandler(IEventRepository eventRepository)
+        public ConsuntivareNonResoInterventoRotHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(ConsuntivareResoInterventoAmb cmd)
+        public override CommandValidation Execute(ConsuntivareNonResoInterventoRot cmd)
         {
             Contract.Requires(cmd != null);
 
-            var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
+
+            var existingIntervento = EventRepository.GetById<InterventoRot>(cmd.Id);
 
             if (existingIntervento.IsNull())
                 throw new HandlerForMessageNotFoundException();
 
-            existingIntervento.ConsuntivareReso(cmd.Id
-                                , cmd.DataConsuntivazione
-                                , cmd.WorkPeriod.ToDomain()
+            existingIntervento.ConsuntivareNonReso(cmd.Id
                                 , cmd.IdInterventoAppaltatore
-                                , cmd.Note
-                                , cmd.Description
-                                , cmd.Quantity);
+                                , cmd.DataConsuntivazione
+                                , cmd.IdCausaleAppaltatore
+                                , cmd.Note);
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

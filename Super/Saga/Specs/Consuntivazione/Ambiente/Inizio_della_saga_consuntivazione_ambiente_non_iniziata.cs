@@ -6,6 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Saga.Handlers.Consuntivazione;
 using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 using BuildControlloCmd = Super.Controllo.Commands.BuildCmd;
 using Super.Programmazione.Events.Intervento;
@@ -102,7 +103,7 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
                 .ForLotto(_idLotto)
                 .Build(_id, 0);
 
-            yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
+            yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonResoInterventoAmb
                             .Build(_id, 999, _dataConsuntivazioneAutomatica);
         }
 

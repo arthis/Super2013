@@ -18,7 +18,7 @@ using Super.Appaltatore.Events;
 
 namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
 {
-    public class Consuntivazione_reso_di_intervento_rotabile_programmato : CommandBaseClass<ConsuntivareResoRot>
+    public class consuntivazione_reso_di_intervento_rotabile_programmato : CommandBaseClass<ConsuntivareResoInterventoRot>
     {
         //programmato
         readonly Guid _id = Guid.NewGuid();
@@ -29,7 +29,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
         readonly Guid _idDirezioneRegionale = Guid.NewGuid();
 
         List<OggettoRot> _oggetti = new List<OggettoRot>() { new OggettoRot("desc", 15 , Guid.NewGuid(), Guid.NewGuid())};
-        readonly WorkPeriod _period = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
+        readonly WorkPeriod _workPeriod = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
         Treno _trenoArrivo = new Treno("numeroA" , DateTime.Now.AddHours(9));
         Treno _trenoPartenza = new Treno("numeroP", DateTime.Now.AddHours(14));
         string _turnoTreno = "turno";
@@ -42,15 +42,14 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
         readonly string _idInterventoAppaltatore = "id intervento appaltatore";
         readonly DateTime _dataConsuntivazione = DateTime.Now;
         string _noteCons = "note";
-        readonly WorkPeriod _workPeriodCons = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-10));
+        readonly WorkPeriod _workPeriodCons = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-20));
         List<OggettoRot> _oggettiCons = new List<OggettoRot>() { new OggettoRot("desccons", 22, Guid.NewGuid(), Guid.NewGuid()) };
-        Treno _trenoArrivoCons = new Treno("numeroA cons", DateTime.Now.AddHours(10));
-        Treno _trenoPartenzaCons = new Treno("numeroP cons", DateTime.Now.AddHours(15));
-        string _turnoTrenoCons = "turno Cons";
-        string _rigaTurnoTrenoCons = "rigaturno Cons";
-        string _convoglioCons = "convoglio Cons";
-        
-        protected override CommandHandler<ConsuntivareResoRot> OnHandle(IEventRepository eventRepository)
+        private Guid _idProgramma = Guid.NewGuid();
+        private Guid _idPeriodoProgrammazione = Guid.NewGuid();
+        private Guid _idCommittente = Guid.NewGuid();
+        private Guid _idlotto = Guid.NewGuid();
+
+        protected override CommandHandler<ConsuntivareResoInterventoRot> OnHandle(IEventRepository eventRepository)
         {
             return new ConsuntivareResoRotHandler(eventRepository);
         }
@@ -63,7 +62,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
                 .ForAppaltatore(_idAppaltatore)
                 .ForCategoriaCommerciale(_idCategoriaCommerciale)
                 .ForDirezioneRegionale(_idDirezioneRegionale)
-                .ForWorkPeriod(_period)
+                .ForWorkPeriod(_workPeriod)
                 .WithNote(_note)
                 .WithOggetti(_oggetti.ToArray())
                 .WithTrenoPartenza(_trenoPartenza)
@@ -71,22 +70,21 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
                 .WithTurnoTreno(_turnoTreno)
                 .WithRigaTurnoTreno(_rigaTurnoTreno)
                 .ForConvoglio(_convoglio)
+                .ForProgramma(_idProgramma)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForLotto(_idlotto)
                 .Build(_id, 1);
         }
 
-        public override ConsuntivareResoRot When()
+        public override ConsuntivareResoInterventoRot When()
         {
-            return BuildCmd.ConsuntivareResoRot
+            return BuildCmd.ConsuntivareResoInterventoRot
                .ForInterventoAppaltatore(_idInterventoAppaltatore)
                .ForDataConsuntivazione(_dataConsuntivazione)
                .ForWorkPeriod(_workPeriodCons)
                .WithNote(_noteCons)
                .WithOggetti(_oggettiCons.ToArray())
-               .WithTrenoPartenza(_trenoPartenzaCons)
-               .WithTrenoArrivo(_trenoArrivoCons)
-               .WithTurnoTreno(_turnoTrenoCons)
-               .WithRigaTurnoTreno(_rigaTurnoTrenoCons)
-               .ForConvoglio(_convoglioCons)
                .Build(_id, _commitId, 1);
         }
 
@@ -98,11 +96,6 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
                 .ForWorkPeriod(_workPeriodCons)
                 .WithNote(_noteCons)
                 .WithOggetti(_oggettiCons.ToArray())
-                .WithTrenoPartenza(_trenoPartenzaCons)
-                .WithTrenoArrivo(_trenoArrivoCons)
-                .WithTurnoTreno(_turnoTrenoCons)
-                .WithRigaTurnoTreno(_rigaTurnoTrenoCons)
-                .ForConvoglio(_convoglioCons)
                 .Build(_id, 2);
 
         }

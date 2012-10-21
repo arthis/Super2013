@@ -6,6 +6,12 @@
             "Name" :"AllowInterventoControl",
 			"Description" : "si permette il controllo dell'intervento {0}.",
             "Properties" : [
+				{
+                    "Name" : "IdUser",
+                    "Type" : "Guid",
+					"IsRequired" : true ,
+					"BuilderHelper" : "By!"
+                }
 		    ]
         },
 		{

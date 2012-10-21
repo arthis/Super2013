@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using CommonDomain;
 using CommonDomain.Core;
+using CommonDomain.Core.Super.Domain.ValueObjects;
 
 namespace Super.Appaltatore.Domain
 {
@@ -31,28 +32,24 @@ namespace Super.Appaltatore.Domain
         }
     }
 
-    public class Has_start_date_greater_than_end_date : ISpecification<Intervento>
+    public class Has_workPeriod_contained_in_workperiod_programmata : ISpecification<Intervento>
     {
-        private readonly DateTime _start;
-        private readonly DateTime _end;
+        private WorkPeriod _workeriod;
 
-        public Has_start_date_greater_than_end_date(DateTime start, DateTime end)
+        public Has_workPeriod_contained_in_workperiod_programmata(WorkPeriod workPeriod)
         {
-            Contract.Requires(start != DateTime.MinValue);
-            Contract.Requires(start != DateTime.MinValue);
+            Contract.Requires(workPeriod != null);
 
-            _start = start;
-            _end = end;
+            _workeriod = workPeriod;
         }
 
         public bool IsSatisfiedBy(Intervento i)
         {
-            if (_start > _end)
+            if (!i.ProgrammedWorkPeriod.Contains(_workeriod))
             {
-                i.CommandValidationMessages.Add(new ValidationMessage("Data Inizio", " data inizio maggiore di data fine"));
+                i.CommandValidationMessages.Add(new ValidationMessage("Work Period", " the work period given does not fit in the programmata."));
                 return false;
             }
-
             return true;
         }
     }

@@ -54,6 +54,11 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
             }
         }
 
+        public bool Contains(WorkPeriod workperiod)
+        {
+            return workperiod._start >= _start && workperiod._end <= _end;
+        }
+
     }
 
     public static class WorkPeriodExtension

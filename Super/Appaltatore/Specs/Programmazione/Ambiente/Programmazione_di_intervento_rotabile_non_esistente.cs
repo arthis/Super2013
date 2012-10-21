@@ -30,6 +30,10 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
         string _note = "note";
         private readonly int _quantity = 12;
         private readonly string _description = "desc";
+        private Guid _idProgramma = Guid.NewGuid();
+        private Guid _idPeriodoProgrammazione = Guid.NewGuid();
+        private Guid _idCommittente = Guid.NewGuid();
+        private Guid _idlotto = Guid.NewGuid();
 
         protected override CommandHandler<ProgramInterventoAmb> OnHandle(IEventRepository eventRepository)
         {
@@ -44,31 +48,39 @@ namespace Super.Appaltatore.Specs.Programmazione.Ambiente
         public override ProgramInterventoAmb When()
         {
             return BuildCmd.ProgramInterventoAmb
-                            .ForWorkPeriod(_workPeriod)
-                            .ForImpianto(_idImpianto)
-                            .OfTipoIntervento(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                            .ForDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .ForQuantity(_quantity)
-                            .ForDescription(_description)
-                            .Build(_id, _commitId,0);
+                .ForWorkPeriod(_workPeriod)
+                .ForImpianto(_idImpianto)
+                .OfTipoIntervento(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .ForQuantity(_quantity)
+                .ForDescription(_description)
+                .ForProgramma(_idProgramma)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForLotto(_idlotto)
+                .Build(_id, _commitId, 0);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
             yield return BuildEvt.InterventoAmbProgrammato
-                            .ForWorkPeriod(_workPeriod)
-                            .ForImpianto(_idImpianto)
-                            .OfTipoIntervento(_idTipoIntervento)
-                            .ForAppaltatore(_idAppaltatore)
-                            .ForCategoriaCommerciale(_idCategoriaCommerciale)
-                            .ForDirezioneRegionale(_idDirezioneRegionale)
-                            .WithNote(_note)
-                            .ForQuantity(_quantity)
-                            .ForDescription(_description)
-                            .Build(_id,1);
+                .ForWorkPeriod(_workPeriod)
+                .ForImpianto(_idImpianto)
+                .OfTipoIntervento(_idTipoIntervento)
+                .ForAppaltatore(_idAppaltatore)
+                .ForCategoriaCommerciale(_idCategoriaCommerciale)
+                .ForDirezioneRegionale(_idDirezioneRegionale)
+                .WithNote(_note)
+                .ForQuantity(_quantity)
+                .ForDescription(_description)
+                .ForProgramma(_idProgramma)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForLotto(_idlotto)
+                .Build(_id, 1);
         }
 
         [Test]

@@ -23,7 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
     <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
@@ -111,12 +111,15 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consuntivazione\Ambiente\Consuntivazione_reso_di_intervento_ambiente_gia_consuntivato_reso.cs" />
-    <Compile Include="Consuntivazione\Ambiente\Consuntivazione_reso_di_intervento_ambiente_programmato.cs" />
-    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Consuntivazione_reso_di_intervento_ambiente_programmato.cs" />
-    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Consuntivazione_reso_di_intervento_rotabile_gia_consutivato_reso.cs" />
-    <Compile Include="Consuntivazione\Rotabile\Consuntivazione_reso_di_intervento_ambiente_programmato.cs" />
-    <Compile Include="Consuntivazione\Rotabile\Consuntivazione_reso_di_intervento_rotabile_gia_consutivato_reso.cs" />
+    <Compile Include="Consuntivazione\Ambiente\consuntivazione_reso_di_intervento_ambiente_gia_consuntivato_reso.cs" />
+    <Compile Include="Consuntivazione\Ambiente\consuntivazione_reso_di_intervento_ambiente_programmato.cs" />
+    <Compile Include="Consuntivazione\Ambiente\consuntivazione_non_reso_di_intervento_ambiente_programmato.cs" />
+    <Compile Include="Consuntivazione\Rotabile\consuntivazione_non_reso_di_intervento_rotabile_programmato.cs" />
+    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_reso_di_intervento_rotabile_in_manutenzione_programmato.cs" />
+    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_reso_di_intervento_rotabile_in_manutenzione_gia_consutivato_reso.cs" />
+    <Compile Include="Consuntivazione\Rotabile\consuntivazione_reso_di_intervento_rotabile_programmato.cs" />
+    <Compile Include="Consuntivazione\Rotabile\consuntivazione_reso_di_intervento_rotabile_gia_consutivato_reso.cs" />
+    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Copy of Consuntivazione_reso_di_intervento_ambiente_programmato.cs" />
     <Compile Include="Programmazione\Ambiente\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
     <Compile Include="Programmazione\Ambiente\Programmazione_di_intervento_rotabile_non_esistente.cs" />
     <Compile Include="Programmazione\Rotabile_in_Manutenzione\Programmazione_di_intervento_rotabile_gia_esistente.cs" />

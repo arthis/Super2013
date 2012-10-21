@@ -11,7 +11,7 @@ using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Domain
 {
-    
+
     public class InterventoRotMan : Intervento
     {
 
@@ -24,18 +24,26 @@ namespace Super.Appaltatore.Domain
                                         , WorkPeriod workPeriod
                                         , string note
                                         , IEnumerable<OggettoRotMan> oggetti
+                                        , Guid idCommittente
+                                        , Guid idPeriodoProgrammazione
+                                        , Guid idProgramma
+                                        , Guid idLotto
                     )
         {
 
             var evt = BuildEvt.InterventoRotManProgrammato
-                            .WithOggetti(oggetti.ToMessage().ToArray())
-                            .ForWorkPeriod(workPeriod.ToMessage())
-                            .ForImpianto(idImpianto)
-                            .OfTipoIntervento(idTipoIntervento)
-                            .ForAppaltatore(idAppaltatore)
-                            .ForCategoriaCommerciale(idCategoriaCommerciale)
-                            .ForDirezioneRegionale(idDirezioneRegionale)
-                            .WithNote(note);
+                .WithOggetti(oggetti.ToMessage().ToArray())
+                .ForWorkPeriod(workPeriod.ToMessage())
+                .ForImpianto(idImpianto)
+                .OfTipoIntervento(idTipoIntervento)
+                .ForAppaltatore(idAppaltatore)
+                .ForCategoriaCommerciale(idCategoriaCommerciale)
+                .ForDirezioneRegionale(idDirezioneRegionale)
+                .WithNote(note)
+                .ForProgramma(idProgramma)
+                .ForPeriodoProgrammazione(idPeriodoProgrammazione)
+                .ForCommittente(idCommittente)
+                .ForLotto(idLotto);
 
             RaiseEvent(id, evt);
         }
@@ -43,6 +51,7 @@ namespace Super.Appaltatore.Domain
         public void Apply(InterventoRotManProgrammato e)
         {
             Id = e.Id;
+            ProgrammedWorkPeriod = e.WorkPeriod.ToDomain();
             //do something here if needed
         }
 
@@ -55,21 +64,20 @@ namespace Super.Appaltatore.Domain
 
             if (specs.IsSatisfiedBy(this))
             {
-                var evt = BuildEvt.InterventoRotConsuntivatoNonReso
-                    .ForInterventoAppaltatore(idInterventoAppaltatore)
-                    .Because(idCausaleAppaltatore)
-                    .When(dataConsuntivazione)
-                    .WithNote(note);
+                var evt = BuildEvt.InterventoRotManConsuntivatoNonReso
+                                .ForInterventoAppaltatore(idInterventoAppaltatore)
+                                .Because(idCausaleAppaltatore)
+                                .When(dataConsuntivazione)
+                                .WithNote(note);
 
                 RaiseEvent(evt);
             }
         }
 
-        public void Apply(InterventoRotConsuntivatoNonReso e)
+        public void Apply(InterventoRotManConsuntivatoNonReso e)
         {
             //do something here if needed
         }
-
 
         public void ConsuntivareNonResoTrenitalia(Guid id, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string idInterventoAppaltatore, string note)
         {
@@ -80,10 +88,10 @@ namespace Super.Appaltatore.Domain
             if (specs.IsSatisfiedBy(this))
             {
                 var evt = BuildEvt.InterventoRotManConsuntivatoNonResoTrenitalia
-                    .ForInterventoAppaltatore(idInterventoAppaltatore)
-                    .Because(idCausaleTrenitalia)
-                    .When(dataConsuntivazione)
-                    .WithNote(note);
+                                .ForInterventoAppaltatore(idInterventoAppaltatore)
+                                .Because(idCausaleTrenitalia)
+                                .When(dataConsuntivazione)
+                                .WithNote(note);
 
                 RaiseEvent(evt);
             }
@@ -94,23 +102,24 @@ namespace Super.Appaltatore.Domain
             //do something here if needed
         }
 
+
         public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, WorkPeriod workPeriod, string idInterventoAppaltatore, string note, IEnumerable<OggettoRotMan> oggetti)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
+            var has_workPeriod_contained_in_workperiod_programmata =
+                 new Has_workPeriod_contained_in_workperiod_programmata(workPeriod);
 
-            ISpecification<Intervento> specs = is_data_consuntivazione_valid;
+
+            ISpecification<Intervento> specs = is_data_consuntivazione_valid
+                                                 .And(has_workPeriod_contained_in_workperiod_programmata);
 
             if (specs.IsSatisfiedBy(this))
             {
-                var periodBuilder = new MsgWorkPeriodBuilder();
-
-                workPeriod.BuildValue(periodBuilder);
-
                 var evt = BuildEvt.InterventoRotManConsuntivatoReso
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .When(dataConsuntivazione)
                     .WithNote(note)
-                    .ForWorkPeriod(periodBuilder.Build())
+                    .ForWorkPeriod(workPeriod.ToMessage())
                     .WithOggetti(oggetti.ToMessage().ToArray());
 
                 RaiseEvent(evt);

@@ -411,11 +411,6 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 		private WorkPeriod  _workPeriod ; 
 		private DateTime  _dataConsuntivazione ; 
 		private string  _idInterventoAppaltatore ; 
-		private string  _convoglio ; 
-		private string  _turnoTreno ; 
-		private Treno  _trenoArrivo ; 
-		private string  _rigaTurnoTreno ; 
-		private Treno  _trenoPartenza ; 
 		private OggettoRot[]  _oggetti ;
 		public InterventoRotConsuntivatoResoBuilder WithNote(string note) 
 		{
@@ -441,36 +436,6 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return this;
 		}
 	
-		public InterventoRotConsuntivatoResoBuilder ForConvoglio(string convoglio) 
-		{
-			_convoglio = convoglio;
-			return this;
-		}
-	
-		public InterventoRotConsuntivatoResoBuilder WithTurnoTreno(string turnoTreno) 
-		{
-			_turnoTreno = turnoTreno;
-			return this;
-		}
-	
-		public InterventoRotConsuntivatoResoBuilder WithTrenoArrivo(Treno trenoArrivo) 
-		{
-			_trenoArrivo = trenoArrivo;
-			return this;
-		}
-	
-		public InterventoRotConsuntivatoResoBuilder WithRigaTurnoTreno(string rigaTurnoTreno) 
-		{
-			_rigaTurnoTreno = rigaTurnoTreno;
-			return this;
-		}
-	
-		public InterventoRotConsuntivatoResoBuilder WithTrenoPartenza(Treno trenoPartenza) 
-		{
-			_trenoPartenza = trenoPartenza;
-			return this;
-		}
-	
 		public InterventoRotConsuntivatoResoBuilder WithOggetti(OggettoRot[] oggetti) 
 		{
 			_oggetti = oggetti;
@@ -489,12 +454,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 
 		public InterventoRotConsuntivatoReso Build(Guid id, Guid commitId, long version)
         {
-            return new InterventoRotConsuntivatoReso(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _convoglio, _turnoTreno, _trenoArrivo, _rigaTurnoTreno, _trenoPartenza, _oggetti);
+            return new InterventoRotConsuntivatoReso(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
 		 }
 
 		public InterventoRotConsuntivatoReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
         {
-            return new InterventoRotConsuntivatoReso(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _convoglio, _turnoTreno, _trenoArrivo, _rigaTurnoTreno, _trenoPartenza, _oggetti);
+            return new InterventoRotConsuntivatoReso(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
 		 }
         
 	

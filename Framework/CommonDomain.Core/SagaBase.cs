@@ -4,7 +4,7 @@ namespace CommonDomain.Core
 	using System.Collections;
 	using System.Collections.Generic;
 
-	public class SagaBase<TMessage> : ISaga, IEquatable<ISaga>
+	public abstract class SagaBase<TMessage> : ISaga, IEquatable<ISaga>
 		where TMessage : class
 	{
 		private readonly IDictionary<Type, Action<TMessage>> handlers = new Dictionary<Type, Action<TMessage>>();

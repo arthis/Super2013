@@ -15,6 +15,13 @@ namespace Super.Controllo.Commands.Consuntivazione.Builders
 
 	public class AllowInterventoControlBuilder : ICommandBuilder<AllowInterventoControl>
 	{
+	 
+		private Guid  _idUser ;
+		public AllowInterventoControlBuilder By(Guid idUser) 
+		{
+			_idUser = idUser;
+			return this;
+		}
 	
 		public AllowInterventoControl Build(Guid id, long version)
 		{
@@ -28,12 +35,12 @@ namespace Super.Controllo.Commands.Consuntivazione.Builders
 
 		public AllowInterventoControl Build(Guid id, Guid commitId, long version)
         {
-            return new AllowInterventoControl(id, commitId, version);
+            return new AllowInterventoControl(id, commitId, version, _idUser);
 		 }
 
 		 public AllowInterventoControl Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new AllowInterventoControl(id, commitId, version, wakeupTime);
+            return new AllowInterventoControl(id, commitId, version, wakeupTime, _idUser);
 		 }
         
 	

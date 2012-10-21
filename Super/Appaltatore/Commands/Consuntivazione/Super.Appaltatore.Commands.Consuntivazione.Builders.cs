@@ -13,237 +13,470 @@ namespace Super.Appaltatore.Commands.Consuntivazione.Builders
 {
 
 
-	public class ConsuntivareAutomaticamenteNonResoBuilder : ICommandBuilder<ConsuntivareAutomaticamenteNonReso>
+	public class ConsuntivareAutomaticamenteNonResoInterventoRotBuilder : ICommandBuilder<ConsuntivareAutomaticamenteNonResoInterventoRot>
 	{
 	
-		public ConsuntivareAutomaticamenteNonReso Build(Guid id, long version)
+		public ConsuntivareAutomaticamenteNonResoInterventoRot Build(Guid id, long version)
 		{
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public ConsuntivareAutomaticamenteNonReso Build(Guid id, long version,DateTime wakeupTime)
+		public ConsuntivareAutomaticamenteNonResoInterventoRot Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
 		}
 
-		public ConsuntivareAutomaticamenteNonReso Build(Guid id, Guid commitId, long version)
+		public ConsuntivareAutomaticamenteNonResoInterventoRot Build(Guid id, Guid commitId, long version)
         {
-            return new ConsuntivareAutomaticamenteNonReso(id, commitId, version);
+            return new ConsuntivareAutomaticamenteNonResoInterventoRot(id, commitId, version);
 		 }
 
-		 public ConsuntivareAutomaticamenteNonReso Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+		 public ConsuntivareAutomaticamenteNonResoInterventoRot Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new ConsuntivareAutomaticamenteNonReso(id, commitId, version, wakeupTime);
+            return new ConsuntivareAutomaticamenteNonResoInterventoRot(id, commitId, version, wakeupTime);
 		 }
         
 	
 	}
 
-	public class ConsuntivareNonResoBuilder : ICommandBuilder<ConsuntivareNonReso>
+	public class ConsuntivareAutomaticamenteNonResoInterventoRotManBuilder : ICommandBuilder<ConsuntivareAutomaticamenteNonResoInterventoRotMan>
+	{
+	
+		public ConsuntivareAutomaticamenteNonResoInterventoRotMan Build(Guid id, long version)
+		{
+			return Build(id, Guid.NewGuid(), version);
+		}
+
+		public ConsuntivareAutomaticamenteNonResoInterventoRotMan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
+		public ConsuntivareAutomaticamenteNonResoInterventoRotMan Build(Guid id, Guid commitId, long version)
+        {
+            return new ConsuntivareAutomaticamenteNonResoInterventoRotMan(id, commitId, version);
+		 }
+
+		 public ConsuntivareAutomaticamenteNonResoInterventoRotMan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new ConsuntivareAutomaticamenteNonResoInterventoRotMan(id, commitId, version, wakeupTime);
+		 }
+        
+	
+	}
+
+	public class ConsuntivareAutomaticamenteNonResoInterventoAmbBuilder : ICommandBuilder<ConsuntivareAutomaticamenteNonResoInterventoAmb>
+	{
+	
+		public ConsuntivareAutomaticamenteNonResoInterventoAmb Build(Guid id, long version)
+		{
+			return Build(id, Guid.NewGuid(), version);
+		}
+
+		public ConsuntivareAutomaticamenteNonResoInterventoAmb Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
+		public ConsuntivareAutomaticamenteNonResoInterventoAmb Build(Guid id, Guid commitId, long version)
+        {
+            return new ConsuntivareAutomaticamenteNonResoInterventoAmb(id, commitId, version);
+		 }
+
+		 public ConsuntivareAutomaticamenteNonResoInterventoAmb Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new ConsuntivareAutomaticamenteNonResoInterventoAmb(id, commitId, version, wakeupTime);
+		 }
+        
+	
+	}
+
+	public class ConsuntivareNonResoInterventoRotBuilder : ICommandBuilder<ConsuntivareNonResoInterventoRot>
 	{
 	 
 		private string  _note ; 
 		private Guid  _idCausaleAppaltatore ; 
 		private DateTime  _dataConsuntivazione ; 
 		private string  _idInterventoAppaltatore ;
-		public ConsuntivareNonResoBuilder WithNote(string note) 
+		public ConsuntivareNonResoInterventoRotBuilder WithNote(string note) 
 		{
 			_note = note;
 			return this;
 		}
 	
-		public ConsuntivareNonResoBuilder ForCausaleAppaltatore(Guid idCausaleAppaltatore) 
+		public ConsuntivareNonResoInterventoRotBuilder ForCausaleAppaltatore(Guid idCausaleAppaltatore) 
 		{
 			_idCausaleAppaltatore = idCausaleAppaltatore;
 			return this;
 		}
 	
-		public ConsuntivareNonResoBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		public ConsuntivareNonResoInterventoRotBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
 		{
 			_dataConsuntivazione = dataConsuntivazione;
 			return this;
 		}
 	
-		public ConsuntivareNonResoBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
+		public ConsuntivareNonResoInterventoRotBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
 		{
 			_idInterventoAppaltatore = idInterventoAppaltatore;
 			return this;
 		}
 	
-		public ConsuntivareNonReso Build(Guid id, long version)
+		public ConsuntivareNonResoInterventoRot Build(Guid id, long version)
 		{
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public ConsuntivareNonReso Build(Guid id, long version,DateTime wakeupTime)
+		public ConsuntivareNonResoInterventoRot Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
 		}
 
-		public ConsuntivareNonReso Build(Guid id, Guid commitId, long version)
+		public ConsuntivareNonResoInterventoRot Build(Guid id, Guid commitId, long version)
         {
-            return new ConsuntivareNonReso(id, commitId, version, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
+            return new ConsuntivareNonResoInterventoRot(id, commitId, version, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
 
-		 public ConsuntivareNonReso Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+		 public ConsuntivareNonResoInterventoRot Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new ConsuntivareNonReso(id, commitId, version, wakeupTime, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
+            return new ConsuntivareNonResoInterventoRot(id, commitId, version, wakeupTime, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
         
 	
 	}
 
-	public class ConsuntivareNonResoTrenitaliaBuilder : ICommandBuilder<ConsuntivareNonResoTrenitalia>
+	public class ConsuntivareNonResoInterventoRotManBuilder : ICommandBuilder<ConsuntivareNonResoInterventoRotMan>
+	{
+	 
+		private string  _note ; 
+		private Guid  _idCausaleAppaltatore ; 
+		private DateTime  _dataConsuntivazione ; 
+		private string  _idInterventoAppaltatore ;
+		public ConsuntivareNonResoInterventoRotManBuilder WithNote(string note) 
+		{
+			_note = note;
+			return this;
+		}
+	
+		public ConsuntivareNonResoInterventoRotManBuilder ForCausaleAppaltatore(Guid idCausaleAppaltatore) 
+		{
+			_idCausaleAppaltatore = idCausaleAppaltatore;
+			return this;
+		}
+	
+		public ConsuntivareNonResoInterventoRotManBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		{
+			_dataConsuntivazione = dataConsuntivazione;
+			return this;
+		}
+	
+		public ConsuntivareNonResoInterventoRotManBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
+		{
+			_idInterventoAppaltatore = idInterventoAppaltatore;
+			return this;
+		}
+	
+		public ConsuntivareNonResoInterventoRotMan Build(Guid id, long version)
+		{
+			return Build(id, Guid.NewGuid(), version);
+		}
+
+		public ConsuntivareNonResoInterventoRotMan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
+		public ConsuntivareNonResoInterventoRotMan Build(Guid id, Guid commitId, long version)
+        {
+            return new ConsuntivareNonResoInterventoRotMan(id, commitId, version, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
+		 }
+
+		 public ConsuntivareNonResoInterventoRotMan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new ConsuntivareNonResoInterventoRotMan(id, commitId, version, wakeupTime, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
+		 }
+        
+	
+	}
+
+	public class ConsuntivareNonResoInterventoAmbBuilder : ICommandBuilder<ConsuntivareNonResoInterventoAmb>
+	{
+	 
+		private string  _note ; 
+		private Guid  _idCausaleAppaltatore ; 
+		private DateTime  _dataConsuntivazione ; 
+		private string  _idInterventoAppaltatore ;
+		public ConsuntivareNonResoInterventoAmbBuilder WithNote(string note) 
+		{
+			_note = note;
+			return this;
+		}
+	
+		public ConsuntivareNonResoInterventoAmbBuilder ForCausaleAppaltatore(Guid idCausaleAppaltatore) 
+		{
+			_idCausaleAppaltatore = idCausaleAppaltatore;
+			return this;
+		}
+	
+		public ConsuntivareNonResoInterventoAmbBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		{
+			_dataConsuntivazione = dataConsuntivazione;
+			return this;
+		}
+	
+		public ConsuntivareNonResoInterventoAmbBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
+		{
+			_idInterventoAppaltatore = idInterventoAppaltatore;
+			return this;
+		}
+	
+		public ConsuntivareNonResoInterventoAmb Build(Guid id, long version)
+		{
+			return Build(id, Guid.NewGuid(), version);
+		}
+
+		public ConsuntivareNonResoInterventoAmb Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
+		public ConsuntivareNonResoInterventoAmb Build(Guid id, Guid commitId, long version)
+        {
+            return new ConsuntivareNonResoInterventoAmb(id, commitId, version, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
+		 }
+
+		 public ConsuntivareNonResoInterventoAmb Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new ConsuntivareNonResoInterventoAmb(id, commitId, version, wakeupTime, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
+		 }
+        
+	
+	}
+
+	public class ConsuntivareNonResoTrenitaliaInterventoRotBuilder : ICommandBuilder<ConsuntivareNonResoTrenitaliaInterventoRot>
 	{
 	 
 		private string  _note ; 
 		private Guid  _idCausaleTrenitalia ; 
 		private DateTime  _dataConsuntivazione ; 
 		private string  _idInterventoAppaltatore ;
-		public ConsuntivareNonResoTrenitaliaBuilder WithNote(string note) 
+		public ConsuntivareNonResoTrenitaliaInterventoRotBuilder WithNote(string note) 
 		{
 			_note = note;
 			return this;
 		}
 	
-		public ConsuntivareNonResoTrenitaliaBuilder ForCausaleTrenitalia(Guid idCausaleTrenitalia) 
+		public ConsuntivareNonResoTrenitaliaInterventoRotBuilder ForCausaleTrenitalia(Guid idCausaleTrenitalia) 
 		{
 			_idCausaleTrenitalia = idCausaleTrenitalia;
 			return this;
 		}
 	
-		public ConsuntivareNonResoTrenitaliaBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		public ConsuntivareNonResoTrenitaliaInterventoRotBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
 		{
 			_dataConsuntivazione = dataConsuntivazione;
 			return this;
 		}
 	
-		public ConsuntivareNonResoTrenitaliaBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
+		public ConsuntivareNonResoTrenitaliaInterventoRotBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
 		{
 			_idInterventoAppaltatore = idInterventoAppaltatore;
 			return this;
 		}
 	
-		public ConsuntivareNonResoTrenitalia Build(Guid id, long version)
+		public ConsuntivareNonResoTrenitaliaInterventoRot Build(Guid id, long version)
 		{
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public ConsuntivareNonResoTrenitalia Build(Guid id, long version,DateTime wakeupTime)
+		public ConsuntivareNonResoTrenitaliaInterventoRot Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
 		}
 
-		public ConsuntivareNonResoTrenitalia Build(Guid id, Guid commitId, long version)
+		public ConsuntivareNonResoTrenitaliaInterventoRot Build(Guid id, Guid commitId, long version)
         {
-            return new ConsuntivareNonResoTrenitalia(id, commitId, version, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
+            return new ConsuntivareNonResoTrenitaliaInterventoRot(id, commitId, version, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
 
-		 public ConsuntivareNonResoTrenitalia Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+		 public ConsuntivareNonResoTrenitaliaInterventoRot Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new ConsuntivareNonResoTrenitalia(id, commitId, version, wakeupTime, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
+            return new ConsuntivareNonResoTrenitaliaInterventoRot(id, commitId, version, wakeupTime, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
         
 	
 	}
 
-	public class ConsuntivareResoRotBuilder : ICommandBuilder<ConsuntivareResoRot>
+	public class ConsuntivareNonResoTrenitaliaInterventoRotManBuilder : ICommandBuilder<ConsuntivareNonResoTrenitaliaInterventoRotMan>
+	{
+	 
+		private string  _note ; 
+		private Guid  _idCausaleTrenitalia ; 
+		private DateTime  _dataConsuntivazione ; 
+		private string  _idInterventoAppaltatore ;
+		public ConsuntivareNonResoTrenitaliaInterventoRotManBuilder WithNote(string note) 
+		{
+			_note = note;
+			return this;
+		}
+	
+		public ConsuntivareNonResoTrenitaliaInterventoRotManBuilder ForCausaleTrenitalia(Guid idCausaleTrenitalia) 
+		{
+			_idCausaleTrenitalia = idCausaleTrenitalia;
+			return this;
+		}
+	
+		public ConsuntivareNonResoTrenitaliaInterventoRotManBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		{
+			_dataConsuntivazione = dataConsuntivazione;
+			return this;
+		}
+	
+		public ConsuntivareNonResoTrenitaliaInterventoRotManBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
+		{
+			_idInterventoAppaltatore = idInterventoAppaltatore;
+			return this;
+		}
+	
+		public ConsuntivareNonResoTrenitaliaInterventoRotMan Build(Guid id, long version)
+		{
+			return Build(id, Guid.NewGuid(), version);
+		}
+
+		public ConsuntivareNonResoTrenitaliaInterventoRotMan Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
+		public ConsuntivareNonResoTrenitaliaInterventoRotMan Build(Guid id, Guid commitId, long version)
+        {
+            return new ConsuntivareNonResoTrenitaliaInterventoRotMan(id, commitId, version, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
+		 }
+
+		 public ConsuntivareNonResoTrenitaliaInterventoRotMan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new ConsuntivareNonResoTrenitaliaInterventoRotMan(id, commitId, version, wakeupTime, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
+		 }
+        
+	
+	}
+
+	public class ConsuntivareNonResoTrenitaliaInterventoAmbBuilder : ICommandBuilder<ConsuntivareNonResoTrenitaliaInterventoAmb>
+	{
+	 
+		private string  _note ; 
+		private Guid  _idCausaleTrenitalia ; 
+		private DateTime  _dataConsuntivazione ; 
+		private string  _idInterventoAppaltatore ;
+		public ConsuntivareNonResoTrenitaliaInterventoAmbBuilder WithNote(string note) 
+		{
+			_note = note;
+			return this;
+		}
+	
+		public ConsuntivareNonResoTrenitaliaInterventoAmbBuilder ForCausaleTrenitalia(Guid idCausaleTrenitalia) 
+		{
+			_idCausaleTrenitalia = idCausaleTrenitalia;
+			return this;
+		}
+	
+		public ConsuntivareNonResoTrenitaliaInterventoAmbBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		{
+			_dataConsuntivazione = dataConsuntivazione;
+			return this;
+		}
+	
+		public ConsuntivareNonResoTrenitaliaInterventoAmbBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
+		{
+			_idInterventoAppaltatore = idInterventoAppaltatore;
+			return this;
+		}
+	
+		public ConsuntivareNonResoTrenitaliaInterventoAmb Build(Guid id, long version)
+		{
+			return Build(id, Guid.NewGuid(), version);
+		}
+
+		public ConsuntivareNonResoTrenitaliaInterventoAmb Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+
+		public ConsuntivareNonResoTrenitaliaInterventoAmb Build(Guid id, Guid commitId, long version)
+        {
+            return new ConsuntivareNonResoTrenitaliaInterventoAmb(id, commitId, version, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
+		 }
+
+		 public ConsuntivareNonResoTrenitaliaInterventoAmb Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+        {
+            return new ConsuntivareNonResoTrenitaliaInterventoAmb(id, commitId, version, wakeupTime, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
+		 }
+        
+	
+	}
+
+	public class ConsuntivareResoInterventoRotBuilder : ICommandBuilder<ConsuntivareResoInterventoRot>
 	{
 	 
 		private string  _note ; 
 		private WorkPeriod  _workPeriod ; 
 		private DateTime  _dataConsuntivazione ; 
 		private string  _idInterventoAppaltatore ; 
-		private string  _convoglio ; 
-		private string  _rigaTurnoTreno ; 
-		private string  _turnoTreno ; 
-		private Treno  _trenoArrivo ; 
-		private Treno  _trenoPartenza ; 
 		private OggettoRot[]  _oggetti ;
-		public ConsuntivareResoRotBuilder WithNote(string note) 
+		public ConsuntivareResoInterventoRotBuilder WithNote(string note) 
 		{
 			_note = note;
 			return this;
 		}
 	
-		public ConsuntivareResoRotBuilder ForWorkPeriod(WorkPeriod workPeriod) 
+		public ConsuntivareResoInterventoRotBuilder ForWorkPeriod(WorkPeriod workPeriod) 
 		{
 			_workPeriod = workPeriod;
 			return this;
 		}
 	
-		public ConsuntivareResoRotBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		public ConsuntivareResoInterventoRotBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
 		{
 			_dataConsuntivazione = dataConsuntivazione;
 			return this;
 		}
 	
-		public ConsuntivareResoRotBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
+		public ConsuntivareResoInterventoRotBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
 		{
 			_idInterventoAppaltatore = idInterventoAppaltatore;
 			return this;
 		}
 	
-		public ConsuntivareResoRotBuilder ForConvoglio(string convoglio) 
-		{
-			_convoglio = convoglio;
-			return this;
-		}
-	
-		public ConsuntivareResoRotBuilder WithRigaTurnoTreno(string rigaTurnoTreno) 
-		{
-			_rigaTurnoTreno = rigaTurnoTreno;
-			return this;
-		}
-	
-		public ConsuntivareResoRotBuilder WithTurnoTreno(string turnoTreno) 
-		{
-			_turnoTreno = turnoTreno;
-			return this;
-		}
-	
-		public ConsuntivareResoRotBuilder WithTrenoArrivo(Treno trenoArrivo) 
-		{
-			_trenoArrivo = trenoArrivo;
-			return this;
-		}
-	
-		public ConsuntivareResoRotBuilder WithTrenoPartenza(Treno trenoPartenza) 
-		{
-			_trenoPartenza = trenoPartenza;
-			return this;
-		}
-	
-		public ConsuntivareResoRotBuilder WithOggetti(OggettoRot[] oggetti) 
+		public ConsuntivareResoInterventoRotBuilder WithOggetti(OggettoRot[] oggetti) 
 		{
 			_oggetti = oggetti;
 			return this;
 		}
 	
-		public ConsuntivareResoRot Build(Guid id, long version)
+		public ConsuntivareResoInterventoRot Build(Guid id, long version)
 		{
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public ConsuntivareResoRot Build(Guid id, long version,DateTime wakeupTime)
+		public ConsuntivareResoInterventoRot Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
 		}
 
-		public ConsuntivareResoRot Build(Guid id, Guid commitId, long version)
+		public ConsuntivareResoInterventoRot Build(Guid id, Guid commitId, long version)
         {
-            return new ConsuntivareResoRot(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+            return new ConsuntivareResoInterventoRot(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
 		 }
 
-		 public ConsuntivareResoRot Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+		 public ConsuntivareResoInterventoRot Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new ConsuntivareResoRot(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+            return new ConsuntivareResoInterventoRot(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
 		 }
         
 	
 	}
 
-	public class ConsuntivareResoRotManBuilder : ICommandBuilder<ConsuntivareResoRotMan>
+	public class ConsuntivareResoInterventoRotManBuilder : ICommandBuilder<ConsuntivareResoInterventoRotMan>
 	{
 	 
 		private string  _note ; 
@@ -251,60 +484,60 @@ namespace Super.Appaltatore.Commands.Consuntivazione.Builders
 		private DateTime  _dataConsuntivazione ; 
 		private string  _idInterventoAppaltatore ; 
 		private OggettoRotMan[]  _oggetti ;
-		public ConsuntivareResoRotManBuilder WithNote(string note) 
+		public ConsuntivareResoInterventoRotManBuilder WithNote(string note) 
 		{
 			_note = note;
 			return this;
 		}
 	
-		public ConsuntivareResoRotManBuilder ForWorkPeriod(WorkPeriod workPeriod) 
+		public ConsuntivareResoInterventoRotManBuilder ForWorkPeriod(WorkPeriod workPeriod) 
 		{
 			_workPeriod = workPeriod;
 			return this;
 		}
 	
-		public ConsuntivareResoRotManBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		public ConsuntivareResoInterventoRotManBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
 		{
 			_dataConsuntivazione = dataConsuntivazione;
 			return this;
 		}
 	
-		public ConsuntivareResoRotManBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
+		public ConsuntivareResoInterventoRotManBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
 		{
 			_idInterventoAppaltatore = idInterventoAppaltatore;
 			return this;
 		}
 	
-		public ConsuntivareResoRotManBuilder WithOggetti(OggettoRotMan[] oggetti) 
+		public ConsuntivareResoInterventoRotManBuilder WithOggetti(OggettoRotMan[] oggetti) 
 		{
 			_oggetti = oggetti;
 			return this;
 		}
 	
-		public ConsuntivareResoRotMan Build(Guid id, long version)
+		public ConsuntivareResoInterventoRotMan Build(Guid id, long version)
 		{
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public ConsuntivareResoRotMan Build(Guid id, long version,DateTime wakeupTime)
+		public ConsuntivareResoInterventoRotMan Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
 		}
 
-		public ConsuntivareResoRotMan Build(Guid id, Guid commitId, long version)
+		public ConsuntivareResoInterventoRotMan Build(Guid id, Guid commitId, long version)
         {
-            return new ConsuntivareResoRotMan(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
+            return new ConsuntivareResoInterventoRotMan(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
 		 }
 
-		 public ConsuntivareResoRotMan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+		 public ConsuntivareResoInterventoRotMan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new ConsuntivareResoRotMan(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
+            return new ConsuntivareResoInterventoRotMan(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
 		 }
         
 	
 	}
 
-	public class ConsuntivareResoAmbBuilder : ICommandBuilder<ConsuntivareResoAmb>
+	public class ConsuntivareResoInterventoAmbBuilder : ICommandBuilder<ConsuntivareResoInterventoAmb>
 	{
 	 
 		private string  _note ; 
@@ -313,60 +546,60 @@ namespace Super.Appaltatore.Commands.Consuntivazione.Builders
 		private string  _idInterventoAppaltatore ; 
 		private string  _description ; 
 		private int  _quantity ;
-		public ConsuntivareResoAmbBuilder WithNote(string note) 
+		public ConsuntivareResoInterventoAmbBuilder WithNote(string note) 
 		{
 			_note = note;
 			return this;
 		}
 	
-		public ConsuntivareResoAmbBuilder ForWorkPeriod(WorkPeriod workPeriod) 
+		public ConsuntivareResoInterventoAmbBuilder ForWorkPeriod(WorkPeriod workPeriod) 
 		{
 			_workPeriod = workPeriod;
 			return this;
 		}
 	
-		public ConsuntivareResoAmbBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		public ConsuntivareResoInterventoAmbBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
 		{
 			_dataConsuntivazione = dataConsuntivazione;
 			return this;
 		}
 	
-		public ConsuntivareResoAmbBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
+		public ConsuntivareResoInterventoAmbBuilder ForInterventoAppaltatore(string idInterventoAppaltatore) 
 		{
 			_idInterventoAppaltatore = idInterventoAppaltatore;
 			return this;
 		}
 	
-		public ConsuntivareResoAmbBuilder ForDescription(string description) 
+		public ConsuntivareResoInterventoAmbBuilder ForDescription(string description) 
 		{
 			_description = description;
 			return this;
 		}
 	
-		public ConsuntivareResoAmbBuilder ForQuantity(int quantity) 
+		public ConsuntivareResoInterventoAmbBuilder ForQuantity(int quantity) 
 		{
 			_quantity = quantity;
 			return this;
 		}
 	
-		public ConsuntivareResoAmb Build(Guid id, long version)
+		public ConsuntivareResoInterventoAmb Build(Guid id, long version)
 		{
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public ConsuntivareResoAmb Build(Guid id, long version,DateTime wakeupTime)
+		public ConsuntivareResoInterventoAmb Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
 		}
 
-		public ConsuntivareResoAmb Build(Guid id, Guid commitId, long version)
+		public ConsuntivareResoInterventoAmb Build(Guid id, Guid commitId, long version)
         {
-            return new ConsuntivareResoAmb(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _description, _quantity);
+            return new ConsuntivareResoInterventoAmb(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _description, _quantity);
 		 }
 
-		 public ConsuntivareResoAmb Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+		 public ConsuntivareResoInterventoAmb Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new ConsuntivareResoAmb(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _description, _quantity);
+            return new ConsuntivareResoInterventoAmb(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _description, _quantity);
 		 }
         
 	
@@ -377,11 +610,17 @@ namespace Super.Appaltatore.Commands
 {
 	public static partial class BuildCmd 
 	{
-		  public static ConsuntivareAutomaticamenteNonResoBuilder ConsuntivareAutomaticamenteNonReso {get { return new ConsuntivareAutomaticamenteNonResoBuilder(); } }
-	  		  public static ConsuntivareNonResoBuilder ConsuntivareNonReso {get { return new ConsuntivareNonResoBuilder(); } }
-	  		  public static ConsuntivareNonResoTrenitaliaBuilder ConsuntivareNonResoTrenitalia {get { return new ConsuntivareNonResoTrenitaliaBuilder(); } }
-	  		  public static ConsuntivareResoRotBuilder ConsuntivareResoRot {get { return new ConsuntivareResoRotBuilder(); } }
-	  		  public static ConsuntivareResoRotManBuilder ConsuntivareResoRotMan {get { return new ConsuntivareResoRotManBuilder(); } }
-	  		  public static ConsuntivareResoAmbBuilder ConsuntivareResoAmb {get { return new ConsuntivareResoAmbBuilder(); } }
+		  public static ConsuntivareAutomaticamenteNonResoInterventoRotBuilder ConsuntivareAutomaticamenteNonResoInterventoRot {get { return new ConsuntivareAutomaticamenteNonResoInterventoRotBuilder(); } }
+	  		  public static ConsuntivareAutomaticamenteNonResoInterventoRotManBuilder ConsuntivareAutomaticamenteNonResoInterventoRotMan {get { return new ConsuntivareAutomaticamenteNonResoInterventoRotManBuilder(); } }
+	  		  public static ConsuntivareAutomaticamenteNonResoInterventoAmbBuilder ConsuntivareAutomaticamenteNonResoInterventoAmb {get { return new ConsuntivareAutomaticamenteNonResoInterventoAmbBuilder(); } }
+	  		  public static ConsuntivareNonResoInterventoRotBuilder ConsuntivareNonResoInterventoRot {get { return new ConsuntivareNonResoInterventoRotBuilder(); } }
+	  		  public static ConsuntivareNonResoInterventoRotManBuilder ConsuntivareNonResoInterventoRotMan {get { return new ConsuntivareNonResoInterventoRotManBuilder(); } }
+	  		  public static ConsuntivareNonResoInterventoAmbBuilder ConsuntivareNonResoInterventoAmb {get { return new ConsuntivareNonResoInterventoAmbBuilder(); } }
+	  		  public static ConsuntivareNonResoTrenitaliaInterventoRotBuilder ConsuntivareNonResoTrenitaliaInterventoRot {get { return new ConsuntivareNonResoTrenitaliaInterventoRotBuilder(); } }
+	  		  public static ConsuntivareNonResoTrenitaliaInterventoRotManBuilder ConsuntivareNonResoTrenitaliaInterventoRotMan {get { return new ConsuntivareNonResoTrenitaliaInterventoRotManBuilder(); } }
+	  		  public static ConsuntivareNonResoTrenitaliaInterventoAmbBuilder ConsuntivareNonResoTrenitaliaInterventoAmb {get { return new ConsuntivareNonResoTrenitaliaInterventoAmbBuilder(); } }
+	  		  public static ConsuntivareResoInterventoRotBuilder ConsuntivareResoInterventoRot {get { return new ConsuntivareResoInterventoRotBuilder(); } }
+	  		  public static ConsuntivareResoInterventoRotManBuilder ConsuntivareResoInterventoRotMan {get { return new ConsuntivareResoInterventoRotManBuilder(); } }
+	  		  public static ConsuntivareResoInterventoAmbBuilder ConsuntivareResoInterventoAmb {get { return new ConsuntivareResoInterventoAmbBuilder(); } }
 	  	}
 }

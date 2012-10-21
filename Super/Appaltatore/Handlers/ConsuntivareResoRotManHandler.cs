@@ -11,14 +11,14 @@ using Super.Appaltatore.Domain;
 
 namespace Super.Appaltatore.Handlers
 {
-    public class ConsuntivareResoRotManHandler : CommandHandler<ConsuntivareResoRotMan>
+    public class ConsuntivareResoRotManHandler : CommandHandler<ConsuntivareResoInterventoRotMan>
     {
         public ConsuntivareResoRotManHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(ConsuntivareResoRotMan cmd)
+        public override CommandValidation Execute(ConsuntivareResoInterventoRotMan cmd)
         {
             Contract.Requires(cmd != null);
 

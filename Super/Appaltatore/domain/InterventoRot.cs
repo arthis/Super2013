@@ -29,24 +29,32 @@ namespace Super.Appaltatore.Domain
                                 , string turnoTreno
                                 , string rigaTurnoTreno
                                 , string convoglio
+                                , Guid idCommittente
+                                , Guid idPeriodoProgrammazione
+                                , Guid idProgramma
+                                , Guid idLotto
             )
         {
 
 
             var evt = BuildEvt.InterventoRotProgrammato
-                            .WithOggetti(oggetti.ToMessage().ToArray())
-                            .ForWorkPeriod(workPeriod.ToMessage())
-                            .ForImpianto(idImpianto)
-                            .OfTipoIntervento(idTipoIntervento)
-                            .ForAppaltatore(idAppaltatore)
-                            .ForCategoriaCommerciale(idCategoriaCommerciale)
-                            .ForDirezioneRegionale(idDirezioneRegionale)
-                            .WithNote(note)
-                            .WithTrenoPartenza(trenoPartenza.ToMessage())
-                            .WithTrenoArrivo(trenoArrivo.ToMessage())
-                            .WithTurnoTreno(turnoTreno)
-                            .WithRigaTurnoTreno(rigaTurnoTreno)
-                            .ForConvoglio(convoglio);
+                .WithOggetti(oggetti.ToMessage().ToArray())
+                .ForWorkPeriod(workPeriod.ToMessage())
+                .ForImpianto(idImpianto)
+                .OfTipoIntervento(idTipoIntervento)
+                .ForAppaltatore(idAppaltatore)
+                .ForCategoriaCommerciale(idCategoriaCommerciale)
+                .ForDirezioneRegionale(idDirezioneRegionale)
+                .WithNote(note)
+                .WithTrenoPartenza(trenoPartenza.ToMessage())
+                .WithTrenoArrivo(trenoArrivo.ToMessage())
+                .WithTurnoTreno(turnoTreno)
+                .WithRigaTurnoTreno(rigaTurnoTreno)
+                .ForConvoglio(convoglio)
+                .ForProgramma(idProgramma)
+                .ForPeriodoProgrammazione(idPeriodoProgrammazione)
+                .ForCommittente(idCommittente)
+                .ForLotto(idLotto);
 
             RaiseEvent(id, evt);
        }
@@ -54,7 +62,8 @@ namespace Super.Appaltatore.Domain
         public void Apply(InterventoRotProgrammato e)
         {
             Id = e.Id;
-              //do something here if needed
+            ProgrammedWorkPeriod = e.WorkPeriod.ToDomain();
+            //do something here if needed
         }
 
         public void ConsuntivareNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
@@ -104,35 +113,24 @@ namespace Super.Appaltatore.Domain
         }
 
 
-       public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, WorkPeriod workPeriod,
-           string idInterventoAppaltatore, string note, IEnumerable<OggettoRot> oggetti, string convoglio,
-           Treno trenoPartenza,Treno trenoArrivo, string rigaTurnoTreno, string turnoTreno)
+       public void ConsuntivareReso(DateTime dataConsuntivazione, WorkPeriod workPeriod,
+           string idInterventoAppaltatore, string note, IEnumerable<OggettoRot> oggetti)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
-            
+            var has_workPeriod_contained_in_workperiod_programmata =
+                 new Has_workPeriod_contained_in_workperiod_programmata(workPeriod);
 
-            ISpecification<Intervento> specs = is_data_consuntivazione_valid;
+
+           ISpecification<Intervento> specs = is_data_consuntivazione_valid
+                                                .And(has_workPeriod_contained_in_workperiod_programmata);
 
             if (specs.IsSatisfiedBy(this))
             {
-                var periodBuilder = new MsgWorkPeriodBuilder();
-                var trenoPartenzaBuilder = new MsgTrenoBuilder();
-                var trenoArrivoBuilder = new MsgTrenoBuilder();
-
-                workPeriod.BuildValue(periodBuilder);
-                trenoPartenza.BuildValue(trenoPartenzaBuilder);
-                trenoArrivo.BuildValue(trenoArrivoBuilder);
-
                 var evt = BuildEvt.InterventoRotConsuntivatoReso       
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
                                 .When(dataConsuntivazione)
                                 .WithNote(note)
-                                .ForWorkPeriod(periodBuilder.Build())
-                                .ForConvoglio(convoglio)
-                                .WithTrenoPartenza(trenoPartenzaBuilder.Build())
-                                .WithTrenoArrivo(trenoArrivoBuilder.Build())
-                                .WithRigaTurnoTreno(rigaTurnoTreno)
-                                .WithTurnoTreno(turnoTreno)
+                                .ForWorkPeriod(workPeriod.ToMessage())
                                 .WithOggetti(oggetti.ToMessage().ToArray());
 
                 RaiseEvent(evt);

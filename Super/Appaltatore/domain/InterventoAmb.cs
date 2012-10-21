@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Super.Domain.ValueObjects;
-using CommonDomain.Core.Super.Messaging;
-using CommonDomain.Core.Super.Messaging.Builders;
 using Super.Appaltatore.Events;
-
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Appaltatore.Events.Programmazione;
 
@@ -15,6 +11,8 @@ namespace Super.Appaltatore.Domain
     
     public class InterventoAmb : Intervento
     {
+        
+
         public void Programmare(Guid id
                                 , Guid idImpianto
                                 , Guid idTipoIntervento
@@ -25,19 +23,26 @@ namespace Super.Appaltatore.Domain
                                 , string note
                                 , int quantity
                                 , string description
-
+                                , Guid idCommittente
+                                , Guid idPeriodoProgrammazione
+                                , Guid idProgramma
+                                , Guid idLotto
             )
         {
             var evt = BuildEvt.InterventoAmbProgrammato
-                            .ForWorkPeriod(workPeriod.ToMessage())
-                            .ForImpianto(idImpianto)
-                            .OfTipoIntervento(idTipoIntervento)
-                            .ForAppaltatore(idAppaltatore)
-                            .ForCategoriaCommerciale(idCategoriaCommerciale)
-                            .ForDirezioneRegionale(idDirezioneRegionale)
-                            .WithNote(note)
-                            .ForQuantity(quantity)
-                            .ForDescription((description));
+                .ForWorkPeriod(workPeriod.ToMessage())
+                .ForImpianto(idImpianto)
+                .OfTipoIntervento(idTipoIntervento)
+                .ForAppaltatore(idAppaltatore)
+                .ForCategoriaCommerciale(idCategoriaCommerciale)
+                .ForDirezioneRegionale(idDirezioneRegionale)
+                .WithNote(note)
+                .ForQuantity(quantity)
+                .ForDescription((description))
+                .ForProgramma(idProgramma)
+                .ForPeriodoProgrammazione(idPeriodoProgrammazione)
+                .ForCommittente(idCommittente)
+                .ForLotto(idLotto);
 
             RaiseEvent(id, evt);
         }
@@ -45,16 +50,16 @@ namespace Super.Appaltatore.Domain
         public void Apply(InterventoAmbProgrammato e)
         {
             Id = e.Id;
-            //do something here if needed
+            ProgrammedWorkPeriod = e.WorkPeriod.ToDomain();
         }
 
         public void ConsuntivareNonReso(Guid id, string idInterventoAppaltatore, DateTime dataConsuntivazione, Guid idCausaleAppaltatore, string note)
         {
-           var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
+            var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
+            
+            ISpecification<Intervento> specs = is_data_consuntivazione_valid;
 
-           ISpecification<Intervento> specs = is_data_consuntivazione_valid;
-
-            if(specs.IsSatisfiedBy(this))
+            if (specs.IsSatisfiedBy(this))
             {
                 var evt = BuildEvt.InterventoAmbConsuntivatoNonReso
                                 .ForInterventoAppaltatore(idInterventoAppaltatore)
@@ -97,15 +102,14 @@ namespace Super.Appaltatore.Domain
         public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, WorkPeriod workPeriod, string idInterventoAppaltatore, string note, string description, int quantity)
         {
             var is_data_consuntivazione_valid = new Is_data_consuntivazione_valid(dataConsuntivazione);
+            var has_workPeriod_contained_in_workperiod_programmata =
+                new Has_workPeriod_contained_in_workperiod_programmata(workPeriod);
 
-            ISpecification<Intervento> specs = is_data_consuntivazione_valid;
+            ISpecification<Intervento> specs = is_data_consuntivazione_valid
+                                                .And(has_workPeriod_contained_in_workperiod_programmata);
 
             if (specs.IsSatisfiedBy(this))
             {
-                var periodBuilder = new MsgWorkPeriodBuilder();
-
-                workPeriod.BuildValue(periodBuilder);
-
                 var evt = BuildEvt.InterventoAmbConsuntivatoReso
                     .ForInterventoAppaltatore(idInterventoAppaltatore)
                     .When(dataConsuntivazione)
@@ -115,7 +119,6 @@ namespace Super.Appaltatore.Domain
                     .ForDescription(description);
 
                 RaiseEvent(evt);
-
             }
         }
 

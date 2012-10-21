@@ -18,7 +18,7 @@ using Super.Appaltatore.Events;
 
 namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
 {
-    public class Consuntivazione_reso_di_intervento_rotabile_in_manutenzione_programmato : CommandBaseClass<ConsuntivareResoRotMan>
+    public class consuntivazione_non_reso_di_intervento_rotabile_in_manutenzione_programmato : CommandBaseClass<ConsuntivareNonResoInterventoRotMan>
     {
         //programmato
         readonly Guid _id = Guid.NewGuid();
@@ -36,14 +36,18 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         readonly string _idInterventoAppaltatore = "id intervento appaltatore";
         readonly DateTime _dataConsuntivazione = DateTime.Now;
         List<OggettoRotMan> _oggettiCons = new List<OggettoRotMan>() { new OggettoRotMan("desc cons", 22, Guid.NewGuid(), Guid.NewGuid()) };
-        readonly WorkPeriod _workPeriodCons = new WorkPeriod(DateTime.Now.AddHours(-15), DateTime.Now.AddMinutes(-12));
+        readonly WorkPeriod _workPeriodCons = new WorkPeriod(DateTime.Now.AddHours(-15), DateTime.Now.AddMinutes(-22));
         string _noteCons = "note";
-        
+        private Guid _idProgramma =Guid.NewGuid();
+        private Guid _idPeriodoProgrammazione = Guid.NewGuid();
+        private Guid _idCommittente = Guid.NewGuid();
+        private Guid _idlotto = Guid.NewGuid();
+        private Guid _idCausaleAppaltatore = Guid.NewGuid();
 
-        
-        protected override CommandHandler<ConsuntivareResoRotMan> OnHandle(IEventRepository eventRepository)
+
+        protected override CommandHandler<ConsuntivareNonResoInterventoRotMan> OnHandle(IEventRepository eventRepository)
         {
-            return new ConsuntivareResoRotManHandler(eventRepository);
+            return new ConsuntivareNonResoInterventoRotManHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -56,30 +60,32 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
                 .ForDirezioneRegionale(_idDirezioneRegionale)
                 .ForWorkPeriod(_workPeriod)
                 .WithNote(_note)
+                .ForProgramma(_idProgramma)
                 .WithOggetti(_oggetti.ToArray())
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForLotto(_idlotto)
                 .Build(_id, 1);
         }
 
-        public override ConsuntivareResoRotMan When()
+        public override ConsuntivareNonResoInterventoRotMan When()
         {
-            return BuildCmd.ConsuntivareResoRotMan
+            return BuildCmd.ConsuntivareNonResoInterventoRotMan
               .ForInterventoAppaltatore(_idInterventoAppaltatore)
               .ForDataConsuntivazione(_dataConsuntivazione)
-              .ForWorkPeriod(_workPeriodCons)
               .WithNote(_noteCons)
-              .WithOggetti(_oggettiCons.ToArray())
+              .ForCausaleAppaltatore(_idCausaleAppaltatore)
               .Build(_id, _commitId, 1);
 
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.InterventoRotManConsuntivatoReso
+            yield return BuildEvt.InterventoRotManConsuntivatoNonReso
                 .ForInterventoAppaltatore(_idInterventoAppaltatore)
                 .When(_dataConsuntivazione)
-                .ForWorkPeriod(_workPeriodCons)
                 .WithNote(_noteCons)
-                .WithOggetti(_oggettiCons.ToArray())
+                .Because(_idCausaleAppaltatore)
                 .Build(_id, 2);
 
         }

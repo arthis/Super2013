@@ -10,19 +10,19 @@ using Super.Appaltatore.Domain;
 
 namespace Super.Appaltatore.Handlers
 {
-    public class ConsuntivareNonResoHandler : CommandHandler<ConsuntivareNonReso>
+    public class ConsuntivareNonResoInterventoRotManHandler : CommandHandler<ConsuntivareNonResoInterventoRotMan>
     {
-        public ConsuntivareNonResoHandler(IEventRepository eventRepository)
+        public ConsuntivareNonResoInterventoRotManHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(ConsuntivareNonReso cmd)
+        public override CommandValidation Execute(ConsuntivareNonResoInterventoRotMan cmd)
         {
             Contract.Requires(cmd != null);
 
 
-            var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
+            var existingIntervento = EventRepository.GetById<InterventoRotMan>(cmd.Id);
 
             if (existingIntervento.IsNull())
                 throw new HandlerForMessageNotFoundException();

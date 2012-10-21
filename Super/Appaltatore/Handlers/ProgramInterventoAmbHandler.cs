@@ -37,7 +37,11 @@ namespace Super.Appaltatore.Handlers
                                 , cmd.WorkPeriod.ToDomain()
                                 , cmd.Note
                                 , cmd.Quantity
-                                , cmd.Description);
+                                , cmd.Description
+                                , cmd.IdCommittente
+                                , cmd.IdPeriodoProgrammazione
+                                , cmd.IdProgramma
+                                , cmd.IdLotto);
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
 

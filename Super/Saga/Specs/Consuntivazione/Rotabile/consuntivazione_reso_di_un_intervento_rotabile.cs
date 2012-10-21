@@ -10,6 +10,7 @@ using Super.Appaltatore.Events.Consuntivazione;
 using Super.Controllo.Commands;
 
 using Super.Programmazione.Events;
+using Super.Saga.Handlers.Consuntivazione;
 using Super.Saga.Handlers.Intervento;
 
 namespace Super.Saga.Specs.Consuntivazione.Rotabile
@@ -83,16 +84,11 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile
         {
 
             return Appaltatore.Events.BuildEvt.InterventoRotConsuntivatoReso
-                .ForConvoglio(_convoglioCons)
                 .ForInterventoAppaltatore(_idInterventoAppaltatore)
                 .ForWorkPeriod(_periodCons)
                 .When(DataCons)
                 .WithNote(_noteCons)
                 .WithOggetti(_oggettiCons.ToArray())
-                .WithRigaTurnoTreno(_rigaTurnoTrenoCons)
-                .WithTrenoArrivo(_trenoArrivoCons)
-                .WithTrenoPartenza(_trenoPartenzaCons)
-                .WithTurnoTreno(_turnoTrenoCons)
                 .Build(_id, 24);
         }
 

@@ -18,7 +18,7 @@ using Super.Appaltatore.Events;
 
 namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
 {
-    public class Consuntivazione_reso_di_intervento_rotabile_in_manutenzione_gia_consutivato_reso : CommandBaseClass<ConsuntivareResoRotMan>
+    public class consuntivazione_reso_di_intervento_rotabile_in_manutenzione_gia_consutivato_reso : CommandBaseClass<ConsuntivareResoInterventoRotMan>
     {
         //programmato
         readonly Guid _id = Guid.NewGuid();
@@ -46,9 +46,13 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         string _noteCons2 = "note  Cons2";
         List<OggettoRotMan> _oggettiCons2 = new List<OggettoRotMan>() { new OggettoRotMan("desc cons 2", 15, Guid.NewGuid(), Guid.NewGuid()) };
         readonly WorkPeriod _workPeriodCons2 = new WorkPeriod(DateTime.Now.AddHours(-20), DateTime.Now.AddMinutes(-18));
+        private Guid _idProgramma = Guid.NewGuid();
+        private Guid _idPeriodoProgrammazione = Guid.NewGuid();
+        private Guid _idCommittente = Guid.NewGuid();
+        private Guid _idlotto = Guid.NewGuid();
 
-        
-        protected override CommandHandler<ConsuntivareResoRotMan> OnHandle(IEventRepository eventRepository)
+
+        protected override CommandHandler<ConsuntivareResoInterventoRotMan> OnHandle(IEventRepository eventRepository)
         {
             return new ConsuntivareResoRotManHandler(eventRepository);
         }
@@ -63,7 +67,11 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
                 .ForDirezioneRegionale(_idDirezioneRegionale)
                 .ForWorkPeriod(_workPeriod)
                 .WithNote(_note)
+                .ForProgramma(_idProgramma)
                 .WithOggetti(_oggetti.ToArray())
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForLotto(_idlotto)
                 .Build(_id, 1);
             yield return BuildEvt.InterventoRotManConsuntivatoReso
                 .ForInterventoAppaltatore(_idInterventoAppaltatore)
@@ -74,9 +82,9 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
                 .Build(_id,2);
         }
 
-        public override ConsuntivareResoRotMan When()
+        public override ConsuntivareResoInterventoRotMan When()
         {
-            return BuildCmd.ConsuntivareResoRotMan
+            return BuildCmd.ConsuntivareResoInterventoRotMan
                 .ForInterventoAppaltatore(_idInterventoAppaltatoreCons2)
                 .ForDataConsuntivazione(_dataConsuntivazioneCons2)
                 .ForWorkPeriod(_workPeriodCons2)

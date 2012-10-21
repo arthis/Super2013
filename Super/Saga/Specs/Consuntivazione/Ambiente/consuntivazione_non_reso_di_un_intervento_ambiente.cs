@@ -7,6 +7,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Appaltatore.Events.Consuntivazione;
+using Super.Saga.Handlers.Consuntivazione;
 using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 using BuildControlloCmd = Super.Controllo.Commands.BuildCmd;
 
@@ -39,6 +40,7 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
         private string _descriptionCons = "desc cons";
         string _noteCons = "note cons";
         private Guid _idProgramma = Guid.NewGuid();
+        private Guid _idcausaleAppalttore = Guid.NewGuid();
 
         public override string ToDescription()
         {
@@ -75,6 +77,7 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
                             .ForInterventoAppaltatore(_idInterventoAppaltatore)
                             .When(DataCons)
                             .WithNote(_noteCons)
+                            .Because(_idcausaleAppalttore)
                             .Build(_id, 14);
 
         }

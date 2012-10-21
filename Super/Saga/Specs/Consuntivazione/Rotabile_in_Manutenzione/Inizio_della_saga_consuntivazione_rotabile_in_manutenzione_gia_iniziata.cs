@@ -9,6 +9,7 @@ using CommonSpecs;
 using Super.Programmazione.Events.Intervento;
 using Super.Saga.Domain.Exceptions;
 using Super.Programmazione.Events;
+using Super.Saga.Handlers.Consuntivazione;
 using Super.Saga.Handlers.Intervento;
 
 namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione

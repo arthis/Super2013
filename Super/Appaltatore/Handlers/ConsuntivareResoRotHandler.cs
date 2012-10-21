@@ -11,14 +11,14 @@ using Super.Appaltatore.Domain;
 
 namespace Super.Appaltatore.Handlers
 {
-    public class ConsuntivareResoRotHandler : CommandHandler<ConsuntivareResoRot>
+    public class ConsuntivareResoRotHandler : CommandHandler<ConsuntivareResoInterventoRot>
     {
         public ConsuntivareResoRotHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(ConsuntivareResoRot cmd)
+        public override CommandValidation Execute(ConsuntivareResoInterventoRot cmd)
         {
             Contract.Requires(cmd != null);
 
@@ -27,17 +27,12 @@ namespace Super.Appaltatore.Handlers
             if (existingIntervento.IsNull())
                 throw new HandlerForMessageNotFoundException();
 
-            existingIntervento.ConsuntivareReso(cmd.Id
-                                , cmd.DataConsuntivazione
+            existingIntervento.ConsuntivareReso(
+                                  cmd.DataConsuntivazione
                                 , cmd.WorkPeriod.ToDomain()
                                 , cmd.IdInterventoAppaltatore
                                 , cmd.Note
-                                , cmd.Oggetti.ToDomain()
-                                , cmd.Convoglio
-                                , cmd.TrenoPartenza.ToDomain()
-                                , cmd.TrenoArrivo.ToDomain()
-                                , cmd.RigaTurnoTreno
-                                , cmd.TurnoTreno);
+                                , cmd.Oggetti.ToDomain());
 
 
             EventRepository.Save(existingIntervento, cmd.CommitId);

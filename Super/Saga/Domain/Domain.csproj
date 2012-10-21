@@ -116,6 +116,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consuntivazione\ConsuntivazioneSaga.cs" />
     <Compile Include="Consuntivazione\InterventoAmbSaga.cs" />
     <Compile Include="Consuntivazione\enum.cs" />
     <Compile Include="Consuntivazione\InterventoRotManSaga.cs" />

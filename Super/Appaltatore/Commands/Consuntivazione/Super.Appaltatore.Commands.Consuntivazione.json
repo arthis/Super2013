@@ -3,14 +3,26 @@
     "Objects" :
     [
         {
-            "Name" :"ConsuntivareAutomaticamenteNonReso",
-			"Description" : "Consuntivare automaticamente non reso appaltatore il intervento",
+            "Name" :"ConsuntivareAutomaticamenteNonResoInterventoRot",
+			"Description" : "Consuntivare automaticamente non reso appaltatore il intervento rotabile",
             "Properties" : [
 		    ]
         },
 		{
-            "Name" :"ConsuntivareNonReso",
-			"Description" : "Consuntivare non reso appaltatore il intervento",
+            "Name" :"ConsuntivareAutomaticamenteNonResoInterventoRotMan",
+			"Description" : "Consuntivare automaticamente non reso appaltatore il intervento rotabile in manutenzione",
+            "Properties" : [
+		    ]
+        },
+		{
+            "Name" :"ConsuntivareAutomaticamenteNonResoInterventoAmb",
+			"Description" : "Consuntivare automaticamente non reso appaltatore il intervento Ambiente",
+            "Properties" : [
+		    ]
+        },
+		{
+            "Name" :"ConsuntivareNonResoInterventoRot",
+			"Description" : "Consuntivare non reso appaltatore il intervento rotabile",
             "Properties" : [
 			    {
                     "Name" : "Note",
@@ -35,8 +47,60 @@
             ]
         },
 		{
-            "Name" :"ConsuntivareNonResoTrenitalia",
-			"Description" : "Consuntivare non reso trenitalia il intervento",
+            "Name" :"ConsuntivareNonResoInterventoRotMan",
+			"Description" : "Consuntivare non reso appaltatore il intervento rotabile in Manutenzione",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "IdCausaleAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"ConsuntivareNonResoInterventoAmb",
+			"Description" : "Consuntivare non reso appaltatore il intervento ambiente",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "IdCausaleAppaltatore",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"ConsuntivareNonResoTrenitaliaInterventoRot",
+			"Description" : "Consuntivare non reso trenitalia il intervento rotabile",
             "Properties" : [
 			    {
                     "Name" : "Note",
@@ -61,7 +125,59 @@
             ]
         },
 		{
-            "Name" :"ConsuntivareResoRot",
+            "Name" :"ConsuntivareNonResoTrenitaliaInterventoRotMan",
+			"Description" : "Consuntivare non reso trenitalia il intervento rotabile in manutenzione",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "IdCausaleTrenitalia",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"ConsuntivareNonResoTrenitaliaInterventoAmb",
+			"Description" : "Consuntivare non reso trenitalia il intervento ambiente",
+            "Properties" : [
+			    {
+                    "Name" : "Note",
+                    "Type" : "string",
+					"IsRequired" : false 
+                },
+				{
+                    "Name" : "IdCausaleTrenitalia",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdInterventoAppaltatore",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"ConsuntivareResoInterventoRot",
 			"Description" : "Consuntivato reso  il intervento rotabile",
             "Properties" : [
 			    {
@@ -85,31 +201,6 @@
 					"IsRequired" : true 
                 },
 				{
-                    "Name" : "Convoglio",
-                    "Type" : "string",
-					"IsRequired" : false 
-                },
-				{
-                    "Name" : "RigaTurnoTreno",
-                    "Type" : "string",
-					"IsRequired" : false 
-                },
-				{
-                    "Name" : "TurnoTreno",
-                    "Type" : "string",
-					"IsRequired" : false 
-                },
-				{
-                    "Name" : "TrenoArrivo",
-                    "Type" : "Treno",
-					"IsRequired" : false 
-                },
-				{
-                    "Name" : "TrenoPartenza",
-                    "Type" : "Treno",
-					"IsRequired" : false 
-                },
-				{
                     "Name" : "Oggetti",
                     "Type" : "OggettoRot[]",
 					"IsRequired" : true
@@ -117,7 +208,7 @@
             ]
         },
 		{
-            "Name" :"ConsuntivareResoRotMan",
+            "Name" :"ConsuntivareResoInterventoRotMan",
 			"Description" : "Consuntivare reso il intervento rotabile in manutenzione",
             "Properties" : [
 			    {
@@ -148,7 +239,7 @@
             ]
         },
 		{
-            "Name" :"ConsuntivareResoAmb",
+            "Name" :"ConsuntivareResoInterventoAmb",
 			"Description" : "Consuntivare reso il intervento ambiente",
             "Properties" : [
 			    {

@@ -132,7 +132,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 		}
 			public override string ToDescription()
 		{
-			return string.Format("il intervento rotabile in manutenzione é stato  consuntivato non reso appaltatore", Id);
+			return string.Format("il intervento rotabile in mantenzione é stato  consuntivato non reso appaltatore", Id);
 		}
 		
 		public bool Equals(InterventoRotManConsuntivatoNonReso other)
@@ -557,11 +557,6 @@ namespace Super.Appaltatore.Events.Consuntivazione
 		public WorkPeriod WorkPeriod { get; set;} 
 		public DateTime DataConsuntivazione { get; set;} 
 		public string IdInterventoAppaltatore { get; set;} 
-		public string Convoglio { get; set;} 
-		public string TurnoTreno { get; set;} 
-		public Treno TrenoArrivo { get; set;} 
-		public string RigaTurnoTreno { get; set;} 
-		public Treno TrenoPartenza { get; set;} 
 		public OggettoRot[] Oggetti { get; set;}
 
 		public InterventoRotConsuntivatoReso ()
@@ -569,7 +564,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			//for serialisation
 		}	     
 
-		public InterventoRotConsuntivatoReso(Guid id, Guid commitId, long version,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,string convoglio,string turnoTreno,Treno trenoArrivo,string rigaTurnoTreno,Treno trenoPartenza,OggettoRot[] oggetti)
+		public InterventoRotConsuntivatoReso(Guid id, Guid commitId, long version,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
 		   : base(id,commitId,version)
 		{
 			Contract.Requires(workPeriod != null);
@@ -584,15 +579,10 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			WorkPeriod = workPeriod ;
 			DataConsuntivazione = dataConsuntivazione ;
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
-			Convoglio = convoglio ;
-			TurnoTreno = turnoTreno ;
-			TrenoArrivo = trenoArrivo ;
-			RigaTurnoTreno = rigaTurnoTreno ;
-			TrenoPartenza = trenoPartenza ;
 			Oggetti = oggetti ;
 		}
 
-		public InterventoRotConsuntivatoReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,string convoglio,string turnoTreno,Treno trenoArrivo,string rigaTurnoTreno,Treno trenoPartenza,OggettoRot[] oggetti)
+		public InterventoRotConsuntivatoReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
 		{
 			Contract.Requires(workPeriod != null);
@@ -607,11 +597,6 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			WorkPeriod = workPeriod ;
 			DataConsuntivazione = dataConsuntivazione ;
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
-			Convoglio = convoglio ;
-			TurnoTreno = turnoTreno ;
-			TrenoArrivo = trenoArrivo ;
-			RigaTurnoTreno = rigaTurnoTreno ;
-			TrenoPartenza = trenoPartenza ;
 			Oggetti = oggetti ;
 		}
 			public override string ToDescription()
@@ -623,7 +608,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other)  	 && Equals(other.Note, Note)  	 && Equals(other.WorkPeriod, WorkPeriod)  	 && Equals(other.DataConsuntivazione, DataConsuntivazione)  	 && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore)  	 && Equals(other.Convoglio, Convoglio)  	 && Equals(other.TurnoTreno, TurnoTreno)  	 && Equals(other.TrenoArrivo, TrenoArrivo)  	 && Equals(other.RigaTurnoTreno, RigaTurnoTreno)  	 && Equals(other.TrenoPartenza, TrenoPartenza)  	 && other.Oggetti.SequenceEqual(Oggetti) ; 
+            return base.Equals(other)  	 && Equals(other.Note, Note)  	 && Equals(other.WorkPeriod, WorkPeriod)  	 && Equals(other.DataConsuntivazione, DataConsuntivazione)  	 && Equals(other.IdInterventoAppaltatore, IdInterventoAppaltatore)  	 && other.Oggetti.SequenceEqual(Oggetti) ; 
 		}
 
 		public override bool Equals(object obj)
@@ -642,11 +627,6 @@ namespace Super.Appaltatore.Events.Consuntivazione
 				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
 				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (Convoglio != null ? Convoglio.GetHashCode() : 0);
-				result = (result*397) ^ (TurnoTreno != null ? TurnoTreno.GetHashCode() : 0);
-				result = (result*397) ^ (TrenoArrivo != null ? TrenoArrivo.GetHashCode() : 0);
-				result = (result*397) ^ (RigaTurnoTreno != null ? RigaTurnoTreno.GetHashCode() : 0);
-				result = (result*397) ^ (TrenoPartenza != null ? TrenoPartenza.GetHashCode() : 0);
 				result = (result*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
 				return result;
             }

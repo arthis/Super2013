@@ -6,6 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
+using Super.Saga.Handlers.Consuntivazione;
 using BuildControlloCmd =  Super.Controllo.Commands.BuildCmd;
 using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 using Super.Programmazione.Events.Intervento;

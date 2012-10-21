@@ -3,9 +3,8 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
 using Super.Appaltatore.Events.Consuntivazione;
 using Super.Saga.Domain.Consuntivazione;
-using Super.Saga.Domain.Intervento;
 
-namespace Super.Saga.Handlers.Intervento
+namespace Super.Saga.Handlers.Consuntivazione
 {
 
     public class InterventoAmbConsuntivatoResoHandler : SagaHandler<InterventoAmbConsuntivatoReso>
@@ -20,9 +19,9 @@ namespace Super.Saga.Handlers.Intervento
             var sagaId = @event.Id;
 
             // purchase correlation 
-            var saga = Repository.GetById<ConsuntivaziioneAmbSaga>(sagaId);
+            var saga = Repository.GetById<ConsuntivazioneAmbSaga>(sagaId);
 
-            saga.ConsuntivareIntervento(@event);
+            saga.ConsuntivareResoIntervento(@event);
 
             Repository.Save(saga, @event.CommitId, null);
 

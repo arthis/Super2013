@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using CommonDomain;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Persistence;
+using Super.Saga.Handlers.Consuntivazione;
 using Super.Saga.Handlers.Intervento;
 
 namespace Super.Saga.Handlers

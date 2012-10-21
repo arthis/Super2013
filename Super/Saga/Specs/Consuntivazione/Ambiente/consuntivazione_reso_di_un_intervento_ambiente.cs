@@ -7,6 +7,7 @@ using CommonDomain.Persistence;
 using NUnit.Framework;
 using CommonSpecs;
 using Super.Appaltatore.Events.Consuntivazione;
+using Super.Saga.Handlers.Consuntivazione;
 using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 using BuildControlloCmd = Super.Controllo.Commands.BuildCmd;
 

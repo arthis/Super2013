@@ -24,14 +24,18 @@ namespace Super.Appaltatore.Handlers
             handlerHelper.Add( new ProgramInterventoRotHandler(eventRepositoryEvent));
             handlerHelper.Add( new ProgramInterventoRotManHandler(eventRepositoryEvent));
 
-            handlerHelper.Add( new ConsuntivareNonResoHandler(eventRepositoryEvent));
+            handlerHelper.Add(new ConsuntivareNonResoInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.Add(new ConsuntivareNonResoInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.Add(new ConsuntivareNonResoInterventoRotManHandler(eventRepositoryEvent));
             
 
             handlerHelper.Add( new ConsuntivareResoAmbHandler(eventRepositoryEvent));
             handlerHelper.Add( new ConsuntivareResoRotHandler(eventRepositoryEvent));
             handlerHelper.Add( new ConsuntivareResoRotManHandler(eventRepositoryEvent));
 
-            handlerHelper.Add( new ConsuntivareNonResoTrenitaliaHandler(eventRepositoryEvent));
+            handlerHelper.Add( new ConsuntivareNonResoTrenitaliaInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.Add(new ConsuntivareNonResoTrenitaliaInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.Add(new ConsuntivareNonResoTrenitaliaInterventoRotManHandler(eventRepositoryEvent));
             
         }
 

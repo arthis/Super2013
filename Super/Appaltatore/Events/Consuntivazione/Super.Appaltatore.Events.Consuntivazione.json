@@ -34,7 +34,7 @@
 		{
             "Name" :"InterventoRotManConsuntivatoNonReso",
 			"Inheritance" : "IInterventoRotManConsuntivato",
-			"Description" : "il intervento rotabile in manutenzione é stato  consuntivato non reso appaltatore",
+			"Description" : "il intervento rotabile in mantenzione é stato  consuntivato non reso appaltatore",
             "Properties" : [
 			    {
                     "Name" : "Note",
@@ -240,31 +240,6 @@
                     "Name" : "IdInterventoAppaltatore",
                     "Type" : "string",
 					"IsRequired" : true 
-                },
-				{
-                    "Name" : "Convoglio",
-                    "Type" : "string",
-					"IsRequired" : false 
-                },
-				{
-                    "Name" : "TurnoTreno",
-                    "Type" : "string",
-					"IsRequired" : false 
-                },
-				{
-                    "Name" : "TrenoArrivo",
-                    "Type" : "Treno",
-					"IsRequired" : false 
-                },
-				{
-                    "Name" : "RigaTurnoTreno",
-                    "Type" : "string",
-					"IsRequired" : false 
-                },
-				{
-                    "Name" : "TrenoPartenza",
-                    "Type" : "Treno",
-					"IsRequired" : false 
                 },
 				{
                     "Name" : "Oggetti",

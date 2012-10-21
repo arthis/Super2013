@@ -35,6 +35,10 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
         string _rigaTurnoTreno = "rigaturno";
         string _convoglio = "convoglio";
         string _note = "note";
+        private Guid _idProgramma = Guid.NewGuid();
+        private Guid _idPeriodoProgrammazione = Guid.NewGuid();
+        private Guid _idCommittente = Guid.NewGuid();
+        private Guid _idlotto = Guid.NewGuid();
 
         protected override CommandHandler<ProgramInterventoRot> OnHandle(IEventRepository eventRepository)
         {
@@ -63,6 +67,10 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
                 .WithTurnoTreno(_turnoTreno)
                 .WithRigaTurnoTreno(_rigaTurnoTreno)
                 .ForConvoglio(_convoglio)
+                .ForProgramma(_idProgramma)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForLotto(_idlotto)
                 .Build(_id, _commitId, 0);
         }
 
@@ -82,6 +90,10 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile
                 .WithTurnoTreno(_turnoTreno)
                 .WithRigaTurnoTreno(_rigaTurnoTreno)
                 .ForConvoglio(_convoglio)
+                .ForProgramma(_idProgramma)
+                .ForPeriodoProgrammazione(_idPeriodoProgrammazione)
+                .ForCommittente(_idCommittente)
+                .ForLotto(_idlotto)
                 .Build(_id,1);
         }
 

@@ -9,6 +9,7 @@ namespace Super.Controllo.Domain
     public class Intervento : AggregateBase
     {
         private bool _isClosed;
+        private bool _isControlAllowed;
 
         public Intervento()
         {
@@ -26,6 +27,7 @@ namespace Super.Controllo.Domain
         public void Apply(InterventoControlAllowed e)
         {
             Id = e.Id;
+            _isControlAllowed = true;
         }
 
         public void Close(Guid idUser, DateTime closingDate)

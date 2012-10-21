@@ -10,6 +10,7 @@ using Super.Appaltatore.Commands;
 using Super.Programmazione.Events.Intervento;
 using Super.Programmazione.Events;
 using Super.Saga.Domain.Exceptions;
+using Super.Saga.Handlers.Consuntivazione;
 using Super.Saga.Handlers.Intervento;
 
 

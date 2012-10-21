@@ -10,28 +10,27 @@ using Super.Appaltatore.Domain;
 
 namespace Super.Appaltatore.Handlers
 {
-    public class ConsuntivareNonResoTrenitaliaHandler : CommandHandler<ConsuntivareNonResoTrenitalia>
+    public class ConsuntivareNonResoInterventoAmbHandler : CommandHandler<ConsuntivareNonResoInterventoAmb>
     {
-        public ConsuntivareNonResoTrenitaliaHandler(IEventRepository eventRepository)
+        public ConsuntivareNonResoInterventoAmbHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
         }
 
-        public override CommandValidation Execute(ConsuntivareNonResoTrenitalia cmd)
+        public override CommandValidation Execute(ConsuntivareNonResoInterventoAmb cmd)
         {
             Contract.Requires(cmd != null);
 
-            
 
             var existingIntervento = EventRepository.GetById<InterventoAmb>(cmd.Id);
 
             if (existingIntervento.IsNull())
                 throw new HandlerForMessageNotFoundException();
 
-            existingIntervento.ConsuntivareNonResoTrenitalia(cmd.Id
-                                , cmd.DataConsuntivazione
-                                , cmd.IdCausaleTrenitalia
+            existingIntervento.ConsuntivareNonReso(cmd.Id
                                 , cmd.IdInterventoAppaltatore
+                                , cmd.DataConsuntivazione
+                                , cmd.IdCausaleAppaltatore
                                 , cmd.Note);
 
             EventRepository.Save(existingIntervento, cmd.CommitId);
