@@ -73,7 +73,7 @@ namespace Super.Appaltatore.Domain
 
         public void Apply(InterventoAmbConsuntivatoNonReso e)
         {
-            //do something here if needed
+            StatoAppaltatore= E_StatoAppaltatore.NonReso;
         }
 
         public void ConsuntivareNonResoTrenitalia(Guid id, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string idInterventoAppaltatore, string note)
@@ -96,7 +96,7 @@ namespace Super.Appaltatore.Domain
 
         public void Apply(InterventoAmbConsuntivatoNonResoTrenitalia e)
         {
-            //do something here if needed
+            StatoAppaltatore = E_StatoAppaltatore.NonResoTrenitalia;
         }
 
         public void ConsuntivareReso(Guid id, DateTime dataConsuntivazione, WorkPeriod workPeriod, string idInterventoAppaltatore, string note, string description, int quantity)
@@ -124,7 +124,25 @@ namespace Super.Appaltatore.Domain
 
         public void Apply(InterventoAmbConsuntivatoReso e)
         {
-            //do something here if needed
+            StatoAppaltatore = E_StatoAppaltatore.Reso;
+        }
+
+        public void ConsuntivareAutomaticamenteNonReso(DateTime dataConsuntivazione)
+        {
+            var has_Intervento_been_Consuntivated = new Has_Intervento_been_Consuntivated();
+
+            var specs = has_Intervento_been_Consuntivated;
+
+            if (specs.IsSatisfiedBy(this))
+            {
+                var evt = BuildEvt.InterventoAmbConsuntivatoNonReso
+                                .ForInterventoAppaltatore(IdInterventoAppaltatoreAutomatica)
+                                .Because(IdCausaleAppaltatoreAutomatica)
+                                .When(dataConsuntivazione)
+                                .WithNote(string.Empty);
+
+                RaiseEvent(evt);
+            }
         }
     }
 }

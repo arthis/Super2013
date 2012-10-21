@@ -53,4 +53,19 @@ namespace Super.Appaltatore.Domain
             return true;
         }
     }
+
+    public class Has_Intervento_been_Consuntivated: ISpecification<Intervento>
+    {
+
+        public bool IsSatisfiedBy(Intervento i)
+        {
+            if (i.StatoAppaltatore!= Intervento.E_StatoAppaltatore.NotDeclared)
+            {
+                i.CommandValidationMessages.Add(new ValidationMessage("Consuntivato", "The intervento has already been consuntivated"));
+                return false;
+            }
+            return true;
+        }
+    }
+
 }

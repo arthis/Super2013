@@ -27,7 +27,11 @@ namespace Super.Appaltatore.Handlers
             handlerHelper.Add(new ConsuntivareNonResoInterventoAmbHandler(eventRepositoryEvent));
             handlerHelper.Add(new ConsuntivareNonResoInterventoRotHandler(eventRepositoryEvent));
             handlerHelper.Add(new ConsuntivareNonResoInterventoRotManHandler(eventRepositoryEvent));
-            
+
+            handlerHelper.Add(new ConsuntivareAutomaticamenteNonResoInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.Add(new ConsuntivareAutomaticamenteNonResoInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.Add(new ConsuntivareAutomaticamenteNonResoInterventoRotManHandler(eventRepositoryEvent));
+
 
             handlerHelper.Add( new ConsuntivareResoAmbHandler(eventRepositoryEvent));
             handlerHelper.Add( new ConsuntivareResoRotHandler(eventRepositoryEvent));

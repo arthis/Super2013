@@ -115,15 +115,20 @@
     <Compile Include="Consuntivazione\Ambiente\consuntivazione_reso_di_intervento_ambiente_programmato.cs" />
     <Compile Include="Consuntivazione\Ambiente\consuntivazione_non_reso_di_intervento_ambiente_programmato.cs" />
     <Compile Include="Consuntivazione\Ambiente\consuntivazione_non_reso_trenitalia_di_intervento_ambiente_programmato.cs" />
-    <Compile Include="Consuntivazione\Ambiente\Copy of consuntivazione_non_reso_di_intervento_ambiente_programmato.cs" />
+    <Compile Include="Consuntivazione\Ambiente\consuntivazione_non_reso_automatica_di_intervento_ambiente_programmato.cs" />
+    <Compile Include="Consuntivazione\Ambiente\consuntivazione_non_reso_automatica_di_intervento_ambiente_gia_consuntivato.cs" />
+    <Compile Include="Consuntivazione\Rotabile\consuntivazione_automatica_non_reso_di_intervento_rotabile_programmato.cs" />
     <Compile Include="Consuntivazione\Rotabile\consuntivazione_reso_di_intervento_rotabile_gia_consutivato_reso.cs" />
     <Compile Include="Consuntivazione\Rotabile\consuntivazione_non_reso_di_intervento_rotabile_programmato.cs" />
     <Compile Include="Consuntivazione\Rotabile\consuntivazione_non_reso_trenitalia_di_intervento_rotabile_programmato.cs" />
+    <Compile Include="Consuntivazione\Rotabile\consuntivazione_automatica_non_reso_di_intervento_rotabile_gia_consuntivato.cs" />
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_reso_di_intervento_rotabile_in_manutenzione_programmato.cs" />
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_reso_di_intervento_rotabile_in_manutenzione_gia_consutivato_reso.cs" />
     <Compile Include="Consuntivazione\Rotabile\consuntivazione_reso_di_intervento_rotabile_programmato.cs" />
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_non_reso_di_intervento_rotabile_in_manutenzione_programmato.cs" />
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_non_reso_trenitalia_di_intervento_rotabile_in_manutenzione_programmato.cs" />
+    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_non_reso_automatica_di_intervento_rotabile_in_manutenzione_programmato.cs" />
+    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Copy of consuntivazione_non_reso_automatica_di_intervento_rotabile_in_manutenzione_programmato.cs" />
     <Compile Include="Programmazione\Ambiente\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
     <Compile Include="Programmazione\Ambiente\Programmazione_di_intervento_rotabile_non_esistente.cs" />
     <Compile Include="Programmazione\Rotabile_in_Manutenzione\Programmazione_di_intervento_rotabile_gia_esistente.cs" />
@@ -152,6 +157,10 @@
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
       <Name>Commands %28Super\Appaltatore\Commands%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\domain\Domain.csproj">
+      <Project>{15903C05-3822-4034-AF0B-DB1A3611FB46}</Project>
+      <Name>Domain %28Super\Appaltatore\Domain%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{11241956-CC2D-46B0-B46C-C2E2F34AE693}</Project>

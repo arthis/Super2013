@@ -14,7 +14,7 @@ namespace Super.Appaltatore.Domain
 
     public class InterventoRotMan : Intervento
     {
-
+        
         public void Programmare(Guid id
                                         , Guid idImpianto
                                         , Guid idTipoIntervento
@@ -52,7 +52,6 @@ namespace Super.Appaltatore.Domain
         {
             Id = e.Id;
             ProgrammedWorkPeriod = e.WorkPeriod.ToDomain();
-            //do something here if needed
         }
 
 
@@ -77,6 +76,7 @@ namespace Super.Appaltatore.Domain
         public void Apply(InterventoRotManConsuntivatoNonReso e)
         {
             //do something here if needed
+            StatoAppaltatore = E_StatoAppaltatore.NonReso;
         }
 
         public void ConsuntivareNonResoTrenitalia(Guid id, DateTime dataConsuntivazione, Guid idCausaleTrenitalia, string idInterventoAppaltatore, string note)
@@ -99,7 +99,7 @@ namespace Super.Appaltatore.Domain
 
         public void Apply(InterventoRotManConsuntivatoNonResoTrenitalia e)
         {
-            //do something here if needed
+            StatoAppaltatore = E_StatoAppaltatore.NonResoTrenitalia;
         }
 
 
@@ -128,7 +128,25 @@ namespace Super.Appaltatore.Domain
 
         public void Apply(InterventoRotManConsuntivatoReso e)
         {
-            //do something here if needed
+            StatoAppaltatore = E_StatoAppaltatore.Reso;
+        }
+
+        public void ConsuntivareAutomaticamenteNonReso(DateTime dataConsuntivazione)
+        {
+            var has_Intervento_been_Consuntivated = new Has_Intervento_been_Consuntivated();
+
+            var specs = has_Intervento_been_Consuntivated;
+
+            if (specs.IsSatisfiedBy(this))
+            {
+                var evt = BuildEvt.InterventoRotManConsuntivatoNonReso
+                                .ForInterventoAppaltatore(IdInterventoAppaltatoreAutomatica)
+                                .Because(IdCausaleAppaltatoreAutomatica)
+                                .When(dataConsuntivazione)
+                                .WithNote(string.Empty);
+
+                RaiseEvent(evt);
+            }
         }
     }
 }
