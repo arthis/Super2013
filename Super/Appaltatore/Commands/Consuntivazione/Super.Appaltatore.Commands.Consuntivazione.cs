@@ -22,7 +22,17 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareAutomaticamenteNonResoInterventoRot ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareAutomaticamenteNonResoInterventoRot(Guid id, Guid commitId,DateTime dataConsuntivazione)
+		   : base(id,commitId)
+		{
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+			DataConsuntivazione = dataConsuntivazione ;
+		}
+	     
 
 		public ConsuntivareAutomaticamenteNonResoInterventoRot(Guid id, Guid commitId, long version,DateTime dataConsuntivazione)
 		   : base(id,commitId,version)
@@ -31,6 +41,16 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 
 			DataConsuntivazione = dataConsuntivazione ;
 		}
+
+		
+		public ConsuntivareAutomaticamenteNonResoInterventoRot(Guid id, Guid commitId, DateTime wakeupTime,DateTime dataConsuntivazione)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+			DataConsuntivazione = dataConsuntivazione ;
+		}
+
 
 		public ConsuntivareAutomaticamenteNonResoInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,DateTime dataConsuntivazione)
 		   : base(id,commitId,version,wakeupTime)
@@ -77,7 +97,17 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareAutomaticamenteNonResoInterventoRotMan ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareAutomaticamenteNonResoInterventoRotMan(Guid id, Guid commitId,DateTime dataConsuntivazione)
+		   : base(id,commitId)
+		{
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+			DataConsuntivazione = dataConsuntivazione ;
+		}
+	     
 
 		public ConsuntivareAutomaticamenteNonResoInterventoRotMan(Guid id, Guid commitId, long version,DateTime dataConsuntivazione)
 		   : base(id,commitId,version)
@@ -86,6 +116,16 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 
 			DataConsuntivazione = dataConsuntivazione ;
 		}
+
+		
+		public ConsuntivareAutomaticamenteNonResoInterventoRotMan(Guid id, Guid commitId, DateTime wakeupTime,DateTime dataConsuntivazione)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+			DataConsuntivazione = dataConsuntivazione ;
+		}
+
 
 		public ConsuntivareAutomaticamenteNonResoInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,DateTime dataConsuntivazione)
 		   : base(id,commitId,version,wakeupTime)
@@ -132,7 +172,17 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareAutomaticamenteNonResoInterventoAmb ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareAutomaticamenteNonResoInterventoAmb(Guid id, Guid commitId,DateTime dataConsuntivazione)
+		   : base(id,commitId)
+		{
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+			DataConsuntivazione = dataConsuntivazione ;
+		}
+	     
 
 		public ConsuntivareAutomaticamenteNonResoInterventoAmb(Guid id, Guid commitId, long version,DateTime dataConsuntivazione)
 		   : base(id,commitId,version)
@@ -141,6 +191,16 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 
 			DataConsuntivazione = dataConsuntivazione ;
 		}
+
+		
+		public ConsuntivareAutomaticamenteNonResoInterventoAmb(Guid id, Guid commitId, DateTime wakeupTime,DateTime dataConsuntivazione)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+			DataConsuntivazione = dataConsuntivazione ;
+		}
+
 
 		public ConsuntivareAutomaticamenteNonResoInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,DateTime dataConsuntivazione)
 		   : base(id,commitId,version,wakeupTime)
@@ -190,7 +250,24 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareNonResoInterventoRot ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareNonResoInterventoRot(Guid id, Guid commitId,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+	     
 
 		public ConsuntivareNonResoInterventoRot(Guid id, Guid commitId, long version,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version)
@@ -206,6 +283,23 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 			DataConsuntivazione = dataConsuntivazione ;
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
+
+		
+		public ConsuntivareNonResoInterventoRot(Guid id, Guid commitId, DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
@@ -265,7 +359,24 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareNonResoInterventoRotMan ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareNonResoInterventoRotMan(Guid id, Guid commitId,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+	     
 
 		public ConsuntivareNonResoInterventoRotMan(Guid id, Guid commitId, long version,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version)
@@ -281,6 +392,23 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 			DataConsuntivazione = dataConsuntivazione ;
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
+
+		
+		public ConsuntivareNonResoInterventoRotMan(Guid id, Guid commitId, DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
@@ -340,7 +468,24 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareNonResoInterventoAmb ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareNonResoInterventoAmb(Guid id, Guid commitId,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+	     
 
 		public ConsuntivareNonResoInterventoAmb(Guid id, Guid commitId, long version,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version)
@@ -356,6 +501,23 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 			DataConsuntivazione = dataConsuntivazione ;
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
+
+		
+		public ConsuntivareNonResoInterventoAmb(Guid id, Guid commitId, DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
@@ -415,7 +577,24 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareNonResoTrenitaliaInterventoRot ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareNonResoTrenitaliaInterventoRot(Guid id, Guid commitId,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+	     
 
 		public ConsuntivareNonResoTrenitaliaInterventoRot(Guid id, Guid commitId, long version,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version)
@@ -431,6 +610,23 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 			DataConsuntivazione = dataConsuntivazione ;
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
+
+		
+		public ConsuntivareNonResoTrenitaliaInterventoRot(Guid id, Guid commitId, DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoTrenitaliaInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
@@ -490,7 +686,24 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareNonResoTrenitaliaInterventoRotMan ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareNonResoTrenitaliaInterventoRotMan(Guid id, Guid commitId,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+	     
 
 		public ConsuntivareNonResoTrenitaliaInterventoRotMan(Guid id, Guid commitId, long version,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version)
@@ -506,6 +719,23 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 			DataConsuntivazione = dataConsuntivazione ;
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
+
+		
+		public ConsuntivareNonResoTrenitaliaInterventoRotMan(Guid id, Guid commitId, DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoTrenitaliaInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
@@ -565,7 +795,24 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareNonResoTrenitaliaInterventoAmb ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareNonResoTrenitaliaInterventoAmb(Guid id, Guid commitId,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+	     
 
 		public ConsuntivareNonResoTrenitaliaInterventoAmb(Guid id, Guid commitId, long version,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version)
@@ -581,6 +828,23 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 			DataConsuntivazione = dataConsuntivazione ;
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
+
+		
+		public ConsuntivareNonResoTrenitaliaInterventoAmb(Guid id, Guid commitId, DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoTrenitaliaInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
@@ -641,7 +905,27 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareResoInterventoRot ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareResoInterventoRot(Guid id, Guid commitId,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
+		   : base(id,commitId)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+	     
 
 		public ConsuntivareResoInterventoRot(Guid id, Guid commitId, long version,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
 		   : base(id,commitId,version)
@@ -660,6 +944,26 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 			Oggetti = oggetti ;
 		}
+
+		
+		public ConsuntivareResoInterventoRot(Guid id, Guid commitId, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+
 
 		public ConsuntivareResoInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
@@ -724,7 +1028,27 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareResoInterventoRotMan ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareResoInterventoRotMan(Guid id, Guid commitId,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
+		   : base(id,commitId)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+	     
 
 		public ConsuntivareResoInterventoRotMan(Guid id, Guid commitId, long version,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
 		   : base(id,commitId,version)
@@ -743,6 +1067,26 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 			Oggetti = oggetti ;
 		}
+
+		
+		public ConsuntivareResoInterventoRotMan(Guid id, Guid commitId, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+
 
 		public ConsuntivareResoInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
@@ -808,7 +1152,28 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 		public ConsuntivareResoInterventoAmb ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ConsuntivareResoInterventoAmb(Guid id, Guid commitId,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,string description,int quantity)
+		   : base(id,commitId)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(quantity != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Description = description ;
+			Quantity = quantity ;
+		}
+	     
 
 		public ConsuntivareResoInterventoAmb(Guid id, Guid commitId, long version,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,string description,int quantity)
 		   : base(id,commitId,version)
@@ -828,6 +1193,27 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 			Description = description ;
 			Quantity = quantity ;
 		}
+
+		
+		public ConsuntivareResoInterventoAmb(Guid id, Guid commitId, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,string description,int quantity)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(quantity != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Description = description ;
+			Quantity = quantity ;
+		}
+
 
 		public ConsuntivareResoInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,string description,int quantity)
 		   : base(id,commitId,version,wakeupTime)

@@ -6,7 +6,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.TipoIntervento.Ambiente
 {
     
-    public class TipoInterventoAmbDeleted : Message, IEvent
+    public class TipoInterventoAmbDeleted : EventBase
     {
 
         public TipoInterventoAmbDeleted()

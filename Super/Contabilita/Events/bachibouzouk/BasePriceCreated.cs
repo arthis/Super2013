@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Pricing
 {
-    public class BasePriceCreated : Message, IEvent
+    public class BasePriceCreated : EventBase
     {
         public Guid IdBasePrice { get; set; }
         public decimal Value { get; set; }

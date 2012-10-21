@@ -9,7 +9,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Schedulazione
 {
-    public class SchedulazioneRotCreated : Message, IEvent
+    public class SchedulazioneRotCreated : EventBase
     {
         public Guid IdTipoIntervento { get; set; }
         public Guid IdScenario { get; set; }

@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Scenario
 {
-    public class ScenarioCancelled : Message , IEvent
+    public class ScenarioCancelled : EventBase
     {
         public Guid IdUser { get; set; }
 

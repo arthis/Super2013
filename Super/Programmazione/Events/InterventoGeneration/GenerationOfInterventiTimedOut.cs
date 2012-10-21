@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.InterventoGeneration
 {
-    public class GenerationOfInterventiTimedOut : Message,IEvent
+    public class GenerationOfInterventiTimedOut : EventBase
     {
         public GenerationOfInterventiTimedOut()
         {

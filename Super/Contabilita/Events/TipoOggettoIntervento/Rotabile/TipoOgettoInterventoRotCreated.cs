@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.TipoOggettoIntervento.Rotabile
 {
-    public class TipoOgettoInterventoRotCreated : Message, IEvent
+    public class TipoOgettoInterventoRotCreated : EventBase
     {
         public TipoOgettoInterventoRotCreated()
         {

@@ -6,7 +6,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.TipoIntervento.Rotabile
 {
 
-    public class TipoInterventoRotUpdated : Message, IEvent
+    public class TipoInterventoRotUpdated : EventBase
     {
         public bool AiTreni { get; set; }
         public bool CalcoloDetrazioni { get; set; }

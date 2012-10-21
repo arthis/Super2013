@@ -114,6 +114,7 @@
     <Compile Include="AggregateRootInstanceNotFoundException.cs" />
     <Compile Include="AlreadyCreatedAggregateRootException.cs" />
     <Compile Include="CommonDispatcher.cs" />
+    <Compile Include="EventBase.cs" />
     <Compile Include="Handlers\Commands\CommandHandlerServiceBase.cs" />
     <Compile Include="CommandValidationException.cs" />
     <Compile Include="Envelope.cs" />

@@ -6,7 +6,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.GruppoOggettoIntervento
 {
 
-    public class GruppoOggettoInterventoUpdated : Message, IEvent
+    public class GruppoOggettoInterventoUpdated : EventBase
     {
 
         public string Description { get; set; }

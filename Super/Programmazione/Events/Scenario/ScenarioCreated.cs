@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Scenario
 {
-    public class ScenarioCreated : Message , IEvent
+    public class ScenarioCreated : EventBase
     {
         public Guid IdUser { get; set; }
         public string Description { get; set; }

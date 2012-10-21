@@ -6,7 +6,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.TipoOggettoIntervento.RotabileInManutenzione
 {
 
-    public class CarriageRotManUpdated : Message, IEvent
+    public class CarriageRotManUpdated : EventBase
     {
         public string Description { get; set; }
         public string Sign { get; set; }

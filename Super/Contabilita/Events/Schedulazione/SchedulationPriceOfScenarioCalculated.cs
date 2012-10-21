@@ -7,7 +7,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Schedulazione
 {
-    public class SchedulazionePriceOfScenarioCalculated:Message, IEvent
+    public class SchedulazionePriceOfScenarioCalculated:EventBase
     {
         public Guid IdScenario { get; set; }
         public decimal Price { get; set; }

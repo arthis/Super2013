@@ -28,14 +28,22 @@ namespace CommonDomain.Core
                 for (var i = 0; i < commit.Events.Count; i++)
                 {
                     var eventMessage = commit.Events[i];
-                    var busMessage = eventMessage.Body as IMessage;
+                    var cmd = eventMessage.Body as ICommand;
 
-                    if (busMessage != null)
+                    //dispatch Command
+                    if (cmd != null)
                     {
-                        if (busMessage.WakeTime.HasValue)
-                            _bus.FuturePublish(busMessage.WakeTime.Value, busMessage);
+                        if (cmd.WakeTime.HasValue)
+                            _bus.FuturePublish(cmd.WakeTime.Value, cmd);
                         else
-                            _bus.Publish(busMessage);
+                            _bus.Publish(cmd);
+                    }
+
+                    //dispatch event
+                    var evt = eventMessage.Body as IEvent;
+                    if(evt!=null)
+                    {
+                        _bus.Publish(evt);
                     }
                 }
 

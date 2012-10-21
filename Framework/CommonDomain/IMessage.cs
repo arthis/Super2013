@@ -12,7 +12,6 @@ namespace CommonDomain
     {
         Guid Id { get; }
         Guid CommitId { get; }
-        DateTime? WakeTime { get; set; }
 
         string ToDescription();
     }

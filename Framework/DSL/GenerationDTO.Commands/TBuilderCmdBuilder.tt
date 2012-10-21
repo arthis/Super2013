@@ -12,14 +12,26 @@ void BuildBuilder(ObjectDTO cmd)
 	
 #>
 
+		
+		public <#= name #> Build(Guid id)
+		{
+			return Build(id, Guid.NewGuid());
+		}
+
+		public <#= name #> Build(Guid id, Guid commitId)
+        {
+            return new <#= name #>(id, commitId<#+
+	     foreach(var property in cmd.Properties)
+         {	#>, <#= property.GetPrivateName() #><#+
+         }
+			 #>);
+		 }
+
+
+		
 		public <#= name #> Build(Guid id, long version)
 		{
 			return Build(id, Guid.NewGuid(), version);
-		}
-
-		public <#= name #> Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
 		}
 
 		public <#= name #> Build(Guid id, Guid commitId, long version)
@@ -31,7 +43,27 @@ void BuildBuilder(ObjectDTO cmd)
 			 #>);
 		 }
 
-		 public <#= name #> Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
+		public <#= name #> Build(Guid id, DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), wakeupTime);
+		}
+
+		public <#= name #> Build(Guid id, Guid commitId, DateTime wakeupTime)
+        {
+            return new <#= name #>(id, commitId, wakeupTime<#+
+	     foreach(var property in cmd.Properties)
+         {	#>, <#= property.GetPrivateName() #><#+
+         }
+			 #>);
+		 }
+
+		public <#= name #> Build(Guid id, long version,DateTime wakeupTime)
+		{
+			return Build(id, Guid.NewGuid(), version,wakeupTime);
+		}
+		 
+
+		public <#= name #> Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
         {
             return new <#= name #>(id, commitId, version, wakeupTime<#+
 	     foreach(var property in cmd.Properties)

@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Plan
 {
-    public  class InterventoCancelledFromPlan : Message,IEvent
+    public  class InterventoCancelledFromPlan : EventBase
     {
         
         public InterventoCancelledFromPlan()

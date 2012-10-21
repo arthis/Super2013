@@ -6,7 +6,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.TipoOggettoIntervento.Rotabile
 {
     
-    public class CarriageRotCreated : Message, IEvent
+    public class CarriageRotCreated : EventBase
     {
         
         public string Description { get; set; }

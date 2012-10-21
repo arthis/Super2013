@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.MeasuringUnit
 {
-    public class MeasuringUnitDeleted : Message, IEvent
+    public class MeasuringUnitDeleted : EventBase
     {
         
 

@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.CategoriaCommerciale
 {
-    public class CategoriaCommercialeDeleted : Message, IEvent
+    public class CategoriaCommercialeDeleted : EventBase
     {
         
 

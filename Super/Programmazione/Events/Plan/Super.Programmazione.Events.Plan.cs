@@ -13,7 +13,7 @@ namespace Super.Programmazione.Events.Plan
 {
 
 
-	public class PlanCancelled : Message, IEvent  
+	public class PlanCancelled : EventBase  
 	{
 	
 
@@ -27,10 +27,7 @@ namespace Super.Programmazione.Events.Plan
 		{
 				}
 
-		public PlanCancelled(Guid id, Guid commitId, long version,DateTime wakeupTime)
-		   : base(id,commitId,version,wakeupTime)
-		{
-				}
+		
 			public override string ToDescription()
 		{
 			return string.Format("piano {0} é stato cancellato", Id);
@@ -60,7 +57,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class PlanCreated : Message, IEvent  
+	public class PlanCreated : EventBase  
 	{
 	 
 		public Guid IdScenario { get; set;} 
@@ -82,16 +79,7 @@ namespace Super.Programmazione.Events.Plan
 			IdProgramma = idProgramma ;
 		}
 
-		public PlanCreated(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idScenario,Guid idProgramma)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idScenario != Guid.Empty);
-
-	Contract.Requires(idProgramma != Guid.Empty);
-
-			IdScenario = idScenario ;
-			IdProgramma = idProgramma ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("piano {0} é stato creato", Id);
@@ -123,7 +111,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class SchedulazioneRotAddedToPlan : Message, IEvent  
+	public class SchedulazioneRotAddedToPlan : EventBase  
 	{
 	 
 		public Guid IdSchedulazione { get; set;} 
@@ -197,51 +185,7 @@ namespace Super.Programmazione.Events.Plan
 			Oggetti = oggetti ;
 		}
 
-		public SchedulazioneRotAddedToPlan(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idSchedulazione,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idSchedulazione != Guid.Empty);
-
-	Contract.Requires(idProgramma != Guid.Empty);
-
-	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
-
-	Contract.Requires(idCommittente != Guid.Empty);
-
-	Contract.Requires(idLotto != Guid.Empty);
-
-	Contract.Requires(idImpianto != Guid.Empty);
-
-	Contract.Requires(idTipoIntervento != Guid.Empty);
-
-	Contract.Requires(idAppaltatore != Guid.Empty);
-
-	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
-
-	Contract.Requires(idDirezioneRegionale != Guid.Empty);
-
-	Contract.Requires(oggetti != null);
-
-			IdSchedulazione = idSchedulazione ;
-			IdProgramma = idProgramma ;
-			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
-			IdCommittente = idCommittente ;
-			IdLotto = idLotto ;
-			IdImpianto = idImpianto ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdAppaltatore = idAppaltatore ;
-			IdCategoriaCommerciale = idCategoriaCommerciale ;
-			IdDirezioneRegionale = idDirezioneRegionale ;
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			Period = period ;
-			Convoglio = convoglio ;
-			RigaTurnoTreno = rigaTurnoTreno ;
-			TurnoTreno = turnoTreno ;
-			TrenoArrivo = trenoArrivo ;
-			TrenoPartenza = trenoPartenza ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("La schedulazione rotabile é stata  aggiunta al piano", Id);
@@ -290,7 +234,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class SchedulazioneRotManAddedToPlan : Message, IEvent  
+	public class SchedulazioneRotManAddedToPlan : EventBase  
 	{
 	 
 		public Guid IdSchedulazione { get; set;} 
@@ -354,46 +298,7 @@ namespace Super.Programmazione.Events.Plan
 			Oggetti = oggetti ;
 		}
 
-		public SchedulazioneRotManAddedToPlan(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idSchedulazione,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,OggettoRotMan[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idSchedulazione != Guid.Empty);
-
-	Contract.Requires(idProgramma != Guid.Empty);
-
-	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
-
-	Contract.Requires(idCommittente != Guid.Empty);
-
-	Contract.Requires(idLotto != Guid.Empty);
-
-	Contract.Requires(idImpianto != Guid.Empty);
-
-	Contract.Requires(idTipoIntervento != Guid.Empty);
-
-	Contract.Requires(idAppaltatore != Guid.Empty);
-
-	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
-
-	Contract.Requires(idDirezioneRegionale != Guid.Empty);
-
-	Contract.Requires(oggetti != null);
-
-			IdSchedulazione = idSchedulazione ;
-			IdProgramma = idProgramma ;
-			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
-			IdCommittente = idCommittente ;
-			IdLotto = idLotto ;
-			IdImpianto = idImpianto ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdAppaltatore = idAppaltatore ;
-			IdCategoriaCommerciale = idCategoriaCommerciale ;
-			IdDirezioneRegionale = idDirezioneRegionale ;
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			Period = period ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("La schedulazione rotabile in manutenzione é stata  aggiuntata al piano", Id);
@@ -437,7 +342,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class SchedulazioneAmbAddedToPlan : Message, IEvent  
+	public class SchedulazioneAmbAddedToPlan : EventBase  
 	{
 	 
 		public Guid IdSchedulazione { get; set;} 
@@ -501,45 +406,7 @@ namespace Super.Programmazione.Events.Plan
 			Description = description ;
 		}
 
-		public SchedulazioneAmbAddedToPlan(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idSchedulazione,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idSchedulazione != Guid.Empty);
-
-	Contract.Requires(idProgramma != Guid.Empty);
-
-	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
-
-	Contract.Requires(idCommittente != Guid.Empty);
-
-	Contract.Requires(idLotto != Guid.Empty);
-
-	Contract.Requires(idImpianto != Guid.Empty);
-
-	Contract.Requires(idTipoIntervento != Guid.Empty);
-
-	Contract.Requires(idAppaltatore != Guid.Empty);
-
-	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
-
-	Contract.Requires(idDirezioneRegionale != Guid.Empty);
-
-			IdSchedulazione = idSchedulazione ;
-			IdProgramma = idProgramma ;
-			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
-			IdCommittente = idCommittente ;
-			IdLotto = idLotto ;
-			IdImpianto = idImpianto ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdAppaltatore = idAppaltatore ;
-			IdCategoriaCommerciale = idCategoriaCommerciale ;
-			IdDirezioneRegionale = idDirezioneRegionale ;
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			Period = period ;
-			Quantity = quantity ;
-			Description = description ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("La schedulazione ambiente é stata  aggiunta al piano", Id);
@@ -584,7 +451,7 @@ namespace Super.Programmazione.Events.Plan
         }
 	}
 
-	public class SchedulazioneCancelledFromPlan : Message, IEvent  
+	public class SchedulazioneCancelledFromPlan : EventBase  
 	{
 	 
 		public Guid IdUser { get; set;} 
@@ -606,16 +473,7 @@ namespace Super.Programmazione.Events.Plan
 			DeleteGeneratedInterventoToo = deleteGeneratedInterventoToo ;
 		}
 
-		public SchedulazioneCancelledFromPlan(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idUser,Guid deleteGeneratedInterventoToo)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idUser != Guid.Empty);
-
-	Contract.Requires(deleteGeneratedInterventoToo != Guid.Empty);
-
-			IdUser = idUser ;
-			DeleteGeneratedInterventoToo = deleteGeneratedInterventoToo ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Schedulazione {0} é stat cancellata dal piano", Id);

@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Schedulazione
 {
-    public class SchedulazioneOfScenarioCancelled : Message , IEvent
+    public class SchedulazioneOfScenarioCancelled : EventBase
     {
         
         public SchedulazioneOfScenarioCancelled()

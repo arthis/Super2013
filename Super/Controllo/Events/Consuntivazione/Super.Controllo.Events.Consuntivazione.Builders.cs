@@ -20,21 +20,12 @@ namespace Super.Controllo.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoControlAllowed Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoControlAllowed Build(Guid id, Guid commitId, long version)
         {
             return new InterventoControlAllowed(id, commitId, version);
 		 }
 
-		public InterventoControlAllowed Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoControlAllowed(id, commitId, version, wakeupTime);
-		 }
-        
+       
 	
 	}
 
@@ -60,21 +51,12 @@ namespace Super.Controllo.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoClosed Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoClosed Build(Guid id, Guid commitId, long version)
         {
             return new InterventoClosed(id, commitId, version, _idUser, _closingDate);
 		 }
 
-		public InterventoClosed Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoClosed(id, commitId, version, wakeupTime, _idUser, _closingDate);
-		 }
-        
+       
 	
 	}
 
@@ -100,21 +82,12 @@ namespace Super.Controllo.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoReopened Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoReopened Build(Guid id, Guid commitId, long version)
         {
             return new InterventoReopened(id, commitId, version, _idUser, _reopeningDate);
 		 }
 
-		public InterventoReopened Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoReopened(id, commitId, version, wakeupTime, _idUser, _reopeningDate);
-		 }
-        
+       
 	
 	}
 
@@ -154,21 +127,12 @@ namespace Super.Controllo.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoControlledNonReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoControlledNonReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoControlledNonReso(id, commitId, version, _note, _idCausale, _controlDate, _idUser);
 		 }
 
-		public InterventoControlledNonReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoControlledNonReso(id, commitId, version, wakeupTime, _note, _idCausale, _controlDate, _idUser);
-		 }
-        
+       
 	
 	}
 
@@ -257,21 +221,12 @@ namespace Super.Controllo.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotControlledReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotControlledReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotControlledReso(id, commitId, version, _note, _workPeriod, _controlDate, _idUser, _idInterventoAppaltatore, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
 
-		public InterventoRotControlledReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotControlledReso(id, commitId, version, wakeupTime, _note, _workPeriod, _controlDate, _idUser, _idInterventoAppaltatore, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
-		 }
-        
+       
 	
 	}
 
@@ -325,21 +280,12 @@ namespace Super.Controllo.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotManControlledReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotManControlledReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotManControlledReso(id, commitId, version, _note, _workPeriod, _controlDate, _idUser, _idInterventoAppaltatore, _oggetti);
 		 }
 
-		public InterventoRotManControlledReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotManControlledReso(id, commitId, version, wakeupTime, _note, _workPeriod, _controlDate, _idUser, _idInterventoAppaltatore, _oggetti);
-		 }
-        
+       
 	
 	}
 
@@ -400,21 +346,12 @@ namespace Super.Controllo.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoAmbControlledReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoAmbControlledReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoAmbControlledReso(id, commitId, version, _note, _workPeriod, _controlDate, _idUser, _idInterventoAppaltatore, _description, _quantity);
 		 }
 
-		public InterventoAmbControlledReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoAmbControlledReso(id, commitId, version, wakeupTime, _note, _workPeriod, _controlDate, _idUser, _idInterventoAppaltatore, _description, _quantity);
-		 }
-        
+       
 	
 	}
 }

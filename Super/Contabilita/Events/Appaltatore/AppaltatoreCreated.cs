@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Appaltatore
 {
-    public class AppaltatoreCreated : Message, IEvent
+    public class AppaltatoreCreated : EventBase
     {
         public string Description { get;  set; }
 

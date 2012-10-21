@@ -73,20 +73,26 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
         public override InterventoAmbConsuntivatoReso When()
         {
             return Appaltatore.Events.BuildEvt.InterventoAmbConsuntivatoReso
-                            .ForDescription(_description)
-                            .ForInterventoAppaltatore(_idInterventoAppaltatore)
-                            .ForWorkPeriod(_periodCons)
-                            .ForQuantity(_quantityCons)
-                            .When(DataCons)
-                            .WithNote(_noteCons)
-                            .Build(_id, 14);
+                .ForDescription(_description)
+                .ForInterventoAppaltatore(_idInterventoAppaltatore)
+                .ForWorkPeriod(_periodCons)
+                .ForQuantity(_quantityCons)
+                .When(DataCons)
+                .WithNote(_noteCons)
+                .Build(_id, 14);
 
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildControlloCmd.AllowInterventoControl
-                                     .Build(_id, 0);
+            yield return BuildControlloCmd.ConsuntivareResoInterventoAmb
+                .ForDescription(_description)
+                .ForInterventoAppaltatore(_idInterventoAppaltatore)
+                .ForWorkPeriod(_periodCons)
+                .ForQuantity(_quantityCons)
+                .When(DataCons)
+                .WithNote(_noteCons)
+                .Build(_id);
         }
 
         [Test]

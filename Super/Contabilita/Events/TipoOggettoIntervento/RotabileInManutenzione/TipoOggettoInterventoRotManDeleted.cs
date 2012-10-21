@@ -5,7 +5,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.TipoOggettoIntervento.RotabileInManutenzione
 {
     
-    public class TipoOggettoInterventoRotManDeleted : Message, IEvent
+    public class TipoOggettoInterventoRotManDeleted : EventBase
     {
         
 

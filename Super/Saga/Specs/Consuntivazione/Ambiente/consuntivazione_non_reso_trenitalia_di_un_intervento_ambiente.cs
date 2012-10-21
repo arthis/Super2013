@@ -84,8 +84,12 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildControlloCmd.AllowInterventoControl
-                                     .Build(_id, 0);
+            yield return BuildControlloCmd.ConsuntivareNonResoTrenitaliaInterventoAmb
+                .ForInterventoAppaltatore(_idInterventoAppaltatore)
+                .When(DataCons)
+                .WithNote(_noteCons)
+                .Because(_idCausaleTrenitalia)
+                .Build(_id);
         }
 
         [Test]

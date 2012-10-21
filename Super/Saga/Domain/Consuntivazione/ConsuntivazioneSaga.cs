@@ -28,42 +28,6 @@ namespace Super.Saga.Domain.Consuntivazione
                 .Permit(Trigger.Closed, State.End);
         }
 
-        public void ConsuntivareNonResoIntervento(IInterventoConsuntivato evt)
-        {
-            if (!_stateMachine.IsInState(State.Programmation))
-                throw new SagaStateException("Saga is not in programamtion state");
-
-            var cmd = BuildCmd.AllowInterventoControl
-                .Build(Id, 0);
-
-            Dispatch(cmd);
-
-            Transition(evt);
-        }
-
-        protected void OnInterventoConsuntivatoNonReso(IInterventoConsuntivato evt)
-        {
-            //publish intervento to appaltatore
-            _stateMachine.Fire(Trigger.Consuntivato);
-        }
-
-        public void ConsuntivareNonResoTrenitaliaIntervento(IInterventoConsuntivato evt)
-        {
-            if (!_stateMachine.IsInState(State.Programmation))
-                throw new SagaStateException("Saga is not in programamtion state");
-
-            var cmd = BuildCmd.AllowInterventoControl
-                .Build(Id, 0);
-
-            Dispatch(cmd);
-
-            Transition(evt);
-        }
-
-        protected void OnInterventoConsuntivatoNonResoTrenitalia(IInterventoConsuntivato evt)
-        {
-            //publish intervento to appaltatore
-            _stateMachine.Fire(Trigger.Consuntivato);
-        }
+        
     }
 }

@@ -10,10 +10,10 @@ namespace CommonDomain.Core
     [Serializable]
     public abstract class Message : IMessage
     {
-        public Guid Id { get; set; }
-        public Guid CommitId { get; set; }
-        public long Version { get; set; }
-        public DateTime? WakeTime { get; set; }
+        public Guid Id { get; private set; }
+        public Guid CommitId { get; private set; }
+        
+        
 
         public abstract string ToDescription();
 
@@ -22,33 +22,20 @@ namespace CommonDomain.Core
             
         }
 
-        public Message(Guid id,Guid commitId, long version)
+        public Message(Guid id,Guid commitId)
         {
             Contract.Requires(id != Guid.Empty);
             Contract.Requires(commitId != Guid.Empty);
-            Contract.Requires(version>=0);
 
             Id = id;
             CommitId = commitId;
-            Version = version;
         }
 
-        public Message(Guid id, Guid commitId, long version,DateTime wakeTime)
-        {
-            Contract.Requires(id != Guid.Empty);
-            Contract.Requires(commitId != Guid.Empty);
-            Contract.Requires(version >= 0);
-            Contract.Requires(wakeTime> DateTime.MinValue);
-
-            Id = id;
-            CommitId = commitId;
-            Version = version;
-            WakeTime = wakeTime;
-        }
+        
 
         protected bool Equals(Message other)
         {
-            return Id.Equals(other.Id) && Version == other.Version && WakeTime.Equals(other.WakeTime);
+            return Id.Equals(other.Id);
         }
 
         public override bool Equals(object obj)
@@ -64,8 +51,6 @@ namespace CommonDomain.Core
             unchecked
             {
                 int hashCode = Id.GetHashCode();
-                hashCode = (hashCode*397) ^ Version.GetHashCode();
-                hashCode = (hashCode*397) ^ WakeTime.GetHashCode();
                 return hashCode;
             }
         }

@@ -7,7 +7,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Commands.Schedulazione
 {
-    public class ConfirmGenerationFailed : Message, IEvent
+    public class ConfirmGenerationFailed : EventBase
     {
         public ConfirmGenerationFailed()
         {

@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Schedulazione
 {
-    public class SchedulazionePriceOfScenarioCancelled : Message, IEvent
+    public class SchedulazionePriceOfScenarioCancelled : EventBase
     {
 
         public SchedulazionePriceOfScenarioCancelled()

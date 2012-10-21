@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Pricing
 {
-    public class PricingCreated : Message, IEvent
+    public class PricingCreated : EventBase
     {
         public PricingCreated()
         {

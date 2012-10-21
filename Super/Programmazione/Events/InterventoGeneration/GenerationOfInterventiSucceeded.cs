@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.InterventoGeneration
 {
-    public class GenerationOfInterventiSucceeded : Message,IEvent
+    public class GenerationOfInterventiSucceeded : EventBase
     {
         public GenerationOfInterventiSucceeded()
         {

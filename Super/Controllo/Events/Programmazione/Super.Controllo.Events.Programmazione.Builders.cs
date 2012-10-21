@@ -139,21 +139,12 @@ namespace Super.Controllo.Events.Programmazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotProgrammato Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotProgrammato Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotProgrammato(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
 
-		public InterventoRotProgrammato Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotProgrammato(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
-		 }
-        
+       
 	
 	}
 
@@ -249,21 +240,12 @@ namespace Super.Controllo.Events.Programmazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotManProgrammato Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotManProgrammato Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotManProgrammato(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
 		 }
 
-		public InterventoRotManProgrammato Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotManProgrammato(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
-		 }
-        
+       
 	
 	}
 
@@ -366,21 +348,12 @@ namespace Super.Controllo.Events.Programmazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoAmbProgrammato Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoAmbProgrammato Build(Guid id, Guid commitId, long version)
         {
             return new InterventoAmbProgrammato(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
 		 }
 
-		public InterventoAmbProgrammato Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoAmbProgrammato(id, commitId, version, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
-		 }
-        
+       
 	
 	}
 }

@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Appaltatore
 {
-    public class AppaltatoreDeleted : Message, IEvent
+    public class AppaltatoreDeleted : EventBase
     {
         
 

@@ -38,7 +38,52 @@ namespace Super.Programmazione.Commands.Scenario
 		public AddSchedulazioneRotToScenario ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public AddSchedulazioneRotToScenario(Guid id, Guid commitId,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		   : base(id,commitId)
+		{
+			Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdSchedulazione = idSchedulazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Convoglio = convoglio ;
+			RigaTurnoTreno = rigaTurnoTreno ;
+			TurnoTreno = turnoTreno ;
+			TrenoArrivo = trenoArrivo ;
+			TrenoPartenza = trenoPartenza ;
+			Oggetti = oggetti ;
+		}
+	     
 
 		public AddSchedulazioneRotToScenario(Guid id, Guid commitId, long version,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
 		   : base(id,commitId,version)
@@ -82,6 +127,51 @@ namespace Super.Programmazione.Commands.Scenario
 			TrenoPartenza = trenoPartenza ;
 			Oggetti = oggetti ;
 		}
+
+		
+		public AddSchedulazioneRotToScenario(Guid id, Guid commitId, DateTime wakeupTime,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdSchedulazione = idSchedulazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Convoglio = convoglio ;
+			RigaTurnoTreno = rigaTurnoTreno ;
+			TurnoTreno = turnoTreno ;
+			TrenoArrivo = trenoArrivo ;
+			TrenoPartenza = trenoPartenza ;
+			Oggetti = oggetti ;
+		}
+
 
 		public AddSchedulazioneRotToScenario(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
@@ -192,7 +282,47 @@ namespace Super.Programmazione.Commands.Scenario
 		public AddSchedulazioneRotManToScenario ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public AddSchedulazioneRotManToScenario(Guid id, Guid commitId,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,OggettoRotMan[] oggetti)
+		   : base(id,commitId)
+		{
+			Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdSchedulazione = idSchedulazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Oggetti = oggetti ;
+		}
+	     
 
 		public AddSchedulazioneRotManToScenario(Guid id, Guid commitId, long version,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,OggettoRotMan[] oggetti)
 		   : base(id,commitId,version)
@@ -231,6 +361,46 @@ namespace Super.Programmazione.Commands.Scenario
 			Period = period ;
 			Oggetti = oggetti ;
 		}
+
+		
+		public AddSchedulazioneRotManToScenario(Guid id, Guid commitId, DateTime wakeupTime,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,OggettoRotMan[] oggetti)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+	Contract.Requires(oggetti != null);
+
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdSchedulazione = idSchedulazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Oggetti = oggetti ;
+		}
+
 
 		public AddSchedulazioneRotManToScenario(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,OggettoRotMan[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
@@ -332,7 +502,46 @@ namespace Super.Programmazione.Commands.Scenario
 		public AddSchedulazioneAmbToScenario ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public AddSchedulazioneAmbToScenario(Guid id, Guid commitId,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
+		   : base(id,commitId)
+		{
+			Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdSchedulazione = idSchedulazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Quantity = quantity ;
+			Description = description ;
+		}
+	     
 
 		public AddSchedulazioneAmbToScenario(Guid id, Guid commitId, long version,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
 		   : base(id,commitId,version)
@@ -370,6 +579,45 @@ namespace Super.Programmazione.Commands.Scenario
 			Quantity = quantity ;
 			Description = description ;
 		}
+
+		
+		public AddSchedulazioneAmbToScenario(Guid id, Guid commitId, DateTime wakeupTime,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
+
+	Contract.Requires(idSchedulazione != Guid.Empty);
+
+	Contract.Requires(idCommittente != Guid.Empty);
+
+	Contract.Requires(idLotto != Guid.Empty);
+
+	Contract.Requires(idImpianto != Guid.Empty);
+
+	Contract.Requires(idTipoIntervento != Guid.Empty);
+
+	Contract.Requires(idAppaltatore != Guid.Empty);
+
+	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
+
+	Contract.Requires(idDirezioneRegionale != Guid.Empty);
+
+			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
+			IdSchedulazione = idSchedulazione ;
+			IdCommittente = idCommittente ;
+			IdLotto = idLotto ;
+			IdImpianto = idImpianto ;
+			IdTipoIntervento = idTipoIntervento ;
+			IdAppaltatore = idAppaltatore ;
+			IdCategoriaCommerciale = idCategoriaCommerciale ;
+			IdDirezioneRegionale = idDirezioneRegionale ;
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			Period = period ;
+			Quantity = quantity ;
+			Description = description ;
+		}
+
 
 		public AddSchedulazioneAmbToScenario(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idPeriodoProgrammazione,Guid idSchedulazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
 		   : base(id,commitId,version,wakeupTime)
@@ -459,7 +707,20 @@ namespace Super.Programmazione.Commands.Scenario
 		public CreateScenario ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public CreateScenario(Guid id, Guid commitId,string description,Guid idProgramma)
+		   : base(id,commitId)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(description));
+
+	Contract.Requires(idProgramma != Guid.Empty);
+
+			Description = description ;
+			IdProgramma = idProgramma ;
+		}
+	     
 
 		public CreateScenario(Guid id, Guid commitId, long version,string description,Guid idProgramma)
 		   : base(id,commitId,version)
@@ -471,6 +732,19 @@ namespace Super.Programmazione.Commands.Scenario
 			Description = description ;
 			IdProgramma = idProgramma ;
 		}
+
+		
+		public CreateScenario(Guid id, Guid commitId, DateTime wakeupTime,string description,Guid idProgramma)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(description));
+
+	Contract.Requires(idProgramma != Guid.Empty);
+
+			Description = description ;
+			IdProgramma = idProgramma ;
+		}
+
 
 		public CreateScenario(Guid id, Guid commitId, long version, DateTime wakeupTime,string description,Guid idProgramma)
 		   : base(id,commitId,version,wakeupTime)
@@ -520,12 +794,26 @@ namespace Super.Programmazione.Commands.Scenario
 		public CancelScenario ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public CancelScenario(Guid id, Guid commitId)
+		   : base(id,commitId)
+		{
+				}
+	     
 
 		public CancelScenario(Guid id, Guid commitId, long version)
 		   : base(id,commitId,version)
 		{
 				}
+
+		
+		public CancelScenario(Guid id, Guid commitId, DateTime wakeupTime)
+		   : base(id,commitId,wakeupTime)
+		{
+				}
+
 
 		public CancelScenario(Guid id, Guid commitId, long version, DateTime wakeupTime)
 		   : base(id,commitId,version,wakeupTime)
@@ -568,7 +856,17 @@ namespace Super.Programmazione.Commands.Scenario
 		public ChangeDescriptionScenario ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public ChangeDescriptionScenario(Guid id, Guid commitId,string description)
+		   : base(id,commitId)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(description));
+
+			Description = description ;
+		}
+	     
 
 		public ChangeDescriptionScenario(Guid id, Guid commitId, long version,string description)
 		   : base(id,commitId,version)
@@ -577,6 +875,16 @@ namespace Super.Programmazione.Commands.Scenario
 
 			Description = description ;
 		}
+
+		
+		public ChangeDescriptionScenario(Guid id, Guid commitId, DateTime wakeupTime,string description)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(description));
+
+			Description = description ;
+		}
+
 
 		public ChangeDescriptionScenario(Guid id, Guid commitId, long version, DateTime wakeupTime,string description)
 		   : base(id,commitId,version,wakeupTime)
@@ -624,7 +932,20 @@ namespace Super.Programmazione.Commands.Scenario
 		public PromoteScenarioToPlan ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public PromoteScenarioToPlan(Guid id, Guid commitId,DateTime promotionDate,Guid idPlan)
+		   : base(id,commitId)
+		{
+			Contract.Requires(promotionDate > DateTime.MinValue);
+
+	Contract.Requires(idPlan != Guid.Empty);
+
+			PromotionDate = promotionDate ;
+			IdPlan = idPlan ;
+		}
+	     
 
 		public PromoteScenarioToPlan(Guid id, Guid commitId, long version,DateTime promotionDate,Guid idPlan)
 		   : base(id,commitId,version)
@@ -636,6 +957,19 @@ namespace Super.Programmazione.Commands.Scenario
 			PromotionDate = promotionDate ;
 			IdPlan = idPlan ;
 		}
+
+		
+		public PromoteScenarioToPlan(Guid id, Guid commitId, DateTime wakeupTime,DateTime promotionDate,Guid idPlan)
+		   : base(id,commitId,wakeupTime)
+		{
+			Contract.Requires(promotionDate > DateTime.MinValue);
+
+	Contract.Requires(idPlan != Guid.Empty);
+
+			PromotionDate = promotionDate ;
+			IdPlan = idPlan ;
+		}
+
 
 		public PromoteScenarioToPlan(Guid id, Guid commitId, long version, DateTime wakeupTime,DateTime promotionDate,Guid idPlan)
 		   : base(id,commitId,version,wakeupTime)

@@ -77,8 +77,12 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildCmd.AllowInterventoControl
-                                     .Build(_id, 0);
+            yield return BuildCmd.ConsuntivareNonResoInterventoRotMan
+                .ForInterventoAppaltatore(_idInterventoAppaltatore)
+                .When(DataCons)
+                .WithNote(_noteCons)
+                .Because(_idCausaleAppaltatore)
+                .Build(_id);
         }
 
         [Test]

@@ -13,7 +13,7 @@ namespace Super.Controllo.Events.Consuntivazione
 {
 
 
-	public class InterventoControlAllowed : Message, IEvent  
+	public class InterventoControlAllowed : EventBase  
 	{
 	
 
@@ -27,10 +27,7 @@ namespace Super.Controllo.Events.Consuntivazione
 		{
 				}
 
-		public InterventoControlAllowed(Guid id, Guid commitId, long version,DateTime wakeupTime)
-		   : base(id,commitId,version,wakeupTime)
-		{
-				}
+		
 			public override string ToDescription()
 		{
 			return string.Format("E permesso controllare il intervento '{0}'.", Id);
@@ -60,7 +57,7 @@ namespace Super.Controllo.Events.Consuntivazione
         }
 	}
 
-	public class InterventoClosed : Message, IEvent  
+	public class InterventoClosed : EventBase  
 	{
 	 
 		public Guid IdUser { get; set;} 
@@ -82,16 +79,7 @@ namespace Super.Controllo.Events.Consuntivazione
 			ClosingDate = closingDate ;
 		}
 
-		public InterventoClosed(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idUser,DateTime closingDate)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idUser != Guid.Empty);
-
-	Contract.Requires(closingDate > DateTime.MinValue);
-
-			IdUser = idUser ;
-			ClosingDate = closingDate ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento '{0}' é stato chiuso.", Id);
@@ -123,7 +111,7 @@ namespace Super.Controllo.Events.Consuntivazione
         }
 	}
 
-	public class InterventoReopened : Message, IEvent  
+	public class InterventoReopened : EventBase  
 	{
 	 
 		public Guid IdUser { get; set;} 
@@ -145,16 +133,7 @@ namespace Super.Controllo.Events.Consuntivazione
 			ReopeningDate = reopeningDate ;
 		}
 
-		public InterventoReopened(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idUser,DateTime reopeningDate)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idUser != Guid.Empty);
-
-	Contract.Requires(reopeningDate > DateTime.MinValue);
-
-			IdUser = idUser ;
-			ReopeningDate = reopeningDate ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento {0} é stato aperto di nuovo.", Id);
@@ -186,7 +165,7 @@ namespace Super.Controllo.Events.Consuntivazione
         }
 	}
 
-	public class InterventoControlledNonReso : Message, IEvent  
+	public class InterventoControlledNonReso : EventBase  
 	{
 	 
 		public string Note { get; set;} 
@@ -214,20 +193,7 @@ namespace Super.Controllo.Events.Consuntivazione
 			IdUser = idUser ;
 		}
 
-		public InterventoControlledNonReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,Guid idCausale,DateTime controlDate,Guid idUser)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idCausale != Guid.Empty);
-
-	Contract.Requires(controlDate > DateTime.MinValue);
-
-	Contract.Requires(idUser != Guid.Empty);
-
-			Note = note ;
-			IdCausale = idCausale ;
-			ControlDate = controlDate ;
-			IdUser = idUser ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento '{0}' é stato rilevato non reso.", Id);
@@ -261,7 +227,7 @@ namespace Super.Controllo.Events.Consuntivazione
         }
 	}
 
-	public class InterventoRotControlledReso : Message, IEvent  
+	public class InterventoRotControlledReso : EventBase  
 	{
 	 
 		public string Note { get; set;} 
@@ -307,31 +273,7 @@ namespace Super.Controllo.Events.Consuntivazione
 			Oggetti = oggetti ;
 		}
 
-		public InterventoRotControlledReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(workPeriod != null);
-
-	Contract.Requires(controlDate > DateTime.MinValue);
-
-	Contract.Requires(idUser != Guid.Empty);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-	Contract.Requires(oggetti != null);
-
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			ControlDate = controlDate ;
-			IdUser = idUser ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-			Convoglio = convoglio ;
-			RigaTurnoTreno = rigaTurnoTreno ;
-			TurnoTreno = turnoTreno ;
-			TrenoArrivo = trenoArrivo ;
-			TrenoPartenza = trenoPartenza ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento rotabile '{0}' é stato controllato reso.", Id);
@@ -372,7 +314,7 @@ namespace Super.Controllo.Events.Consuntivazione
         }
 	}
 
-	public class InterventoRotManControlledReso : Message, IEvent  
+	public class InterventoRotManControlledReso : EventBase  
 	{
 	 
 		public string Note { get; set;} 
@@ -408,26 +350,7 @@ namespace Super.Controllo.Events.Consuntivazione
 			Oggetti = oggetti ;
 		}
 
-		public InterventoRotManControlledReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(workPeriod != null);
-
-	Contract.Requires(controlDate > DateTime.MinValue);
-
-	Contract.Requires(idUser != Guid.Empty);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-	Contract.Requires(oggetti != null);
-
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			ControlDate = controlDate ;
-			IdUser = idUser ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento rotabile in manutenzione '{0}' é stato controllato reso.", Id);
@@ -463,7 +386,7 @@ namespace Super.Controllo.Events.Consuntivazione
         }
 	}
 
-	public class InterventoAmbControlledReso : Message, IEvent  
+	public class InterventoAmbControlledReso : EventBase  
 	{
 	 
 		public string Note { get; set;} 
@@ -501,27 +424,7 @@ namespace Super.Controllo.Events.Consuntivazione
 			Quantity = quantity ;
 		}
 
-		public InterventoAmbControlledReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,string description,int quantity)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(workPeriod != null);
-
-	Contract.Requires(controlDate > DateTime.MinValue);
-
-	Contract.Requires(idUser != Guid.Empty);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-	Contract.Requires(quantity != null);
-
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			ControlDate = controlDate ;
-			IdUser = idUser ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-			Description = description ;
-			Quantity = quantity ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento ambiente '{0}' é stato controllato reso.", Id);

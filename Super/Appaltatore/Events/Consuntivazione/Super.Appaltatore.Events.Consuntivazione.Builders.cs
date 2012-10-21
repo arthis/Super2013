@@ -48,21 +48,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotConsuntivatoNonReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotConsuntivatoNonReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotConsuntivatoNonReso(id, commitId, version, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
 
-		public InterventoRotConsuntivatoNonReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotConsuntivatoNonReso(id, commitId, version, wakeupTime, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
-		 }
-        
+       
 	
 	}
 
@@ -102,21 +93,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotManConsuntivatoNonReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotManConsuntivatoNonReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotManConsuntivatoNonReso(id, commitId, version, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
 
-		public InterventoRotManConsuntivatoNonReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotManConsuntivatoNonReso(id, commitId, version, wakeupTime, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
-		 }
-        
+       
 	
 	}
 
@@ -156,21 +138,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoAmbConsuntivatoNonReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoAmbConsuntivatoNonReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoAmbConsuntivatoNonReso(id, commitId, version, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
 
-		public InterventoAmbConsuntivatoNonReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoAmbConsuntivatoNonReso(id, commitId, version, wakeupTime, _note, _idCausaleAppaltatore, _dataConsuntivazione, _idInterventoAppaltatore);
-		 }
-        
+       
 	
 	}
 
@@ -210,21 +183,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotConsuntivatoNonResoTrenitalia Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotConsuntivatoNonResoTrenitalia Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotConsuntivatoNonResoTrenitalia(id, commitId, version, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
 
-		public InterventoRotConsuntivatoNonResoTrenitalia Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotConsuntivatoNonResoTrenitalia(id, commitId, version, wakeupTime, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
-		 }
-        
+       
 	
 	}
 
@@ -264,21 +228,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotManConsuntivatoNonResoTrenitalia Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotManConsuntivatoNonResoTrenitalia Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotManConsuntivatoNonResoTrenitalia(id, commitId, version, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
 
-		public InterventoRotManConsuntivatoNonResoTrenitalia Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotManConsuntivatoNonResoTrenitalia(id, commitId, version, wakeupTime, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
-		 }
-        
+       
 	
 	}
 
@@ -318,21 +273,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoAmbConsuntivatoNonResoTrenitalia Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoAmbConsuntivatoNonResoTrenitalia Build(Guid id, Guid commitId, long version)
         {
             return new InterventoAmbConsuntivatoNonResoTrenitalia(id, commitId, version, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
 		 }
 
-		public InterventoAmbConsuntivatoNonResoTrenitalia Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoAmbConsuntivatoNonResoTrenitalia(id, commitId, version, wakeupTime, _note, _idCausaleTrenitalia, _dataConsuntivazione, _idInterventoAppaltatore);
-		 }
-        
+       
 	
 	}
 
@@ -386,21 +332,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoAmbConsuntivatoReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoAmbConsuntivatoReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoAmbConsuntivatoReso(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _quantity, _description);
 		 }
 
-		public InterventoAmbConsuntivatoReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoAmbConsuntivatoReso(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _quantity, _description);
-		 }
-        
+       
 	
 	}
 
@@ -447,21 +384,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotConsuntivatoReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotConsuntivatoReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotConsuntivatoReso(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
 		 }
 
-		public InterventoRotConsuntivatoReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotConsuntivatoReso(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
-		 }
-        
+       
 	
 	}
 
@@ -508,21 +436,12 @@ namespace Super.Appaltatore.Events.Consuntivazione.Builders
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public InterventoRotManConsuntivatoReso Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public InterventoRotManConsuntivatoReso Build(Guid id, Guid commitId, long version)
         {
             return new InterventoRotManConsuntivatoReso(id, commitId, version, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
 		 }
 
-		public InterventoRotManConsuntivatoReso Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new InterventoRotManConsuntivatoReso(id, commitId, version, wakeupTime, _note, _workPeriod, _dataConsuntivazione, _idInterventoAppaltatore, _oggetti);
-		 }
-        
+       
 	
 	}
 }

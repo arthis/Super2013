@@ -6,7 +6,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.TipoOggettoIntervento.Ambiente
 {
     
-    public class TipoOggettoInterventoAmbCreated : Message, IEvent
+    public class TipoOggettoInterventoAmbCreated : EventBase
     {
         public string Description { get; set; }
         public Guid IdGruppoOggettoIntervento { get; set; }

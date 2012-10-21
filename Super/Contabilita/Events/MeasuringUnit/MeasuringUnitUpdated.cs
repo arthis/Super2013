@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.MeasuringUnit
 {
-    public class MeasuringUnitUpdated : Message, IEvent
+    public class MeasuringUnitUpdated : EventBase
     {
         
         public string Description { get; set; }

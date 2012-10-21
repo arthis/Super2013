@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Impianto
 {
-    public class ImpiantoDeleted : Message, IEvent
+    public class ImpiantoDeleted : EventBase
     {
         
 

@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.PeriodoProgrammazione
 {
-    public class PeriodoProgrammazioneClosed : Message, IEvent
+    public class PeriodoProgrammazioneClosed : EventBase
     {
         public DateTime ClosingDate { get; set; }
         public Guid IdUser { get; set; }

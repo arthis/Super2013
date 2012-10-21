@@ -14,7 +14,30 @@ void BuildCtor(ObjectDTO cmd)
 		public <#= name #> ()
 		{
 			//for serialisation
-		}	     
+		}
+
+
+		public <#= name #>(Guid id, Guid commitId<#= ctorArgs #>)
+		   : base(id,commitId)
+		{
+		<#+
+	foreach (var property in cmd.Properties)
+        {
+			
+			foreach(string requirement in property.GetRequires())
+            {#>
+	<#= requirement #>
+
+<#+
+            }
+        }
+
+	foreach (var property in cmd.Properties)
+        {#>
+			<#= property.GetPascalCasedName() #> = <#= property.GetCamelCasedName() #> ;
+<#+         }#>
+		}
+	     
 
 		public <#= name #>(Guid id, Guid commitId, long version<#= ctorArgs #>)
 		   : base(id,commitId,version)
@@ -36,6 +59,29 @@ void BuildCtor(ObjectDTO cmd)
 			<#= property.GetPascalCasedName() #> = <#= property.GetCamelCasedName() #> ;
 <#+         }#>
 		}
+
+		
+		public <#= name #>(Guid id, Guid commitId, DateTime wakeupTime<#= ctorArgs #>)
+		   : base(id,commitId,wakeupTime)
+		{
+		<#+
+	foreach (var property in cmd.Properties)
+        {
+			
+			foreach(string requirement in property.GetRequires())
+            {#>
+	<#= requirement #>
+
+<#+
+            }
+        }
+
+	foreach (var property in cmd.Properties)
+        {#>
+			<#= property.GetPascalCasedName() #> = <#= property.GetCamelCasedName() #> ;
+<#+         }#>
+		}
+
 
 		public <#= name #>(Guid id, Guid commitId, long version, DateTime wakeupTime<#= ctorArgs #>)
 		   : base(id,commitId,version,wakeupTime)

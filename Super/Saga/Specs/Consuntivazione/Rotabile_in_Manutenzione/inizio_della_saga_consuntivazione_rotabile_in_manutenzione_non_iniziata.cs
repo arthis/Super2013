@@ -80,7 +80,7 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione
                            .ForProgramma(_idProgramma)
                            .ForLotto(_idLotto)
                            .WithOggetti(_oggetti.ToArray())
-                           .Build(_id, 0);
+                           .Build(_id);
 
             yield return BuildControlloCmd.ProgramInterventoRotMan
                             .ForWorkPeriod(_workPeriod)
@@ -95,11 +95,11 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione
                            .ForProgramma(_idProgramma)
                            .ForLotto(_idLotto)
                            .WithOggetti(_oggetti.ToArray())
-                           .Build(_id, 0);
+                           .Build(_id);
 
             yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonResoInterventoRotMan
                 .ForDataConsuntivazione(_dataConsuntivazioneAutomatica)
-                .Build(_id, 999, _dataConsuntivazioneAutomatica);
+                .Build(_id, _dataConsuntivazioneAutomatica);
         }
 
         [Test]

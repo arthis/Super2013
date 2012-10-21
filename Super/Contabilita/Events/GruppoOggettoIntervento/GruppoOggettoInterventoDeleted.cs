@@ -5,7 +5,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.GruppoOggettoIntervento
 {
     
-    public class GruppoOggettoInterventoDeleted : Message, IEvent
+    public class GruppoOggettoInterventoDeleted : EventBase
     {
         
 

@@ -9,7 +9,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Intervento
 {
-    public class InterventoRotCreated : Message,IEvent
+    public class InterventoRotCreated : EventBase
     {
         public Guid IdTipoIntervento { get; set; }
         public Guid IdPlan { get; set; }

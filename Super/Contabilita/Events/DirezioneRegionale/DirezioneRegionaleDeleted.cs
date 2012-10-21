@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.DirezioneRegionale
 {
-    public class DirezioneRegionaleDeleted : Message, IEvent
+    public class DirezioneRegionaleDeleted : EventBase
     {
         
 

@@ -11,6 +11,7 @@ using Super.Saga.Handlers.Consuntivazione;
 using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 using BuildControlloCmd = Super.Controllo.Commands.BuildCmd;
 
+
 using Super.Programmazione.Events;
 using Super.Saga.Handlers.Intervento;
 
@@ -84,8 +85,12 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildControlloCmd.AllowInterventoControl
-                                     .Build(_id, 0);
+            yield return BuildControlloCmd.ConsuntivareNonResoInterventoAmb
+                .ForInterventoAppaltatore(_idInterventoAppaltatore)
+                .When(DataCons)
+                .WithNote(_noteCons)
+                .Because(_idcausaleAppalttore)
+                .Build(_id);
         }
 
         [Test]

@@ -6,7 +6,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.TipoIntervento.RotabileInManutenzione
 {
     
-    public class TipoInterventoRotManCreated : Message, IEvent
+    public class TipoInterventoRotManCreated : EventBase
     {
         
         public Guid IdMeasuringUnit { get; set; }

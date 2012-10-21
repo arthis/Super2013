@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Committente
 {
-    public class CommittenteCreated : Message, IEvent
+    public class CommittenteCreated : EventBase
     {
         public string Description { get;  set; }
         public string Sign { get; set; }

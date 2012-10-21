@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Scenario
 {
-    public class DescriptionOfScenarioChanged : Message , IEvent
+    public class DescriptionOfScenarioChanged : EventBase
     {
         public string Description { get; set; }
 

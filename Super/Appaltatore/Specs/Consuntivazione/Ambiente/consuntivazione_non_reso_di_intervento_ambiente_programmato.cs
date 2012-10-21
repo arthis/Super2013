@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonDomain;
-using CommonDomain.Core;
-using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
 using NUnit.Framework;
-using Super.Appaltatore.Commands;
 using CommonSpecs;
 using Super.Appaltatore.Commands.Consuntivazione;
-using Super.Appaltatore.Events.Consuntivazione;
-using Super.Appaltatore.Events.Programmazione;
 using Super.Appaltatore.Handlers;
 using BuildCmd = Super.Appaltatore.Commands.BuildCmd;
 using Super.Appaltatore.Events;

@@ -14,7 +14,7 @@ namespace Super.Programmazione.Events.Schedulazione
 {
 
 
-	public class SchedulazioneRotCreated : Message, IEvent  
+	public class SchedulazioneRotCreated : EventBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -84,48 +84,7 @@ namespace Super.Programmazione.Events.Schedulazione
 			Oggetti = oggetti ;
 		}
 
-		public SchedulazioneRotCreated(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idProgramma != Guid.Empty);
-
-	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
-
-	Contract.Requires(idCommittente != Guid.Empty);
-
-	Contract.Requires(idLotto != Guid.Empty);
-
-	Contract.Requires(idImpianto != Guid.Empty);
-
-	Contract.Requires(idTipoIntervento != Guid.Empty);
-
-	Contract.Requires(idAppaltatore != Guid.Empty);
-
-	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
-
-	Contract.Requires(idDirezioneRegionale != Guid.Empty);
-
-	Contract.Requires(oggetti != null);
-
-			IdProgramma = idProgramma ;
-			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
-			IdCommittente = idCommittente ;
-			IdLotto = idLotto ;
-			IdImpianto = idImpianto ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdAppaltatore = idAppaltatore ;
-			IdCategoriaCommerciale = idCategoriaCommerciale ;
-			IdDirezioneRegionale = idDirezioneRegionale ;
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			Period = period ;
-			Convoglio = convoglio ;
-			RigaTurnoTreno = rigaTurnoTreno ;
-			TurnoTreno = turnoTreno ;
-			TrenoArrivo = trenoArrivo ;
-			TrenoPartenza = trenoPartenza ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("La schedulazione rotabile é stata  creata", Id);
@@ -173,7 +132,7 @@ namespace Super.Programmazione.Events.Schedulazione
         }
 	}
 
-	public class SchedulazioneRotManCreated : Message, IEvent  
+	public class SchedulazioneRotManCreated : EventBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -233,43 +192,7 @@ namespace Super.Programmazione.Events.Schedulazione
 			Oggetti = oggetti ;
 		}
 
-		public SchedulazioneRotManCreated(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,OggettoRotMan[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idProgramma != Guid.Empty);
-
-	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
-
-	Contract.Requires(idCommittente != Guid.Empty);
-
-	Contract.Requires(idLotto != Guid.Empty);
-
-	Contract.Requires(idImpianto != Guid.Empty);
-
-	Contract.Requires(idTipoIntervento != Guid.Empty);
-
-	Contract.Requires(idAppaltatore != Guid.Empty);
-
-	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
-
-	Contract.Requires(idDirezioneRegionale != Guid.Empty);
-
-	Contract.Requires(oggetti != null);
-
-			IdProgramma = idProgramma ;
-			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
-			IdCommittente = idCommittente ;
-			IdLotto = idLotto ;
-			IdImpianto = idImpianto ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdAppaltatore = idAppaltatore ;
-			IdCategoriaCommerciale = idCategoriaCommerciale ;
-			IdDirezioneRegionale = idDirezioneRegionale ;
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			Period = period ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("La schedulazione rotabile in manutenzione é stata  creata", Id);
@@ -312,7 +235,7 @@ namespace Super.Programmazione.Events.Schedulazione
         }
 	}
 
-	public class SchedulazioneAmbCreated : Message, IEvent  
+	public class SchedulazioneAmbCreated : EventBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -372,42 +295,7 @@ namespace Super.Programmazione.Events.Schedulazione
 			Description = description ;
 		}
 
-		public SchedulazioneAmbCreated(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,Period period,int quantity,string description)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idProgramma != Guid.Empty);
-
-	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
-
-	Contract.Requires(idCommittente != Guid.Empty);
-
-	Contract.Requires(idLotto != Guid.Empty);
-
-	Contract.Requires(idImpianto != Guid.Empty);
-
-	Contract.Requires(idTipoIntervento != Guid.Empty);
-
-	Contract.Requires(idAppaltatore != Guid.Empty);
-
-	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
-
-	Contract.Requires(idDirezioneRegionale != Guid.Empty);
-
-			IdProgramma = idProgramma ;
-			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
-			IdCommittente = idCommittente ;
-			IdLotto = idLotto ;
-			IdImpianto = idImpianto ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdAppaltatore = idAppaltatore ;
-			IdCategoriaCommerciale = idCategoriaCommerciale ;
-			IdDirezioneRegionale = idDirezioneRegionale ;
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			Period = period ;
-			Quantity = quantity ;
-			Description = description ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("La schedulazione ambiente é stata  creata", Id);

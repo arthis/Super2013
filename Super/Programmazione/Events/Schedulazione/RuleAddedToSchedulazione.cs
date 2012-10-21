@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Programmazione.Events.Schedulazione
 {
-    public abstract class RuleAddedToSchedulazione : Message, IEvent
+    public abstract class RuleAddedToSchedulazione : EventBase
     {
         public Rule Rule { get; set; }
 

@@ -11,15 +11,15 @@ using BuildAppaltatoreCmd = Super.Appaltatore.Commands.BuildCmd;
 
 namespace Super.Saga.Domain.Consuntivazione
 {
-    public class ConsuntivaziioneRotManSaga : ConsuntivazioneSaga
+    public class ConsuntivazioneRotManSaga : ConsuntivazioneSaga
     {
 
-        public ConsuntivaziioneRotManSaga()
+        public ConsuntivazioneRotManSaga()
         {
             Register<InterventoRotManCreated>(OnInterventoRotManCreated);
             Register<InterventoRotManConsuntivatoReso>(OnInterventoConsuntivato);
-            Register<InterventoRotManConsuntivatoNonReso>(OnInterventoConsuntivato);
-            Register<InterventoRotManConsuntivatoNonResoTrenitalia>(OnInterventoConsuntivato);
+            Register<InterventoRotManConsuntivatoNonReso>(OnInterventoConsuntivatoNonReso);
+            Register<InterventoRotManConsuntivatoNonResoTrenitalia>(OnInterventoConsuntivatoNonResoTrenitalia);
 
         }
 
@@ -42,7 +42,7 @@ namespace Super.Saga.Domain.Consuntivazione
                                 .ForLotto(evt.IdLotto)
                                 .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)
                                 .WithNote(evt.Note)
-                                .Build(evt.Id, 0);
+                                .Build(evt.Id);
 
             Dispatch(cmdProgrammAppaltatore);
 
@@ -60,14 +60,14 @@ namespace Super.Saga.Domain.Consuntivazione
                                 .ForLotto(evt.IdLotto)
                                 .ForPeriodoProgrammazione(evt.IdPeriodoProgrammazione)
                                 .WithNote(evt.Note)
-                                .Build(evt.Id, 0);
+                                .Build(evt.Id);
 
             Dispatch(cmdProgrammControllo);
 
             var dataConsuntivazioneAutomatica = evt.WorkPeriod.EndDate.AddMinutes(20);
             var cmdTimeOut = BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonResoInterventoRotMan
                 .ForDataConsuntivazione(dataConsuntivazioneAutomatica)
-                .Build(evt.Id, 999, dataConsuntivazioneAutomatica);
+                .Build(evt.Id, dataConsuntivazioneAutomatica);
 
             Dispatch(cmdTimeOut);
 
@@ -82,13 +82,18 @@ namespace Super.Saga.Domain.Consuntivazione
             _stateMachine.Fire(Trigger.Scheduled);
         }
 
-        public void ConsuntivareResoIntervento(IInterventoConsuntivato evt)
+        public void ConsuntivareResoIntervento(InterventoRotManConsuntivatoReso evt)
         {
             if (!_stateMachine.IsInState(State.Programmation))
                 throw new SagaStateException("Saga is not in programamtion state");
 
-            var cmd = BuildControlloCmd.AllowInterventoControl
-                                     .Build(Id, 0);
+            var cmd = BuildControlloCmd.ConsuntivareResoInterventoRotMan
+                .ForInterventoAppaltatore(evt.IdInterventoAppaltatore)
+                .ForWorkPeriod(evt.WorkPeriod)
+                .When(evt.DataConsuntivazione)
+                .WithNote(evt.Note)
+                .WithOggetti(evt.Oggetti)
+                .Build(evt.Id);
 
             Dispatch(cmd);
 
@@ -101,7 +106,51 @@ namespace Super.Saga.Domain.Consuntivazione
             _stateMachine.Fire(Trigger.Consuntivato);
         }
 
-     
+        public void ConsuntivareNonResoIntervento(InterventoRotManConsuntivatoNonReso evt)
+        {
+            if (!_stateMachine.IsInState(State.Programmation))
+                throw new SagaStateException("Saga is not in programamtion state");
+
+            var cmd = BuildControlloCmd.ConsuntivareNonResoInterventoRotMan
+                .ForInterventoAppaltatore(evt.IdInterventoAppaltatore)
+                .When(evt.DataConsuntivazione)
+                .WithNote(evt.Note)
+                .Because(evt.IdCausaleAppaltatore)
+                .Build(evt.Id);
+
+            Dispatch(cmd);
+
+            Transition(evt);
+        }
+
+        protected void OnInterventoConsuntivatoNonReso(InterventoRotManConsuntivatoNonReso evt)
+        {
+            //publish intervento to appaltatore
+            _stateMachine.Fire(Trigger.Consuntivato);
+        }
+
+        public void ConsuntivareNonResoTrenitaliaIntervento(InterventoRotManConsuntivatoNonResoTrenitalia evt)
+        {
+            if (!_stateMachine.IsInState(State.Programmation))
+                throw new SagaStateException("Saga is not in programmation state");
+
+            var cmd = BuildControlloCmd.ConsuntivareNonResoTrenitaliaInterventoRotMan
+                .ForInterventoAppaltatore(evt.IdInterventoAppaltatore)
+                .When(evt.DataConsuntivazione)
+                .WithNote(evt.Note)
+                .Because(evt.IdCausaleTrenitalia)
+                .Build(evt.Id);
+
+            Dispatch(cmd);
+
+            Transition(evt);
+        }
+
+        protected void OnInterventoConsuntivatoNonResoTrenitalia(InterventoRotManConsuntivatoNonResoTrenitalia evt)
+        {
+            //publish intervento to appaltatore
+            _stateMachine.Fire(Trigger.Consuntivato);
+        }     
 
     }
 

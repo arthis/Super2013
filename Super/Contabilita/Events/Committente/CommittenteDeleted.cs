@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Committente
 {
-    public class CommittenteDeleted : Message, IEvent
+    public class CommittenteDeleted : EventBase
     {
         
 

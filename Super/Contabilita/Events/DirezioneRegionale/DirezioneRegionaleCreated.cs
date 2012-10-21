@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.DirezioneRegionale
 {
-    public class DirezioneRegionaleCreated : Message, IEvent
+    public class DirezioneRegionaleCreated : EventBase
     {
         public string Description { get;  set; }
 

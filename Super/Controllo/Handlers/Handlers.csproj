@@ -112,7 +112,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AllowControlInterventoHandler.cs" />
     <Compile Include="CloseInterventoHandler.cs" />
     <Compile Include="CommandHandlerService.cs" />
     <Compile Include="ControlResoInterventoNonHandler.cs" />

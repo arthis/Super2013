@@ -13,7 +13,7 @@ namespace Super.Controllo.Events.Programmazione
 {
 
 
-	public class InterventoRotProgrammato : Message, IEvent  
+	public class InterventoRotProgrammato : EventBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -81,47 +81,7 @@ namespace Super.Controllo.Events.Programmazione
 			Oggetti = oggetti ;
 		}
 
-		public InterventoRotProgrammato(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idProgramma != Guid.Empty);
-
-	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
-
-	Contract.Requires(idCommittente != Guid.Empty);
-
-	Contract.Requires(idLotto != Guid.Empty);
-
-	Contract.Requires(idImpianto != Guid.Empty);
-
-	Contract.Requires(idTipoIntervento != Guid.Empty);
-
-	Contract.Requires(idAppaltatore != Guid.Empty);
-
-	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
-
-	Contract.Requires(idDirezioneRegionale != Guid.Empty);
-
-	Contract.Requires(oggetti != null);
-
-			IdProgramma = idProgramma ;
-			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
-			IdCommittente = idCommittente ;
-			IdLotto = idLotto ;
-			IdImpianto = idImpianto ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdAppaltatore = idAppaltatore ;
-			IdCategoriaCommerciale = idCategoriaCommerciale ;
-			IdDirezioneRegionale = idDirezioneRegionale ;
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			Convoglio = convoglio ;
-			RigaTurnoTreno = rigaTurnoTreno ;
-			TurnoTreno = turnoTreno ;
-			TrenoArrivo = trenoArrivo ;
-			TrenoPartenza = trenoPartenza ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("il intervento rotabile é stato  programmato", Id);
@@ -168,7 +128,7 @@ namespace Super.Controllo.Events.Programmazione
         }
 	}
 
-	public class InterventoRotManProgrammato : Message, IEvent  
+	public class InterventoRotManProgrammato : EventBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -226,42 +186,7 @@ namespace Super.Controllo.Events.Programmazione
 			Oggetti = oggetti ;
 		}
 
-		public InterventoRotManProgrammato(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,OggettoRotMan[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idProgramma != Guid.Empty);
-
-	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
-
-	Contract.Requires(idCommittente != Guid.Empty);
-
-	Contract.Requires(idLotto != Guid.Empty);
-
-	Contract.Requires(idImpianto != Guid.Empty);
-
-	Contract.Requires(idTipoIntervento != Guid.Empty);
-
-	Contract.Requires(idAppaltatore != Guid.Empty);
-
-	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
-
-	Contract.Requires(idDirezioneRegionale != Guid.Empty);
-
-	Contract.Requires(oggetti != null);
-
-			IdProgramma = idProgramma ;
-			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
-			IdCommittente = idCommittente ;
-			IdLotto = idLotto ;
-			IdImpianto = idImpianto ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdAppaltatore = idAppaltatore ;
-			IdCategoriaCommerciale = idCategoriaCommerciale ;
-			IdDirezioneRegionale = idDirezioneRegionale ;
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento rotabile in manutenzione é stato programmato", Id);
@@ -303,7 +228,7 @@ namespace Super.Controllo.Events.Programmazione
         }
 	}
 
-	public class InterventoAmbProgrammato : Message, IEvent  
+	public class InterventoAmbProgrammato : EventBase  
 	{
 	 
 		public Guid IdProgramma { get; set;} 
@@ -361,41 +286,7 @@ namespace Super.Controllo.Events.Programmazione
 			Description = description ;
 		}
 
-		public InterventoAmbProgrammato(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idProgramma,Guid idPeriodoProgrammazione,Guid idCommittente,Guid idLotto,Guid idImpianto,Guid idTipoIntervento,Guid idAppaltatore,Guid idCategoriaCommerciale,Guid idDirezioneRegionale,string note,WorkPeriod workPeriod,int quantity,string description)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idProgramma != Guid.Empty);
-
-	Contract.Requires(idPeriodoProgrammazione != Guid.Empty);
-
-	Contract.Requires(idCommittente != Guid.Empty);
-
-	Contract.Requires(idLotto != Guid.Empty);
-
-	Contract.Requires(idImpianto != Guid.Empty);
-
-	Contract.Requires(idTipoIntervento != Guid.Empty);
-
-	Contract.Requires(idAppaltatore != Guid.Empty);
-
-	Contract.Requires(idCategoriaCommerciale != Guid.Empty);
-
-	Contract.Requires(idDirezioneRegionale != Guid.Empty);
-
-			IdProgramma = idProgramma ;
-			IdPeriodoProgrammazione = idPeriodoProgrammazione ;
-			IdCommittente = idCommittente ;
-			IdLotto = idLotto ;
-			IdImpianto = idImpianto ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdAppaltatore = idAppaltatore ;
-			IdCategoriaCommerciale = idCategoriaCommerciale ;
-			IdDirezioneRegionale = idDirezioneRegionale ;
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			Quantity = quantity ;
-			Description = description ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento ambiente é stato programmato", Id);

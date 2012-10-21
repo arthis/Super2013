@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Schedulazione
 {
-    public class InterventiAskedTobeGenerated : Message, IEvent
+    public class InterventiAskedTobeGenerated : EventBase
     {
 
         public InterventiAskedTobeGenerated()

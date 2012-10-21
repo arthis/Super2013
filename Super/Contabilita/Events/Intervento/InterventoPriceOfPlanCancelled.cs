@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Intervento
 {
-    public class InterventoPriceOfPlanCancelled : Message, IEvent
+    public class InterventoPriceOfPlanCancelled : EventBase
     {
 
         public InterventoPriceOfPlanCancelled()

@@ -7,7 +7,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Schedulazione
 {
-    public class RuleRemovedFromSchedulazione : Message,IEvent
+    public class RuleRemovedFromSchedulazione : EventBase
     {
         public RuleRemovedFromSchedulazione()
         {

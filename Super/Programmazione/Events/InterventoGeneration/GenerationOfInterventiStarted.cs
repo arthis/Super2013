@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.InterventoGeneration
 {
-    public class GenerationOfInterventiStarted : Message,IEvent
+    public class GenerationOfInterventiStarted : EventBase
     {
         public Guid IdSchedulazione { get; set; }
 

@@ -4,7 +4,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.PeriodoProgrammazione
 {
-    public class PeriodoProgrammazioneDeleted : Message, IEvent
+    public class PeriodoProgrammazioneDeleted : EventBase
     {
         
 

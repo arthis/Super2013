@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.CategoriaCommerciale
 {
-    public class CategoriaCommercialeUpdated : Message, IEvent
+    public class CategoriaCommercialeUpdated : EventBase
     {
         
         public string Description { get; set; }

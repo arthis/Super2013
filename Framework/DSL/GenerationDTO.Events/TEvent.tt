@@ -16,7 +16,7 @@
 		inheritance = string.Format(",{0}", evt.Inheritance);
 #>
 
-	public class <#= name #> : Message, IEvent <#= inheritance #> 
+	public class <#= name #> : EventBase <#= inheritance #> 
 	{
 	<#+ 
 		BuildProp(evt); 

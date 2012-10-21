@@ -8,7 +8,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.System
 {
-    public class UserAddedToSystem :Message,IEvent
+    public class UserAddedToSystem :EventBase
     {
         
         public string Username { get; set; }

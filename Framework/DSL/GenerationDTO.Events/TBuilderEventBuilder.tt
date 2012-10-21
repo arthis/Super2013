@@ -15,11 +15,6 @@ void BuildBuilder(ObjectDTO evt)
 			return Build(id, Guid.NewGuid(), version);
 		}
 
-		public <#= name #> Build(Guid id, long version,DateTime wakeupTime)
-		{
-			return Build(id, Guid.NewGuid(), version,wakeupTime);
-		}
-
 		public <#= name #> Build(Guid id, Guid commitId, long version)
         {
             return new <#= name #>(id, commitId, version<#+
@@ -29,15 +24,7 @@ void BuildBuilder(ObjectDTO evt)
 			 #>);
 		 }
 
-		public <#= name #> Build(Guid id, Guid commitId, long version, DateTime wakeupTime)
-        {
-            return new <#= name #>(id, commitId, version, wakeupTime<#+
-	     foreach(var property in evt.Properties)
-         {	#>, <#= property.GetPrivateName() #><#+
-         }
-			 #>);
-		 }
-        
+       
 	
 <#+
 }

@@ -13,7 +13,7 @@ namespace Super.Programmazione.Events.Scenario
 {
 
 
-	public class ScenarioPromotedToPlan : Message, IEvent  
+	public class ScenarioPromotedToPlan : EventBase  
 	{
 	 
 		public Guid IdUser { get; set;} 
@@ -39,19 +39,7 @@ namespace Super.Programmazione.Events.Scenario
 			IdPlan = idPlan ;
 		}
 
-		public ScenarioPromotedToPlan(Guid id, Guid commitId, long version,DateTime wakeupTime,Guid idUser,DateTime promotionDate,Guid idPlan)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idUser != Guid.Empty);
-
-	Contract.Requires(promotionDate > DateTime.MinValue);
-
-	Contract.Requires(idPlan != Guid.Empty);
-
-			IdUser = idUser ;
-			PromotionDate = promotionDate ;
-			IdPlan = idPlan ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Scenario é stato promosso come piano", Id);

@@ -6,7 +6,7 @@ using CommonDomain.Core;
 namespace Super.Contabilita.Events.TipoOggettoIntervento.Rotabile
 {
 
-    public class LocomotiveRotUpdated : Message, IEvent
+    public class LocomotiveRotUpdated : EventBase
     {
         public string Description { get; set; }
         public Guid IdGruppoOggettoIntervento { get; set; }

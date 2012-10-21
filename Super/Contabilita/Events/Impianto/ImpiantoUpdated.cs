@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Impianto
 {
-    public class ImpiantoUpdated : Message, IEvent
+    public class ImpiantoUpdated : EventBase
     {
         
         public Interval Period { get; set; }

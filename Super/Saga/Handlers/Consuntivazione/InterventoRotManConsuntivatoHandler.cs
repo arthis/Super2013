@@ -20,7 +20,7 @@ namespace Super.Saga.Handlers.Intervento
             var sagaId = @event.Id;
 
             // purchase correlation 
-            var saga = Repository.GetById<ConsuntivaziioneRotManSaga>(sagaId);
+            var saga = Repository.GetById<ConsuntivazioneRotManSaga>(sagaId);
 
             saga.ConsuntivareResoIntervento(@event);
 

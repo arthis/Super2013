@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.InterventoGeneration
 {
-    public class InterventoGeneratedConfirmed : Message,IEvent
+    public class InterventoGeneratedConfirmed : EventBase
     {
         public Guid IdIntervento { get; set; }
 

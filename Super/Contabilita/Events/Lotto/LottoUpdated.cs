@@ -6,7 +6,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Lotto
 {
-    public class LottoUpdated : Message, IEvent
+    public class LottoUpdated : EventBase
     {
         
         public Interval Period { get; set; }

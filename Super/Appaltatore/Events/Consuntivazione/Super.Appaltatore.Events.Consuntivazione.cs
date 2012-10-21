@@ -13,7 +13,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 {
 
 
-	public class InterventoRotConsuntivatoNonReso : Message, IEvent ,IInterventoRotConsuntivato 
+	public class InterventoRotConsuntivatoNonReso : EventBase ,IInterventoRotConsuntivato 
 	{
 	 
 		public string Note { get; set;} 
@@ -41,20 +41,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
-		public InterventoRotConsuntivatoNonReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
-
-	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-			Note = note ;
-			IdCausaleAppaltatore = idCausaleAppaltatore ;
-			DataConsuntivazione = dataConsuntivazione ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("il intervento rotabile é stato  consuntivato non reso appaltatore", Id);
@@ -88,7 +75,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 	}
 
-	public class InterventoRotManConsuntivatoNonReso : Message, IEvent ,IInterventoRotManConsuntivato 
+	public class InterventoRotManConsuntivatoNonReso : EventBase ,IInterventoRotManConsuntivato 
 	{
 	 
 		public string Note { get; set;} 
@@ -116,20 +103,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
-		public InterventoRotManConsuntivatoNonReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
-
-	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-			Note = note ;
-			IdCausaleAppaltatore = idCausaleAppaltatore ;
-			DataConsuntivazione = dataConsuntivazione ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("il intervento rotabile in mantenzione é stato  consuntivato non reso appaltatore", Id);
@@ -163,7 +137,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 	}
 
-	public class InterventoAmbConsuntivatoNonReso : Message, IEvent ,IInterventoAmbConsuntivato 
+	public class InterventoAmbConsuntivatoNonReso : EventBase ,IInterventoAmbConsuntivato 
 	{
 	 
 		public string Note { get; set;} 
@@ -191,20 +165,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
-		public InterventoAmbConsuntivatoNonReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
-
-	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-			Note = note ;
-			IdCausaleAppaltatore = idCausaleAppaltatore ;
-			DataConsuntivazione = dataConsuntivazione ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("il intervento ambiente é stato  consuntivato non reso appaltatore", Id);
@@ -238,7 +199,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 	}
 
-	public class InterventoRotConsuntivatoNonResoTrenitalia : Message, IEvent ,IInterventoRotConsuntivato 
+	public class InterventoRotConsuntivatoNonResoTrenitalia : EventBase ,IInterventoRotConsuntivato 
 	{
 	 
 		public string Note { get; set;} 
@@ -266,20 +227,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
-		public InterventoRotConsuntivatoNonResoTrenitalia(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
-
-	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-			Note = note ;
-			IdCausaleTrenitalia = idCausaleTrenitalia ;
-			DataConsuntivazione = dataConsuntivazione ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("il intervento rotabile é stato  consuntivato non reso trenitalia", Id);
@@ -313,7 +261,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 	}
 
-	public class InterventoRotManConsuntivatoNonResoTrenitalia : Message, IEvent ,IInterventoRotManConsuntivato 
+	public class InterventoRotManConsuntivatoNonResoTrenitalia : EventBase ,IInterventoRotManConsuntivato 
 	{
 	 
 		public string Note { get; set;} 
@@ -341,20 +289,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
-		public InterventoRotManConsuntivatoNonResoTrenitalia(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
-
-	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-			Note = note ;
-			IdCausaleTrenitalia = idCausaleTrenitalia ;
-			DataConsuntivazione = dataConsuntivazione ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("il intervento rotabile in manutenzione é stato  consuntivato non reso trenitalia", Id);
@@ -388,7 +323,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 	}
 
-	public class InterventoAmbConsuntivatoNonResoTrenitalia : Message, IEvent ,IInterventoAmbConsuntivato 
+	public class InterventoAmbConsuntivatoNonResoTrenitalia : EventBase ,IInterventoAmbConsuntivato 
 	{
 	 
 		public string Note { get; set;} 
@@ -416,20 +351,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
-		public InterventoAmbConsuntivatoNonResoTrenitalia(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
-
-	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-			Note = note ;
-			IdCausaleTrenitalia = idCausaleTrenitalia ;
-			DataConsuntivazione = dataConsuntivazione ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("il intervento ambiente é stato  consuntivato non reso trenitalia", Id);
@@ -463,7 +385,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 	}
 
-	public class InterventoAmbConsuntivatoReso : Message, IEvent ,IInterventoAmbConsuntivato 
+	public class InterventoAmbConsuntivatoReso : EventBase ,IInterventoAmbConsuntivato 
 	{
 	 
 		public string Note { get; set;} 
@@ -497,24 +419,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			Description = description ;
 		}
 
-		public InterventoAmbConsuntivatoReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,int quantity,string description)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(workPeriod != null);
-
-	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-	Contract.Requires(quantity != null);
-
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			DataConsuntivazione = dataConsuntivazione ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-			Quantity = quantity ;
-			Description = description ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento ambiente é stato consuntivato reso", Id);
@@ -550,7 +455,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 	}
 
-	public class InterventoRotConsuntivatoReso : Message, IEvent ,IInterventoRotConsuntivato 
+	public class InterventoRotConsuntivatoReso : EventBase ,IInterventoRotConsuntivato 
 	{
 	 
 		public string Note { get; set;} 
@@ -582,23 +487,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			Oggetti = oggetti ;
 		}
 
-		public InterventoRotConsuntivatoReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(workPeriod != null);
-
-	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-	Contract.Requires(oggetti != null);
-
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			DataConsuntivazione = dataConsuntivazione ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento rotabile é stato consuntivato reso", Id);
@@ -633,7 +522,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
         }
 	}
 
-	public class InterventoRotManConsuntivatoReso : Message, IEvent ,IInterventoRotManConsuntivato 
+	public class InterventoRotManConsuntivatoReso : EventBase ,IInterventoRotManConsuntivato 
 	{
 	 
 		public string Note { get; set;} 
@@ -665,23 +554,7 @@ namespace Super.Appaltatore.Events.Consuntivazione
 			Oggetti = oggetti ;
 		}
 
-		public InterventoRotManConsuntivatoReso(Guid id, Guid commitId, long version,DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
-		   : base(id,commitId,version,wakeupTime)
-		{
-			Contract.Requires(workPeriod != null);
-
-	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
-
-	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
-
-	Contract.Requires(oggetti != null);
-
-			Note = note ;
-			WorkPeriod = workPeriod ;
-			DataConsuntivazione = dataConsuntivazione ;
-			IdInterventoAppaltatore = idInterventoAppaltatore ;
-			Oggetti = oggetti ;
-		}
+		
 			public override string ToDescription()
 		{
 			return string.Format("Il intervento rotabile in manutenzione é stato consuntivato reso", Id);

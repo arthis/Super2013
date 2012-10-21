@@ -18,7 +18,7 @@ namespace Super.Saga.Handlers.Consuntivazione
             var sagaId = @event.Id;
 
             // purchase correlation 
-            var saga = Repository.GetById<ConsuntivaziioneRotSaga>(sagaId);
+            var saga = Repository.GetById<ConsuntivazioneRotSaga>(sagaId);
 
             saga.ConsuntivareNonResoTrenitaliaIntervento(@event);
 

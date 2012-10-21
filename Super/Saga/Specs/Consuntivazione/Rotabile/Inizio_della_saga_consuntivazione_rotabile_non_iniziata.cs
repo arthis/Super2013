@@ -95,7 +95,7 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile
                 .ForCommittente(_idCommittente)
                 .ForProgramma(_idProgramma)
                 .ForLotto(_idLotto)
-                .Build(_id, 0);
+                .Build(_id);
 
             yield return BuildControlloCmd.ProgramInterventoRot
                 .ForWorkPeriod(_workPeriod)
@@ -115,12 +115,12 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile
                 .ForCommittente(_idCommittente)
                 .ForProgramma(_idProgramma)
                 .ForLotto(_idLotto)
-                .Build(_id, 0);
+                .Build(_id);
 
 
             yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonResoInterventoRot
                 .ForDataConsuntivazione(_dataConsuntivazioneAutomatica)
-                .Build(_id, 999, _dataConsuntivazioneAutomatica);
+                .Build(_id,  _dataConsuntivazioneAutomatica);
 
         }
 

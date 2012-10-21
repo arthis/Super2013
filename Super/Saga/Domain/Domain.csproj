@@ -117,10 +117,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consuntivazione\ConsuntivazioneSaga.cs" />
-    <Compile Include="Consuntivazione\InterventoAmbSaga.cs" />
+    <Compile Include="Consuntivazione\ConsuntivazioneAmbSaga.cs" />
     <Compile Include="Consuntivazione\enum.cs" />
-    <Compile Include="Consuntivazione\InterventoRotManSaga.cs" />
-    <Compile Include="Consuntivazione\InterventoRotSaga.cs" />
+    <Compile Include="Consuntivazione\ConsuntivazioneRotManSaga.cs" />
+    <Compile Include="Consuntivazione\ConsuntivazioneRotSaga.cs" />
     <Compile Include="Exceptions\SagaStateException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchedulazioneOfScenarioPrice\enum.cs" />

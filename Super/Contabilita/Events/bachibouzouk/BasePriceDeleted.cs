@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Events.Pricing
 {
-    public class BasePriceDeleted : Message, IEvent
+    public class BasePriceDeleted : EventBase
     {
         public Guid IdBasePrice { get; set; }
         

@@ -7,7 +7,7 @@ using CommonDomain.Core.Super.Messaging.ValueObjects;
 
 namespace Super.Contabilita.Events.Intervento
 {
-    public class InterventoPriceOfPlanCalculated: Message, IEvent
+    public class InterventoPriceOfPlanCalculated: EventBase
     {
         public Guid IdPlan { get; set; }
         public decimal Price { get; set; }

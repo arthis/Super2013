@@ -5,7 +5,7 @@ using CommonDomain.Core;
 
 namespace Super.Programmazione.Events.Schedulazione
 {
-    public class GenerationSucceedConfirmed : Message, IEvent
+    public class GenerationSucceedConfirmed : EventBase
     {
 
         public GenerationSucceedConfirmed()
