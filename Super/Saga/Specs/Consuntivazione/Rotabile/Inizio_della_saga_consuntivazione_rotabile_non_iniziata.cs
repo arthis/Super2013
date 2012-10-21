@@ -119,6 +119,7 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile
 
 
             yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonResoInterventoRot
+                .ForDataConsuntivazione(_dataConsuntivazioneAutomatica)
                 .Build(_id, 999, _dataConsuntivazioneAutomatica);
 
         }

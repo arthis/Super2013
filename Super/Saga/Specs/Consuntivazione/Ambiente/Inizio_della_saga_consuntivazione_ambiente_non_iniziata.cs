@@ -104,7 +104,8 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
                 .Build(_id, 0);
 
             yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonResoInterventoAmb
-                            .Build(_id, 999, _dataConsuntivazioneAutomatica);
+                .ForDataConsuntivazione(_dataConsuntivazioneAutomatica)
+                .Build(_id, 999, _dataConsuntivazioneAutomatica);
         }
 
         [Test]

@@ -97,7 +97,8 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile_in_Manutenzione
                            .WithOggetti(_oggetti.ToArray())
                            .Build(_id, 0);
 
-            yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
+            yield return BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonResoInterventoRotMan
+                .ForDataConsuntivazione(_dataConsuntivazioneAutomatica)
                 .Build(_id, 999, _dataConsuntivazioneAutomatica);
         }
 

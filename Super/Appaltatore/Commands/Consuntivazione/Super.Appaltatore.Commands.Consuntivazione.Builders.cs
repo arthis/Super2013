@@ -15,6 +15,13 @@ namespace Super.Appaltatore.Commands.Consuntivazione.Builders
 
 	public class ConsuntivareAutomaticamenteNonResoInterventoRotBuilder : ICommandBuilder<ConsuntivareAutomaticamenteNonResoInterventoRot>
 	{
+	 
+		private DateTime  _dataConsuntivazione ;
+		public ConsuntivareAutomaticamenteNonResoInterventoRotBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		{
+			_dataConsuntivazione = dataConsuntivazione;
+			return this;
+		}
 	
 		public ConsuntivareAutomaticamenteNonResoInterventoRot Build(Guid id, long version)
 		{
@@ -28,12 +35,12 @@ namespace Super.Appaltatore.Commands.Consuntivazione.Builders
 
 		public ConsuntivareAutomaticamenteNonResoInterventoRot Build(Guid id, Guid commitId, long version)
         {
-            return new ConsuntivareAutomaticamenteNonResoInterventoRot(id, commitId, version);
+            return new ConsuntivareAutomaticamenteNonResoInterventoRot(id, commitId, version, _dataConsuntivazione);
 		 }
 
 		 public ConsuntivareAutomaticamenteNonResoInterventoRot Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new ConsuntivareAutomaticamenteNonResoInterventoRot(id, commitId, version, wakeupTime);
+            return new ConsuntivareAutomaticamenteNonResoInterventoRot(id, commitId, version, wakeupTime, _dataConsuntivazione);
 		 }
         
 	
@@ -41,6 +48,13 @@ namespace Super.Appaltatore.Commands.Consuntivazione.Builders
 
 	public class ConsuntivareAutomaticamenteNonResoInterventoRotManBuilder : ICommandBuilder<ConsuntivareAutomaticamenteNonResoInterventoRotMan>
 	{
+	 
+		private DateTime  _dataConsuntivazione ;
+		public ConsuntivareAutomaticamenteNonResoInterventoRotManBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		{
+			_dataConsuntivazione = dataConsuntivazione;
+			return this;
+		}
 	
 		public ConsuntivareAutomaticamenteNonResoInterventoRotMan Build(Guid id, long version)
 		{
@@ -54,12 +68,12 @@ namespace Super.Appaltatore.Commands.Consuntivazione.Builders
 
 		public ConsuntivareAutomaticamenteNonResoInterventoRotMan Build(Guid id, Guid commitId, long version)
         {
-            return new ConsuntivareAutomaticamenteNonResoInterventoRotMan(id, commitId, version);
+            return new ConsuntivareAutomaticamenteNonResoInterventoRotMan(id, commitId, version, _dataConsuntivazione);
 		 }
 
 		 public ConsuntivareAutomaticamenteNonResoInterventoRotMan Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new ConsuntivareAutomaticamenteNonResoInterventoRotMan(id, commitId, version, wakeupTime);
+            return new ConsuntivareAutomaticamenteNonResoInterventoRotMan(id, commitId, version, wakeupTime, _dataConsuntivazione);
 		 }
         
 	
@@ -67,6 +81,13 @@ namespace Super.Appaltatore.Commands.Consuntivazione.Builders
 
 	public class ConsuntivareAutomaticamenteNonResoInterventoAmbBuilder : ICommandBuilder<ConsuntivareAutomaticamenteNonResoInterventoAmb>
 	{
+	 
+		private DateTime  _dataConsuntivazione ;
+		public ConsuntivareAutomaticamenteNonResoInterventoAmbBuilder ForDataConsuntivazione(DateTime dataConsuntivazione) 
+		{
+			_dataConsuntivazione = dataConsuntivazione;
+			return this;
+		}
 	
 		public ConsuntivareAutomaticamenteNonResoInterventoAmb Build(Guid id, long version)
 		{
@@ -80,12 +101,12 @@ namespace Super.Appaltatore.Commands.Consuntivazione.Builders
 
 		public ConsuntivareAutomaticamenteNonResoInterventoAmb Build(Guid id, Guid commitId, long version)
         {
-            return new ConsuntivareAutomaticamenteNonResoInterventoAmb(id, commitId, version);
+            return new ConsuntivareAutomaticamenteNonResoInterventoAmb(id, commitId, version, _dataConsuntivazione);
 		 }
 
 		 public ConsuntivareAutomaticamenteNonResoInterventoAmb Build(Guid id, Guid commitId, long version,DateTime wakeupTime)
         {
-            return new ConsuntivareAutomaticamenteNonResoInterventoAmb(id, commitId, version, wakeupTime);
+            return new ConsuntivareAutomaticamenteNonResoInterventoAmb(id, commitId, version, wakeupTime, _dataConsuntivazione);
 		 }
         
 	

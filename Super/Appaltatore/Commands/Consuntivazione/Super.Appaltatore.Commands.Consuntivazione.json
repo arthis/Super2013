@@ -6,18 +6,33 @@
             "Name" :"ConsuntivareAutomaticamenteNonResoInterventoRot",
 			"Description" : "Consuntivare automaticamente non reso appaltatore il intervento rotabile",
             "Properties" : [
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                }
 		    ]
         },
 		{
             "Name" :"ConsuntivareAutomaticamenteNonResoInterventoRotMan",
 			"Description" : "Consuntivare automaticamente non reso appaltatore il intervento rotabile in manutenzione",
             "Properties" : [
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                }
 		    ]
         },
 		{
             "Name" :"ConsuntivareAutomaticamenteNonResoInterventoAmb",
 			"Description" : "Consuntivare automaticamente non reso appaltatore il intervento Ambiente",
             "Properties" : [
+				{
+                    "Name" : "DataConsuntivazione",
+                    "Type" : "DateTime",
+					"IsRequired" : true 
+                }
 		    ]
         },
 		{

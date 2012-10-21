@@ -125,7 +125,7 @@
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_non_reso_di_un_intervento_rotabile_in_manutenzione.cs" />
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\consuntivazione_non_reso_trenitalia_di_un_intervento_rotabile_in_manutenzione.cs" />
     <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Inizio_della_saga_consuntivazione_rotabile_in_manutenzione_gia_iniziata.cs" />
-    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\Inizio_della_saga_intervento_rotabile_non_iniziata.cs" />
+    <Compile Include="Consuntivazione\Rotabile_in_Manutenzione\inizio_della_saga_consuntivazione_rotabile_in_manutenzione_non_iniziata.cs" />
     <Compile Include="Consuntivazione\Rotabile\Inizio_della_saga_intervento_rotabile_gia_iniziata.cs" />
     <Compile Include="Consuntivazione\Rotabile\Inizio_della_saga_consuntivazione_rotabile_non_iniziata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

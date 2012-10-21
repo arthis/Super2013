@@ -72,8 +72,10 @@ namespace Super.Saga.Domain.Consuntivazione
 
             Dispatch(cmdProgrammControllo);
 
-            var cmdTimeOut = BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonReso
-                .Build(evt.Id, 999, evt.WorkPeriod.EndDate.AddMinutes(20));
+            var dataConsuntivazioneAutomatica = evt.WorkPeriod.EndDate.AddMinutes(20);
+            var cmdTimeOut = BuildAppaltatoreCmd.ConsuntivareAutomaticamenteNonResoInterventoRot
+                .ForDataConsuntivazione(dataConsuntivazioneAutomatica)
+                .Build(evt.Id, 999, dataConsuntivazioneAutomatica);
 
             Dispatch(cmdTimeOut);
 

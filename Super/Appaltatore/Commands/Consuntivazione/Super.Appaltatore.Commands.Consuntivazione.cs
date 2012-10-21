@@ -16,22 +16,29 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 
 	public class ConsuntivareAutomaticamenteNonResoInterventoRot :  CommandBase  
 	{
-	
+	 
+		public DateTime DataConsuntivazione { get; set;}
 
 		public ConsuntivareAutomaticamenteNonResoInterventoRot ()
 		{
 			//for serialisation
 		}	     
 
-		public ConsuntivareAutomaticamenteNonResoInterventoRot(Guid id, Guid commitId, long version)
+		public ConsuntivareAutomaticamenteNonResoInterventoRot(Guid id, Guid commitId, long version,DateTime dataConsuntivazione)
 		   : base(id,commitId,version)
 		{
-				}
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
 
-		public ConsuntivareAutomaticamenteNonResoInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime)
+			DataConsuntivazione = dataConsuntivazione ;
+		}
+
+		public ConsuntivareAutomaticamenteNonResoInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,DateTime dataConsuntivazione)
 		   : base(id,commitId,version,wakeupTime)
 		{
-				}
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+			DataConsuntivazione = dataConsuntivazione ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Consuntivare automaticamente non reso appaltatore il intervento rotabile", Id);
@@ -41,7 +48,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) ; 
+            return base.Equals(other)  	 && Equals(other.DataConsuntivazione, DataConsuntivazione) ; 
 		}
 
 		public override bool Equals(object obj)
@@ -56,6 +63,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
+				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
 				return result;
             }
         }
@@ -63,22 +71,29 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 
 	public class ConsuntivareAutomaticamenteNonResoInterventoRotMan :  CommandBase  
 	{
-	
+	 
+		public DateTime DataConsuntivazione { get; set;}
 
 		public ConsuntivareAutomaticamenteNonResoInterventoRotMan ()
 		{
 			//for serialisation
 		}	     
 
-		public ConsuntivareAutomaticamenteNonResoInterventoRotMan(Guid id, Guid commitId, long version)
+		public ConsuntivareAutomaticamenteNonResoInterventoRotMan(Guid id, Guid commitId, long version,DateTime dataConsuntivazione)
 		   : base(id,commitId,version)
 		{
-				}
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
 
-		public ConsuntivareAutomaticamenteNonResoInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime)
+			DataConsuntivazione = dataConsuntivazione ;
+		}
+
+		public ConsuntivareAutomaticamenteNonResoInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,DateTime dataConsuntivazione)
 		   : base(id,commitId,version,wakeupTime)
 		{
-				}
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+			DataConsuntivazione = dataConsuntivazione ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Consuntivare automaticamente non reso appaltatore il intervento rotabile in manutenzione", Id);
@@ -88,7 +103,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) ; 
+            return base.Equals(other)  	 && Equals(other.DataConsuntivazione, DataConsuntivazione) ; 
 		}
 
 		public override bool Equals(object obj)
@@ -103,6 +118,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
+				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
 				return result;
             }
         }
@@ -110,22 +126,29 @@ namespace Super.Appaltatore.Commands.Consuntivazione
 
 	public class ConsuntivareAutomaticamenteNonResoInterventoAmb :  CommandBase  
 	{
-	
+	 
+		public DateTime DataConsuntivazione { get; set;}
 
 		public ConsuntivareAutomaticamenteNonResoInterventoAmb ()
 		{
 			//for serialisation
 		}	     
 
-		public ConsuntivareAutomaticamenteNonResoInterventoAmb(Guid id, Guid commitId, long version)
+		public ConsuntivareAutomaticamenteNonResoInterventoAmb(Guid id, Guid commitId, long version,DateTime dataConsuntivazione)
 		   : base(id,commitId,version)
 		{
-				}
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
 
-		public ConsuntivareAutomaticamenteNonResoInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime)
+			DataConsuntivazione = dataConsuntivazione ;
+		}
+
+		public ConsuntivareAutomaticamenteNonResoInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,DateTime dataConsuntivazione)
 		   : base(id,commitId,version,wakeupTime)
 		{
-				}
+			Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+			DataConsuntivazione = dataConsuntivazione ;
+		}
 			public override string ToDescription()
 		{
 			return string.Format("Consuntivare automaticamente non reso appaltatore il intervento Ambiente", Id);
@@ -135,7 +158,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) ; 
+            return base.Equals(other)  	 && Equals(other.DataConsuntivazione, DataConsuntivazione) ; 
 		}
 
 		public override bool Equals(object obj)
@@ -150,6 +173,7 @@ namespace Super.Appaltatore.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
+				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
 				return result;
             }
         }
