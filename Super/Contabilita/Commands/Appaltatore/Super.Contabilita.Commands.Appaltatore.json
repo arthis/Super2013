@@ -1,0 +1,34 @@
+﻿{
+    "Namespace" : "Super.Contabilita.Commands.Appaltatore",
+    "Objects" :
+    [
+        {
+            "Name" :"CreateAppaltatore",
+			"Description" : "Creiamo il appaltatore '{0}'.",
+            "Properties" : [
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+		    ]
+        },
+		{
+            "Name" :"DeleteAppaltatore",
+			"Description" : "Cancelliamo il appaltatore '{0}'.",
+            "Properties" : [
+		    ]
+        },
+		{
+            "Name" :"UpdateAppaltatore",
+			"Description" : "Aggiorniamo il appaltatore '{0}'.",
+            "Properties" : [
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+		    ]
+        }
+    ]
+}

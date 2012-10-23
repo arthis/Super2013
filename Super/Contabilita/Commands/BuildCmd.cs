@@ -17,7 +17,7 @@ using Super.Contabilita.Commands.Builders.TipoOggettoIntervento.RotabileInManute
 
 namespace Super.Contabilita.Commands
 {
-    public static class BuildCmd
+    public static partial class BuildCmd
     {
 
         #region Schedulazione
@@ -39,12 +39,6 @@ namespace Super.Contabilita.Commands
         public static UpdateLottoBuilder UpdateLotto { get { return new UpdateLottoBuilder(); } }
 
         public static DeleteLottoBuilder DeleteLotto { get { return new DeleteLottoBuilder(); } }
-
-        public static CreateAppaltatoreBuilder CreateAppaltatore { get { return new CreateAppaltatoreBuilder(); } }
-
-        public static UpdateAppaltatoreBuilder UpdateAppaltatore { get { return new UpdateAppaltatoreBuilder(); } }
-
-        public static DeleteAppaltatoreBuilder DeleteAppaltatore { get { return new DeleteAppaltatoreBuilder(); } }
 
         public static CreateCategoriaCommercialeBuilder CreateCategoriaCommerciale { get { return new CreateCategoriaCommercialeBuilder(); } }
 

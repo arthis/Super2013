@@ -69,6 +69,48 @@ namespace Super.DSL.GenerationDTO.Core
             return _requires;
         }
 
+        private void AddJavascriptRequires(string requirement, string msg)
+        {
+            _requires.Add(string.Format(@"if ({0}) throw ""{1}"";", requirement, msg));
+        }
+
+        //
+        public List<string> GetRequiresJavascript()
+        {
+            _requires = new List<string>();
+            string require = string.Empty;
+            string msg =string.Empty;
+
+            if (IsRequired)
+            {
+                switch (_type)
+                {
+                    case "string":
+                        require = string.Format("{0} == null || {0} == ''", GetCamelCasedName());
+                        msg = string.Format("{0} cannot be null or empty", GetCamelCasedName());
+                        AddJavascriptRequires(require,msg);
+                        break;
+                    case "Guid":
+                        require = string.Format("{0} == '00000000-0000-0000-0000-000000000000'", GetCamelCasedName());
+                        msg = string.Format("{0} cannot be empty", GetCamelCasedName());
+                        AddJavascriptRequires(require, msg);
+                        break;
+                    case "DateTime":
+                        require = string.Format("{0} < DateTimeMin || {0} > DateTimeMax", GetCamelCasedName());
+                        msg = string.Format("{0} is not a valid date", GetCamelCasedName());
+                        AddJavascriptRequires(require, msg);
+                        break;
+                    default:
+                        require = string.Format("{0} == null", GetCamelCasedName());
+                        msg = string.Format("{0} is null", GetCamelCasedName());
+                        AddJavascriptRequires(require, msg);
+                        break;
+                }
+            }
+
+            return _requires;
+        }
+
         public string GetBuilderName()
         {
             var returnValue = ToPascalCase(_name);

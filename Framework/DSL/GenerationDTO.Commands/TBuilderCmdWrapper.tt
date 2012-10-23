@@ -37,7 +37,7 @@ namespace <#= wrapper.Namespace #>.Builders
 
 <#+
 	   int index=0;
-	int indexTotal=0;
+	   int indexTotal=0;
 	   int nTime=1;
 	   string namespaceLeft =wrapper.Namespace;
 	   while( indexTotal<wrapper.Namespace.Length && nTime<4)

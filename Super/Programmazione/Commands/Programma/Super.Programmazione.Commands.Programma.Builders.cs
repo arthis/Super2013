@@ -1,7 +1,6 @@
 ﻿
 
 
-
 using System;
 using CommonDomain;
 using System.Diagnostics.Contracts;
@@ -175,9 +174,6 @@ namespace Super.Programmazione.Commands.Programma.Builders
             return new AddSchedulazioneRotToProgramma(id, commitId, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
 
-
-
-
 		public AddSchedulazioneRotToProgramma Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
@@ -318,9 +314,6 @@ namespace Super.Programmazione.Commands.Programma.Builders
         {
             return new AddSchedulazioneRotManToProgramma(id, commitId, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
 		 }
-
-
-
 
 		public AddSchedulazioneRotManToProgramma Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -470,9 +463,6 @@ namespace Super.Programmazione.Commands.Programma.Builders
             return new AddSchedulazioneAmbToProgramma(id, commitId, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
 		 }
 
-
-
-
 		public AddSchedulazioneAmbToProgramma Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
@@ -529,9 +519,6 @@ namespace Super.Programmazione.Commands.Programma.Builders
         {
             return new CreateProgramma(id, commitId, wakeupTime, _idScenario);
 		 }
-
-
-
 
 		public CreateProgramma Build(Guid id, long version,DateTime wakeupTime)
 		{

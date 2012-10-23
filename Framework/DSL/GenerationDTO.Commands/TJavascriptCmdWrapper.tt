@@ -1,0 +1,34 @@
+﻿<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ Assembly Name="D:\Projects\Super2013\packages\Newtonsoft.Json.4.5.8\lib\net40\Newtonsoft.Json.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #>
+<#@ import namespace="Newtonsoft.Json" #>
+<#@include file="..\GenerationDTO.Commands\TJavascriptCmd.tt"#>
+<#@ output extension=".js"#>
+<#+
+void BuildJavascriptCmds(DTOWrapper wrapper)
+{
+#>
+
+
+
+<#+
+	foreach (var cmd in wrapper.Objects)
+	{
+		BuildJavascriptCmd(cmd);
+    }
+
+#>
+
+<#+
+}
+#>

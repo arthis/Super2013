@@ -40,7 +40,7 @@ namespace Super.Contabilita.Specs.Appaltatore
         public override CreateAppaltatore When()
         {
             return BuildCmd.CreateAppaltatore
-                .ForDescription(_description)
+                .WithDescription(_description)
                 .Build(_id, 1);
         }
 

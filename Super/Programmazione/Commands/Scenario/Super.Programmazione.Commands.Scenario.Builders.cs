@@ -1,7 +1,6 @@
 ﻿
 
 
-
 using System;
 using CommonDomain;
 using System.Diagnostics.Contracts;
@@ -175,9 +174,6 @@ namespace Super.Programmazione.Commands.Scenario.Builders
             return new AddSchedulazioneRotToScenario(id, commitId, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
 
-
-
-
 		public AddSchedulazioneRotToScenario Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
@@ -318,9 +314,6 @@ namespace Super.Programmazione.Commands.Scenario.Builders
         {
             return new AddSchedulazioneRotManToScenario(id, commitId, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
 		 }
-
-
-
 
 		public AddSchedulazioneRotManToScenario Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -470,9 +463,6 @@ namespace Super.Programmazione.Commands.Scenario.Builders
             return new AddSchedulazioneAmbToScenario(id, commitId, wakeupTime, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
 		 }
 
-
-
-
 		public AddSchedulazioneAmbToScenario Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
@@ -537,9 +527,6 @@ namespace Super.Programmazione.Commands.Scenario.Builders
             return new CreateScenario(id, commitId, wakeupTime, _description, _idProgramma);
 		 }
 
-
-
-
 		public CreateScenario Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
@@ -589,9 +576,6 @@ namespace Super.Programmazione.Commands.Scenario.Builders
         {
             return new CancelScenario(id, commitId, wakeupTime);
 		 }
-
-
-
 
 		public CancelScenario Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -649,9 +633,6 @@ namespace Super.Programmazione.Commands.Scenario.Builders
         {
             return new ChangeDescriptionScenario(id, commitId, wakeupTime, _description);
 		 }
-
-
-
 
 		public ChangeDescriptionScenario Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -716,9 +697,6 @@ namespace Super.Programmazione.Commands.Scenario.Builders
         {
             return new PromoteScenarioToPlan(id, commitId, wakeupTime, _promotionDate, _idPlan);
 		 }
-
-
-
 
 		public PromoteScenarioToPlan Build(Guid id, long version,DateTime wakeupTime)
 		{

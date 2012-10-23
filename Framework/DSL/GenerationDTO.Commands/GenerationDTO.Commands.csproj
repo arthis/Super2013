@@ -49,6 +49,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TJavascriptCmd.cs">
+      <DependentUpon>TJavascriptCmd.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TModelProp.cs">
+      <DependentUpon>TModelProp.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TModel.cs">
+      <DependentUpon>TModel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TModelWrapper.cs">
+      <DependentUpon>TModelWrapper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TBuilderCmd.cs">
       <DependentUpon>TBuilderCmd.tt</DependentUpon>
@@ -112,6 +132,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="TJavascriptCmdWrapper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TJavascriptCmdWrapper.js</LastGenOutput>
+    </None>
+    <None Include="TJavascriptCmd.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TJavascriptCmd.cs</LastGenOutput>
+    </None>
+    <None Include="TModelProp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TModelProp.cs</LastGenOutput>
+    </None>
+    <None Include="TModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TModel.cs</LastGenOutput>
+    </None>
+    <None Include="TModelWrapper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TModelWrapper.cs</LastGenOutput>
+    </None>
     <None Include="TBuilderCmd.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TBuilderCmd.cs</LastGenOutput>
@@ -163,6 +203,13 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TJavascriptCmdWrapper.js">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TJavascriptCmdWrapper.tt</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

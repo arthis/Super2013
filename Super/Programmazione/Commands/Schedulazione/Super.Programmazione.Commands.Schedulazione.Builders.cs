@@ -1,7 +1,6 @@
 ﻿
 
 
-
 using System;
 using CommonDomain;
 using System.Diagnostics.Contracts;
@@ -175,9 +174,6 @@ namespace Super.Programmazione.Commands.Schedulazione.Builders
             return new CreateSchedulazioneRot(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
 
-
-
-
 		public CreateSchedulazioneRot Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
@@ -318,9 +314,6 @@ namespace Super.Programmazione.Commands.Schedulazione.Builders
         {
             return new CreateSchedulazioneRotMan(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
 		 }
-
-
-
 
 		public CreateSchedulazioneRotMan Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -469,9 +462,6 @@ namespace Super.Programmazione.Commands.Schedulazione.Builders
         {
             return new CreateSchedulazioneAmb(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
 		 }
-
-
-
 
 		public CreateSchedulazioneAmb Build(Guid id, long version,DateTime wakeupTime)
 		{

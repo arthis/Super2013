@@ -73,6 +73,12 @@
     <Reference Include="ElmahR.Elmah">
       <HintPath>..\..\..\packages\ElmahR.Elmah.0.8.8.0\lib\net35\ElmahR.Elmah.dll</HintPath>
     </Reference>
+    <Reference Include="Glimpse.Core">
+      <HintPath>..\..\..\packages\Glimpse.0.87\lib\net40\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc3">
+      <HintPath>..\..\..\packages\Glimpse.Mvc3.0.87\lib\net40\Glimpse.Mvc3.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -135,12 +141,63 @@
     <Compile Include="global.asax.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CommandBase.cs" />
-    <Compile Include="Models\Appaltatore.cs" />
+    <Compile Include="Models\Super\Contabilita\Appaltatore\AppaltatoreModel.cs" />
     <Compile Include="Models\CategoriaCommerciale.cs" />
     <Compile Include="Models\Committente.cs" />
     <Compile Include="Models\DirezioneRegionale.cs" />
     <Compile Include="Models\MeasuringUnit.cs" />
     <Compile Include="Models\PeriodoProgrammazione.cs" />
+    <Compile Include="Models\Super\Appaltatore\Consuntivazione\Super.Appaltatore.Commands.Consuntivazione.cs">
+      <DependentUpon>Super.Appaltatore.Commands.Consuntivazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Appaltatore\Programmazione\Super.Appaltatore.Commands.Programmazione.cs">
+      <DependentUpon>Super.Appaltatore.Commands.Programmazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Contabilita\Appaltatore\AppaltatoreQueries.cs" />
+    <Compile Include="Models\Super\Contabilita\Appaltatore\Super.Contabilita.Commands.Appaltatore.cs">
+      <DependentUpon>Super.Contabilita.Commands.Appaltatore.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Controllo\Consuntivazione\Super.Controllo.Commands.Consuntivazione.cs">
+      <DependentUpon>Super.Controllo.Commands.Consuntivazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Controllo\Programmazione\Super.Controllo.Commands.Programmazione.cs">
+      <DependentUpon>Super.Controllo.Commands.Programmazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Programmazione\Intervento\Super.Programmazione.Commands.Intervento.cs">
+      <DependentUpon>Super.Programmazione.Commands.Intervento.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Programmazione\Plan\Super.Programmazione.Commands.Plan.cs">
+      <DependentUpon>Super.Programmazione.Commands.Plan.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Programmazione\Programma\Super.Programmazione.Commands.Programma.cs">
+      <DependentUpon>Super.Programmazione.Commands.Programma.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Programmazione\Scenario\Super.Programmazione.Commands.Scenario.cs">
+      <DependentUpon>Super.Programmazione.Commands.Scenario.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Programmazione\Schedulazione\Super.Programmazione.Commands.Schedulazione.cs">
+      <DependentUpon>Super.Programmazione.Commands.Schedulazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Models\TipoInterventoAmb.cs" />
     <Compile Include="Models\TipoInterventoRot.cs" />
     <Compile Include="Models\TipoInterventoRotMan.cs" />
@@ -156,6 +213,46 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Models\Super\Appaltatore\Consuntivazione\Super.Appaltatore.Commands.Consuntivazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Appaltatore.Commands.Consuntivazione.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Appaltatore\Programmazione\Super.Appaltatore.Commands.Programmazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Appaltatore.Commands.Programmazione.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Contabilita\Appaltatore\Super.Contabilita.Commands.Appaltatore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Commands.Appaltatore.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Controllo\Consuntivazione\Super.Controllo.Commands.Consuntivazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Controllo.Commands.Consuntivazione.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Controllo\Programmazione\Super.Controllo.Commands.Programmazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Controllo.Commands.Programmazione.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Programmazione\Intervento\Super.Programmazione.Commands.Intervento.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Commands.Intervento.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Programmazione\Plan\Super.Programmazione.Commands.Plan.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Commands.Plan.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Programmazione\Programma\Super.Programmazione.Commands.Programma.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Commands.Programma.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Programmazione\Scenario\Super.Programmazione.Commands.Scenario.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Commands.Scenario.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Programmazione\Schedulazione\Super.Programmazione.Commands.Schedulazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Programmazione.Commands.Schedulazione.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CommandService.ExecuteResponse.datasource" />
     <None Include="Service References\ContabilitaService\CommandWebService.wsdl" />
@@ -235,6 +332,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="App_Readme\glimpse.mvc3.readme.txt" />
+    <Content Include="App_Readme\glimpse.readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

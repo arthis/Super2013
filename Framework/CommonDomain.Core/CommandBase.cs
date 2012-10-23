@@ -12,7 +12,7 @@ namespace CommonDomain.Core
         public bool IsExecuted { get; set; }
         public Guid SecurityToken { get; set; }
         public DateTime? WakeTime { get; set; }
-        public long? Version { get; private set; }
+        public long? Version { get;  set; }
         
 
         public CommandBase()

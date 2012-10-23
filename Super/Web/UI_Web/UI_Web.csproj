@@ -28,6 +28,10 @@
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -256,33 +260,6 @@
     <Content Include="Node\lib\modules\events.js" />
     <Content Include="Node\lib\modules\race.js" />
     <Content Include="Node\lib\modules\util.js" />
-    <Content Include="Node\node_modules\amqp\amqp-0-9-1.xml" />
-    <Content Include="Node\node_modules\amqp\amqp-definitions-0-9-1.js" />
-    <Content Include="Node\node_modules\amqp\amqp.js" />
-    <Content Include="Node\node_modules\amqp\jspack.js" />
-    <Content Include="Node\node_modules\amqp\promise.js" />
-    <Content Include="Node\node_modules\amqp\qparser.rb" />
-    <Content Include="Node\node_modules\amqp\test.js" />
-    <Content Include="Node\node_modules\amqp\test\harness.js" />
-    <Content Include="Node\node_modules\amqp\test\test-auto-delete-queue.js" />
-    <Content Include="Node\node_modules\amqp\test\test-basic-return.js" />
-    <Content Include="Node\node_modules\amqp\test\test-buffer.js" />
-    <Content Include="Node\node_modules\amqp\test\test-default-exchange.js" />
-    <Content Include="Node\node_modules\amqp\test\test-destroy-close-delete.js" />
-    <Content Include="Node\node_modules\amqp\test\test-ex-and-q-deletions.js" />
-    <Content Include="Node\node_modules\amqp\test\test-headers.js" />
-    <Content Include="Node\node_modules\amqp\test\test-heartbeat.js" />
-    <Content Include="Node\node_modules\amqp\test\test-json.js" />
-    <Content Include="Node\node_modules\amqp\test\test-properties.js" />
-    <Content Include="Node\node_modules\amqp\test\test-queue-args.js" />
-    <Content Include="Node\node_modules\amqp\test\test-queue-creation.js" />
-    <Content Include="Node\node_modules\amqp\test\test-shift.js" />
-    <Content Include="Node\node_modules\amqp\test\test-simple.js" />
-    <Content Include="Node\node_modules\amqp\test\test-type-and-headers.js" />
-    <Content Include="Node\node_modules\amqp\test\test-unbind.js" />
-    <Content Include="Node\node_modules\amqp\test\test-unsubscribe.js" />
-    <Content Include="Node\node_modules\amqp\util\delete-exchange.js" />
-    <Content Include="Node\node_modules\amqp\util\delete-queue.js" />
     <Content Include="Node\public\images\beer-badget.png" />
     <Content Include="Node\public\images\glyphicons-halflings-white.png" />
     <Content Include="Node\public\images\glyphicons-halflings.png" />
@@ -304,15 +281,21 @@
     <Content Include="Node\server.js" />
     <Content Include="Node\views\index.html" />
     <Content Include="Node\views\layout.html" />
-    <Content Include="Scripts\Contabilita\Commands\cmd-Impianto.js" />
-    <Content Include="Scripts\Contabilita\Commands\cmd-Lotto.js" />
-    <Content Include="Scripts\Contabilita\Commands\cmd-Appaltatore.js" />
-    <Content Include="Scripts\Contabilita\Commands\cmd-CategoriaCommerciale.js" />
-    <Content Include="Scripts\Contabilita\Commands\vo-interval.js" />
-    <Content Include="Scripts\Contabilita\ViewModel\vm-CategoriaCommerciale-index.js" />
-    <Content Include="Scripts\Contabilita\ViewModel\vm-Appaltatore-index.js" />
-    <Content Include="Scripts\Contabilita\ViewModel\vm-Lotto-index.js" />
-    <Content Include="Scripts\Contabilita\ViewModel\vm-Impianto-index.js" />
+    <Content Include="Scripts\Super\Contabilita\Commands\cmd-Impianto.js" />
+    <Content Include="Scripts\Super\Contabilita\Commands\cmd-Lotto.js" />
+    <Content Include="Scripts\Super\Contabilita\Queries\query-Appaltatore.js" />
+    <Content Include="Scripts\Super\Contabilita\Commands\cmd-CategoriaCommerciale.js" />
+    <Content Include="Scripts\Super\Contabilita\Commands\cmd-Appaltatore.js">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cmd-Appaltatore.tt</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Super\Contabilita\Commands\vo-interval.js" />
+    <Content Include="Scripts\Tests\Contabilita\ViewModel\vm-Appaltatore-index-tests.js" />
+    <Content Include="Scripts\Super\Contabilita\ViewModel\vm-CategoriaCommerciale-index.js" />
+    <Content Include="Scripts\Super\Contabilita\ViewModel\vm-Appaltatore-index.js" />
+    <Content Include="Scripts\Super\Contabilita\ViewModel\vm-Lotto-index.js" />
+    <Content Include="Scripts\Super\Contabilita\ViewModel\vm-Impianto-index.js" />
     <Content Include="packages.config" />
     <None Include="Properties\DataSources\CommandService.ExecuteResponse.datasource" />
     <Content Include="Scripts\dateFormat.js" />
@@ -346,12 +329,6 @@
     <Content Include="Views\Shared\EditorTemplates\koStringEditorFor.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\koDateEditorFor.cshtml" />
     <Content Include="Content\Layout\Web.config" />
-    <None Include="Node\node_modules\amqp\.npmignore" />
-    <None Include="Node\node_modules\amqp\History.md" />
-    <None Include="Node\node_modules\amqp\LICENSE-MIT" />
-    <None Include="Node\node_modules\amqp\Makefile" />
-    <None Include="Node\node_modules\amqp\package.json" />
-    <None Include="Node\node_modules\amqp\README.md" />
     <None Include="Node\package.json" />
     <None Include="Node\README.md" />
     <Content Include="Web.config">
@@ -397,12 +374,16 @@
     <Content Include="Views\Contabilita\Index.cshtml" />
     <Content Include="Views\Contabilita\Appaltatore\CreateAppaltatore.cshtml" />
     <Content Include="Views\Contabilita\Appaltatore\DeleteAppaltatore.cshtml" />
-    <Content Include="Views\Contabilita\Appaltatore\EditAppaltatore.cshtml" />
+    <Content Include="Views\Contabilita\Appaltatore\UpdateAppaltatore.cshtml" />
     <Content Include="Views\Contabilita\Appaltatore\Index.cshtml" />
     <Content Include="Views\Contabilita\CategoriaCommerciale\CreateCategoriaCommerciale.cshtml" />
     <Content Include="Views\Contabilita\CategoriaCommerciale\DeleteCategoriaCommerciale.cshtml" />
     <Content Include="Views\Contabilita\CategoriaCommerciale\EditCategoriaCommerciale.cshtml" />
     <Content Include="Views\Contabilita\CategoriaCommerciale\Index.cshtml" />
+    <Content Include="Scripts\Super\Contabilita\Commands\cmd-Appaltatore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>cmd-Appaltatore.js</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -437,6 +418,9 @@
       <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>
       <Name>ReadModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

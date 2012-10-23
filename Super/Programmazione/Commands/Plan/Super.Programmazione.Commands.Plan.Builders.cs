@@ -1,7 +1,6 @@
 ﻿
 
 
-
 using System;
 using CommonDomain;
 using System.Diagnostics.Contracts;
@@ -48,9 +47,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
         {
             return new CancelPlan(id, commitId, wakeupTime);
 		 }
-
-
-
 
 		public CancelPlan Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -108,9 +104,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
         {
             return new CreatePlanFromPromotedScenario(id, commitId, wakeupTime, _idScenario);
 		 }
-
-
-
 
 		public CreatePlanFromPromotedScenario Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -295,9 +288,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
             return new AddSchedulazioneRotToPlan(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
 
-
-
-
 		public AddSchedulazioneRotToPlan Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
@@ -445,9 +435,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
         {
             return new AddSchedulazioneRotManToPlan(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
 		 }
-
-
-
 
 		public AddSchedulazioneRotManToPlan Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -603,9 +590,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
         {
             return new AddSchedulazioneAmbToPlan(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
 		 }
-
-
-
 
 		public AddSchedulazioneAmbToPlan Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -783,9 +767,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
             return new AddInterventoRotToPlan(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idIntervento, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
 
-
-
-
 		public AddInterventoRotToPlan Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
@@ -926,9 +907,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
         {
             return new AddInterventoRotManToPlan(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idIntervento, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
 		 }
-
-
-
 
 		public AddInterventoRotManToPlan Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -1077,9 +1055,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
         {
             return new AddInterventoAmbToPlan(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idIntervento, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
 		 }
-
-
-
 
 		public AddInterventoAmbToPlan Build(Guid id, long version,DateTime wakeupTime)
 		{

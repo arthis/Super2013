@@ -40,6 +40,9 @@ namespace Core_Web.Controllers
         {
             try
             {
+#if DEBUG
+                Session["SecurityToken"] = Guid.NewGuid();
+#endif
                 command.SecurityToken = SecurityToken;
 
                 var response = _commandService.Execute(command);

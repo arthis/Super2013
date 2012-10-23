@@ -1,7 +1,6 @@
 ﻿
 
 
-
 using System;
 using CommonDomain;
 using System.Diagnostics.Contracts;
@@ -168,9 +167,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
             return new CreateInterventoRot(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
 
-
-
-
 		public CreateInterventoRot Build(Guid id, long version,DateTime wakeupTime)
 		{
 			return Build(id, Guid.NewGuid(), version,wakeupTime);
@@ -304,9 +300,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
         {
             return new CreateInterventoRotMan(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
 		 }
-
-
-
 
 		public CreateInterventoRotMan Build(Guid id, long version,DateTime wakeupTime)
 		{
@@ -448,9 +441,6 @@ namespace Super.Programmazione.Commands.Plan.Builders
         {
             return new CreateInterventoAmb(id, commitId, wakeupTime, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
 		 }
-
-
-
 
 		public CreateInterventoAmb Build(Guid id, long version,DateTime wakeupTime)
 		{

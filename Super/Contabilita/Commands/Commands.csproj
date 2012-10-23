@@ -113,6 +113,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appaltatore\Super.Contabilita.Commands.Appaltatore.Builders.cs">
+      <DependentUpon>Super.Contabilita.Commands.Appaltatore.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Appaltatore\Super.Contabilita.Commands.Appaltatore.cs">
+      <DependentUpon>Super.Contabilita.Commands.Appaltatore.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Builders\Schedulazione\CalculateSchedulazioneRotPriceOfScenarioBuilder.cs" />
     <Compile Include="Builders\Schedulazione\CancelSchedulazionePriceOfPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\CalculateSchedulazioneAmbPriceOfScenarioBuilder.cs" />
@@ -178,9 +188,6 @@
     <Compile Include="Committente\CreateCommittente.cs" />
     <Compile Include="Committente\DeleteCommittente.cs" />
     <Compile Include="Committente\UpdateCommittente.cs" />
-    <Compile Include="Appaltatore\CreateAppaltatore.cs" />
-    <Compile Include="Appaltatore\DeleteAppaltatore.cs" />
-    <Compile Include="Appaltatore\UpdateAppaltatore.cs" />
     <Compile Include="CategoriaCommerciale\CreateCategoriaCommerciale.cs" />
     <Compile Include="CategoriaCommerciale\DeleteCategoriaCommerciale.cs" />
     <Compile Include="CategoriaCommerciale\UpdateCategoriaCommerciale.cs" />
@@ -248,7 +255,20 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Appaltatore\Super.Contabilita.Commands.Appaltatore.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Commands.Appaltatore.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Appaltatore\Super.Contabilita.Commands.Appaltatore.json" />
+    <None Include="Appaltatore\Super.Contabilita.Commands.Appaltatore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Commands.Appaltatore.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

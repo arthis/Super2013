@@ -1,4 +1,4 @@
-﻿@model Core_Web.Models.CreateAppaltatore
+﻿@model Core_Web.Models.Super.Contabilita.Appaltatore.CreateAppaltatoreModel
 @{
     ViewBag.Title = "add appaltatore";
     Layout = string.Empty;
@@ -13,46 +13,40 @@
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Description, new { @class = "validate[required]" })
         </div>
-       
+
     </fieldset>
     @Html.HiddenFor(model => model.Id)
-    @Html.HiddenFor(model=>model.CommitId)
-    @Html.HiddenFor(model=>model.Version)
+    @Html.HiddenFor(model => model.CommitId)
+    @Html.HiddenFor(model => model.Version)
 </form>
-<script>
+<script type="text/javascript">
 
-    
     $(document).ready(function () {
         $('.datepicker').datepicker({ dateFormat: "dd/mm/yy" });
         jQuery("#formDetails").validationEngine();
-        
 
-        viewModel.Accept = function (self) {
+
+        viewModel.Accept = function (viewmodel) {
 
             jQuery('#formDetails').validationEngine({ scroll: false });
-            if(jQuery('#formDetails').validationEngine('validate')) {
+            if (jQuery('#formDetails').validationEngine('validate')) {
 
                 var id = $('#Id').val();
                 var commitId = $('#CommitId').val();
                 var version = $('#Version').val();
                 var description = $('#Description').val();
-                var idAppaltatore = $('#IdAppaltatore').val();
-              
-                var url = "@Url.Action("CreateAppaltatore", "Appaltatore")";
 
-             
-                try 
-                {
-                    var command = new CreateAppaltatore(id, commitId, version,   description,idAppaltatore);
 
-                    self.CreateAppaltatore(url, command);
-                } catch(e) {
+                try {
+                    var command = new CreateAppaltatore(id, commitId, version, description);
+                    viewmodel.CreateAppaltatore(command);
+                } catch (e) {
                     alert(e);
                 }
             }
         };
-        
-       
-        
+
     });
+
+
 </script>

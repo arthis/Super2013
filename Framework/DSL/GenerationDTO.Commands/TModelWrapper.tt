@@ -1,0 +1,56 @@
+﻿<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ Assembly Name="D:\Projects\Super2013\packages\Newtonsoft.Json.4.5.8\lib\net40\Newtonsoft.Json.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #>
+<#@ import namespace="Newtonsoft.Json" #>
+<#@ include file="..\GenerationDTO.Commands\TModel.tt"#>
+<#+
+void BuildModels(DTOWrapper wrapper)
+{
+
+	int index=0;
+	int indexTotal=0;
+	int nTime=1;
+	string namespaceLeft =wrapper.Namespace;
+	while( indexTotal<wrapper.Namespace.Length && nTime<3)
+    {
+	 
+	  index =  namespaceLeft.IndexOf('.');
+	  if (index==-1) break;
+	  indexTotal += index+1; 
+	  namespaceLeft = namespaceLeft.Substring(index+1);
+	  nTime ++ ;
+    }
+	var @namespace = wrapper.Namespace.Substring(0, indexTotal-1) + wrapper.Namespace.Substring(wrapper.Namespace.LastIndexOf('.'));
+#>
+
+using System;
+using System.Linq;
+using System.Diagnostics.Contracts;
+using CommonDomain;
+using CommonDomain.Core;
+using CommonDomain.Core.Super.Messaging.ValueObjects;
+
+namespace Core_Web.Models.<#= @namespace #>
+{
+
+<#+
+	foreach (var cmd in wrapper.Objects)
+	{
+		BuildModel(cmd);
+    }
+
+#>
+}
+<#+
+}
+#>

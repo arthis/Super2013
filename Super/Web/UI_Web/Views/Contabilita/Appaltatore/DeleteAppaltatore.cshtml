@@ -1,4 +1,4 @@
-﻿@model Core_Web.Models.DeleteAppaltatore
+﻿@model Core_Web.Models.Super.Contabilita.Appaltatore.DeleteAppaltatoreModel
 @{
     ViewBag.Title = "edit appaltatore";
     Layout = string.Empty;
@@ -30,15 +30,12 @@ Are you sure you want to delete this appaltatore
             var id = $('#Id').val();
             var commitId = $('#CommitId').val();
             var version = $('#Version').val();
-                
-
-            var url = "@Url.Action("DeleteAppaltatore","Appaltatore")";
 
             try 
             {
                 var command = new DeleteAppaltatore(id, commitId, version);
 
-                self.DeleteAppaltatore(url, command);
+                self.DeleteAppaltatore(command);
             } catch(e) 
             {
                 alert(e);

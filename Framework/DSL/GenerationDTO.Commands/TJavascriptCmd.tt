@@ -1,0 +1,48 @@
+﻿<#@ assembly name="D:\Projects\Super2013\Framework\DSL\GenerationDTO.Core\bin\Debug\Super.DSL.GenerationDTO.Core.dll" #>
+<#@ import namespace="Super.DSL.GenerationDTO.Core" #>
+<#@include file="..\GenerationDTO.Commands\TModelProp.tt"#><#+
+ void BuildJavascriptCmd(ObjectDTO cmd)
+{
+
+	var name = cmd.Name;
+	var inheritance = string.Empty;
+	if (!string.IsNullOrEmpty(cmd.Inheritance))
+		inheritance = string.Format(",{0}", cmd.Inheritance);
+	
+	var ctorArgs =string.Empty;
+	foreach (var property in cmd.Properties)
+    	ctorArgs += string.Format(", {0}",property.GetCamelCasedName());
+	
+#>
+var <#= name #> = function (id, commitId, version<#= ctorArgs #>) {
+	if (id == null)  throw "Id cannot be null";
+    if (commitId == null) throw "commitId cannot be null";
+    if (version == null) throw "Version cannot be null";
+<#+ 
+	foreach (var property in cmd.Properties)
+    {
+		foreach(var requirement in property.GetRequiresJavascript())
+        {
+	#><#=  requirement #> 
+	<#+}
+	}
+	#>
+    
+    this.Id = id;
+    this.CommitId = commitId;
+    this.Version = version;
+	<#+ 
+	foreach (var property in cmd.Properties)
+    {#>
+	this.<#=  property.GetPascalCasedName() #>=<#= property.GetCamelCasedName() #>;
+	<#+
+    }
+	#>
+
+
+};
+
+	
+<#+
+}
+	#>

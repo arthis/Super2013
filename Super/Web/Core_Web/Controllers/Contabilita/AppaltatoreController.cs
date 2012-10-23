@@ -3,9 +3,9 @@ using System.Linq;
 using System.Web.Mvc;
 using Core_Web.ContabilitaService;
 using Core_Web.Models;
+using Core_Web.Models.Super.Contabilita.Appaltatore;
 using Super.Contabilita.Commands.Appaltatore;
-using CreateAppaltatore = Super.Contabilita.Commands.Appaltatore.CreateAppaltatore;
-using DeleteAppaltatore = Core_Web.Models.DeleteAppaltatore;
+
 
 namespace Core_Web.Controllers.Contabilita
 {
@@ -57,7 +57,7 @@ namespace Core_Web.Controllers.Contabilita
         {
             using (var context = GetEntities())
             {
-                var model = new Models.CreateAppaltatore()
+                var model = new CreateAppaltatoreModel()
                                 {
                                     Id = Guid.NewGuid(),
                                     CommitId = Guid.NewGuid(),
@@ -75,7 +75,7 @@ namespace Core_Web.Controllers.Contabilita
         }
 
         [HttpGet]
-        public ActionResult EditAppaltatore(Guid id)
+        public ActionResult UpdateAppaltatore(Guid id)
         {
             using (var context = GetEntities())
             {
@@ -86,7 +86,7 @@ namespace Core_Web.Controllers.Contabilita
                 if (projection == null)
                     throw new Exception(string.Format("Edit Appaltatore not found for id {0}", id));
 
-                var model = new EditAppaltatore()
+                var model = new UpdateAppaltatoreModel()
                                 {
                                     Id = projection.Id,
                                     CommitId = Guid.NewGuid(),
@@ -117,7 +117,7 @@ namespace Core_Web.Controllers.Contabilita
                     throw new Exception(string.Format("Delete Appaltatore not found for id {0}", id));
 
 
-                var model = new DeleteAppaltatore()
+                var model = new DeleteAppaltatoreModel()
                  {
                      Id = projection.Id,
                      CommitId = Guid.NewGuid(),
@@ -130,7 +130,7 @@ namespace Core_Web.Controllers.Contabilita
         }
 
         [HttpPost]
-        public JsonResult Delete(Super.Contabilita.Commands.Appaltatore.DeleteAppaltatore command)
+        public JsonResult Delete(DeleteAppaltatore command)
         {
             return Execute(command);
         }

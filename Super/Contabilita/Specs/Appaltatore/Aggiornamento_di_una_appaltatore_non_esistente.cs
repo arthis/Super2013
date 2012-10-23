@@ -35,7 +35,7 @@ namespace Super.Contabilita.Specs.Appaltatore
         {
 
             return  BuildCmd.UpdateAppaltatore
-                         .ForDescription(_description)
+                         .WithDescription(_description)
                          .Build(_id, 1);
         }
 

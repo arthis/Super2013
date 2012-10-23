@@ -118,12 +118,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.Builders.cs">
+    <Compile Include="Consuntivazione\Super.Controllo.Commands.Consuntivazione.Builders.cs">
       <DependentUpon>Super.Controllo.Commands.Consuntivazione.Builders.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.cs">
+    <Compile Include="Consuntivazione\Super.Controllo.Commands.Consuntivazione.cs">
       <DependentUpon>Super.Controllo.Commands.Consuntivazione.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,12 +155,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.Builders.tt">
+    <None Include="Consuntivazione\Super.Controllo.Commands.Consuntivazione.Builders.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Super.Controllo.Commands.Consuntivazione.Builders.cs</LastGenOutput>
     </None>
-    <None Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.json" />
-    <None Include="Consutivazione\Super.Controllo.Commands.Consuntivazione.tt">
+    <None Include="Consuntivazione\Super.Controllo.Commands.Consuntivazione.json" />
+    <None Include="Consuntivazione\Super.Controllo.Commands.Consuntivazione.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Super.Controllo.Commands.Consuntivazione.cs</LastGenOutput>
     </None>

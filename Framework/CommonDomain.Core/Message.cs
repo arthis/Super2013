@@ -10,8 +10,8 @@ namespace CommonDomain.Core
     [Serializable]
     public abstract class Message : IMessage
     {
-        public Guid Id { get; private set; }
-        public Guid CommitId { get; private set; }
+        public Guid Id { get;  set; }
+        public Guid CommitId { get;  set; }
         
         
 

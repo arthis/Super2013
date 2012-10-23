@@ -233,7 +233,7 @@ var View = function () {
 };
 
 //Repository
-var Repository = function () {
+var RepositoryEngine = function () {
     this.Post = function (url, command, success, error) {
         jQuery.ajaxSettings.traditional = true;
         $.ajax({
