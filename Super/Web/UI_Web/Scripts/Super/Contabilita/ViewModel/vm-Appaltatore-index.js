@@ -1,10 +1,31 @@
 ﻿//Model
-var Appaltatore = function (id, version, creationDate,  description) {
+var Appaltatore = function(id, version, creationDate, description) {
     this.Id = ko.observable(id);
     this.CreationDate = ko.observable(creationDate.format("dd/mm/yyyy HH:MM"));
     this.Description = ko.observable(description);
     this.Version = version;
-}
+};
+
+//var AppaltatoreTest = function (id, version, creationDate, description) {
+//    this.Id = ko.observable(id);
+//    this.CreationDate = ko.observable(creationDate.format("dd/mm/yyyy HH:MM"));
+//    this.Description = ko.observable(description);
+//    this.Version = version;
+//};
+var vmAppaltatoreTest = function () {
+    this.myFunction = function() { alert('toto'); };
+};
+
+var myDependency = function() {
+    this.myfunctionDep = function() { alert('sdsds'); };
+};
+
+var myModel = function (dep) {
+    var self = this;
+    this.Dependency = dep;
+    
+    this.myFunction = function () { self.Dependency.myfunctionDep(); };
+};
 
 //ViewModel
 var vmAppaltatore = function(
@@ -130,7 +151,7 @@ var RepositoryAppaltatore = function (repositoryEngine,
     };
 };
 
-var Dialog = function(
+var DialogAppaltatore = function(
     urlCreateAppaltatore,
     urlFetchBuilderUpdateAppaltatore,
     urlFetchBuilderDeleteAppaltatore) {

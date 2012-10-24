@@ -81,7 +81,7 @@
             urlCreateAppaltatore,
             "@Url.Action("UpdateAppaltatore", "Appaltatore")",
             "@Url.Action("DeleteAppaltatore", "Appaltatore")");
-        var dialog = new Dialog(urlCreateAppaltatore, urlFetchBuilderUpdateAppaltatore, urlFetchBuilderDeleteAppaltatore);
+        var dialog = new DialogAppaltatore(urlCreateAppaltatore, urlFetchBuilderUpdateAppaltatore, urlFetchBuilderDeleteAppaltatore);
 
         var viewModel = new vmAppaltatore(
             view,
