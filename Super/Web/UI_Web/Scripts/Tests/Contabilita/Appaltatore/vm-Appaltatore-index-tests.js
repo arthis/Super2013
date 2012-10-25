@@ -1,5 +1,5 @@
-﻿/// <reference path="/Scripts/Super/Contabilita/ViewModel/vm-Appaltatore-index.js" />
-/// <reference path="/Scripts/Super/Contabilita/Commands/cmd-Appaltatore.js" />
+﻿/// <reference path="/Scripts/Super/Contabilita/Appaltatore/vm-Appaltatore-index.js" />
+/// <reference path="/Scripts/Super/Contabilita/Appaltatore/cmd-Appaltatore.js" />
 /// <reference path="/Scripts/dateFormat.js" />
 /// <reference path="/Scripts/jquery-1.8.0.min.js" />
 /// <reference path="/Scripts/jquery-ui-1.8.23.custom.min.js" />
@@ -16,22 +16,6 @@
 /// <reference path="/Scripts/jquery.validationEngine-it.js" />
 
 
-describe("creating an appaltatore model", function () {
-    var id = "id";
-    var version = "version";
-    var creationDate = new Date();
-    var description = "description";
-    var appaltatore = new Appaltatore(id, version, creationDate, description);
-    it("should create an Appaltatore model", function () {
-        expect(appaltatore).not.toBeNull();
-    });
-    it("with the correct values of appaltatore", function () {
-        expect(appaltatore.Id()).toEqual(id);
-        expect(appaltatore.Version).toEqual(version);
-        expect(appaltatore.Description()).toEqual(description);
-        expect(appaltatore.CreationDate()).toEqual(creationDate.format("dd/mm/yyyy HH:MM"));
-    });
-});
 
 describe("creating an appaltatore viewmodel ", function () {
     var view = new View();
@@ -142,7 +126,61 @@ describe("When the viewmodel creates an Appaltatore", function () {
     it("the repository calls createAppaltatore", function () {    
         expect(repository.createAppaltatore).toHaveBeenCalled();
     });
-    it("the message wait arrives", function () {    
+    it("the message wait arrives for creating", function () {    
+        expect(view.Spin).toHaveBeenCalled();
+    });
+});
+
+describe("When the viewmodel updates an Appaltatore", function () {
+
+    var viewModel, view, repository, dialog, command = null;
+
+
+    beforeEach(function () {
+        view = new View();
+        repository = new RepositoryAppaltatore(null, null, null, null, null);
+        dialog = new DialogAppaltatore(null, null, null);
+
+
+        spyOn(repository, 'updateAppaltatore');
+        spyOn(view, 'Spin');
+
+        viewModel = new vmAppaltatore(view, repository, dialog, 1, 10);
+        viewModel.UpdateAppaltatore(command);
+
+    });
+
+    it("the repository calls updateAppaltatore", function () {
+        expect(repository.updateAppaltatore).toHaveBeenCalled();
+    });
+    it("the message wait arrives for updating", function () {
+        expect(view.Spin).toHaveBeenCalled();
+    });
+});
+
+describe("When the viewmodel deletes an Appaltatore", function () {
+
+    var viewModel, view, repository, dialog, command = null;
+
+
+    beforeEach(function () {
+        view = new View();
+        repository = new RepositoryAppaltatore(null, null, null, null, null);
+        dialog = new DialogAppaltatore(null, null, null);
+
+
+        spyOn(repository, 'deleteAppaltatore');
+        spyOn(view, 'Spin');
+
+        viewModel = new vmAppaltatore(view, repository, dialog, 1, 10);
+        viewModel.DeleteAppaltatore(command);
+
+    });
+
+    it("the repository calls deleteAppaltatore", function () {
+        expect(repository.deleteAppaltatore).toHaveBeenCalled();
+    });
+    it("the message wait arrives for deleting", function () {
         expect(view.Spin).toHaveBeenCalled();
     });
 });

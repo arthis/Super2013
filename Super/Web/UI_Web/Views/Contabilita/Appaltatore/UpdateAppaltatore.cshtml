@@ -16,8 +16,8 @@
        
     </fieldset>
     @Html.HiddenFor(model => model.Id)
-    @Html.HiddenFor(model=>model.CommitId)
-    @Html.HiddenFor(model=>model.Version)
+    @Html.HiddenFor(model=> model.CommitId)
+    @Html.HiddenFor(model=> model.Version)
 </form>
 <script>
 
@@ -41,7 +41,7 @@
                 {
                     var command = new UpdateAppaltatore(id, commitId, version,   description);
 
-                    self.UpdateAppaltatore(command);
+                    viewModel.UpdateAppaltatore(command);
                 } catch(e)
                 {
                     alert(e);

@@ -248,7 +248,46 @@ var RepositoryEngine = function () {
     };
 };
 
-var UrlFetchBuilder = function (url) {
+var DialogEngine = function () {
+    //dialog
+    this.OpenDetails = function (viewmodel, view, url, title) {
+        var self = this;
+        this.ViewModel = viewmodel;
+        this.View = view;
+        this.Url = url;
+        this.Title = title;
+
+        $('#details').dialog({
+            autoOpen: false,
+            width: 350,
+            height: 400,
+            position: 'center',
+            resizable: true,
+            title: title,
+            modal: true,
+            open: function (event, ui) {
+                self.View.Spin({ title: "Please Wait", message: "openng data..." });
+                $(this).load(self.Url);
+                self.View.StopSpin();
+            },
+            buttons: {
+                "Accept": function () {
+                    self.ViewModel.Accept(self.ViewModel);
+                },
+                "Cancel": function () {
+                    if (self.ViewModel.Cancel())
+                        self.CloseDetails();
+                }
+            }
+        });
+        $('#details').dialog("open");
+    };
+    this.CloseDetails = function () {
+        $('#details').dialog("close");
+    };
+};
+
+var UrlBuilder = function (url) {
     var self = this;
     this.Url = url;
 

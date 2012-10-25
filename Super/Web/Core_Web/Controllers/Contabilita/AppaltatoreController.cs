@@ -32,6 +32,7 @@ namespace Core_Web.Controllers.Contabilita
             using (var ctx = GetEntities())
             {
                 var query = from i in ctx.Appaltatores
+                            where  !i.Deleted
                             select i;
 
                 if (!string.IsNullOrEmpty(command.Description))
@@ -84,7 +85,7 @@ namespace Core_Web.Controllers.Contabilita
                 var projection = query.Where(x => x.Id == id).SingleOrDefault();
 
                 if (projection == null)
-                    throw new Exception(string.Format("Edit Appaltatore not found for id {0}", id));
+                    throw new Exception(string.Format("Update Appaltatore not found for id {0}", id));
 
                 var model = new UpdateAppaltatoreModel()
                                 {
@@ -94,7 +95,7 @@ namespace Core_Web.Controllers.Contabilita
                                     Description = projection.Description
                                 };
 
-                return View(GetView("EditAppaltatore"), model);
+                return View(GetView("UpdateAppaltatore"), model);
             }
         }
 
@@ -130,7 +131,7 @@ namespace Core_Web.Controllers.Contabilita
         }
 
         [HttpPost]
-        public JsonResult Delete(DeleteAppaltatore command)
+        public JsonResult DeleteAppaltatore(DeleteAppaltatore command)
         {
             return Execute(command);
         }

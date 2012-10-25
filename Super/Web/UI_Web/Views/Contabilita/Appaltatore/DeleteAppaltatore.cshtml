@@ -35,7 +35,7 @@ Are you sure you want to delete this appaltatore
             {
                 var command = new DeleteAppaltatore(id, commitId, version);
 
-                self.DeleteAppaltatore(command);
+                viewModel.DeleteAppaltatore(command);
             } catch(e) 
             {
                 alert(e);

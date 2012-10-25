@@ -281,21 +281,27 @@
     <Content Include="Node\server.js" />
     <Content Include="Node\views\index.html" />
     <Content Include="Node\views\layout.html" />
-    <Content Include="Scripts\Super\Contabilita\Commands\cmd-Impianto.js" />
-    <Content Include="Scripts\Super\Contabilita\Commands\cmd-Lotto.js" />
-    <Content Include="Scripts\Super\Contabilita\Queries\query-Appaltatore.js" />
-    <Content Include="Scripts\Super\Contabilita\Commands\cmd-CategoriaCommerciale.js" />
-    <Content Include="Scripts\Super\Contabilita\Commands\cmd-Appaltatore.js">
+    <Content Include="Scripts\Super\Contabilita\Appaltatore\dialog-Appaltatore.js" />
+    <Content Include="Scripts\Super\Contabilita\Appaltatore\model-Appaltatore.js" />
+    <Content Include="Scripts\Super\Contabilita\Appaltatore\repository-Appaltatore.js" />
+    <Content Include="Scripts\Super\Contabilita\Impianto\cmd-Impianto.js" />
+    <Content Include="Scripts\Super\Contabilita\Lotto\cmd-Lotto.js" />
+    <Content Include="Scripts\Super\Contabilita\Appaltatore\query-Appaltatore.js" />
+    <Content Include="Scripts\Super\Contabilita\CategoriaCommerciale\cmd-CategoriaCommerciale.js" />
+    <Content Include="Scripts\Super\Contabilita\Appaltatore\cmd-Appaltatore.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>cmd-Appaltatore.tt</DependentUpon>
     </Content>
-    <Content Include="Scripts\Super\Contabilita\Commands\vo-interval.js" />
-    <Content Include="Scripts\Tests\Contabilita\ViewModel\vm-Appaltatore-index-tests.js" />
-    <Content Include="Scripts\Super\Contabilita\ViewModel\vm-CategoriaCommerciale-index.js" />
-    <Content Include="Scripts\Super\Contabilita\ViewModel\vm-Appaltatore-index.js" />
-    <Content Include="Scripts\Super\Contabilita\ViewModel\vm-Lotto-index.js" />
-    <Content Include="Scripts\Super\Contabilita\ViewModel\vm-Impianto-index.js" />
+    <Content Include="Scripts\Super\vo-interval.js" />
+    <Content Include="Scripts\Tests\Contabilita\Appaltatore\dialog-Appaltatore-tests.js" />
+    <Content Include="Scripts\Tests\Contabilita\Appaltatore\query-Appaltatore-tests.js" />
+    <Content Include="Scripts\Tests\Contabilita\Appaltatore\model-Appaltatore-tests.js" />
+    <Content Include="Scripts\Tests\Contabilita\Appaltatore\vm-Appaltatore-index-tests.js" />
+    <Content Include="Scripts\Super\Contabilita\CategoriaCommerciale\vm-CategoriaCommerciale-index.js" />
+    <Content Include="Scripts\Super\Contabilita\Appaltatore\vm-Appaltatore-index.js" />
+    <Content Include="Scripts\Super\Contabilita\Lotto\vm-Lotto-index.js" />
+    <Content Include="Scripts\Super\Contabilita\Impianto\vm-Impianto-index.js" />
     <Content Include="packages.config" />
     <None Include="Properties\DataSources\CommandService.ExecuteResponse.datasource" />
     <Content Include="Scripts\dateFormat.js" />
@@ -321,6 +327,7 @@
     <Content Include="Scripts\MicrosoftMvcAjax.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\Tests\functions-tests.js" />
     <Content Include="Scripts\underscore-1.3.1.js" />
     <Content Include="Scripts\uuid.js" />
     <Content Include="Views\Contabilita\Impianto\Index.cshtml" />
@@ -380,13 +387,14 @@
     <Content Include="Views\Contabilita\CategoriaCommerciale\DeleteCategoriaCommerciale.cshtml" />
     <Content Include="Views\Contabilita\CategoriaCommerciale\EditCategoriaCommerciale.cshtml" />
     <Content Include="Views\Contabilita\CategoriaCommerciale\Index.cshtml" />
-    <Content Include="Scripts\Super\Contabilita\Commands\cmd-Appaltatore.tt">
+    <Content Include="Scripts\Super\Contabilita\Appaltatore\cmd-Appaltatore.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>cmd-Appaltatore.js</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\Tests\Contabilita\ViewModel\" />
     <Folder Include="Views\Programmazione\Piano\Rotabile\" />
   </ItemGroup>
   <ItemGroup>

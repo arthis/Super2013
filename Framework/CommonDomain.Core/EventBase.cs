@@ -7,7 +7,7 @@ namespace CommonDomain.Core
 {
     public abstract class EventBase : Message, IEvent
     {
-        public long Version { get; private set; }
+        public long Version { get;  set; }
         
 
         public EventBase()
