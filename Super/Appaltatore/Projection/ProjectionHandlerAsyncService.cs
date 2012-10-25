@@ -10,7 +10,7 @@ using Super.Appaltatore.Events.Programmazione;
 
 namespace Super.Appaltatore.Projection
 {
-    public class ProjectionHandlerService : ProjectionHandlerServiceBase
+    public class ProjectionHandlerAsyncService : ProjectionHandlerAsyncServiceBase
     {
 
         public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder, IBus bus)

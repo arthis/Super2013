@@ -9,7 +9,7 @@ using CommonDomain.Persistence;
 
 namespace Super.Controllo.Projection
 {
-    public class ProjectionHandlerService : ProjectionHandlerServiceBase
+    public class ProjectionHandlerAsyncService : ProjectionHandlerAsyncServiceBase
     {
 
         

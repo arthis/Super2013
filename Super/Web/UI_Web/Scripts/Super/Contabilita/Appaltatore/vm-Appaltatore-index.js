@@ -78,7 +78,7 @@ var vmAppaltatore = function(
             ShowSummaryError("error_mssg", items.validations);
         } else {
             HideSummaryError("error_mssg");
-            setTimeout(function() { self.GetItems(viewModel.PageNum()) }, 1250);
+            self.GetItems(viewModel.PageNum());
             self.Dialog.CloseDetails();
         }
         self.View.StopSpin();

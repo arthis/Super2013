@@ -114,6 +114,8 @@
     <Compile Include="ICommandRepository.cs" />
     <Compile Include="IConstructAggregates.cs" />
     <Compile Include="IEventRepository.cs" />
+    <Compile Include="IProjectionHandlerAsyncService.cs" />
+    <Compile Include="IProjectionHandlerSyncService.cs" />
     <Compile Include="IProjectionRepository.cs" />
     <Compile Include="IProjectionRepositoryBuilder.cs" />
     <Compile Include="ISagaRepository.cs" />

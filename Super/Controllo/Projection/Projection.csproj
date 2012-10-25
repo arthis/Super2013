@@ -105,7 +105,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProjectionHandlerService.cs" />
+    <Compile Include="ProjectionHandlerSyncService.cs" />
+    <Compile Include="ProjectionHandlerAsyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

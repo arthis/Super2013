@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonDomain;
 using CommonDomain.Core.Handlers;
+using CommonDomain.Persistence;
 using Machine.Specifications;
 using Moq;
 using It = Machine.Specifications.It;
@@ -22,7 +23,7 @@ namespace CommandService.Tests
                                 {
                                     var bus = new Mock<IBus>();
                                     var handler = new Mock<ICommandHandlerService<ISession>>();
-                                    var projection = new Mock<IProjectionHandlerService>();
+                                    var projection = new Mock<IProjectionHandlerAsyncService>();
                                     var sessionFactory = new Mock<ISessionFactory<ISession>>();
                                     _commandWebService = new CommandWebService<ISession>(handler.Object);
                                 };

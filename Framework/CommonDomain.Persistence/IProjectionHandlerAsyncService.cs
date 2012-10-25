@@ -1,9 +1,6 @@
-using CommonDomain;
-using CommonDomain.Persistence;
-
-namespace CommandService
+namespace CommonDomain.Persistence
 {
-    public interface IProjectionHandlerService
+    public interface IProjectionHandlerAsyncService
     {
         void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder, IBus bus);
         

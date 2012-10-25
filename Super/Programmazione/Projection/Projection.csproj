@@ -108,8 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Container.cs" />
+    <Compile Include="ProjectionHandlerSyncService.cs" />
     <Compile Include="ScenarioProjection.cs" />
-    <Compile Include="ProjectionHandlerService.cs" />
+    <Compile Include="ProjectionHandlerAsyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

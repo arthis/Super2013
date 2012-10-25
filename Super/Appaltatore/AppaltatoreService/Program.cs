@@ -20,10 +20,11 @@ namespace Super.Appaltatore.AppaltatoreService
         
         static void Main(string[] args)
         {
-
-
             var bus = RabbitHutch.CreateBus("host=localhost");
-            var dispatcher = new CommonDispatcher(bus);
+            var projectionHandlerSync = new ProjectionHandlerSyncService();
+            var projectionRepositoryBuilderSync = new ProjectionRepositoryBuilder();
+            projectionHandlerSync.InitHandlers(projectionRepositoryBuilderSync);
+            var syncDispatcher = new SyncDispatcher(projectionHandlerSync, bus);
 
             var storeEvents = Wireup.Init()
                 .LogToOutputWindow()
@@ -35,7 +36,7 @@ namespace Super.Appaltatore.AppaltatoreService
                 //.EncryptWith(_encryptionKey)
                 .HookIntoPipelineUsing(new[] { new AuthorizationPipelineHook() })
                 .UsingSynchronousDispatchScheduler()
-                .DispatchTo(new DelegateMessageDispatcher(dispatcher.DispatchCommit))
+                .DispatchTo(new DelegateMessageDispatcher(syncDispatcher.DispatchCommit))
                 .Build();
             var aggregateFactory = new AggregateFactory();
             var conflictDetector = new ConflictDetector();
@@ -53,7 +54,7 @@ namespace Super.Appaltatore.AppaltatoreService
             commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, sessionFactory);
 
                         
-            var projectionHandler = new ProjectionHandlerService();
+            var projectionHandler = new ProjectionHandlerAsyncService();
             var projectionRepositoryBuilder = new ProjectionRepositoryBuilder();
             projectionHandler.InitHandlers(projectionRepositoryBuilder, bus);
 

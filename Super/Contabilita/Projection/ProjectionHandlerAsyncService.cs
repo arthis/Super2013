@@ -9,7 +9,7 @@ using Super.Contabilita.Events.Lotto;
 
 namespace Super.Contabilita.Projection
 {
-    public class ProjectionHandlerService : ProjectionHandlerServiceBase
+    public class ProjectionHandlerAsyncService : ProjectionHandlerAsyncServiceBase
     {
         public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder, IBus bus)
         {
@@ -25,9 +25,9 @@ namespace Super.Contabilita.Projection
             handlerHelper.Subscribe<LottoDeleted>( new LottoProjection());
 
 
-            handlerHelper.Subscribe<AppaltatoreCreated>( new AppaltatoreProjection());
-            handlerHelper.Subscribe<AppaltatoreUpdated>( new AppaltatoreProjection());
-            handlerHelper.Subscribe<AppaltatoreDeleted>( new AppaltatoreProjection());
+            //handlerHelper.Subscribe<AppaltatoreCreated>( new AppaltatoreProjection());
+            //handlerHelper.Subscribe<AppaltatoreUpdated>( new AppaltatoreProjection());
+            //handlerHelper.Subscribe<AppaltatoreDeleted>( new AppaltatoreProjection());
 
             handlerHelper.Subscribe<CategoriaCommercialeCreated>( new CategoriaCommercialeProjection());
             handlerHelper.Subscribe<CategoriaCommercialeUpdated>( new CategoriaCommercialeProjection());

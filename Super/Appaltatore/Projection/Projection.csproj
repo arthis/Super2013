@@ -118,7 +118,8 @@
     <Compile Include="ConsuntivazioneRotManProjection.cs" />
     <Compile Include="ConsuntivazioneAmbProjection.cs" />
     <Compile Include="Container.cs" />
-    <Compile Include="ProjectionHandlerService.cs" />
+    <Compile Include="ProjectionHandlerAsyncService.cs" />
+    <Compile Include="ProjectionHandlerSyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

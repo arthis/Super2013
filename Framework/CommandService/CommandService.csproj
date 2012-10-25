@@ -141,8 +141,8 @@
     <Compile Include="ICommandWebService.cs" />
     <Compile Include="ExecuteResponse.cs" />
     <Compile Include="ICommandWebServiceClient.cs" />
-    <Compile Include="IProjectionHandler.cs" />
-    <Compile Include="ProjectionHandlerServiceBase.cs" />
+    <Compile Include="ProjectionHandlerAsyncServiceBase.cs" />
+    <Compile Include="ProjectionHandlerSyncServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

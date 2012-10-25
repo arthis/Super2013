@@ -113,7 +113,6 @@
     <Compile Include="AggregateBase.cs" />
     <Compile Include="AggregateRootInstanceNotFoundException.cs" />
     <Compile Include="AlreadyCreatedAggregateRootException.cs" />
-    <Compile Include="CommonDispatcher.cs" />
     <Compile Include="EventBase.cs" />
     <Compile Include="Handlers\Commands\CommandHandlerServiceBase.cs" />
     <Compile Include="CommandValidationException.cs" />
@@ -181,6 +180,7 @@
     <Compile Include="Super\Messaging\ValueObjects\Rule.cs" />
     <Compile Include="Super\Messaging\ValueObjects\WorkPeriod.cs" />
     <Compile Include="Super\Messaging\ValueObjects\Treno.cs" />
+    <Compile Include="SyncDispatcher.cs" />
     <Compile Include="ValidationMessage.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -190,7 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
-      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
+      <Project>{75c8f482-b38d-428c-ad67-890b40e35a63}</Project>
       <Name>CommonDomain.Persistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\CommonDomain\CommonDomain.csproj">

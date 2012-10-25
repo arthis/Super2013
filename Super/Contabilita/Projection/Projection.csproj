@@ -116,10 +116,11 @@
   <ItemGroup>
     <Compile Include="AppaltatoreProjection.cs" />
     <Compile Include="CategoriaCommercialeProjection.cs" />
+    <Compile Include="ProjectionHandlerSyncService.cs" />
     <Compile Include="LottoProjection.cs" />
     <Compile Include="ImpiantoProjection.cs" />
     <Compile Include="Container.cs" />
-    <Compile Include="ProjectionHandlerService.cs" />
+    <Compile Include="ProjectionHandlerAsyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValorizzazioneScenarioProjection.cs" />
   </ItemGroup>
