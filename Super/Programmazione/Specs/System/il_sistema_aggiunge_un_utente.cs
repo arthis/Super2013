@@ -52,8 +52,6 @@ namespace Super.Programmazione.Specs.System
             yield return BuildEvt.UserAddedToSystem
                 .WithFirstName(_firstName)
                 .WithLastName(_lastName)
-                .ForUserName(_username)
-                .ForPassword(_password)
                 .Build(_id, 1);
         }
 

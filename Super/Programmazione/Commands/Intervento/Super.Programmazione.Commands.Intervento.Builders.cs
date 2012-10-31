@@ -155,7 +155,23 @@ namespace Super.Programmazione.Commands.Plan.Builders
 		public CreateInterventoRot Build(Guid id, Guid commitId, long version)
         {
             return new CreateInterventoRot(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		}
+
+		
+		public CreateInterventoRot Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new CreateInterventoRot(id, commitId, userId, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
+
+		 public CreateInterventoRot Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public CreateInterventoRot Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new CreateInterventoRot(id, commitId, version, userId, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		}
 
 		public CreateInterventoRot Build(Guid id, DateTime wakeupTime)
 		{
@@ -289,7 +305,23 @@ namespace Super.Programmazione.Commands.Plan.Builders
 		public CreateInterventoRotMan Build(Guid id, Guid commitId, long version)
         {
             return new CreateInterventoRotMan(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
+		}
+
+		
+		public CreateInterventoRotMan Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new CreateInterventoRotMan(id, commitId, userId, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
 		 }
+
+		 public CreateInterventoRotMan Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public CreateInterventoRotMan Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new CreateInterventoRotMan(id, commitId, version, userId, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _oggetti);
+		}
 
 		public CreateInterventoRotMan Build(Guid id, DateTime wakeupTime)
 		{
@@ -430,7 +462,23 @@ namespace Super.Programmazione.Commands.Plan.Builders
 		public CreateInterventoAmb Build(Guid id, Guid commitId, long version)
         {
             return new CreateInterventoAmb(id, commitId, version, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
+		}
+
+		
+		public CreateInterventoAmb Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new CreateInterventoAmb(id, commitId, userId, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
 		 }
+
+		 public CreateInterventoAmb Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public CreateInterventoAmb Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new CreateInterventoAmb(id, commitId, version, userId, _idProgramma, _idPeriodoProgrammazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _quantity, _description);
+		}
 
 		public CreateInterventoAmb Build(Guid id, DateTime wakeupTime)
 		{

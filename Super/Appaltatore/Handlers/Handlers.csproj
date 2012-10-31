@@ -104,11 +104,11 @@
       <Name>CommandService</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
-      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
+      <Project>{51c99f4d-ccf0-431a-b37c-d620ef1df37b}</Project>
       <Name>CommonDomain.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
-      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
+      <Project>{75c8f482-b38d-428c-ad67-890b40e35a63}</Project>
       <Name>CommonDomain.Persistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
@@ -120,7 +120,7 @@
       <Name>Commands %28Super\Appaltatore\Commands%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\domain\Domain.csproj">
-      <Project>{15903C05-3822-4034-AF0B-DB1A3611FB46}</Project>
+      <Project>{15903c05-3822-4034-af0b-db1a3611fb46}</Project>
       <Name>Domain %28Super\Appaltatore\Domain%29</Name>
     </ProjectReference>
   </ItemGroup>

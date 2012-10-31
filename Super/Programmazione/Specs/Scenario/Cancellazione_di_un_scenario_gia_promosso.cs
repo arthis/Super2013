@@ -28,8 +28,7 @@ namespace Super.Programmazione.Specs.Scenario
 
         protected override CommandHandler<CancelScenario> OnHandle(IEventRepository eventRepository)
         {
-            var sessionFactory = new FakeSessionFactory(_idUser);
-            return new CancelScenarioHandler<ISession>(eventRepository, sessionFactory);
+            return new CancelScenarioHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

@@ -10,7 +10,7 @@ using Super.Programmazione.Domain;
 
 namespace Super.Programmazione.Handlers.Commands.Plan
 {
-    public class CreatePlanFromPromotedScenarioHandler: CommandHandler<CreatePlanFromPromotedScenario>
+    public class CreatePlanFromPromotedScenarioHandler : CommandHandler<CreatePlanFromPromotedScenario>
     {
         
 

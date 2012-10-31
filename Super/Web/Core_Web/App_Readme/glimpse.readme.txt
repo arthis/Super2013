@@ -65,7 +65,7 @@ How it Works
 ------------
 On the Server:
 
-1. Server collects all server side information that will aid in debugging (i.e. application settings, routes, session variables, trace data, etc)
+1. Server collects all server side information that will aid in debugging (i.e. application settings, routes, action variables, trace data, etc)
 2. It does this by running through a pipeline of server side data providers that can be dynamically controlled and added to under our plugin architecture
 3. Before the response is sent, the server formats this data in accordance with the Glimpse Protocol and serializes it as JSON
 4. Depending on whether it is an Ajax request or not, the server embeds the JSON in the content of the page
@@ -133,7 +133,7 @@ Release Notes
 - Added exception information to glimpseLog when enabled
 - UI facelift, including update to glimpse icon
 - Static glimpse files are now cached in browser, improving performance (can be disabled via web.config)
-- Fixed NullReferenceException problem on session tab
+- Fixed NullReferenceException problem on action tab
 - Javascript client performance improvements
 
 06/29/2011 - 0.83

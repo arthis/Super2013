@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
@@ -8,7 +9,7 @@ using Super.Programmazione.Commands.Plan;
 
 namespace Super.Programmazione.Handlers.Commands.Plan
 {
-    public class AddInterventoRotManToPlanHandler: CommandHandler<AddInterventoRotManToPlan>
+    public class AddInterventoRotManToPlanHandler : CommandHandler<AddInterventoRotManToPlan>
     {
         public AddInterventoRotManToPlanHandler(IEventRepository eventRepository)
             : base(eventRepository)

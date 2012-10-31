@@ -162,7 +162,23 @@ namespace Super.Programmazione.Commands.Programma.Builders
 		public AddSchedulazioneRotToProgramma Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneRotToProgramma(id, commitId, version, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		}
+
+		
+		public AddSchedulazioneRotToProgramma Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new AddSchedulazioneRotToProgramma(id, commitId, userId, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
 		 }
+
+		 public AddSchedulazioneRotToProgramma Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public AddSchedulazioneRotToProgramma Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new AddSchedulazioneRotToProgramma(id, commitId, version, userId, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _convoglio, _rigaTurnoTreno, _turnoTreno, _trenoArrivo, _trenoPartenza, _oggetti);
+		}
 
 		public AddSchedulazioneRotToProgramma Build(Guid id, DateTime wakeupTime)
 		{
@@ -303,7 +319,23 @@ namespace Super.Programmazione.Commands.Programma.Builders
 		public AddSchedulazioneRotManToProgramma Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneRotManToProgramma(id, commitId, version, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
+		}
+
+		
+		public AddSchedulazioneRotManToProgramma Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new AddSchedulazioneRotManToProgramma(id, commitId, userId, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
 		 }
+
+		 public AddSchedulazioneRotManToProgramma Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public AddSchedulazioneRotManToProgramma Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new AddSchedulazioneRotManToProgramma(id, commitId, version, userId, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _oggetti);
+		}
 
 		public AddSchedulazioneRotManToProgramma Build(Guid id, DateTime wakeupTime)
 		{
@@ -451,7 +483,23 @@ namespace Super.Programmazione.Commands.Programma.Builders
 		public AddSchedulazioneAmbToProgramma Build(Guid id, Guid commitId, long version)
         {
             return new AddSchedulazioneAmbToProgramma(id, commitId, version, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
+		}
+
+		
+		public AddSchedulazioneAmbToProgramma Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new AddSchedulazioneAmbToProgramma(id, commitId, userId, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
 		 }
+
+		 public AddSchedulazioneAmbToProgramma Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public AddSchedulazioneAmbToProgramma Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new AddSchedulazioneAmbToProgramma(id, commitId, version, userId, _idPeriodoProgrammazione, _idSchedulazione, _idCommittente, _idLotto, _idImpianto, _idTipoIntervento, _idAppaltatore, _idCategoriaCommerciale, _idDirezioneRegionale, _note, _workPeriod, _period, _quantity, _description);
+		}
 
 		public AddSchedulazioneAmbToProgramma Build(Guid id, DateTime wakeupTime)
 		{
@@ -508,7 +556,23 @@ namespace Super.Programmazione.Commands.Programma.Builders
 		public CreateProgramma Build(Guid id, Guid commitId, long version)
         {
             return new CreateProgramma(id, commitId, version, _idScenario);
+		}
+
+		
+		public CreateProgramma Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new CreateProgramma(id, commitId, userId, _idScenario);
 		 }
+
+		 public CreateProgramma Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public CreateProgramma Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new CreateProgramma(id, commitId, version, userId, _idScenario);
+		}
 
 		public CreateProgramma Build(Guid id, DateTime wakeupTime)
 		{

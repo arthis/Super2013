@@ -24,13 +24,18 @@ using Super.Contabilita.Handlers.Repositories;
 
 namespace Super.Contabilita.Handlers
 {
-    public class CommandHandlerService<TSession> : CommandHandlerServiceBase<TSession> where TSession:ISessionContabilita
+    public class CommandHandlerService : CommandHandlerServiceBase
     {
+        private readonly ISecurityUserRepository _repositorySecurityUser;
 
-
-        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, ISessionFactory<TSession> sessionFactory)
+        public CommandHandlerService(ISecurityUserRepository repositorySecurityUser)
         {
-            var handlerHelper = new CommandHandlerHelper<TSession>(commandRepository, sessionFactory, _handlers);
+            _repositorySecurityUser = repositorySecurityUser;
+        }
+
+        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, IActionFactory actionFactory)
+        {
+            var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory,_repositorySecurityUser, Handlers);
 
             handlerHelper.Add( new CreateImpiantoHandler(eventRepository));
             handlerHelper.Add( new UpdateImpiantoHandler(eventRepository));

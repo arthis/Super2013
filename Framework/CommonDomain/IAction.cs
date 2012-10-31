@@ -5,9 +5,8 @@ using System.Text;
 
 namespace CommonDomain
 {
-    public interface ISession
+    public interface IAction
     {
-        Guid UserId { get; }
-        bool IsAuthenticated { get; }
+        bool CanBeExecuted();
     }
 }

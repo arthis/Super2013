@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
@@ -18,7 +19,7 @@ namespace Super.Programmazione.Handlers.Commands.System
         {
             Contract.Requires(cmd != null);
 
-            var user = Domain.System.AddNewUser(cmd.Id, cmd.FirstName, cmd.LastName, cmd.Password,cmd.Username);
+            var user = Domain.System.AddNewUser(cmd.Id, cmd.FirstName, cmd.LastName);
 
             EventRepository.Save(user, cmd.CommitId);
 

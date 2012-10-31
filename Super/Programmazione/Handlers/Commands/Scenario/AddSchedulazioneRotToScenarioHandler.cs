@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
@@ -9,7 +10,7 @@ using Super.Programmazione.Domain.Schedulazione;
 
 namespace Super.Programmazione.Handlers.Commands.Scenario
 {
-    public class AddSchedulazioneRotToScenarioHandler: CommandHandler<AddSchedulazioneRotToScenario>
+    public class AddSchedulazioneRotToScenarioHandler : CommandHandler<AddSchedulazioneRotToScenario>
     {
         public AddSchedulazioneRotToScenarioHandler(IEventRepository eventRepository)
             : base(eventRepository)

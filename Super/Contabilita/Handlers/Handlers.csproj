@@ -143,7 +143,6 @@
     <Compile Include="Commands\DirezioneRegionale\UpdateDirezioneRegionaleHandler.cs" />
     <Compile Include="Commands\Lotto\CreateLottoHandler.cs" />
     <Compile Include="Commands\Lotto\DeleteLottoHandler.cs" />
-    <Compile Include="Factories\ContabilitaSessionFactory.cs" />
     <Compile Include="Repositories\Container.cs" />
     <Compile Include="Repositories\ILottoRepository.cs" />
     <Compile Include="Repositories\SqlLottoRepository.cs" />
@@ -182,11 +181,11 @@
       <Name>CommandService</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
-      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
+      <Project>{51c99f4d-ccf0-431a-b37c-d620ef1df37b}</Project>
       <Name>CommonDomain.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
-      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
+      <Project>{75c8f482-b38d-428c-ad67-890b40e35a63}</Project>
       <Name>CommonDomain.Persistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
@@ -210,7 +209,9 @@
       <Name>Projection %28Super\Contabilita\Projection%29</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Factories\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

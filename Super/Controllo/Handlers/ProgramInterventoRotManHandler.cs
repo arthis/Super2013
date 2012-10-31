@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;

@@ -125,8 +125,8 @@
     <Compile Include="Controllers\BaseContabilitaController.cs" />
     <Compile Include="Controllers\BaseProgrammazioneController.cs" />
     <Compile Include="Controllers\Contabilita\AppaltatoreController.cs" />
-    <Compile Include="Controllers\Contabilita\CategoriaCommercialeController.cs" />
     <Compile Include="Controllers\Contabilita\CommittenteController.cs" />
+    <Compile Include="Controllers\Contabilita\CategoriaCommercialeController.cs" />
     <Compile Include="Controllers\Contabilita\TipoInterventoAmbController.cs" />
     <Compile Include="Controllers\Contabilita\TipoInterventoRotManController.cs" />
     <Compile Include="Controllers\Contabilita\TipoInterventoRotController.cs" />
@@ -142,7 +142,6 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CommandBase.cs" />
     <Compile Include="Models\Super\Contabilita\Appaltatore\AppaltatoreModel.cs" />
-    <Compile Include="Models\CategoriaCommerciale.cs" />
     <Compile Include="Models\Committente.cs" />
     <Compile Include="Models\DirezioneRegionale.cs" />
     <Compile Include="Models\MeasuringUnit.cs" />
@@ -160,6 +159,13 @@
     <Compile Include="Models\Super\Contabilita\Appaltatore\AppaltatoreQueries.cs" />
     <Compile Include="Models\Super\Contabilita\Appaltatore\Super.Contabilita.Commands.Appaltatore.cs">
       <DependentUpon>Super.Contabilita.Commands.Appaltatore.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Super\Contabilita\CategoriaCommerciale\CategoriaCommercialeModel.cs" />
+    <Compile Include="Models\Super\Contabilita\CategoriaCommerciale\CategoriaCommercialeQueries.cs" />
+    <Compile Include="Models\Super\Contabilita\CategoriaCommerciale\Super.Contabilita.Commands.CategoriaCommerciale.cs">
+      <DependentUpon>Super.Contabilita.Commands.CategoriaCommerciale.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -224,6 +230,10 @@
     <None Include="Models\Super\Contabilita\Appaltatore\Super.Contabilita.Commands.Appaltatore.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Super.Contabilita.Commands.Appaltatore.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Super\Contabilita\CategoriaCommerciale\Super.Contabilita.Commands.CategoriaCommerciale.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Commands.CategoriaCommerciale.cs</LastGenOutput>
     </None>
     <None Include="Models\Super\Controllo\Consuntivazione\Super.Controllo.Commands.Consuntivazione.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

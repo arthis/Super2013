@@ -126,6 +126,16 @@
     <Compile Include="Builders\Schedulazione\CalculateSchedulazioneRotPriceOfScenarioBuilder.cs" />
     <Compile Include="Builders\Schedulazione\CancelSchedulazionePriceOfPlanBuilder.cs" />
     <Compile Include="Builders\Schedulazione\CalculateSchedulazioneAmbPriceOfScenarioBuilder.cs" />
+    <Compile Include="CategoriaCommerciale\Super.Contabilita.Commands.CategoriaCommerciale.Builders.cs">
+      <DependentUpon>Super.Contabilita.Commands.CategoriaCommerciale.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CategoriaCommerciale\Super.Contabilita.Commands.CategoriaCommerciale.cs">
+      <DependentUpon>Super.Contabilita.Commands.CategoriaCommerciale.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Pricing\DeleteBasePrice.cs" />
     <Compile Include="Pricing\CreateBasePrice.cs" />
     <Compile Include="Builders\Pricing\DeleteBasePriceBuilder.cs" />
@@ -159,9 +169,6 @@
     <Compile Include="Builders\Committente\CreateCommittenteBuilder.cs" />
     <Compile Include="Builders\Committente\DeleteCommittenteBuilder.cs" />
     <Compile Include="Builders\Committente\UpdateCommittenteBuilder.cs" />
-    <Compile Include="Builders\CategoriaCommerciale\CreateCategoriaCommercialeBuilder.cs" />
-    <Compile Include="Builders\CategoriaCommerciale\DeleteCategoriaCommercialeBuilder.cs" />
-    <Compile Include="Builders\CategoriaCommerciale\UpdateCategoriaCommercialeBuilder.cs" />
     <Compile Include="Builders\Appaltatore\CreateAppaltatoreBuilder.cs" />
     <Compile Include="Builders\Appaltatore\DeleteAppaltatoreBuilder.cs" />
     <Compile Include="Builders\Appaltatore\UpdateAppaltatoreBuilder.cs" />
@@ -188,9 +195,6 @@
     <Compile Include="Committente\CreateCommittente.cs" />
     <Compile Include="Committente\DeleteCommittente.cs" />
     <Compile Include="Committente\UpdateCommittente.cs" />
-    <Compile Include="CategoriaCommerciale\CreateCategoriaCommerciale.cs" />
-    <Compile Include="CategoriaCommerciale\DeleteCategoriaCommerciale.cs" />
-    <Compile Include="CategoriaCommerciale\UpdateCategoriaCommerciale.cs" />
     <Compile Include="GruppoOggettoIntervento\CreateGruppoOggettoIntervento.cs" />
     <Compile Include="GruppoOggettoIntervento\DeleteGruppoOggettoIntervento.cs" />
     <Compile Include="GruppoOggettoIntervento\UpdateGruppoOggettoIntervento.cs" />
@@ -264,6 +268,15 @@
     <None Include="Appaltatore\Super.Contabilita.Commands.Appaltatore.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Super.Contabilita.Commands.Appaltatore.cs</LastGenOutput>
+    </None>
+    <None Include="CategoriaCommerciale\Super.Contabilita.Commands.CategoriaCommerciale.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Commands.CategoriaCommerciale.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="CategoriaCommerciale\Super.Contabilita.Commands.CategoriaCommerciale.json" />
+    <None Include="CategoriaCommerciale\Super.Contabilita.Commands.CategoriaCommerciale.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Commands.CategoriaCommerciale.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

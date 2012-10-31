@@ -38,8 +38,8 @@
 
 //        protected override CommandHandler<CalculateSchedulazioneAmbPriceOfScenario> OnHandle(IEventRepository eventRepository)
 //        {
-//            var session = new FakeSessionContabilitaFactory(_userId, _idPricing, eventRepository);
-//            return new CalculateSchedulazioneAmbPriceOfScenarioHandler(eventRepository, session);
+//            var action = new FakeActionContabilitaFactory(_userId, _idPricing, eventRepository);
+//            return new CalculateSchedulazioneAmbPriceOfScenarioHandler(eventRepository, action);
 //        }
 
 //        public override IEnumerable<IMessage> Given()

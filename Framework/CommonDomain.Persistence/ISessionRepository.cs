@@ -2,8 +2,8 @@ using System;
 
 namespace CommonDomain.Persistence
 {
-    public interface ISessionRepository<out T> where T: ISession
+    public interface ISecurityUserRepository
     {
-        T GetSession(Guid securityToken);
+        ISecurityUser GetSecurityUser(Guid securityToken);
     }
 }

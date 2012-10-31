@@ -6,31 +6,34 @@ using CommonDomain.Persistence;
 
 namespace CommonDomain.Core.Handlers.Commands
 {
-    
 
-    
-    public class SecurityCommandHandler<T,TSession> : ICommandHandler<T> where T : ICommand where  TSession:ISession
+
+
+    public class SecurityCommandHandler<T> : ICommandHandler<T> where T : ICommand  
     {
-        
-        private readonly ISessionFactory<TSession> _sessionFactory;
-        private ICommandHandler<T> _next;
 
-        public SecurityCommandHandler(ISessionFactory<TSession> sessionFactory, ICommandHandler<T> next)
+        private readonly IActionFactory _actionFactory;
+        private ICommandHandler<T> _next;
+        private readonly ISecurityUserRepository _repositorySecurityUser;
+
+        public SecurityCommandHandler(IActionFactory actionFactory, ISecurityUserRepository repositorySecurityUser, ICommandHandler<T> next)
         {
-            Contract.Requires(sessionFactory != null);
+            Contract.Requires(actionFactory != null);
+            Contract.Requires(repositorySecurityUser != null);
             Contract.Requires(next != null);    
 
-            _sessionFactory = sessionFactory;
+            _actionFactory = actionFactory;
             _next = next;
+            _repositorySecurityUser = repositorySecurityUser;
+
         }
 
         public CommandValidation Execute(T command)
         {
-            //inject session dependency into finalhandler
+            var user = _repositorySecurityUser.GetSecurityUser(command.SecurityToken);
 
-            var session = _sessionFactory.CreateSession(command);
-
-            if (session.IsAuthenticated)
+            var action = user.CreateAction(_actionFactory, command);
+            if (action.CanBeExecuted())
             {
                 var validation = _next.Execute(command);
 

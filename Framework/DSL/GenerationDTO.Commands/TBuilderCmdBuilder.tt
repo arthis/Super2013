@@ -40,7 +40,31 @@ void BuildBuilder(ObjectDTO cmd)
          {	#>, <#= property.GetPrivateName() #><#+
          }
 			 #>);
+		}
+
+		
+		public <#= name #> Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new <#= name #>(id, commitId, userId<#+
+	     foreach(var property in cmd.Properties)
+         {	#>, <#= property.GetPrivateName() #><#+
+         }
+			 #>);
 		 }
+
+		 public <#= name #> Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public <#= name #> Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new <#= name #>(id, commitId, version, userId<#+
+	     foreach(var property in cmd.Properties)
+         {	#>, <#= property.GetPrivateName() #><#+
+         }
+			 #>);
+		}
 
 		public <#= name #> Build(Guid id, DateTime wakeupTime)
 		{

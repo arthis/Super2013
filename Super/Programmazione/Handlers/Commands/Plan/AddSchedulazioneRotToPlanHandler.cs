@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
@@ -9,7 +10,7 @@ using Super.Programmazione.Domain.Schedulazione;
 
 namespace Super.Programmazione.Handlers.Commands.Plan
 {
-    public class AddSchedulazioneRotToPlanHandler: CommandHandler<AddSchedulazioneRotToPlan>
+    public class AddSchedulazioneRotToPlanHandler : CommandHandler<AddSchedulazioneRotToPlan>
     {
         public AddSchedulazioneRotToPlanHandler(IEventRepository eventRepository)
             : base(eventRepository)

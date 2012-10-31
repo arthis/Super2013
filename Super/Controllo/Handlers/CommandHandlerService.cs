@@ -13,12 +13,18 @@ using Super.Controllo.Commands.Consuntivazione;
 
 namespace Super.Controllo.Handlers
 {
-    public class CommandHandlerService<TSession> : CommandHandlerServiceBase<TSession> where TSession : ISession
+    public class CommandHandlerService : CommandHandlerServiceBase
     {
+        private readonly ISecurityUserRepository _repositorySecurityUser;
 
-        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, ISessionFactory<TSession> sessionFactory)
+        public CommandHandlerService(ISecurityUserRepository repositorySecurityUser)
         {
-            var handlerHelper = new CommandHandlerHelper<TSession>(commandRepository, sessionFactory, _handlers);
+            _repositorySecurityUser = repositorySecurityUser;
+        }
+
+        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, IActionFactory actionFactory)
+        {
+            var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory, _repositorySecurityUser, Handlers);
 
             
             handlerHelper.Add( new CloseInterventoHandler(eventRepository));
@@ -28,6 +34,8 @@ namespace Super.Controllo.Handlers
             handlerHelper.Add( new ControlResoInterventoRotManHandler(eventRepository));
             handlerHelper.Add( new ReopenInterventoHandler(eventRepository));
         }
+
+        
 
         public override void Subscribe(IBus bus)
         {

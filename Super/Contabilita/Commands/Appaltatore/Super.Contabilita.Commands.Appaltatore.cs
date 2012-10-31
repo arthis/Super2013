@@ -49,9 +49,26 @@ namespace Super.Contabilita.Commands.Appaltatore
 			Description = description ;
 		}
 
+		public CreateAppaltatore(Guid id, Guid commitId, Guid userId,string description)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(description));
+
+			Description = description ;
+		}
+
 
 		public CreateAppaltatore(Guid id, Guid commitId, long version, DateTime wakeupTime,string description)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(description));
+
+			Description = description ;
+		}
+
+		
+		public CreateAppaltatore(Guid id, Guid commitId, long version, Guid userId,string description)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(!string.IsNullOrEmpty(description));
 
@@ -114,9 +131,20 @@ namespace Super.Contabilita.Commands.Appaltatore
 		{
 				}
 
+		public DeleteAppaltatore(Guid id, Guid commitId, Guid userId)
+		   : base(id,commitId,userId)
+		{
+				}
+
 
 		public DeleteAppaltatore(Guid id, Guid commitId, long version, DateTime wakeupTime)
 		   : base(id,commitId,version,wakeupTime)
+		{
+				}
+
+		
+		public DeleteAppaltatore(Guid id, Guid commitId, long version, Guid userId)
+		   : base(id,commitId,version,userId)
 		{
 				}
 			public override string ToDescription()
@@ -185,9 +213,26 @@ namespace Super.Contabilita.Commands.Appaltatore
 			Description = description ;
 		}
 
+		public UpdateAppaltatore(Guid id, Guid commitId, Guid userId,string description)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(description));
+
+			Description = description ;
+		}
+
 
 		public UpdateAppaltatore(Guid id, Guid commitId, long version, DateTime wakeupTime,string description)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(description));
+
+			Description = description ;
+		}
+
+		
+		public UpdateAppaltatore(Guid id, Guid commitId, long version, Guid userId,string description)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(!string.IsNullOrEmpty(description));
 

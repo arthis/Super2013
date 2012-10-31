@@ -11,7 +11,7 @@ using NUnit.Framework;
 namespace CommonSpecs
 {
     [TestFixture]
-    public abstract class CommandBaseClass<TCommand> : SpecsBaseClass where TCommand : class, IMessage
+    public abstract class CommandBaseClass<TCommand> : SpecsBaseClass where TCommand : class, IMessage 
     {
         
         public Guid Id { get; set; }
@@ -36,7 +36,6 @@ namespace CommonSpecs
             _fakeEventRepository.CommittedEvents = Given();
             var command = When();
             var expect = Expect();
-
             try
             {
                 commandHandler.Execute(command);
@@ -51,6 +50,8 @@ namespace CommonSpecs
                 Caught = e;
             }
         }
+
+        
 
     }
 }

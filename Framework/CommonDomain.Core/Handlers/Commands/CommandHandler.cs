@@ -6,7 +6,7 @@ namespace CommonDomain.Core.Handlers.Commands
 {
     
 
-    public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where TCommand : IMessage
+    public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where TCommand : IMessage 
     {
         protected IEventRepository EventRepository;
 

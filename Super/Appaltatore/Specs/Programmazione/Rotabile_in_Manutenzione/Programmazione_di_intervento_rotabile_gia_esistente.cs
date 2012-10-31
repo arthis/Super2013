@@ -39,6 +39,8 @@ namespace Super.Appaltatore.Specs.Programmazione.Rotabile_in_Manutenzione
             return new ProgramInterventoRotManHandler(eventRepository);
         }
 
+
+
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.InterventoRotManProgrammato

@@ -6,7 +6,7 @@ using CommonDomain;
 
 namespace Super.Contabilita.Domain
 {
-    public interface ISessionContabilita : ISession
+    public interface IActionContabilita : IAction
     {
         Domain.Pricing.Pricing Pricing { get; }
     }

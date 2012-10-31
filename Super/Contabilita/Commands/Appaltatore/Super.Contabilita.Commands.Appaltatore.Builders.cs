@@ -43,7 +43,23 @@ namespace Super.Contabilita.Commands.Appaltatore.Builders
 		public CreateAppaltatore Build(Guid id, Guid commitId, long version)
         {
             return new CreateAppaltatore(id, commitId, version, _description);
+		}
+
+		
+		public CreateAppaltatore Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new CreateAppaltatore(id, commitId, userId, _description);
 		 }
+
+		 public CreateAppaltatore Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public CreateAppaltatore Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new CreateAppaltatore(id, commitId, version, userId, _description);
+		}
 
 		public CreateAppaltatore Build(Guid id, DateTime wakeupTime)
 		{
@@ -93,7 +109,23 @@ namespace Super.Contabilita.Commands.Appaltatore.Builders
 		public DeleteAppaltatore Build(Guid id, Guid commitId, long version)
         {
             return new DeleteAppaltatore(id, commitId, version);
+		}
+
+		
+		public DeleteAppaltatore Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new DeleteAppaltatore(id, commitId, userId);
 		 }
+
+		 public DeleteAppaltatore Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public DeleteAppaltatore Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new DeleteAppaltatore(id, commitId, version, userId);
+		}
 
 		public DeleteAppaltatore Build(Guid id, DateTime wakeupTime)
 		{
@@ -150,7 +182,23 @@ namespace Super.Contabilita.Commands.Appaltatore.Builders
 		public UpdateAppaltatore Build(Guid id, Guid commitId, long version)
         {
             return new UpdateAppaltatore(id, commitId, version, _description);
+		}
+
+		
+		public UpdateAppaltatore Build(Guid id, Guid commitId, Guid userId)
+        {
+            return new UpdateAppaltatore(id, commitId, userId, _description);
 		 }
+
+		 public UpdateAppaltatore Build(Guid id, long version, Guid userId)
+		{
+			return Build(id, Guid.NewGuid(), version, userId);
+		}
+
+		public UpdateAppaltatore Build(Guid id, Guid commitId, long version, Guid userId)
+        {
+            return new UpdateAppaltatore(id, commitId, version, userId, _description);
+		}
 
 		public UpdateAppaltatore Build(Guid id, DateTime wakeupTime)
 		{

@@ -11,6 +11,7 @@ namespace CommonDomain.Core
     {
         public bool IsExecuted { get; set; }
         public Guid SecurityToken { get; set; }
+        public Guid UserId { get; set; }
         public DateTime? WakeTime { get; set; }
         public long? Version { get;  set; }
         
@@ -40,6 +41,24 @@ namespace CommonDomain.Core
             Contract.Requires(wakeupTime != DateTime.MinValue && wakeupTime != DateTime.MaxValue);
 
             WakeTime = wakeupTime;
+        }
+
+        public CommandBase(Guid id, Guid commitId, Guid userId)
+            : base(id, commitId)
+        {
+            Contract.Requires(userId != Guid.Empty);
+
+            UserId = userId;
+        }
+
+        public CommandBase(Guid id, Guid commitId, long version, Guid userId)
+            : base(id, commitId)
+        {
+            Contract.Requires(version >= (long)(0));
+            Contract.Requires(userId != Guid.Empty);
+
+            Version = version;
+            UserId = userId;
         }
 
         public CommandBase(Guid id, Guid commitId, long version,DateTime wakeupTime)

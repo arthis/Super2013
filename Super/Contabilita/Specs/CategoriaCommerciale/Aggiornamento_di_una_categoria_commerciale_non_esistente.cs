@@ -35,7 +35,7 @@ namespace Super.Contabilita.Specs.CategoriaCommerciale
         {
 
             return  BuildCmd.UpdateCategoriaCommerciale
-                         .ForDescription(_description)
+                         .WithDescription(_description)
                          .Build(_id, 1);
         }
 

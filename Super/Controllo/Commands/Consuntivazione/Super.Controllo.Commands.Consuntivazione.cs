@@ -60,9 +60,32 @@ namespace Super.Controllo.Commands.Consuntivazione
 			ClosingDate = closingDate ;
 		}
 
+		public CloseIntervento(Guid id, Guid commitId, Guid userId,Guid idUser,DateTime closingDate)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(closingDate > DateTime.MinValue);
+
+			IdUser = idUser ;
+			ClosingDate = closingDate ;
+		}
+
 
 		public CloseIntervento(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idUser,DateTime closingDate)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(closingDate > DateTime.MinValue);
+
+			IdUser = idUser ;
+			ClosingDate = closingDate ;
+		}
+
+		
+		public CloseIntervento(Guid id, Guid commitId, long version, Guid userId,Guid idUser,DateTime closingDate)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(idUser != Guid.Empty);
 
@@ -149,9 +172,32 @@ namespace Super.Controllo.Commands.Consuntivazione
 			ReopeningDate = reopeningDate ;
 		}
 
+		public ReopenIntervento(Guid id, Guid commitId, Guid userId,Guid idUser,DateTime reopeningDate)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(reopeningDate > DateTime.MinValue);
+
+			IdUser = idUser ;
+			ReopeningDate = reopeningDate ;
+		}
+
 
 		public ReopenIntervento(Guid id, Guid commitId, long version, DateTime wakeupTime,Guid idUser,DateTime reopeningDate)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(reopeningDate > DateTime.MinValue);
+
+			IdUser = idUser ;
+			ReopeningDate = reopeningDate ;
+		}
+
+		
+		public ReopenIntervento(Guid id, Guid commitId, long version, Guid userId,Guid idUser,DateTime reopeningDate)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(idUser != Guid.Empty);
 
@@ -252,9 +298,40 @@ namespace Super.Controllo.Commands.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
+		public ConsuntivareNonResoInterventoRot(Guid id, Guid commitId, Guid userId,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
+		
+		public ConsuntivareNonResoInterventoRot(Guid id, Guid commitId, long version, Guid userId,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
 
@@ -361,9 +438,40 @@ namespace Super.Controllo.Commands.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
+		public ConsuntivareNonResoInterventoRotMan(Guid id, Guid commitId, Guid userId,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
+		
+		public ConsuntivareNonResoInterventoRotMan(Guid id, Guid commitId, long version, Guid userId,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
 
@@ -470,9 +578,40 @@ namespace Super.Controllo.Commands.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
+		public ConsuntivareNonResoInterventoAmb(Guid id, Guid commitId, Guid userId,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleAppaltatore = idCausaleAppaltatore ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
+		
+		public ConsuntivareNonResoInterventoAmb(Guid id, Guid commitId, long version, Guid userId,string note,Guid idCausaleAppaltatore,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(idCausaleAppaltatore != Guid.Empty);
 
@@ -579,9 +718,40 @@ namespace Super.Controllo.Commands.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
+		public ConsuntivareNonResoTrenitaliaInterventoRot(Guid id, Guid commitId, Guid userId,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoTrenitaliaInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
+		
+		public ConsuntivareNonResoTrenitaliaInterventoRot(Guid id, Guid commitId, long version, Guid userId,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
 
@@ -688,9 +858,40 @@ namespace Super.Controllo.Commands.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
+		public ConsuntivareNonResoTrenitaliaInterventoRotMan(Guid id, Guid commitId, Guid userId,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoTrenitaliaInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
+		
+		public ConsuntivareNonResoTrenitaliaInterventoRotMan(Guid id, Guid commitId, long version, Guid userId,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
 
@@ -797,9 +998,40 @@ namespace Super.Controllo.Commands.Consuntivazione
 			IdInterventoAppaltatore = idInterventoAppaltatore ;
 		}
 
+		public ConsuntivareNonResoTrenitaliaInterventoAmb(Guid id, Guid commitId, Guid userId,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
 
 		public ConsuntivareNonResoTrenitaliaInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+			Note = note ;
+			IdCausaleTrenitalia = idCausaleTrenitalia ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+		}
+
+		
+		public ConsuntivareNonResoTrenitaliaInterventoAmb(Guid id, Guid commitId, long version, Guid userId,string note,Guid idCausaleTrenitalia,DateTime dataConsuntivazione,string idInterventoAppaltatore)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(idCausaleTrenitalia != Guid.Empty);
 
@@ -916,9 +1148,46 @@ namespace Super.Controllo.Commands.Consuntivazione
 			Oggetti = oggetti ;
 		}
 
+		public ConsuntivareResoInterventoRot(Guid id, Guid commitId, Guid userId,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+
 
 		public ConsuntivareResoInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+
+		
+		public ConsuntivareResoInterventoRot(Guid id, Guid commitId, long version, Guid userId,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRot[] oggetti)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(workPeriod != null);
 
@@ -1039,9 +1308,46 @@ namespace Super.Controllo.Commands.Consuntivazione
 			Oggetti = oggetti ;
 		}
 
+		public ConsuntivareResoInterventoRotMan(Guid id, Guid commitId, Guid userId,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+
 
 		public ConsuntivareResoInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+
+		
+		public ConsuntivareResoInterventoRotMan(Guid id, Guid commitId, long version, Guid userId,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(workPeriod != null);
 
@@ -1166,9 +1472,48 @@ namespace Super.Controllo.Commands.Consuntivazione
 			Quantity = quantity ;
 		}
 
+		public ConsuntivareResoInterventoAmb(Guid id, Guid commitId, Guid userId,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,string description,int quantity)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(quantity != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Description = description ;
+			Quantity = quantity ;
+		}
+
 
 		public ConsuntivareResoInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,string description,int quantity)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(dataConsuntivazione > DateTime.MinValue);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(quantity != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			DataConsuntivazione = dataConsuntivazione ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Description = description ;
+			Quantity = quantity ;
+		}
+
+		
+		public ConsuntivareResoInterventoAmb(Guid id, Guid commitId, long version, Guid userId,string note,WorkPeriod workPeriod,DateTime dataConsuntivazione,string idInterventoAppaltatore,string description,int quantity)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(workPeriod != null);
 
@@ -1281,9 +1626,40 @@ namespace Super.Controllo.Commands.Consuntivazione
 			IdUser = idUser ;
 		}
 
+		public ControlNonResoIntervento(Guid id, Guid commitId, Guid userId,string note,Guid idCausale,DateTime controlDate,Guid idUser)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(idCausale != Guid.Empty);
+
+	Contract.Requires(controlDate > DateTime.MinValue);
+
+	Contract.Requires(idUser != Guid.Empty);
+
+			Note = note ;
+			IdCausale = idCausale ;
+			ControlDate = controlDate ;
+			IdUser = idUser ;
+		}
+
 
 		public ControlNonResoIntervento(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,Guid idCausale,DateTime controlDate,Guid idUser)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(idCausale != Guid.Empty);
+
+	Contract.Requires(controlDate > DateTime.MinValue);
+
+	Contract.Requires(idUser != Guid.Empty);
+
+			Note = note ;
+			IdCausale = idCausale ;
+			ControlDate = controlDate ;
+			IdUser = idUser ;
+		}
+
+		
+		public ControlNonResoIntervento(Guid id, Guid commitId, long version, Guid userId,string note,Guid idCausale,DateTime controlDate,Guid idUser)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(idCausale != Guid.Empty);
 
@@ -1430,9 +1806,62 @@ namespace Super.Controllo.Commands.Consuntivazione
 			Oggetti = oggetti ;
 		}
 
+		public ControlResoInterventoRot(Guid id, Guid commitId, Guid userId,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(controlDate > DateTime.MinValue);
+
+	Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			ControlDate = controlDate ;
+			IdUser = idUser ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Convoglio = convoglio ;
+			RigaTurnoTreno = rigaTurnoTreno ;
+			TurnoTreno = turnoTreno ;
+			TrenoArrivo = trenoArrivo ;
+			TrenoPartenza = trenoPartenza ;
+			Oggetti = oggetti ;
+		}
+
 
 		public ControlResoInterventoRot(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(controlDate > DateTime.MinValue);
+
+	Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			ControlDate = controlDate ;
+			IdUser = idUser ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Convoglio = convoglio ;
+			RigaTurnoTreno = rigaTurnoTreno ;
+			TurnoTreno = turnoTreno ;
+			TrenoArrivo = trenoArrivo ;
+			TrenoPartenza = trenoPartenza ;
+			Oggetti = oggetti ;
+		}
+
+		
+		public ControlResoInterventoRot(Guid id, Guid commitId, long version, Guid userId,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,string convoglio,string rigaTurnoTreno,string turnoTreno,Treno trenoArrivo,Treno trenoPartenza,OggettoRot[] oggetti)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(workPeriod != null);
 
@@ -1577,9 +2006,52 @@ namespace Super.Controllo.Commands.Consuntivazione
 			Oggetti = oggetti ;
 		}
 
+		public ControlResoInterventoRotMan(Guid id, Guid commitId, Guid userId,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(controlDate > DateTime.MinValue);
+
+	Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			ControlDate = controlDate ;
+			IdUser = idUser ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+
 
 		public ControlResoInterventoRotMan(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(controlDate > DateTime.MinValue);
+
+	Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(oggetti != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			ControlDate = controlDate ;
+			IdUser = idUser ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Oggetti = oggetti ;
+		}
+
+		
+		public ControlResoInterventoRotMan(Guid id, Guid commitId, long version, Guid userId,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,OggettoRotMan[] oggetti)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(workPeriod != null);
 
@@ -1718,9 +2190,54 @@ namespace Super.Controllo.Commands.Consuntivazione
 			Quantity = quantity ;
 		}
 
+		public ControlResoInterventoAmb(Guid id, Guid commitId, Guid userId,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,string description,int quantity)
+		   : base(id,commitId,userId)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(controlDate > DateTime.MinValue);
+
+	Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(quantity != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			ControlDate = controlDate ;
+			IdUser = idUser ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Description = description ;
+			Quantity = quantity ;
+		}
+
 
 		public ControlResoInterventoAmb(Guid id, Guid commitId, long version, DateTime wakeupTime,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,string description,int quantity)
 		   : base(id,commitId,version,wakeupTime)
+		{
+			Contract.Requires(workPeriod != null);
+
+	Contract.Requires(controlDate > DateTime.MinValue);
+
+	Contract.Requires(idUser != Guid.Empty);
+
+	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
+
+	Contract.Requires(quantity != null);
+
+			Note = note ;
+			WorkPeriod = workPeriod ;
+			ControlDate = controlDate ;
+			IdUser = idUser ;
+			IdInterventoAppaltatore = idInterventoAppaltatore ;
+			Description = description ;
+			Quantity = quantity ;
+		}
+
+		
+		public ControlResoInterventoAmb(Guid id, Guid commitId, long version, Guid userId,string note,WorkPeriod workPeriod,DateTime controlDate,Guid idUser,string idInterventoAppaltatore,string description,int quantity)
+		   : base(id,commitId,version,userId)
 		{
 			Contract.Requires(workPeriod != null);
 

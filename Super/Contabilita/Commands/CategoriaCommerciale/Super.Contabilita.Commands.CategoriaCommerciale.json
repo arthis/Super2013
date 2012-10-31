@@ -1,0 +1,34 @@
+﻿{
+    "Namespace" : "Super.Contabilita.Commands.CategoriaCommerciale",
+    "Objects" :
+    [
+        {
+            "Name" :"CreateCategoriaCommerciale",
+			"Description" : "Creiamo la categoria commerciale '{0}'.",
+            "Properties" : [
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+		    ]
+        },
+		{
+            "Name" :"DeleteCategoriaCommerciale",
+			"Description" : "Cancelliamo la categoria commerciale '{0}'.",
+            "Properties" : [
+		    ]
+        },
+		{
+            "Name" :"UpdateCategoriaCommerciale",
+			"Description" : "Aggiorniamo la categoria commerciale '{0}'.",
+            "Properties" : [
+				{
+                    "Name" : "Description",
+                    "Type" : "string",
+					"IsRequired" : true 
+                }
+		    ]
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-﻿/// <reference path="/Scripts/Super/Contabilita/Appaltatore/query-Appaltatore.js" />
+﻿/// <reference path="/Scripts/Super/Contabilita/Appaltatore/model-Appaltatore.js" />
 /// <reference path="/Scripts/dateFormat.js" />
 /// <reference path="/Scripts/jquery-1.8.0.min.js" />
 /// <reference path="/Scripts/jquery-ui-1.8.23.custom.min.js" />

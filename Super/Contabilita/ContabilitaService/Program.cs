@@ -3,13 +3,13 @@ using System.Configuration;
 using System.ServiceModel;
 using CommandService;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers.Actions;
 using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
 using EventStore;
 using EventStore.Persistence.SqlPersistence.SqlDialects;
 using Super.Contabilita.Domain;
 using Super.Contabilita.Handlers;
-using Super.Contabilita.Handlers.Factories;
 using Super.Contabilita.Projection;
 
 namespace Super.Contabilita.ContabilitaService
@@ -44,21 +44,21 @@ namespace Super.Contabilita.ContabilitaService
 
 
 
-            var sessionRepository = new SessionRepository();
-            var commonSessionFactory = new CommonSessionFactory(sessionRepository);
+            var userRepository = new SecurityUserRepository();
+            var commonSessionFactory = new ActionFactory();
             var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
-            var sessionFactory = new ContabilitaSessionFactory(commonSessionFactory,eventRepository);
+            var actionFactory = new ActionFactory();
 
-            var commandHandlerService = new CommandHandlerService<SessionContabilita>();
+            var commandHandlerService = new CommandHandlerService(userRepository);
             commandHandlerService.Subscribe(bus);
-            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, sessionFactory);
+            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, actionFactory);
 
             var projectionHandler = new ProjectionHandlerAsyncService();
             var projectionRepositoryBuilderAsync = new ProjectionRepositoryBuilder();
             projectionHandler.InitHandlers(projectionRepositoryBuilderAsync, bus);
             
 
-            var commandWebService = new CommandWebService<SessionContabilita>(commandHandlerService);
+            var commandWebService = new CommandWebService(commandHandlerService);
 
 
 

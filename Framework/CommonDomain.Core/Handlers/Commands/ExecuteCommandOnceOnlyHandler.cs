@@ -4,7 +4,7 @@ using CommonDomain.Persistence;
 
 namespace CommonDomain.Core.Handlers.Commands
 {
-    public class ExecuteCommandOnceOnlyHandler<T> : ICommandHandler<T> where T : ICommand
+    public class ExecuteCommandOnceOnlyHandler<T> : ICommandHandler<T> where T : ICommand 
     {
         private readonly ICommandRepository _commandRepository;
         private ICommandHandler<T> _next;

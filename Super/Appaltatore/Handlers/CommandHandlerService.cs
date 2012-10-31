@@ -12,13 +12,18 @@ using Super.Appaltatore.Commands.Programmazione;
 
 namespace Super.Appaltatore.Handlers
 {
-    public class CommandHandlerService<TSession> : CommandHandlerServiceBase <TSession> where TSession:ISession
+    public class CommandHandlerService : CommandHandlerServiceBase
     {
-        
+        private readonly ISecurityUserRepository _repo;
 
-        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent,ISessionFactory<TSession> sessionFactory)
+        public CommandHandlerService(ISecurityUserRepository repo)
         {
-            var handlerHelper = new CommandHandlerHelper<TSession>(commandRepository, sessionFactory, _handlers);
+            _repo = repo;
+        }
+
+        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent,IActionFactory actionFactory)
+        {
+            var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory,_repo, Handlers);
 
             handlerHelper.Add( new ProgramInterventoAmbHandler(eventRepositoryEvent));
             handlerHelper.Add( new ProgramInterventoRotHandler(eventRepositoryEvent));

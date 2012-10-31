@@ -3,6 +3,7 @@ using System.Configuration;
 using System.ServiceModel;
 using CommandService;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers.Actions;
 using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
 using EventStore;
@@ -42,20 +43,20 @@ namespace Super.Programmazione.ProgrammazioneService
 
 
 
-            var sessionRepository = new SessionRepository();
+            var userRepository = new SecurityUserRepository();
             var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
-            var sessionFactory = new CommonSessionFactory(sessionRepository);
+            var actionFactory = new ActionFactory();
 
-            var commandHandlerService = new CommandHandlerService<CommonSession>();
+            var commandHandlerService = new CommandHandlerService(userRepository);
             commandHandlerService.Subscribe(bus);
-            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, sessionFactory);
+            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, actionFactory);
 
 
             var projectionHandler = new ProjectionHandlerAsyncService();
             var projectionRepositoryBuilder = new ProjectionRepositoryBuilder();
             projectionHandler.InitHandlers(projectionRepositoryBuilder, bus);
 
-            var commandWebService = new CommandWebService<CommonSession>(commandHandlerService);
+            var commandWebService = new CommandWebService(commandHandlerService);
 
 
 

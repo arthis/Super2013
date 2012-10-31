@@ -185,6 +185,10 @@
       <Project>{5B1B79C7-BE33-4DE3-9C11-EAD25956C5F6}</Project>
       <Name>Domain %28Super\Contabilita\Domain%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Controllo\domain\Domain.csproj">
+      <Project>{D1041660-9247-418F-A1C4-9D746ADF42AF}</Project>
+      <Name>Domain %28Super\Controllo\Domain%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{8A1120F1-6778-4AD1-8F09-45A2ABE5C1FC}</Project>
       <Name>Commands %28Super\Programmazione\Commands%29</Name>

@@ -3,6 +3,7 @@ using System.Configuration;
 using System.ServiceModel;
 using CommandService;
 using CommonDomain.Core;
+using CommonDomain.Core.Handlers.Actions;
 using CommonDomain.Persistence;
 using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
@@ -45,20 +46,22 @@ namespace Super.Appaltatore.AppaltatoreService
 
 
 
-            var sessionRepository = new SessionRepository();
-            var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
-            var sessionFactory = new CommonSessionFactory(sessionRepository);
+            var userRepository = new SecurityUserRepository();
+            var actionFactory = new ActionFactory();
 
-            var commandHandlerService = new CommandHandlerService<CommonSession>();
+            var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
+
+
+            var commandHandlerService = new CommandHandlerService(userRepository);
             commandHandlerService.Subscribe(bus);
-            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, sessionFactory);
+            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, actionFactory);
 
                         
             var projectionHandler = new ProjectionHandlerAsyncService();
             var projectionRepositoryBuilder = new ProjectionRepositoryBuilder();
             projectionHandler.InitHandlers(projectionRepositoryBuilder, bus);
 
-            var commandWebService = new CommandWebService<CommonSession>(commandHandlerService);
+            var commandWebService = new CommandWebService(commandHandlerService);
 
 
         

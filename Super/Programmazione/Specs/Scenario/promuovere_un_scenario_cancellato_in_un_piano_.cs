@@ -26,8 +26,7 @@ namespace Super.Programmazione.Specs.Scenario
 
         protected override CommandHandler<PromoteScenarioToPlan> OnHandle(IEventRepository eventRepository)
         {
-            var sessionFactory = new FakeSessionFactory(_idUserPromoting);
-            return new PromoteScenarioToPlanHandler<ISession>(eventRepository, sessionFactory);
+            return new PromoteScenarioToPlanHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()

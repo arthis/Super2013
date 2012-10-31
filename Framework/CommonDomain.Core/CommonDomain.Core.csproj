@@ -110,6 +110,7 @@
     <Compile Include="..\VersionAssemblyInfo.cs">
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Handlers\Actions\ActionCommandConstrainedOnly.cs" />
     <Compile Include="AggregateBase.cs" />
     <Compile Include="AggregateRootInstanceNotFoundException.cs" />
     <Compile Include="AlreadyCreatedAggregateRootException.cs" />
@@ -145,8 +146,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationEventRouter.cs" />
     <Compile Include="SagaBase.cs" />
-    <Compile Include="Session.cs" />
-    <Compile Include="SessionFactory.cs" />
+    <Compile Include="Handlers\Actions\ActionFullyConstrained.cs" />
+    <Compile Include="Handlers\Actions\ActionFactory.cs" />
     <Compile Include="Specifications.cs" />
     <Compile Include="Super\Domain\BuildDomainVO.cs" />
     <Compile Include="Super\Domain\Builders\ScenarioRuleBuilder.cs" />
@@ -181,6 +182,7 @@
     <Compile Include="Super\Messaging\ValueObjects\WorkPeriod.cs" />
     <Compile Include="Super\Messaging\ValueObjects\Treno.cs" />
     <Compile Include="SyncDispatcher.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="ValidationMessage.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -200,7 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EventStore">
-      <HintPath>..\..\Super\Web\Core_Web\bin\Debug\EventStore.dll</HintPath>
+      <HintPath>..\..\lib\EventStore\EventStore.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

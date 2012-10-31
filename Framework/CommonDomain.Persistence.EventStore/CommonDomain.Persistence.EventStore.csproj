@@ -125,7 +125,7 @@
     <Compile Include="SagaEventStoreRepository.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SessionRepository.cs" />
+    <Compile Include="SecurityUserRepository.cs" />
     <Compile Include="SqlServerCommandRepository.cs" />
   </ItemGroup>
   <ItemGroup>

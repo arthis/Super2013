@@ -17,6 +17,7 @@ namespace Super.Programmazione.Specs.Scenario
 {
     public class Cancellazione_di_un_scenario_gia_cancellato : CommandBaseClass<CancelScenario>
     {
+
         private Guid _id = Guid.NewGuid();
         private Guid _idUser = Guid.NewGuid();
         private string _description = "test";
@@ -25,10 +26,10 @@ namespace Super.Programmazione.Specs.Scenario
 
         protected override CommandHandler<CancelScenario> OnHandle(IEventRepository eventRepository)
         {
-            var sessionFactory = new FakeSessionFactory(_idUser);
-            return new CancelScenarioHandler<ISession>(eventRepository, sessionFactory);
+            return new CancelScenarioHandler(eventRepository);
         }
 
+        
         public override IEnumerable<IMessage> Given()
         {
             yield return BuildEvt.ScenarioCreated

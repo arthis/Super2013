@@ -3,7 +3,7 @@ using CommonDomain.Core.Handlers;
 
 namespace CommonDomain.Core.Tests
 {
-    public class MyCommandHandlerWithSession<T> : ICommandHandler<T> where T : ICommand
+    public class MyCommandHandlerWithSession<T> : ICommandHandler<T> where T : ICommand 
     {
         public CommandValidation Execute(T command)
         {
@@ -11,6 +11,6 @@ namespace CommonDomain.Core.Tests
             return null;
         }
 
-        public ISession Session { get; set; }
+        public IAction Action { get; set; }
     }
 }

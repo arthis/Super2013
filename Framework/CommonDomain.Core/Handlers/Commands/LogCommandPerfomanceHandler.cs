@@ -2,7 +2,7 @@
 
 namespace CommonDomain.Core.Handlers.Commands
 {
-    public class LogCommandPerfomanceHandler<TCommand> : ICommandHandler<TCommand> where TCommand : ICommand
+    public class LogCommandPerfomanceHandler<TCommand> : ICommandHandler<TCommand> where TCommand : ICommand 
     {
         private readonly ICommandHandler<TCommand> _next;
 

@@ -128,9 +128,10 @@
     <Compile Include="IMemento.cs" />
     <Compile Include="ISaga.cs" />
     <Compile Include="ISerialize.cs" />
-    <Compile Include="ISession.cs" />
-    <Compile Include="ISessionFactory.cs" />
+    <Compile Include="IAction.cs" />
+    <Compile Include="IActionFactory.cs" />
     <Compile Include="ISpecification.cs" />
+    <Compile Include="ISecurityUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,7 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EventStore">
-      <HintPath>..\..\Super\Web\Core_Web\bin\Debug\EventStore.dll</HintPath>
+      <HintPath>..\..\lib\EventStore\EventStore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />

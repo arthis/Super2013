@@ -6,31 +6,36 @@ using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
 using Super.Programmazione.Commands.Scenario;
+using Super.Programmazione.Domain;
 
 namespace Super.Programmazione.Handlers.Commands.Scenario
 {
-    public class PromoteScenarioToPlanHandler<TSession> : CommandHandler<PromoteScenarioToPlan> where TSession:ISession
+    public class PromoteScenarioToPlanHandler : CommandHandler<PromoteScenarioToPlan>
     {
-        private readonly ISessionFactory<TSession> _sessionFactory;
+        
 
-        public PromoteScenarioToPlanHandler(IEventRepository eventRepository, ISessionFactory<TSession> sessionFactory)
+        public PromoteScenarioToPlanHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
-            _sessionFactory = sessionFactory;
+            
         }
 
         public override CommandValidation Execute(PromoteScenarioToPlan cmd)
         {
             Contract.Requires(cmd != null);
 
-            var session = _sessionFactory.CreateSession(cmd);
 
             var scenario = EventRepository.GetById<Domain.Programma.Scenario>(cmd.Id);
 
             if (scenario.IsNull())
                 throw new AggregateRootInstanceNotFoundException();
 
-            scenario.PromoteToPlan(session.UserId, cmd.PromotionDate, cmd.IdPlan);
+            var user = EventRepository.GetById<User>(cmd.UserId);
+
+            if (user.IsNull())
+                throw new AggregateRootInstanceNotFoundException();
+
+            user.PromoteToPlan(scenario, cmd.PromotionDate, cmd.IdPlan);
 
             EventRepository.Save(scenario, cmd.CommitId);
 

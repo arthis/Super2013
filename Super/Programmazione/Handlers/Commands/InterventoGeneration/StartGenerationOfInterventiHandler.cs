@@ -1,4 +1,5 @@
 ﻿using System;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
@@ -6,7 +7,7 @@ using Super.Programmazione.Commands.InterventoGeneration;
 
 namespace Super.Programmazione.Handlers.Commands.InterventoGeneration
 {
-    public class StartGenerationOfInterventiHandler: CommandHandler<StartGenerationOfInterventi>
+    public class StartGenerationOfInterventiHandler : CommandHandler<StartGenerationOfInterventi>
     {
         public StartGenerationOfInterventiHandler(IEventRepository eventRepository)
             : base(eventRepository)

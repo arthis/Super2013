@@ -7,12 +7,16 @@ using System.Text;
 
 namespace CommonDomain.Core.Tests
 {
-    public class MyMessage :CommandBase 
+    public class MyCommand :CommandBase 
     {
-        public IDictionary Properties { get; private set; }
+        
         public override string ToDescription()
         {
             throw new NotImplementedException();
         }
+
+        
+
+        
     }
 }

@@ -23,6 +23,15 @@ namespace Core_Web.Controllers
                 return (Guid)Session["SecurityToken"];
             }
         }
+        private Guid UserId
+        {
+            get
+            {
+                if (Session["UserId"] == null)
+                    throw new SecurityAccessDeniedException("no user Id found");
+                return (Guid)Session["UserId"];
+            }
+        }
         
         public BaseContabilitaController(ICommandWebService commandWebService)
         {
@@ -40,10 +49,12 @@ namespace Core_Web.Controllers
         {
             try
             {
-#if DEBUG
+                #if DEBUG
                 Session["SecurityToken"] = Guid.NewGuid();
-#endif
+                Session["UserId"] = Guid.NewGuid();
+                #endif
                 command.SecurityToken = SecurityToken;
+                command.UserId = UserId;
 
                 var response = _commandService.Execute(command);
 

@@ -1,11 +1,11 @@
-﻿@model Core_Web.Models.DeleteCategoriaCommerciale
+﻿@model Core_Web.Models.Super.Contabilita.CategoriaCommerciale.DeleteCategoriaCommercialeModel
 @{
-    ViewBag.Title = "edit categoria commerciale";
+    ViewBag.Title = "edit appaltatore";
     Layout = string.Empty;
 }
 <div id="error_mssg" class="hidden"></div>
 <form id="formDetails">
-Are you sure you want to delete this categoriaCommerciale
+Are you sure you want to delete this appaltatore
 <fieldset>
     <legend>CategoriaCommerciale</legend>
     <div class="editor-label">
@@ -30,15 +30,12 @@ Are you sure you want to delete this categoriaCommerciale
             var id = $('#Id').val();
             var commitId = $('#CommitId').val();
             var version = $('#Version').val();
-                
-
-            var url = "@Url.Action("DeleteCategoriaCommerciale","CategoriaCommerciale")";
 
             try 
             {
                 var command = new DeleteCategoriaCommerciale(id, commitId, version);
 
-                self.DeleteCategoriaCommerciale(url, command);
+                viewModel.DeleteCategoriaCommerciale(command);
             } catch(e) 
             {
                 alert(e);

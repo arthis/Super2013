@@ -1,4 +1,7 @@
 ﻿/// <reference path="/Scripts/Super/Contabilita/Appaltatore/vm-Appaltatore-index.js" />
+/// <reference path="/Scripts/Super/Contabilita/Appaltatore/repository-Appaltatore.js" />
+/// <reference path="/Scripts/Super/Contabilita/Appaltatore/model-Appaltatore.js" />
+/// <reference path="/Scripts/Super/Contabilita/Appaltatore/dialog-Appaltatore.js" />
 /// <reference path="/Scripts/Super/Contabilita/Appaltatore/cmd-Appaltatore.js" />
 /// <reference path="/Scripts/dateFormat.js" />
 /// <reference path="/Scripts/jquery-1.8.0.min.js" />
@@ -18,12 +21,16 @@
 
 
 describe("creating an appaltatore viewmodel ", function () {
-    var view = new View();
-    var repository = new RepositoryAppaltatore(null,null,null,null,null);
-    var dialog = DialogAppaltatore(null,null,null);
-    
-    var viewModel = new vmAppaltatore(view, repository, dialog, 1,10);
-    it("should create a viewmodel", function () {
+
+    var view, repository, dialog, viewModel = null;
+    beforeEach(function () {
+        view = new View();
+        repository = new RepositoryAppaltatore(null, null, null, null, null, null);
+        dialog = new DialogAppaltatore(null, null, null, null);
+
+        viewModel = new vmAppaltatore(view, repository, dialog, 1, 10);
+    });
+    it("should create a viewmodel for appaltatore", function () {
         expect(viewModel).not.toBeNull();
     });
     it("with the correct values of viewmodel", function () {
@@ -35,22 +42,23 @@ describe("creating an appaltatore viewmodel ", function () {
     });
 });
 
+
 describe("When the viewmodel shows CreateAppaltatore", function () {
 
     var viewModel, view, repository, dialog = null;
-    
+
 
     beforeEach(function () {
         view = new View();
         repository = new RepositoryAppaltatore(null, null, null, null, null);
         dialog = new DialogAppaltatore(null, null, null);
-       
+
 
         spyOn(dialog, 'ShowCreateAppaltatore');
 
-        viewModel = new vmAppaltatore(view,repository,dialog,1,10);
+        viewModel = new vmAppaltatore(view, repository, dialog, 1, 10);
         viewModel.ShowCreateAppaltatore();
-        
+
     });
 
     it("the dialog calls createAppaltatore", function () {
@@ -66,7 +74,7 @@ describe("When the viewmodel shows UpdateAppaltatore", function () {
     beforeEach(function () {
         view = new View();
         repository = new RepositoryAppaltatore(null, null, null, null, null);
-        dialog = new DialogAppaltatore(null, null, null);
+        dialog = new DialogAppaltatore( null, null, null, null);
         item = new Appaltatore('id', 'version', new Date(), 'description');
 
         spyOn(dialog, 'ShowUpdateAppaltatore');
@@ -89,7 +97,7 @@ describe("When the viewmodel shows deleteAppaltatore", function () {
     beforeEach(function () {
         view = new View();
         repository = new RepositoryAppaltatore(null, null, null, null, null);
-        dialog = new DialogAppaltatore(null, null, null);
+        dialog = new DialogAppaltatore(null, null, null, null);
         item = new Appaltatore('id', 'version', new Date(), 'description');
 
         spyOn(dialog, 'ShowDeleteAppaltatore');
@@ -113,7 +121,7 @@ describe("When the viewmodel creates an Appaltatore", function () {
         view = new View();
         repository = new RepositoryAppaltatore(null, null, null, null, null);
         dialog = new DialogAppaltatore(null, null, null);
-        
+
 
         spyOn(repository, 'createAppaltatore');
         spyOn(view, 'Spin');
@@ -123,10 +131,10 @@ describe("When the viewmodel creates an Appaltatore", function () {
 
     });
 
-    it("the repository calls createAppaltatore", function () {    
+    it("the repository calls createAppaltatore", function () {
         expect(repository.createAppaltatore).toHaveBeenCalled();
     });
-    it("the message wait arrives for creating", function () {    
+    it("the message wait arrives for creating", function () {
         expect(view.Spin).toHaveBeenCalled();
     });
 });
@@ -184,5 +192,10 @@ describe("When the viewmodel deletes an Appaltatore", function () {
         expect(view.Spin).toHaveBeenCalled();
     });
 });
+
+
+
+
+
 
 

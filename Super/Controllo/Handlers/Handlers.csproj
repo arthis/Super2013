@@ -130,11 +130,11 @@
       <Name>CommandService</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
-      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
+      <Project>{51c99f4d-ccf0-431a-b37c-d620ef1df37b}</Project>
       <Name>CommonDomain.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
-      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
+      <Project>{75c8f482-b38d-428c-ad67-890b40e35a63}</Project>
       <Name>CommonDomain.Persistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">

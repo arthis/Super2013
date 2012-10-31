@@ -10,18 +10,24 @@ using Super.Programmazione.Handlers.Ports.Programma;
 
 namespace Super.Programmazione.Handlers
 {
-    public class CommandHandlerService<TSession> : CommandHandlerServiceBase<TSession> where TSession : ISession
+    public class CommandHandlerService : CommandHandlerServiceBase
     {
+        private readonly ISecurityUserRepository _repositorySecurityUser;
 
-        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, ISessionFactory<TSession> sessionFactory)
+        public CommandHandlerService(ISecurityUserRepository repositorySecurityUser)
         {
-            var handlerHelper = new CommandHandlerHelper<TSession>(commandRepository, sessionFactory, _handlers);
+            _repositorySecurityUser = repositorySecurityUser;
+        }
+
+        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, IActionFactory actionFactory)
+        {
+            var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory, _repositorySecurityUser, Handlers);
 
 
-            handlerHelper.Add( new CancelScenarioHandler<TSession>(eventRepository, sessionFactory));
+            handlerHelper.Add( new CancelScenarioHandler(eventRepository));
             handlerHelper.Add( new ChangeDescriptionScenarioHandler(eventRepository));
-            handlerHelper.Add( new CreateScenarioHandler<TSession>(eventRepository, sessionFactory));
-            handlerHelper.Add( new PromoteScenarioToPlanHandler<TSession>(eventRepository, sessionFactory));
+            handlerHelper.Add( new CreateScenarioHandler(eventRepository));
+            handlerHelper.Add( new PromoteScenarioToPlanHandler(eventRepository));
 
             #region programma
 

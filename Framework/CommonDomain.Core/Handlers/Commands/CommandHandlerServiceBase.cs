@@ -5,20 +5,24 @@ using CommonDomain.Persistence;
 
 namespace CommonDomain.Core.Handlers.Commands
 {
-    public abstract class CommandHandlerServiceBase<TSession> : ICommandHandlerService<TSession> where TSession:ISession
+    public abstract class CommandHandlerServiceBase : ICommandHandlerService
     {
-        protected readonly Dictionary<Type, Func<ICommand, CommandValidation>> _handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
-        protected readonly Dictionary<Type, Func<IEvent,ICommand>> _ports = new Dictionary<Type, Func<IEvent,ICommand>>();
         
-        public abstract void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,ISessionFactory<TSession> sessionFactory);
+        protected readonly Dictionary<Type, Func<ICommand,  CommandValidation>> Handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
+        protected readonly Dictionary<Type, Func<IEvent,ICommand>> _ports = new Dictionary<Type, Func<IEvent,ICommand>>();
+
+        
+
+        public abstract void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,IActionFactory actionFactory);
         public abstract void Subscribe(IBus bus);
         
         public  CommandValidation Execute(ICommand commandBase)
         {
+            
 
             var type = commandBase.GetType();
-            if (_handlers.ContainsKey(type))
-                return _handlers[type](commandBase);
+            if (Handlers.ContainsKey(type))
+                return Handlers[type](commandBase);
 
             throw new HandlerForMessageNotFoundException(string.Format("No handler found for the command '{0}'", commandBase.GetType()));
           

@@ -27,12 +27,15 @@ namespace Super.Programmazione.Specs.Scenario
 
         protected override CommandHandler<PromoteScenarioToPlan> OnHandle(IEventRepository eventRepository)
         {
-            var sessionFactory = new FakeSessionFactory(_idUserPromoting);
-            return new PromoteScenarioToPlanHandler<ISession>(eventRepository, sessionFactory);
+            return new PromoteScenarioToPlanHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
         {
+            yield return BuildEvt.UserAddedToSystem
+                .WithFirstName("t")
+                .WithLastName("l")
+                .Build(_idUserPromoting, 1);
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
@@ -45,7 +48,7 @@ namespace Super.Programmazione.Specs.Scenario
             return BuildCmd.PromoteScenarioToPlan
                         .WhenPromotionDate(_promotingDate)
                         .ForPlan(_idPlan)
-                        .Build(_id, 1);
+                        .Build(_id, 1, _idUserPromoting);
         }
 
         public override IEnumerable<IMessage> Expect()

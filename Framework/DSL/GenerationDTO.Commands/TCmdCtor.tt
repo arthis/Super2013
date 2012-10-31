@@ -82,6 +82,27 @@ void BuildCtor(ObjectDTO cmd)
 <#+         }#>
 		}
 
+		public <#= name #>(Guid id, Guid commitId, Guid userId<#= ctorArgs #>)
+		   : base(id,commitId,userId)
+		{
+		<#+
+	foreach (var property in cmd.Properties)
+        {
+			
+			foreach(string requirement in property.GetRequires())
+            {#>
+	<#= requirement #>
+
+<#+
+            }
+        }
+
+	foreach (var property in cmd.Properties)
+        {#>
+			<#= property.GetPascalCasedName() #> = <#= property.GetCamelCasedName() #> ;
+<#+         }#>
+		}
+
 
 		public <#= name #>(Guid id, Guid commitId, long version, DateTime wakeupTime<#= ctorArgs #>)
 		   : base(id,commitId,version,wakeupTime)
@@ -101,7 +122,35 @@ void BuildCtor(ObjectDTO cmd)
 	foreach (var property in cmd.Properties)
         {#>
 			<#= property.GetPascalCasedName() #> = <#= property.GetCamelCasedName() #> ;
-<#+         }#>
+<#+         
+		}
+		
+		#>
+		}
+
+		
+		public <#= name #>(Guid id, Guid commitId, long version, Guid userId<#= ctorArgs #>)
+		   : base(id,commitId,version,userId)
+		{
+		<#+
+	foreach (var property in cmd.Properties)
+        {
+			
+			foreach(string requirement in property.GetRequires())
+            {#>
+	<#= requirement #>
+
+<#+
+            }
+        }
+
+	foreach (var property in cmd.Properties)
+        {#>
+			<#= property.GetPascalCasedName() #> = <#= property.GetCamelCasedName() #> ;
+<#+         
+		}
+		
+		#>
 		}
 	<#+
 }

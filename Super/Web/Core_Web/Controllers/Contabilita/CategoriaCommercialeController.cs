@@ -3,9 +3,9 @@ using System.Linq;
 using System.Web.Mvc;
 using Core_Web.ContabilitaService;
 using Core_Web.Models;
+using Core_Web.Models.Super.Contabilita.CategoriaCommerciale;
 using Super.Contabilita.Commands.CategoriaCommerciale;
-using CreateCategoriaCommerciale = Super.Contabilita.Commands.CategoriaCommerciale.CreateCategoriaCommerciale;
-using DeleteCategoriaCommerciale = Core_Web.Models.DeleteCategoriaCommerciale;
+
 
 namespace Core_Web.Controllers.Contabilita
 {
@@ -32,6 +32,7 @@ namespace Core_Web.Controllers.Contabilita
             using (var ctx = GetEntities())
             {
                 var query = from i in ctx.CategoriaCommerciales
+                            where  !i.Deleted
                             select i;
 
                 if (!string.IsNullOrEmpty(command.Description))
@@ -57,9 +58,8 @@ namespace Core_Web.Controllers.Contabilita
         {
             using (var context = GetEntities())
             {
-                var model = new Models.CreateCategoriaCommerciale()
+                var model = new CreateCategoriaCommercialeModel()
                                 {
-                                    
                                     Id = Guid.NewGuid(),
                                     CommitId = Guid.NewGuid(),
                                     Version = 0,
@@ -76,7 +76,7 @@ namespace Core_Web.Controllers.Contabilita
         }
 
         [HttpGet]
-        public ActionResult EditCategoriaCommerciale(Guid id)
+        public ActionResult UpdateCategoriaCommerciale(Guid id)
         {
             using (var context = GetEntities())
             {
@@ -85,9 +85,9 @@ namespace Core_Web.Controllers.Contabilita
                 var projection = query.Where(x => x.Id == id).SingleOrDefault();
 
                 if (projection == null)
-                    throw new Exception(string.Format("Edit CategoriaCommerciale not found for id {0}", id));
+                    throw new Exception(string.Format("Update CategoriaCommerciale not found for id {0}", id));
 
-                var model = new EditCategoriaCommerciale()
+                var model = new UpdateCategoriaCommercialeModel()
                                 {
                                     Id = projection.Id,
                                     CommitId = Guid.NewGuid(),
@@ -95,7 +95,7 @@ namespace Core_Web.Controllers.Contabilita
                                     Description = projection.Description
                                 };
 
-                return View(GetView("EditCategoriaCommerciale"), model);
+                return View(GetView("UpdateCategoriaCommerciale"), model);
             }
         }
 
@@ -118,12 +118,12 @@ namespace Core_Web.Controllers.Contabilita
                     throw new Exception(string.Format("Delete CategoriaCommerciale not found for id {0}", id));
 
 
-                var model = new DeleteCategoriaCommerciale()
+                var model = new DeleteCategoriaCommercialeModel()
                  {
                      Id = projection.Id,
                      CommitId = Guid.NewGuid(),
                      Version = projection.Version,
-                     Description = projection.Description
+                     Description = projection.Description,
                  };
 
                 return View(GetView("DeleteCategoriaCommerciale"), model);
@@ -131,7 +131,7 @@ namespace Core_Web.Controllers.Contabilita
         }
 
         [HttpPost]
-        public JsonResult Delete(Super.Contabilita.Commands.CategoriaCommerciale.DeleteCategoriaCommerciale command)
+        public JsonResult DeleteCategoriaCommerciale(DeleteCategoriaCommerciale command)
         {
             return Execute(command);
         }

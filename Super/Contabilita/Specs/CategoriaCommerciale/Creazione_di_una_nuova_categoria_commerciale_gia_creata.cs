@@ -40,7 +40,7 @@ namespace Super.Contabilita.Specs.CategoriaCommerciale
         public override CreateCategoriaCommerciale When()
         {
             return BuildCmd.CreateCategoriaCommerciale
-                .ForDescription(_description)
+                .WithDescription(_description)
                 .Build(_id, 1);
         }
 

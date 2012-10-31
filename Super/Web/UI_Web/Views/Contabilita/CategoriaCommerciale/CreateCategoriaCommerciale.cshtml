@@ -1,6 +1,6 @@
-﻿@model Core_Web.Models.CreateCategoriaCommerciale
+﻿@model Core_Web.Models.Super.Contabilita.CategoriaCommerciale.CreateCategoriaCommercialeModel
 @{
-    ViewBag.Title = "add categoriaCommerciale";
+    ViewBag.Title = "add appaltatore";
     Layout = string.Empty;
 }
 <div id="error_mssg" class="hidden"></div>
@@ -13,46 +13,40 @@
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Description, new { @class = "validate[required]" })
         </div>
-       
+
     </fieldset>
     @Html.HiddenFor(model => model.Id)
-    @Html.HiddenFor(model=>model.CommitId)
-    @Html.HiddenFor(model=>model.Version)
+    @Html.HiddenFor(model => model.CommitId)
+    @Html.HiddenFor(model => model.Version)
 </form>
-<script>
+<script type="text/javascript">
 
-    
     $(document).ready(function () {
         $('.datepicker').datepicker({ dateFormat: "dd/mm/yy" });
         jQuery("#formDetails").validationEngine();
-        
 
-        viewModel.Accept = function (self) {
+
+        viewModel.Accept = function (viewmodel) {
 
             jQuery('#formDetails').validationEngine({ scroll: false });
-            if(jQuery('#formDetails').validationEngine('validate')) {
+            if (jQuery('#formDetails').validationEngine('validate')) {
 
                 var id = $('#Id').val();
                 var commitId = $('#CommitId').val();
                 var version = $('#Version').val();
                 var description = $('#Description').val();
-                var idCategoriaCommerciale = $('#IdCategoriaCommerciale').val();
-              
-                var url = "@Url.Action("CreateCategoriaCommerciale", "CategoriaCommerciale")";
 
-             
-                try 
-                {
-                    var command = new CreateCategoriaCommerciale(id, commitId, version,   description,idCategoriaCommerciale);
 
-                    self.CreateCategoriaCommerciale(url, command);
-                } catch(e) {
+                try {
+                    var command = new CreateCategoriaCommerciale(id, commitId, version, description);
+                    viewmodel.CreateCategoriaCommerciale(command);
+                } catch (e) {
                     alert(e);
                 }
             }
         };
-        
-       
-        
+
     });
+
+
 </script>

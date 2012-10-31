@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CommonDomain.Core;
+using Super.Programmazione.Domain.Programma;
 using Super.Programmazione.Events;
 using Super.Programmazione.Events.System;
 
@@ -15,13 +16,11 @@ namespace Super.Programmazione.Domain
             
         }
 
-        public User(Guid id, string firstName, string lastName, string username, string password)
+        public User(Guid id, string firstName, string lastName)
         {
             var evt = BuildEvt.UserAddedToSystem
                 .WithFirstName(firstName)
-                .WithLastName(lastName)
-                .ForUserName(username)
-                .ForPassword(password);
+                .WithLastName(lastName);
 
 
             RaiseEvent(id, evt);
@@ -32,9 +31,20 @@ namespace Super.Programmazione.Domain
             Id = evt.Id;
         }
 
-        public Programma.Scenario CreateScenario(Guid idScenario, Guid idProgrammma,  string description)
+        public Scenario CreateScenario(Guid idScenario, Guid idProgrammma,  string description)
         {
-            return new Programma.Scenario(idScenario, this.Id, description, idProgrammma);
+            return new Scenario(idScenario, Id, description, idProgrammma);
+        }
+
+
+        public void CancelScenario(Scenario scenario)
+        {
+            scenario.Cancel(Id);
+        }
+
+        public void PromoteToPlan(Scenario scenario, DateTime promotionDate, Guid idPlan)
+        {
+            scenario.PromoteToPlan(Id,promotionDate,idPlan);
         }
     }
 }

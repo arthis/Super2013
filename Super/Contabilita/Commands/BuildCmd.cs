@@ -1,6 +1,5 @@
 using Super.Contabilita.Commands.Builders.Appaltatore;
 using Super.Contabilita.Commands.Builders.Pricing;
-using Super.Contabilita.Commands.Builders.CategoriaCommerciale;
 using Super.Contabilita.Commands.Builders.Committente;
 using Super.Contabilita.Commands.Builders.DirezioneRegionale;
 using Super.Contabilita.Commands.Builders.GruppoOggettoIntervento;
@@ -39,12 +38,6 @@ namespace Super.Contabilita.Commands
         public static UpdateLottoBuilder UpdateLotto { get { return new UpdateLottoBuilder(); } }
 
         public static DeleteLottoBuilder DeleteLotto { get { return new DeleteLottoBuilder(); } }
-
-        public static CreateCategoriaCommercialeBuilder CreateCategoriaCommerciale { get { return new CreateCategoriaCommercialeBuilder(); } }
-
-        public static UpdateCategoriaCommercialeBuilder UpdateCategoriaCommerciale { get { return new UpdateCategoriaCommercialeBuilder(); } }
-
-        public static DeleteCategoriaCommercialeBuilder DeleteCategoriaCommerciale { get { return new DeleteCategoriaCommercialeBuilder(); } }
 
         public static CreateCommittenteBuilder CreateCommittente { get { return new CreateCommittenteBuilder(); } }
 

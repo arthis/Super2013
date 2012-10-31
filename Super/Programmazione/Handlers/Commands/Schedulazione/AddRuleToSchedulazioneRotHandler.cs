@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;
@@ -8,7 +9,7 @@ using Super.Programmazione.Commands.Schedulazione;
 
 namespace Super.Programmazione.Handlers.Commands.Schedulazione.Ambiente
 {
-    public partial class AddRuleToSchedulazioneAmbHandler: CommandHandler<AddRuleToSchedulazioneAmb>
+    public partial class AddRuleToSchedulazioneAmbHandler : CommandHandler<AddRuleToSchedulazioneAmb>
     {
         public AddRuleToSchedulazioneAmbHandler(IEventRepository eventRepository)
             : base(eventRepository)

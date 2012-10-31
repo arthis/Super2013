@@ -15,13 +15,13 @@ namespace Super.Contabilita.Handlers.Commands.Schedulazione
 
     public class CalculateSchedulazioneAmbPriceOfScenarioHandler : CommandHandler<CalculateSchedulazioneAmbPriceOfScenario>
     {
-        private readonly ISessionFactory<ISessionContabilita> _sessionContabilitaFactory;
+        
 
 
-        public CalculateSchedulazioneAmbPriceOfScenarioHandler(IEventRepository eventRepository, ISessionFactory<ISessionContabilita> sessionContabilitaFactory)
+        public CalculateSchedulazioneAmbPriceOfScenarioHandler(IEventRepository eventRepository)
             : base(eventRepository)
         {
-            _sessionContabilitaFactory = sessionContabilitaFactory;
+            
         }
 
 
@@ -29,9 +29,9 @@ namespace Super.Contabilita.Handlers.Commands.Schedulazione
         {
             Contract.Requires(cmd != null);
 
-            var session = _sessionContabilitaFactory.CreateSession(cmd);
+        
 
-            var intervento = EventRepository.GetById<SchedulazioneAmb>(cmd.Id);
+        
 
             throw new NotImplementedException();
 
@@ -42,7 +42,7 @@ namespace Super.Contabilita.Handlers.Commands.Schedulazione
 
             
 
-            //intervento.CalculatePrice(session.Pricing);
+            //intervento.CalculatePrice(action.Pricing);
 
             //var bachibousouk = EventRepository.GetById<Domain.Pricing.Pricing>(cmd.IdBachBouzouk);
 

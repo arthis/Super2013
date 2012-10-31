@@ -18,11 +18,11 @@ namespace CommandService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class CommandWebService<TSession> : ICommandWebService where TSession : ISession
+    public class CommandWebService : ICommandWebService 
     {
-        private ICommandHandlerService<TSession> _commandHandler;
+        private ICommandHandlerService _commandHandler;
         
-        public CommandWebService(ICommandHandlerService<TSession> commandHandlerService)
+        public CommandWebService(ICommandHandlerService commandHandlerService)
         {
             _commandHandler = commandHandlerService;
             

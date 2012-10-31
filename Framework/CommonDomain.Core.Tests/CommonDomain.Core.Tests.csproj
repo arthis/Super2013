@@ -85,12 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyMessage.cs" />
+    <Compile Include="MyCommand.cs" />
     <Compile Include="MyFinalHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Super\Domain\ValueObjects\IntervalTests.cs" />
     <Compile Include="Super\Domain\ValueObjects\WorkPeriodTests.cs" />
-    <Compile Include="when_a_command_is_executed_by_the_session_handler.cs" />
+    <Compile Include="CommandConstrainedOnlyAction.cs" />
     <Compile Include="when_a_command_is_executed_by_the_session_handler_and_the_token_is_known.cs" />
   </ItemGroup>
   <ItemGroup>

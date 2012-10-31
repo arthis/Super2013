@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using CommonDomain.Core.Handlers.Commands;

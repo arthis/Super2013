@@ -8,24 +8,28 @@ using CommonDomain.Core;
 
 namespace Super.Contabilita.Domain
 {
-    public class SessionContabilita : ISessionContabilita
+    public class ActionContabilita : IActionContabilita
     {
-        private readonly ISession _session;
+        private readonly IAction _action;
         private readonly Pricing.Pricing _pricing;
 
 
-        public SessionContabilita(ISession session  , Pricing.Pricing pricing)
+        public ActionContabilita(IAction action  , Pricing.Pricing pricing)
         {
             Contract.Requires(pricing != null);
-            Contract.Requires(session != null);
+            Contract.Requires(action != null);
 
-            _session = session;
+            _action = action;
             _pricing = pricing;
             
         }
 
-        public Guid UserId { get { return _session.UserId; } }
-        public bool IsAuthenticated { get { return _session.IsAuthenticated; } }
+
+
         public Pricing.Pricing Pricing { get { return _pricing; } }
+        public bool CanBeExecuted()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

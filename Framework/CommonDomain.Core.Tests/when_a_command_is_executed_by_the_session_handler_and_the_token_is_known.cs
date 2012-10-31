@@ -20,8 +20,8 @@
 //        Establish context = () =>
 //                                {
 //                                    _commandHandlerWithSession = new MyCommandHandlerWithSession<MyMessage>();
-//                                    var repo = new Mock<ISessionRepository>();
-//                                    repo.Setup(x => x.GetSession(securityToken)).Returns(new CommonSession(userId));
+//                                    var repo = new Mock<ISecurityUserRepository>();
+//                                    repo.Setup(x => x.GetSecurityUser(securityToken)).Returns(new ActionFullyConstrained(userId));
 //                                    sessionHandler = new SecurityCommandHandler<MyMessage>(repo.Object, _commandHandlerWithSession);
 //                                };
 
