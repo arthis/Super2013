@@ -28,7 +28,7 @@ namespace Super.Contabilita.Specs.Intervento
         private decimal _valuePrezzoBase = 25;
         private Guid _idTipoIntervento = Guid.NewGuid();
         
-        private decimal _priceCalculated=50;
+        private decimal _priceCalculated=25;
 
         private Guid _idTipoOggettoIntervento = Guid.NewGuid();
         
@@ -36,7 +36,8 @@ namespace Super.Contabilita.Specs.Intervento
 
         protected override CommandHandler<CalculateInterventoRotPriceOfPlan> OnHandle(IEventRepository eventRepository)
         {
-            return new CalculateInterventoRotPriceOfPlanHandler(eventRepository);
+            var pricing = eventRepository.GetById<Domain.Pricing.PricingRot>(_idPricing);
+            return new CalculateInterventoRotPriceOfPlanHandler(eventRepository, pricing);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -44,10 +45,10 @@ namespace Super.Contabilita.Specs.Intervento
             yield return BuildEvt.PricingCreated
                 .Build(_idPricing, 1);
 
-            yield return BuildEvt.BasePriceCreated
-                .ForGruppoOggetto(_idGruppoOggettoIntervento)
+            yield return BuildEvt.BasePriceRotCreated
+                .ForGruppoOggettoIntervento(_idGruppoOggettoIntervento)
                 .ForInterval(_intervalPrezzoBase)
-                .ForType(_idTipoIntervento)
+                .OfTipoIntervento(_idTipoIntervento)
                 .ForValue(_valuePrezzoBase)
                 .ForBasePrice(_idBasePrice)
                 .Build(_idPricing,2);
@@ -78,12 +79,12 @@ namespace Super.Contabilita.Specs.Intervento
             yield return BuildEvt.InterventoRotCreated
              .ForWorkPeriod(_workPeriod)
              .ForPlan(_idPlan)
-             .OfType(_idTipoIntervento)
+             .OfTipoIntervento(_idTipoIntervento)
              .WithOggetti(_oggetti)
              .Build(_id, 1);
             yield return BuildEvt.InterventoPriceOfPlanCalculated
                 .ForPlan(_idPlan)
-                .ToPrice(_priceCalculated)
+                .ForPrice(_priceCalculated)
                 .Build(_id, 2);
 
         }

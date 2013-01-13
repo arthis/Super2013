@@ -13,7 +13,7 @@ using Super.Contabilita.Handlers.Commands.Pricing;
 
 namespace Super.Contabilita.Specs.Pricing
 {
-    public class Crea_un_prezzo_base : CommandBaseClass<CreateBasePrice>
+    public class Crea_un_prezzo_base : CommandBaseClass<CreateBasePriceRot>
     {
         private readonly Guid _id = Guid.NewGuid();
 
@@ -25,9 +25,9 @@ namespace Super.Contabilita.Specs.Pricing
 
 
 
-        protected override CommandHandler<CreateBasePrice> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<CreateBasePriceRot> OnHandle(IEventRepository eventRepository)
         {
-            return new CreateBasePriceHandler(eventRepository);
+            return new CreateBasePriceRotHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -37,24 +37,24 @@ namespace Super.Contabilita.Specs.Pricing
            
         }
 
-        public override CreateBasePrice When()
+        public override CreateBasePriceRot When()
         {
-            return Commands.BuildCmd.CreateBasePrice
+            return Commands.BuildCmd.CreateBasePriceRot
                             .ForBasePrice(_idBasePrice)
-                            .ForGruppoOggetto(_idGruppoOggettoIntervento)
+                            .ForGruppoOggettoIntervento(_idGruppoOggettoIntervento)
                             .ForInterval(_interval)
-                            .ForType(_idTipoIntervento)
+                            .OfTipoIntervento(_idTipoIntervento)
                             .ForValue(_value)
                             .Build(_id,2);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.BasePriceCreated
+            yield return BuildEvt.BasePriceRotCreated
                  .ForBasePrice(_idBasePrice)
-                 .ForGruppoOggetto(_idGruppoOggettoIntervento)
+                 .ForGruppoOggettoIntervento(_idGruppoOggettoIntervento)
                  .ForInterval(_interval)
-                 .ForType(_idTipoIntervento)
+                 .OfTipoIntervento(_idTipoIntervento)
                  .ForValue(_value)
                  .Build(_id, 2);
                             

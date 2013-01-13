@@ -15,13 +15,13 @@ namespace Super.Contabilita.Handlers.Commands.Schedulazione
 
     public class CalculateSchedulazioneAmbPriceOfScenarioHandler : CommandHandler<CalculateSchedulazioneAmbPriceOfScenario>
     {
-        
+        private readonly Domain.Pricing.PricingAmb _pricing;
 
 
-        public CalculateSchedulazioneAmbPriceOfScenarioHandler(IEventRepository eventRepository)
+        public CalculateSchedulazioneAmbPriceOfScenarioHandler(IEventRepository eventRepository, Domain.Pricing.PricingAmb pricing)
             : base(eventRepository)
         {
-            
+            _pricing = pricing;
         }
 
 
@@ -29,28 +29,20 @@ namespace Super.Contabilita.Handlers.Commands.Schedulazione
         {
             Contract.Requires(cmd != null);
 
-        
+            var schedulazione = EventRepository.GetById<Domain.Schedulazione.SchedulazioneAmb>(cmd.Id);
 
-        
+            if (schedulazione.IsNull())
+            {
+                schedulazione = new SchedulazioneAmb(cmd.Id, cmd.IdTipoIntervento, cmd.IdScenario, cmd.Quantity, cmd.Period.ToDomain(), cmd.WorkPeriod.ToDomain());
+            }
 
-            throw new NotImplementedException();
 
-            //if (intervento.IsNull())
-            //{
-            //    intervento = new SchedulazioneAmb();
-            //}
+            schedulazione.CalculateBasePrice(_pricing);
 
-            
 
-            //intervento.CalculatePrice(action.Pricing);
+            EventRepository.Save(schedulazione, cmd.CommitId);
 
-            //var bachibousouk = EventRepository.GetById<Domain.Pricing.Pricing>(cmd.IdBachBouzouk);
-
-            //intervento.CalculatePrice(bachibousouk);
-
-            //EventRepository.Save(intervento, cmd.CommitId);
-
-            //return intervento.CommandValidationMessages;
+            return schedulazione.CommandValidationMessages;
         }
 
     }

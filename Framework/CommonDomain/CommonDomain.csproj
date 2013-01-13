@@ -123,6 +123,7 @@
     <Compile Include="IEvent.cs" />
     <Compile Include="IEventBuilder.cs" />
     <Compile Include="IMessage.cs" />
+    <Compile Include="IRepositoryAction.cs" />
     <Compile Include="IRouteEvents.cs" />
     <Compile Include="IDetectConflicts.cs" />
     <Compile Include="IMemento.cs" />

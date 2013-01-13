@@ -114,6 +114,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appaltatore.cs" />
+    <Compile Include="Pricing\PricingAmb.cs" />
+    <Compile Include="Pricing\PricingRot.cs" />
+    <Compile Include="Pricing\PricingRotMan.cs" />
+    <Compile Include="Schedulazione\SchedulazioneRotMan.cs" />
+    <Compile Include="Schedulazione\SchedulazioneRot.cs" />
     <Compile Include="Schedulazione\SchedulazioneAmb.cs" />
     <Compile Include="ISessionContabilita.cs" />
     <Compile Include="ISessionContabilitaFactory.cs" />

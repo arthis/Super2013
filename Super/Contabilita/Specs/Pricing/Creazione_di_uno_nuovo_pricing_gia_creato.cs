@@ -14,7 +14,7 @@ using Super.Contabilita.Handlers.Commands.Pricing;
 
 namespace Super.Contabilita.Specs.Pricing
 {
-    public class Creazione_di_uno_nuovo_pricing_gia_creato : CommandBaseClass<CreatePricing>
+    public class Creazione_di_uno_nuovo_pricing_gia_creato : CommandBaseClass<CreatePricingRot>
     {
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
@@ -25,9 +25,9 @@ namespace Super.Contabilita.Specs.Pricing
         }
        
 
-        protected override CommandHandler<CreatePricing> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<CreatePricingRot> OnHandle(IEventRepository eventRepository)
         {
-            return new CreatePricingHandler(eventRepository);
+            return new CreatePricingRotHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -36,9 +36,9 @@ namespace Super.Contabilita.Specs.Pricing
                 .Build(_id, 1);
         }
 
-        public override CreatePricing When()
+        public override CreatePricingRot When()
         {
-            return Commands.BuildCmd.CreatePricing
+            return Commands.BuildCmd.CreatePricingRot
                                  .Build(_id, 1);
         }
 

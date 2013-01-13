@@ -1,0 +1,200 @@
+﻿{
+    "Namespace" : "Super.Contabilita.Commands.Pricing",
+    "Objects" :
+    [
+        {
+            "Name" :"CreateBasePriceRot",
+			"Description" : "Creiamo un prezzo di base per rotabile",
+            "Properties" : [
+				{
+                    "Name" : "IdBasePrice",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Value",
+                    "Type" : "decimal",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Interval",
+                    "Type" : "IntervalOpened",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdGruppoOggettoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+		    ]
+        },
+		{
+            "Name" :"CreateBasePriceRotMan",
+			"Description" : "Creiamo un prezzo di base per rotabile in manutenzione",
+            "Properties" : [
+				{
+                    "Name" : "IdBasePrice",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Value",
+                    "Type" : "decimal",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Interval",
+                    "Type" : "IntervalOpened",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdGruppoOggettoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+		    ]
+        },
+		{
+            "Name" :"CreateBasePriceAmb",
+			"Description" : "Creiamo un prezzo di base per ambiente",
+            "Properties" : [
+				{
+                    "Name" : "IdBasePrice",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Value",
+                    "Type" : "decimal",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Interval",
+                    "Type" : "IntervalOpened",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+		    ]
+        },
+		{
+            "Name" :"UpdateBasePriceRot",
+			"Description" : "Aggiornamo un prezzo di base per rotabile",
+            "Properties" : [
+				{
+                    "Name" : "IdBasePrice",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Value",
+                    "Type" : "decimal",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Interval",
+                    "Type" : "IntervalOpened",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdGruppoOggettoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+		    ]
+        },
+		{
+            "Name" :"UpdateBasePriceRotMan",
+			"Description" : "Aggiornamo il prezzo di base per rotabile in manutenzione",
+            "Properties" : [
+				{
+                    "Name" : "IdBasePrice",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Value",
+                    "Type" : "decimal",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Interval",
+                    "Type" : "IntervalOpened",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdGruppoOggettoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+		    ]
+        },
+		{
+            "Name" :"UpdateBasePriceAmb",
+			"Description" : "Aggiornamo il prezzo di base per ambiente",
+            "Properties" : [
+				{
+                    "Name" : "IdBasePrice",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Value",
+                    "Type" : "decimal",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Interval",
+                    "Type" : "IntervalOpened",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+		    ]
+        },
+		{
+            "Name" :"CreatePricingRot",
+			"Description" : "Creiamo il pricing per rotabile.",
+            "Properties" : [
+		    ]
+        },
+		{
+            "Name" :"CreatePricingRotMan",
+			"Description" : "Creiamo il pricing per rotabile in manutenzione.",
+            "Properties" : [
+		    ]
+        },
+		{
+            "Name" :"CreatePricingAmb",
+			"Description" : "Creiamo il pricing per ambiente.",
+            "Properties" : [
+		    ]
+        }
+    ]
+}

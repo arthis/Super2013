@@ -32,10 +32,10 @@ namespace CommonSpecs
         [SetUp]
         public void Setup()
         {
-            var commandHandler = OnHandle(_fakeEventRepository);
             _fakeEventRepository.CommittedEvents = Given();
             var command = When();
             var expect = Expect();
+            var commandHandler = OnHandle(_fakeEventRepository);
             try
             {
                 commandHandler.Execute(command);

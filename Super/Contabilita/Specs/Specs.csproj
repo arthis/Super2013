@@ -183,7 +183,7 @@
     <Compile Include="Lotto\Creazione_di_un_nuovo_lotto_gia_creato.cs" />
     <Compile Include="Pricing\aggiorna_il_prezzo_base.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedulazione\Calcolo_di_schedulazione_rotabile.cs" />
+    <Compile Include="Schedulazione\calcolo_di_schedulazione_ambiente_di_un_scenario.cs" />
     <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_gia_creato.cs" />
     <Compile Include="TipoIntervento\Ambiente\Aggiornamento_di_un_tipo_intervento_ambiente_non_esistente.cs" />
     <Compile Include="TipoIntervento\Ambiente\Cancellazione_di_un_tipo_intervento_ambiente_gia_cancellato.cs" />

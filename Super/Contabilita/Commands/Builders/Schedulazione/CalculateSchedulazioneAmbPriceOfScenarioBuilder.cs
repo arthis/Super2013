@@ -12,7 +12,7 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
         private Guid _idTipoIntervento;
         private Period _period;
         
-        private Guid _idSchedulazione;
+        
         private WorkPeriod _workPeriod;
 
         private int _quantity;
@@ -27,7 +27,6 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
         {
             var cmd = new CalculateSchedulazioneAmbPriceOfScenario(id, commitId, version,
                 _idScenario,
-                _idSchedulazione,
                 _workPeriod,
                 _idTipoIntervento,
                 _period,
@@ -42,12 +41,6 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
         public CalculateSchedulazioneAmbPriceOfScenarioBuilder ForScenario(Guid idScenario)
         {
             _idScenario = idScenario;
-            return this;
-        }
-
-        public CalculateSchedulazioneAmbPriceOfScenarioBuilder ForSchedulazione(Guid idSchedulazione)
-        {
-            _idSchedulazione = idSchedulazione;
             return this;
         }
 

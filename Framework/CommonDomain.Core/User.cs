@@ -1,18 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Text.RegularExpressions;
 
 namespace CommonDomain.Core
 {
     public class SecurityUser : ISecurityUser
     {
         protected readonly Guid IdUser;
-        private readonly IEnumerable<Type> _commands;
+        private readonly IEnumerable<Regex> _commands;
         private readonly IEnumerable<Guid> _committenti;
         private readonly IEnumerable<Guid> _lotti;
         private readonly IEnumerable<Guid> _tipiIntervento;
 
-        public SecurityUser(Guid idUser,IEnumerable<Type> commands, IEnumerable<Guid> committenti, IEnumerable<Guid> lotti,IEnumerable<Guid> tipiIntervento )
+        public SecurityUser(Guid idUser,IEnumerable<Regex> commands, IEnumerable<Guid> committenti, IEnumerable<Guid> lotti,IEnumerable<Guid> tipiIntervento )
         {
             Contract.Requires(idUser != Guid.Empty);
             Contract.Requires(commands != null);
@@ -35,5 +36,7 @@ namespace CommonDomain.Core
                 .WithTipiIntervento(_tipiIntervento)
                 .CreateAction(cmd);
         }
+
+        
     }
 }

@@ -31,6 +31,10 @@ namespace Super.Programmazione.Specs.Scenario
 
         public override IEnumerable<IMessage> Given()
         {
+            yield return BuildEvt.UserAddedToSystem
+                .WithFirstName("f")
+                .WithLastName("l")
+                .Build(_idUser, 1);
             yield return BuildEvt.ScenarioCreated
                 .ByUser(_idUser)
                 .ForDescription(_descritpion)
@@ -47,7 +51,7 @@ namespace Super.Programmazione.Specs.Scenario
             return BuildCmd.PromoteScenarioToPlan
                         .WhenPromotionDate(_promotingDate)
                         .ForPlan(_idProgramma)
-                        .Build(_id, 2);
+                        .Build(_id, 2, _idUser);
         }
 
         public override IEnumerable<IMessage> Expect()

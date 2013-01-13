@@ -7,37 +7,104 @@ using Super.Contabilita.Domain.Pricing;
 
 namespace Super.Contabilita.Domain.Builders
 {
-    public class BasePriceBuilder
+    public class BasePriceRotBuilder
     {
         private decimal _value;
         private Guid _idGruppoOggettoIntervento;
         private Guid _idTipoIntervento;
         private IntervalOpened _interval;
 
-        public BasePrice Build()
+        public BasePriceRot Build()
         {
-            return new BasePrice(_value,_idGruppoOggettoIntervento,_idTipoIntervento, _interval);
+            return new BasePriceRot(_value, _idGruppoOggettoIntervento, _idTipoIntervento, _interval);
         }
 
-        public BasePriceBuilder ForValue(decimal value)
+        public BasePriceRotBuilder ForValue(decimal value)
         {
             _value = value;
             return this;
         }
 
-        public BasePriceBuilder ForGruppoOggettoIntervento(Guid idGruppoOggettoIntervento)
+        public BasePriceRotBuilder ForGruppoOggettoIntervento(Guid idGruppoOggettoIntervento)
         {
             _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
             return this;
         }
 
-        public BasePriceBuilder ForType(Guid idTipoIntervento)
+        public BasePriceRotBuilder ForType(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;
             return this;
         }
 
-        public BasePriceBuilder ForInterval(IntervalOpened interval)
+        public BasePriceRotBuilder ForInterval(IntervalOpened interval)
+        {
+            _interval = interval;
+            return this;
+        }
+    }
+
+    public class BasePriceRotManBuilder
+    {
+        private decimal _value;
+        private Guid _idGruppoOggettoIntervento;
+        private Guid _idTipoIntervento;
+        private IntervalOpened _interval;
+
+        public BasePriceRotMan Build()
+        {
+            return new BasePriceRotMan(_value, _idGruppoOggettoIntervento, _idTipoIntervento, _interval);
+        }
+
+        public BasePriceRotManBuilder ForValue(decimal value)
+        {
+            _value = value;
+            return this;
+        }
+
+        public BasePriceRotManBuilder ForGruppoOggettoIntervento(Guid idGruppoOggettoIntervento)
+        {
+            _idGruppoOggettoIntervento = idGruppoOggettoIntervento;
+            return this;
+        }
+
+        public BasePriceRotManBuilder ForType(Guid idTipoIntervento)
+        {
+            _idTipoIntervento = idTipoIntervento;
+            return this;
+        }
+
+        public BasePriceRotManBuilder ForInterval(IntervalOpened interval)
+        {
+            _interval = interval;
+            return this;
+        }
+    }
+
+    public class BasePriceAmbBuilder
+    {
+        private decimal _value;
+        private Guid _idTipoIntervento;
+        private IntervalOpened _interval;
+
+        public BasePriceAmb Build()
+        {
+            return new BasePriceAmb(_value,  _idTipoIntervento, _interval);
+        }
+
+        public BasePriceAmbBuilder ForValue(decimal value)
+        {
+            _value = value;
+            return this;
+        }
+
+        public BasePriceAmbBuilder ForType(Guid idTipoIntervento)
+        {
+            _idTipoIntervento = idTipoIntervento;
+            return this;
+        }
+
+        public BasePriceAmbBuilder ForInterval(IntervalOpened interval)
         {
             _interval = interval;
             return this;

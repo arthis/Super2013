@@ -136,18 +136,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Pricing\DeleteBasePrice.cs" />
-    <Compile Include="Pricing\CreateBasePrice.cs" />
-    <Compile Include="Builders\Pricing\DeleteBasePriceBuilder.cs" />
-    <Compile Include="Builders\Pricing\CreateBasePriceBuilder.cs" />
-    <Compile Include="Builders\Pricing\CreateBachiBouzoukBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\CreateGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\DeleteGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\UpdateGruppoOggettoInterventoBuilder.cs" />
     <Compile Include="Builders\Intervento\CancelInterventoPriceOfPlanBuilder.cs" />
     <Compile Include="Builders\PeriodoProgrammazione\ClosePeriodoProgrammazioneBuilder.cs" />
     <Compile Include="Builders\Intervento\CalculateInterventoRotPriceOfPlanBuilder.cs" />
-    <Compile Include="Builders\Pricing\UpdateAppaltatoreBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\CreateTipoInterventoRotManBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\DeleteTipoInterventoRotManBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\UpdateTipoInterventoRotManBuilder.cs" />
@@ -206,8 +200,16 @@
     <Compile Include="MeasuringUnit\CreateMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\DeleteMeasuringUnit.cs" />
     <Compile Include="MeasuringUnit\UpdateMeasuringUnit.cs" />
-    <Compile Include="Pricing\CreatePricing.cs" />
-    <Compile Include="Pricing\UpdateBasePrice.cs" />
+    <Compile Include="Pricing\Super.Contabilita.Commands.Pricing.Builders.cs">
+      <DependentUpon>Super.Contabilita.Commands.Pricing.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Pricing\Super.Contabilita.Commands.Pricing.cs">
+      <DependentUpon>Super.Contabilita.Commands.Pricing.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="PeriodoProgrammazione\CreatePeriodoProgrammazione.cs" />
     <Compile Include="PeriodoProgrammazione\DeletePeriodoProgrammazione.cs" />
     <Compile Include="PeriodoProgrammazione\UpdatePeriodoProgrammazione.cs" />
@@ -277,6 +279,15 @@
     <None Include="CategoriaCommerciale\Super.Contabilita.Commands.CategoriaCommerciale.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Super.Contabilita.Commands.CategoriaCommerciale.cs</LastGenOutput>
+    </None>
+    <None Include="Pricing\Super.Contabilita.Commands.Pricing.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Commands.Pricing.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Pricing\Super.Contabilita.Commands.Pricing.json" />
+    <None Include="Pricing\Super.Contabilita.Commands.Pricing.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Commands.Pricing.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

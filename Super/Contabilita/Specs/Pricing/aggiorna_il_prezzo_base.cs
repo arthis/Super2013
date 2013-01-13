@@ -13,7 +13,7 @@ using Super.Contabilita.Handlers.Commands.Pricing;
 
 namespace Super.Contabilita.Specs.Pricing
 {
-    public class aggiorna_il_prezzo_base : CommandBaseClass<UpdateBasePrice>
+    public class aggiorna_il_prezzo_base : CommandBaseClass<UpdateBasePriceRot>
     {
         private readonly Guid _id = Guid.NewGuid();
 
@@ -29,42 +29,42 @@ namespace Super.Contabilita.Specs.Pricing
         private const decimal _valueUpdated = 20;
 
 
-        protected override CommandHandler<UpdateBasePrice> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<UpdateBasePriceRot> OnHandle(IEventRepository eventRepository)
         {
-            return new UpdateBasePriceHandler(eventRepository);
+            return new UpdateBasePriceRotHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
         {
             yield return  BuildEvt.PricingCreated
                                    .Build(_id,1);
-            yield return BuildEvt.BasePriceCreated
+            yield return BuildEvt.BasePriceRotCreated
                 .ForBasePrice(_idBasePrice)
-                .ForGruppoOggetto(_idGruppoOggettoIntervento)
+                .ForGruppoOggettoIntervento(_idGruppoOggettoIntervento)
                 .ForInterval(_interval)
-                .ForType(_idTipoIntervento)
+                .OfTipoIntervento(_idTipoIntervento)
                 .ForValue(_value)
                 .Build(_id, 2);
         }
 
-        public override UpdateBasePrice When()
+        public override UpdateBasePriceRot When()
         {
-            return Commands.BuildCmd.UpdateBasePrice
+            return Commands.BuildCmd.UpdateBasePriceRot
                             .ForBasePrice(_idBasePrice)
-                            .ForGruppoOggetto(_idGruppoOggettoInterventoUpdated)
+                            .ForGruppoOggettoIntervento(_idGruppoOggettoInterventoUpdated)
                             .ForInterval(_intervalUpdated)
-                            .ForType(_idTipoInterventoUpdated)
+                            .OfTipoIntervento(_idTipoInterventoUpdated)
                             .ForValue(_valueUpdated)
                             .Build(_id,2);
         }
 
         public override IEnumerable<IMessage> Expect()
         {
-            yield return BuildEvt.BasePriceUpdated
+            yield return BuildEvt.BasePriceRotUpdated
                 .ForBasePrice(_idBasePrice)
-                .ForGruppoOggetto(_idGruppoOggettoInterventoUpdated)
+                .ForGruppoOggettoIntervento(_idGruppoOggettoInterventoUpdated)
                 .ForInterval(_intervalUpdated)
-                .ForType(_idTipoInterventoUpdated)
+                .OfTipoIntervento(_idTipoInterventoUpdated)
                 .ForValue(_valueUpdated)
                 .Build(_id,3);
                             

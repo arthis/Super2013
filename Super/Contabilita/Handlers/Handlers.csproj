@@ -117,8 +117,13 @@
     <Compile Include="Commands\Appaltatore\CreateAppaltatoreHandler.cs" />
     <Compile Include="Commands\Appaltatore\DeleteAppaltatoreHandler.cs" />
     <Compile Include="Commands\Appaltatore\UpdateImpiantoHandler.cs" />
-    <Compile Include="Commands\Pricing\CreateBasePriceHandler.cs" />
-    <Compile Include="Commands\Pricing\UpdateBasePriceHandler.cs" />
+    <Compile Include="Commands\Pricing\CreateBasePriceAmbHandler.cs" />
+    <Compile Include="Commands\Pricing\CreateBasePriceRotHandler.cs" />
+    <Compile Include="Commands\Pricing\CreateBasePriceRotManHandler.cs" />
+    <Compile Include="Commands\Pricing\CreatePricingAmbHandler.cs" />
+    <Compile Include="Commands\Pricing\CreatePricingRotManHandler.cs" />
+    <Compile Include="Commands\Pricing\UpdateBasePriceAmbHandler.cs" />
+    <Compile Include="Commands\Pricing\UpdateBasePriceRotHandler.cs" />
     <Compile Include="CommandHandlerService.cs" />
     <Compile Include="Commands\CategoriaCommerciale\CreateCategoriaCommercialeHandler.cs" />
     <Compile Include="Commands\CategoriaCommerciale\DeleteCategoriaCommercialeHandler.cs" />
@@ -126,7 +131,7 @@
     <Compile Include="Commands\Committente\CreateCommittenteHandler.cs" />
     <Compile Include="Commands\Committente\DeleteCommittenteHandler.cs" />
     <Compile Include="Commands\Committente\UpdateCommittenteHandler.cs" />
-    <Compile Include="Commands\Pricing\CreatePricingHandler.cs" />
+    <Compile Include="Commands\Pricing\CreatePricingRotHandler.cs" />
     <Compile Include="Commands\GruppoOggettoIntervento\CreateGruppoOggettoInterventoHandler.cs" />
     <Compile Include="Commands\GruppoOggettoIntervento\DeleteGruppoOggettoInterventoHandler.cs" />
     <Compile Include="Commands\GruppoOggettoIntervento\UpdateGruppoOggettoInterventoHandler.cs" />
@@ -143,6 +148,7 @@
     <Compile Include="Commands\DirezioneRegionale\UpdateDirezioneRegionaleHandler.cs" />
     <Compile Include="Commands\Lotto\CreateLottoHandler.cs" />
     <Compile Include="Commands\Lotto\DeleteLottoHandler.cs" />
+    <Compile Include="Commands\Pricing\UpdateBasePriceRotManHandler.cs" />
     <Compile Include="Repositories\Container.cs" />
     <Compile Include="Repositories\ILottoRepository.cs" />
     <Compile Include="Repositories\SqlLottoRepository.cs" />

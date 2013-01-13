@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿//using System.Collections.Generic;
 
-namespace Super.Contabilita.Domain.Pricing
-{
-    public interface IBasePriceCalculation
-    {
-        decimal Calculate(List<BasePrice> prices);
-    }
-}
+//namespace Super.Contabilita.Domain.Pricing
+//{
+//    public interface IBasePriceCalculation
+//    {
+//        decimal Calculate(List<BasePrice> prices);
+//    }
+//}

@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using CommonDomain;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers.Actions;
 
 namespace CommonSpecs
 {
+
+    public class FakeAction :IAction
+    {
+        public bool CanBeExecuted()
+        {
+            return true;
+        }
+    }
     public class FakeActionFactory :IActionFactory
     {
         private readonly Guid _userId;
@@ -17,7 +26,7 @@ namespace CommonSpecs
             _userId = userId;
         }
 
-        public IActionFactory WithCommands(IEnumerable<Type> commands)
+        public IActionFactory WithCommands(IEnumerable<Regex> commands)
         {
             throw new NotImplementedException();
         }
@@ -37,17 +46,19 @@ namespace CommonSpecs
             throw new NotImplementedException();
         }
 
-        public IAction CreateAction(ICommand cmd)
+        
+
+        public IAction CreateAction(ICommand Cmd)
         {
-            return new ActionFullyConstrained(null,null,null,null,null);
+            return new FakeAction();
         }
 
-        public void AddFullyConstrainedAction<T>(T cmd) where T : ICommand
+        public void AddFullyConstrainedAction<T>() where T : ICommand
         {
             throw new NotImplementedException();
         }
 
-        public void AddCommandConstrainedOnlyAction<T>(T cmd) where T : ICommand
+        public void AddCommandConstrainedOnlyAction<T>() where T : ICommand
         {
             throw new NotImplementedException();
         }

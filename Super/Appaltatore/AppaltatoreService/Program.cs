@@ -9,6 +9,7 @@ using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
 using EventStore;
 using EventStore.Persistence.SqlPersistence.SqlDialects;
+using Super.Appaltatore.Commands.Consuntivazione;
 using Super.Appaltatore.Handlers;
 using Super.Appaltatore.Projection;
 
@@ -48,6 +49,7 @@ namespace Super.Appaltatore.AppaltatoreService
 
             var userRepository = new SecurityUserRepository();
             var actionFactory = new ActionFactory();
+            actionFactory.AddCommandConstrainedOnlyAction<ConsuntivareAutomaticamenteNonResoInterventoRot>();
 
             var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
 
@@ -55,6 +57,7 @@ namespace Super.Appaltatore.AppaltatoreService
             var commandHandlerService = new CommandHandlerService(userRepository);
             commandHandlerService.Subscribe(bus);
             commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, actionFactory);
+
 
                         
             var projectionHandler = new ProjectionHandlerAsyncService();

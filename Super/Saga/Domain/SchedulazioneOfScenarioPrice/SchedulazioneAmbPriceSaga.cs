@@ -39,7 +39,6 @@ namespace Super.Saga.Domain.SchedulazioneOfScenarioPrice
             var cmd = BuildCmd.CalculateSchedulazioneAmbPriceOfScenario
                                  .ForPeriod(evt.Period)
                                  .ForScenario(evt.IdSchedulazione)
-                                 .ForSchedulazione(evt.Id)
                                  .ForTipoIntervento(evt.IdTipoIntervento)
                                  .ForWorkPeriod(evt.WorkPeriod)
                                  .ForQuantity(evt.Quantity)

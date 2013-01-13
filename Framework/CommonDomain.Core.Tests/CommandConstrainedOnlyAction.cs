@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
 using CommonDomain.Core.Handlers.Actions;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
@@ -14,7 +15,7 @@ namespace CommonDomain.Core.Tests
     {
         static IAction _action;
         private static ISecurityUser _securityUser;
-        private static List<Type> _commands = new List<Type>();
+        private static List<Regex> _commands = new List<Regex>();
         private static List<Guid> _committenti = new List<Guid>(); 
         private static List<Guid> _lotti = new List<Guid>();
         private static List<Guid> _tipiIntervento = new List<Guid>();
@@ -25,14 +26,11 @@ namespace CommonDomain.Core.Tests
         Establish context = () =>
                                 {
                                     _command = new MyCommand();
-                                    _commands.Add(typeof (MyCommand));
+                                    _commands.Add(new Regex(typeof(MyCommand).ToString()));
                                     _actionfactory= new ActionFactory();
-                                    _actionfactory.AddCommandConstrainedOnlyAction(_command);
-
+                                    _actionfactory.AddCommandConstrainedOnlyAction<MyCommand>();
                                     _securityUser = new SecurityUser(Guid.NewGuid(),_commands,_committenti,_lotti,_tipiIntervento);
-                                    
 
-                                    
                                 };
 
         private Cleanup after = () => _action = null;
@@ -51,7 +49,7 @@ namespace CommonDomain.Core.Tests
     {
         static IAction _action;
         private static ISecurityUser _securityUser;
-        private static List<Type> _commands = new List<Type>();
+        private static List<Regex> _commands = new List<Regex>();
         private static List<Guid> _committenti = new List<Guid>();
         private static List<Guid> _lotti = new List<Guid>();
         private static List<Guid> _tipiIntervento = new List<Guid>();
@@ -62,7 +60,7 @@ namespace CommonDomain.Core.Tests
         Establish context = () =>
         {
             _command = new MyCommand();
-            _commands.Add(typeof(MyCommand));
+            _commands.Add(new Regex( typeof(MyCommand).ToString()));
             _actionfactory = new ActionFactory();
 
             _securityUser = new SecurityUser(Guid.NewGuid(), _commands, _committenti, _lotti, _tipiIntervento);

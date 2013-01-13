@@ -4,6 +4,6 @@ namespace CommonDomain.Persistence
 {
     public interface ISecurityUserRepository
     {
-        ISecurityUser GetSecurityUser(Guid securityToken);
+        ISecurityUser GetUser(Guid securityToken);
     }
 }

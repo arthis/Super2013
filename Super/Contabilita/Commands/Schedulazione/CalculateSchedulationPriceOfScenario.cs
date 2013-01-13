@@ -9,7 +9,6 @@ namespace Super.Contabilita.Commands.Schedulazione
     public abstract class CalculateSchedulazionePriceOfScenario : CommandBase
     {
         public Guid IdScenario { get; set; }
-        public Guid IdSchedulazione { get; set; }
         public Guid IdTipoIntervento { get; set; }
         public WorkPeriod WorkPeriod { get; set; }
         public Period Period { get; set; }
@@ -24,20 +23,17 @@ namespace Super.Contabilita.Commands.Schedulazione
                                           Guid commitId,
                                           long version,
                                           Guid idScenario,
-                                          Guid idSchedulazione,
                                           WorkPeriod workPeriod,
                                           Guid idTipoIntervento,
                                           Period period)
             : base(id, commitId, version)
         {
             Contract.Requires(idScenario != Guid.Empty);
-            Contract.Requires(idSchedulazione != Guid.Empty);
             Contract.Requires(idTipoIntervento != Guid.Empty);
             Contract.Requires(workPeriod != null);
             Contract.Requires(period != null);
 
             IdScenario = idScenario;
-            IdSchedulazione = idSchedulazione;
             IdTipoIntervento = idTipoIntervento;
             WorkPeriod = workPeriod;
             Period = period;
@@ -47,7 +43,7 @@ namespace Super.Contabilita.Commands.Schedulazione
 
         protected bool Equals(CalculateSchedulazionePriceOfScenario other)
         {
-            return base.Equals(other) && IdScenario.Equals(other.IdScenario) && IdSchedulazione.Equals(other.IdSchedulazione) && IdTipoIntervento.Equals(other.IdTipoIntervento) && Equals(WorkPeriod, other.WorkPeriod) && Equals(Period, other.Period);
+            return base.Equals(other) && IdScenario.Equals(other.IdScenario) &&  IdTipoIntervento.Equals(other.IdTipoIntervento) && Equals(WorkPeriod, other.WorkPeriod) && Equals(Period, other.Period);
         }
 
         public override bool Equals(object obj)
@@ -64,7 +60,6 @@ namespace Super.Contabilita.Commands.Schedulazione
             {
                 int hashCode = base.GetHashCode();
                 hashCode = (hashCode * 397) ^ IdScenario.GetHashCode();
-                hashCode = (hashCode * 397) ^ IdSchedulazione.GetHashCode();
                 hashCode = (hashCode * 397) ^ IdTipoIntervento.GetHashCode();
                 hashCode = (hashCode * 397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (Period != null ? Period.GetHashCode() : 0);
@@ -84,12 +79,11 @@ namespace Super.Contabilita.Commands.Schedulazione
             Guid commitId,
             long version,
             Guid idScenario,
-            Guid idSchedulazione,
             WorkPeriod workPeriod,
             Guid idTipoIntervento,
             Period period,
             OggettoRot[] oggetti)
-            : base(id, commitId, version, idScenario, idSchedulazione, workPeriod,idTipoIntervento, period)
+            : base(id, commitId, version, idScenario,  workPeriod,idTipoIntervento, period)
         {
             Contract.Requires(oggetti != null);
 
@@ -138,12 +132,11 @@ namespace Super.Contabilita.Commands.Schedulazione
             Guid commitId,
             long version,
             Guid idScenario,
-            Guid idSchedulazione,
             WorkPeriod workPeriod,
             Guid idTipoIntervento,
             Period period,
             OggettoRotMan[] oggetti)
-            : base(id, commitId, version, idScenario, idSchedulazione, workPeriod, idTipoIntervento, period)
+            : base(id, commitId, version, idScenario,  workPeriod, idTipoIntervento, period)
         {
             Contract.Requires(oggetti != null);
 
@@ -193,13 +186,12 @@ namespace Super.Contabilita.Commands.Schedulazione
             Guid commitId,
             long version,
             Guid idScenario,
-            Guid idSchedulazione,
             WorkPeriod workPeriod,
             Guid idTipoIntervento,
             Period period,
             int quantity,
             string description)
-            : base(id, commitId, version, idScenario, idSchedulazione, workPeriod, idTipoIntervento, period)
+            : base(id, commitId, version, idScenario,  workPeriod, idTipoIntervento, period)
         {
             Quantity = quantity;
             Description = description;

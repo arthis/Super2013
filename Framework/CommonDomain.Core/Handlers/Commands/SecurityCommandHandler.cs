@@ -30,7 +30,7 @@ namespace CommonDomain.Core.Handlers.Commands
 
         public CommandValidation Execute(T command)
         {
-            var user = _repositorySecurityUser.GetSecurityUser(command.SecurityToken);
+            var user = _repositorySecurityUser.GetUser(command.SecurityToken);
 
             var action = user.CreateAction(_actionFactory, command);
             if (action.CanBeExecuted())

@@ -159,6 +159,10 @@
       <Project>{b8def709-5168-48f1-b8d3-ad44e4a4a22b}</Project>
       <Name>EasyNetQ</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Commands\Commands.csproj">
+      <Project>{FC270F31-3A37-4E72-BE6A-CBB08FC69219}</Project>
+      <Name>Commands %28Super\Appaltatore\Commands%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Handlers\Handlers.csproj">
       <Project>{B2759F91-46E5-42EC-ABFA-33DEA9C9D120}</Project>
       <Name>Handlers %28Super\Appaltatore\Handlers%29</Name>

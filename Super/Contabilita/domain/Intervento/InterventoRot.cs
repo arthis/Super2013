@@ -9,6 +9,7 @@ using Super.Contabilita.Domain.Pricing;
 using Super.Contabilita.Events;
 using Super.Contabilita.Events.Intervento;
 
+
 namespace Super.Contabilita.Domain.Intervento
 {
     public class InterventoRot : AggregateBase
@@ -29,7 +30,7 @@ namespace Super.Contabilita.Domain.Intervento
             var evt = BuildEvt.InterventoRotCreated
                 .ForWorkPeriod(workPeriod.ToMessage())
                 .ForPlan(idPlan)
-                .OfType(idTipoIntervento)
+                .OfTipoIntervento(idTipoIntervento)
                 .WithOggetti(oggetti.ToMessage().ToArray());
 
             RaiseEvent(id, evt);
@@ -44,15 +45,18 @@ namespace Super.Contabilita.Domain.Intervento
             _workPeriod = e.WorkPeriod.ToDomain();
         }
 
-        public void CalculatePrice(Pricing.Pricing bachibousouk)
+        public void CalculatePrice(PricingRot pricing)
         {
-            var priceCalculation = new InterventoRotBasePriceCalculation(_idTipoIntervento, _oggetti, _workPeriod);
-            
+            var prices = from oggetto in _oggetti
+                         select pricing.CalculateBasePrice(oggetto.IdGruppoOggettoIntervento, _idTipoIntervento, _workPeriod);
+            var totalPrice = prices.Sum();
+
             var evt = BuildEvt.InterventoPriceOfPlanCalculated
                 .ForPlan(_idPlan)
-                .ToPrice(bachibousouk.CalculateBasePrice(priceCalculation));
+                .ForPrice(totalPrice);
 
             RaiseEvent(evt);
+
         }
 
         public void Apply(InterventoPriceOfPlanCalculated e)

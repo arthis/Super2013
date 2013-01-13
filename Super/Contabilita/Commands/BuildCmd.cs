@@ -1,5 +1,4 @@
 using Super.Contabilita.Commands.Builders.Appaltatore;
-using Super.Contabilita.Commands.Builders.Pricing;
 using Super.Contabilita.Commands.Builders.Committente;
 using Super.Contabilita.Commands.Builders.DirezioneRegionale;
 using Super.Contabilita.Commands.Builders.GruppoOggettoIntervento;
@@ -119,13 +118,7 @@ namespace Super.Contabilita.Commands
 
         public static DeleteGruppoOggettoInterventoBuilder DeleteGruppoOggettoIntervento { get { return new DeleteGruppoOggettoInterventoBuilder(); } }
 
-        public static CreateBasePriceBuilder CreateBasePrice { get { return new CreateBasePriceBuilder(); } }       
-
-        public static UpdateBasePriceBuilder UpdateBasePrice { get { return new UpdateBasePriceBuilder(); } }
-
-        public static DeleteBasePriceBuilder DeleteBasePrice { get { return new DeleteBasePriceBuilder(); } }       
-
-        public static CreatePricingBuilder CreatePricing { get { return  new CreatePricingBuilder();}}
+        
             
             
             

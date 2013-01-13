@@ -4,20 +4,17 @@ using Super.Contabilita.Events.Builders.Committente;
 using Super.Contabilita.Events.Builders.DirezioneRegionale;
 using Super.Contabilita.Events.Builders.GruppoOggettoIntervento;
 using Super.Contabilita.Events.Builders.Impianto;
-using Super.Contabilita.Events.Builders.Intervento;
 using Super.Contabilita.Events.Builders.Lotto;
 using Super.Contabilita.Events.Builders.MeasuringUnit;
 using Super.Contabilita.Events.Builders.PeriodoProgrammazione;
-using Super.Contabilita.Events.Builders.Schedulazione;
 using Super.Contabilita.Events.Builders.TipoIntervento;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Ambiente;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.Rotabile;
 using Super.Contabilita.Events.Builders.TipoOggettoIntervento.RotabileInManutenzione;
-using Super.Contabilita.Events.Builders.Pricing;
 
 namespace Super.Contabilita.Events
 {
-    public static class BuildEvt
+    public static partial class BuildEvt
     {
         public static ImpiantoCreatedBuilder ImpiantoCreated { get { return new ImpiantoCreatedBuilder(); } }
 
@@ -68,10 +65,6 @@ namespace Super.Contabilita.Events
         public static PeriodoProgrammazioneDeletedBuilder PeriodoProgrammazioneDeleted { get { return new PeriodoProgrammazioneDeletedBuilder(); } }
 
         public static PeriodoProgrammazioneClosedBuilder PeriodoProgrammazioneClosed { get { return new PeriodoProgrammazioneClosedBuilder(); } }
-
-        public static InterventoPriceOfPlanCalculatedBuilder InterventoPriceOfPlanCalculated { get { return new InterventoPriceOfPlanCalculatedBuilder(); } }
-
-        public static InterventoPriceOfPlanCancelledBuilder InterventoPriceOfPlanCancelled { get { return new InterventoPriceOfPlanCancelledBuilder(); } }
 
         public static TipoInterventoAmbCreatedBuilder TipoInterventoAmbCreated { get { return new TipoInterventoAmbCreatedBuilder(); } }
 
@@ -127,19 +120,6 @@ namespace Super.Contabilita.Events
 
         public static GruppoOggettoInterventoDeletedBuilder GruppoOggettoInterventoDeleted { get { return new GruppoOggettoInterventoDeletedBuilder(); } }
 
-        public static BasePriceCreatedBuilder BasePriceCreated { get { return new BasePriceCreatedBuilder(); } }
-
-        public static BasePriceUpdatedBuilder BasePriceUpdated { get { return new BasePriceUpdatedBuilder(); } }
-
-        public static BasePriceDeletedBuilder BasePriceDeleted { get { return new BasePriceDeletedBuilder(); } }
-
-        public static PricingCreatedBuilder PricingCreated { get { return new PricingCreatedBuilder(); } }
-
-        public static InterventoRotCreatedBuilder InterventoRotCreated { get { return new InterventoRotCreatedBuilder(); } }
-
-        #region Schedulazione
-        public static SchedulazionePriceOfScenarioCalculatedBuilder SchedulazionePriceOfScenarioCalculated {get {return new SchedulazionePriceOfScenarioCalculatedBuilder();}}
-        #endregion
 
     }
 }

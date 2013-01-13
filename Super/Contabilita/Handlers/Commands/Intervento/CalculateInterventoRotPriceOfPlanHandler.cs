@@ -6,15 +6,19 @@ using CommonDomain.Core.Super.Domain.ValueObjects;
 using CommonDomain.Persistence;
 using Super.Contabilita.Commands.Intervento;
 using Super.Contabilita.Domain.Intervento;
+using Super.Contabilita.Domain.Pricing;
 
 namespace Super.Contabilita.Handlers.Commands.Intervento
 {
 
     public class CalculateInterventoRotPriceOfPlanHandler : CommandHandler<CalculateInterventoRotPriceOfPlan>
     {
-        public CalculateInterventoRotPriceOfPlanHandler(IEventRepository eventRepository)
+        private readonly PricingRot _pricing;
+
+        public CalculateInterventoRotPriceOfPlanHandler(IEventRepository eventRepository, PricingRot pricing)
             : base(eventRepository)
         {
+            _pricing = pricing;
         }
 
 
@@ -29,9 +33,9 @@ namespace Super.Contabilita.Handlers.Commands.Intervento
                 intervento = new InterventoRot(cmd.Id, cmd.IdTipoIntervento, cmd.IdPlan, cmd.Oggetti.ToDomain(), cmd.WorkPeriod.ToDomain());
             }
 
-            var bachibousouk = EventRepository.GetById<Domain.Pricing.Pricing>(cmd.IdBachBouzouk);
-            
-            intervento.CalculatePrice(bachibousouk);
+
+
+            intervento.CalculatePrice(_pricing);
 
             EventRepository.Save(intervento, cmd.CommitId);
 

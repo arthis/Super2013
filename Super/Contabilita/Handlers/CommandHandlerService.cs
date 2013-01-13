@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using CommandService;
-using CommonDomain;
-using CommonDomain.Core;
-using CommonDomain.Core.Handlers;
+﻿using CommonDomain;
 using CommonDomain.Core.Handlers.Commands;
-using CommonDomain.Core.Super.Messaging.ValueObjects;
 using CommonDomain.Persistence;
-using Super.Contabilita.Commands.Impianto;
-using Super.Contabilita.Commands.Lotto;
-using Super.Contabilita.Domain;
 using Super.Contabilita.Handlers.Commands.Appaltatore;
 using Super.Contabilita.Handlers.Commands.CategoriaCommerciale;
 using Super.Contabilita.Handlers.Commands.Committente;

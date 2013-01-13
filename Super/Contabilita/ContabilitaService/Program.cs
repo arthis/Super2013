@@ -19,7 +19,7 @@ namespace Super.Contabilita.ContabilitaService
         static void Main(string[] args)
         {
             var bus = RabbitHutch.CreateBus("host=localhost");
-
+            
             var projectionHandlerSync = new ProjectionHandlerSyncService();
             var projectionRepositoryBuilderSync = new ProjectionRepositoryBuilder();
             projectionHandlerSync.InitHandlers(projectionRepositoryBuilderSync);
@@ -49,6 +49,8 @@ namespace Super.Contabilita.ContabilitaService
             var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
             var actionFactory = new ActionFactory();
 
+            
+
             var commandHandlerService = new CommandHandlerService(userRepository);
             commandHandlerService.Subscribe(bus);
             commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, actionFactory);
@@ -59,9 +61,6 @@ namespace Super.Contabilita.ContabilitaService
             
 
             var commandWebService = new CommandWebService(commandHandlerService);
-
-
-
 
             using (var commandServiceHost = new ServiceHost(commandWebService))
             {

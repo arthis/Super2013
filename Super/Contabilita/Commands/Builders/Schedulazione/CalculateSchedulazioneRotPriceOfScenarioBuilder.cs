@@ -14,7 +14,6 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
         private Guid _idTipoIntervento;
         private Period _period;
         private OggettoRot[] _oggetti;
-        private Guid _idSchedulazione;
         private WorkPeriod _workPeriod
             ;
 
@@ -27,7 +26,6 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
         {
             var cmd = new CalculateSchedulazioneRotPriceOfScenario(id, commitId, version,
                 _idScenario,
-                _idSchedulazione,
                 _workPeriod,
                 _idTipoIntervento,
                 _period,
@@ -44,12 +42,7 @@ namespace Super.Contabilita.Commands.Builders.Schedulazione
             return this;
         }
 
-        public CalculateSchedulazioneRotPriceOfScenarioBuilder ForSchedulazione(Guid idSchedulazione)
-        {
-            _idSchedulazione = idSchedulazione;
-            return this;
-        }
-
+        
         public CalculateSchedulazioneRotPriceOfScenarioBuilder ForTipoIntervento(Guid idTipoIntervento)
         {
             _idTipoIntervento = idTipoIntervento;

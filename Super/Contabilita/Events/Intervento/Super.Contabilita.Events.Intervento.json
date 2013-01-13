@@ -1,0 +1,112 @@
+﻿{
+    "Namespace" : "Super.Contabilita.Events.Intervento",
+    "Objects" :
+    [
+        {
+            "Name" :"InterventoPriceOfPlanCalculated",
+			"Description" : "il prezzo dell'intervento é stato  calcolato",
+            "Properties" : [
+			    {
+                    "Name" : "Price",
+                    "Type" : "decimal",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "IdPlan",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoPriceOfPlanCancelled",
+			"Description" : "il prezzo dell'intervento é stato  cancellato",
+            "Properties" : [
+			    {
+                    "Name" : "IdPlan",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+            ]
+        },
+
+		{
+            "Name" :"InterventoRotCreated",
+			"Description" : "l'intervento rotabile {0} é stato creato",
+            "Properties" : [
+                {
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPlan",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoRotManCreato",
+			"Description" : "L'intervento rotabile in manutenzione é stata creata",
+            "Properties" : [
+                {
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPlan",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"InterventoAmbCreated",
+			"Description" : "L'intervento ambiente é stato creato",
+            "Properties" : [
+                {
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdPlan",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                }
+            ]
+        }
+    ]
+}

@@ -55,6 +55,7 @@ namespace CommonDomain.Core.Super.Domain.ValueObjects
                 yield return mydate;
             }
         }
+
     }
 
     public static class PeriodExtension

@@ -1,0 +1,115 @@
+﻿{
+    "Namespace" : "Super.Contabilita.Events.Schedulazione",
+    "Objects" :
+    [
+        {
+            "Name" :"SchedulazionePriceOfScenarioCalculated",
+			"Description" : "il prezzo della schedulazione é stato  calcolato",
+            "Properties" : [
+			    {
+                    "Name" : "Price",
+                    "Type" : "decimal",
+					"IsRequired" : true 
+                },
+                {
+                    "Name" : "IdScenario",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"SchedulazioneRotCreated",
+			"Description" : "La schedulazione rotabile é stata creata",
+            "Properties" : [
+                {
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdScenario",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRot[]",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"SchedulazioneRotManCreated",
+			"Description" : "La schedulazione rotabile in manutenzione é stata creata",
+            "Properties" : [
+                {
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdScenario",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Oggetti",
+                    "Type" : "OggettoRotMan[]",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                }
+            ]
+        },
+		{
+            "Name" :"SchedulazioneAmbCreated",
+			"Description" : "La schedulazione ambiente é stata creata",
+            "Properties" : [
+                {
+                    "Name" : "IdTipoIntervento",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "IdScenario",
+                    "Type" : "Guid",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Quantity",
+                    "Type" : "int",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "Period",
+                    "Type" : "Period",
+					"IsRequired" : true 
+                },
+				{
+                    "Name" : "WorkPeriod",
+                    "Type" : "WorkPeriod",
+					"IsRequired" : true 
+                }
+            ]
+        }
+    ]
+}

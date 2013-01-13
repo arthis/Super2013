@@ -112,20 +112,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bachibouzouk\bachibouzoukCreated.cs" />
-    <Compile Include="bachibouzouk\BasePriceCreated.cs" />
-    <Compile Include="bachibouzouk\BasePriceDeleted.cs" />
     <Compile Include="Builders\Appaltatore\AppaltatoreCreatedBuilder.cs" />
     <Compile Include="Builders\Appaltatore\AppaltatoreDeletedBuilder.cs" />
     <Compile Include="Builders\Appaltatore\AppaltatoreUpdatedBuilder.cs" />
-    <Compile Include="Builders\bachibouzouk\BasePriceCreatedBuilder.cs" />
-    <Compile Include="Builders\bachibouzouk\BasePriceDeletedBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\GruppoOggettoInterventoCreatedBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\GruppoOggettoInterventoDeletedBuilder.cs" />
     <Compile Include="Builders\GruppoOggettoIntervento\GruppoOggettoInterventoUpdatedBuilder.cs" />
-    <Compile Include="Builders\Intervento\InterventoRotCreatedBuilder.cs" />
-    <Compile Include="Builders\Intervento\InterventoPriceOfPlanCalculatedBuilder.cs" />
-    <Compile Include="Builders\Intervento\InterventoPriceOfPlanCancelledBuilder.cs" />
     <Compile Include="Builders\MeasuringUnit\MeasuringUnitCreatedBuilder.cs" />
     <Compile Include="Builders\MeasuringUnit\MeasuringUnitDeletedBuilder.cs" />
     <Compile Include="Builders\MeasuringUnit\MeasuringUnitUpdatedBuilder.cs" />
@@ -141,7 +133,6 @@
     <Compile Include="Builders\Lotto\LottoDeletedBuilder.cs" />
     <Compile Include="Builders\Lotto\LottoUpdatedBuilder.cs" />
     <Compile Include="Builders\Impianto\ImpiantoDeletedBuilder.cs" />
-    <Compile Include="Builders\Schedulazione\InterventoPriceOfPlanCalculatedBuilder.cs" />
     <Compile Include="BuildEvt.cs" />
     <Compile Include="Builders\Impianto\ImpiantoCreatedBuilder.cs" />
     <Compile Include="Builders\Impianto\ImpiantoUpdatedBuilder.cs" />
@@ -153,8 +144,6 @@
     <Compile Include="Builders\PeriodoProgrammazione\PeriodoProgrammazioneCreatedBuilder.cs" />
     <Compile Include="Builders\PeriodoProgrammazione\PeriodoProgrammazioneDeletedBuilder.cs" />
     <Compile Include="Builders\PeriodoProgrammazione\PeriodoProgrammazioneUpdatedBuilder.cs" />
-    <Compile Include="Builders\bachibouzouk\bachibouzoukCreatedBuilder.cs" />
-    <Compile Include="Builders\bachibouzouk\BasePriceUpdatedBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\TipoInterventoAmbCreatedBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\TipoInterventoAmbDeletedBuilder.cs" />
     <Compile Include="Builders\TipoIntervento\TipoInterventoAmbUpdatedBuilder.cs" />
@@ -188,7 +177,16 @@
     <Compile Include="GruppoOggettoIntervento\GruppoOggettoInterventoCreated.cs" />
     <Compile Include="GruppoOggettoIntervento\GruppoOggettoInterventoDeleted.cs" />
     <Compile Include="GruppoOggettoIntervento\GruppoOggettoInterventoUpdated.cs" />
-    <Compile Include="Intervento\OggettoInterventoRotCreated.cs" />
+    <Compile Include="Intervento\Super.Contabilita.Events.Intervento.Builders.cs">
+      <DependentUpon>Super.Contabilita.Events.Intervento.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Intervento\Super.Contabilita.Events.Intervento.cs">
+      <DependentUpon>Super.Contabilita.Events.Intervento.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="PeriodoProgrammazione\PeriodoProgrammazioneClosed.cs" />
     <Compile Include="PeriodoProgrammazione\PeriodoProgrammazioneCreated.cs" />
     <Compile Include="PeriodoProgrammazione\PeriodoProgrammazioneDeleted.cs" />
@@ -202,16 +200,30 @@
     <Compile Include="Impianto\ImpiantoCreated.cs" />
     <Compile Include="Impianto\ImpiantoDeleted.cs" />
     <Compile Include="Impianto\ImpiantoUpdated.cs" />
-    <Compile Include="Intervento\InterventoPriceOfPlanCalculated.cs" />
-    <Compile Include="Intervento\InterventoPriceOfPlanCancelled.cs" />
     <Compile Include="Lotto\LottoCreated.cs" />
     <Compile Include="Lotto\LottoDeleted.cs" />
     <Compile Include="Lotto\LottoUpdated.cs" />
-    <Compile Include="bachibouzouk\BasePriceUpdated.cs" />
+    <Compile Include="Pricing\Super.Contabilita.Events.Pricing.Builders.cs">
+      <DependentUpon>Super.Contabilita.Events.Pricing.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Pricing\Super.Contabilita.Events.Pricing.cs">
+      <DependentUpon>Super.Contabilita.Events.Pricing.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedulazione\SchedulationPriceOfScenarioCancelled.cs" />
-    <Compile Include="Schedulazione\SchedulationPriceOfScenarioCalculated.cs" />
-    <Compile Include="Schedulazione\SchedulazioneRotCreated.cs" />
+    <Compile Include="Schedulazione\Super.Contabilita.Events.Schedulazione.Builders.cs">
+      <DependentUpon>Super.Contabilita.Events.Schedulazione.Builders.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Schedulazione\Super.Contabilita.Events.Schedulazione.cs">
+      <DependentUpon>Super.Contabilita.Events.Schedulazione.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="TipoIntervento\Ambiente\TipoInterventoAmbCreated.cs" />
     <Compile Include="TipoIntervento\Ambiente\TipoInterventoAmbDeleted.cs" />
     <Compile Include="TipoIntervento\Ambiente\TipoInterventoAmbUpdated.cs" />
@@ -247,7 +259,38 @@
       <Name>CommonDomain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Intervento\Super.Contabilita.Events.Intervento.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Events.Intervento.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Intervento\Super.Contabilita.Events.Intervento.json" />
+    <None Include="Intervento\Super.Contabilita.Events.Intervento.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Events.Intervento.cs</LastGenOutput>
+    </None>
+    <None Include="Pricing\Super.Contabilita.Events.Pricing.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Events.Pricing.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Pricing\Super.Contabilita.Events.Pricing.json" />
+    <None Include="Pricing\Super.Contabilita.Events.Pricing.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Events.Pricing.cs</LastGenOutput>
+    </None>
+    <None Include="Schedulazione\Super.Contabilita.Events.Schedulazione.Builders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Events.Schedulazione.Builders.cs</LastGenOutput>
+    </None>
+    <None Include="Schedulazione\Super.Contabilita.Events.Schedulazione.json" />
+    <None Include="Schedulazione\Super.Contabilita.Events.Schedulazione.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Super.Contabilita.Events.Schedulazione.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

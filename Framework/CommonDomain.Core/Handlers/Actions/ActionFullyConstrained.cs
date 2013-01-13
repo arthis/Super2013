@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace CommonDomain.Core.Handlers.Actions
 {
-    public class ActionFullyConstrained : IAction
+    public class ActionFullyConstrained<T> : IAction where T:ICommand
     {
-        private readonly ICommand _command;
-        private readonly IEnumerable<Type> _commands;
+        private readonly IEnumerable<Regex> _commands;
         private readonly IEnumerable<Guid> _committenti;
         private readonly IEnumerable<Guid> _lotti;
         private readonly IEnumerable<Guid> _tipiIntervento;
 
-        public ActionFullyConstrained(ICommand command, IEnumerable<Type> commands, IEnumerable<Guid> committenti, IEnumerable<Guid> lotti, IEnumerable<Guid> tipiIntervento)
+        public ActionFullyConstrained( IEnumerable<Regex> commands, IEnumerable<Guid> committenti, IEnumerable<Guid> lotti, IEnumerable<Guid> tipiIntervento)
         {
-            _command = command;
             _commands = commands;
             _committenti = committenti;
             _lotti = lotti;
@@ -23,7 +22,7 @@ namespace CommonDomain.Core.Handlers.Actions
 
         public bool CanBeExecuted()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         

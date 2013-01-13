@@ -1,23 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Text.RegularExpressions;
 
 namespace CommonDomain.Core.Handlers.Actions
 {
     public class ActionFactory : IActionFactory
     {
-        private IEnumerable<Type> _commands;
+        private IEnumerable<Regex> _commands;
         private IEnumerable<Guid> _committenti;
         private IEnumerable<Guid> _lotti;
         private IEnumerable<Guid> _tipiIntervento;
-        private Dictionary<Type,Func<IAction>> _handler;
+        private Dictionary<string,Func<IAction>> _handler;
 
         public ActionFactory()
         {
-            _handler = new Dictionary<Type, Func<IAction>>();
+            _handler = new Dictionary<string, Func<IAction>>();
         }
 
-        public IActionFactory WithCommands(IEnumerable<Type> commands)
+        public IActionFactory WithCommands(IEnumerable<Regex> commands)
         {
             _commands = commands;
             return this;
@@ -41,49 +42,38 @@ namespace CommonDomain.Core.Handlers.Actions
             return this;
         }
 
-        public void AddFullyConstrainedAction<T>(T cmd) where T:ICommand
+        public void AddFullyConstrainedAction<T>() where T:ICommand
         {
-            Type cmdType = typeof(T);
-
-            if (_handler.ContainsKey(cmdType))
-                throw  new ArgumentException("Command type already added");
-
-            _handler.Add(cmdType, () => CreateFullyConstrainedAction(cmd));
-        }
-
-        public void AddCommandConstrainedOnlyAction<T>(T cmd) where T : ICommand
-        {
-            Type cmdType = typeof(T);
-
-            if (_handler.ContainsKey(cmdType))
-                throw new ArgumentException("Command type already added");
-
-            _handler.Add(cmdType, () => CreateCommandConstrainedOnlyAction(cmd));
-        }
-
-        private IAction CreateFullyConstrainedAction(ICommand command)
-        {
-            Contract.Requires(command!=null);
-            Contract.Requires(_commands!=null);
+            Contract.Requires(_commands != null);
             Contract.Requires(_committenti != null);
             Contract.Requires(_lotti != null);
             Contract.Requires(_tipiIntervento != null);
 
-            return new ActionFullyConstrained(command,  _commands,  _committenti,  _lotti, _tipiIntervento);
+            var cmdType = typeof(T).ToString();
+
+            if (_handler.ContainsKey(cmdType))
+                throw  new ArgumentException("Command type already added");
+
+            _handler.Add(cmdType, () => new ActionFullyConstrained<T>( _commands, _committenti, _lotti, _tipiIntervento));
         }
 
-        private IAction CreateCommandConstrainedOnlyAction(ICommand command)
+        public void AddCommandConstrainedOnlyAction<T>() where T:ICommand
         {
-            Contract.Requires(command != null);
             Contract.Requires(_commands != null);
 
-            return new ActionCommandConstrainedOnly(command,_commands);
+            var cmdType = typeof(T).ToString();
 
+            if (_handler.ContainsKey(cmdType))
+                throw new ArgumentException("Command type already added");
+
+            _handler.Add(cmdType, () => new ActionCommandConstrainedOnly<T>(_commands));
         }
 
+        
         public IAction CreateAction(ICommand cmd)
         {
-            Type cmdType = cmd.GetType();
+            
+            var cmdType = cmd.GetType().ToString();
             if (_handler.ContainsKey(cmdType))
                 return _handler[cmdType]();
              throw  new ArgumentException("command not known");

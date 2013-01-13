@@ -12,14 +12,14 @@ using Super.Contabilita.Handlers.Commands.Pricing;
 
 namespace Super.Contabilita.Specs.Pricing
 {
-    public class Creazione_di_uno_nuovo_pricing : CommandBaseClass<CreatePricing>
+    public class Creazione_di_uno_nuovo_pricing : CommandBaseClass<CreatePricingRot>
     {
         private Guid _id = Guid.NewGuid();
 
 
-        protected override CommandHandler<CreatePricing> OnHandle(IEventRepository eventRepository)
+        protected override CommandHandler<CreatePricingRot> OnHandle(IEventRepository eventRepository)
         {
-            return new CreatePricingHandler(eventRepository);
+            return new CreatePricingRotHandler(eventRepository);
         }
 
         public override IEnumerable<IMessage> Given()
@@ -27,9 +27,9 @@ namespace Super.Contabilita.Specs.Pricing
             yield break;
         }
 
-        public override CreatePricing When()
+        public override CreatePricingRot When()
         {
-            return BuildCmd.CreatePricing
+            return BuildCmd.CreatePricingRot
                 .Build(_id, 1);
         }
 
