@@ -5,7 +5,6 @@ using CommandService;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers.Actions;
 using CommonDomain.Persistence.EventStore;
-using EasyNetQ;
 using EventStore;
 using EventStore.Persistence.SqlPersistence.SqlDialects;
 using Super.Programmazione.Handlers;
@@ -18,7 +17,7 @@ namespace Super.Programmazione.ProgrammazioneService
         static void Main(string[] args)
         {
 
-            var bus = RabbitHutch.CreateBus("host=localhost");
+            var bus = new RabbitBus();
             var projectionHandlerSync = new ProjectionHandlerSyncService();
             var projectionRepositoryBuilderSync = new ProjectionRepositoryBuilder();
             projectionHandlerSync.InitHandlers(projectionRepositoryBuilderSync);

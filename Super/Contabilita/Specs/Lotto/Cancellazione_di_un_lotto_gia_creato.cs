@@ -20,8 +20,7 @@ namespace Super.Contabilita.Specs.Lotto
     {
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
-        private DateTime _creationDate = DateTime.Now;
-        private long _version;
+        
         private Interval _interval = new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         protected override CommandHandler<DeleteLotto> OnHandle(IEventRepository eventRepository)

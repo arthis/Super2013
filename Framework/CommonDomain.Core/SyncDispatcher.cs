@@ -68,7 +68,7 @@ namespace CommonDomain.Core
             var evt = eventMessage.Body as IEvent;
             if (evt != null)
             {
-                _bus.Publish(evt);
+                _bus.Publish((dynamic)evt);
             }
         }
 

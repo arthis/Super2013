@@ -23,8 +23,6 @@ namespace Super.Controllo.Handlers
         {
             Contract.Requires(cmd != null);
 
-            Treno trenoPartenza=null, trenoArrivo=null;
-
             var existingIntervento = EventRepository.GetById<InterventoRotMan>(cmd.Id);
 
             if (existingIntervento.IsNull())

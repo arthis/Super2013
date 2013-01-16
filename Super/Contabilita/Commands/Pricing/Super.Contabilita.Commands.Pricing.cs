@@ -32,7 +32,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -53,7 +53,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -74,7 +74,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -94,7 +94,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -115,7 +115,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -136,7 +136,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -174,11 +174,11 @@ namespace Super.Contabilita.Commands.Pricing
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
+				result = (result*397) ^ IdBasePrice.GetHashCode();
+				result = (result*397) ^ Value.GetHashCode();
 				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdGruppoOggettoIntervento != null ? IdGruppoOggettoIntervento.GetHashCode() : 0);
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
+				result = (result*397) ^ IdGruppoOggettoIntervento.GetHashCode();
 				return result;
             }
         }
@@ -204,7 +204,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -225,7 +225,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -246,7 +246,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -266,7 +266,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -287,7 +287,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -308,7 +308,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -346,11 +346,11 @@ namespace Super.Contabilita.Commands.Pricing
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
+				result = (result*397) ^ IdBasePrice.GetHashCode();
+				result = (result*397) ^ Value.GetHashCode();
 				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdGruppoOggettoIntervento != null ? IdGruppoOggettoIntervento.GetHashCode() : 0);
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
+				result = (result*397) ^ IdGruppoOggettoIntervento.GetHashCode();
 				return result;
             }
         }
@@ -375,7 +375,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -393,7 +393,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -411,7 +411,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -428,7 +428,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -446,7 +446,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -464,7 +464,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -499,10 +499,10 @@ namespace Super.Contabilita.Commands.Pricing
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
+				result = (result*397) ^ IdBasePrice.GetHashCode();
+				result = (result*397) ^ Value.GetHashCode();
 				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
 				return result;
             }
         }
@@ -528,7 +528,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -549,7 +549,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -570,7 +570,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -590,7 +590,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -611,7 +611,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -632,7 +632,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -670,11 +670,11 @@ namespace Super.Contabilita.Commands.Pricing
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
+				result = (result*397) ^ IdBasePrice.GetHashCode();
+				result = (result*397) ^ Value.GetHashCode();
 				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdGruppoOggettoIntervento != null ? IdGruppoOggettoIntervento.GetHashCode() : 0);
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
+				result = (result*397) ^ IdGruppoOggettoIntervento.GetHashCode();
 				return result;
             }
         }
@@ -700,7 +700,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -721,7 +721,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -742,7 +742,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -762,7 +762,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -783,7 +783,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -804,7 +804,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -842,11 +842,11 @@ namespace Super.Contabilita.Commands.Pricing
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
+				result = (result*397) ^ IdBasePrice.GetHashCode();
+				result = (result*397) ^ Value.GetHashCode();
 				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdGruppoOggettoIntervento != null ? IdGruppoOggettoIntervento.GetHashCode() : 0);
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
+				result = (result*397) ^ IdGruppoOggettoIntervento.GetHashCode();
 				return result;
             }
         }
@@ -871,7 +871,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -889,7 +889,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -907,7 +907,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -924,7 +924,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -942,7 +942,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -960,7 +960,7 @@ namespace Super.Contabilita.Commands.Pricing
 		{
 			Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(value != null);
+	Contract.Requires(value > 0);
 
 	Contract.Requires(interval != null);
 
@@ -995,10 +995,10 @@ namespace Super.Contabilita.Commands.Pricing
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
+				result = (result*397) ^ IdBasePrice.GetHashCode();
+				result = (result*397) ^ Value.GetHashCode();
 				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
 				return result;
             }
         }

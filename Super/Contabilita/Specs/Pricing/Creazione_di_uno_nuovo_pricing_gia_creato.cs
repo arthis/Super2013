@@ -17,7 +17,7 @@ namespace Super.Contabilita.Specs.Pricing
     public class Creazione_di_uno_nuovo_pricing_gia_creato : CommandBaseClass<CreatePricingRot>
     {
         private Guid _id = Guid.NewGuid();
-        private string _description = "test";
+        
 
         public override string ToDescription()
         {

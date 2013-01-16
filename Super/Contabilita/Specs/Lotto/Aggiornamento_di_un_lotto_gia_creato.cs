@@ -22,9 +22,6 @@ namespace Super.Contabilita.Specs.Lotto
     public class Aggiornamento_di_un_lotto_gia_creato : CommandBaseClass<UpdateLotto>
     {
         private Guid _id = Guid.NewGuid();
-        private string _description = "test";
-        private DateTime _creationDate = DateTime.Now;
-        private long _version; 
         private Interval _interval = new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         private string _descriptionUpdated = "test 2";

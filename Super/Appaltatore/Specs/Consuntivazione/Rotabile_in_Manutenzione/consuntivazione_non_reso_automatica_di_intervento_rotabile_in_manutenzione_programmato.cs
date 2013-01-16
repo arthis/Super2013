@@ -33,17 +33,12 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile_in_Manutenzione
         string _note = "note";
 
         //Cons
-        private readonly Guid _commitId = Guid.NewGuid();
-        readonly string _idInterventoAppaltatore = "id intervento appaltatore";
+        private readonly Guid _commitId = Guid.NewGuid();      
         readonly DateTime _dataConsuntivazione = DateTime.Now;
-        List<OggettoRotMan> _oggettiCons = new List<OggettoRotMan>() { new OggettoRotMan("desc cons", 22, Guid.NewGuid(), Guid.NewGuid()) };
-        readonly WorkPeriod _workPeriodCons = new WorkPeriod(DateTime.Now.AddHours(-15), DateTime.Now.AddMinutes(-22));
-        string _noteCons = "note";
         private Guid _idProgramma =Guid.NewGuid();
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _idCommittente = Guid.NewGuid();
         private Guid _idlotto = Guid.NewGuid();
-        private Guid _idCausaleAppaltatore = Guid.NewGuid();
 
 
         protected override CommandHandler<ConsuntivareAutomaticamenteNonResoInterventoRotMan> OnHandle(IEventRepository eventRepository)

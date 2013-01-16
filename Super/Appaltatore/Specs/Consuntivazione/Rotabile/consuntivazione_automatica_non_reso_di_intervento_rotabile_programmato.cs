@@ -40,14 +40,12 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Rotabile
 
         //Cons
         private readonly Guid _commitId = Guid.NewGuid();
-        readonly string _idInterventoAppaltatore = "id intervento appaltatore";
         readonly DateTime _dataConsuntivazione = DateTime.Now;
-        string _noteCons = "note";
         private Guid _idProgramma = Guid.NewGuid();
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _idCommittente = Guid.NewGuid();
         private Guid _idlotto = Guid.NewGuid();
-        private Guid _idCausaleAppaltatore = Guid.NewGuid();
+
 
         protected override CommandHandler<ConsuntivareAutomaticamenteNonResoInterventoRot> OnHandle(IEventRepository eventRepository)
         {

@@ -41,12 +41,7 @@ namespace Super.Saga.Specs.Consuntivazione.Rotabile
         private DateTime DataCons = DateTime.Now;
         string _noteCons = "note cons";
         List<OggettoRot> _oggettiCons = new List<OggettoRot>() { new OggettoRot("desc cons 2", 15, Guid.NewGuid(), Guid.NewGuid()) };
-        Treno _trenoArrivoCons = new Treno("numeroA", DateTime.Now.AddHours(10));
-        Treno _trenoPartenzaCons = new Treno("numeroP", DateTime.Now.AddHours(15));
-        string _turnoTrenoCons = "turno cons";
-        string _rigaTurnoTrenoCons = "rigaturno cons";
-        string _convoglioCons = "convoglio cons";
-
+        
         public override string ToDescription()
         {
             return "Une saga gia inziata non può essere iniziata di nuovo. vero?.";

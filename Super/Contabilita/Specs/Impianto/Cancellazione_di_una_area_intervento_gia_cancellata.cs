@@ -21,9 +21,9 @@ namespace Super.Contabilita.Specs.Impianto
     {
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
-        private DateTime _creationDate = DateTime.Now;
+        
         private Guid _idLotto = Guid.NewGuid();
-        private long _version;
+        
         private Interval _interval = new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2));
 
         protected override CommandHandler<DeleteImpianto> OnHandle(IEventRepository eventRepository)

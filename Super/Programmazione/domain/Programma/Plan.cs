@@ -61,8 +61,6 @@ namespace Super.Programmazione.Domain.Programma
 
         }
 
-
-
         public void AddSchedulazioneRot(Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note, string convoglio, string rigaTurnoTreno, string turnoTreno, Treno trenoArrivo, Treno trenoPartenza, IEnumerable<OggettoRot> oggetti)
         {
             if (_cancelled)
@@ -91,7 +89,6 @@ namespace Super.Programmazione.Domain.Programma
 
             RaiseEvent(evt);
         }
-
         
         public void AddSchedulazioneRotMan(Guid idAppaltatore, Guid idCategoriaCommerciale, Guid idCommittente, Guid idDirezioneRegionale, Guid idImpianto, Guid idLotto, Period period, Guid idPeriodoProgrammazione, Guid idSchedulazione, WorkPeriod workPeriod, Guid idTipoIntervento, string note, IEnumerable<OggettoRotMan> oggetti)
         {

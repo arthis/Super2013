@@ -12,11 +12,9 @@ namespace Super.Controllo.Projection
     public class ProjectionHandlerAsyncService : ProjectionHandlerAsyncServiceBase
     {
 
-        
-
         public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder, IBus bus)
         {
-            var handlerHelper = new EventHandlerHelper(projectionRepositoryBuilder,_handlers, bus, Execute);
+            var handlerHelper = new EventHandlerHelper("Controllo", projectionRepositoryBuilder, _handlers, bus, Execute);
 
             //handlerHelper.Subscribe<InterventoRotProgrammato>(_handlers, new ConsuntivazioneRotProjection());
             //handlerHelper.Subscribe<InterventoRotManProgrammato>(_handlers, new ConsuntivazioneRotManProjection());

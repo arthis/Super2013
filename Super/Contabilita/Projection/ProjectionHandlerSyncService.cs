@@ -24,9 +24,9 @@ namespace Super.Contabilita.Projection
             //handlerHelper.Subscribe<LottoUpdated>( new LottoProjection());
             //handlerHelper.Subscribe<LottoDeleted>( new LottoProjection());
 
-            handlerHelper.Subscribe<AppaltatoreCreated>(new AppaltatoreProjection());
-            handlerHelper.Subscribe<AppaltatoreUpdated>(new AppaltatoreProjection());
-            handlerHelper.Subscribe<AppaltatoreDeleted>(new AppaltatoreProjection());
+            //handlerHelper.Subscribe<AppaltatoreCreated>(new AppaltatoreProjection());
+            //handlerHelper.Subscribe<AppaltatoreUpdated>(new AppaltatoreProjection());
+            //handlerHelper.Subscribe<AppaltatoreDeleted>(new AppaltatoreProjection());
 
             //handlerHelper.Subscribe<CategoriaCommercialeCreated>( new CategoriaCommercialeProjection());
             //handlerHelper.Subscribe<CategoriaCommercialeUpdated>( new CategoriaCommercialeProjection());

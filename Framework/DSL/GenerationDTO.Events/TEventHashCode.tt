@@ -14,7 +14,7 @@ void BuildHashCode(ObjectDTO evt)
 			foreach(var property in evt.Properties)
             {
 				#>
-result = (result*397) ^ (<#= property.GetPascalCasedName() #> != null ? <#= property.GetPascalCasedName() #>.GetHashCode() : 0);
+<#= property.GetHashCodeString() #>
 				<#+
             }
 			#>return result;

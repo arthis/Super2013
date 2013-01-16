@@ -59,6 +59,12 @@ namespace Super.DSL.GenerationDTO.Core
                         require = string.Format("{0} > DateTime.MinValue", GetCamelCasedName());
                         AddRequires(require);
                         break;
+                    case "decimal":
+                    case "int":
+                    case "float":
+                        require = string.Format("{0} > 0", GetCamelCasedName());
+                        AddRequires(require);
+                        break;
                     default:
                         require = string.Format("{0} != null", GetCamelCasedName());
                         AddRequires(require);
@@ -67,6 +73,37 @@ namespace Super.DSL.GenerationDTO.Core
             }
 
             return _requires;
+        }
+
+        public string GetHashCodeString()
+        {
+            var hashcode = string.Empty;
+            
+
+            if (IsRequired)
+            {
+                switch (_type)
+                {
+                    case "string":
+                        hashcode =
+                            string.Format("result = (result*397) ^ ({0} != null ? {0}.GetHashCode() : 0);", GetPascalCasedName());
+                        break;
+                    case "DateTime":
+                    case "Guid":
+                    case "decimal":
+                    case "int":
+                    case "float":
+                        hashcode =
+                            string.Format("result = (result*397) ^ {0}.GetHashCode();", GetPascalCasedName());
+                        break;
+                    default:
+                        hashcode =
+                            string.Format("result = (result*397) ^ ({0} != null ? {0}.GetHashCode() : 0);", GetPascalCasedName());
+                        break;
+                }
+            }
+
+            return hashcode;
         }
 
         private void AddJavascriptRequires(string requirement, string msg)

@@ -24,12 +24,12 @@ namespace Super.Contabilita.Specs.Lotto
         private Guid _id = Guid.NewGuid();
         private string _description = "test";
         private DateTime _creationDate = DateTime.Now;
-        private long _version;
+        
         private Interval _interval = new Interval(DateTime.Now.AddHours(1), DateTime.Now.AddHours(10));
         
 
         private Guid _IdImpianto = Guid.NewGuid();
-        private string _descriptionImpianto = "test";
+        
         private DateTime _creationDateImpianto = DateTime.Now;
         private Interval _intervalImpianto = new Interval(DateTime.Now.AddHours(2), DateTime.Now.AddHours(3));
 

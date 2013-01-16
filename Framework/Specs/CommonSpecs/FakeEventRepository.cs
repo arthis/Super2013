@@ -62,38 +62,15 @@ namespace CommonSpecs
             throw new NotImplementedException();
         }
 
-        public void SubscribeAsync<T>(string subscriptionId, Func<T, Task> onMessage) where T : IMessage
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Request<TRequest, TResponse>(TRequest request, Action<TResponse> onResponse)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Respond<TRequest, TResponse>(Func<TRequest, TResponse> responder)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RespondAsync<TRequest, TResponse>(Func<TRequest, Task<TResponse>> responder)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public void FuturePublish<T>(DateTime timeToRespond, T message) where T : IMessage
         {
             // do nothing
         }
 
-        public event Action Connected;
-        public event Action Disconnected;
+        
 
-        public bool IsConnected
-        {
-            get { throw new NotImplementedException(); }
-        }
+        
     }
 
    

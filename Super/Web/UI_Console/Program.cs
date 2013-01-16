@@ -70,7 +70,7 @@ namespace UI_Console
 
     class Program
     {
-        static IBus Bus;
+        
 
 
         static void Main(string[] args)

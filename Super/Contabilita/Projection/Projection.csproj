@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="AppaltatoreProjection.cs" />
     <Compile Include="CategoriaCommercialeProjection.cs" />
+    <Compile Include="AppaltatoreProjection2.cs" />
     <Compile Include="ProjectionHandlerSyncService.cs" />
     <Compile Include="LottoProjection.cs" />
     <Compile Include="ImpiantoProjection.cs" />

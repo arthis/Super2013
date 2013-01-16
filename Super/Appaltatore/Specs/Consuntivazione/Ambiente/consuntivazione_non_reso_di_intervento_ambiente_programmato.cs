@@ -31,10 +31,7 @@ namespace Super.Appaltatore.Specs.Consuntivazione.Ambiente
         private readonly Guid _commitId = Guid.NewGuid();
         readonly string _idInterventoAppaltatore = "id intervento appaltatore";
         readonly DateTime _dataConsuntivazione = DateTime.Now;
-        readonly WorkPeriod _workPeriodCons = new WorkPeriod(DateTime.Now.AddHours(-17), DateTime.Now.AddMinutes(-13));
         string _noteCons = "note";
-        readonly int _quantityCons = 12;
-        private readonly string _descriptionCons = "bla bla bla description oggetto";
         private Guid _idProgramma =Guid.NewGuid();
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _idCommittente = Guid.NewGuid();

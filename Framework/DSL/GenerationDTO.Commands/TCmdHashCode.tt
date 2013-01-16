@@ -14,7 +14,7 @@ void BuildHashCode(ObjectDTO cmd)
 			foreach(var property in cmd.Properties)
             {
 				#>
-result = (result*397) ^ (<#= property.GetPascalCasedName() #> != null ? <#= property.GetPascalCasedName() #>.GetHashCode() : 0);
+<#= property.GetHashCodeString() #>
 				<#+
             }
 			#>return result;

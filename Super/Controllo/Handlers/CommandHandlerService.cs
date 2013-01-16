@@ -39,7 +39,7 @@ namespace Super.Controllo.Handlers
 
         public override void Subscribe(IBus bus)
         {
-            string subscriptionId = "Super";
+            
 
             
         }

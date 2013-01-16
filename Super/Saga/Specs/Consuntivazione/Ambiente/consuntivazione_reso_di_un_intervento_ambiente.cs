@@ -37,7 +37,6 @@ namespace Super.Saga.Specs.Consuntivazione.Ambiente
         readonly WorkPeriod _periodCons = new WorkPeriod(DateTime.Now.AddHours(-19), DateTime.Now.AddMinutes(-17));
         private int _quantityCons = 13;
         private DateTime DataCons = DateTime.Now;
-        private string _descriptionCons = "desc cons";
         string _noteCons = "note cons";
         private Guid _idProgramma = Guid.NewGuid();
 

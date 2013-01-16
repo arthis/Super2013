@@ -6,7 +6,7 @@ namespace Super.Contabilita.Commands.PeriodoProgrammazione
 
     public class DeletePeriodoProgrammazione : CommandBase
     {
-        public long Version { get; private set; }
+        
 
         public DeletePeriodoProgrammazione()
         {

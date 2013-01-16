@@ -118,8 +118,8 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdUser != null ? IdUser.GetHashCode() : 0);
-				result = (result*397) ^ (ClosingDate != null ? ClosingDate.GetHashCode() : 0);
+				result = (result*397) ^ IdUser.GetHashCode();
+				result = (result*397) ^ ClosingDate.GetHashCode();
 				return result;
             }
         }
@@ -230,8 +230,8 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdUser != null ? IdUser.GetHashCode() : 0);
-				result = (result*397) ^ (ReopeningDate != null ? ReopeningDate.GetHashCode() : 0);
+				result = (result*397) ^ IdUser.GetHashCode();
+				result = (result*397) ^ ReopeningDate.GetHashCode();
 				return result;
             }
         }
@@ -368,9 +368,9 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (IdCausaleAppaltatore != null ? IdCausaleAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
+				
+				result = (result*397) ^ IdCausaleAppaltatore.GetHashCode();
+				result = (result*397) ^ DataConsuntivazione.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
 				return result;
             }
@@ -508,9 +508,9 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (IdCausaleAppaltatore != null ? IdCausaleAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
+				
+				result = (result*397) ^ IdCausaleAppaltatore.GetHashCode();
+				result = (result*397) ^ DataConsuntivazione.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
 				return result;
             }
@@ -648,9 +648,9 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (IdCausaleAppaltatore != null ? IdCausaleAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
+				
+				result = (result*397) ^ IdCausaleAppaltatore.GetHashCode();
+				result = (result*397) ^ DataConsuntivazione.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
 				return result;
             }
@@ -788,9 +788,9 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (IdCausaleTrenitalia != null ? IdCausaleTrenitalia.GetHashCode() : 0);
-				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
+				
+				result = (result*397) ^ IdCausaleTrenitalia.GetHashCode();
+				result = (result*397) ^ DataConsuntivazione.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
 				return result;
             }
@@ -928,9 +928,9 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (IdCausaleTrenitalia != null ? IdCausaleTrenitalia.GetHashCode() : 0);
-				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
+				
+				result = (result*397) ^ IdCausaleTrenitalia.GetHashCode();
+				result = (result*397) ^ DataConsuntivazione.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
 				return result;
             }
@@ -1068,9 +1068,9 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (IdCausaleTrenitalia != null ? IdCausaleTrenitalia.GetHashCode() : 0);
-				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
+				
+				result = (result*397) ^ IdCausaleTrenitalia.GetHashCode();
+				result = (result*397) ^ DataConsuntivazione.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
 				return result;
             }
@@ -1227,9 +1227,9 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+				
 				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
+				result = (result*397) ^ DataConsuntivazione.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
 				result = (result*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
 				return result;
@@ -1387,9 +1387,9 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+				
 				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
+				result = (result*397) ^ DataConsuntivazione.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
 				result = (result*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
 				return result;
@@ -1422,7 +1422,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -1442,7 +1442,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -1462,7 +1462,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -1481,7 +1481,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -1501,7 +1501,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -1521,7 +1521,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -1554,12 +1554,12 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+				
 				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-				result = (result*397) ^ (DataConsuntivazione != null ? DataConsuntivazione.GetHashCode() : 0);
+				result = (result*397) ^ DataConsuntivazione.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
-				result = (result*397) ^ (Quantity != null ? Quantity.GetHashCode() : 0);
+				
+				result = (result*397) ^ Quantity.GetHashCode();
 				return result;
             }
         }
@@ -1696,10 +1696,10 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (IdCausale != null ? IdCausale.GetHashCode() : 0);
-				result = (result*397) ^ (ControlDate != null ? ControlDate.GetHashCode() : 0);
-				result = (result*397) ^ (IdUser != null ? IdUser.GetHashCode() : 0);
+				
+				result = (result*397) ^ IdCausale.GetHashCode();
+				result = (result*397) ^ ControlDate.GetHashCode();
+				result = (result*397) ^ IdUser.GetHashCode();
 				return result;
             }
         }
@@ -1909,16 +1909,16 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+				
 				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-				result = (result*397) ^ (ControlDate != null ? ControlDate.GetHashCode() : 0);
-				result = (result*397) ^ (IdUser != null ? IdUser.GetHashCode() : 0);
+				result = (result*397) ^ ControlDate.GetHashCode();
+				result = (result*397) ^ IdUser.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (Convoglio != null ? Convoglio.GetHashCode() : 0);
-				result = (result*397) ^ (RigaTurnoTreno != null ? RigaTurnoTreno.GetHashCode() : 0);
-				result = (result*397) ^ (TurnoTreno != null ? TurnoTreno.GetHashCode() : 0);
-				result = (result*397) ^ (TrenoArrivo != null ? TrenoArrivo.GetHashCode() : 0);
-				result = (result*397) ^ (TrenoPartenza != null ? TrenoPartenza.GetHashCode() : 0);
+				
+				
+				
+				
+				
 				result = (result*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
 				return result;
             }
@@ -2094,10 +2094,10 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+				
 				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-				result = (result*397) ^ (ControlDate != null ? ControlDate.GetHashCode() : 0);
-				result = (result*397) ^ (IdUser != null ? IdUser.GetHashCode() : 0);
+				result = (result*397) ^ ControlDate.GetHashCode();
+				result = (result*397) ^ IdUser.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
 				result = (result*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
 				return result;
@@ -2133,7 +2133,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -2156,7 +2156,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -2179,7 +2179,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -2201,7 +2201,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -2224,7 +2224,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -2247,7 +2247,7 @@ namespace Super.Controllo.Commands.Consuntivazione
 
 	Contract.Requires(!string.IsNullOrEmpty(idInterventoAppaltatore));
 
-	Contract.Requires(quantity != null);
+	Contract.Requires(quantity > 0);
 
 			Note = note ;
 			WorkPeriod = workPeriod ;
@@ -2281,13 +2281,13 @@ namespace Super.Controllo.Commands.Consuntivazione
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
+				
 				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-				result = (result*397) ^ (ControlDate != null ? ControlDate.GetHashCode() : 0);
-				result = (result*397) ^ (IdUser != null ? IdUser.GetHashCode() : 0);
+				result = (result*397) ^ ControlDate.GetHashCode();
+				result = (result*397) ^ IdUser.GetHashCode();
 				result = (result*397) ^ (IdInterventoAppaltatore != null ? IdInterventoAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
-				result = (result*397) ^ (Quantity != null ? Quantity.GetHashCode() : 0);
+				
+				result = (result*397) ^ Quantity.GetHashCode();
 				return result;
             }
         }

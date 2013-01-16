@@ -45,7 +45,7 @@ namespace CommonDomain.Core.Tests
 
     public class when_a_user_handles_a_unknown_type_command
     {
-        static IAction _action;
+        
         private static ISecurityUser _securityUser;
         private static List<Regex> _commands = new List<Regex>();
         private static List<Guid> _committenti = new List<Guid>();
@@ -53,7 +53,7 @@ namespace CommonDomain.Core.Tests
         private static List<Guid> _tipiIntervento = new List<Guid>();
         private static IActionFactory _actionfactory;
         private static MyCommand _command;
-        private static bool _canBeExecuted;
+        
 
         Establish context = () =>
         {
@@ -64,8 +64,6 @@ namespace CommonDomain.Core.Tests
             _securityUser = new SecurityUser(Guid.NewGuid(), _commands, _committenti, _lotti, _tipiIntervento);
 
         };
-
-        private Cleanup after = () => _action = null;
 
         private It should_throw_an_exception = () => typeof(ArgumentException).ShouldBeThrownBy( ()=>_securityUser.CreateAction(_actionfactory, _command));
 

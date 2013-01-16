@@ -64,9 +64,9 @@ namespace Super.Programmazione.Events.Scenario
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdUser != null ? IdUser.GetHashCode() : 0);
-				result = (result*397) ^ (PromotionDate != null ? PromotionDate.GetHashCode() : 0);
-				result = (result*397) ^ (IdPlan != null ? IdPlan.GetHashCode() : 0);
+				result = (result*397) ^ IdUser.GetHashCode();
+				result = (result*397) ^ PromotionDate.GetHashCode();
+				result = (result*397) ^ IdPlan.GetHashCode();
 				return result;
             }
         }

@@ -15,9 +15,9 @@ namespace Super.Appaltatore.Projection
 
         public override void InitHandlers(IProjectionRepositoryBuilder projectionRepositoryBuilder, IBus bus)
         {
-            var handlerHelper = new EventHandlerHelper(projectionRepositoryBuilder, _handlers, bus, Execute);
+            var handlerHelper = new EventHandlerHelper("Appaltatore", projectionRepositoryBuilder, _handlers, bus, Execute);
 
-            handlerHelper.Subscribe(new ConsuntivazioneRotProjection());
+            handlerHelper.Subscribe( new ConsuntivazioneRotProjection());
             handlerHelper.Subscribe( new ConsuntivazioneRotManProjection());
             handlerHelper.Subscribe( new ConsuntivazioneAmbProjection());
 

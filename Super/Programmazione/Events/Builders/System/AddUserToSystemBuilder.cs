@@ -8,9 +8,7 @@ namespace Super.Programmazione.Events.Builders.System
     {
         private string _lastName;
         private string _firstName;
-        private string _username;
-        private string _password;
-
+        
         public UserAddedToSystemBuilder WithLastName(string lastName)
         {
             _lastName = lastName;

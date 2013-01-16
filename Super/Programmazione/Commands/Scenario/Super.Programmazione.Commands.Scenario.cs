@@ -325,23 +325,23 @@ namespace Super.Programmazione.Commands.Scenario
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdPeriodoProgrammazione != null ? IdPeriodoProgrammazione.GetHashCode() : 0);
-				result = (result*397) ^ (IdSchedulazione != null ? IdSchedulazione.GetHashCode() : 0);
-				result = (result*397) ^ (IdCommittente != null ? IdCommittente.GetHashCode() : 0);
-				result = (result*397) ^ (IdLotto != null ? IdLotto.GetHashCode() : 0);
-				result = (result*397) ^ (IdImpianto != null ? IdImpianto.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdAppaltatore != null ? IdAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (IdCategoriaCommerciale != null ? IdCategoriaCommerciale.GetHashCode() : 0);
-				result = (result*397) ^ (IdDirezioneRegionale != null ? IdDirezioneRegionale.GetHashCode() : 0);
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-				result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
-				result = (result*397) ^ (Convoglio != null ? Convoglio.GetHashCode() : 0);
-				result = (result*397) ^ (RigaTurnoTreno != null ? RigaTurnoTreno.GetHashCode() : 0);
-				result = (result*397) ^ (TurnoTreno != null ? TurnoTreno.GetHashCode() : 0);
-				result = (result*397) ^ (TrenoArrivo != null ? TrenoArrivo.GetHashCode() : 0);
-				result = (result*397) ^ (TrenoPartenza != null ? TrenoPartenza.GetHashCode() : 0);
+				result = (result*397) ^ IdPeriodoProgrammazione.GetHashCode();
+				result = (result*397) ^ IdSchedulazione.GetHashCode();
+				result = (result*397) ^ IdCommittente.GetHashCode();
+				result = (result*397) ^ IdLotto.GetHashCode();
+				result = (result*397) ^ IdImpianto.GetHashCode();
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
+				result = (result*397) ^ IdAppaltatore.GetHashCode();
+				result = (result*397) ^ IdCategoriaCommerciale.GetHashCode();
+				result = (result*397) ^ IdDirezioneRegionale.GetHashCode();
+				
+				
+				
+				
+				
+				
+				
+				
 				result = (result*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
 				return result;
             }
@@ -626,18 +626,18 @@ namespace Super.Programmazione.Commands.Scenario
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdPeriodoProgrammazione != null ? IdPeriodoProgrammazione.GetHashCode() : 0);
-				result = (result*397) ^ (IdSchedulazione != null ? IdSchedulazione.GetHashCode() : 0);
-				result = (result*397) ^ (IdCommittente != null ? IdCommittente.GetHashCode() : 0);
-				result = (result*397) ^ (IdLotto != null ? IdLotto.GetHashCode() : 0);
-				result = (result*397) ^ (IdImpianto != null ? IdImpianto.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdAppaltatore != null ? IdAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (IdCategoriaCommerciale != null ? IdCategoriaCommerciale.GetHashCode() : 0);
-				result = (result*397) ^ (IdDirezioneRegionale != null ? IdDirezioneRegionale.GetHashCode() : 0);
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-				result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
+				result = (result*397) ^ IdPeriodoProgrammazione.GetHashCode();
+				result = (result*397) ^ IdSchedulazione.GetHashCode();
+				result = (result*397) ^ IdCommittente.GetHashCode();
+				result = (result*397) ^ IdLotto.GetHashCode();
+				result = (result*397) ^ IdImpianto.GetHashCode();
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
+				result = (result*397) ^ IdAppaltatore.GetHashCode();
+				result = (result*397) ^ IdCategoriaCommerciale.GetHashCode();
+				result = (result*397) ^ IdDirezioneRegionale.GetHashCode();
+				
+				
+				
 				result = (result*397) ^ (Oggetti != null ? Oggetti.GetHashCode() : 0);
 				return result;
             }
@@ -917,20 +917,20 @@ namespace Super.Programmazione.Commands.Scenario
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdPeriodoProgrammazione != null ? IdPeriodoProgrammazione.GetHashCode() : 0);
-				result = (result*397) ^ (IdSchedulazione != null ? IdSchedulazione.GetHashCode() : 0);
-				result = (result*397) ^ (IdCommittente != null ? IdCommittente.GetHashCode() : 0);
-				result = (result*397) ^ (IdLotto != null ? IdLotto.GetHashCode() : 0);
-				result = (result*397) ^ (IdImpianto != null ? IdImpianto.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdAppaltatore != null ? IdAppaltatore.GetHashCode() : 0);
-				result = (result*397) ^ (IdCategoriaCommerciale != null ? IdCategoriaCommerciale.GetHashCode() : 0);
-				result = (result*397) ^ (IdDirezioneRegionale != null ? IdDirezioneRegionale.GetHashCode() : 0);
-				result = (result*397) ^ (Note != null ? Note.GetHashCode() : 0);
-				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
-				result = (result*397) ^ (Period != null ? Period.GetHashCode() : 0);
-				result = (result*397) ^ (Quantity != null ? Quantity.GetHashCode() : 0);
-				result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
+				result = (result*397) ^ IdPeriodoProgrammazione.GetHashCode();
+				result = (result*397) ^ IdSchedulazione.GetHashCode();
+				result = (result*397) ^ IdCommittente.GetHashCode();
+				result = (result*397) ^ IdLotto.GetHashCode();
+				result = (result*397) ^ IdImpianto.GetHashCode();
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
+				result = (result*397) ^ IdAppaltatore.GetHashCode();
+				result = (result*397) ^ IdCategoriaCommerciale.GetHashCode();
+				result = (result*397) ^ IdDirezioneRegionale.GetHashCode();
+				
+				
+				
+				
+				
 				return result;
             }
         }
@@ -1042,7 +1042,7 @@ namespace Super.Programmazione.Commands.Scenario
             {
 				int result = base.GetHashCode();
 				result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
-				result = (result*397) ^ (IdProgramma != null ? IdProgramma.GetHashCode() : 0);
+				result = (result*397) ^ IdProgramma.GetHashCode();
 				return result;
             }
         }
@@ -1317,8 +1317,8 @@ namespace Super.Programmazione.Commands.Scenario
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (PromotionDate != null ? PromotionDate.GetHashCode() : 0);
-				result = (result*397) ^ (IdPlan != null ? IdPlan.GetHashCode() : 0);
+				result = (result*397) ^ PromotionDate.GetHashCode();
+				result = (result*397) ^ IdPlan.GetHashCode();
 				return result;
             }
         }

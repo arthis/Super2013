@@ -7,7 +7,7 @@ namespace Super.Contabilita.Commands.Impianto
     
     public class DeleteImpianto : CommandBase
     {
-        public long Version { get;  set; }
+        
 
         public DeleteImpianto()
         {
