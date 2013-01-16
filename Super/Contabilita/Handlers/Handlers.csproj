@@ -107,11 +107,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Appaltatore\CreateAppaltatoreHandler.cs" />
@@ -182,10 +178,6 @@
     <Compile Include="Commands\TipoOggettoIntervento\Rotabile\UpdateLocomotiveRotHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
-      <Project>{22C1CCB4-63E1-47A8-8DD1-865E7E4F280A}</Project>
-      <Name>CommandService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
       <Project>{51c99f4d-ccf0-431a-b37c-d620ef1df37b}</Project>
       <Name>CommonDomain.Core</Name>
@@ -209,10 +201,6 @@
     <ProjectReference Include="..\domain\Domain.csproj">
       <Project>{5B1B79C7-BE33-4DE3-9C11-EAD25956C5F6}</Project>
       <Name>Domain %28Super\Contabilita\Domain%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projection\Projection.csproj">
-      <Project>{D05A48FF-F979-4485-B3AA-1ED81EBAEF32}</Project>
-      <Name>Projection %28Super\Contabilita\Projection%29</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

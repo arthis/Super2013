@@ -5,5 +5,6 @@ namespace CommonDomain.Core.Handlers
         where TCommand : ICommand
     {
         TCommand Port(TEvent evt);
+        
     }
 }

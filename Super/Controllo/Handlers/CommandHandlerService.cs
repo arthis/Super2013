@@ -27,12 +27,12 @@ namespace Super.Controllo.Handlers
             var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory, _repositorySecurityUser, Handlers);
 
             
-            handlerHelper.Add( new CloseInterventoHandler(eventRepository));
-            handlerHelper.Add( new ControlResoInterventoNonHandler(eventRepository));
-            handlerHelper.Add( new ControlInterventoAmbResoHandler(eventRepository));
-            handlerHelper.Add( new ControlResoInterventoRotHandler(eventRepository));
-            handlerHelper.Add( new ControlResoInterventoRotManHandler(eventRepository));
-            handlerHelper.Add( new ReopenInterventoHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CloseInterventoHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new ControlResoInterventoNonHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new ControlInterventoAmbResoHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new ControlResoInterventoRotHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new ControlResoInterventoRotManHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new ReopenInterventoHandler(eventRepository));
         }
 
         

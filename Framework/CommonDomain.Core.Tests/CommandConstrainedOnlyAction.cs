@@ -4,9 +4,7 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using CommonDomain.Core.Handlers.Actions;
 using CommonDomain.Core.Handlers.Commands;
-using CommonDomain.Persistence;
 using Machine.Specifications;
-using Moq;
 using It = Machine.Specifications.It;
 
 namespace CommonDomain.Core.Tests
@@ -28,7 +26,7 @@ namespace CommonDomain.Core.Tests
                                     _command = new MyCommand();
                                     _commands.Add(new Regex(typeof(MyCommand).ToString()));
                                     _actionfactory= new ActionFactory();
-                                    _actionfactory.AddCommandConstrainedOnlyAction<MyCommand>();
+                                    _actionfactory.AddCommandTypeConstrainedActionHandlerFor<MyCommand>();
                                     _securityUser = new SecurityUser(Guid.NewGuid(),_commands,_committenti,_lotti,_tipiIntervento);
 
                                 };

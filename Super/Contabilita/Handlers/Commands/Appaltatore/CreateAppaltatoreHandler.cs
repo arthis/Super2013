@@ -4,7 +4,6 @@ using CommonDomain.Core;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Persistence;
 using Super.Contabilita.Commands.Appaltatore;
-using Super.Contabilita.Projection;
 
 namespace Super.Contabilita.Handlers.Commands.Appaltatore
 {

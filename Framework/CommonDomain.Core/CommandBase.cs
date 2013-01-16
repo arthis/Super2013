@@ -100,9 +100,9 @@ namespace CommonDomain.Core
         public static Type[] GetKnownTypes()
         {
             var types = from asm in AppDomain.CurrentDomain.GetAssemblies()
+                        where asm.FullName.Contains("Commands")
                         from type in asm.GetTypes()
-                        where
-                            typeof(CommandBase).IsAssignableFrom(type) && !type.IsAbstract
+                        where typeof(CommandBase).IsAssignableFrom(type) && !type.IsAbstract
                         select type;
 
             return types.ToArray();

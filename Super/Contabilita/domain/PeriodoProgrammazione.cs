@@ -40,7 +40,7 @@ namespace Super.Contabilita.Domain
         }
 
         private bool _deleted;
-        private Interval _interval;
+        
 
         public PeriodoProgrammazione()
         {

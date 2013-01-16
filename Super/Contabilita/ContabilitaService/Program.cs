@@ -8,7 +8,6 @@ using CommonDomain.Persistence.EventStore;
 using EasyNetQ;
 using EventStore;
 using EventStore.Persistence.SqlPersistence.SqlDialects;
-using Super.Contabilita.Domain;
 using Super.Contabilita.Handlers;
 using Super.Contabilita.Projection;
 

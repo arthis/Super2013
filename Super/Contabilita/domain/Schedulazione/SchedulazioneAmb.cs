@@ -12,7 +12,6 @@ namespace Super.Contabilita.Domain.Schedulazione
 
     public class SchedulazioneAmb : AggregateBase
     {
-        private readonly Guid _id;
         private Guid _idTipoIntervento;
         private Guid _idScenario;
         private int _quantity;

@@ -14,7 +14,7 @@ namespace CommonDomain
 
         IAction CreateAction(ICommand cmd);
 
-        void AddFullyConstrainedAction<T>() where T : ICommand;
-        void AddCommandConstrainedOnlyAction<T>() where T : ICommand;
+        void AddFullyConstrainedActionHandlerFor<T>() where T : ICommand;
+        void AddCommandTypeConstrainedActionHandlerFor<T>() where T : ICommand;
     }
 }

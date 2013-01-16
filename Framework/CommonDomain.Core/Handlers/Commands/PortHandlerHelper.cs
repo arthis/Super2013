@@ -6,14 +6,19 @@ namespace CommonDomain.Core.Handlers.Commands
 {
     public class PortHandlerHelper
     {
+        public PortHandlerHelper()
+        {
 
-        public void Add<TEvent,TCommand>(Dictionary<Type, Func<IEvent,ICommand>> dictionnary,IPortHandler<TEvent,TCommand> eventHandler) 
+        }
+
+        public void Add<TEvent,TCommand>(string subscription, Dictionary<Type, Func<IEvent,ICommand>> dictionnary,IPortHandler<TEvent,TCommand> eventHandler) 
             where TEvent  : IEvent
             where TCommand  : ICommand
         {
             Contract.Requires(dictionnary != null);
 
             dictionnary.Add(typeof(TEvent), (evt)=> eventHandler.Port((TEvent)evt) );
+           
         }
     }
 }

@@ -104,7 +104,6 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EventStore, Version=3.1.0.0, Culture=neutral, PublicKeyToken=7735eb81c0bd9948, processorArchitecture=MSIL" />
     <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
@@ -114,8 +113,6 @@
       <HintPath>..\..\..\lib\NUnit 2.5.10\framework\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appaltatore\Aggiornamento_di_una_appaltatore_gia_creata.cs" />
@@ -236,10 +233,6 @@
     <Compile Include="TipoOggettoIntervento\Rotabile\Creazione_di_una_nuova_locomotiva_rotabile_gia_creata.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Framework\CommandService\CommandService.csproj">
-      <Project>{22C1CCB4-63E1-47A8-8DD1-865E7E4F280A}</Project>
-      <Name>CommandService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Framework\CommonDomain.Core\CommonDomain.Core.csproj">
       <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
       <Name>CommonDomain.Core</Name>
@@ -255,10 +248,6 @@
     <ProjectReference Include="..\..\..\Framework\Specs\CommonSpecs\CommonSpecs.csproj">
       <Project>{F954F13E-C818-485F-98BF-91579AA21127}</Project>
       <Name>CommonSpecs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Programmazione\Commands\Commands.csproj">
-      <Project>{8A1120F1-6778-4AD1-8F09-45A2ABE5C1FC}</Project>
-      <Name>Commands %28Super\Programmazione\Commands%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Commands\Commands.csproj">
       <Project>{7C1A8FCA-5A29-4A72-9D3E-D477CF0B96BF}</Project>

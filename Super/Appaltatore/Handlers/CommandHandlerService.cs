@@ -25,32 +25,32 @@ namespace Super.Appaltatore.Handlers
         {
             var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory,_repo, Handlers);
 
-            handlerHelper.Add( new ProgramInterventoAmbHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ProgramInterventoRotHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ProgramInterventoRotManHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand( new ProgramInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand( new ProgramInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand( new ProgramInterventoRotManHandler(eventRepositoryEvent));
 
-            handlerHelper.Add(new ConsuntivareNonResoInterventoAmbHandler(eventRepositoryEvent));
-            handlerHelper.Add(new ConsuntivareNonResoInterventoRotHandler(eventRepositoryEvent));
-            handlerHelper.Add(new ConsuntivareNonResoInterventoRotManHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand(new ConsuntivareNonResoInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand(new ConsuntivareNonResoInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand(new ConsuntivareNonResoInterventoRotManHandler(eventRepositoryEvent));
 
-            handlerHelper.Add(new ConsuntivareAutomaticamenteNonResoInterventoAmbHandler(eventRepositoryEvent));
-            handlerHelper.Add(new ConsuntivareAutomaticamenteNonResoInterventoRotHandler(eventRepositoryEvent));
-            handlerHelper.Add(new ConsuntivareAutomaticamenteNonResoInterventoRotManHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand(new ConsuntivareAutomaticamenteNonResoInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand(new ConsuntivareAutomaticamenteNonResoInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand(new ConsuntivareAutomaticamenteNonResoInterventoRotManHandler(eventRepositoryEvent));
 
 
-            handlerHelper.Add( new ConsuntivareResoAmbHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ConsuntivareResoRotHandler(eventRepositoryEvent));
-            handlerHelper.Add( new ConsuntivareResoRotManHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand( new ConsuntivareResoAmbHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand( new ConsuntivareResoRotHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand( new ConsuntivareResoRotManHandler(eventRepositoryEvent));
 
-            handlerHelper.Add( new ConsuntivareNonResoTrenitaliaInterventoAmbHandler(eventRepositoryEvent));
-            handlerHelper.Add(new ConsuntivareNonResoTrenitaliaInterventoRotHandler(eventRepositoryEvent));
-            handlerHelper.Add(new ConsuntivareNonResoTrenitaliaInterventoRotManHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand( new ConsuntivareNonResoTrenitaliaInterventoAmbHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand(new ConsuntivareNonResoTrenitaliaInterventoRotHandler(eventRepositoryEvent));
+            handlerHelper.AddFullyConstrainedCommand(new ConsuntivareNonResoTrenitaliaInterventoRotManHandler(eventRepositoryEvent));
             
         }
 
         public override void Subscribe(IBus bus)
         {
-            string subscriptionId = "Super";
+            string subscriptionId = "Super_Appaltatore_Commands_";
 
             bus.Subscribe<ProgramInterventoRot>(subscriptionId, cmd => Execute(cmd));
             bus.Subscribe<ProgramInterventoRotMan>(subscriptionId, cmd => Execute(cmd));

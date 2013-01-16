@@ -11,11 +11,11 @@ namespace CommonDomain.Core.Handlers.Actions
         private IEnumerable<Guid> _committenti;
         private IEnumerable<Guid> _lotti;
         private IEnumerable<Guid> _tipiIntervento;
-        private Dictionary<string,Func<IAction>> _handler;
+        private Dictionary<string,Func<ICommand, IAction>> _handler;
 
         public ActionFactory()
         {
-            _handler = new Dictionary<string, Func<IAction>>();
+            _handler = new Dictionary<string, Func<ICommand,IAction>>();
         }
 
         public IActionFactory WithCommands(IEnumerable<Regex> commands)
@@ -42,7 +42,7 @@ namespace CommonDomain.Core.Handlers.Actions
             return this;
         }
 
-        public void AddFullyConstrainedAction<T>() where T:ICommand
+        public void AddFullyConstrainedActionHandlerFor<T>() where T:ICommand
         {
             Contract.Requires(_commands != null);
             Contract.Requires(_committenti != null);
@@ -54,10 +54,10 @@ namespace CommonDomain.Core.Handlers.Actions
             if (_handler.ContainsKey(cmdType))
                 throw  new ArgumentException("Command type already added");
 
-            _handler.Add(cmdType, () => new ActionFullyConstrained<T>( _commands, _committenti, _lotti, _tipiIntervento));
+            _handler.Add(cmdType, (command) => new ActionFullyConstrained<T>((T)command, _commands, _committenti, _lotti, _tipiIntervento));
         }
 
-        public void AddCommandConstrainedOnlyAction<T>() where T:ICommand
+        public void AddCommandTypeConstrainedActionHandlerFor<T>() where T:ICommand
         {
             Contract.Requires(_commands != null);
 
@@ -66,7 +66,7 @@ namespace CommonDomain.Core.Handlers.Actions
             if (_handler.ContainsKey(cmdType))
                 throw new ArgumentException("Command type already added");
 
-            _handler.Add(cmdType, () => new ActionCommandConstrainedOnly<T>(_commands));
+            _handler.Add(cmdType, (cmd) => new ActionCommandConstrainedOnly<T>(_commands));
         }
 
         
@@ -75,7 +75,7 @@ namespace CommonDomain.Core.Handlers.Actions
             
             var cmdType = cmd.GetType().ToString();
             if (_handler.ContainsKey(cmdType))
-                return _handler[cmdType]();
+                return _handler[cmdType](cmd);
              throw  new ArgumentException("command not known");
         }
     }

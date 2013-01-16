@@ -24,39 +24,39 @@ namespace Super.Programmazione.Handlers
             var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory, _repositorySecurityUser, Handlers);
 
 
-            handlerHelper.Add( new CancelScenarioHandler(eventRepository));
-            handlerHelper.Add( new ChangeDescriptionScenarioHandler(eventRepository));
-            handlerHelper.Add( new CreateScenarioHandler(eventRepository));
-            handlerHelper.Add( new PromoteScenarioToPlanHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CancelScenarioHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new ChangeDescriptionScenarioHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateScenarioHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new PromoteScenarioToPlanHandler(eventRepository));
 
             #region programma
 
-            handlerHelper.Add( new AddSchedulazioneRotToProgrammaHandler(eventRepository));
-            handlerHelper.Add(new CreateProgrammaHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new AddSchedulazioneRotToProgrammaHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand(new CreateProgrammaHandler(eventRepository));
 
             #endregion
 
-            handlerHelper.Add( new CreatePlanFromPromotedScenarioHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreatePlanFromPromotedScenarioHandler(eventRepository));
 
             
         }
 
         public override void Subscribe(IBus bus)
         {
-            string subscriptionId = "Super";
+            const string subscriptionId = "Super_Programmazione_Ports_";
 
             var portHelper = new PortHandlerHelper();
             
-            portHelper.Add(_ports, new ScenarioPromotedToPlanHandler());
+            portHelper.Add(subscriptionId, _ports, new ScenarioPromotedToPlanHandler());
 
-            portHelper.Add(_ports, new ScenarioCreatedHandler());
-            portHelper.Add(_ports, new SchedulazioneRotAddedToScenarioHandler());
-            portHelper.Add(_ports, new SchedulazioneRotManAddedToScenarioHandler());
-            portHelper.Add(_ports, new SchedulazioneAmbAddedToScenarioHandler());
+            portHelper.Add(subscriptionId, _ports, new ScenarioCreatedHandler());
+            portHelper.Add(subscriptionId, _ports, new SchedulazioneRotAddedToScenarioHandler());
+            portHelper.Add(subscriptionId, _ports, new SchedulazioneRotManAddedToScenarioHandler());
+            portHelper.Add(subscriptionId, _ports, new SchedulazioneAmbAddedToScenarioHandler());
 
-            portHelper.Add(_ports, new SchedulazioneRotAddedToPlanHandler());
-            portHelper.Add(_ports, new SchedulazioneRotManAddedToPlanHandler());
-            portHelper.Add(_ports, new SchedulazioneAmbAddedToPlanHandler());
+            portHelper.Add(subscriptionId, _ports, new SchedulazioneRotAddedToPlanHandler());
+            portHelper.Add(subscriptionId, _ports, new SchedulazioneRotManAddedToPlanHandler());
+            portHelper.Add(subscriptionId, _ports, new SchedulazioneAmbAddedToPlanHandler());
 
         }
 

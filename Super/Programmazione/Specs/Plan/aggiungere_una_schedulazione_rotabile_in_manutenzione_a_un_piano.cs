@@ -18,7 +18,7 @@ namespace Super.Programmazione.Specs.Plan
     public class aggiungere_una_schedulazione_rotabile_in_manutenzione_a_un_piano : CommandBaseClass<AddSchedulazioneRotManToPlan>
     {
         private Guid _idPlan = Guid.NewGuid();
-        private string _descritpion = "description";
+        
         
         private Guid _idAppaltatore = Guid.NewGuid();
         private Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -36,12 +36,9 @@ namespace Super.Programmazione.Specs.Plan
         private Guid _idScenario = Guid.NewGuid();
         private Guid _idProgramma = Guid.NewGuid();
         private Guid _idSchedulazione = Guid.NewGuid();
-        private string _convoglio = "convoglio";
+        
         private OggettoRotMan[] _oggetti = new OggettoRotMan[] { BuildMessagingVO.MsgOggettoRotMan.ForDescription("description").ForGruppo(Guid.NewGuid()).OfQuantity(2).OfType(Guid.NewGuid()).Build() };
-        private string _rigaTurnoTreno = "rigaTurnoTreno";
-        private Treno _trenoArrivo = BuildMessagingVO.MsgTreno.When(DateTime.Now).WithNumeroTreno("1111").Build();
-        private Treno _trenoPartenza = BuildMessagingVO.MsgTreno.When(DateTime.Now.AddHours(3)).WithNumeroTreno("1141").Build();
-        private string _turnoTreno = "turnoTreno";
+        
 
 
         protected override CommandHandler<AddSchedulazioneRotManToPlan> OnHandle(IEventRepository eventRepository)

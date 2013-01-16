@@ -53,12 +53,12 @@ namespace CommonSpecs
             return new FakeAction();
         }
 
-        public void AddFullyConstrainedAction<T>() where T : ICommand
+        public void AddFullyConstrainedActionHandlerFor<T>() where T : ICommand
         {
             throw new NotImplementedException();
         }
 
-        public void AddCommandConstrainedOnlyAction<T>() where T : ICommand
+        public void AddCommandTypeConstrainedActionHandlerFor<T>() where T : ICommand
         {
             throw new NotImplementedException();
         }

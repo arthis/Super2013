@@ -119,7 +119,7 @@
     <Compile Include="IProjectionRepository.cs" />
     <Compile Include="IProjectionRepositoryBuilder.cs" />
     <Compile Include="ISagaRepository.cs" />
-    <Compile Include="ISessionRepository.cs" />
+    <Compile Include="ISecurityUserRepository.cs" />
     <Compile Include="PersistenceException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryExtensions.cs" />

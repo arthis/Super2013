@@ -27,8 +27,7 @@ namespace Super.Contabilita.Events.Intervento
 		public InterventoPriceOfPlanCalculated(Guid id, Guid commitId, long version,decimal price,Guid idPlan)
 		   : base(id,commitId,version)
 		{
-			Contract.Requires(price != null);
-
+			
 	Contract.Requires(idPlan != Guid.Empty);
 
 			Price = price ;
@@ -60,7 +59,7 @@ namespace Super.Contabilita.Events.Intervento
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (Price != null ? Price.GetHashCode() : 0);
+				result = (result*397) ^  Price.GetHashCode();
 				result = (result*397) ^ (IdPlan != null ? IdPlan.GetHashCode() : 0);
 				return result;
             }
@@ -264,7 +263,7 @@ namespace Super.Contabilita.Events.Intervento
 
 	Contract.Requires(idPlan != Guid.Empty);
 
-	Contract.Requires(quantity != null);
+	
 
 	Contract.Requires(workPeriod != null);
 
@@ -299,9 +298,9 @@ namespace Super.Contabilita.Events.Intervento
             unchecked
             {
 				int result = base.GetHashCode();
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdPlan != null ? IdPlan.GetHashCode() : 0);
-				result = (result*397) ^ (Quantity != null ? Quantity.GetHashCode() : 0);
+				result = (result*397) ^ IdTipoIntervento.GetHashCode();
+				result = (result*397) ^  IdPlan.GetHashCode() ;
+				result = (result*397) ^ Quantity.GetHashCode();
 				result = (result*397) ^ (WorkPeriod != null ? WorkPeriod.GetHashCode() : 0);
 				return result;
             }

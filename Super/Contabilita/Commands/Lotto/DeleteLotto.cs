@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
-using CommandService;
 using CommonDomain.Core;
 
 namespace Super.Contabilita.Commands.Lotto

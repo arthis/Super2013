@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommonDomain;
-using CommonDomain.Core.Handlers;
-using CommonDomain.Persistence;
 using Machine.Specifications;
-using Moq;
 using It = Machine.Specifications.It;
 
 namespace CommandService.Tests

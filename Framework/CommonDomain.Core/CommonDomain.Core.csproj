@@ -117,7 +117,6 @@
     <Compile Include="EventBase.cs" />
     <Compile Include="Handlers\Commands\CommandHandlerServiceBase.cs" />
     <Compile Include="CommandValidationException.cs" />
-    <Compile Include="Envelope.cs" />
     <Compile Include="Handlers\Commands\PortHandlerHelper.cs" />
     <Compile Include="Handlers\Commands\SecurityCommandHandler.cs" />
     <Compile Include="Handlers\Events\EventAlreadyHandled.cs" />

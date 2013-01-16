@@ -18,7 +18,7 @@ namespace Super.Programmazione.Specs.Plan
     public class aggiungere_un_intervento_rotabile_a_un_piano : CommandBaseClass<AddInterventoRotToPlan>
     {
         private Guid _idPlan = Guid.NewGuid();
-        private string _descritpion = "description";
+        
         
         private Guid _idAppaltatore = Guid.NewGuid();
         private Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -30,8 +30,7 @@ namespace Super.Programmazione.Specs.Plan
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _tipoIntervento = Guid.NewGuid();
         private string _note = "note";
-        private int _quantity = 25;
-        private string _description = "description";
+        
         private Guid _idScenario = Guid.NewGuid();
         private Guid _idProgramma = Guid.NewGuid();
         private Guid _idIntervento = Guid.NewGuid();

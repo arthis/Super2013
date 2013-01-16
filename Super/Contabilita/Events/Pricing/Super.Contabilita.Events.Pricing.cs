@@ -13,500 +13,494 @@ namespace Super.Contabilita.Events.Pricing
 {
 
 
-	public class PricingCreated : EventBase  
-	{
-	
+    public class PricingCreated : EventBase
+    {
 
-		public PricingCreated ()
-		{
-			//for serialisation
-		}	     
 
-		public PricingCreated(Guid id, Guid commitId, long version)
-		   : base(id,commitId,version)
-		{
-				}
+        public PricingCreated()
+        {
+            //for serialisation
+        }
 
-		
-			public override string ToDescription()
-		{
-			return string.Format("il prezzarrio é stato creato", Id);
-		}
-		
-		public bool Equals(PricingCreated other)
+        public PricingCreated(Guid id, Guid commitId, long version)
+            : base(id, commitId, version)
+        {
+        }
+
+
+        public override string ToDescription()
+        {
+            return string.Format("il prezzarrio é stato creato", Id);
+        }
+
+        public bool Equals(PricingCreated other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other) ; 
-		}
+            return base.Equals(other);
+        }
 
-		public override bool Equals(object obj)
+        public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             return Equals(obj as PricingCreated);
         }
 
-		public override int GetHashCode()
+        public override int GetHashCode()
         {
             unchecked
             {
-				int result = base.GetHashCode();
-				return result;
+                int result = base.GetHashCode();
+                return result;
             }
         }
-	}
+    }
 
-	public class BasePriceRotCreated : EventBase  
-	{
-	 
-		public Guid IdBasePrice { get; set;} 
-		public IntervalOpened Interval { get; set;} 
-		public Guid IdTipoIntervento { get; set;} 
-		public Guid IdGruppoOggettoIntervento { get; set;} 
-		public decimal Value { get; set;}
+    public class BasePriceRotCreated : EventBase
+    {
 
-		public BasePriceRotCreated ()
-		{
-			//for serialisation
-		}	     
+        public Guid IdBasePrice { get; set; }
+        public IntervalOpened Interval { get; set; }
+        public Guid IdTipoIntervento { get; set; }
+        public Guid IdGruppoOggettoIntervento { get; set; }
+        public decimal Value { get; set; }
 
-		public BasePriceRotCreated(Guid id, Guid commitId, long version,Guid idBasePrice,IntervalOpened interval,Guid idTipoIntervento,Guid idGruppoOggettoIntervento,decimal value)
-		   : base(id,commitId,version)
-		{
-			Contract.Requires(idBasePrice != Guid.Empty);
+        public BasePriceRotCreated()
+        {
+            //for serialisation
+        }
 
-	Contract.Requires(interval != null);
+        public BasePriceRotCreated(Guid id, Guid commitId, long version, Guid idBasePrice, IntervalOpened interval, Guid idTipoIntervento, Guid idGruppoOggettoIntervento, decimal value)
+            : base(id, commitId, version)
+        {
+            Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(interval != null);
 
-	Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
 
-	Contract.Requires(value != null);
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
-			IdBasePrice = idBasePrice ;
-			Interval = interval ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdGruppoOggettoIntervento = idGruppoOggettoIntervento ;
-			Value = value ;
-		}
 
-		
-			public override string ToDescription()
-		{
-			return string.Format("Il prezzo di base per rotabile é stato creato", Id);
-		}
-		
-		public bool Equals(BasePriceRotCreated other)
+
+            IdBasePrice = idBasePrice;
+            Interval = interval;
+            IdTipoIntervento = idTipoIntervento;
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
+            Value = value;
+        }
+
+
+        public override string ToDescription()
+        {
+            return string.Format("Il prezzo di base per rotabile é stato creato", Id);
+        }
+
+        public bool Equals(BasePriceRotCreated other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other)  	 && Equals(other.IdBasePrice, IdBasePrice)  	 && Equals(other.Interval, Interval)  	 && Equals(other.IdTipoIntervento, IdTipoIntervento)  	 && Equals(other.IdGruppoOggettoIntervento, IdGruppoOggettoIntervento)  	 && Equals(other.Value, Value) ; 
-		}
+            return base.Equals(other) && Equals(other.IdBasePrice, IdBasePrice) && Equals(other.Interval, Interval) && Equals(other.IdTipoIntervento, IdTipoIntervento) && Equals(other.IdGruppoOggettoIntervento, IdGruppoOggettoIntervento) && Equals(other.Value, Value);
+        }
 
-		public override bool Equals(object obj)
+        public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             return Equals(obj as BasePriceRotCreated);
         }
 
-		public override int GetHashCode()
+        public override int GetHashCode()
         {
             unchecked
             {
-				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdGruppoOggettoIntervento != null ? IdGruppoOggettoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
-				return result;
+                int result = base.GetHashCode();
+                result = (result * 397) ^ IdBasePrice.GetHashCode();
+                result = (result * 397) ^ (Interval != null ? Interval.GetHashCode() : 0);
+                result = (result * 397) ^ IdTipoIntervento.GetHashCode();
+                result = (result * 397) ^ IdGruppoOggettoIntervento.GetHashCode();
+                result = (result * 397) ^ Value.GetHashCode();
+                return result;
             }
         }
-	}
+    }
 
-	public class BasePriceRotManCreated : EventBase  
-	{
-	 
-		public Guid IdBasePrice { get; set;} 
-		public IntervalOpened Interval { get; set;} 
-		public Guid IdTipoIntervento { get; set;} 
-		public Guid IdGruppoOggettoIntervento { get; set;} 
-		public decimal Value { get; set;}
+    public class BasePriceRotManCreated : EventBase
+    {
 
-		public BasePriceRotManCreated ()
-		{
-			//for serialisation
-		}	     
+        public Guid IdBasePrice { get; set; }
+        public IntervalOpened Interval { get; set; }
+        public Guid IdTipoIntervento { get; set; }
+        public Guid IdGruppoOggettoIntervento { get; set; }
+        public decimal Value { get; set; }
 
-		public BasePriceRotManCreated(Guid id, Guid commitId, long version,Guid idBasePrice,IntervalOpened interval,Guid idTipoIntervento,Guid idGruppoOggettoIntervento,decimal value)
-		   : base(id,commitId,version)
-		{
-			Contract.Requires(idBasePrice != Guid.Empty);
+        public BasePriceRotManCreated()
+        {
+            //for serialisation
+        }
 
-	Contract.Requires(interval != null);
+        public BasePriceRotManCreated(Guid id, Guid commitId, long version, Guid idBasePrice, IntervalOpened interval, Guid idTipoIntervento, Guid idGruppoOggettoIntervento, decimal value)
+            : base(id, commitId, version)
+        {
+            Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(interval != null);
 
-	Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
 
-	Contract.Requires(value != null);
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
-			IdBasePrice = idBasePrice ;
-			Interval = interval ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdGruppoOggettoIntervento = idGruppoOggettoIntervento ;
-			Value = value ;
-		}
 
-		
-			public override string ToDescription()
-		{
-			return string.Format("Il prezzo di base per rotabile in manutenzione é stato creato", Id);
-		}
-		
-		public bool Equals(BasePriceRotManCreated other)
+
+            IdBasePrice = idBasePrice;
+            Interval = interval;
+            IdTipoIntervento = idTipoIntervento;
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
+            Value = value;
+        }
+
+
+        public override string ToDescription()
+        {
+            return string.Format("Il prezzo di base per rotabile in manutenzione é stato creato", Id);
+        }
+
+        public bool Equals(BasePriceRotManCreated other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other)  	 && Equals(other.IdBasePrice, IdBasePrice)  	 && Equals(other.Interval, Interval)  	 && Equals(other.IdTipoIntervento, IdTipoIntervento)  	 && Equals(other.IdGruppoOggettoIntervento, IdGruppoOggettoIntervento)  	 && Equals(other.Value, Value) ; 
-		}
+            return base.Equals(other) && Equals(other.IdBasePrice, IdBasePrice) && Equals(other.Interval, Interval) && Equals(other.IdTipoIntervento, IdTipoIntervento) && Equals(other.IdGruppoOggettoIntervento, IdGruppoOggettoIntervento) && Equals(other.Value, Value);
+        }
 
-		public override bool Equals(object obj)
+        public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             return Equals(obj as BasePriceRotManCreated);
         }
 
-		public override int GetHashCode()
+        public override int GetHashCode()
         {
             unchecked
             {
-				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdGruppoOggettoIntervento != null ? IdGruppoOggettoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
-				return result;
+                int result = base.GetHashCode();
+                result = (result * 397) ^ IdBasePrice.GetHashCode();
+                result = (result * 397) ^ (Interval != null ? Interval.GetHashCode() : 0);
+                result = (result * 397) ^ IdTipoIntervento.GetHashCode();
+                result = (result * 397) ^ IdGruppoOggettoIntervento.GetHashCode();
+                result = (result * 397) ^ Value.GetHashCode();
+                return result;
             }
         }
-	}
+    }
 
-	public class BasePriceAmbCreated : EventBase  
-	{
-	 
-		public Guid IdBasePrice { get; set;} 
-		public IntervalOpened Interval { get; set;} 
-		public Guid IdTipoIntervento { get; set;} 
-		public decimal Value { get; set;}
+    public class BasePriceAmbCreated : EventBase
+    {
 
-		public BasePriceAmbCreated ()
-		{
-			//for serialisation
-		}	     
+        public Guid IdBasePrice { get; set; }
+        public IntervalOpened Interval { get; set; }
+        public Guid IdTipoIntervento { get; set; }
+        public decimal Value { get; set; }
 
-		public BasePriceAmbCreated(Guid id, Guid commitId, long version,Guid idBasePrice,IntervalOpened interval,Guid idTipoIntervento,decimal value)
-		   : base(id,commitId,version)
-		{
-			Contract.Requires(idBasePrice != Guid.Empty);
+        public BasePriceAmbCreated()
+        {
+            //for serialisation
+        }
 
-	Contract.Requires(interval != null);
+        public BasePriceAmbCreated(Guid id, Guid commitId, long version, Guid idBasePrice, IntervalOpened interval, Guid idTipoIntervento, decimal value)
+            : base(id, commitId, version)
+        {
+            Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(interval != null);
 
-	Contract.Requires(value != null);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
 
-			IdBasePrice = idBasePrice ;
-			Interval = interval ;
-			IdTipoIntervento = idTipoIntervento ;
-			Value = value ;
-		}
 
-		
-			public override string ToDescription()
-		{
-			return string.Format("Il prezzo di base per ambiente é stato creato", Id);
-		}
-		
-		public bool Equals(BasePriceAmbCreated other)
+            IdBasePrice = idBasePrice;
+            Interval = interval;
+            IdTipoIntervento = idTipoIntervento;
+            Value = value;
+        }
+
+
+        public override string ToDescription()
+        {
+            return string.Format("Il prezzo di base per ambiente é stato creato", Id);
+        }
+
+        public bool Equals(BasePriceAmbCreated other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other)  	 && Equals(other.IdBasePrice, IdBasePrice)  	 && Equals(other.Interval, Interval)  	 && Equals(other.IdTipoIntervento, IdTipoIntervento)  	 && Equals(other.Value, Value) ; 
-		}
+            return base.Equals(other) && Equals(other.IdBasePrice, IdBasePrice) && Equals(other.Interval, Interval) && Equals(other.IdTipoIntervento, IdTipoIntervento) && Equals(other.Value, Value);
+        }
 
-		public override bool Equals(object obj)
+        public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             return Equals(obj as BasePriceAmbCreated);
         }
 
-		public override int GetHashCode()
+        public override int GetHashCode()
         {
             unchecked
             {
-				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
-				return result;
+                int result = base.GetHashCode();
+                result = (result * 397) ^ IdBasePrice.GetHashCode();
+                result = (result * 397) ^ (Interval != null ? Interval.GetHashCode() : 0);
+                result = (result * 397) ^ IdTipoIntervento.GetHashCode();
+                result = (result * 397) ^ Value.GetHashCode();
+                return result;
             }
         }
-	}
+    }
 
-	public class BasePriceRotUpdated : EventBase  
-	{
-	 
-		public Guid IdBasePrice { get; set;} 
-		public IntervalOpened Interval { get; set;} 
-		public Guid IdTipoIntervento { get; set;} 
-		public Guid IdGruppoOggettoIntervento { get; set;} 
-		public decimal Value { get; set;}
+    public class BasePriceRotUpdated : EventBase
+    {
 
-		public BasePriceRotUpdated ()
-		{
-			//for serialisation
-		}	     
+        public Guid IdBasePrice { get; set; }
+        public IntervalOpened Interval { get; set; }
+        public Guid IdTipoIntervento { get; set; }
+        public Guid IdGruppoOggettoIntervento { get; set; }
+        public decimal Value { get; set; }
 
-		public BasePriceRotUpdated(Guid id, Guid commitId, long version,Guid idBasePrice,IntervalOpened interval,Guid idTipoIntervento,Guid idGruppoOggettoIntervento,decimal value)
-		   : base(id,commitId,version)
-		{
-			Contract.Requires(idBasePrice != Guid.Empty);
+        public BasePriceRotUpdated()
+        {
+            //for serialisation
+        }
 
-	Contract.Requires(interval != null);
+        public BasePriceRotUpdated(Guid id, Guid commitId, long version, Guid idBasePrice, IntervalOpened interval, Guid idTipoIntervento, Guid idGruppoOggettoIntervento, decimal value)
+            : base(id, commitId, version)
+        {
+            Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(interval != null);
 
-	Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
 
-	Contract.Requires(value != null);
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
-			IdBasePrice = idBasePrice ;
-			Interval = interval ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdGruppoOggettoIntervento = idGruppoOggettoIntervento ;
-			Value = value ;
-		}
 
-		
-			public override string ToDescription()
-		{
-			return string.Format("Il prezzo di base per rotabile é stato aggiornato", Id);
-		}
-		
-		public bool Equals(BasePriceRotUpdated other)
+            IdBasePrice = idBasePrice;
+            Interval = interval;
+            IdTipoIntervento = idTipoIntervento;
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
+            Value = value;
+        }
+
+
+        public override string ToDescription()
+        {
+            return string.Format("Il prezzo di base per rotabile é stato aggiornato", Id);
+        }
+
+        public bool Equals(BasePriceRotUpdated other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other)  	 && Equals(other.IdBasePrice, IdBasePrice)  	 && Equals(other.Interval, Interval)  	 && Equals(other.IdTipoIntervento, IdTipoIntervento)  	 && Equals(other.IdGruppoOggettoIntervento, IdGruppoOggettoIntervento)  	 && Equals(other.Value, Value) ; 
-		}
+            return base.Equals(other) && Equals(other.IdBasePrice, IdBasePrice) && Equals(other.Interval, Interval) && Equals(other.IdTipoIntervento, IdTipoIntervento) && Equals(other.IdGruppoOggettoIntervento, IdGruppoOggettoIntervento) && Equals(other.Value, Value);
+        }
 
-		public override bool Equals(object obj)
+        public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             return Equals(obj as BasePriceRotUpdated);
         }
 
-		public override int GetHashCode()
+        public override int GetHashCode()
         {
             unchecked
             {
-				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdGruppoOggettoIntervento != null ? IdGruppoOggettoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
-				return result;
+                int result = base.GetHashCode();
+                result = (result * 397) ^ IdBasePrice.GetHashCode();
+                result = (result * 397) ^ (Interval != null ? Interval.GetHashCode() : 0);
+                result = (result * 397) ^ IdTipoIntervento.GetHashCode();
+                result = (result * 397) ^ IdGruppoOggettoIntervento.GetHashCode();
+                result = (result * 397) ^ Value.GetHashCode();
+                return result;
             }
         }
-	}
+    }
 
-	public class BasePriceRotManUpdated : EventBase  
-	{
-	 
-		public Guid IdBasePrice { get; set;} 
-		public IntervalOpened Interval { get; set;} 
-		public Guid IdTipoIntervento { get; set;} 
-		public Guid IdGruppoOggettoIntervento { get; set;} 
-		public decimal Value { get; set;}
+    public class BasePriceRotManUpdated : EventBase
+    {
 
-		public BasePriceRotManUpdated ()
-		{
-			//for serialisation
-		}	     
+        public Guid IdBasePrice { get; set; }
+        public IntervalOpened Interval { get; set; }
+        public Guid IdTipoIntervento { get; set; }
+        public Guid IdGruppoOggettoIntervento { get; set; }
+        public decimal Value { get; set; }
 
-		public BasePriceRotManUpdated(Guid id, Guid commitId, long version,Guid idBasePrice,IntervalOpened interval,Guid idTipoIntervento,Guid idGruppoOggettoIntervento,decimal value)
-		   : base(id,commitId,version)
-		{
-			Contract.Requires(idBasePrice != Guid.Empty);
+        public BasePriceRotManUpdated()
+        {
+            //for serialisation
+        }
 
-	Contract.Requires(interval != null);
+        public BasePriceRotManUpdated(Guid id, Guid commitId, long version, Guid idBasePrice, IntervalOpened interval, Guid idTipoIntervento, Guid idGruppoOggettoIntervento, decimal value)
+            : base(id, commitId, version)
+        {
+            Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(interval != null);
 
-	Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
 
-	Contract.Requires(value != null);
+            Contract.Requires(idGruppoOggettoIntervento != Guid.Empty);
 
-			IdBasePrice = idBasePrice ;
-			Interval = interval ;
-			IdTipoIntervento = idTipoIntervento ;
-			IdGruppoOggettoIntervento = idGruppoOggettoIntervento ;
-			Value = value ;
-		}
+            IdBasePrice = idBasePrice;
+            Interval = interval;
+            IdTipoIntervento = idTipoIntervento;
+            IdGruppoOggettoIntervento = idGruppoOggettoIntervento;
+            Value = value;
+        }
 
-		
-			public override string ToDescription()
-		{
-			return string.Format("Il prezzo di base per rotabile in manutenzione é stato aggiornato", Id);
-		}
-		
-		public bool Equals(BasePriceRotManUpdated other)
+
+        public override string ToDescription()
+        {
+            return string.Format("Il prezzo di base per rotabile in manutenzione é stato aggiornato", Id);
+        }
+
+        public bool Equals(BasePriceRotManUpdated other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other)  	 && Equals(other.IdBasePrice, IdBasePrice)  	 && Equals(other.Interval, Interval)  	 && Equals(other.IdTipoIntervento, IdTipoIntervento)  	 && Equals(other.IdGruppoOggettoIntervento, IdGruppoOggettoIntervento)  	 && Equals(other.Value, Value) ; 
-		}
+            return base.Equals(other) && Equals(other.IdBasePrice, IdBasePrice) && Equals(other.Interval, Interval) && Equals(other.IdTipoIntervento, IdTipoIntervento) && Equals(other.IdGruppoOggettoIntervento, IdGruppoOggettoIntervento) && Equals(other.Value, Value);
+        }
 
-		public override bool Equals(object obj)
+        public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             return Equals(obj as BasePriceRotManUpdated);
         }
 
-		public override int GetHashCode()
+        public override int GetHashCode()
         {
             unchecked
             {
-				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (IdGruppoOggettoIntervento != null ? IdGruppoOggettoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
-				return result;
+                int result = base.GetHashCode();
+                result = (result * 397) ^ IdBasePrice.GetHashCode();
+                result = (result * 397) ^ (Interval != null ? Interval.GetHashCode() : 0);
+                result = (result * 397) ^ IdTipoIntervento.GetHashCode();
+                result = (result * 397) ^ IdGruppoOggettoIntervento.GetHashCode();
+                result = (result * 397) ^ Value.GetHashCode();
+                return result;
             }
         }
-	}
+    }
 
-	public class BasePriceAmbUpdated : EventBase  
-	{
-	 
-		public Guid IdBasePrice { get; set;} 
-		public IntervalOpened Interval { get; set;} 
-		public Guid IdTipoIntervento { get; set;} 
-		public decimal Value { get; set;}
+    public class BasePriceAmbUpdated : EventBase
+    {
 
-		public BasePriceAmbUpdated ()
-		{
-			//for serialisation
-		}	     
+        public Guid IdBasePrice { get; set; }
+        public IntervalOpened Interval { get; set; }
+        public Guid IdTipoIntervento { get; set; }
+        public decimal Value { get; set; }
 
-		public BasePriceAmbUpdated(Guid id, Guid commitId, long version,Guid idBasePrice,IntervalOpened interval,Guid idTipoIntervento,decimal value)
-		   : base(id,commitId,version)
-		{
-			Contract.Requires(idBasePrice != Guid.Empty);
+        public BasePriceAmbUpdated()
+        {
+            //for serialisation
+        }
 
-	Contract.Requires(interval != null);
+        public BasePriceAmbUpdated(Guid id, Guid commitId, long version, Guid idBasePrice, IntervalOpened interval, Guid idTipoIntervento, decimal value)
+            : base(id, commitId, version)
+        {
+            Contract.Requires(idBasePrice != Guid.Empty);
 
-	Contract.Requires(idTipoIntervento != Guid.Empty);
+            Contract.Requires(interval != null);
 
-	Contract.Requires(value != null);
+            Contract.Requires(idTipoIntervento != Guid.Empty);
 
-			IdBasePrice = idBasePrice ;
-			Interval = interval ;
-			IdTipoIntervento = idTipoIntervento ;
-			Value = value ;
-		}
+            IdBasePrice = idBasePrice;
+            Interval = interval;
+            IdTipoIntervento = idTipoIntervento;
+            Value = value;
+        }
 
-		
-			public override string ToDescription()
-		{
-			return string.Format("Il prezzo di base per ambiente é stato aggiornato", Id);
-		}
-		
-		public bool Equals(BasePriceAmbUpdated other)
+
+        public override string ToDescription()
+        {
+            return string.Format("Il prezzo di base per ambiente é stato aggiornato", Id);
+        }
+
+        public bool Equals(BasePriceAmbUpdated other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other)  	 && Equals(other.IdBasePrice, IdBasePrice)  	 && Equals(other.Interval, Interval)  	 && Equals(other.IdTipoIntervento, IdTipoIntervento)  	 && Equals(other.Value, Value) ; 
-		}
+            return base.Equals(other) && Equals(other.IdBasePrice, IdBasePrice) && Equals(other.Interval, Interval) && Equals(other.IdTipoIntervento, IdTipoIntervento) && Equals(other.Value, Value);
+        }
 
-		public override bool Equals(object obj)
+        public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             return Equals(obj as BasePriceAmbUpdated);
         }
 
-		public override int GetHashCode()
+        public override int GetHashCode()
         {
             unchecked
             {
-				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				result = (result*397) ^ (Interval != null ? Interval.GetHashCode() : 0);
-				result = (result*397) ^ (IdTipoIntervento != null ? IdTipoIntervento.GetHashCode() : 0);
-				result = (result*397) ^ (Value != null ? Value.GetHashCode() : 0);
-				return result;
+                int result = base.GetHashCode();
+                result = (result * 397) ^ IdBasePrice.GetHashCode();
+                result = (result * 397) ^ (Interval != null ? Interval.GetHashCode() : 0);
+                result = (result * 397) ^ IdTipoIntervento.GetHashCode();
+                result = (result * 397) ^ Value.GetHashCode();
+                return result;
             }
         }
-	}
+    }
 
-	public class BasePriceDeleted : EventBase  
-	{
-	 
-		public Guid IdBasePrice { get; set;}
+    public class BasePriceDeleted : EventBase
+    {
 
-		public BasePriceDeleted ()
-		{
-			//for serialisation
-		}	     
+        public Guid IdBasePrice { get; set; }
 
-		public BasePriceDeleted(Guid id, Guid commitId, long version,Guid idBasePrice)
-		   : base(id,commitId,version)
-		{
-			Contract.Requires(idBasePrice != Guid.Empty);
+        public BasePriceDeleted()
+        {
+            //for serialisation
+        }
 
-			IdBasePrice = idBasePrice ;
-		}
+        public BasePriceDeleted(Guid id, Guid commitId, long version, Guid idBasePrice)
+            : base(id, commitId, version)
+        {
+            Contract.Requires(idBasePrice != Guid.Empty);
 
-		
-			public override string ToDescription()
-		{
-			return string.Format("Il prezzo di base  é stato cancellato", Id);
-		}
-		
-		public bool Equals(BasePriceDeleted other)
+            IdBasePrice = idBasePrice;
+        }
+
+
+        public override string ToDescription()
+        {
+            return string.Format("Il prezzo di base  é stato cancellato", Id);
+        }
+
+        public bool Equals(BasePriceDeleted other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return base.Equals(other)  	 && Equals(other.IdBasePrice, IdBasePrice) ; 
-		}
+            return base.Equals(other) && Equals(other.IdBasePrice, IdBasePrice);
+        }
 
-		public override bool Equals(object obj)
+        public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             return Equals(obj as BasePriceDeleted);
         }
 
-		public override int GetHashCode()
+        public override int GetHashCode()
         {
             unchecked
             {
-				int result = base.GetHashCode();
-				result = (result*397) ^ (IdBasePrice != null ? IdBasePrice.GetHashCode() : 0);
-				return result;
+                int result = base.GetHashCode();
+                result = (result * 397) ^ IdBasePrice.GetHashCode();
+                return result;
             }
         }
-	}
+    }
 }

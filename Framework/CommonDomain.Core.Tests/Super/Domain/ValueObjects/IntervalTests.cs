@@ -2,9 +2,7 @@ using System;
 using System.Linq;
 using CommonDomain.Core.Handlers.Commands;
 using CommonDomain.Core.Super.Domain.ValueObjects;
-using CommonDomain.Persistence;
 using Machine.Specifications;
-using Moq;
 using NUnit.Framework;
 using It = Machine.Specifications.It;
 

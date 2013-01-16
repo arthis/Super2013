@@ -18,7 +18,6 @@ namespace Super.Programmazione.Specs.Plan
     public class aggiungere_una_schedulazione_rotabile_a_un_piano : CommandBaseClass<AddSchedulazioneRotToPlan>
     {
         private Guid _idPlan = Guid.NewGuid();
-        private string _descritpion = "description";
         
         private Guid _idAppaltatore = Guid.NewGuid();
         private Guid _idCategoriaCommerciale = Guid.NewGuid();

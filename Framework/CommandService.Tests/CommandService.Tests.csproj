@@ -33,19 +33,8 @@
     <Reference Include="Machine.Specifications">
       <HintPath>..\..\packages\Machine.Specifications.0.5.8\lib\net40\Machine.Specifications.dll</HintPath>
     </Reference>
-    <Reference Include="Machine.Specifications.Clr4">
-      <HintPath>..\..\packages\Machine.Specifications.0.5.8\lib\net40\Machine.Specifications.Clr4.dll</HintPath>
-    </Reference>
-    <Reference Include="Moq">
-      <HintPath>..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="when_a_user_logs_in.cs" />
@@ -53,24 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CommandService\CommandService.csproj">
-      <Project>{22C1CCB4-63E1-47A8-8DD1-865E7E4F280A}</Project>
-      <Name>CommandService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CommonDomain.Core\CommonDomain.Core.csproj">
-      <Project>{51C99F4D-CCF0-431A-B37C-D620EF1DF37B}</Project>
-      <Name>CommonDomain.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
-      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
-      <Name>CommonDomain.Persistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CommonDomain\CommonDomain.csproj">
-      <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
-      <Name>CommonDomain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

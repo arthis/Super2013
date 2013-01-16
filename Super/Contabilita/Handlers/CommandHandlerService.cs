@@ -27,51 +27,51 @@ namespace Super.Contabilita.Handlers
         {
             var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory,_repositorySecurityUser, Handlers);
 
-            handlerHelper.Add( new CreateImpiantoHandler(eventRepository));
-            handlerHelper.Add( new UpdateImpiantoHandler(eventRepository));
-            handlerHelper.Add( new DeleteImpiantoHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateImpiantoHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateImpiantoHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteImpiantoHandler(eventRepository));
 
-            handlerHelper.Add( new CreateLottoHandler(eventRepository));
-            handlerHelper.Add( new UpdateLottoHandler(eventRepository, new SqlLottoRepository()));
-            handlerHelper.Add( new DeleteLottoHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateLottoHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateLottoHandler(eventRepository, new SqlLottoRepository()));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteLottoHandler(eventRepository));
 
-            handlerHelper.Add( new CreateAppaltatoreHandler(eventRepository));
-            handlerHelper.Add( new UpdateAppaltatoreHandler(eventRepository));
-            handlerHelper.Add( new DeleteAppaltatoreHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateAppaltatoreHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateAppaltatoreHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteAppaltatoreHandler(eventRepository));
 
 
-            handlerHelper.Add( new CreateCategoriaCommercialeHandler(eventRepository));
-            handlerHelper.Add( new UpdateCategoriaCommercialeHandler(eventRepository));
-            handlerHelper.Add( new DeleteCategoriaCommercialeHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateCategoriaCommercialeHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateCategoriaCommercialeHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteCategoriaCommercialeHandler(eventRepository));
 
-            handlerHelper.Add( new CreateCommittenteHandler(eventRepository));
-            handlerHelper.Add( new UpdateCommittenteHandler(eventRepository));
-            handlerHelper.Add( new DeleteCommittenteHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateCommittenteHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateCommittenteHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteCommittenteHandler(eventRepository));
 
-            handlerHelper.Add( new CreateDirezioneRegionaleHandler(eventRepository));
-            handlerHelper.Add( new UpdateDirezioneRegionaleHandler(eventRepository));
-            handlerHelper.Add( new DeleteDirezioneRegionaleHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateDirezioneRegionaleHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateDirezioneRegionaleHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteDirezioneRegionaleHandler(eventRepository));
 
-            handlerHelper.Add( new CreateMeasuringUnitHandler(eventRepository));
-            handlerHelper.Add( new UpdateMeasuringUnitHandler(eventRepository));
-            handlerHelper.Add( new DeleteMeasuringUnitHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateMeasuringUnitHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateMeasuringUnitHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteMeasuringUnitHandler(eventRepository));
 
-            handlerHelper.Add( new CreatePeriodoProgrammazioneHandler(eventRepository));
-            handlerHelper.Add( new UpdatePeriodoProgrammazioneHandler(eventRepository));
-            handlerHelper.Add( new DeletePeriodoProgrammazioneHandler(eventRepository));
-            handlerHelper.Add( new ClosePeriodoProgrammazioneHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreatePeriodoProgrammazioneHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdatePeriodoProgrammazioneHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeletePeriodoProgrammazioneHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new ClosePeriodoProgrammazioneHandler(eventRepository));
 
-            handlerHelper.Add( new CreateTipoInterventoAmbHandler(eventRepository));
-            handlerHelper.Add( new UpdateTipoInterventoAmbHandler(eventRepository));
-            handlerHelper.Add( new DeleteTipoInterventoAmbHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateTipoInterventoAmbHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateTipoInterventoAmbHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteTipoInterventoAmbHandler(eventRepository));
 
-            handlerHelper.Add( new CreateTipoInterventoRotHandler(eventRepository));
-            handlerHelper.Add( new UpdateTipoInterventoRotHandler(eventRepository));
-            handlerHelper.Add( new DeleteTipoInterventoRotHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateTipoInterventoRotHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateTipoInterventoRotHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteTipoInterventoRotHandler(eventRepository));
 
-            handlerHelper.Add( new CreateTipoInterventoRotManHandler(eventRepository));
-            handlerHelper.Add( new UpdateTipoInterventoRotManHandler(eventRepository));
-            handlerHelper.Add( new DeleteTipoInterventoRotManHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new CreateTipoInterventoRotManHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new UpdateTipoInterventoRotManHandler(eventRepository));
+            handlerHelper.AddFullyConstrainedCommand( new DeleteTipoInterventoRotManHandler(eventRepository));
 
         }
 

@@ -13,7 +13,7 @@ namespace Super.Contabilita.Domain.Schedulazione
 
     public class SchedulazioneRotMan : AggregateBase
     {
-        private readonly Guid _id;
+        
         private Guid _idTipoIntervento;
         private Guid _idScenario;
         private Period _period;

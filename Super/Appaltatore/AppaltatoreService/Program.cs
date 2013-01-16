@@ -49,8 +49,6 @@ namespace Super.Appaltatore.AppaltatoreService
 
             var userRepository = new SecurityUserRepository();
             var actionFactory = new ActionFactory();
-            actionFactory.AddCommandConstrainedOnlyAction<ConsuntivareAutomaticamenteNonResoInterventoRot>();
-
             var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
 
 

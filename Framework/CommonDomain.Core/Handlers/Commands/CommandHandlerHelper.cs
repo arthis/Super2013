@@ -20,10 +20,24 @@ namespace CommonDomain.Core.Handlers.Commands
             _dictionnary = dictionnary;
         }
 
-        public void Add<T>(ICommandHandler<T> finalhandler)
+        public void AddFullyConstrainedCommand<T>(ICommandHandler<T> finalhandler)
             where T : ICommand
         {
-            _dictionnary.Add(typeof(T), (cmd) => new SecurityCommandHandler<T>(_actionFactory,_securityUserRepository,
+            _actionFactory.AddFullyConstrainedActionHandlerFor<T>();
+            AddHandler<T>(finalhandler);
+        }
+
+        public void AddCommandConstrainedOnlyCommand<T>(ICommandHandler<T> finalhandler)
+            where T : ICommand
+        {
+            _actionFactory.AddCommandTypeConstrainedActionHandlerFor<T>();
+            AddHandler<T>(finalhandler);
+        }
+
+        private void AddHandler<T>(ICommandHandler<T> finalhandler)
+            where T : ICommand
+        {
+            _dictionnary.Add(typeof(T), (cmd) => new SecurityCommandHandler<T>(_actionFactory, _securityUserRepository,
                                                  new ExecuteCommandOnceOnlyHandler<T>(_commandRepository,
                                                  new LogCommandPerfomanceHandler<T>(
                                                        finalhandler)))

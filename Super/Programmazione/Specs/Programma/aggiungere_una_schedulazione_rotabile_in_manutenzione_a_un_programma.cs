@@ -20,7 +20,7 @@ namespace Super.Programmazione.Specs.Programma
     {
         private readonly Guid _idProgramma = Guid.NewGuid();
         private Guid _idScenario = Guid.NewGuid();
-        private string _description = "description";
+        
 
         private Guid _idAppaltatore = Guid.NewGuid();
         private Guid _idCategoriaCommerciale = Guid.NewGuid();
@@ -32,7 +32,7 @@ namespace Super.Programmazione.Specs.Programma
         private Guid _idPeriodoProgrammazione = Guid.NewGuid();
         private Guid _tipoIntervento = Guid.NewGuid();
         private string _note = "note";
-        private int _quantity = 25;
+        
         private Period _period = new Period(DateTime.Parse("05/08/2012 12:00"), DateTime.Parse("05/08/2012 12:15"));
         private Guid _idSchedulazione = Guid.NewGuid();
         private OggettoRotMan[] _oggetti = new OggettoRotMan[] { BuildMessagingVO.MsgOggettoRotMan.ForDescription("description").ForGruppo(Guid.NewGuid()).OfQuantity(2).OfType(Guid.NewGuid()).Build() };

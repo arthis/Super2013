@@ -161,7 +161,7 @@ namespace EasyNetQ
             {
                 channel.ExchangeDeclare(
                     exchangeName,               // exchange
-                    ExchangeType.Direct,    // type
+                    ExchangeType.Fanout,    // type
                     true);                  // durable
 
                 publishExchanges.Add(exchangeName);

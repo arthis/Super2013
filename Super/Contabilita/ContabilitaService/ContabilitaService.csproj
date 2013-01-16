@@ -110,34 +110,13 @@
     <Reference Include="EventStore">
       <HintPath>..\..\..\lib\EventStore\EventStore.dll</HintPath>
     </Reference>
-    <Reference Include="EventStore.Logging.Log4Net">
-      <HintPath>..\..\..\lib\EventStore\logging\log4net\EventStore.Logging.Log4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="EventStore.Persistence.MongoPersistence">
-      <HintPath>..\..\..\lib\EventStore\persistence\mongo\EventStore.Persistence.MongoPersistence.dll</HintPath>
-    </Reference>
     <Reference Include="EventStore.Serialization.Json">
       <HintPath>..\..\..\lib\EventStore\serialization\json-net\EventStore.Serialization.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\..\..\lib\EventStore\logging\log4net\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>..\..\..\lib\EventStore\persistence\mongo\MongoDB.Bson.dll</HintPath>
-    </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\..\..\lib\EventStore\persistence\mongo\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -167,14 +146,6 @@
     <ProjectReference Include="..\..\..\Framework\EasyNetQ\Source\EasyNetQ\EasyNetQ.csproj">
       <Project>{b8def709-5168-48f1-b8d3-ad44e4a4a22b}</Project>
       <Name>EasyNetQ</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Appaltatore\Handlers\Handlers.csproj">
-      <Project>{B2759F91-46E5-42EC-ABFA-33DEA9C9D120}</Project>
-      <Name>Handlers %28Super\Appaltatore\Handlers%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\domain\Domain.csproj">
-      <Project>{5B1B79C7-BE33-4DE3-9C11-EAD25956C5F6}</Project>
-      <Name>Domain %28Super\Contabilita\Domain%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\Handlers\Handlers.csproj">
       <Project>{9F59F075-6C58-46BC-90D6-1180FB884971}</Project>
