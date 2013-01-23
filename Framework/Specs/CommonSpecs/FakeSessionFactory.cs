@@ -46,9 +46,7 @@ namespace CommonSpecs
             throw new NotImplementedException();
         }
 
-        
-
-        public IAction CreateAction(ICommand Cmd)
+        public IAction CreateAction<T>(T cmd) where  T:ICommand
         {
             return new FakeAction();
         }

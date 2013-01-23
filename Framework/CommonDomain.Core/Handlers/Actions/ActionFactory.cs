@@ -2,20 +2,25 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Text.RegularExpressions;
+using CommonDomain;
+using CommonDomain.Super;
 
 namespace CommonDomain.Core.Handlers.Actions
 {
     public class ActionFactory : IActionFactory
     {
+        private readonly IActionHandler _actionHandler;
         private IEnumerable<Regex> _commands;
         private IEnumerable<Guid> _committenti;
         private IEnumerable<Guid> _lotti;
         private IEnumerable<Guid> _tipiIntervento;
-        private Dictionary<string,Func<ICommand, IAction>> _handler;
+        
 
-        public ActionFactory()
+        public ActionFactory(IActionHandler actionHandler)
         {
-            _handler = new Dictionary<string, Func<ICommand,IAction>>();
+            if (actionHandler == null) throw new ArgumentNullException("actionHandler");
+
+            _actionHandler = actionHandler;
         }
 
         public IActionFactory WithCommands(IEnumerable<Regex> commands)
@@ -41,42 +46,29 @@ namespace CommonDomain.Core.Handlers.Actions
             _tipiIntervento = tipiIntervento;
             return this;
         }
-
-        public void AddFullyConstrainedActionHandlerFor<T>() where T:ICommand
+   
+        public IAction CreateAction<T>(T command) where T : ICommand
         {
-            Contract.Requires(_commands != null);
-            Contract.Requires(_committenti != null);
-            Contract.Requires(_lotti != null);
-            Contract.Requires(_tipiIntervento != null);
-
             var cmdType = typeof(T).ToString();
-
-            if (_handler.ContainsKey(cmdType))
-                throw  new ArgumentException("Command type already added");
-
-            _handler.Add(cmdType, (command) => new ActionFullyConstrained<T>((T)command, _commands, _committenti, _lotti, _tipiIntervento));
-        }
-
-        public void AddCommandTypeConstrainedActionHandlerFor<T>() where T:ICommand
-        {
-            Contract.Requires(_commands != null);
-
-            var cmdType = typeof(T).ToString();
-
-            if (_handler.ContainsKey(cmdType))
-                throw new ArgumentException("Command type already added");
-
-            _handler.Add(cmdType, (cmd) => new ActionCommandConstrainedOnly<T>(_commands));
-        }
-
-        
-        public IAction CreateAction(ICommand cmd)
-        {
+            if (_actionHandler.ContainsKey(cmdType))
+            {
+                var action = _actionHandler.GetAction(cmdType);
+                new Switch(action)
+                    .Case<ActionCommandConstrainedOnly<T>>(a => a.CommandsAvailableToTheUser = _commands)
+                    .Case<ActionContextuallyConstrained<T>>(a =>
+                        {
+                            a.CommandToBeExecuted = (IContextCommand)command;
+                            a.CommandsAvailableToTheUser = _commands;
+                            a.LottiAvailableToTheUser = _lotti;
+                            a.CommittentiAvailableToTheUser = _committenti;
+                            a.TipiInterventoAvailableToTheUser = _tipiIntervento;
+                        });
+                return action;
+            }
             
-            var cmdType = cmd.GetType().ToString();
-            if (_handler.ContainsKey(cmdType))
-                return _handler[cmdType](cmd);
-             throw  new ArgumentException("command not known");
+
+            throw  new ArgumentException("command not known");
         }
     }
 }
+

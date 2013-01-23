@@ -47,13 +47,13 @@ namespace Super.Appaltatore.AppaltatoreService
 
 
             var userRepository = new SecurityUserRepository();
-            var actionFactory = new ActionFactory();
+            var actionHandler = new ActionHandler();
             var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
 
 
             var commandHandlerService = new CommandHandlerService(userRepository);
             commandHandlerService.Subscribe(bus);
-            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, actionFactory);
+            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, actionHandler);
 
 
                         

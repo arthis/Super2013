@@ -17,21 +17,22 @@ namespace Super.Contabilita.Projection
         {
             using (var container = Container.GetEntities())
             {
-                var ai = container.Appaltatores.SingleOrDefault(x => x.Id == @event.Id);
-                if (ai != null)
-                    throw new Exception("Entity already created with the same id");
+                throw new NotImplementedException();
+                //var ai = container.Appaltatores.SingleOrDefault(x => x.Id == @event.Id);
+                //if (ai != null)
+                //    throw new Exception("Entity already created with the same id");
 
-                ai = new Appaltatore()
-                         {
-                             Id = @event.Id,
-                             CreationDate = DateTime.Now,
-                             Deleted = false,
-                             Description = @event.Description,
-                             Version = @event.Version
-                         };
+                //ai = new Appaltatore()
+                //         {
+                //             Id = @event.Id,
+                //             CreationDate = DateTime.Now,
+                //             Deleted = false,
+                //             Description = @event.Description,
+                //             Version = @event.Version
+                //         };
 
-                container.Appaltatores.AddObject(ai);
-                container.SaveChanges();
+                //container.Appaltatores.AddObject(ai);
+                //container.SaveChanges();
             }
         }
 

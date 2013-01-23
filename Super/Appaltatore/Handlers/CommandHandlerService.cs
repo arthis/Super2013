@@ -21,9 +21,9 @@ namespace Super.Appaltatore.Handlers
             _repo = repo;
         }
 
-        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent,IActionFactory actionFactory)
+        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepositoryEvent,IActionHandler actionHandler)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory,_repo, Handlers);
+            var handlerHelper = new CommandHandlerHelper(commandRepository, actionHandler,_repo, Handlers);
 
             handlerHelper.AddFullyConstrainedCommand( new ProgramInterventoAmbHandler(eventRepositoryEvent));
             handlerHelper.AddFullyConstrainedCommand( new ProgramInterventoRotHandler(eventRepositoryEvent));

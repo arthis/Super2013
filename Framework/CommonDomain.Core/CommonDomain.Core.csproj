@@ -27,7 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
     <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
@@ -115,6 +115,7 @@
     <Compile Include="AggregateRootInstanceNotFoundException.cs" />
     <Compile Include="AlreadyCreatedAggregateRootException.cs" />
     <Compile Include="EventBase.cs" />
+    <Compile Include="Handlers\Actions\ActionHandler.cs" />
     <Compile Include="Handlers\Commands\CommandHandlerServiceBase.cs" />
     <Compile Include="CommandValidationException.cs" />
     <Compile Include="Handlers\Commands\PortHandlerHelper.cs" />
@@ -142,11 +143,16 @@
     <Compile Include="Handlers\Commands\LogCommandPerfomanceHandler.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Handlers\SagaHandler.cs" />
+    <Compile Include="Projections\IEventProjectionHandler .cs" />
+    <Compile Include="Projections\IProjectionFlusher.cs" />
+    <Compile Include="Projections\IProjectionnist.cs" />
+    <Compile Include="Projections\IProjectionAction.cs" />
+    <Compile Include="Projections\SqlProjectionHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RabbitBus.cs" />
     <Compile Include="RegistrationEventRouter.cs" />
     <Compile Include="SagaBase.cs" />
-    <Compile Include="Handlers\Actions\ActionFullyConstrained.cs" />
+    <Compile Include="Handlers\Actions\ActionContextuallyConstrained.cs" />
     <Compile Include="Handlers\Actions\ActionFactory.cs" />
     <Compile Include="Specifications.cs" />
     <Compile Include="Super\Domain\BuildDomainVO.cs" />
@@ -181,6 +187,7 @@
     <Compile Include="Super\Messaging\ValueObjects\Rule.cs" />
     <Compile Include="Super\Messaging\ValueObjects\WorkPeriod.cs" />
     <Compile Include="Super\Messaging\ValueObjects\Treno.cs" />
+    <Compile Include="SwitchType.cs" />
     <Compile Include="SyncDispatcher.cs" />
     <Compile Include="User.cs" />
     <Compile Include="ValidationMessage.cs" />
@@ -219,6 +226,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

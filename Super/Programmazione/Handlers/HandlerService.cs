@@ -19,9 +19,9 @@ namespace Super.Programmazione.Handlers
             _repositorySecurityUser = repositorySecurityUser;
         }
 
-        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, IActionFactory actionFactory)
+        public override void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, IActionHandler actionHandler)
         {
-            var handlerHelper = new CommandHandlerHelper(commandRepository, actionFactory, _repositorySecurityUser, Handlers);
+            var handlerHelper = new CommandHandlerHelper(commandRepository, actionHandler, _repositorySecurityUser, Handlers);
 
 
             handlerHelper.AddFullyConstrainedCommand( new CancelScenarioHandler(eventRepository));

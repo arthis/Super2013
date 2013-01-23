@@ -1,5 +1,5 @@
 ﻿using System.Configuration;
-using Super.ReadModel;
+using Super.Appaltatore.ReadModel;
 
 namespace Super.Appaltatore.Projection
 {

@@ -114,6 +114,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppaltatoreProjection.cs" />
     <Compile Include="ConsuntivazioneRotProjection.cs" />
     <Compile Include="ConsuntivazioneRotManProjection.cs" />
     <Compile Include="ConsuntivazioneAmbProjection.cs" />
@@ -138,6 +139,10 @@
     <ProjectReference Include="..\..\..\Framework\CommonDomain\CommonDomain.csproj">
       <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
       <Name>CommonDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Contabilita\Events\Events.csproj">
+      <Project>{82672bf6-2c86-44f0-bde6-dea5fbde6099}</Project>
+      <Name>Events %28Super\Contabilita\Events%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\ReadModel\ReadModel.csproj">
       <Project>{34152F74-4330-4271-83D0-2A2438CCE5FF}</Project>

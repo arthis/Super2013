@@ -4,11 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Super.Appaltatore.ReadModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Super.Appaltatore.ReadModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SuperAppaltatoreReadModelStoreContainer">
+          <EntitySet Name="Appaltatore" EntityType="Super.Appaltatore.ReadModel.Store.Appaltatore" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ConsuntivazioneRot" EntityType="Super.Appaltatore.ReadModel.Store.ConsuntivazioneRot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LastEventsReadAppaltatore" EntityType="Super.Appaltatore.ReadModel.Store.LastEventsReadAppaltatore" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="Appaltatore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="ConsuntivazioneRot">
           <Key>
             <PropertyRef Name="IdIntervento" />
@@ -60,14 +71,14 @@
           <Property Name="CommitId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Super.Appaltatore.ReadModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="AppaltatoreEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ConsuntivazioneRots" EntityType="Super.Appaltatore.ReadModel.ConsuntivazioneRot" />
           <EntitySet Name="LastEventsReadAppaltatores" EntityType="Super.Appaltatore.ReadModel.LastEventsReadAppaltatore" />
+          <EntitySet Name="Appaltatores" EntityType="Super.Appaltatore.ReadModel.Appaltatore" />
         </EntityContainer>
         <EntityType Name="ConsuntivazioneRot">
           <Key>
@@ -90,15 +101,15 @@
           <Property Name="IsSostituito" Type="Boolean" Nullable="false" />
           <Property Name="HasSchedaV" Type="Boolean" Nullable="false" />
           <Property Name="HasSchedaQ" Type="Boolean" Nullable="false" />
-          <Property Name="Start" Type="DateTime" Nullable="false" />
-          <Property Name="End" Type="DateTime" Nullable="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="End" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="NumeroTrenoPartenza" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="DataTrenoPartenza" Type="DateTime" />
-          <Property Name="StartDateProgrammata" Type="DateTime" Nullable="false" />
-          <Property Name="EndDateProgrammata" Type="DateTime" Nullable="false" />
+          <Property Name="DataTrenoPartenza" Type="DateTime" Precision="3" />
+          <Property Name="StartDateProgrammata" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateProgrammata" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ComposizioneProgrammata" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="StartDateConsuntivataAppaltatore" Type="DateTime" Nullable="false" />
-          <Property Name="EndDateConsuntivataAppaltatore" Type="DateTime" Nullable="false" />
+          <Property Name="StartDateConsuntivataAppaltatore" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateConsuntivataAppaltatore" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsProgrammato" Type="Boolean" Nullable="false" />
           <Property Name="IsPLX" Type="Boolean" Nullable="false" />
           <Property Name="IsEstemporaneo" Type="Boolean" Nullable="false" />
@@ -110,7 +121,7 @@
           <Property Name="IsModificatoTrenitaliaRispettoAlProgramma" Type="Boolean" Nullable="false" />
           <Property Name="IsModificatoAppaltatoreRispettoAlProgramma" Type="Boolean" Nullable="false" />
           <Property Name="IsModificatoTrenitaliaRispettoAllAppaltatore" Type="Boolean" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="LastEventsReadAppaltatore">
@@ -118,7 +129,17 @@
             <PropertyRef Name="CommitId" />
           </Key>
           <Property Name="CommitId" Type="Guid" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Appaltatore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Version" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -171,6 +192,17 @@
             <ScalarProperty Name="CommitId" ColumnName="CommitId" />
             <ScalarProperty Name="Date" ColumnName="Date" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Appaltatores">
+            <EntityTypeMapping TypeName="Super.Appaltatore.ReadModel.Appaltatore">
+              <MappingFragment StoreEntitySet="Appaltatore">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -191,9 +223,10 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Appaltatore" ZoomLevel="82">
+      <Diagram Name="Appaltatore" ZoomLevel="70">
         <EntityTypeShape EntityType="Super.Appaltatore.ReadModel.ConsuntivazioneRot" Width="1.5" PointX="0.75" PointY="0.75" Height="8.51853515625" IsExpanded="true" />
         <EntityTypeShape EntityType="Super.Appaltatore.ReadModel.LastEventsReadAppaltatore" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="Super.Appaltatore.ReadModel.Appaltatore" Width="1.5" PointX="4.625" PointY="0.75" />
       </Diagram>
     </Diagrams>
   </Designer>

@@ -1,24 +1,26 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace CommonDomain.Core.Handlers.Actions
 {
+    
     public class ActionCommandConstrainedOnly<T> : IAction  where T :ICommand
     {
-        
-        private readonly IEnumerable<Regex> _commands;
 
+        public IEnumerable<Regex> CommandsAvailableToTheUser { get; set; } 
 
-        public ActionCommandConstrainedOnly( IEnumerable<Regex> commands)
+        public ActionCommandConstrainedOnly()
         {
-            _commands = commands;
         }
         
         public bool CanBeExecuted()
         {
-            return _commands.Any(x=> x.IsMatch(typeof(T).ToString()));
+            Contract.Requires<ArgumentNullException>(CommandsAvailableToTheUser != null);
+
+            return CommandsAvailableToTheUser.Any(x => x.IsMatch(typeof(T).ToString()));
         }
 
 

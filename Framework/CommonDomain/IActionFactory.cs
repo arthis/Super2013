@@ -12,9 +12,8 @@ namespace CommonDomain
         IActionFactory WithLotti(IEnumerable<Guid> lotti);
         IActionFactory WithTipiIntervento(IEnumerable<Guid> tipiIntervento);
 
-        IAction CreateAction(ICommand cmd);
+        IAction CreateAction<T>(T cmd) where T:ICommand;
 
-        void AddFullyConstrainedActionHandlerFor<T>() where T : ICommand;
-        void AddCommandTypeConstrainedActionHandlerFor<T>() where T : ICommand;
+        
     }
 }

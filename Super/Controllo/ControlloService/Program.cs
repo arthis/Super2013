@@ -44,11 +44,11 @@ namespace Super.Controllo.ControlloService
 
             var sessionRepository = new SecurityUserRepository();
             var commandRepository = new SqlServerCommandRepository(ConfigurationManager.ConnectionStrings["EventStore"].ToString());
-            var sessionFactory = new ActionFactory();
+            var actionRepository = new ActionHandler();
 
             var commandHandlerService = new CommandHandlerService(sessionRepository);
             commandHandlerService.Subscribe(bus);
-            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, sessionFactory);
+            commandHandlerService.InitCommandHandlers(commandRepository, eventRepository, actionRepository);
 
 
             var projectionHandler = new ProjectionHandlerAsyncService();

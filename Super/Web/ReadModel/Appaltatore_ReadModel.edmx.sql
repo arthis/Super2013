@@ -30,6 +30,28 @@ CREATE TABLE [dbo].[LastEventsReadAppaltatore](
 GO
 
 
+/****** Object:  Table [dbo].[TipoInterventoRot]    Script Date: 02/02/2012 14:53:43 ******/
+IF OBJECT_ID(N'[dbo].[Appaltatore]', 'U') IS NOT NULL
+    DROP TABLE [dbo].Appaltatore;
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].Appaltatore(
+	[Id] [uniqueidentifier] NOT NULL,
+	[Description] [nvarchar](255) NULL,
+	[Version] bigint not null,
+	[CreationDate] [datetime] NOT NULL,
+	[Deleted] [bit] not null DEFAULT 0,
+ CONSTRAINT [PK_Appaltatore] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
 
 
 IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__Consuntiv__IsAvv__0519C6AF]') AND type = 'D')

@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Linq;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
+using Super.Appaltatore.ReadModel;
 using Super.ReadModel;
 using Super.Appaltatore.Events.Programmazione;
 

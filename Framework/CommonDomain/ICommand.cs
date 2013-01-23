@@ -10,7 +10,5 @@ namespace CommonDomain
         DateTime? WakeTime { get; }
         bool IsExecuted { get; }
         Guid SecurityToken { get; }
-
-        
     }
 }

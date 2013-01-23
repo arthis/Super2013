@@ -68,6 +68,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Machine.Specifications.0.5.10\lib\net40\Machine.Specifications.dll</HintPath>
     </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\Super\Contabilita\Specs\bin\Debug\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\lib\NUnit 2.5.10\framework\nunit.framework.dll</HintPath>
     </Reference>
@@ -75,12 +78,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\ActionFactoryTests.cs" />
+    <Compile Include="Actions\ActionHandlerTests.cs" />
+    <Compile Include="Actions\ActionsTests.cs" />
+    <Compile Include="Actions\SecurityUserTests.cs" />
     <Compile Include="MyCommand.cs" />
     <Compile Include="MyFinalHandler.cs" />
+    <Compile Include="Projections\test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Super\Domain\ValueObjects\IntervalTests.cs" />
     <Compile Include="Super\Domain\ValueObjects\WorkPeriodTests.cs" />
-    <Compile Include="CommandConstrainedOnlyAction.cs" />
+    <Compile Include="Actions\CommandConstrainedOnlyActionTests.cs" />
     <Compile Include="when_a_command_is_executed_by_the_session_handler_and_the_token_is_known.cs" />
   </ItemGroup>
   <ItemGroup>

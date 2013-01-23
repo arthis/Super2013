@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Text.RegularExpressions;
+using CommonDomain.Core.Handlers.Actions;
 
 namespace CommonDomain.Core
 {
+
     public class SecurityUser : ISecurityUser
     {
         protected readonly Guid IdUser;
@@ -15,11 +17,11 @@ namespace CommonDomain.Core
 
         public SecurityUser(Guid idUser,IEnumerable<Regex> commands, IEnumerable<Guid> committenti, IEnumerable<Guid> lotti,IEnumerable<Guid> tipiIntervento )
         {
-            Contract.Requires(idUser != Guid.Empty);
-            Contract.Requires(commands != null);
-            Contract.Requires(committenti != null);
-            Contract.Requires(lotti != null);
-            Contract.Requires(tipiIntervento != null);
+            Contract.Requires<ArgumentException>(idUser != Guid.Empty);
+            Contract.Requires<ArgumentNullException>(commands != null);
+            Contract.Requires<ArgumentNullException>(committenti != null);
+            Contract.Requires<ArgumentNullException>(lotti != null);
+            Contract.Requires<ArgumentNullException>(tipiIntervento != null);
             
             IdUser = idUser;
             _commands = commands;
@@ -28,8 +30,12 @@ namespace CommonDomain.Core
             _tipiIntervento = tipiIntervento;
         }
 
-        public IAction CreateAction(IActionFactory factory, ICommand cmd )
+        public IAction CreateAction<T>(IActionHandler handler, T cmd ) where T:ICommand
         {
+            Contract.Requires<ArgumentNullException>(cmd != null);
+            Contract.Requires<ArgumentNullException>(handler!=null);
+
+            var factory = new ActionFactory(handler);
             return factory.WithCommands(_commands)
                 .WithCommittenti(_committenti)
                 .WithLotti(_lotti)

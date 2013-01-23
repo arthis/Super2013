@@ -4,11 +4,11 @@ using System.Linq;
 using CommonDomain.Core;
 using CommonDomain.Core.Handlers;
 using Super.Contabilita.Events.Appaltatore;
-using Super.ReadModel;
+using Super.Appaltatore.ReadModel;
 
-namespace Super.Contabilita.Projection
+namespace Super.Appaltatore.Projection
 {
-    public class AppaltatoreProjection2 : IEventHandler<AppaltatoreCreated>,
+    public class AppaltatoreProjection : IEventHandler<AppaltatoreCreated>,
                                             IEventHandler<AppaltatoreUpdated>,
                                             IEventHandler<AppaltatoreDeleted>
     {
@@ -18,16 +18,18 @@ namespace Super.Contabilita.Projection
             using (var container = Container.GetEntities())
             {
                 throw new NotImplementedException();
-                //var ai = container.Appaltatores.SingleOrDefault(x => x.Id == @event.Id);
-                //if (ai != null)
+                //var app = container.Appaltatores.SingleOrDefault(x => x.Id == @event.Id);
+                //if (app != null)
                 //    throw new Exception("Entity already created with the same id");
 
-                ////ai = new Appaltatore();
-                ////ai.Id = @event.Id;
-                ////ai.CreationDate = DateTime.Now;
-                ////ai.Deleted = false;
-                ////ai.Description = @event.Description;
-                ////ai.Version = @event.Version;
+                //app = new Appaltatore()
+                //         {
+                //             Id = @event.Id,
+                //             CreationDate = DateTime.Now,
+                //             Deleted = false,
+                //             Description = @event.Description,
+                //             Version = @event.Version
+                //         };
 
                 //container.Appaltatores.AddObject(ai);
                 //container.SaveChanges();

@@ -8,16 +8,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-
-namespace Super.ReadModel
+namespace Super.Appaltatore.ReadModel
 {
     #region Contexts
     
@@ -96,8 +96,25 @@ namespace Super.ReadModel
             }
         }
         private ObjectSet<LastEventsReadAppaltatore> _LastEventsReadAppaltatores;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Appaltatore> Appaltatores
+        {
+            get
+            {
+                if ((_Appaltatores == null))
+                {
+                    _Appaltatores = base.CreateObjectSet<Appaltatore>("Appaltatores");
+                }
+                return _Appaltatores;
+            }
+        }
+        private ObjectSet<Appaltatore> _Appaltatores;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -115,14 +132,181 @@ namespace Super.ReadModel
         {
             base.AddObject("LastEventsReadAppaltatores", lastEventsReadAppaltatore);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Appaltatores EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAppaltatores(Appaltatore appaltatore)
+        {
+            base.AddObject("Appaltatores", appaltatore);
+        }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Super.Appaltatore.ReadModel", Name="Appaltatore")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Appaltatore : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Appaltatore object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
+        /// <param name="creationDate">Initial value of the CreationDate property.</param>
+        /// <param name="deleted">Initial value of the Deleted property.</param>
+        public static Appaltatore CreateAppaltatore(global::System.Guid id, global::System.Int64 version, global::System.DateTime creationDate, global::System.Boolean deleted)
+        {
+            Appaltatore appaltatore = new Appaltatore();
+            appaltatore.Id = id;
+            appaltatore.Version = version;
+            appaltatore.CreationDate = creationDate;
+            appaltatore.Deleted = deleted;
+            return appaltatore;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 Version
+        {
+            get
+            {
+                return _Version;
+            }
+            set
+            {
+                OnVersionChanging(value);
+                ReportPropertyChanging("Version");
+                _Version = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Version");
+                OnVersionChanged();
+            }
+        }
+        private global::System.Int64 _Version;
+        partial void OnVersionChanging(global::System.Int64 value);
+        partial void OnVersionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime CreationDate
+        {
+            get
+            {
+                return _CreationDate;
+            }
+            set
+            {
+                OnCreationDateChanging(value);
+                ReportPropertyChanging("CreationDate");
+                _CreationDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreationDate");
+                OnCreationDateChanged();
+            }
+        }
+        private global::System.DateTime _CreationDate;
+        partial void OnCreationDateChanging(global::System.DateTime value);
+        partial void OnCreationDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Deleted
+        {
+            get
+            {
+                return _Deleted;
+            }
+            set
+            {
+                OnDeletedChanging(value);
+                ReportPropertyChanging("Deleted");
+                _Deleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Deleted");
+                OnDeletedChanged();
+            }
+        }
+        private global::System.Boolean _Deleted;
+        partial void OnDeletedChanging(global::System.Boolean value);
+        partial void OnDeletedChanged();
+
+        #endregion
+
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -214,6 +398,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1156,6 +1341,7 @@ namespace Super.ReadModel
         partial void OnDeletedChanged();
 
         #endregion
+
     
     }
     
@@ -1183,6 +1369,7 @@ namespace Super.ReadModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1237,9 +1424,11 @@ namespace Super.ReadModel
         partial void OnDateChanged();
 
         #endregion
+
     
     }
 
     #endregion
+
     
 }

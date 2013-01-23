@@ -11,9 +11,9 @@ namespace CommonDomain.Core.Handlers.Commands
         protected readonly Dictionary<Type, Func<ICommand,  CommandValidation>> Handlers = new Dictionary<Type, Func<ICommand, CommandValidation>>();
         protected readonly Dictionary<Type, Func<IEvent,ICommand>> _ports = new Dictionary<Type, Func<IEvent,ICommand>>();
 
-        
 
-        public abstract void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository,IActionFactory actionFactory);
+
+        public abstract void InitCommandHandlers(ICommandRepository commandRepository, IEventRepository eventRepository, IActionHandler actionHandler);
         public abstract void Subscribe(IBus bus);
         
         public  CommandValidation Execute(ICommand commandBase)
